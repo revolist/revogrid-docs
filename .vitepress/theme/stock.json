@@ -1,0 +1,151 @@
+{
+    "stocks": [
+        {
+            "symbol": "AAPL",
+            "company_name": "Apple Inc.",
+            "price": 150.23,
+            "change": 2.45,
+            "percent_change": 1.65
+        },
+        {
+            "symbol": "MSFT",
+            "company_name": "Microsoft Corporation",
+            "price": 300.45,
+            "change": -1.2,
+            "percent_change": -0.4
+        },
+        {
+            "symbol": "GOOGL",
+            "company_name": "Alphabet Inc. (Class A)",
+            "price": 2800.67,
+            "change": 10.89,
+            "percent_change": 0.39
+        },
+        {
+            "symbol": "AMZN",
+            "company_name": "Amazon.com Inc.",
+            "price": 3500.12,
+            "change": -5.76,
+            "percent_change": -0.16
+        },
+        {
+            "symbol": "FB",
+            "company_name": "Meta Platforms Inc.",
+            "price": 330.98,
+            "change": 3.2,
+            "percent_change": 0.97
+        },
+        {
+            "symbol": "TSLA",
+            "company_name": "Tesla Inc.",
+            "price": 750.89,
+            "change": -8.45,
+            "percent_change": -1.11
+        },
+        {
+            "symbol": "JPM",
+            "company_name": "JPMorgan Chase & Co.",
+            "price": 155.76,
+            "change": 1.56,
+            "percent_change": 1.01
+        },
+        {
+            "symbol": "V",
+            "company_name": "Visa Inc.",
+            "price": 220.34,
+            "change": -2.1,
+            "percent_change": -0.95
+        },
+        {
+            "symbol": "PG",
+            "company_name": "Procter & Gamble Co.",
+            "price": 145.67,
+            "change": 0.76,
+            "percent_change": 0.52
+        },
+        {
+            "symbol": "DIS",
+            "company_name": "The Walt Disney Company",
+            "price": 175.45,
+            "change": 4.32,
+            "percent_change": 2.53
+        },
+        {
+            "symbol": "GS",
+            "company_name": "The Goldman Sachs Group Inc.",
+            "price": 380.21,
+            "change": -3.45,
+            "percent_change": -0.9
+        },
+        {
+            "symbol": "CVX",
+            "company_name": "Chevron Corporation",
+            "price": 120.89,
+            "change": 1.1,
+            "percent_change": 0.92
+        },
+        {
+            "symbol": "IBM",
+            "company_name": "International Business Machines Corporation",
+            "price": 130.67,
+            "change": -0.89,
+            "percent_change": -0.68
+        },
+        {
+            "symbol": "CSCO",
+            "company_name": "Cisco Systems Inc.",
+            "price": 55.32,
+            "change": 0.45,
+            "percent_change": 0.82
+        },
+        {
+            "symbol": "BA",
+            "company_name": "The Boeing Company",
+            "price": 180.45,
+            "change": -1.76,
+            "percent_change": -0.97
+        },
+        {
+            "symbol": "AAP",
+            "company_name": "Advance Auto Parts Inc.",
+            "price": 240.67,
+            "change": 2.34,
+            "percent_change": 0.98
+        },
+        {
+            "symbol": "INTC",
+            "company_name": "Intel Corporation",
+            "price": 50.21,
+            "change": -0.56,
+            "percent_change": -1.1
+        },
+        {
+            "symbol": "INTU",
+            "company_name": "Intuit Inc.",
+            "price": 400.12,
+            "change": 6.78,
+            "percent_change": 1.72
+        },
+        {
+            "symbol": "CAT",
+            "company_name": "Caterpillar Inc.",
+            "price": 180.34,
+            "change": 3.21,
+            "percent_change": 1.81
+        },
+        {
+            "symbol": "WMT",
+            "company_name": "Walmart Inc.",
+            "price": 140.56,
+            "change": -0.76,
+            "percent_change": -0.54
+        },
+        {
+            "symbol": "MMM",
+            "company_name": "3M Company",
+            "price": 170.89,
+            "change": 1.23,
+            "percent_change": 0.72
+        }
+    ]
+}

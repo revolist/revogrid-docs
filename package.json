@@ -1,0 +1,52 @@
+{
+  "name": "revogrid",
+  "version": "4.0.0",
+  "description": "Data Grid Library on steroids - Revogrid",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/revolist/revogrid.git"
+  },
+  "keywords": [
+    "export",
+    "vuejs",
+    "typescript",
+    "reactive",
+    "grid",
+    "excel",
+    "filter",
+    "data-grid",
+    "virtual-scroll",
+    "datagrid",
+    "vuejs-components",
+    "react-virtualized",
+    "webcomponent",
+    "stenciljs",
+    "virtual-grid",
+    "vuegrid",
+    "revo-grid",
+    "excel-grid",
+    "infinity-grid",
+    "vuejs-grid"
+  ],
+  "author": "Revolist OU",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/revolist/revogrid/issues"
+  },
+  "homepage": "https://github.com/revolist/revogrid#readme",
+  "devDependencies": {
+    "sass": "^1.72.0",
+    "vitepress": "^1.0.0-rc.45"
+  },
+  "dependencies": {
+    "@revolist/vue3-datagrid": "^4.0.0-next.1",
+    "vite-svg-loader": "^5.1.0",
+    "vue-github-button": "^3.1.0"
+  }
+}
