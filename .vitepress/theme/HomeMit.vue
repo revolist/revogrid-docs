@@ -26,11 +26,6 @@ const value = computed(() => {
     max-width: 500px;
     padding-top: 4rem;
     color: var(--vp-c-text-2);
-}
-
-@media (max-width: 900px) {
-    .mit-section {
-        align-self: center;
-    }
+    margin: 0 auto;
 }
 </style>

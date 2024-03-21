@@ -1,23 +1,20 @@
 import type { DefaultTheme } from 'vitepress/types/default-theme'
-const svelteLink = 'framework.svelte.overview';
-const vueLink = 'framework.vue.overview';
-const reactLink = 'framework.react.overview';
-const angularLink = 'framework.angular.overview';
+
 export const sidebarEn: DefaultTheme.Sidebar = {
     '/': [
-        {
-          text: 'Setup',
-          items: [
-            {
-              text: 'Introduction',
-              link: '/introduction.html',
-            },
-            {
-              text: 'Installation',
-              link: '/installation.html',
-            },
-          ],
-        },
+        // {
+        //   text: 'Setup',
+        //   items: [
+        //     {
+        //       text: 'Introduction',
+        //       link: '/introduction.html',
+        //     },
+        //     {
+        //       text: 'Installation',
+        //       link: '/installation.html',
+        //     },
+        //   ],
+        // },
         {
           text: 'Essentials',
           collapsed: false,
@@ -27,113 +24,180 @@ export const sidebarEn: DefaultTheme.Sidebar = {
               link: '/guide/',
             },
             {
-              text: 'Dynamic Route Matching',
-              link: '/guide/essentials/dynamic-matching.html',
+              text: 'JSX/TSX Template',
+              link: '/guide/jsx.template.html',
             },
             {
-              text: "Routes' Matching Syntax",
-              link: '/guide/essentials/route-matching-syntax.html',
+              text: 'Grid size',
+              link: '/guide/grid.size.html',
+            }
+          ],
+        },
+        {
+          text: 'Columns',
+          collapsed: false,
+          items: [
+            // 'column.pinned',
+            //     'column.customHeader',
+            //     'column.grouping',
+            //     'autosize',
+            //     'column.resize'
+            {
+              text: 'Properties',
+              link: '/guide/column.properties.html',
             },
             {
-              text: 'Named Routes',
-              link: '/guide/essentials/named-routes.html',
+              text: 'Custom Header Template',
+              link: '/guide/column.customHeader.html',
             },
             {
-              text: 'Nested Routes',
-              link: '/guide/essentials/nested-routes.html',
+              text: 'Formatting',
+              link: '/guide/column.types.html',
             },
             {
-              text: 'Programmatic Navigation',
-              link: '/guide/essentials/navigation.html',
+              text: 'Pinning',
+              link: '/guide/column.pinned.html',
             },
             {
-              text: 'Named Views',
-              link: '/guide/essentials/named-views.html',
+              text: 'Grouping',
+              link: '/guide/column.grouping.html',
             },
             {
-              text: 'Redirect and Alias',
-              link: '/guide/essentials/redirect-and-alias.html',
+              text: 'Resizing',
+              link: '/guide/column.resize.html',
             },
             {
-              text: 'Passing Props to Route Components',
-              link: '/guide/essentials/passing-props.html',
-            },
-            {
-              text: 'Different History modes',
-              link: '/guide/essentials/history-mode.html',
+              text: 'Autosize',
+              link: '/guide/autosize.html',
             },
           ],
         },
         {
-          text: 'Advanced',
+          text: 'Cells',
           collapsed: false,
           items: [
             {
-              text: 'Navigation guards',
-              link: '/guide/advanced/navigation-guards.html',
+              text: 'Properties',
+              link: '/guide/cell.properties.html',
             },
             {
-              text: 'Route Meta Fields',
-              link: '/guide/advanced/meta.html',
+              text: 'Renderer',
+              link: '/guide/cell.renderer.html',
             },
             {
-              text: 'Data Fetching',
-              link: '/guide/advanced/data-fetching.html',
-            },
-            {
-              text: 'Composition API',
-              link: '/guide/advanced/composition-api.html',
-            },
-            {
-              text: 'RouterView slot',
-              link: '/guide/advanced/router-view-slot.html',
-            },
-            {
-              text: 'Transitions',
-              link: '/guide/advanced/transitions.html',
-            },
-            {
-              text: 'Scroll Behavior',
-              link: '/guide/advanced/scroll-behavior.html',
-            },
-            {
-              text: 'Lazy Loading Routes',
-              link: '/guide/advanced/lazy-loading.html',
-            },
-            {
-              text: 'Typed Routes',
-              link: '/guide/advanced/typed-routes.html',
-            },
-            {
-              text: 'Extending RouterLink',
-              link: '/guide/advanced/extending-router-link.html',
-            },
-            {
-              text: 'Navigation Failures',
-              link: '/guide/advanced/navigation-failures.html',
-            },
-            {
-              text: 'Dynamic Routing',
-              link: '/guide/advanced/dynamic-routing.html',
+              text: 'Editor',
+              link: '/guide/cell.editor.html',
             },
           ],
         },
         {
+          text: 'Filtering',
+          link: '/guide/filters.html',
+        },
+        {
+          text: 'Sorting',
+          link: '/guide/sorting.html',
+        },
+        {
+          text: 'Rows',
+          collapsed: false,
           items: [
             {
-              text: 'Migrating from Vue 2',
-              link: '/guide/migration/index.html',
+              text: 'Properties',
+              link: '/guide/rows.class.html',
             },
+            {
+              text: 'Pinning',
+              link: '/guide/rows.pinned.html',
+            },
+            {
+              text: 'Headers',
+              link: '/guide/rows.headers.html',
+            },
+            {
+              text: 'Size definition',
+              link: '/guide/rows.size.html',
+            },
+          ],
+        },
+        {
+          text: 'Theme Manager',
+          collapsed: false,
+          items: [
+            {
+              text: 'Theme',
+              link: '/guide/theme.html',
+            },
+            {
+              text: 'Light Theme',
+              link: '/guide/theme.light.html',
+            },
+            {
+              text: 'Dark Theme',
+              link: '/guide/theme.dark.html',
+            },
+          ],
+        },
+        {
+          text: 'Export',
+          link: '/guide/export.plugin.html',
+        },
+        {
+          text: 'Migration',
+          items: [
+            {
+              text: 'Migrating from Revogrid v3.x',
+              link: '/guide/migration.html',
+            },
+          ],
+        },
+        {
+          text: 'API',
+          link: '/guide/api.html',
+        },
+        {
+          text: 'Frameworks',
+          items: [
+            {
+              text: 'Vue',
+              items: [
+                { text: 'Overview', link: '/guide/framework/framework.vue.overview.html' },
+                { text: 'Component', link: '/guide/framework/framework.vue.component' },
+                { text: 'Editor', link: '/guide/framework/framework.vue.editor' },
+                { text: 'WebComponent', link: '/guide/framework/framework.vue.webcomponent' },
+              ],
+            },
+            {
+              text: 'React',
+              items: [
+                { text: 'Overview', link: '/guide/framework/framework.react.overview.html' },
+                { text: 'Component', link: '/guide/framework/framework.react.component' },
+              ],
+            },
+            {
+              text: 'Svelte',
+              items: [
+                { text: 'Overview', link: '/guide/framework/framework.svelte.overview.html'},
+              ],
+            },
+            {
+              text: 'Angular 2+',
+              items: [
+                { text: 'Overview', link: '/guide/framework/framework.angular.overview.html' },
+                { text: 'WebComponent', link: '/guide/framework/framework.angular.webcomponent' },
+              ],
+            },
+            { text: 'TypeScript', link: '/guide/framework/framework.ts' },
           ],
         },
       ],
 
-      '/api/': [
-        {
-          text: 'packages',
-          items: [{ text: 'vue-router', link: '/api/' }],
-        },
-      ],
+      // '/api/': [
+      //   {
+      //     text: 'packages',
+      //     items: [{ text: 'vue-router', link: '/api/' }],
+      //   },
+      // ],
 }
 
 // export const sidebarEn: DefaultTheme.Sidebar = {

@@ -30,10 +30,6 @@ export const navbarEn: DefaultTheme.NavItem[] = [
         text: 'Changelog',
         link: 'https://github.com/vuejs/router/blob/main/packages/router/CHANGELOG.md',
       },
-      {
-        text: 'Vue.js Certification',
-        link: 'https://certification.vuejs.org/?friend=VUEROUTER',
-      },
     ],
   },
 ]
