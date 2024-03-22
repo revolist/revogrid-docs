@@ -20,6 +20,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
           collapsed: false,
           items: [
             {
+              text: 'Introduction',
+              link: '/guide/overview.html',
+            },
+            {
               text: 'Getting Started',
               link: '/guide/',
             },
@@ -37,38 +41,33 @@ export const sidebarEn: DefaultTheme.Sidebar = {
           text: 'Columns',
           collapsed: false,
           items: [
-            // 'column.pinned',
-            //     'column.customHeader',
-            //     'column.grouping',
-            //     'autosize',
-            //     'column.resize'
             {
               text: 'Properties',
-              link: '/guide/column.properties.html',
+              link: '/guide/column/properties.html',
             },
             {
               text: 'Custom Header Template',
-              link: '/guide/column.customHeader.html',
+              link: '/guide/column/customHeader.html',
             },
             {
               text: 'Formatting',
-              link: '/guide/column.types.html',
+              link: '/guide/column/types.html',
             },
             {
               text: 'Pinning',
-              link: '/guide/column.pinned.html',
+              link: '/guide/column/pinned.html',
             },
             {
               text: 'Grouping',
-              link: '/guide/column.grouping.html',
+              link: '/guide/column/grouping.html',
             },
             {
               text: 'Resizing',
-              link: '/guide/column.resize.html',
+              link: '/guide/column/resize.html',
             },
             {
               text: 'Autosize',
-              link: '/guide/autosize.html',
+              link: '/guide/column/autosize.html',
             },
           ],
         },
@@ -78,15 +77,15 @@ export const sidebarEn: DefaultTheme.Sidebar = {
           items: [
             {
               text: 'Properties',
-              link: '/guide/cell.properties.html',
+              link: '/guide/cell/properties.html',
             },
             {
               text: 'Renderer',
-              link: '/guide/cell.renderer.html',
+              link: '/guide/cell/renderer.html',
             },
             {
               text: 'Editor',
-              link: '/guide/cell.editor.html',
+              link: '/guide/cell/editor.html',
             },
           ],
         },
@@ -126,15 +125,15 @@ export const sidebarEn: DefaultTheme.Sidebar = {
           items: [
             {
               text: 'Theme',
-              link: '/guide/theme.html',
+              link: '/guide/theme/theme.html',
             },
             {
               text: 'Light Theme',
-              link: '/guide/theme.light.html',
+              link: '/guide/theme/theme.light.html',
             },
             {
               text: 'Dark Theme',
-              link: '/guide/theme.dark.html',
+              link: '/guide/theme/theme.dark.html',
             },
           ],
         },
@@ -209,22 +208,22 @@ export const sidebarEn: DefaultTheme.Sidebar = {
 //             {
 //               text: 'Column definitions',
 //               items: [
-//                 { link: 'column.properties'},
-//                 { link: 'column.pinned'},
-//                 { link: 'column.customHeader'},
-//                 { link: 'column.grouping'},
+//                 { link: 'column/properties'},
+//                 { link: 'column/pinned'},
+//                 { link: 'column/customHeader'},
+//                 { link: 'column/grouping'},
 //                 { link: 'autosize'},
-//                 { link: 'column.resize' },
+//                 { link: 'column/resize' },
 //               ]
 //             },
-//             // 'column.types',
+//             // 'column/types',
 //             // {
 //             //   text: 'Cells',
 //             //   collapsible: true,
 //             //   items: [
-//             //     'cell.renderer',
-//             //     'cell.editor',
-//             //     'cell.properties',
+//             //     'cell/renderer',
+//             //     'cell/editor',
+//             //     'cell/properties',
 //             //   ]
 //             // },
 //             // 'sorting',
