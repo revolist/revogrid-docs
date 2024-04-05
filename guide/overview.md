@@ -1,19 +1,40 @@
 # Overview
 
+
 ## Magic behind the scene
-RevoGrid is a cutting-edge virtual data grid component built on top of StencilJS (a compiler for building fast web apps using Web Components), leveraging the power of a reactive DOM to ensure optimal performance and responsiveness. Its architecture is designed to handle large datasets with ease, providing a seamless user experience even in data-intensive applications.
+`RevoGrid` is a cutting-edge virtual data grid component built on top of [StencilJS](https://stenciljs.com/) (a compiler for building fast web apps using Web Components), leveraging the power of a reactive DOM to ensure optimal performance and responsiveness. Its architecture is *designed to handle large datasets* with ease, providing a seamless user experience even in data-intensive applications.
 
-This approach allows RevoGrid to be framework-agnostic, ensuring developers can integrate it into any project regardless of the underlying technology stack.
+This approach allows RevoGrid to be **framework-agnostic**, ensuring developers can integrate it into any project regardless of the underlying technology stack.
+
+## Reactive DOM
+
+At the core of RevoGrid's high performance is its use of a reactive DOM model (similar one you would find in any popular reactive framework [Vue Virtual DOM](https://vuejs.org/guide/extras/rendering-mechanism), [React Virtual DOM](https://legacy.reactjs.org/docs/faq-internals.html), etc.). This model ensures that only the parts of the grid that need updating are re-rendered, rather than the entire grid. This selective rendering mechanism is crucial for handling large amounts of data, as it significantly reduces the amount of DOM manipulation required, leading to smoother scrolling and interactions.
+
+## Why and Where?
+
+`RevoGrid` – a must-have tool for developers building high-quality and data-intensive applications. 
+If you constantly ask yourself questions:
+::: info  Like
+- *Why is my application slowing down?*
+- *Should I enable paging to speed it up?*
+- *How can I actually work with so much data?*
+- *It looks like an Excel sheet; can it actually work well?*
+
+:::
+<Badge type="tip" text="Then, RevoGrid is your solution!" />
+
+Its highly competitive feature set and performance can be applied in various areas and industries. Here are our real-case scenarios where you can improve data management and user experience to a granular level.
 
 
-#### Leveraging Reactive DOM
+### Real-case scenarios where you can significantly enhance data management and user experience
 
-At the core of RevoGrid's high performance is its use of a reactive DOM model. This model ensures that only the parts of the grid that need updating are re-rendered, rather than the entire grid. This selective rendering mechanism is crucial for handling large amounts of data, as it significantly reduces the amount of DOM manipulation required, leading to smoother scrolling and interactions.
+- **Financial Modeling and Analysis**
 
-## Why and Where use RevoGrid?
+Financial institutions and fintech startups can leverage RevoGrid for complex financial modeling and analysis. The grid's performance in handling large volumes of data, coupled with its support for custom cell formatting and editing, makes it ideal for real-time financial analysis, budgeting, and forecasting.
 
-RevoGrid a powerful tool for developers aiming to build high-quality, data-intensive applications. Robust feature set and high performance make it an excellent choice for a variety of applications across different industries. Here are real-case scenarios where RevoGrid can significantly enhance data management and user experience.
+- **Project Management Tools**
 
+Project management software can benefit from RevoGrid's capabilities to track tasks, deadlines, and progress across multiple projects. The grid's flexibility and performance make it suitable for creating detailed project dashboards that enhance team collaboration and efficiency.
 
 - **E-Commerce Dashboards**
 
@@ -27,10 +48,6 @@ Healthcare applications can benefit from RevoGrid's ability to handle large data
 
 Educational software, including learning management systems (LMS), can use RevoGrid to display and manage student data, course materials, and grades. The grid's customizable nature allows for the creation of intuitive interfaces that cater to the diverse needs of educators and students.
 
-- **Financial Modeling and Analysis**
-
-Financial institutions and fintech startups can leverage RevoGrid for complex financial modeling and analysis. The grid's performance in handling large volumes of data, coupled with its support for custom cell formatting and editing, makes it ideal for real-time financial analysis, budgeting, and forecasting.
-
 - **Real Estate Portals**
 
 Real estate platforms can utilize RevoGrid to display property listings, including detailed information such as images, descriptions, prices, and agent contacts. The grid's virtual scrolling and efficient data rendering ensure a smooth user experience, even with thousands of listings.
@@ -38,7 +55,3 @@ Real estate platforms can utilize RevoGrid to display property listings, includi
 - **Logistics and Supply Chain Management**
 
 For logistics and supply chain applications, RevoGrid can manage and display shipping schedules, inventory levels, and transport routes. Its high performance and dynamic data manipulation capabilities support the complex, real-time data needs of logistics operations.
-
-- **Project Management Tools**
-
-Project management software can benefit from RevoGrid's capabilities to track tasks, deadlines, and progress across multiple projects. The grid's flexibility and performance make it suitable for creating detailed project dashboards that enhance team collaboration and efficiency.

@@ -1,7 +1,7 @@
 import type { DefaultTheme } from 'vitepress/types/default-theme'
 
 export const sidebarEn: DefaultTheme.Sidebar = {
-    '/': [
+    '/guide/': [
         // {
         //   text: 'Setup',
         //   items: [
@@ -16,16 +16,30 @@ export const sidebarEn: DefaultTheme.Sidebar = {
         //   ],
         // },
         {
+          text: 'Getting Started',
+          collapsed: false,
+          items: [
+            {
+              text: 'Motivation',
+              link: '/guide/motivation.html',
+            },
+            {
+              text: 'Overview',
+              link: '/guide/overview.html',
+            },
+            {
+              text: 'Quick Start',
+              link: '/guide/',
+            },
+          ],
+        },
+        {
           text: 'Essentials',
           collapsed: false,
           items: [
             {
-              text: 'Introduction',
-              link: '/guide/overview.html',
-            },
-            {
-              text: 'Getting Started',
-              link: '/guide/',
+              text: 'Installation',
+              link: '/guide/installation.html',
             },
             {
               text: 'JSX/TSX Template',
@@ -191,101 +205,49 @@ export const sidebarEn: DefaultTheme.Sidebar = {
         },
       ],
 
-      // '/api/': [
-      //   {
-      //     text: 'packages',
-      //     items: [{ text: 'vue-router', link: '/api/' }],
-      //   },
-      // ],
-}
-
-// export const sidebarEn: DefaultTheme.Sidebar = {
-//     '/guide/': [
-//         {
-//           text: 'Documentation',
-//           items: [
-//             { link: 'getting-started' },
-//             {
-//               text: 'Column definitions',
-//               items: [
-//                 { link: 'column/properties'},
-//                 { link: 'column/pinned'},
-//                 { link: 'column/customHeader'},
-//                 { link: 'column/grouping'},
-//                 { link: 'autosize'},
-//                 { link: 'column/resize' },
-//               ]
-//             },
-//             // 'column/types',
-//             // {
-//             //   text: 'Cells',
-//             //   collapsible: true,
-//             //   items: [
-//             //     'cell/renderer',
-//             //     'cell/editor',
-//             //     'cell/properties',
-//             //   ]
-//             // },
-//             // 'sorting',
-//             // 'filters',
-//             // {
-//             //   text: 'Row properties',
-//             //   collapsible: true,
-//             //   items: [
-//             //     'rows.pinned',
-//             //     'rows.class',
-//             //     'rows.headers',
-//             //     'rows.size'
-//             //   ]
-//             // },
-//             // {
-//             //   text: 'Theme Manager',
-//             //   collapsible: true,
-//             //   items: ['theme', 'theme.light', 'theme.dark'],
-//             // },
-//             // 'jsx.template',
-//             // 'export.plugin',
-//             // 'grid.size',
-//             // 'migration',
-//             // 'api',
-//           ]
-//         },
-//         // {
-//         //   text: 'Frameworks',
-//         //   collapsible: true,
-//         //   items: [
-//         //     {
-//         //       text: 'Vue',
-//         //       collapsible: true,
-//         //       items: [
-//         //         vueLink,
-//         //         'framework.vue.component',
-//         //         'framework.vue.editor',
-//         //         'framework.vue.webcomponent',
-//         //       ]
-//         //     },
-//         //     {
-//         //       text: 'React',
-//         //       collapsible: true,
-//         //       items: [reactLink, 'framework.react.component']
-//         //     },
-//         //     {
-//         //       text: 'Svelte',
-//         //       collapsible: true,
-//         //       items: [
-//         //         svelteLink,
-//         //       ]
-//         //     },
-//         //     {
-//         //       text: 'Angular 2+',
-//         //       collapsible: true,
-//         //       items: [
-//         //         angularLink,
-//         //         'framework.angular.webcomponent'
-//         //       ]
-//         //     },
-//         //     'framework.ts',
-//         //   ],
-//         // }
-//       ],
-// }
+    '/demo': [
+      {
+        text: 'Demo',
+        link: '/demo/',
+      },
+      {
+        text: 'JS',
+        items: [
+          {
+            text: 'First run',
+            link: '/demo/js/js.first.html',
+          }
+        ],
+      },
+      {
+        text: 'JSX/TSX',
+        items: [
+          {
+            text: 'Template',
+            link: '/demo/jsx/jsx.template.html',
+          },
+          {
+            text: 'Tree',
+            link: '/demo/jsx/jsx.tree.html',
+          },
+        ],
+      },
+      {
+        text: 'Vue',
+        items: [
+          {
+            text: 'List',
+            link: '/demo/vue/vue.list.html',
+          },
+          {
+            text: 'Checkbox list with Select All',
+            link: '/demo/vue/vue.selectall.html',
+          },
+          {
+            text: 'Grouping',
+            link: '/demo/vue/vue.grouping.html',
+          },
+        ],
+      }
+    ],
+};

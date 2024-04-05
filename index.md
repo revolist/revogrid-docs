@@ -19,7 +19,7 @@ hero:
       link: /guide/
     - theme: sponsor
       text: Demo
-      link: /api-examples
+      link: /demo/
 
 featuresHeader:
   title: Features
