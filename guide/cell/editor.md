@@ -1,6 +1,6 @@
 # Cell editor
 
-`RevoGrid` provides a way to define your own editors. Or you can use [predefined column types](./column.types.html).
+`Revogrid` provides a way to define your own editors. Or you can use [predefined column types](./column.types.html).
 In order to do so you have to define your class with render method.
 
 ### Class format editor sample
@@ -16,7 +16,7 @@ class TextEditor {
       */
 
     constructor(
-        public column: RevoGrid.ColumnDataSchemaRegular,
+        public column: Revogrid.ColumnDataSchemaRegular,
         saveCallback: (value: any) => void,
         closeCallback: () => void
     ) {}
@@ -31,7 +31,7 @@ class TextEditor {
      * required, define custom component structure
      * @param createElement: (tagName: string, properties?: object, value?: any, children: Array) => VNode
      */
-    render(createComponent: RevoGrid.HyperFunc<VNode>) {
+    render(createComponent: Revogrid.HyperFunc<VNode>) {
         return createComponent('input');
     }
 }

@@ -1,6 +1,6 @@
 # Quick start
 
-RevoGrid provide special wrapper for React based on [stenciljs react adapter](https://www.npmjs.com/package/@stencil/react-output-target). 
+Revogrid provide special wrapper for React based on [stenciljs react adapter](https://www.npmjs.com/package/@stencil/react-output-target). 
 <br>Just import it to your project and it can be used as part of react system.
 
 :::tip
@@ -10,21 +10,20 @@ If you are using npm modules don't forget to import and define custom component 
 
 With NPM:
 ```bash
-npm i @revolist/revogrid-react --save;
+npm i @revolist/Revogrid-react --save;
 ```
 
 With Yarn:
 
 ```bash
-yarn add @revolist/revogrid-react;
+yarn add @revolist/Revogrid-react;
 ```
-
 
 
 ```jsx
 import React from "react";
-import { defineCustomElements } from "@revolist/revogrid/loader"; // webcomponent definition loader 
-import { RevoGrid } from "@revolist/revogrid-react";
+import { defineCustomElements } from "@revolist/Revogrid/loader"; // webcomponent definition loader 
+import { Revogrid } from "@revolist/Revogrid-react";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -42,7 +41,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <RevoGrid
+        <Revogrid
           theme="compact"
           columns={this.state.columns}
           source={this.state.source}
@@ -55,14 +54,14 @@ export default class App extends React.Component {
 ```
 
 
-Check [Sandbox](https://codesandbox.io/s/revogrid-react-g3ygo?file=/src/App.js) for real live sample.
+Check [Sandbox](https://codesandbox.io/s/Revogrid-react-g3ygo?file=/src/App.js) for real live sample.
 <demo-react/>
 
 <ClientOnly>
   <div class="tile">
-    <iframe src="https://codesandbox.io/embed/revogrid-react-g3ygo?fontsize=14&hidenavigation=1&theme=dark"
+    <iframe src="https://codesandbox.io/embed/Revogrid-react-g3ygo?fontsize=14&hidenavigation=1&theme=dark"
      style="width:100%; height:300px; border:0; border-radius: 4px; overflow:hidden;"
-     title="RevoGrid-React"
+     title="Revogrid-React"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
   </div>

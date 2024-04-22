@@ -94,14 +94,18 @@ integrations:
 - title: Vue
   icon: vuejs
   details: Use to speed up your Vue code base.
+  path: /guide/vue3/
 - title: Angular
   icon: angular
   details: Use to speed up your Angular code base.
+  path: /guide/angular/
 - title: React
   icon: react
   details: Use to speed up your React code base.
+  path: /guide/react/
 - title: Svelte
   icon: svelte
   details: Use to speed up your Svelte code base.
+  path: /guide/svelte/
 ---
 

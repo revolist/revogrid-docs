@@ -1,6 +1,6 @@
 # Cell as React component
 
-RevoGrid provide a way to render react elements inside of cells.
+Revogrid provide a way to render react elements inside of cells.
 
 ::: warning
 This functionality is slightly decreasing overall grid render performance.
@@ -57,7 +57,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <RevoGrid
+        <Revogrid
           theme="compact"
           columns={this.state.columns}
           source={this.state.source}
@@ -68,12 +68,12 @@ export default class App extends React.Component {
 }
 ```
 
-Check [Sandbox](https://codesandbox.io/s/revogrid-react-component-hrgrx?file=/src/App.js:0-247) for real live sample.
+Check [Sandbox](https://codesandbox.io/s/Revogrid-react-component-hrgrx?file=/src/App.js:0-247) for real live sample.
 <ClientOnly>
   <div class="tile">
-    <iframe src="https://codesandbox.io/embed/revogrid-react-component-hrgrx?fontsize=14&hidenavigation=1&theme=dark"
+    <iframe src="https://codesandbox.io/embed/Revogrid-react-component-hrgrx?fontsize=14&hidenavigation=1&theme=dark"
       style="width:100%; height:200px; border:0; border-radius: 4px; overflow:hidden;"
-      title="RevoGrid-React-Component"
+      title="Revogrid-React-Component"
       allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
       sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
   </div>

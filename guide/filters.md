@@ -127,5 +127,5 @@ return '<revo-grid rowClass="myRowClass" source={source} columns={columns} filte
 
 
 :::tip
-`ColumnFilterConfig` is powerful option for the latest information it's recommended to read [filter-plugin](https://github.com/revolist/revogrid/blob/master/src/plugins/filter/filter.plugin.tsx) file for better understanding what parameters filter accepts.
+`ColumnFilterConfig` is powerful option for the latest information it's recommended to read [filter-plugin](https://github.com/revolist/Revogrid/blob/master/src/plugins/filter/filter.plugin.tsx) file for better understanding what parameters filter accepts.
 :::

@@ -11,7 +11,7 @@ Vue.config.ignoredElements = [/revo-\w*/];
 If you are using npm modules don't forget to define custom component as part of environment
 :::
 ```js
-import {defineCustomElements} from '@revolist/revogrid/loader';
+import {defineCustomElements} from '@revolist/Revogrid/loader';
 defineCustomElements();
 ```
 

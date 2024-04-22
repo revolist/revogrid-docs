@@ -1,4 +1,4 @@
-# Pinned columns (fixed columns)
+## Column Pin (fixed columns)
 
 ``` ts
 

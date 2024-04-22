@@ -14,12 +14,12 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
-import { RevoGridModule } from '@revolist/angular-datagrid';
+import { RevogridModule } from '@revolist/angular-datagrid';
 
 @NgModule({
   // define component
   declarations: [AppComponent],
-  imports: [BrowserModule, RevoGridModule],
+  imports: [BrowserModule, RevogridModule],
   providers: [],
   bootstrap: [AppComponent]
 })

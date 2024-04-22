@@ -7,247 +7,274 @@ export const sidebarEn: DefaultTheme.Sidebar = {
         //   items: [
         //     {
         //       text: 'Introduction',
-        //       link: '/introduction.html',
+        //       link: '/introduction',
         //     },
         //     {
         //       text: 'Installation',
-        //       link: '/installation.html',
+        //       link: '/installation',
         //     },
         //   ],
         // },
         {
-          text: 'Getting Started',
-          collapsed: false,
-          items: [
-            {
-              text: 'Motivation',
-              link: '/guide/motivation.html',
-            },
-            {
-              text: 'Overview',
-              link: '/guide/overview.html',
-            },
-            {
-              text: 'Quick Start',
-              link: '/guide/',
-            },
-          ],
+            text: 'Getting Started',
+            collapsed: false,
+            items: [
+                {
+                    text: 'Motivation',
+                    link: '/guide/motivation',
+                },
+                {
+                    text: 'Overview',
+                    link: '/guide/overview',
+                },
+                {
+                    text: 'Quick Start',
+                    link: '/guide/',
+                },
+            ],
         },
         {
-          text: 'Essentials',
-          collapsed: false,
-          items: [
-            {
-              text: 'Installation',
-              link: '/guide/installation.html',
-            },
-            {
-              text: 'JSX/TSX Template',
-              link: '/guide/jsx.template.html',
-            },
-            {
-              text: 'Grid size',
-              link: '/guide/grid.size.html',
-            }
-          ],
+            text: 'Essentials',
+            collapsed: false,
+            items: [
+                {
+                    text: 'Terms and Definitions',
+                    link: '/guide/terms',
+                },
+                {
+                    text: 'Installation',
+                    link: '/guide/installation',
+                },
+                {
+                    text: 'JSX/TSX Template',
+                    link: '/guide/jsx.template',
+                },
+                {
+                    text: 'Grid size',
+                    link: '/guide/grid.size',
+                },
+                {
+                  text: 'Lifecycle Hooks',
+                  link: '/guide/lifecycle',
+                }
+            ],
         },
         {
-          text: 'Columns',
-          collapsed: false,
-          items: [
-            {
-              text: 'Properties',
-              link: '/guide/column/properties.html',
-            },
-            {
-              text: 'Custom Header Template',
-              link: '/guide/column/customHeader.html',
-            },
-            {
-              text: 'Formatting',
-              link: '/guide/column/types.html',
-            },
-            {
-              text: 'Pinning',
-              link: '/guide/column/pinned.html',
-            },
-            {
-              text: 'Grouping',
-              link: '/guide/column/grouping.html',
-            },
-            {
-              text: 'Resizing',
-              link: '/guide/column/resize.html',
-            },
-            {
-              text: 'Autosize',
-              link: '/guide/column/autosize.html',
-            },
-          ],
+            text: 'Columns',
+            collapsed: true,
+            items: [
+                {
+                    text: 'Column Definitions',
+                    link: '/guide/column/',
+                    items: [
+                        {
+                            text: 'Formatting',
+                            link: '/guide/column/types',
+                        },
+                        {
+                            text: 'Grouping',
+                            link: '/guide/column/grouping',
+                        },
+                        {
+                            text: 'Resizing',
+                            link: '/guide/column/resize',
+                        },
+                        {
+                            text: 'Autosize',
+                            link: '/guide/column/autosize',
+                        },
+                    ],
+                },
+            ],
         },
         {
-          text: 'Cells',
-          collapsed: false,
-          items: [
-            {
-              text: 'Properties',
-              link: '/guide/cell/properties.html',
-            },
-            {
-              text: 'Renderer',
-              link: '/guide/cell/renderer.html',
-            },
-            {
-              text: 'Editor',
-              link: '/guide/cell/editor.html',
-            },
-          ],
+            text: 'Cells',
+            collapsed: true,
+            items: [
+                {
+                    text: 'Properties',
+                    link: '/guide/cell/properties',
+                },
+                {
+                    text: 'Renderer',
+                    link: '/guide/cell/renderer',
+                },
+                {
+                    text: 'Editor',
+                    link: '/guide/cell/editor',
+                },
+            ],
         },
         {
-          text: 'Filtering',
-          link: '/guide/filters.html',
+            text: 'Rows',
+            collapsed: true,
+            items: [
+                {
+                    text: 'Properties',
+                    link: '/guide/rows.class',
+                },
+                {
+                    text: 'Pinning',
+                    link: '/guide/rows.pinned',
+                },
+                {
+                    text: 'Headers',
+                    link: '/guide/rows.headers',
+                },
+                {
+                    text: 'Size definition',
+                    link: '/guide/rows.size',
+                },
+            ],
         },
         {
-          text: 'Sorting',
-          link: '/guide/sorting.html',
+            text: 'Theme Manager',
+            collapsed: true,
+            items: [
+                {
+                    text: 'Theme',
+                    link: '/guide/theme/theme',
+                },
+                {
+                    text: 'Light Theme',
+                    link: '/guide/theme/theme.light',
+                },
+                {
+                    text: 'Dark Theme',
+                    link: '/guide/theme/theme.dark',
+                },
+            ],
         },
         {
-          text: 'Rows',
-          collapsed: false,
-          items: [
-            {
-              text: 'Properties',
-              link: '/guide/rows.class.html',
-            },
-            {
-              text: 'Pinning',
-              link: '/guide/rows.pinned.html',
-            },
-            {
-              text: 'Headers',
-              link: '/guide/rows.headers.html',
-            },
-            {
-              text: 'Size definition',
-              link: '/guide/rows.size.html',
-            },
-          ],
+            text: 'Filtering',
+            link: '/guide/filters',
         },
         {
-          text: 'Theme Manager',
-          collapsed: false,
-          items: [
-            {
-              text: 'Theme',
-              link: '/guide/theme/theme.html',
-            },
-            {
-              text: 'Light Theme',
-              link: '/guide/theme/theme.light.html',
-            },
-            {
-              text: 'Dark Theme',
-              link: '/guide/theme/theme.dark.html',
-            },
-          ],
+            text: 'Sorting',
+            link: '/guide/sorting',
         },
         {
-          text: 'Export',
-          link: '/guide/export.plugin.html',
+            text: 'Export',
+            link: '/guide/export.plugin',
         },
         {
-          text: 'Migration',
-          items: [
-            {
-              text: 'Migrating from Revogrid v3.x',
-              link: '/guide/migration.html',
-            },
-          ],
+            text: 'Migration',
+            items: [
+                {
+                    text: 'Migrating from Revogrid v3.x',
+                    link: '/guide/migration',
+                },
+            ],
         },
         {
-          text: 'API',
-          link: '/guide/api.html',
+            text: 'API',
+            link: '/guide/api',
         },
         {
-          text: 'Frameworks',
-          items: [
-            {
-              text: 'Vue',
-              items: [
-                { text: 'Overview', link: '/guide/framework/framework.vue.overview.html' },
-                { text: 'Component', link: '/guide/framework/framework.vue.component' },
-                { text: 'Editor', link: '/guide/framework/framework.vue.editor' },
-                { text: 'WebComponent', link: '/guide/framework/framework.vue.webcomponent' },
-              ],
-            },
-            {
-              text: 'React',
-              items: [
-                { text: 'Overview', link: '/guide/framework/framework.react.overview.html' },
-                { text: 'Component', link: '/guide/framework/framework.react.component' },
-              ],
-            },
-            {
-              text: 'Svelte',
-              items: [
-                { text: 'Overview', link: '/guide/framework/framework.svelte.overview.html'},
-              ],
-            },
-            {
-              text: 'Angular 2+',
-              items: [
-                { text: 'Overview', link: '/guide/framework/framework.angular.overview.html' },
-                { text: 'WebComponent', link: '/guide/framework/framework.angular.webcomponent' },
-              ],
-            },
-            { text: 'TypeScript', link: '/guide/framework/framework.ts' },
-          ],
+            text: 'Contributor Guide',
+            link: '/guide/CONTRIBUTING',
         },
-      ],
-
-    '/demo': [
-      {
-        text: 'Demo',
-        link: '/demo/',
-      },
-      {
-        text: 'JS',
-        items: [
-          {
-            text: 'First run',
-            link: '/demo/js/js.first.html',
-          }
-        ],
-      },
-      {
-        text: 'JSX/TSX',
-        items: [
-          {
-            text: 'Template',
-            link: '/demo/jsx/jsx.template.html',
-          },
-          {
-            text: 'Tree',
-            link: '/demo/jsx/jsx.tree.html',
-          },
-        ],
-      },
-      {
-        text: 'Vue',
-        items: [
-          {
-            text: 'List',
-            link: '/demo/vue/vue.list.html',
-          },
-          {
-            text: 'Checkbox list with Select All',
-            link: '/demo/vue/vue.selectall.html',
-          },
-          {
-            text: 'Grouping',
-            link: '/demo/vue/vue.grouping.html',
-          },
-        ],
-      }
+        {
+            text: 'Frameworks',
+            items: [
+                {
+                    text: 'Vue 2',
+                    collapsed: true,
+                    items: [
+                        { text: 'Overview', link: '/guide/vue2/' },
+                        { text: 'Component', link: '/guide/vue2/component' },
+                        { text: 'Editor', link: '/guide/vue2/editor' },
+                        {
+                            text: 'WebComponent',
+                            link: '/guide/vue2/webcomponent',
+                        },
+                    ],
+                },
+                {
+                    text: 'Vue 3',
+                    collapsed: true,
+                    items: [{ text: 'Overview', link: '/guide/vue3/' }],
+                },
+                {
+                    text: 'React',
+                    collapsed: true,
+                    items: [
+                        { text: 'Overview', link: '/guide/react/' },
+                        { text: 'Component', link: '/guide/react/component' },
+                    ],
+                },
+                {
+                    text: 'Svelte',
+                    collapsed: true,
+                    items: [
+                        { text: 'Overview', link: '/guide/svelte/' },
+                    ],
+                },
+                {
+                    text: 'Angular',
+                    collapsed: true,
+                    items: [
+                        { text: 'Overview', link: '/guide/angular/' },
+                        {
+                            text: 'WebComponent',
+                            link: '/guide/angular/webcomponent',
+                        },
+                    ],
+                },
+                { text: 'TypeScript', link: '/guide/ts/' },
+            ],
+        },
     ],
-};
+
+    '/demo/': [
+        {
+            text: 'Demo',
+            link: '/demo/',
+        },
+        {
+            text: 'JS',
+            items: [
+                {
+                    text: 'First run',
+                    link: '/demo/js/js.first',
+                },
+            ],
+        },
+        {
+            text: 'JSX/TSX',
+            items: [
+                {
+                    text: 'Template',
+                    link: '/demo/jsx/jsx.template',
+                },
+                {
+                    text: 'Tree',
+                    link: '/demo/jsx/jsx.tree',
+                },
+            ],
+        },
+        {
+            text: 'Vue',
+            items: [
+                {
+                    text: 'List',
+                    link: '/demo/vue/vue.list',
+                },
+                {
+                    text: 'Checkbox list with Select All',
+                    link: '/demo/vue/vue.selectall',
+                },
+                {
+                    text: 'Grouping',
+                    link: '/demo/vue/vue.grouping',
+                },
+            ],
+        },
+    ],
+    '/pro/': [
+        {
+            text: 'Revogrid Pro',
+            link: '/pro/',
+        }
+    ],
+}

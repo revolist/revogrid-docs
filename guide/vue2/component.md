@@ -9,7 +9,7 @@ This functionality is slightly decreasing overall grid render performance. If yo
 
 Create component which you would like to be presented as cell.
 You can use `props` to access row model object, column property or other props described in `ColumnDataSchemaModel`.
-<br>Check [interfaces](https://github.com/revolist/revogrid/blob/master/src/interfaces.d.ts) for mode information about types.
+<br>Check [interfaces](https://github.com/revolist/Revogrid/blob/master/src/interfaces.d.ts) for mode information about types.
 
 ```vue
 <template>
@@ -81,12 +81,12 @@ export default {
 </script>
 ```
 
-Check [Sandbox](https://codesandbox.io/s/revogrid-vuecomponent-9yh0o?file=/src/App.vue) for real live sample.
+Check [Sandbox](https://codesandbox.io/s/Revogrid-vuecomponent-9yh0o?file=/src/App.vue) for real live sample.
 <ClientOnly>
   <div class="tile">
-    <iframe src="https://codesandbox.io/embed/revogrid-vuecomponent-9yh0o?fontsize=14&hidenavigation=1&theme=dark"
+    <iframe src="https://codesandbox.io/embed/Revogrid-vuecomponent-9yh0o?fontsize=14&hidenavigation=1&theme=dark"
       style="width:100%; height:200px; border:0; border-radius: 4px; overflow:hidden;"
-      title="RevoGrid-VueComponent"
+      title="Revogrid-VueComponent"
       allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
       sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
       ></iframe>

@@ -5,7 +5,7 @@
                 v-for="(item, i) in integrations"
                 :key="i">
             <a
-                :href="`docs/${item.title.toLowerCase()}.html`"
+                :href="item.path"
                 ><abbr>{{ item.title }}</abbr></a
             >,</span>
             </span

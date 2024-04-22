@@ -1,0 +1,3 @@
+## VNode Reactive DOM
+
+At the core of Revogrid's high performance is its use of a reactive DOM model (similar one you would find in any popular reactive framework [Vue Virtual DOM](https://vuejs.org/guide/extras/rendering-mechanism), [React Virtual DOM](https://legacy.reactjs.org/docs/faq-internals.html), etc.). This model ensures that only the parts of the grid that need updating are re-rendered, rather than the entire grid. This selective rendering mechanism is crucial for handling large amounts of data, as it significantly reduces the amount of DOM manipulation required, leading to smoother scrolling and interactions.

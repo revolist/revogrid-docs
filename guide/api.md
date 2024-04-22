@@ -2,13 +2,13 @@
 # API Docs
 
 :::tip
-Read [type definition file](https://github.com/revolist/revogrid/blob/master/src/interfaces.d.ts) for the full interface information.
+Read [type definition file](https://github.com/revolist/Revogrid/blob/master/src/interfaces.d.ts) for the full interface information.
 All complex properties such as `ColumnRegular`, `ColumnProp`, `ColumnDataSchemaModel`, etc. can be found there.
 :::
 
 
 ::: warning
-For version 2 check [Readme 2.0](https://github.com/revolist/revogrid/blob/2.9.81/src/components/revo-grid/readme.md)
+For version 2 check [Readme 2.0](https://github.com/revolist/Revogrid/blob/2.9.81/src/components/revo-grid/readme.md)
 :::
 
 <!-- Auto Generated Below -->
@@ -79,7 +79,7 @@ For version 2 check [Readme 2.0](https://github.com/revolist/revogrid/blob/2.9.8
 
 ## Methods
 
-### `addTrimmed(trimmed: Record<number, boolean>, trimmedType?: string, type?: RevoGrid.DimensionRows) => Promise<CustomEvent<{ trimmed: Record<number, boolean>; trimmedType: string; type: string; }>>`
+### `addTrimmed(trimmed: Record<number, boolean>, trimmedType?: string, type?: Revogrid.DimensionRows) => Promise<CustomEvent<{ trimmed: Record<number, boolean>; trimmedType: string; type: string; }>>`
 
 Add trimmed by type
 
@@ -99,7 +99,7 @@ Type: `Promise<void>`
 
 
 
-### `getColumnStore(type?: RevoGrid.DimensionCols) => Promise<ColumnSource>`
+### `getColumnStore(type?: Revogrid.DimensionCols) => Promise<ColumnSource>`
 
 Provides access to column internal store observer
 Can be used for plugin support
@@ -110,7 +110,7 @@ Type: `Promise<Observable<DataSourceState<ColumnRegular, DimensionCols>>>`
 
 
 
-### `getColumns() => Promise<RevoGrid.ColumnRegular[]>`
+### `getColumns() => Promise<Revogrid.ColumnRegular[]>`
 
 Receive all columns in data source
 
@@ -140,7 +140,7 @@ Type: `Promise<Plugin[]>`
 
 
 
-### `getSource(type?: RevoGrid.DimensionRows) => Promise<RevoGrid.DataType[]>`
+### `getSource(type?: Revogrid.DimensionRows) => Promise<Revogrid.DataType[]>`
 
 Get data from source
 
@@ -150,7 +150,7 @@ Type: `Promise<DataType[]>`
 
 
 
-### `getSourceStore(type?: RevoGrid.DimensionRows) => Promise<RowSource>`
+### `getSourceStore(type?: Revogrid.DimensionRows) => Promise<RowSource>`
 
 Provides access to rows internal store observer
 Can be used for plugin support
@@ -161,7 +161,7 @@ Type: `Promise<Observable<DataSourceState<DataType, DimensionRows>>>`
 
 
 
-### `getVisibleSource(type?: RevoGrid.DimensionRows) => Promise<any[]>`
+### `getVisibleSource(type?: Revogrid.DimensionRows) => Promise<any[]>`
 
 Get data from visible part of source
 Trimmed/filtered rows will be excluded
@@ -172,7 +172,7 @@ Type: `Promise<any[]>`
 
 
 
-### `refresh(type?: RevoGrid.DimensionRows | 'all') => Promise<void>`
+### `refresh(type?: Revogrid.DimensionRows | 'all') => Promise<void>`
 
 Refreshes data viewport.
 Can be specific part as rgRow or pinned rgRow or 'all' by default.
@@ -204,7 +204,7 @@ Type: `Promise<void>`
 
 
 
-### `scrollToColumnProp(prop: RevoGrid.ColumnProp) => Promise<void>`
+### `scrollToColumnProp(prop: Revogrid.ColumnProp) => Promise<void>`
 
 Scrolls view port to specified column prop
 
@@ -234,7 +234,7 @@ Type: `Promise<void>`
 
 
 
-### `setCellEdit(rgRow: number, prop: RevoGrid.ColumnProp, rowSource?: RevoGrid.DimensionRows) => Promise<void>`
+### `setCellEdit(rgRow: number, prop: Revogrid.ColumnProp, rowSource?: Revogrid.DimensionRows) => Promise<void>`
 
 Bring cell to edit mode
 
@@ -244,7 +244,7 @@ Type: `Promise<void>`
 
 
 
-### `updateColumnSorting(column: RevoGrid.ColumnRegular, index: number, order: 'asc' | 'desc') => Promise<RevoGrid.ColumnRegular>`
+### `updateColumnSorting(column: Revogrid.ColumnRegular, index: number, order: 'asc' | 'desc') => Promise<Revogrid.ColumnRegular>`
 
 Update column sorting
 
@@ -254,7 +254,7 @@ Type: `Promise<ColumnRegular>`
 
 
 
-### `updateColumns(cols: RevoGrid.ColumnRegular[]) => Promise<void>`
+### `updateColumns(cols: Revogrid.ColumnRegular[]) => Promise<void>`
 
 Update columns
 

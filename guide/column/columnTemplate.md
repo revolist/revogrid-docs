@@ -1,4 +1,4 @@
-# Custom header
+## Column Template
 
 This article explaines how to use custom header function to display HTML content in a header.
 This is a powerful feature.

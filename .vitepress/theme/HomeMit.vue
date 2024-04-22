@@ -4,7 +4,7 @@
             {{ value.text }}
             <br />
             <strong style="display: inline-block; padding-top: 10px">
-                {{ value.details }} <a v-if="value.action" href="'/pro.html'">{{ value.action }}</a>.</strong
+                {{ value.details }} <a v-if="value.action" href="/pro/">{{ value.action }}</a>.</strong
             >
         </div>
     </div>

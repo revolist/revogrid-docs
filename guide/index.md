@@ -1,23 +1,41 @@
-# Quick Start
+# What's `Revogrid` is all about?
 
-So, what's `RevoGrid` is all about? Let's say you've got a ton of data to display on your web app. It's all about letting you throw in loads of data and manipulate it any way you fancy—without breaking a sweat. Think of it as the Swiss Army knife for data grids in your web projects.
+ Let's say you've got a ton of data to display on your web app. It's all about letting you throw in loads of data and manipulate it any way you fancy—without breaking a sweat. Think of it as the Swiss Army knife for data grids in your web projects. Read more about how and why you should use `Revogrid` in our [Overview section](./overview).
+
+## Find guides for your framework
+
+<!--@include: ./parts/cross-framework-banner.md-->
+
+- [Vue](./vue3/) – Detailed guide for integrating with Vue 3.
+- [Vue 2](./vue2/) – Specific adaptations for Vue 2.
+- [React](./react/) – Usage within React applications.
+- [Angular](./angular/) – Setup and usage in Angular environments.
+- [Svelte](./svelte/) – Integrating into Svelte projects.
 
 ## Play online
-Try `RevoGrid` directly on CodeSandbox without setting up anything locally
+Try `Revogrid` directly on CodeSandbox without setting up anything locally
+
+<ClientOnly>
+<iframe src="https://codesandbox.io/embed/8qjv9q?view=Preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
+     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="Revogrid - Vue - Overview"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+</ClientOnly>
 
 
+## Revogrid in 60 seconds
 
-## RevoGrid in 60 seconds
+This method is perfect for prototypes, quick projects, or just getting a feel of what it can do. Directly include `Revogrid` in your HTML file to get started.
 
-Directly include `RevoGrid` in your HTML file to get started. This method is perfect for prototypes, quick projects, or just getting a feel of what it can do.
-
-Embed the library using a script tag in the `<head>` section of your `index.html`. This loads the `RevoGrid` webcomponent, making it available throughout your document.
+Embed the library using a script tag in the `<head>` section of your `index.html`. This loads the `Revogrid` webcomponent, making it available throughout your document.
 
 ```html
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://cdn.jsdelivr.net/npm/@revolist/revogrid@latest/dist/revo-grid/revo-grid.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@revolist/Revogrid@latest/dist/revo-grid/revo-grid.js"></script>
 </head>
 <body>
   <revo-grid style="height: 200px"/>
@@ -65,16 +83,14 @@ grid.source = rows;
 ```
 
 
-[![Edit RevoGrid - Quick Start](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/revogrid-quick-start-5h3nmy)
+[![Edit Revogrid - Quick Start](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/Revogrid-60s-tlxgwn)
 
 
 <ClientOnly>
-  <div class="tile">
-    <iframe src="https://codesandbox.io/embed/5h3nmy?view=preview&module=%2Findex.html&hidenavigation=1"
+  <iframe src="https://codesandbox.io/embed/tlxgwn?view=Editor+%2B+Preview&module=%2Findex.html&hidenavigation=1"
      style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="RevoGrid - Quick Start"
+     title="Revogrid - 60s"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
-  </div>
 </ClientOnly>
