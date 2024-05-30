@@ -1,21 +1,21 @@
-# Grouping(Stacked columns)
+# Grouping (Stacked Columns)
 
-Column can be defined as group or as regular column. To stack column just define it as a group.
-Check interfaces for more information.
+Columns in RevoGrid can be defined as either regular columns or grouped columns (stacked columns). To create a stacked column, simply define it as a group. Check the interfaces for more information.
 
-``` ts
+## Example
 
+Here's an example demonstrating how to define both regular and grouped columns:
+
+```typescript
 const columns = [
-  { name: 'Name', prop: 'name' }, // regular column
+  { name: 'Name', prop: 'name' }, // Regular column
 
-  // stacked column
+  // Stacked column group
   {
-      name: 'Personal',
-      children: [
-          { name: 'Eyes', prop: 'eyeColor' }, // regular column
-          { name: 'Company', prop: 'company' }, // regular column
-      ]
+    name: 'Personal',
+    children: [
+      { name: 'Eyes', prop: 'eyeColor' }, // Regular column within the group
+      { name: 'Company', prop: 'company' }, // Regular column within the group
+    ]
   }
 ];
-
-```

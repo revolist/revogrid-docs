@@ -38,8 +38,8 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             collapsed: false,
             items: [
                 {
-                    text: 'Terms and Definitions',
-                    link: '/guide/terms',
+                    text: 'Features and Definitions',
+                    link: '/guide/defs',
                 },
                 {
                     text: 'Installation',
@@ -54,9 +54,9 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     link: '/guide/grid.size',
                 },
                 {
-                  text: 'Lifecycle Hooks',
-                  link: '/guide/lifecycle',
-                }
+                    text: 'Lifecycle Hooks',
+                    link: '/guide/lifecycle',
+                },
             ],
         },
         {
@@ -68,7 +68,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     link: '/guide/column/',
                     items: [
                         {
-                            text: 'Formatting',
+                            text: 'Types',
                             link: '/guide/column/types',
                         },
                         {
@@ -158,17 +158,12 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             link: '/guide/export.plugin',
         },
         {
-            text: 'Migration',
-            items: [
-                {
-                    text: 'Migrating from Revogrid v3.x',
-                    link: '/guide/migration',
-                },
-            ],
+            text: 'Versioning',
+            link: '/guide/migration',
         },
         {
             text: 'API',
-            link: '/guide/api',
+            link: '/guide/api/revoGrid',
         },
         {
             text: 'Contributor Guide',
@@ -177,6 +172,15 @@ export const sidebarEn: DefaultTheme.Sidebar = {
         {
             text: 'Frameworks',
             items: [
+                {
+                    text: 'React',
+                    collapsed: true,
+                    items: [
+                        { text: 'Overview', link: '/guide/react/' },
+                        { text: 'Component', link: '/guide/react/component' },
+                        { text: 'Editor', link: '/guide/react/editor' },
+                    ],
+                },
                 {
                     text: 'Vue 2',
                     collapsed: true,
@@ -193,28 +197,24 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 {
                     text: 'Vue 3',
                     collapsed: true,
-                    items: [{ text: 'Overview', link: '/guide/vue3/' }],
-                },
-                {
-                    text: 'React',
-                    collapsed: true,
                     items: [
-                        { text: 'Overview', link: '/guide/react/' },
-                        { text: 'Component', link: '/guide/react/component' },
+                        { text: 'Overview', link: '/guide/vue3/' },
+                        { text: 'Component', link: '/guide/vue3/component' },
+                        { text: 'Editor', link: '/guide/vue3/editor' },
                     ],
                 },
                 {
                     text: 'Svelte',
                     collapsed: true,
-                    items: [
-                        { text: 'Overview', link: '/guide/svelte/' },
-                    ],
+                    items: [{ text: 'Overview', link: '/guide/svelte/' }],
                 },
                 {
                     text: 'Angular',
                     collapsed: true,
                     items: [
                         { text: 'Overview', link: '/guide/angular/' },
+                        { text: 'Component', link: '/guide/angular/component' },
+                        { text: 'Editor', link: '/guide/angular/editor' },
                         {
                             text: 'WebComponent',
                             link: '/guide/angular/webcomponent',
@@ -275,6 +275,6 @@ export const sidebarEn: DefaultTheme.Sidebar = {
         {
             text: 'Revogrid Pro',
             link: '/pro/',
-        }
+        },
     ],
 }

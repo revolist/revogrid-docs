@@ -1,8 +1,8 @@
-## Why Your Support Matters
+## Build next level apps in a Pro version
 
-Maintaining and developing `Revogrid`, along with its documentation and community, is a monumental task. It requires time, dedication, and resources—none of which would be possible without your support.
+Maintaining and developing `Revogrid`, along with its documentation and community, is a monumental task. It requires time, dedication, and resources—none of which would be possible without your support. This is one of the reasons we built our latest version for so long.
 
-By subscribing, you're not just funding a project. You're investing in the sustainable future of `Revogrid`, helping us keep it free and open-source. Your subscription enables us to continue delivering a high-quality, constantly updated library. In return, you gain access to exclusive benefits, including direct support, prioritized feature requests, and insights into our Pro offerings.
+Join our Pro subscription. By subscribing, you're not just funding a project but investing in the sustainable future of `Revogrid`, helping us keep it free and open-source. Your subscription enables us to continue delivering a high-quality, constantly updated library. In return, you gain access to exclusive benefits, including direct support, prioritized feature requests, and insights into our Pro offerings.
 
 ## Join Us on Our Journey
 

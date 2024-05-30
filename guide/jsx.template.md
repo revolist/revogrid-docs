@@ -1,6 +1,6 @@
 # JSX/TSX - Custom content render
 
-It is called JSX, and it is a syntax extension to JavaScript.
+It is called JSX (TSX if you use Typescript), and it is a syntax extension to JavaScript.
 We strongly recommend to use it during template rendering. It'll simplify your life a lot.
 
 Probably you always associated it with React, but it's not. It is just a way to render things. 

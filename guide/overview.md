@@ -1,13 +1,14 @@
 # Overview
 
-`Revogrid` – a must-have tool for developers building high-quality and data-intensive applications.
+So, you have an app that manages intensive datasets and you might think it’s straightforward enough to handle on your own. After all, implementing virtual scrolling might seem like all it takes. But what happens when your needs grow?
 
-> So, you have an app that manages intensive datasets and you might think it’s straightforward enough to handle on your own. After all, implementing virtual scrolling might seem like all it takes. But what happens when your needs grow? Suppose you want to `pin` a row at the top or bottom, `add a column` that also needs to be pinned, and then start `grouping` these elements. Soon, you might find yourself needing `multiple cell focus` and `range selections`. This is where the complexity increases significantly.
+Suppose you want to `pin` a row at the top or bottom, `add a column` that also needs to be pinned, and then start `grouping` these elements. Soon, you might find yourself needing `multiple cell focus` and `range selections`. This is where the complexity increases significantly.
 
-In scenarios like this, maintaining performance while adding sophisticated grid functionalities can become daunting. That's where Revogrid comes in. It doesn't just handle these features; it excels at them, providing the best user experience right out of the box.
+In scenarios like this, maintaining performance while adding sophisticated grid functionalities can become daunting. That's where Revogrid comes in.
 
 
 ## Magic behind the scene
+
 `Revogrid` is  built on top of [StencilJS](https://stenciljs.com/) (a compiler for building fast web apps using Web Components), leveraging the power of a reactive DOM to ensure optimal performance and responsiveness. Its architecture is *designed to handle large datasets* with ease, providing a seamless user experience even in data-intensive applications.
 
 This approach allows Revogrid to be **framework-agnostic**, ensuring developers can integrate it into any project regardless of the underlying technology stack.

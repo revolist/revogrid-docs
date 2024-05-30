@@ -3,54 +3,88 @@
 Revogrid provide special wrapper for React based on [stenciljs react adapter](https://www.npmjs.com/package/@stencil/react-output-target). 
 <br>Just import it to your project and it can be used as part of react system.
 
-:::tip
-If you are using npm modules don't forget to import and define custom component `defineCustomElements` as part of environment
+::: code-group
+
+```npm
+npm i @revolist/react-datagrid
+
+```
+
+```pnpm
+pnpm add @revolist/react-datagrid
+```
+
+```yarn
+yarn add @revolist/react-datagrid
+```
+
+```bun
+npm i @revolist/react-datagrid
+```
 :::
 
 
-With NPM:
-```bash
-npm i @revolist/Revogrid-react --save;
-```
 
-With Yarn:
+```tsx
+// App.tsx
+import { RevoGrid, Template, Editor, type EditorType } from '@revolist/react-datagrid';
+import { ColumnDataSchemaModel, Editors } from '@revolist/revogrid';
+import { createContext, useContext } from 'react';
 
-```bash
-yarn add @revolist/Revogrid-react;
-```
+/**
+ * Showcase
+ */
+export const LevelContext = createContext('My custom context to pass to cell');
 
+/**
+ * Custom cell component
+ */
+const Cell = ({ model, prop }: ColumnDataSchemaModel) => {
+  const level = useContext(LevelContext);
+  return <div><strong title={level}>{model[prop]}</strong></div>;
+};
 
-```jsx
-import React from "react";
-import { defineCustomElements } from "@revolist/Revogrid/loader"; // webcomponent definition loader 
-import { Revogrid } from "@revolist/Revogrid-react";
+/**
+ * Custom editor component
+ */
+const Button = ({ close } : EditorType) => {
+  return <button onClick={close}>Close</button>
+};
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    // you have to define webcomponent before you can use the wrapper
-    defineCustomElements();
-    this.state = {
-      columns: [{ prop: "name" }],
-      source: [{ name: "1" }, { name: "2" }]
-    };
-  }
-
-  afterEdit({ detail }) {}
-
-  render() {
-    return (
-      <div>
-        <Revogrid
-          theme="compact"
-          columns={this.state.columns}
-          source={this.state.source}
-          onAfterEdit={(e) => this.afterEdit(e)}
-        />
-      </div>
-    );
-  }
+function App() {
+  const MY_EDITOR = 'custom-editor';
+  const columns = [
+    {
+      prop: 'name',
+      name: 'First',
+      editor: MY_EDITOR,
+      cellTemplate: Template(Cell),
+    },
+    {
+      prop: 'details',
+      name: 'Second',
+    },
+  ];
+  const source = [
+    {
+      name: '1',
+      details: 'Item 1',
+    },
+    {
+      name: '2',
+      details: 'Item 2',
+    },
+  ];
+  const gridEditors: Editors = { [MY_EDITOR]: Editor(Button) };
+  return (
+    <>
+      <RevoGrid columns={columns} source={source} editors={gridEditors} />
+    </>
+  )
 }
+
+export default App
+
 ```
 
 

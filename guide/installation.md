@@ -1,5 +1,6 @@
 # Installation
 
+<!--@include: ./framework.md-->
 
 
 ## Package Manager Installation
@@ -9,27 +10,26 @@ First, install `Revogrid` using your preferred package manager.
 ::: code-group
 
 ```npm
-npm i @revolist/Revogrid
+npm i @revolist/revogrid
 
 ```
 
 ```pnpm
-pnpm add @revolist/Revogrid
+pnpm add @revolist/revogrid
 ```
 
 ```yarn
-yarn add @revolist/Revogrid
+yarn add @revolist/revogrid
 ```
 
 ```bun
-npm i @revolist/Revogrid
+npm i @revolist/revogrid
 ```
-
 :::
 
 After installation, you can import `Revogrid` into your module. If you're using ES Modules in your project, here’s how you can import it:
 ```js
-import { Revogrid } from '@revolist/Revogrid';
+import { Revogrid } from '@revolist/revogrid';
 ```
 This import statement brings the Revogrid component into your project, allowing you to utilize it within your JavaScript or TypeScript files. From here, you can proceed to instantiate and configure your grid according to your project's requirements.
 
@@ -44,7 +44,7 @@ Integrating components into a project doesn't have to be complicated, especially
 To quickly include `Revogrid` in your project, you can use a `CDN` like unpkg. Here’s how you can do it:
 
 ```js
-<script src="https://unpkg.com/@revolist/Revogrid@latest/dist/revo-grid/revo-grid.js"></script>
+<script src="https://unpkg.com/@revolist/revogrid@latest/dist/revo-grid/revo-grid.js"></script>
 ```
 
 
@@ -55,7 +55,7 @@ For a more modern approach that leverages ES Modules, you can import `Revogrid` 
 
 ```js
 <script type="module">
-    import { applyPolyfills, defineCustomElements } from "https://unpkg.com/@revolist/Revogrid@latest/loader";
+    import { applyPolyfills, defineCustomElements } from "https://unpkg.com/@revolist/revogrid@latest/loader";
     applyPolyfills().then(() => {
         defineCustomElements();
     });
