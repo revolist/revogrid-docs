@@ -13,6 +13,7 @@ const props = defineProps({
 
 // feel free to update this with an svg directory of your choice
 const icon = defineAsyncComponent(
+    // @ts-ignore
     () => import(`/public/${props.src}`)
 )
 </script>

@@ -1,10 +1,10 @@
 # What's `Revogrid` is all about?
 
- Let's say you've got a ton of data to display on your web app. It's all about letting you throw in loads of data and manipulate it any way you fancy—without breaking a sweat. Think of it as the Swiss Army knife for data in your web projects. Read more about how and why you should use `Revogrid` in our [Overview section](./overview).
+ Let's say you've got a ton of data to display on your web app. It's all about letting you throw in loads of data and manipulate it any way you fancy—without breaking a sweat. Read more about how and why you should use it in our [Overview section](./overview).
 
 ## Find guides for your framework
 
-<!--@include: ./framework.md-->
+<!--@include: ./parts/framework.md-->
 
 
 ## Play online

@@ -3,42 +3,7 @@
 `Revogrid` provides a way to define your own editors. Or you can use [predefined column types](./column.types.html).
 In order to do so you have to define your class with render method.
 
-### Class format editor sample
-```ts
-
-class TextEditor {
-    public element: Element|null = null;
-    public editCell: Edition.EditCell|null = null;
-
-    /**
-      *  @column: {ColumnDataSchemaRegular} - column data
-      *  @editCallback: { (val) => void } - callback for finishing edit
-      */
-
-    constructor(
-        public column: Revogrid.ColumnDataSchemaRegular,
-        saveCallback: (value: any) => void,
-        closeCallback: () => void
-    ) {}
-
-    // optional, called after editor rendered
-    componentDidRender() {}
-
-    // optional, called after editor destroyed
-    disconnectedCallback() {}
-
-    /**
-     * required, define custom component structure
-     * @param createElement: (tagName: string, properties?: object, value?: any, children: Array) => VNode
-     */
-    render(createComponent: Revogrid.HyperFunc<VNode>) {
-        return createComponent('input');
-    }
-}
-```
-
-
-### Function format
+## As a Function
 ```js
 
 function TextEditor(column, saveCallback, closeCallback) {
@@ -59,7 +24,41 @@ function TextEditor(column, saveCallback, closeCallback) {
 };
 ```
 
-### Apply editor to grid
+## As a Class
+```ts
+class TextEditor {
+    public element: Element|null = null;
+    public editCell: EditCell|null = null;
+
+    /**
+      *  @column: {ColumnDataSchemaRegular} - column data
+      *  @editCallback: { (val) => void } - callback for finishing edit
+      */
+
+    constructor(
+        public column: ColumnDataSchemaRegular,
+        saveCallback: (value: any) => void,
+        closeCallback: () => void
+    ) {}
+
+    // optional, called after editor rendered
+    componentDidRender() {}
+
+    // optional, called after editor destroyed
+    disconnectedCallback() {}
+
+    /**
+     * required, define custom component structure
+     * @param createElement: (tagName: string, properties?: object, value?: any, children: Array) => VNode
+     */
+    render(createComponent: HyperFunc<VNode>) {
+        return createComponent('input');
+    }
+}
+```
+
+
+## Use editor in the grid
 ```js
 const columns = [{
     name: 'Person',

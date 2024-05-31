@@ -52,19 +52,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 defineCustomElements();
 ```
 
-## Edge and IE11 polyfills
-
-If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()` function.
-
-```tsx
-import { applyPolyfills, defineCustomElements } from '@revolist/Revogrid/loader';
-...
-applyPolyfills().then(() => {
-  defineCustomElements()
-})
-
-```
-
 ## Accessing components using ViewChild and ViewChildren
 
 Once included, components could be referenced in your code using `ViewChild` and `ViewChildren` as in the following example:

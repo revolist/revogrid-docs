@@ -28,7 +28,7 @@ const gridColumns = [
     {
         name: '🔠 Company Name',
         prop: 'company_name',
-        size: 300,
+        size: 250,
     },
     {
         name: '',
@@ -73,14 +73,7 @@ const gridColumns = [
     {
         name: '💰 Price',
         prop: 'price',
-    },
-    {
-        name: '⬆️ Change',
-        prop: 'change',
-    },
-    {
-        name: '% Change',
-        prop: 'percent_change',
+        size: 100,
     },
 ]
 

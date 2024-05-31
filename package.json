@@ -45,7 +45,10 @@
     "vitepress": "^1.0.0-rc.45"
   },
   "dependencies": {
-    "@revolist/vue3-datagrid": "^4.0.0-next.1",
+    "@revolist/revogrid-column-date": "^2.0.0",
+    "@revolist/revogrid-column-numeral": "^1.0.2",
+    "@revolist/revogrid-column-select": "^2.0.2",
+    "@revolist/vue3-datagrid": "^4.0.0",
     "vite-svg-loader": "^5.1.0",
     "vue-github-button": "^3.1.0"
   }

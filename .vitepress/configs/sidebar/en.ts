@@ -173,55 +173,55 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             text: 'Frameworks',
             items: [
                 {
+                    text: 'Angular',
+                    collapsed: true,
+                    items: [
+                        { text: 'Getting Started', link: '/guide/angular/' },
+                        { text: 'Renderer', link: '/guide/angular/renderer' },
+                        { text: 'Editor', link: '/guide/angular/editor' },
+                        // {
+                        //     text: 'Web Component',
+                        //     link: '/guide/angular/webcomponent',
+                        // },
+                    ],
+                },
+                {
                     text: 'React',
                     collapsed: true,
                     items: [
-                        { text: 'Overview', link: '/guide/react/' },
-                        { text: 'Component', link: '/guide/react/component' },
+                        { text: 'Getting Started', link: '/guide/react/' },
+                        { text: 'Renderer', link: '/guide/react/renderer' },
                         { text: 'Editor', link: '/guide/react/editor' },
                     ],
                 },
                 {
+                    text: 'Svelte',
+                    collapsed: true,
+                    items: [{ text: 'Getting Started', link: '/guide/svelte/' }],
+                },
+                { text: 'TypeScript', link: '/guide/ts/' },
+                {
                     text: 'Vue 2',
                     collapsed: true,
                     items: [
-                        { text: 'Overview', link: '/guide/vue2/' },
-                        { text: 'Component', link: '/guide/vue2/component' },
+                        { text: 'Getting Started', link: '/guide/vue2/' },
+                        { text: 'Renderer', link: '/guide/vue2/renderer' },
                         { text: 'Editor', link: '/guide/vue2/editor' },
-                        {
-                            text: 'WebComponent',
-                            link: '/guide/vue2/webcomponent',
-                        },
+                        // {
+                        //     text: 'Web Component',
+                        //     link: '/guide/vue2/webcomponent',
+                        // },
                     ],
                 },
                 {
                     text: 'Vue 3',
                     collapsed: true,
                     items: [
-                        { text: 'Overview', link: '/guide/vue3/' },
-                        { text: 'Component', link: '/guide/vue3/component' },
+                        { text: 'Getting Started', link: '/guide/vue3/' },
+                        { text: 'Renderer', link: '/guide/vue3/renderer' },
                         { text: 'Editor', link: '/guide/vue3/editor' },
                     ],
                 },
-                {
-                    text: 'Svelte',
-                    collapsed: true,
-                    items: [{ text: 'Overview', link: '/guide/svelte/' }],
-                },
-                {
-                    text: 'Angular',
-                    collapsed: true,
-                    items: [
-                        { text: 'Overview', link: '/guide/angular/' },
-                        { text: 'Component', link: '/guide/angular/component' },
-                        { text: 'Editor', link: '/guide/angular/editor' },
-                        {
-                            text: 'WebComponent',
-                            link: '/guide/angular/webcomponent',
-                        },
-                    ],
-                },
-                { text: 'TypeScript', link: '/guide/ts/' },
             ],
         },
     ],

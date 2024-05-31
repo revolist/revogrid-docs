@@ -1,91 +1,71 @@
-# Editor as Vue component
-
-Vue-datagrid provides a way to render vue components as editor.
-<br>For this porpose we've invented webcomponent vue editor adapter (VGridVueEditor);
-
-::: warning
-This functionality is slightly decreasing overall grid render performance. If you are aiming for the faster render we are recommending to stick with native <a href="./cell.editor.html">VNode render</a>.
-:::
-
-Define your editor.
-::: tip
-You can access close and save callbacks in properties.
-:::
+<!--@include: ../parts/editor.header.md-->
 
 ```vue
-// SampleEditor.vue
+// App.vue
+
 <template>
-  <button v-on:click="iAmClicked">You clicked me {{ count }} times.</button>
+    <!-- Use the VGrid component and bind the data source and columns -->
+    <v-grid :source="rows" :columns="columns" />
 </template>
 
 <script>
+import Grid, { VGridVueEditor } from '@revolist/vue-datagrid' // Import the VGrid component
+import Editor from './Editor.vue' // Custom editor template
+const MY_EDITOR = 'custom-editor'
+
 export default {
-  props: ["rowIndex", "model", "close", "save"],
-  data: function () {
-    return {
-      count: 0,
-    };
-  },
-  methods: {
-    iAmClicked(e) {
-      this.count++;
+    name: 'App',
+    data() {
+        return {
+            // Define the columns for the grid
+            columns: [
+                {
+                  prop: 'name',
+                  name: 'First',
+                  editor: MY_EDITOR, // Use the custom editor
+                },
+            ],
+            // Define the data source for the grid
+            rows: [{ name: '1', details: 'Item 1' }],
+            gridEditors: { [MY_EDITOR]: Editor },
+        }
     },
-  },
-};
+    components: {
+        VGrid, // Register the VGrid component
+    },
+}
 </script>
 ```
-::: tip
-For version vue 3+ use `@revolist/vue3-datagrid` accordingly.
-:::
 
 ```vue
+// Editor.vue
 <template>
-  <div id="app">
-    <v-grid
-      :editors="gridEditors"
-      :source="rows"
-      :columns="columns"
-    ></v-grid>
-  </div>
+    <button @click="onBtn">Finish edit</button>
 </template>
-
-<script>
-import VGrid, { VGridVueEditor } from "@revolist/vue-datagrid";
-import VueEditor from "./SampleEditor";
-import Vue from "vue";
-const editor = VGridVueEditor(Vue.component("vueEditor", VueEditor));
-
+<script lang="ts">
+import { defineComponent } from 'vue'
 export default {
-  name: "App",
-  data() {
-    return {
-      gridEditors: { button: editor },
-      columns: [
-        {
-          prop: "id",
-          editor: "button",
+    props: ['rowIndex', 'model', 'save', 'close'],
+    methods: {
+        onBtn(e: MouseEvent) {
+            const event = new CustomEvent('cell', {
+                bubbles: true,
+                detail: { row: this.model },
+            })
+            this.$el.dispatchEvent(event)
+            e.stopPropagation()
+            if (typeof this.close === 'function') {
+                (this.close as () => void)()
+            }
         },
-        {
-          prop: "details",
-        },
-      ],
-      rows: [
-        {
-          id: "My vue",
-          details: "My neighbour is Vue editor",
-        },
-      ],
-    };
-  },
-  components: {
-    VGrid,
-  },
-};
+    },
+}
 </script>
 ```
 
 Check [Sandbox](https://codesandbox.io/s/Revogrid-vueeditor-bxpq0?file=/src/App.vue) for real live sample.
 <ClientOnly>
+
   <div class="tile">
     <iframe src="https://codesandbox.io/embed/Revogrid-vueeditor-bxpq0?fontsize=14&hidenavigation=1&theme=dark"
       style="width:100%; height:300px; border:0; border-radius: 4px; overflow:hidden;"
@@ -95,6 +75,3 @@ Check [Sandbox](https://codesandbox.io/s/Revogrid-vueeditor-bxpq0?file=/src/App.
     ></iframe>
   </div>
 </ClientOnly>
-
-
-

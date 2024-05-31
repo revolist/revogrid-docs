@@ -1,52 +1,37 @@
-# Getting Started
+<!--@include: ../parts/renderer.header.md-->
 
-Revogrid provide special wrapper based on [stenciljs react adapter](https://www.npmjs.com/package/@stencil/react-output-target). Just import it to your project and it can be used as part of react system.
+```tsx{5,15-18,25}
 
-::: code-group
-
-```npm
-npm i @revolist/react-datagrid
-
-```
-
-```pnpm
-pnpm add @revolist/react-datagrid
-```
-
-```yarn
-yarn add @revolist/react-datagrid
-```
-
-```bun
-npm i @revolist/react-datagrid
-```
-:::
-
-
-
-```tsx
 // App.tsx
-import { RevoGrid } from '@revolist/react-datagrid';
+import { createContext, useContext } from 'react';
+import { ColumnDataSchemaModel } from '@revolist/revogrid';
+import { RevoGrid, Template } from '@revolist/react-datagrid';
+
+/**
+ * Showcase
+ */
+export const LevelContext = createContext('My custom context to pass to cell');
+
+/**
+ * Custom cell component
+ */
+const Cell = ({ model, prop }: ColumnDataSchemaModel) => {
+  const level = useContext(LevelContext);
+  return <div><strong title={level}>{model[prop]}</strong></div>;
+};
 
 function App() {
   const columns = [
     {
       prop: 'name',
       name: 'First',
-    },
-    {
-      prop: 'details',
-      name: 'Second',
+      cellTemplate: Template(Cell),
     },
   ];
   const source = [
     {
       name: '1',
       details: 'Item 1',
-    },
-    {
-      name: '2',
-      details: 'Item 2',
     },
   ];
   return (

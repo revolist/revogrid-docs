@@ -1,88 +1,96 @@
-# Editor as Vue component
+<!--@include: ../parts/editor.header.md-->
 
-Vue-datagrid provides a way to render vue components as editor.
-<br>For this porpose we've invented webcomponent vue editor adapter (VGridVueEditor);
 
-::: warning
-This functionality is slightly decreasing overall grid render performance. If you are aiming for the faster render we are recommending to stick with native <a href="./cell.editor.html">VNode render</a>.
-:::
+```ts
+// app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RevogridModule } from '@revolist/angular-datagrid';
 
-Define your editor.
-::: tip
-You can access close and save callbacks in properties.
-:::
+import { AppComponent } from './app.component';
+import { EditorComponent } from './editor.component';
 
-```vue
-// SampleEditor.vue
-<template>
-  <button v-on:click="iAmClicked">You clicked me {{ count }} times.</button>
-</template>
-
-<script>
-export default {
-  props: ["rowIndex", "model", "close", "save"],
-  data: function () {
-    return {
-      count: 0,
-    };
-  },
-  methods: {
-    iAmClicked(e) {
-      this.count++;
-    },
-  },
-};
-</script>
+@NgModule({
+  declarations: [
+    AppComponent,
+    EditorComponent,
+  ],
+  imports: [
+    RevogridModule,
+    BrowserModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
 ```
-::: tip
-For version vue 3+ use `@revolist/vue3-datagrid` accordingly.
-:::
 
-```vue
-<template>
-  <div id="app">
-    <v-grid
-      :editors="gridEditors"
-      :source="rows"
-      :columns="columns"
-    ></v-grid>
-  </div>
-</template>
+```ts
+// app.component.ts
+import { Component, Injector } from '@angular/core';
+import { ColumnRegular, Editors } from '@revolist/revogrid';
+import { Editor } from '@revolist/angular-datagrid';
+import { EditorComponent } from './editor.component';
 
-<script>
-import VGrid, { VGridVueEditor } from "@revolist/vue-datagrid";
-import VueEditor from "./SampleEditor";
-import Vue from "vue";
-const editor = VGridVueEditor(Vue.component("vueEditor", VueEditor));
+@Component({
+  selector: 'app-root',
+  template: `<revo-grid [source]="source" [columns]="columns" [editors]="editors"/>`,
+})
+export class AppComponent {
+  source: any[] = [];
+  columns: ColumnRegular[] = [];
+  editors: Editors = {};
 
-export default {
-  name: "App",
-  data() {
-    return {
-      gridEditors: { button: editor },
-      columns: [
-        {
-          prop: "id",
-          editor: "button",
-        },
-        {
-          prop: "details",
-        },
-      ],
-      rows: [
-        {
-          id: "My vue",
-          details: "My neighbour is Vue editor",
-        },
-      ],
-    };
-  },
-  components: {
-    VGrid,
-  },
-};
-</script>
+  constructor(private ref: Injector) {
+    const MY_EDITOR = 'custom-editor';
+    this.source = [
+      {
+        name: '1',
+        details: 'Item 1',
+      },
+      {
+        name: '2',
+        details: 'Item 2',
+      },
+    ];
+    this.columns = [
+      {
+        prop: 'name',
+        name: 'First',
+        editor: MY_EDITOR,
+      },
+      {
+        prop: 'details',
+        name: 'Second',
+      },
+    ];
+
+
+    this.editors = { [MY_EDITOR]: Editor(EditorComponent, ref) };
+  }
+}
 ```
+
+```ts
+// editor.component.ts
+import { Component, Input } from '@angular/core';
+import { type EditorType } from '@revolist/angular-datagrid';
+
+@Component({
+  selector: 'app-editor',
+  template: '<button (click)="testClick()">{{ props.val }} close!</button>',
+})
+export class EditorComponent {
+  @Input() props!: EditorType;
+
+  
+  testClick() {
+    this.props.close();
+  }
+}
+
+```
+
 
 Check [Sandbox](https://codesandbox.io/s/Revogrid-vueeditor-bxpq0?file=/src/App.vue) for real live sample.
 <ClientOnly>

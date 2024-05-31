@@ -1,84 +1,45 @@
-# Editor as native component
+<!--@include: ../parts/editor.header.md-->
 
-We provide a way to render native components as editor.
-<br>For this porpose we've invented editor adapter (VGridVueEditor);
+```tsx{4,9-11,14,19,28}
 
-Define your editor.
-::: tip
-You can access close and save callbacks in properties.
-:::
+// App.tsx
+import { ColumnDataSchemaModel, Editors } from '@revolist/revogrid';
+import { RevoGrid, Editor, type EditorType } from '@revolist/react-datagrid';
 
-```vue
-// SampleEditor.vue
-<template>
-  <button v-on:click="iAmClicked">You clicked me {{ count }} times.</button>
-</template>
+/**
+ * Custom editor component
+ */
+const Button = ({ close } : EditorType) => {
+  return <button onClick={close}>Close</button>
+};
 
-<script>
-export default {
-  props: ["rowIndex", "model", "close", "save"],
-  data: function () {
-    return {
-      count: 0,
-    };
-  },
-  methods: {
-    iAmClicked(e) {
-      this.count++;
+function App() {
+  const MY_EDITOR = 'custom-editor';
+  const columns = [
+    {
+      prop: 'name',
+      name: 'First',
+      editor: MY_EDITOR,
     },
-  },
-};
-</script>
+  ];
+  const source = [
+    {
+      name: '1',
+      details: 'Item 1',
+    },
+  ];
+  const gridEditors: Editors = { [MY_EDITOR]: Editor(Button) };
+  return (
+    <>
+      <RevoGrid columns={columns} source={source} editors={gridEditors} />
+    </>
+  )
+}
+
+export default App
+
 ```
-::: tip
-For version vue 3+ use `@revolist/vue3-datagrid` accordingly.
-:::
 
-```vue
-<template>
-  <div id="app">
-    <v-grid
-      :editors="gridEditors"
-      :source="rows"
-      :columns="columns"
-    ></v-grid>
-  </div>
-</template>
-
-<script>
-import VGrid, { VGridVueEditor } from "@revolist/vue-datagrid";
-import VueEditor from "./SampleEditor";
-import Vue from "vue";
-const editor = VGridVueEditor(Vue.component("vueEditor", VueEditor));
-
-export default {
-  name: "App",
-  data() {
-    return {
-      gridEditors: { button: editor },
-      columns: [
-        {
-          prop: "id",
-          editor: "button",
-        },
-        {
-          prop: "details",
-        },
-      ],
-      rows: [
-        {
-          id: "My vue",
-          details: "My neighbour is Vue editor",
-        },
-      ],
-    };
-  },
-  components: {
-    VGrid,
-  },
-};
-</script>
-```
 
 Check [Sandbox](https://codesandbox.io/s/Revogrid-vueeditor-bxpq0?file=/src/App.vue) for real live sample.
 <ClientOnly>

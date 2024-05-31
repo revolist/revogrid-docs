@@ -1,47 +1,66 @@
-# Quick start
+# Getting Started
 
-Revogrid provide advanced wrapper for Svelte based on [stenciljs svelte adapter](https://www.npmjs.com/package/@stencil/svelte-output-target). 
-<br>Just import it to your project and it can be used as part of react system.
+Revogrid provide special wrapper based on [stenciljs svelte adapter](https://www.npmjs.com/package/@stencil/svelte-output-target). Just import it to your project and it can be used as part of svelte system.
 
+::: code-group
 
+```npm
+npm i @revolist/svelte-datagrid
 
-With NPM:
-```bash
-npm i @revolist/svelte-datagrid --save;
 ```
 
-With Yarn:
-
-```bash
-yarn add @revolist/svelte-datagrid;
+```pnpm
+pnpm add @revolist/svelte-datagrid
 ```
 
+```yarn
+yarn add @revolist/svelte-datagrid
+```
 
-```vue
-<script>
-import { Revogrid } from "@revolist/svelte-datagrid";
+```bun
+npm i @revolist/svelte-datagrid
+```
+:::
 
-let source = [{
-      prop: "name",
-      name: "First",
+
+```svelte
+// App.svelte
+<script lang="ts">
+  import { RevoGrid } from '@revolist/svelte-datagrid';
+  import type { ColumnRegular } from '@revolist/revogrid';
+
+  // This part to makesure revogrid component is loaded and ready
+  import { defineCustomElements } from '@revolist/revogrid/loader';
+  defineCustomElements();
+
+  const columns = [
+      {
+        prop: 'name',
+        name: 'First',
+      },
+      {
+        prop: 'details',
+        name: 'Second',
+      },
+  ];
+  const source = [
+    {
+      name: '1',
+      details: 'Item 1',
     },
     {
-      prop: "details",
-      name: "Second",
-}];
-let columns = [{
-    name: "1",
-    details: "Item 1",
-}];
-
+      name: '2',
+      details: 'Item 2',
+    },
+  ];
 </script>
 
-
-<Revogrid {source} resize="true" {columns} theme="material"/>
+<RevoGrid {source} {columns}></RevoGrid>
 ```
 
+
 Check [Sandbox](https://codesandbox.io/s/Revogrid-svelte-latest-7g7vo8?file=/Grid.svelte:1152-1208) for real live sample.
-<demo-react/>
+<demo-svelte/>
 
 <ClientOnly>
   <div class="tile">

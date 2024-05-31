@@ -1,6 +1,6 @@
 # Installation
 
-<!--@include: ./framework.md-->
+<!--@include: ./parts/framework.md-->
 
 
 ## Package Manager Installation

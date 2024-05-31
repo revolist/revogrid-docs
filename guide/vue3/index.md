@@ -1,11 +1,27 @@
-# Vue 3
+# Getting Started
 
-The easiest way just to use [vue-datagrid](https://www.npmjs.com/package/@revolist/vue3-datagrid) adaptor.
+Revogrid provide special wrapper based on [stenciljs vue3 adapter](https://www.npmjs.com/package/@stencil/vue3-output-target). Just import it to your project and it can be used as part of vue3 system.
 
-Install with `npm i @revolist/vue3-datagrid --save`
+::: code-group
 
+```npm
+npm i @revolist/vue3-datagrid
 
-After just use VueJst component:
+```
+
+```pnpm
+pnpm add @revolist/vue3-datagrid
+```
+
+```yarn
+yarn add @revolist/vue3-datagrid
+```
+
+```bun
+npm i @revolist/vue3-datagrid
+```
+:::
+
 
 ```vue
 <template>

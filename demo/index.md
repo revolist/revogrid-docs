@@ -1,5 +1,7 @@
 ---
 pageClass: demo-page-class
+layout: doc
+aside: false
 ---
 
 <script setup>

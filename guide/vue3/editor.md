@@ -1,88 +1,94 @@
-# Editor as Vue component
-
-Vue-datagrid provides a way to render vue components as editor.
-<br>For this porpose we've invented webcomponent vue editor adapter (VGridVueEditor);
-
-::: warning
-This functionality is slightly decreasing overall grid render performance. If you are aiming for the faster render we are recommending to stick with native <a href="./cell.editor.html">VNode render</a>.
-:::
-
-Define your editor.
-::: tip
-You can access close and save callbacks in properties.
-:::
+<!--@include: ../parts/editor.header.md-->
 
 ```vue
-// SampleEditor.vue
+// App.vue
 <template>
-  <button v-on:click="iAmClicked">You clicked me {{ count }} times.</button>
+    <Grid
+      :editors="gridEditors"
+      :source="source"
+      :columns="columns"
+      @cell-custom-action="testCustomCellAction"
+      @cell-click="testAction"
+    />
 </template>
 
-<script>
-export default {
-  props: ["rowIndex", "model", "close", "save"],
-  data: function () {
-    return {
-      count: 0,
-    };
+<script lang="ts" setup>
+/**
+ * This is an example of a Vue3 component using Revogrid
+ */
+import { provide, readonly, ref } from 'vue';
+/**
+ * Import Revogrid, Renderer and Editor for Vue
+ */
+import Grid, { VGridVueEditor } from '@revolist/vue3-datagrid';
+
+import Editor from './Editor.vue';
+import { Editors } from '@revolist/revogrid';
+
+const count = ref(0)
+provide('read-only-count', readonly(count));
+
+const MY_EDITOR = 'custom-editor';
+// Vue column editor register
+const gridEditors: Editors = { [MY_EDITOR]: VGridVueEditor(Editor) };
+// Define columns
+const columns = [
+  {
+    prop: 'name',
+    name: 'First',
+    // editor type
+    editor: MY_EDITOR,
   },
+];
+// Define source
+const source = [
+  {
+    name: '1',
+    details: 'Item 1',
+  },
+];
+
+// For testing events
+function testCustomCellAction(e: CustomEvent) {
+  console.log('Custom cell action', e);
+}
+function testAction(e: CustomEvent) {
+  console.log('Editor action', e);
+}
+</script>
+```
+
+
+
+```vue
+// Editor.vue
+<template>
+  <button @click="onBtn">Finish edit</button>
+</template>
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent({
+  props: ['rowIndex', 'model', 'save', 'close'],
   methods: {
-    iAmClicked(e) {
-      this.count++;
+    onBtn(e: MouseEvent) {
+      // create and dispatch event
+      const event = new CustomEvent('cell', {
+        bubbles: true,
+        detail: { row: this.model },
+      });
+      this.$el.dispatchEvent(event);
+
+      e.stopPropagation();
+      if (typeof this.close === 'function') {
+        (this.close as () => void)();
+      }
     },
   },
-};
+});
 </script>
+
 ```
-::: tip
-For version vue 3+ use `@revolist/vue3-datagrid` accordingly.
-:::
 
-```vue
-<template>
-  <div id="app">
-    <v-grid
-      :editors="gridEditors"
-      :source="rows"
-      :columns="columns"
-    ></v-grid>
-  </div>
-</template>
-
-<script>
-import VGrid, { VGridVueEditor } from "@revolist/vue-datagrid";
-import VueEditor from "./SampleEditor";
-import Vue from "vue";
-const editor = VGridVueEditor(Vue.component("vueEditor", VueEditor));
-
-export default {
-  name: "App",
-  data() {
-    return {
-      gridEditors: { button: editor },
-      columns: [
-        {
-          prop: "id",
-          editor: "button",
-        },
-        {
-          prop: "details",
-        },
-      ],
-      rows: [
-        {
-          id: "My vue",
-          details: "My neighbour is Vue editor",
-        },
-      ],
-    };
-  },
-  components: {
-    VGrid,
-  },
-};
-</script>
-```
 
 Check [Sandbox](https://codesandbox.io/s/Revogrid-vueeditor-bxpq0?file=/src/App.vue) for real live sample.
 <ClientOnly>

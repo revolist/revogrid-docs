@@ -1,25 +1,44 @@
-# Quick start
+# Getting Started
 
-The easiest way just to use [angular-datagrid](https://www.npmjs.com/package/@revolist/angular-datagrid) adaptor.
+Revogrid provide special wrapper based on [stenciljs adapter](https://www.npmjs.com/package/@revolist/angular-datagrid). Just import it to your project and it can be used as part of angular system.
 
-Install with `npm i @revolist/angular-datagrid --save`
+::: code-group
 
+```npm
+npm i @revolist/angular-datagrid
 
-After just use as a component:
+```
+
+```pnpm
+pnpm add @revolist/angular-datagrid
+```
+
+```yarn
+yarn add @revolist/angular-datagrid
+```
+
+```bun
+npm i @revolist/angular-datagrid
+```
+
+:::
 
 ```ts
 // app.module.ts
- 
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-
-import { AppComponent } from "./app.component";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { RevogridModule } from '@revolist/angular-datagrid';
 
+import { AppComponent } from './app.component';
+
 @NgModule({
-  // define component
-  declarations: [AppComponent],
-  imports: [BrowserModule, RevogridModule],
+  declarations: [
+    AppComponent,
+  ],
+  imports: [
+    RevogridModule,
+    BrowserModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
@@ -28,27 +47,28 @@ export class AppModule {}
 
 ```ts
 // app.component.ts
-
-import { Component } from "@angular/core";
+import { ColumnRegular } from '@revolist/revogrid';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+  selector: 'app-root',
+  template: `<revo-grid [source]="source" [columns]="columns" />`,
 })
 export class AppComponent {
-  columns = [
-    {  name: "Greeting", prop: "name" },
-    { prop: "details" }
+  source [
+      {
+        name: '1',
+        details: 'Item 1',
+      },
   ];
-  rows = [{ name: "I am", details: "Angular" }, { name: "Hello", details: "Angular" }];
+  columns: ColumnRegular[] = [
+      {
+        prop: 'name',
+        name: 'First',
+      },
+  ];
 }
 ```
 
-```html
-<!-- app.component.html -->
-<revo-grid [source]="rows" [columns]="columns" theme="material"></revo-grid>
-```
 Check [Sandbox](https://codesandbox.io/s/angular-datagrid-overview-d5i0b?fontsize=14&hidenavigation=1&theme=dark) for real live sample.
 Use [Repo](https://github.com/revolist/angular-datagrid-test) as a started if you wish.
 

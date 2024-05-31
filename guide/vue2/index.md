@@ -1,38 +1,53 @@
-# Vue 2
-
-The easiest way just to use [vue-datagrid](https://www.npmjs.com/package/@revolist/vue-datagrid) adaptor.
-
-Install with `npm i @revolist/vue-datagrid --save`
+# Getting Started
 
 
-After just use VueJst component:
+Revogrid provide special wrapper based on [stenciljs vue adapter](https://www.npmjs.com/package/@revolist/vue-datagrid). Just import it to your project and it can be used as part of vue system.
+
+::: code-group
+
+```npm
+npm i @revolist/vue-datagrid
+
+```
+
+```pnpm
+pnpm add @revolist/vue-datagrid
+```
+
+```yarn
+yarn add @revolist/vue-datagrid
+```
+
+```bun
+npm i @revolist/vue-datagrid
+```
+:::
 
 ```vue
+// App.vue
+
 <template>
-  <div id="app">
-    <v-grid
-      theme="compact"
-      :source="rows"
-      :columns="columns"
-    ></v-grid>
-  </div>
+  <!-- Use the VGrid component and bind the data source and columns -->
+  <v-grid :source="rows" :columns="columns" />
 </template>
- 
+
 <script>
-import VGrid from "@revolist/vue-datagrid";
+import Grid from '@revolist/vue-datagrid'; // Import the VGrid component
+
 export default {
-  name: "App",
+  name: 'App',
   data() {
     return {
-      columns: [{ prop: "name" }, { prop: "details" }],
-      rows: [{
-        name: "1",
-        details: "Item 1",
-      }]
+      // Define the columns for the grid
+      columns: [
+        { prop: 'name', name: 'First' }, // Simple column definition
+      ],
+      // Define the data source for the grid
+      rows: [{ name: '1', details: 'Item 1' }],
     };
   },
   components: {
-    VGrid,
+    VGrid, // Register the VGrid component
   },
 };
 </script>
