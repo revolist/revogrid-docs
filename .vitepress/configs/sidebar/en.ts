@@ -1,4 +1,4 @@
-import type { DefaultTheme } from 'vitepress/types/default-theme'
+import type { DefaultTheme } from 'vitepress'
 
 export const sidebarEn: DefaultTheme.Sidebar = {
     '/guide/': [
@@ -20,10 +20,6 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             collapsed: false,
             items: [
                 {
-                    text: 'Motivation',
-                    link: '/guide/motivation',
-                },
-                {
                     text: 'Overview',
                     link: '/guide/overview',
                 },
@@ -37,6 +33,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             text: 'Essentials',
             collapsed: false,
             items: [
+                {
+                    text: 'API',
+                    link: '/guide/api/revoGrid',
+                },
                 {
                     text: 'Features and Definitions',
                     link: '/guide/defs',
@@ -68,7 +68,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     link: '/guide/column/',
                     items: [
                         {
-                            text: 'Types',
+                            text: 'Format',
                             link: '/guide/column/types',
                         },
                         {
@@ -96,11 +96,11 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     link: '/guide/cell/properties',
                 },
                 {
-                    text: 'Renderer',
+                    text: 'Cell Renderer',
                     link: '/guide/cell/renderer',
                 },
                 {
-                    text: 'Editor',
+                    text: 'Cell Editor',
                     link: '/guide/cell/editor',
                 },
             ],
@@ -128,22 +128,8 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             ],
         },
         {
-            text: 'Theme Manager',
-            collapsed: true,
-            items: [
-                {
-                    text: 'Theme',
-                    link: '/guide/theme/theme',
-                },
-                {
-                    text: 'Light Theme',
-                    link: '/guide/theme/theme.light',
-                },
-                {
-                    text: 'Dark Theme',
-                    link: '/guide/theme/theme.dark',
-                },
-            ],
+            text: 'Export',
+            link: '/guide/export.plugin',
         },
         {
             text: 'Filtering',
@@ -154,20 +140,12 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             link: '/guide/sorting',
         },
         {
-            text: 'Export',
-            link: '/guide/export.plugin',
+            text: 'SSR',
+            link: '/guide/ssr',
         },
         {
-            text: 'Versioning',
-            link: '/guide/migration',
-        },
-        {
-            text: 'API',
-            link: '/guide/api/revoGrid',
-        },
-        {
-            text: 'Contributor Guide',
-            link: '/guide/CONTRIBUTING',
+            text: 'Theme Manager',
+            link: '/guide/theme',
         },
         {
             text: 'Frameworks',
@@ -177,8 +155,11 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     collapsed: true,
                     items: [
                         { text: 'Getting Started', link: '/guide/angular/' },
-                        { text: 'Renderer', link: '/guide/angular/renderer' },
-                        { text: 'Editor', link: '/guide/angular/editor' },
+                        {
+                            text: 'Cell Renderer',
+                            link: '/guide/angular/renderer',
+                        },
+                        { text: 'Cell Editor', link: '/guide/angular/editor' },
                         // {
                         //     text: 'Web Component',
                         //     link: '/guide/angular/webcomponent',
@@ -190,23 +171,27 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     collapsed: true,
                     items: [
                         { text: 'Getting Started', link: '/guide/react/' },
-                        { text: 'Renderer', link: '/guide/react/renderer' },
-                        { text: 'Editor', link: '/guide/react/editor' },
+                        {
+                            text: 'Cell Renderer',
+                            link: '/guide/react/renderer',
+                        },
+                        { text: 'Cell Editor', link: '/guide/react/editor' },
                     ],
                 },
                 {
                     text: 'Svelte',
                     collapsed: true,
-                    items: [{ text: 'Getting Started', link: '/guide/svelte/' }],
+                    items: [
+                        { text: 'Getting Started', link: '/guide/svelte/' },
+                    ],
                 },
-                { text: 'TypeScript', link: '/guide/ts/' },
                 {
                     text: 'Vue 2',
                     collapsed: true,
                     items: [
                         { text: 'Getting Started', link: '/guide/vue2/' },
-                        { text: 'Renderer', link: '/guide/vue2/renderer' },
-                        { text: 'Editor', link: '/guide/vue2/editor' },
+                        { text: 'Cell Renderer', link: '/guide/vue2/renderer' },
+                        { text: 'Cell Editor', link: '/guide/vue2/editor' },
                         // {
                         //     text: 'Web Component',
                         //     link: '/guide/vue2/webcomponent',
@@ -218,11 +203,31 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     collapsed: true,
                     items: [
                         { text: 'Getting Started', link: '/guide/vue3/' },
-                        { text: 'Renderer', link: '/guide/vue3/renderer' },
-                        { text: 'Editor', link: '/guide/vue3/editor' },
+                        { text: 'Cell Renderer', link: '/guide/vue3/renderer' },
+                        { text: 'Cell Editor', link: '/guide/vue3/editor' },
                     ],
                 },
             ],
+        },
+        {
+            text: 'Advance',
+            items: [
+                {
+                    text: 'Single file bundle',
+                    link: '/guide/single.bundle',
+                },
+
+                { text: 'TypeScript', link: '/guide/ts/' },
+                { text: 'Slots', link: '/guide/slots' },
+            ],
+        },
+        {
+            text: 'Contributor Guide',
+            link: '/guide/CONTRIBUTING',
+        },
+        {
+            text: 'Versioning',
+            link: '/guide/migration',
         },
     ],
 
@@ -232,11 +237,18 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             link: '/demo/',
         },
         {
-            text: 'JS',
+            text: 'Vanilla Js',
             items: [
                 {
                     text: 'First run',
                     link: '/demo/js/js.first',
+                },
+                {
+                    text: 'Grouping',
+                    link: '/demo/vue/vue.grouping',
+                },
+                {
+                    text: 'Individual row sizes',
                 },
             ],
         },
@@ -254,8 +266,55 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             ],
         },
         {
-            text: 'Vue',
+            text: 'Angular',
             items: [
+                {
+                    text: 'Cell component',
+                    link: '/demo/vue/vue.list',
+                },
+                {
+                    text: 'Editor component',
+                    link: '/demo/vue/vue.list',
+                },
+            ],
+        },
+        {
+            text: 'React',
+            items: [
+                {
+                    text: 'Cell component',
+                    link: '/demo/vue/vue.list',
+                },
+                {
+                    text: 'Editor component',
+                    link: '/demo/vue/vue.list',
+                },
+            ],
+        },
+        {
+            text: 'Svelte',
+            items: [
+                {
+                    text: 'Cell component',
+                    link: '/demo/vue/vue.list',
+                },
+                {
+                    text: 'Editor component',
+                    link: '/demo/vue/vue.list',
+                },
+            ],
+        },
+        {
+            text: 'Vue 2',
+            items: [
+                {
+                    text: 'Cell component',
+                    link: '/demo/vue/vue.list',
+                },
+                {
+                    text: 'Editor component',
+                    link: '/demo/vue/vue.list',
+                },
                 {
                     text: 'List',
                     link: '/demo/vue/vue.list',

@@ -60,12 +60,14 @@
 ### Depends on
 
 - [revogr-edit](./editors)
+- [revogr-clipboard](./clipboard)
 - [revogr-order-editor](./order)
 
 ### Graph
 ```mermaid
 graph TD;
   revogr-overlay-selection --> revogr-edit
+  revogr-overlay-selection --> revogr-clipboard
   revogr-overlay-selection --> revogr-order-editor
   revo-grid --> revogr-overlay-selection
   style revogr-overlay-selection fill:#f9f,stroke:#333,stroke-width:4px

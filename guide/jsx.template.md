@@ -1,22 +1,27 @@
-# JSX/TSX - Custom content render
+# JSX/TSX - Custom Content Rendering
 
-It is called JSX (TSX if you use Typescript), and it is a syntax extension to JavaScript.
-We strongly recommend to use it during template rendering. It'll simplify your life a lot.
+JSX (or TSX if you're using TypeScript) is a syntax extension to JavaScript that simplifies template rendering. We highly recommend using JSX/TSX as it will make your development process much easier.
 
-Probably you always associated it with React, but it's not. It is just a way to render things. 
-You can add it to any project you like.
+```jsx
+const MyTemplate = (h, column) =>
+  <span style={{ color: 'red' }}>
+    <div class="me">{ column.name }</div>
+  </span>
+```
 
-We are using it in all projects, it makes things easier. For example this is regular column header rendering with createElement:
+While JSX is commonly associated with React, it is not exclusive to it. JSX is simply a way to render content and can be used in any project you choose. We use JSX/TSX in all our projects because it simplifies the rendering process. 
+
+For example, consider a regular column header rendered with `createElement`:
 
 ```js
 const columnTemplate = (createElement, column) => {
-    return createElement('span', {
-      style: {
-        color: 'red'
-      },
-    }, createElement('div', {
-        class: 'me'
-    }, column.name));
+  return createElement('span', {
+    style: {
+      color: 'red'
+    },
+  }, createElement('div', {
+    class: 'me'
+  }, column.name));
 };
 const columns = [{
   name: 'Person name',
@@ -25,21 +30,26 @@ const columns = [{
 }];
 ```
 
-Imagine what will happened if you have 10 children nodes and more. 
-And now let's make it with JSX or TSX.
+Now imagine having 10 or more child nodes. This can quickly become complex. Let's simplify it with JSX or TSX.
 
-Let's create `myJsx.jsx` file:
+> [!WARNING]
+> Remember to escape any HTML code to prevent XSS attacks.
+
+
+First, create a myJsx.jsx file:
 
 ```jsx
 export const myTemplate = (h, column) => {
-    return <span style={{color: 'red'}}><div class="me">{column.name}</div></span>;
+  return <span style={{color: 'red'}}>
+    <div class="me">{column.name}</div>
+  </span>;
 }
 ```
 
 Then in our main file:
 
 ```js
-import { myTemplate } from "./myJsx";
+import { myTemplate } from `./myJsx`;
 const columns = [{
   name: 'Person name',
   prop: 'name',
@@ -50,13 +60,4 @@ const columns = [{
 Quite simple, right?
 
 
-[Check sample](https://codesandbox.io/s/revo-grid-vanilla-jsx-zj0q6?file=/src/index.js).
-We use here `babel-jsx` with minimal config settings.
-
-<ClientOnly>
-  <iframe src="https://codesandbox.io/embed/revo-grid-vanilla-jsx-zj0q6?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="revo-grid-vanilla-jsx"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
-</ClientOnly>
+<!--@include: ../demo/jsx/jsx.simple.example.md -->

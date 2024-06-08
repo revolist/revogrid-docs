@@ -1,5 +1,6 @@
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 import svgLoader from 'vite-svg-loader'
 import { navbarEn } from './configs/navbar'
 import { sidebarEn } from './configs/sidebar'
@@ -23,8 +24,7 @@ export const slugify = (str: string): string =>
         // ensure it doesn't start with a number
         .replace(/^(\d)/, '_$1')
 
-// https://vitepress.dev/reference/site-config
-export default defineConfig({
+const mermaidCfg = withMermaid({
     title: 'Revo Grid',
     appearance: 'dark',
     description: 'Data Grid Library on steroids - Revogrid',
@@ -45,7 +45,10 @@ export default defineConfig({
         },
     },
     head: [
-        ['link', { rel: 'icon', type: 'image/svg+xml', href: '/images/logo.svg' }],
+        [
+            'link',
+            { rel: 'icon', type: 'image/svg+xml', href: '/images/logo.svg' },
+        ],
         ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
         [
             'meta',
@@ -69,21 +72,22 @@ export default defineConfig({
         logo: '/images/logo.svg',
         outline: [2, 3],
         socialLinks: [
-            { icon: 'x', link: 'https://twitter.com/posva' },
+            { icon: 'x', link: 'https://x.com/revolist_ou/' },
             {
                 icon: 'github',
-                link: 'https://github.com/vuejs/router',
+                link: 'https://github.com/revolist/revogrid',
             },
         ],
 
         footer: {
             copyright: 'Copyright © 2014-present',
-            message: 'Revogrid is an open source project by Revolist OU. <br/> Join, contribute, grow with us—everyone is welcome.<br/><br/>',
+            message:
+                'Revogrid is an open source project by Revolist OU. <br/> Join, contribute, grow with us—everyone is welcome.<br/><br/>',
         },
 
         editLink: {
             pattern:
-                'https://github.com/vuejs/router/edit/main/packages/docs/:path',
+                'https://github.com/revolist/revogrid/edit/main/packages/docs/:path',
             text: 'Suggest changes',
         },
 
@@ -92,7 +96,7 @@ export default defineConfig({
             options: {
                 appId: 'BTNTW3I1XP',
                 apiKey: '771d10c8c5cc48f7922f15048b4d931c',
-                indexName: 'next_router_vuejs',
+                indexName: 'revolist/revogrid',
             },
         },
         nav: navbarEn,
@@ -112,4 +116,7 @@ export default defineConfig({
             ],
         },
     },
-})
+});
+
+// https://vitepress.dev/reference/site-config
+export default defineConfig(mermaidCfg)

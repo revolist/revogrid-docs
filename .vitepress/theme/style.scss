@@ -232,6 +232,13 @@
 
     .VPFeature {
         line-height: 1.12;
+        padding: 15px;
+
+        &.link:hover {
+            background-color: var(--vp-c-bg);
+            border-color: transparent !important;
+        }
+
         .box {
           padding: 0;
         }

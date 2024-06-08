@@ -1,10 +1,15 @@
 # Cell renderer
 
-This article explaines how to use custom cell function to display HTML content in a cell.
-<br>Or you can use [predefined column types](./column.types.html).
+This article explains how to use a custom cell function to display HTML content in a cell.
+<br>Alternatively, you can use [predefined column types](../column/types.md).
+
+> [!TIP]
+> Use [JSX](../jsx.template.md) to simplify your code and render HTML content.
 
 
-`Remember` to escape any HTML code that could be used for XSS attacks.
+> [!WARNING]
+> Remember to escape any HTML code that could be used for XSS attacks.
+
 
 ```js
 const columns = [{

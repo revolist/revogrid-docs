@@ -1,24 +1,59 @@
 # Sorting
 
-Adding sorting is quite straightforward:
- - Add `sortable` property to column - enables sorting triggering on header click;
- - Add `order` property to column - makes column sorted in `asc` or `desc` order by default;
+## Sorting in Revogrid
 
+Adding sorting to your grid is quite straightforward:
 
-## Sorting events
+- **Add `sortable` property to the column**: Enables sorting to be triggered on header click.
+- **Add `order` property to the column**: Specifies the default sorting order, either `asc` (ascending) or `desc` (descending).
+- **(Optional) Add `cellCompare` method to the column**: Provides custom sorting logic.
 
-- `beforeSorting` - `CustomEvent<{ column: Revogrid.ColumnRegular, order: 'desc'|'asc' }>`. Triggered after header click before sorting started. Use `e.preventDefault()` in case you want prevent any farther sorting chain, `beforeSortingApply` will not be triggered.
-- `beforeSortingApply` - `CustomEvent<{ column: Revogrid.ColumnRegular, order: 'desc'|'asc' }>`.
-Triggered before sorting data get applied. Use `e.preventDefault()` in case you want avoid data sorting and apply your own, at this case don't forget to look at `beforeSourceSortingApply` to prevent additionaly sorting during source apply.
-- `beforeSourceSortingApply` - `CustomEvent`. Triggered before sorting apply on `source` data change.  Use `e.preventDefault()` in case you don't need auto sorting apply when new `source` income.
+### Example
 
-For more details please look at API section and column data schema interfaces.
+Here’s an example of how to add sorting to your columns:
 
-```js
-const columns = [{
-  name: 'Person name',
-  prop: 'name',
-  sortable: true,
-  order: 'asc'
-}];
+```javascript
+const columns = [
+  {
+    name: 'Name',
+    prop: 'name',
+    sortable: true,  // Enables sorting
+    order: 'asc',     // Default sorting order
+    cellCompare: (a, b) => { // Custom sorting logic
+      return a - b;
+    }
+  },
+];
+
+const items = [
+  { name: 'John Doe', age: 30 },
+  { name: 'Jane Smith', age: 25 }
+];
+
+grid.columns = columns;
+grid.source = items;
 ```
+
+
+
+## Sorting Events
+
+:::tip
+For more details, please refer to the API section and the column data schema interfaces.
+:::
+
+
+- **`beforesorting`** - `CustomEvent<{ column: ColumnRegular, order: 'desc' | 'asc' }>` - Triggered after a header click and before sorting starts. Use `e.preventDefault()` to prevent any further sorting chain. If this event is prevented, `beforesortingapply` will not be triggered.
+
+- **`beforesortingapply`** - `CustomEvent<{ column: ColumnRegular, order: 'desc' | 'asc' }>` - Triggered before the sorting data is applied. Use `e.preventDefault()` to avoid the default data sorting and implement your own sorting logic.
+
+- **`aftersortingapply`** - Triggered after sorting has been applied and completed. This event occurs for both row and column sorting.
+
+
+
+## Lifecycle
+
+1. **`@event` `beforesorting`** - Triggered when sorting is initiated. At this point, no changes have been made yet. This event can be triggered by sorting from a column or from the source. If the sorting type is from rows, the column will be undefined.
+2. **`@method` `updateColumnSorting`** - This method updates the column sorting icon on the grid and the column itself, but the data remains unchanged.
+3. **`@event` `beforesortingapply`** - Triggered before the sorting data is applied to the data source. You can prevent this event to stop the data from being sorted. This event is only called when sorting is initiated from a column click.
+4. **`@event` `aftersortingapply`** - Triggered after the sorting has been applied and completed. This event occurs for both row and column sorting. If you prevent this event, the subsequent steps will not be executed.

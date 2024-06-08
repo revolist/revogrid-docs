@@ -30,66 +30,113 @@ features:
     icon: 
       src: ./images/reactivity.svg
     details: The grid core is built upon an advanced reactive approach. By incorporating smart recombination, it handles substantial data loads and intricate operations.
+    link: ./guide/overview.md#Magic-behind-the-scene
+    linkText: Read mode
   - title: Enhanced Customization Toolkit
     icon: 
       src: ./images/template.svg
     details: Template every element - cells, rows, columns, headers. Customize nearly every action keeping performance with internal VNode support.
+    link: ./guide/cell/renderer
+    linkText: Read mode
+
   - title: TypeScript support
     icon: 
       src: ./images/ts.svg
     details: Revogrid uses TypeScript, providing your components with type safety as your system scales.
+    link: ./guide/ts/
+    linkText: Read mode
+    
   - title: JSX support
     icon: 
       src: ./images/jsx.svg
     details: Leverage a widely recognized templating syntax to describe your custom content, ensuring a fast and reactive DOM while utilizing the full range of JavaScript's features.
+    link: ./guide/jsx.template
+    linkText: Read mode
+
   - title: Pinning/Freezing
     icon: 
       src: ./images/pin.svg
     details: Pin any row or column, to the any edge of the screen, ensure that specific elements remain visible while scrolling.
+    link: ./guide/column/columnPin
+    linkText: Read mode
+
   - title: Range Selection
     icon: 
       src: ./images/range.svg
     details: Allows users to select and manipulate a range of cells efficiently.
+    link: ./guide/defs.md#Focus
+    linkText: Read mode
+
   - title: Column Operations
     icon: 
       src: ./images/column.svg
     details: Comprehensive column customization, including resizing, reordering, grouping and defining data types.
+    link: ./guide/column/
+    linkText: Read mode
+
   - title: Filtering
     icon: 
       src: ./images/filter.svg
     details: Transparent system filters and the ability to define custom filter operations for refining data.
+    link: ./guide/filters
+    linkText: Read mode
+
   - title: Sorting
     icon: 
       src: ./images/sort.svg
     details: Powerful sorting functionality for organizing data based on various criteria.
-  - title: Grouping
+    link: ./guide/sorting
+    linkText: Read mode
+
+  - title: Data Grouping
     icon: 
       src: ./images/group.svg
     details: Supports grouping of data on multiple levels for improved organization.
+    link: ./guide/jsx.template
+    linkText: Read mode
+
   - title: Cell Editing
     icon: 
       src: ./images/edit.svg
     details: Enables users to edit cell contents directly within the grid. Customize editors using provided templates to suit specific needs.
+    link: ./guide/cell/editor
+    linkText: Read mode
+
   - title: Clipboard Support
     icon: 
       src: ./images/clipboard.svg
     details: Facilitates copy-paste operations for seamless data transfer.
+    link: ./guide/defs#Clipboard
+    linkText: Read mode
+
   - title: Export to Excel/CSV
     icon: 
       src: ./images/export.svg
     details: Provides options to export grid data to Excel or CSV formats.
-  - title: Context Menu
+    link: ./guide/export.plugin
+    linkText: Read mode
+
+  - title: Slots
     icon: 
       src: ./images/menu.svg
-    details: Customizable context menu for additional user actions and interactions.
+    details: Customizable containers for custom components.
+    link: ./guide/slots
+    linkText: Read mode
+
   - title: Tree Data
     icon: 
       src: ./images/tree.svg
     details: Support for hierarchical data representation and management.
+    link: ./guide/defs#Row-Grouping
+    linkText: Read mode
+
   - title:  Keyboard Support
     icon: 
       src: ./images/keyboard.svg
     details: Handle all popular keyboard events, and unleash your creativity by extending functionality according to your unique requirements.
+    link: ./guide/defs#Keyboard
+    linkText: Read mode
+
 integrations:
 - title: Vue
   icon: vuejs

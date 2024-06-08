@@ -1,8 +1,10 @@
 <template>
     <VGrid
+        readonly
         :theme="isDark ? 'darkMaterial' : 'material'"
         range="true"
         row-size="40"
+        :resize="true"
         :source="gridData"
         :columns="gridColumns"
     />
@@ -54,7 +56,6 @@ const gridColumns = [
                     width: barWidth,
                     height: barHeight,
                     fill: 'blue',
-                    stroke: 'black',
                 })
 
                 // Append the rectangle to the group

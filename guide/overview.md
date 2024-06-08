@@ -1,10 +1,18 @@
 # Overview
 
-So, you have an app that manages intensive datasets and you might think it’s straightforward enough to handle on your own. After all, implementing virtual scrolling might seem like all it takes. But what happens when your needs grow?
+So, you have an app that manages intensive datasets and you might think it’s straightforward enough to handle on your own. After all, implementing virtual scrolling might seem like all it takes. 
 
-Suppose you want to `pin` a row at the top or bottom, `add a column` that also needs to be pinned, and then start `grouping` these elements. Soon, you might find yourself needing `multiple cell focus` and `range selections`. This is where the complexity increases significantly.
+> But what happens when your needs grow?
 
-In scenarios like this, maintaining performance while adding sophisticated grid functionalities can become daunting. That's where Revogrid comes in.
+Suppose you want to [`pin`](./defs.md#Row-Pin-Freeze) a row at the top or bottom. [`Add a column`](./defs.md#Column) that also needs to be pinned. And then start [`grouping`](./defs.md#Row-Grouping) these elements. Soon, you might find yourself needing [`cell focus`](./defs.md#Focus) and [`range selections`](./defs.md#Range). This is where the complexity increases significantly.
+
+In scenarios like this, maintaining performance while adding sophisticated grid functionalities can become difficult.
+
+## Motivation
+
+Confronted with vast data streams, we realized the limitations of existing solutions: while on-market 3rd-party libraries offered temporary respite, they came with their own set of challenges—prompting us to think beyond conventional method:
+
+> Our goal is to create a  truly reactive datagrid core, one that could stand shoulder to shoulder with any framework while being universally accessible for developers and organizations alike. It's designed to handle the most demanding data without compromising on performance, ensuring that your applications run smoothly and efficiently.
 
 
 ## Magic behind the scene

@@ -42,6 +42,7 @@ All events propagate to the root level of the grid.
 | `plugins`            | --                  | Custom grid plugins. Has to be predefined during first grid init. Every plugin should be inherited from BasePlugin.                                                                                                                                                                                             | `PluginExternalConstructor[]`                                                                                                                                                                                                                    | `undefined` |
 | `range`              | `range`             | When true, user can range selection.                                                                                                                                                                                                                                                                            | `boolean`                                                                                                                                                                                                                                        | `false`     |
 | `readonly`           | `readonly`          | When true, grid in read only mode.                                                                                                                                                                                                                                                                              | `boolean`                                                                                                                                                                                                                                        | `false`     |
+| `registerVNode`      | --                  | Register new virtual node inside of grid. Used for additional items creation such as plugin elements. Should be set before grid render inside of plugins.                                                                                                                                                       | `VNode[]`                                                                                                                                                                                                                                        | `[]`        |
 | `resize`             | `resize`            | When true, columns are resizable.                                                                                                                                                                                                                                                                               | `boolean`                                                                                                                                                                                                                                        | `false`     |
 | `rowClass`           | `row-class`         | Row class property mapping. Map custom classes to rows from row object data. Define this property in rgRow object and this will be mapped as rgRow class.                                                                                                                                                       | `string`                                                                                                                                                                                                                                         | `''`        |
 | `rowDefinitions`     | --                  | Custom row properies to be applied. See `RowDefinition` for more info.                                                                                                                                                                                                                                          | `RowDefinition[]`                                                                                                                                                                                                                                | `[]`        |
@@ -268,24 +269,6 @@ Type: `Promise<void>`
 
 
 
-### `registerVNode(elements: VNode[]) => Promise<void>`
-
-Register new virtual node inside of grid.
-Used for additional items creation such as plugin elements.
-Should be called before render inside of plugins.
-
-#### Parameters
-
-| Name       | Type      | Description |
-| ---------- | --------- | ----------- |
-| `elements` | `VNode[]` |             |
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
 ### `scrollToColumnIndex(coordinate?: number) => Promise<void>`
 
 Scrolls viewport to specified column by index.
@@ -444,10 +427,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot                                 | Description |
-| ------------------------------------ | ----------- |
-| `"data-{column-type}-{row-type}."`   |             |
-| `"focus-${view.type}-${data.type}."` |             |
+| Slot                                | Description |
+| ----------------------------------- | ----------- |
+| `"data-{column-type}-{row-type}."`  |             |
+| `"focus-{column-type}-{row-type}."` |             |
 
 
 ## Dependencies
@@ -479,6 +462,7 @@ graph TD;
   revogr-row-headers --> revogr-header
   revogr-data --> vnode-html
   revogr-overlay-selection --> revogr-edit
+  revogr-overlay-selection --> revogr-clipboard
   revogr-overlay-selection --> revogr-order-editor
   style revo-grid fill:#f9f,stroke:#333,stroke-width:4px
 ```

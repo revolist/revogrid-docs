@@ -1,27 +1,40 @@
 ## Versions
 
 ### 2.0+
-- Introduced the plugin system, grouping, sorting, and filtering.
+
+-   Introduced the plugin system, grouping, sorting, and filtering.
 
 ### 3.0+
-- **Breaking Changes**:
-    - Removed the redundant viewport component.
-    - Renamed classes to support Bootstrap and other libraries:
-        - `row` -> `rgRow`
-        - `col` -> `rgCol`
-        - `data-cell` -> `rgCell`
-        - `data-header-cell` -> `rgHeaderCell`
-    - Migrated all method names to lowercase to align with modern event naming conventions. For example, `afterEdit` is now `afteredit`. Check the API for details.
-    - Added support for pure ESM modules to enable the use of the grid in all modern frontend tooling like Vite, Parcel, etc. You can now import custom elements without lazy loading. Note that you are responsible for polyfills.
+
+-   **Breaking Changes**:
+    -   Removed the redundant viewport component.
+    -   Renamed classes to support Bootstrap and other libraries:
+        -   `row` -> `rgRow`
+        -   `col` -> `rgCol`
+        -   `data-cell` -> `rgCell`
+        -   `data-header-cell` -> `rgHeaderCell`
+    -   Migrated all method names to lowercase to align with modern event naming conventions. For example, `afterEdit` is now `afteredit`. Check the API for details.
+    -   Added support for pure ESM modules to enable the use of the grid in all modern frontend tooling like Vite, Parcel, etc. You can now import custom elements without lazy loading. Note that you are responsible for polyfills.
 
 ### 4.0+
-- **Breaking Changes**:
-    - Rethought the entire framework approach.
-    - Redesigned type support.
-    - New event system. Event names are all lowercase now and are aligned with modern event naming conventions. For example, `afterEdit` is now `afteredit`.
-    - Introduced slot support.
-    - Advanced template support.
-    - Redesigned the documentation.
-    - Fixed major issues and significantly improved overall performance, making the grid much faster.
-    - Enhanced plugin support.
-    - Provided full framework support for Angular, React, and Vue, with partial support for Ember and Svelte.
+
+-   **Breaking Changes**:
+    -   Redesigned type support:
+        - Removed deprecated namespaces:
+            - **Before**: `RevoGrid.ColumnDataSchemaRegular`
+            - **Now**: `ColumnDataSchemaRegular`;
+        - Improved type import:
+            - **Before**: `import { RevoGrid } from '@revolist/revogrid/dist/types/interfaces'`
+            - **Now**: `import { ColumnDataSchemaRegular } from '@revolist/revogrid'`.
+    -   Updated [event](./api/revoGrid.md#Events) naming convention. Review your [event](./api/revoGrid.md#Events) usage. [Event names](./api/revoGrid.md#Events) are all lowercase now and are aligned with modern event naming conventions. For example, `afterEdit` -> `afteredit`.
+
+-   **Major improvements**:
+    -   Rethought the entire framework approach. Introduced Pro version with advance support and pro features.
+    -   Introduced slot support.
+    -   Updated scrolling system for better mobile support.
+    -   Advance template support. Introduced `additionalData` for templates and editors. `Prop` gives access to parent/root app context.
+    -   Redesigned the documentation.
+    -   Fixed major issues and significantly improved overall performance, making the grid multiple time faster.
+    -   Enhanced plugin support - now with full access to grid providers.
+    -   Updated documentation.
+    -   Provided full framework support and native render for [Angular](./angular/), [React](./react/), and [Vue](./vue3/), with partial support for Ember and [Svelte](./svelte/).

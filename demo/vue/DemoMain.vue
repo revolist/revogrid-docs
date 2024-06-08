@@ -1,22 +1,43 @@
 <template>
     <VGrid
-        :theme="isDark ? 'darkMaterial' : 'material'"
+        resize
+        row-headers
+        :theme="isDark ? 'darkMaterial' : 'compact'"
         :source="gridData"
         :columns="gridColumns"
         :column-types="gridColumnTypes"
         :filter="true"
         :range="true"
-        row-size="40"
+        row-size="36"
     />
 </template>
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import VGrid from '@revolist/vue3-datagrid'
 import ColumnDate from '@revolist/revogrid-column-date'
 import ColumnNumeral from '@revolist/revogrid-column-numeral'
 import ColumnSelect from '@revolist/revogrid-column-select'
 import { useData } from 'vitepress'
-import { stocks } from './stock.json'
+import { people } from './people.json'
+import { ColumnDataSchema } from '@revolist/revogrid'
+
+function generateHeader(index: number) {
+    const asciiFirstLetter = 65
+    const lettersCount = 26
+    let div = index + 1
+    let label = ''
+    let pos
+    while (div > 0) {
+        pos = (div - 1) % lettersCount
+        label = String.fromCharCode(asciiFirstLetter + pos) + label
+        div = parseInt(((div - pos) / lettersCount).toString(), 10)
+    }
+    return label
+}
+
+function getRandomArbitrary(min: number, max: number) {
+    return Math.random() * (max - min) + min
+}
 
 const { isDark } = useData()
 const gridColumnTypes: { [name: string]: any } = {
@@ -24,114 +45,107 @@ const gridColumnTypes: { [name: string]: any } = {
     number: new ColumnNumeral(),
     select: new ColumnSelect(),
 }
-const gridColumns = [
+const gridColumns: ColumnDataSchema[] = [
     {
-        name: '🎰 Ticker',
-        prop: 'symbol',
-        sortable: true,
-        order: 'asc',
-        pin: 'colPinStart',
-        size: 120,
-
-        cellTemplate(h, { model, prop }) {
-            return h('strong', null, model[prop])
-        },
-        labelKey: 'label',
-        valueKey: 'value',
-        source: [
-            { label: 'According', value: 'According' },
-            { label: 'Over', value: 'Over' },
-            { label: 'Source', value: 'Source' },
-        ],
-        columnType: 'select',
-    },
-    {
-        name: '🔠 Company',
+        name: 'Autosize',
         children: [
             {
-                name: 'Name',
-                prop: 'company_name',
-                size: 300,
-            },
-        ],
-    },
-    {
-        name: '',
-        prop: '📉 graph',
-        readonly: true,
-        cellTemplate(h) {
-            const barWidth = 5
-            const barSpacing = 5
-            const maxHeight = 30
-            const bars = []
+                name: '🎰 Name',
+                prop: 'name',
+                rowDrag: true,
+                sortable: true,
+                order: 'asc',
+                pin: 'colPinStart',
+                size: 200,
+                autoSize: true,
 
-            // Draw 5 vertical bars with random heights
-            for (let i = 0; i < 5; i++) {
-                const barHeight = Math.random() * maxHeight
-                const x = i * (barWidth + barSpacing)
-                const y = maxHeight - barHeight + 5
-
-                // Create the rectangle element for the bar
-                const rect = h('rect', {
-                    key: i,
-                    x,
-                    y,
-                    width: barWidth,
-                    height: barHeight,
-                    fill: 'blue',
-                    stroke: 'black',
-                })
-
-                // Append the rectangle to the group
-                bars.push(rect)
-            }
-            return h(
-                'svg',
-                {
-                    width: '100%',
-                    height: maxHeight + 10,
+                cellTemplate(h, { model, prop }) {
+                    return h('strong', null, model[prop])
                 },
-                h('g', {}, bars)
-            )
-        },
-    },
-    {
-        name: 'Attributes',
-        children: [
-            {
-                name: '💰 Price',
-                prop: 'price',
-                size: 120,
-            },
-            {
-                name: '⬆️ Change',
-                prop: 'change',
-                size: 140,
-            },
-            {
-                name: '% Change',
-                prop: 'percent_change',
-                size: 120,
             },
         ],
+    },
+    {
+        name: 'Personal',
+        children: [
+            {
+                sortable: true,
+                name: 'Age',
+                prop: 'age',
+            },
+            {
+                sortable: true,
+                name: 'Company',
+                prop: 'company',
+                size: 200,
+                columnType: 'select',
+                source: Object.keys(
+                    people.reduce((r, p) => {
+                        r[p.company] = p.company
+                        return r
+                    }, {})
+                ),
+            },
+            {
+                name: 'Eyes',
+                prop: 'eyeColor',
+                sortable: true,
+                cellTemplate: (createElement, props) =>
+                    createElement(
+                        'span',
+                        {
+                            class: 'bubble',
+                            style: {
+                                backgroundColor: props.model[props.prop],
+                            },
+                        },
+                        props.model[props.prop]
+                    ),
+                
+                columnType: 'select',
+                source: ['green', 'blue', 'brown', 'red', 'yellow'],
+            },
+        ],
+    },
+    {
+        name: 'Birth date',
+        prop: 'date',
+        columnType: 'date',
+        size: 150,
     },
 ]
 
-const data = ref(stocks)
-const gridData = computed(() => data.value)
-setInterval(() => {
-    data.value = data.value.map((stock) => {
-        return {
-            ...stock,
-            price: (Math.random() * 4000).toFixed(2),
-            change: (Math.random() * (20 - -5) + -5).toFixed(2),
-        }
+const colsNumber = 100
+for (let j = 0; j < colsNumber; j++) {
+    gridColumns.push({
+        name: generateHeader(j),
+        prop: j,
+        columnType: 'number',
     })
-}, 1000)
+}
+
+const gridData = ref(
+    people.map((row) => {
+        const newRow = { ...row, highlighted: row.eyeColor, date: '2020-08-24' }
+        for (let j = 0; j < colsNumber; j++) {
+            newRow[j] = getRandomArbitrary(0, 10000)
+        }
+        return newRow
+    })
+)
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 revo-grid {
     min-height: 500px;
+}
+:deep() {
+    .bubble {
+        display: inline-block;
+        line-height: 24px;
+        border-radius: 12px;
+        padding: 0 10px;
+        color: white;
+    }
 }
 </style>
