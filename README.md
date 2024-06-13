@@ -119,7 +119,7 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 
 ---
 
-For more information, visit the [RevoGrid GitHub repository](https://github.com/revolist/revogrid) and the [official website](https://revolist.io).
+For more information, visit the [RevoGrid GitHub repository](https://github.com/revolist/revogrid) and the [official website](https://revolist.eu).
 ```
 
 This `README.md` provides clear instructions on how to set up, fill, and contribute to the VitePress-based RevoGrid documentation. Adjust as needed to better fit the specific requirements of the project.
