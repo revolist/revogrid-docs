@@ -36,4 +36,4 @@ graph TD;
 
 ----------------------------------------------
 
-*Built with love by Revolist OU*
+*Built with ❤️ by Revolist OU*

@@ -4,7 +4,7 @@
 
 ## Overview
 
-High-performance, customizable grid library for managing large datasets.
+Revogrid - High-performance, customizable grid library for managing large datasets.
 
 :::tip
 Read [type definition file](https://github.com/revolist/revogrid/blob/master/src/interfaces.d.ts) for the full interface information.
@@ -64,6 +64,7 @@ All events propagate to the root level of the grid.
 | `aftercolumnsset`     | Column updated                                                                                                                                                                                                                                                                                                  | `CustomEvent<{ columns: ColumnCollection; order: Record<ColumnProp, "asc" \| "desc">; }>`                                                                                                                                                     |
 | `afteredit`           | Triggered after data applied or range changed.                                                                                                                                                                                                                                                                  | `CustomEvent<{ data: DataLookup; models: { [rowIndex: number]: DataType; }; type: DimensionRows; } \| { prop: ColumnProp; model: DataType; val?: string; rowIndex: number; colIndex: number; colType: DimensionCols; type: DimensionRows; }>` |
 | `afterfocus`          | Triggered after focus render finished. Can be used to access a focus element through `event.target`                                                                                                                                                                                                             | `CustomEvent<{ model: any; column: ColumnRegular; }>`                                                                                                                                                                                         |
+| `aftergridinit`       | Emmited after the grid is initialized. Connected to the DOM.                                                                                                                                                                                                                                                    | `CustomEvent<any>`                                                                                                                                                                                                                            |
 | `aftersourceset`      | After main source/rows updated                                                                                                                                                                                                                                                                                  | `CustomEvent<{ type: DimensionRows; source: DataType[]; }>`                                                                                                                                                                                   |
 | `aftertrimmed`        | Emitted after trimmed values have been applied. Useful for notifying when trimming of values has taken place.                                                                                                                                                                                                   | `CustomEvent<any>`                                                                                                                                                                                                                            |
 | `beforeange`          | Triggered before range applied. Use e.preventDefault() to prevent range.                                                                                                                                                                                                                                        | `CustomEvent<{ type: DimensionRows; colType: DimensionCols; newRange: RangeArea; oldRange: RangeArea; mapping: OldNewRangeMapping; newData: { [key: number]: DataType; }; }>`                                                                 |
@@ -469,4 +470,4 @@ graph TD;
 
 ----------------------------------------------
 
-*Built with love by Revolist OU*
+*Built with ❤️ by Revolist OU*
