@@ -1,6 +1,6 @@
 <!--@include: ./cross-framework-banner.md-->
 
-- [Angular](./angular/) – Setup and usage in Angular environments.
+- [Angular](./angular/index.md) – Setup and usage in Angular environments.
 - [React](./react/) – Usage within React applications.
 - [Svelte](./svelte/) – Integrating into Svelte projects.
 - [Vue 2](./vue2/) – Specific adaptations for Vue 2.

@@ -2,7 +2,7 @@
     <component :is="icon" class="fill-current" />
 </template>
 <script lang="ts" setup>
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, computed } from 'vue'
 
 const props = defineProps({
     src: {
@@ -11,9 +11,18 @@ const props = defineProps({
     },
 })
 
+const modules = import.meta.glob('./images/*.svg', { as: 'component' });
+
 // feel free to update this with an svg directory of your choice
-const icon = defineAsyncComponent(
-    // @ts-ignore
-    () => import(`/public/${props.src}`)
+const icon = computed(() => {
+    const namme = props.src.replace('.svg', '');
+    const path = `./images/${namme}.svg`;
+    if (!modules[path]) {
+        return;
+    }
+    return defineAsyncComponent(
+        // @ts-ignore
+    () => modules[path]()
 )
+})
 </script>

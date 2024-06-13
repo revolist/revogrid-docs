@@ -1,13 +1,15 @@
 <template>
-    <VGrid
-        readonly
-        :theme="isDark ? 'darkMaterial' : 'material'"
-        range="true"
-        row-size="40"
-        :resize="true"
-        :source="gridData"
-        :columns="gridColumns"
-    />
+    <ClientOnly>
+        <VGrid
+            readonly
+            :theme="isDark ? 'darkMaterial' : 'material'"
+            range="true"
+            row-size="40"
+            :resize="true"
+            :source="gridData"
+            :columns="gridColumns"
+        />
+    </ClientOnly>
 </template>
 <script lang="ts" setup>
 import { computed, ref } from 'vue'

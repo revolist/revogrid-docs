@@ -1,6 +1,6 @@
 # Column types
 
-`Revogrid` provides a way to define [your own editors](./cell.editor.html).
+`Revogrid` provides a way to define [your own editors](../cell/editor.md).
 
 Yet it comes with plugins with different column types.
 <br>All additional column types based on plugin idea:

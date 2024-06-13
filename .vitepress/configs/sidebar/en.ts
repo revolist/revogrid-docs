@@ -2,19 +2,6 @@ import type { DefaultTheme } from 'vitepress'
 
 export const sidebarEn: DefaultTheme.Sidebar = {
     '/guide/': [
-        // {
-        //   text: 'Setup',
-        //   items: [
-        //     {
-        //       text: 'Introduction',
-        //       link: '/introduction',
-        //     },
-        //     {
-        //       text: 'Installation',
-        //       link: '/installation',
-        //     },
-        //   ],
-        // },
         {
             text: 'Getting Started',
             collapsed: false,
@@ -34,28 +21,28 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             collapsed: false,
             items: [
                 {
-                    text: 'API',
-                    link: '/guide/api/revoGrid',
-                },
-                {
-                    text: 'Features and Definitions',
-                    link: '/guide/defs',
+                    text: 'JSX/TSX Template',
+                    link: '/guide/jsx.template',
                 },
                 {
                     text: 'Installation',
                     link: '/guide/installation',
                 },
                 {
-                    text: 'JSX/TSX Template',
-                    link: '/guide/jsx.template',
+                    text: 'Lifecycle Hooks',
+                    link: '/guide/lifecycle',
+                },
+                {
+                    text: 'Features and Definitions',
+                    link: '/guide/defs',
                 },
                 {
                     text: 'Grid size',
                     link: '/guide/grid.size',
                 },
                 {
-                    text: 'Lifecycle Hooks',
-                    link: '/guide/lifecycle',
+                    text: 'API',
+                    link: '/guide/api/revoGrid',
                 },
             ],
         },
@@ -213,8 +200,8 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             text: 'Advance',
             items: [
                 {
-                    text: 'Single file bundle',
-                    link: '/guide/single.bundle',
+                    text: 'Standalone',
+                    link: '/guide/standalone',
                 },
 
                 { text: 'TypeScript', link: '/guide/ts/' },

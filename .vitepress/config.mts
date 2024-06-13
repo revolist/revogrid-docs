@@ -1,5 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
-import { defineConfig } from 'vitepress'
+import { DefaultTheme, defineConfig, UserConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import svgLoader from 'vite-svg-loader'
 import { navbarEn } from './configs/navbar'
@@ -24,7 +24,7 @@ export const slugify = (str: string): string =>
         // ensure it doesn't start with a number
         .replace(/^(\d)/, '_$1')
 
-const mermaidCfg = withMermaid({
+const config: UserConfig<DefaultTheme.Config> = {
     title: 'Revo Grid',
     appearance: 'dark',
     description: 'Data Grid Library on steroids - Revogrid',
@@ -43,11 +43,17 @@ const mermaidCfg = withMermaid({
         anchor: {
             slugify,
         },
+        languageAlias: {
+            pnpm: 'js',
+            npm: 'js',
+            yarn: 'js',
+            bun: 'js',
+        },
     },
     head: [
         [
             'link',
-            { rel: 'icon', type: 'image/svg+xml', href: '/images/logo.svg' },
+            { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' },
         ],
         ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
         [
@@ -69,7 +75,7 @@ const mermaidCfg = withMermaid({
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
 
-        logo: '/images/logo.svg',
+        logo: 'logo.svg?skipsvgo',
         outline: [2, 3],
         socialLinks: [
             { icon: 'x', link: 'https://x.com/revolist_ou/' },
@@ -103,9 +109,15 @@ const mermaidCfg = withMermaid({
 
         sidebar: sidebarEn,
     },
+    vue: {
+        customElement: [/^revo-$/, 'mermaid'],
+    },
     vite: {
-        plugins: [svgLoader()],
+        plugins: [
+            svgLoader(),
+        ],
         resolve: {
+            extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.svg'],
             alias: [
                 {
                     find: /^.*\/VPImage\.vue$/,
@@ -116,7 +128,8 @@ const mermaidCfg = withMermaid({
             ],
         },
     },
-});
+    ignoreDeadLinks: true,
+}
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig(mermaidCfg)
+export default defineConfig(withMermaid(config))

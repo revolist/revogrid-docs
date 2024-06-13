@@ -1,25 +1,26 @@
 <template>
-    <VGrid
-        resize
-        row-headers
-        :theme="isDark ? 'darkMaterial' : 'compact'"
-        :source="gridData"
-        :columns="gridColumns"
-        :column-types="gridColumnTypes"
-        :filter="true"
-        :range="true"
-        row-size="36"
-    />
+    <ClientOnly>
+        <VGrid
+            resize
+            row-headers
+            :theme="isDark ? 'darkMaterial' : 'compact'"
+            :source="gridData"
+            :columns="gridColumns"
+            :column-types="gridColumnTypes"
+            :filter="true"
+            :range="true"
+            row-size="36"
+        />
+    </ClientOnly>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
-import VGrid from '@revolist/vue3-datagrid'
-import ColumnDate from '@revolist/revogrid-column-date'
-import ColumnNumeral from '@revolist/revogrid-column-numeral'
-import ColumnSelect from '@revolist/revogrid-column-select'
+import VGrid, { type ColumnDataSchema } from '@revolist/vue3-datagrid'
+// import ColumnDate from '@revolist/revogrid-column-date'
+// import ColumnNumeral from '@revolist/revogrid-column-numeral'
+// import ColumnSelect from '@revolist/revogrid-column-select'
 import { useData } from 'vitepress'
 import { people } from './people.json'
-import { ColumnDataSchema } from '@revolist/revogrid'
 
 function generateHeader(index: number) {
     const asciiFirstLetter = 65
@@ -41,9 +42,9 @@ function getRandomArbitrary(min: number, max: number) {
 
 const { isDark } = useData()
 const gridColumnTypes: { [name: string]: any } = {
-    date: new ColumnDate(),
-    number: new ColumnNumeral(),
-    select: new ColumnSelect(),
+    // date: new ColumnDate(),
+    // number: new ColumnNumeral(),
+    // select: new ColumnSelect(),
 }
 const gridColumns: ColumnDataSchema[] = [
     {
@@ -101,7 +102,7 @@ const gridColumns: ColumnDataSchema[] = [
                         },
                         props.model[props.prop]
                     ),
-                
+
                 columnType: 'select',
                 source: ['green', 'blue', 'brown', 'red', 'yellow'],
             },

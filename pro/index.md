@@ -72,7 +72,7 @@ Warm regards,
 
 # Pro Version Features
 
-### 📊 Formula Excel-like
+### 📊 Formula Excel-like <Badge type="warning" text="Coming soon" />
 
 Implement and use complex formulas similar to Excel, allowing for dynamic calculations and data manipulation within your grid cells.
 
@@ -96,6 +96,20 @@ Pro examples on how to render Revogrid in SSR applications accross frameworks.
 
 Access detailed documentation and examples explaining how to create and use plugins to extend the functionality of RevoGrid. This allows for custom features and integrations tailored to specific needs.
 
+
+### 🕒 Audit Trail/History
+
+Track changes made to the grid data with a detailed history of edits. Maintain an audit trail for data modifications, enabling review and accountability.
+
+### 📋 Clipboard with JSON Support and Advanced Objects
+
+Enable clipboard functionality with support for JSON and advanced objects. Easily copy and paste complex data structures within your grid and between applications.
+
+### ⬛ Advanced Multiple Selection with Ctrl (CMD) Key
+
+Implement advanced multiple selection capabilities using the Ctrl (CMD) key. This allows users to select multiple, non-adjacent cells or rows, enhancing data manipulation and interaction within the grid.
+
+
 ### 🖱️ Advanced Drag and Drop
 
 Implement sophisticated drag-and-drop functionality within your grid, including custom drag-and-drop behavior and interactions, enhancing the grid's interactivity and usability.
@@ -114,7 +128,7 @@ Customize cell styles based on specific conditions, similar to Excel’s conditi
 
 ### ✏️ Inline Editing Enhancements
 
-Enhance inline editing capabilities with custom editors, validation rules, and real-time data updates, making data entry and modification seamless and efficient.
+Enhance inline editing capabilities with custom editors, validation rules, and real-time data updates.
 
 ### 🎨 Custom Themes and Styling
 
@@ -127,15 +141,3 @@ Implement built-in data validation to ensure data integrity. Define customizable
 ### 🌲 Hierarchical Data Support
 
 Support nested rows and tree structures to represent hierarchical data within your grid. Easily manage and display parent-child relationships and complex data structures.
-
-### 🕒 Audit Trail/History
-
-Track changes made to the grid data with a detailed history of edits. Maintain an audit trail for data modifications, enabling review and accountability.
-
-### 📋 Clipboard with JSON Support and Advanced Objects
-
-Enable clipboard functionality with support for JSON and advanced objects. Easily copy and paste complex data structures within your grid and between applications.
-
-### ⬛ Advanced Multiple Selection with Ctrl (CMD) Key
-
-Implement advanced multiple selection capabilities using the Ctrl (CMD) key. This allows users to select multiple, non-adjacent cells or rows, enhancing data manipulation and interaction within the grid.
