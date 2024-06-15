@@ -75,7 +75,7 @@ const config: UserConfig<DefaultTheme.Config> = {
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
 
-        logo: 'logo.svg?skipsvgo',
+        logo: '/logo.svg?skipsvgo',
         outline: [2, 3],
         socialLinks: [
             { icon: 'x', link: 'https://x.com/revolist_ou/' },
@@ -93,16 +93,16 @@ const config: UserConfig<DefaultTheme.Config> = {
 
         editLink: {
             pattern:
-                'https://github.com/revolist/revogrid/edit/main/packages/docs/:path',
+                'https://github.com/revolist/revogrid-docs/edit/main/:path',
             text: 'Suggest changes',
         },
 
         search: {
             provider: 'algolia',
             options: {
-                appId: 'BTNTW3I1XP',
-                apiKey: '771d10c8c5cc48f7922f15048b4d931c',
-                indexName: 'revolist/revogrid',
+                appId: 'W9LHCYP9OK',
+                apiKey: '2dd60ce5eb310eca66363db59404a901',
+                indexName: 'revogrid',
             },
         },
         nav: navbarEn,

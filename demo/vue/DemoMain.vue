@@ -1,27 +1,30 @@
 <template>
     <ClientOnly>
         <VGrid
-            resize
-            row-headers
+            class="grid"
             :theme="isDark ? 'darkMaterial' : 'compact'"
             :source="gridData"
             :columns="gridColumns"
             :column-types="gridColumnTypes"
             :filter="true"
-            :range="true"
+            range
+            resize
+            row-headers
             :row-size="36"
         />
     </ClientOnly>
 </template>
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
+import { useData } from 'vitepress'
 import VGrid, { type ColumnDataSchema } from '@revolist/vue3-datagrid'
 // import ColumnDate from '@revolist/revogrid-column-date'
 // import ColumnNumeral from '@revolist/revogrid-column-numeral'
 // import ColumnSelect from '@revolist/revogrid-column-select'
-import { useData } from 'vitepress'
 import { people } from './people.json'
 
+
+const { isDark } = useData()
 function generateHeader(index: number) {
     const asciiFirstLetter = 65
     const lettersCount = 26
@@ -40,14 +43,12 @@ function getRandomArbitrary(min: number, max: number) {
     return Math.random() * (max - min) + min
 }
 
-const { isDark } = useData()
 const gridColumnTypes: { [name: string]: any } = {
     // date: new ColumnDate(),
     // number: new ColumnNumeral(),
     // select: new ColumnSelect(),
 }
 const gridColumns = ref<ColumnDataSchema[]>([])
-
 const gridData = ref<any>([])
 const colsNumber = 100
 
@@ -63,7 +64,7 @@ onMounted(() => {
         }
         return newRow
     })
-    gridColumns.value = [
+    const columns: ColumnDataSchema[] = [
         {
             name: 'Autosize',
             children: [
@@ -134,19 +135,17 @@ onMounted(() => {
     ]
 
     for (let j = 0; j < colsNumber; j++) {
-        gridColumns.value.push({
+        columns.push({
             name: generateHeader(j),
             prop: j,
             columnType: 'number',
         })
     }
+    gridColumns.value = columns;
 })
 </script>
 
 <style lang="scss" scoped>
-revo-grid {
-    min-height: 500px;
-}
 :deep() {
     .bubble {
         display: inline-block;
@@ -155,5 +154,8 @@ revo-grid {
         padding: 0 10px;
         color: white;
     }
+}
+.grid {
+    height: 500px;
 }
 </style>

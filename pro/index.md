@@ -76,45 +76,45 @@ Warm regards,
 
 Implement and use complex formulas similar to Excel, allowing for dynamic calculations and data manipulation within your grid cells.
 
-### 📥 Excel Export
+### 📥 Excel Export <Badge type="warning" text="Coming soon" />
 
 Easily export your grid data to Excel format, providing a seamless way to share and analyze data outside of the web application.
 
-### 🔗 Merge Cells
+### 🔗 Merge Cells <Badge type="warning" text="Coming soon" />
 
 Combine adjacent cells into a single cell, similar to Excel’s merge functionality. This is useful for creating headers that span multiple columns or rows.
 
-### 📄 Pagination
+### 📄 Pagination <Badge type="warning" text="Coming soon" />
 
 Enable pagination to efficiently manage large datasets by breaking them into smaller, more manageable pages, enhancing both performance and user experience.
 
-### 📄 SSR render
+### 📄 SSR render <Badge type="warning" text="Coming soon" />
 
 Pro examples on how to render Revogrid in SSR applications accross frameworks.
 
-### 🔌 Plugin Explained
+### 🔌 Plugin Explained <Badge type="warning" text="Coming soon" />
 
 Access detailed documentation and examples explaining how to create and use plugins to extend the functionality of RevoGrid. This allows for custom features and integrations tailored to specific needs.
 
 
-### 🕒 Audit Trail/History
+### 🕒 Audit Trail/History <Badge type="warning" text="Coming soon" />
 
 Track changes made to the grid data with a detailed history of edits. Maintain an audit trail for data modifications, enabling review and accountability.
 
-### 📋 Clipboard with JSON Support and Advanced Objects
+### 📋 Clipboard with JSON Support and Advanced Objects <Badge type="warning" text="Coming soon" />
 
 Enable clipboard functionality with support for JSON and advanced objects. Easily copy and paste complex data structures within your grid and between applications.
 
-### ⬛ Advanced Multiple Selection with Ctrl (CMD) Key
+### ⬛ Advanced Multiple Selection with Ctrl (CMD) Key <Badge type="warning" text="Coming soon" />
 
 Implement advanced multiple selection capabilities using the Ctrl (CMD) key. This allows users to select multiple, non-adjacent cells or rows, enhancing data manipulation and interaction within the grid.
 
 
-### 🖱️ Advanced Drag and Drop
+### 🖱️ Advanced Drag and Drop <Badge type="warning" text="Coming soon" />
 
 Implement sophisticated drag-and-drop functionality within your grid, including custom drag-and-drop behavior and interactions, enhancing the grid's interactivity and usability.
 
-### ⚙️ Event Manager Explanation
+### ⚙️ Event Manager Explanation <Badge type="warning" text="Coming soon" />
 
 Get comprehensive documentation on the event management system within RevoGrid. Learn how to handle, customize, and optimize events to create complex interactions and workflows.
 
@@ -122,22 +122,22 @@ Get comprehensive documentation on the event management system within RevoGrid. 
 
 Apply advanced filtering options to your data grid, such as multi-condition filters, date range filters, and custom filter logic to refine and display your data more effectively.
 
-### 🎨 Conditional Formatting Explained
+### 🎨 Conditional Formatting Explained <Badge type="warning" text="Coming soon" />
 
 Customize cell styles based on specific conditions, similar to Excel’s conditional formatting. Highlight important data, create visual cues, and improve the readability of your data grid.
 
-### ✏️ Inline Editing Enhancements
+### ✏️ Inline Editing Enhancements <Badge type="warning" text="Coming soon" />
 
 Enhance inline editing capabilities with custom editors, validation rules, and real-time data updates.
 
-### 🎨 Custom Themes and Styling
+### 🎨 Custom Themes and Styling <Badge type="warning" text="Coming soon" />
 
 Create and apply custom themes to your grid, allowing extensive styling and branding options. Customize the appearance of your grid to match your application's design.
 
-### ✅ Data Validation
+### ✅ Data Validation <Badge type="warning" text="Coming soon" />
 
 Implement built-in data validation to ensure data integrity. Define customizable validation rules and error handling to maintain high-quality data.
 
-### 🌲 Hierarchical Data Support
+### 🌲 Hierarchical Data Support <Badge type="warning" text="Coming soon" />
 
 Support nested rows and tree structures to represent hierarchical data within your grid. Easily manage and display parent-child relationships and complex data structures.
