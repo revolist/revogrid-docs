@@ -113,6 +113,9 @@ const config: UserConfig<DefaultTheme.Config> = {
         plugins: [
             svgLoader(),
         ],
+        build: {
+          chunkSizeWarningLimit: 2000,
+        },
         resolve: {
             extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.svg'],
             alias: [

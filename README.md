@@ -113,10 +113,6 @@ We welcome contributions! To contribute:
 
 Please ensure your contributions follow our guidelines and include appropriate documentation updates.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
-
 ---
 
 For more information, visit the [RevoGrid GitHub repository](https://github.com/revolist/revogrid) and the [official website](https://revolist.eu).

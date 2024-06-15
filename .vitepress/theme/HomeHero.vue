@@ -6,13 +6,13 @@
             range="true"
             row-size="40"
             :resize="true"
-            :source="gridData"
+            :source="data"
             :columns="gridColumns"
         />
     </ClientOnly>
 </template>
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import VGrid from '@revolist/vue3-datagrid'
 import { useData } from 'vitepress'
 import { stocks } from './stock.json'
@@ -80,17 +80,19 @@ const gridColumns = [
     },
 ]
 
-const data = ref(stocks)
-const gridData = computed(() => data.value)
-setInterval(() => {
-    data.value = data.value.map((stock) => {
-        return {
-            ...stock,
-            price: (Math.random() * 4000).toFixed(2),
-            change: (Math.random() * (20 - -5) + -5).toFixed(2),
-        }
-    })
-}, 1000)
+const data = ref<any>(null)
+onMounted(() => {
+    data.value = stocks
+    setInterval(() => {
+        data.value = data.value.map((stock) => {
+            return {
+                ...stock,
+                price: (Math.random() * 4000).toFixed(2),
+                change: (Math.random() * (20 - -5) + -5).toFixed(2),
+            }
+        })
+    }, 1000)
+})
 </script>
 
 ```
