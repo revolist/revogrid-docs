@@ -11,7 +11,7 @@ const props = defineProps({
     },
 })
 
-const modules = import.meta.glob('./images/*.svg', { as: 'component' });
+const modules = import.meta.glob('./images/*.svg', { query: '?component' });
 
 // feel free to update this with an svg directory of your choice
 const icon = computed(() => {

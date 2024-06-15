@@ -109,9 +109,6 @@ const config: UserConfig<DefaultTheme.Config> = {
 
         sidebar: sidebarEn,
     },
-    vue: {
-        customElement: [/^revo-$/, 'mermaid'],
-    },
     vite: {
         plugins: [
             svgLoader(),
@@ -126,9 +123,6 @@ const config: UserConfig<DefaultTheme.Config> = {
                     ),
                 },
             ],
-        },
-        optimizeDeps: {
-            exclude: ['@revolist/revogrid/loader', '@revolist/revogrid'],
         }
     },
     ignoreDeadLinks: true,
