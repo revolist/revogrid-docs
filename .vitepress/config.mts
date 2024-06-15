@@ -127,6 +127,9 @@ const config: UserConfig<DefaultTheme.Config> = {
                 },
             ],
         },
+        optimizeDeps: {
+            exclude: ['@revolist/revogrid/loader', '@revolist/revogrid'],
+        }
     },
     ignoreDeadLinks: true,
 }

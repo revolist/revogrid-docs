@@ -64,7 +64,7 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [vnode-html](./vnode)
+- vnode-html
 
 ### Graph
 ```mermaid

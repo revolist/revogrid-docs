@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "vitepress preview",
-    "api": "./generate_api.sh"
+    "preview": "vitepress preview"
   },
   "type": "module",
   "repository": {
@@ -45,14 +44,15 @@
   "devDependencies": {
     "mermaid": "^10.9.1",
     "sass": "^1.72.0",
-    "vitepress": "^1.0.0-rc.45",
     "vite-svg-loader": "^5.1.0",
+    "vitepress": "^1.0.0-rc.45",
     "vitepress-plugin-mermaid": "^2.0.16"
   },
   "dependencies": {
     "@revolist/revogrid-column-date": "^2.0.0",
     "@revolist/revogrid-column-numeral": "^1.0.2",
     "@revolist/revogrid-column-select": "^2.0.2",
+    "@revolist/vue3-datagrid": "^4.0.4",
     "vue-github-button": "^3.1.0"
   }
 }
