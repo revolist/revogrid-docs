@@ -3,8 +3,8 @@
         <VGrid
             readonly
             :theme="isDark ? 'darkMaterial' : 'material'"
-            range="true"
-            row-size="40"
+            :range="true"
+            :row-size="40"
             :resize="true"
             :source="data"
             :columns="gridColumns"
@@ -13,12 +13,12 @@
 </template>
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
-import VGrid from '@revolist/vue3-datagrid'
+import VGrid, { ColumnRegular, VNode } from '@revolist/vue3-datagrid'
 import { useData } from 'vitepress'
 import { stocks } from './stock.json'
 
 const { isDark } = useData()
-const gridColumns = [
+const gridColumns: ColumnRegular[] = [
     {
         name: '🎰 Ticker',
         prop: 'symbol',
@@ -42,7 +42,7 @@ const gridColumns = [
             const barWidth = 5
             const barSpacing = 5
             const maxHeight = 30
-            const bars = []
+            const bars: VNode[] = []
 
             // Draw 5 vertical bars with random heights
             for (let i = 0; i < 5; i++) {
@@ -80,7 +80,7 @@ const gridColumns = [
     },
 ]
 
-const data = ref<any>(null)
+const data = ref<any>([])
 onMounted(() => {
     data.value = stocks
     setInterval(() => {

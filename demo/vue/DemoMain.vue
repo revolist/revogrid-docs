@@ -9,12 +9,12 @@
             :column-types="gridColumnTypes"
             :filter="true"
             :range="true"
-            row-size="36"
+            :row-size="36"
         />
     </ClientOnly>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import VGrid, { type ColumnDataSchema } from '@revolist/vue3-datagrid'
 // import ColumnDate from '@revolist/revogrid-column-date'
 // import ColumnNumeral from '@revolist/revogrid-column-numeral'
@@ -46,94 +46,101 @@ const gridColumnTypes: { [name: string]: any } = {
     // number: new ColumnNumeral(),
     // select: new ColumnSelect(),
 }
-const gridColumns: ColumnDataSchema[] = [
-    {
-        name: 'Autosize',
-        children: [
-            {
-                name: '🎰 Name',
-                prop: 'name',
-                rowDrag: true,
-                sortable: true,
-                order: 'asc',
-                pin: 'colPinStart',
-                size: 200,
-                autoSize: true,
+const gridColumns = ref<ColumnDataSchema[]>([])
 
-                cellTemplate(h, { model, prop }) {
-                    return h('strong', null, model[prop])
-                },
-            },
-        ],
-    },
-    {
-        name: 'Personal',
-        children: [
-            {
-                sortable: true,
-                name: 'Age',
-                prop: 'age',
-            },
-            {
-                sortable: true,
-                name: 'Company',
-                prop: 'company',
-                size: 200,
-                columnType: 'select',
-                source: Object.keys(
-                    people.reduce((r, p) => {
-                        r[p.company] = p.company
-                        return r
-                    }, {})
-                ),
-            },
-            {
-                name: 'Eyes',
-                prop: 'eyeColor',
-                sortable: true,
-                cellTemplate: (createElement, props) =>
-                    createElement(
-                        'span',
-                        {
-                            class: 'bubble',
-                            style: {
-                                backgroundColor: props.model[props.prop],
-                            },
-                        },
-                        props.model[props.prop]
-                    ),
-
-                columnType: 'select',
-                source: ['green', 'blue', 'brown', 'red', 'yellow'],
-            },
-        ],
-    },
-    {
-        name: 'Birth date',
-        prop: 'date',
-        columnType: 'date',
-        size: 150,
-    },
-]
-
+const gridData = ref<any>([])
 const colsNumber = 100
-for (let j = 0; j < colsNumber; j++) {
-    gridColumns.push({
-        name: generateHeader(j),
-        prop: j,
-        columnType: 'number',
-    })
-}
 
-const gridData = ref(
-    people.map((row) => {
-        const newRow = { ...row, highlighted: row.eyeColor, date: '2020-08-24' }
+onMounted(() => {
+    gridData.value = people.map((row) => {
+        const newRow: Record<string, any> = {
+            ...row,
+            highlighted: row.eyeColor,
+            date: '2020-08-24',
+        }
         for (let j = 0; j < colsNumber; j++) {
             newRow[j] = getRandomArbitrary(0, 10000)
         }
         return newRow
     })
-)
+    gridColumns.value = [
+        {
+            name: 'Autosize',
+            children: [
+                {
+                    name: '🎰 Name',
+                    prop: 'name',
+                    rowDrag: true,
+                    sortable: true,
+                    order: 'asc',
+                    pin: 'colPinStart',
+                    size: 200,
+                    autoSize: true,
+
+                    cellTemplate(h, { model, prop }) {
+                        return h('strong', null, model[prop])
+                    },
+                },
+            ],
+        },
+        {
+            name: 'Personal',
+            children: [
+                {
+                    sortable: true,
+                    name: 'Age',
+                    prop: 'age',
+                },
+                {
+                    sortable: true,
+                    name: 'Company',
+                    prop: 'company',
+                    size: 200,
+                    columnType: 'select',
+                    source: Object.keys(
+                        people.reduce((r: Record<string, string>, p) => {
+                            r[p.company] = p.company
+                            return r
+                        }, {})
+                    ),
+                },
+                {
+                    name: 'Eyes',
+                    prop: 'eyeColor',
+                    sortable: true,
+                    cellTemplate: (createElement, props) =>
+                        createElement(
+                            'span',
+                            {
+                                class: 'bubble',
+                                style: {
+                                    backgroundColor: props.model[props.prop],
+                                },
+                            },
+                            props.model[props.prop]
+                        ),
+
+                    columnType: 'select',
+                    source: ['green', 'blue', 'brown', 'red', 'yellow'],
+                },
+            ],
+        },
+        {
+            name: 'Birth date',
+            prop: 'date',
+            columnType: 'date',
+            size: 150,
+        },
+    ]
+
+    for (let j = 0; j < colsNumber; j++) {
+        gridColumns.value.push({
+            name: generateHeader(j),
+            prop: j,
+            columnType: 'number',
+        })
+    }
+})
 </script>
 
 <style lang="scss" scoped>
