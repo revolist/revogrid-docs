@@ -98,12 +98,7 @@ const config: UserConfig<DefaultTheme.Config> = {
         },
 
         search: {
-            provider: 'algolia',
-            options: {
-                appId: 'W9LHCYP9OK',
-                apiKey: '2dd60ce5eb310eca66363db59404a901',
-                indexName: 'revogrid',
-            },
+            provider: 'local',
         },
         nav: navbarEn,
 
