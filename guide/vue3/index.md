@@ -18,7 +18,7 @@ yarn add @revolist/vue3-datagrid
 ```
 
 ```bun
-npm i @revolist/vue3-datagrid
+bun add @revolist/vue3-datagrid
 ```
 :::
 

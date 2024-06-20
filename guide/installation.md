@@ -23,7 +23,7 @@ yarn add @revolist/revogrid
 ```
 
 ```bun
-npm i @revolist/revogrid
+bun add @revolist/revogrid
 ```
 :::
 

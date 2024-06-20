@@ -18,7 +18,7 @@ yarn add @revolist/svelte-datagrid
 ```
 
 ```bun
-npm i @revolist/svelte-datagrid
+bun add @revolist/svelte-datagrid
 ```
 :::
 

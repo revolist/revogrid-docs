@@ -10,13 +10,13 @@ and managing the lifecycle of the editor instance.
 
 ## Properties
 
-| Property         | Attribute         | Description                                                            | Type                                    | Default     |
-| ---------------- | ----------------- | ---------------------------------------------------------------------- | --------------------------------------- | ----------- |
-| `additionalData` | `additional-data` | Additional data to pass to renderer                                    | `any`                                   | `undefined` |
-| `column`         | --                | Column data for editor.                                                | `ColumnRegular`                         | `undefined` |
-| `editCell`       | --                | Cell to edit data.                                                     | `EditCellStore & BeforeSaveDataDetails` | `undefined` |
-| `editor`         | --                | Custom editors register                                                | `EditorCtr`                             | `undefined` |
-| `saveOnClose`    | `save-on-close`   | Save on editor close. Defines if data should be saved on editor close. | `boolean`                               | `false`     |
+| Property         | Attribute         | Description                                                            | Type                                                                                                                                                                           | Default     |
+| ---------------- | ----------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| `additionalData` | `additional-data` | Additional data to pass to renderer                                    | `any`                                                                                                                                                                          | `undefined` |
+| `column`         | --                | Column data for editor.                                                | `{ prop: ColumnProp; model: DataType; column: ColumnRegular; rowIndex: number; colIndex: number; colType: DimensionCols; type: DimensionRows; data: DataSource; value: any; }` | `undefined` |
+| `editCell`       | --                | Cell to edit data.                                                     | `EditCellStore & BeforeSaveDataDetails`                                                                                                                                        | `undefined` |
+| `editor`         | --                | Custom editors register                                                | `EditorCtrCallable \| EditorCtrConstructible`                                                                                                                                  | `undefined` |
+| `saveOnClose`    | `save-on-close`   | Save on editor close. Defines if data should be saved on editor close. | `boolean`                                                                                                                                                                      | `false`     |
 
 
 ## Events
