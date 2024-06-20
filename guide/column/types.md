@@ -1,4 +1,4 @@
-## Column types
+## Column Formats
 
 `<revo-grid/>` provides a way to define [your own editors](../cell/editor.md).
 

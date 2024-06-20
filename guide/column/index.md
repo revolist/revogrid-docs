@@ -1,9 +1,9 @@
-# Column
+# Column [<Badge type="tip">Interface: ColumnRegular</Badge>](../types/Interface.ColumnRegular)
 
 <!--@include: ../parts/column.md-->
 
 ```typescript
-const columns = [
+const columns: ColumnRegular[] = [
   { prop: 'id', name: 'ID' },
   { prop: 'name', name: 'Name' },
   { prop: 'age', name: 'Age' },
@@ -11,9 +11,13 @@ const columns = [
 ];
 ```
 
+:::tip
+Check [Interface: ColumnRegular](../types/Interface.ColumnRegular) for more information.
+:::
 
 <!--@include: ./columnProperties.md-->
 <!--@include: ./columnTemplate.md-->
 <!--@include: ./columnPin.md-->
 <!--@include: ./grouping.md-->
 <!--@include: ./types.md-->
+

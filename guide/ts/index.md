@@ -5,5 +5,5 @@ It provides transparent type definition with minimal documentation needed for ba
 
 
 
-Check [Quick start](../) for more information.
+Check [Advanced Types](../types/README) for more information.
 

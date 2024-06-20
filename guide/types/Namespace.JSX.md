@@ -1,0 +1,24 @@
+[@revolist/revogrid](README.md) / JSX
+
+# Namespace: JSX
+
+## Index
+
+| Member | Description |
+| :------ | :------ |
+| [IntrinsicElements](JSX.Interface.IntrinsicElements.md) | - |
+| [RevoGrid](JSX.Interface.RevoGrid.md) | Revogrid - High-performance, customizable grid library for managing large datasets. :::tip Read [type definition file](https://github.com/revolist/revogrid/blob/master/src/interfaces.d.ts) for the full interface information. All complex property types such as `ColumnRegular`, `ColumnProp`, `ColumnDataSchemaModel` can be found there. ::: :::tip For a comprehensive events guide, check the [dependency tree](#Dependencies). All events propagate to the root level of the grid. ::: |
+| [RevogrAttribution](JSX.Interface.RevogrAttribution.md) | - |
+| [RevogrClipboard](JSX.Interface.RevogrClipboard.md) | This Clipboard provides functionality for handling clipboard events in a web application. |
+| [RevogrData](JSX.Interface.RevogrData.md) | This component is responsible for rendering data Rows, columns, groups and cells |
+| [RevogrEdit](JSX.Interface.RevogrEdit.md) | Represents a cell editor in a grid. It manages the editing of cells by handling events, saving data, rendering the editor UI, and managing the lifecycle of the editor instance. |
+| [RevogrFilterPanel](JSX.Interface.RevogrFilterPanel.md) | - |
+| [RevogrFocus](JSX.Interface.RevogrFocus.md) | Focus component. Shows focus layer around the cell that is currently in focus. |
+| [RevogrHeader](JSX.Interface.RevogrHeader.md) | - |
+| [RevogrOrderEditor](JSX.Interface.RevogrOrderEditor.md) | - |
+| [RevogrOverlaySelection](JSX.Interface.RevogrOverlaySelection.md) | - |
+| [RevogrRowHeaders](JSX.Interface.RevogrRowHeaders.md) | Row headers component Visible on the left side of the table |
+| [RevogrScrollVirtual](JSX.Interface.RevogrScrollVirtual.md) | Virtual scroll component |
+| [RevogrTempRange](JSX.Interface.RevogrTempRange.md) | Temporary range selection component. Shows temporary range selection. |
+| [RevogrViewportScroll](JSX.Interface.RevogrViewportScroll.md) | Viewport scroll component for RevoGrid |
+| [VnodeHtml](JSX.Interface.VnodeHtml.md) | - |

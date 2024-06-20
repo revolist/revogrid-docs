@@ -1,15 +1,15 @@
-## Column Properties
+## Column Properties [<Badge type="tip">Type: ColPropertiesFunc</Badge>](../types/Type.ColPropertiesFunc)
 
 <!--@include: ../parts/column.props.md-->
 
 
-```js
-const columns = [{
+```ts
+const columns: ColumnRegular[] = [{
         name: 'Person name',
         prop: 'name',
 
         // apply this for custom properties
-        columnProperties: ({ prop, model, data, column }) => {
+        columnProperties: ({ prop }: ColumnRegular): CellProps => {
             return {
                 style: {
                     color: 'red',

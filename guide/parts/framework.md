@@ -1,5 +1,5 @@
 <!--@include: ./cross-framework-banner.md-->
-<style>
+<style scoped>
     a img {
         width: 20px;
         float: left;

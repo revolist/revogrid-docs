@@ -186,7 +186,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     link: '/guide/standalone',
                 },
 
-                { text: 'TypeScript', link: '/guide/ts/' },
+                { text: 'TypeScript', link: '/guide/ts/', items: [{ text: 'Typings', link: '/guide/types/README' }] },
                 { text: 'Slots', link: '/guide/slots' },
             ],
         },

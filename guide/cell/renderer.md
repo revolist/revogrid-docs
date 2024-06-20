@@ -1,6 +1,6 @@
-# Cell renderer
+# Cell renderer [<Badge type="tip">Interface: CellTemplate</Badge>](../types/Interface.CellTemplate) [<Badge type="tip">Interface: CellTemplateProp</Badge>](../types/Interface.CellTemplateProp)
 
-This article explains how to use a custom cell function to display HTML content in a cell.
+This article explains how to use a [custom cell function](../types/Interface.CellTemplate) to display HTML content in a cell.
 <br>Alternatively, you can use [predefined column types](../column/types.md).
 
 > [!WARNING]
@@ -13,17 +13,26 @@ This article explains how to use a custom cell function to display HTML content 
 > [!TIP]
 > Use [JSX](../jsx.template.md) to simplify your code and render HTML content.
 
-
-```js
-const columns = [{
-  name: 'Person name',
-  prop: 'name',
-  cellTemplate: (createElement, props) => {
-    return createElement('span', {
-      style: {
-        color: 'red'
-      },
-    }, props.model[props.prop]);
-  },
-}];
+```ts
+const columns: ColumnRegular[] = [
+    {
+        name: 'Person name',
+        prop: 'name',
+        cellTemplate: (
+            createElement: HyperFunc<VNode>,
+            props: CellTemplateProp,
+            additionalData?: any
+        ) => {
+            return createElement(
+                'span',
+                {
+                    style: {
+                        color: 'red',
+                    },
+                },
+                props.model[props.prop]
+            )
+        },
+    },
+]
 ```
