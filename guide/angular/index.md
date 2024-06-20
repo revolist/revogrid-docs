@@ -18,7 +18,7 @@ yarn add @revolist/angular-datagrid
 ```
 
 ```bun
-npm i @revolist/angular-datagrid
+bun add @revolist/angular-datagrid
 ```
 
 :::

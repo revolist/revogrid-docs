@@ -1,6 +1,7 @@
 ## Column Properties
 
-This article explaines how to use column properties. Any property can be added: tag, style or class.
+<!--@include: ../parts/column.props.md-->
+
 
 ```js
 const columns = [{

@@ -3,30 +3,12 @@ import type { DefaultTheme } from 'vitepress'
 export const sidebarEn: DefaultTheme.Sidebar = {
     '/guide/': [
         {
-            text: 'Getting Started',
-            collapsed: false,
-            items: [
-                {
-                    text: 'Overview',
-                    link: '/guide/overview',
-                },
-                {
-                    text: 'Quick Start',
-                    link: '/guide/',
-                },
-            ],
-        },
-        {
             text: 'Essentials',
             collapsed: false,
             items: [
                 {
                     text: 'JSX/TSX Template',
                     link: '/guide/jsx.template',
-                },
-                {
-                    text: 'Installation',
-                    link: '/guide/installation',
                 },
                 {
                     text: 'Lifecycle Hooks',
@@ -47,6 +29,24 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             ],
         },
         {
+            text: 'Getting Started',
+            collapsed: false,
+            items: [
+                {
+                    text: 'Overview',
+                    link: '/guide/overview',
+                },
+                {
+                    text: 'Quick Start',
+                    link: '/guide/',
+                },
+                {
+                    text: 'Installation',
+                    link: '/guide/installation',
+                },
+            ],
+        },
+        {
             text: 'Columns',
             collapsed: true,
             items: [
@@ -55,19 +55,11 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     link: '/guide/column/',
                     items: [
                         {
-                            text: 'Format',
-                            link: '/guide/column/types',
-                        },
-                        {
-                            text: 'Grouping',
-                            link: '/guide/column/grouping',
-                        },
-                        {
-                            text: 'Resizing',
+                            text: 'Column Resizing',
                             link: '/guide/column/resize',
                         },
                         {
-                            text: 'Autosize',
+                            text: 'Column Autosize',
                             link: '/guide/column/autosize',
                         },
                     ],
@@ -79,16 +71,18 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             collapsed: true,
             items: [
                 {
-                    text: 'Properties',
-                    link: '/guide/cell/properties',
-                },
-                {
-                    text: 'Cell Renderer',
-                    link: '/guide/cell/renderer',
-                },
-                {
-                    text: 'Cell Editor',
-                    link: '/guide/cell/editor',
+                    text: 'Cell Definitions',
+                    link: '/guide/cell/',
+                    items: [
+                        {
+                            text: 'Cell Renderer',
+                            link: '/guide/cell/renderer',
+                        },
+                        {
+                            text: 'Cell Editor',
+                            link: '/guide/cell/editor',
+                        },
+                    ]
                 },
             ],
         },
@@ -97,20 +91,8 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             collapsed: true,
             items: [
                 {
-                    text: 'Properties',
-                    link: '/guide/rows.class',
-                },
-                {
-                    text: 'Pinning',
-                    link: '/guide/rows.pinned',
-                },
-                {
-                    text: 'Headers',
-                    link: '/guide/rows.headers',
-                },
-                {
-                    text: 'Size definition',
-                    link: '/guide/rows.size',
+                    text: 'Row Definitions',
+                    link: '/guide/row',
                 },
             ],
         },

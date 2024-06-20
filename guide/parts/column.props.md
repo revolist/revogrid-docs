@@ -1,0 +1,1 @@
+Attributes or settings applied to columns, influencing their behavior and presentation, such as width, visibility, and events.

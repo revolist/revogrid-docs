@@ -18,7 +18,7 @@ yarn add @revolist/react-datagrid
 ```
 
 ```bun
-npm i @revolist/react-datagrid
+bun add @revolist/react-datagrid
 ```
 :::
 

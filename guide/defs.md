@@ -5,11 +5,24 @@ This document is intended to help both new and experienced developers familiariz
 ## API (Application Programming Interface)
 Defines a set of rules and protocols for building and interacting with software applications. Revogrid's API allows for programmatic interaction with the grid, including methods for data manipulation, event handling, and customization.
 
+
+## Cell
+<!--@include: ./parts/cell.md-->
+
+### Cell Editors
+Customizable components that enable cell editing within the grid, allowing for a variety of data input methods, including text, date, select options, and more.
+
+### Cell Merge
+Combines two or more adjacent cells into a single cell, used for creating spanning headers or emphasizing data.
+
+### Cell Render/Template
+Custom functions or components that define how data is displayed in cells, allowing for the visualization of complex data types or the customization of cell appearance.
+
 ## Clipboard
 Clipboard operations like `copy`, `cut`, and `paste`. Users can easily manipulate grid data using standard clipboard shortcuts. [Read more in the API docs](./api/clipboard).
 
 ## Column
-A vertical line in the grid that categorizes the data to be displayed. Columns can be configured with features like sorting, filtering, and custom cell rendering.
+<!--@include: ./parts/column.md-->
 
 ### Column Grouping
 The capability to group columns under a shared header to organize data more effectively.
@@ -21,13 +34,33 @@ Configuration options for headers, such as even support (for ex. `onClick`), tex
 Allows columns to be fixed or "pinned" to one side of the grid, remaining visible as the user scrolls horizontally through other columns.
 
 ### Column Property
-Attributes or settings applied to columns, influencing their behavior and presentation, such as width, visibility, and custom renderers.
+
+<!--@include: ./parts/column.props.md-->
 
 ## Conditional Formatting
 Changes the appearance of cells based on specific conditions, such as values or ranges, to facilitate quick data analysis.
 
 ## Data Source
-A collection of data items displayed by the grid, where each item represents a row.
+A collection of data items displayed by the grid, where each item (Data Model) represents a row. Here is an example of a simple data source:
+
+```typescript
+type DataSource = Person[]; // or any other type
+```
+
+
+## Data Model
+
+The data model defines the structure of the data (Data Source). Here is an example of a simple data model:
+
+```typescript
+interface Person {
+  id: number;
+  name: string;
+  age: number;
+  email: string;
+}
+```
+
 
 ## DOM (Document Object Model)
 A programming interface for HTML and XML documents, allowing scripts to update the content, structure, and style of a document. Revogrid manipulates the DOM to render and dynamically update the grid.
@@ -91,21 +124,9 @@ The efficiency of the library in processing and rendering large datasets without
 ## Prop
 Short for "property," refers to the attributes that can be passed to customize and configure component, influencing its behavior and appearance.
 
-## Cell
-The intersection point of a row and a column in the grid, capable of displaying and editing data.
-
-
-### Cell Editors
-Customizable components that enable cell editing within the grid, allowing for a variety of data input methods, including text, date, select options, and more.
-
-### Merge Cells
-Combines two or more adjacent cells into a single cell, used for creating spanning headers or emphasizing data.
-
-### Cell Render/Template
-Custom functions or components that define how data is displayed in cells, allowing for the visualization of complex data types or the customization of cell appearance.
-
 ## Row
-A horizontal line in the grid representing a single data item from the source.
+
+<!--@include: ../guide/parts/row.md-->
 
 ### Row Grouping
 The capability to group rows or columns under a shared header to organize data more effectively. This feature enhances the readability and usability of large datasets by structuring them into meaningful groups.
