@@ -11,10 +11,10 @@
 | [Cell](Interface.Cell.md) | - |
 | [CellTemplate](Interface.CellTemplate.md) | - |
 | [CellTemplateProp](Interface.CellTemplateProp.md) | - |
-| [ColumnProperties](Interface.ColumnProperties.md) | - |
-| [ColumnRegular](Interface.ColumnRegular.md) | - |
-| [ColumnTemplateProp](Interface.ColumnTemplateProp.md) | - |
-| [ColumnType](Interface.ColumnType.md) | - |
+| [ColumnProperties](Interface.ColumnProperties.md) | Configuration for header inner template properties |
+| [ColumnRegular](Interface.ColumnRegular.md) | Interface for regular column definition. Regular column can be any column that is not a grouping column. |
+| [ColumnTemplateProp](Interface.ColumnTemplateProp.md) | Interface for regular column definition. Regular column can be any column that is not a grouping column. |
+| [ColumnType](Interface.ColumnType.md) | Interface for regular column definition. Regular column can be any column that is not a grouping column. |
 | [DimensionCalc](Interface.DimensionCalc.md) | - |
 | [DimensionSettingsState](Interface.DimensionSettingsState.md) | - |
 | [EditCellStore](Interface.EditCellStore.md) | - |
@@ -23,7 +23,7 @@
 | [EditorCtrConstructible](Interface.EditorCtrConstructible.md) | - |
 | [ElementScroll](Interface.ElementScroll.md) | - |
 | [FocusRenderEvent](Interface.FocusRenderEvent.md) | - |
-| [Group](Interface.Group.md) | - |
+| [Group](Interface.Group.md) | Configuration for header inner template properties |
 | [HyperFunc](Interface.HyperFunc.md) | - |
 | [PluginBaseComponent](Interface.PluginBaseComponent.md) | - |
 | [PluginConstructor](Interface.PluginConstructor.md) | - |
@@ -41,7 +41,7 @@
 | [RevogrRowHeadersCustomEvent](Interface.RevogrRowHeadersCustomEvent.md) | - |
 | [RevogrScrollVirtualCustomEvent](Interface.RevogrScrollVirtualCustomEvent.md) | - |
 | [RevogrViewportScrollCustomEvent](Interface.RevogrViewportScrollCustomEvent.md) | - |
-| [RowHeaders](Interface.RowHeaders.md) | - |
+| [RowHeaders](Interface.RowHeaders.md) | Interface for regular column definition. Regular column can be any column that is not a grouping column. |
 | [ThemePackage](Interface.ThemePackage.md) | - |
 | [VNode](Interface.VNode.md) | A virtual DOM node |
 | [ViewportState](Interface.ViewportState.md) | - |

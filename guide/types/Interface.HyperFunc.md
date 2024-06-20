@@ -24,7 +24,7 @@ interface HyperFunc(tag: any): T
 
 ## Source
 
-[src/types/interfaces.ts:163](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L163)
+[src/types/interfaces.ts:196](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L196)
 
 ```ts
 interface HyperFunc(tag: any, data: any): T
@@ -43,7 +43,7 @@ interface HyperFunc(tag: any, data: any): T
 
 ## Source
 
-[src/types/interfaces.ts:166](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L166)
+[src/types/interfaces.ts:199](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L199)
 
 ```ts
 interface HyperFunc(tag: any, text: string): T
@@ -62,7 +62,7 @@ interface HyperFunc(tag: any, text: string): T
 
 ## Source
 
-[src/types/interfaces.ts:169](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L169)
+[src/types/interfaces.ts:202](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L202)
 
 ```ts
 interface HyperFunc(sel: any, children: T[]): T
@@ -81,7 +81,7 @@ interface HyperFunc(sel: any, children: T[]): T
 
 ## Source
 
-[src/types/interfaces.ts:172](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L172)
+[src/types/interfaces.ts:205](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L205)
 
 ```ts
 interface HyperFunc(
@@ -104,7 +104,7 @@ interface HyperFunc(
 
 ## Source
 
-[src/types/interfaces.ts:175](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L175)
+[src/types/interfaces.ts:208](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L208)
 
 ```ts
 interface HyperFunc(
@@ -127,7 +127,7 @@ interface HyperFunc(
 
 ## Source
 
-[src/types/interfaces.ts:178](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L178)
+[src/types/interfaces.ts:211](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L211)
 
 ```ts
 interface HyperFunc(
@@ -150,4 +150,4 @@ interface HyperFunc(
 
 ## Source
 
-[src/types/interfaces.ts:181](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L181)
+[src/types/interfaces.ts:214](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L214)

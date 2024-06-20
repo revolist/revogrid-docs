@@ -34,4 +34,4 @@ Providers for grid which are going to be injected into each cell template
 
 ## Source
 
-[src/types/interfaces.ts:148](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L148)
+[src/types/interfaces.ts:181](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L181)

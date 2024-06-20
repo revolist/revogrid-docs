@@ -2,6 +2,8 @@
 
 # Interface: ColumnProperties
 
+Configuration for header inner template properties
+
 ## Extended by
 
 - [`ColumnType`](Interface.ColumnType.md)
@@ -11,5 +13,5 @@
 
 | Property | Type | Description |
 | :------ | :------ | :------ |
-| `columnProperties?` | [`ColPropertiesFunc`](Type.ColPropertiesFunc.md) | cell properties |
-| `columnTemplate?` | [`ColumnTemplateFunc`](Type.ColumnTemplateFunc.md) | column inner template |
+| `columnProperties?` | [`ColPropertiesFunc`](Type.ColPropertiesFunc.md) | Header Cell properties Custom function/component to render header properties |
+| `columnTemplate?` | [`ColumnTemplateFunc`](Type.ColumnTemplateFunc.md) | Header inner template Function/component to render custom header content |
