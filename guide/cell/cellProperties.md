@@ -1,4 +1,5 @@
-# Cell Properties
+
+## Cell Properties
 
 What are cell properties in RevoGrid. You can add various properties to cells, including tags, styles, classes, and events like `onClick`.
 
@@ -47,3 +48,4 @@ const items = [
 // Applying the columns and data source to the grid
 grid.columns = columns;
 grid.source = items;
+```
