@@ -12,7 +12,7 @@ interface CellTemplate(
 ## Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `createElement` | [`HyperFunc`](Interface.HyperFunc.md)\<[`VNode`](Interface.VNode.md)\> |
 | `props` | [`CellTemplateProp`](Interface.CellTemplateProp.md) |
 | `additionalData`? | `any` |
@@ -21,6 +21,6 @@ interface CellTemplate(
 
 `any`
 
-## Source
+## Defined in
 
-[src/types/interfaces.ts:79](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L79)
+[src/types/interfaces.ts:130](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/interfaces.ts#L130)

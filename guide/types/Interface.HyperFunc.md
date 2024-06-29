@@ -2,38 +2,50 @@
 
 # Interface: HyperFunc()\<T\>
 
-## Type parameters
+`HyperFunc` is a function that takes an HTML tag or component, and returns a
+JSX element. This function is used to create JSX elements in a context where
+JSX is not valid.
 
-| Type parameter |
-| :------ |
+## Type Parameters
+
+| Type Parameter |
+| ------ |
 | `T` |
 
 ```ts
 interface HyperFunc(tag: any): T
 ```
 
+`HyperFunc` is a function that takes an HTML tag or component, and returns a
+JSX element. This function is used to create JSX elements in a context where
+JSX is not valid.
+
 ## Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `tag` | `any` |
 
 ## Returns
 
 `T`
 
-## Source
+## Defined in
 
-[src/types/interfaces.ts:196](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L196)
+[src/types/interfaces.ts:320](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/interfaces.ts#L320)
 
 ```ts
 interface HyperFunc(tag: any, data: any): T
 ```
 
+`HyperFunc` is a function that takes an HTML tag or component, and returns a
+JSX element. This function is used to create JSX elements in a context where
+JSX is not valid.
+
 ## Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `tag` | `any` |
 | `data` | `any` |
 
@@ -41,18 +53,22 @@ interface HyperFunc(tag: any, data: any): T
 
 `T`
 
-## Source
+## Defined in
 
-[src/types/interfaces.ts:199](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L199)
+[src/types/interfaces.ts:328](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/interfaces.ts#L328)
 
 ```ts
 interface HyperFunc(tag: any, text: string): T
 ```
 
+`HyperFunc` is a function that takes an HTML tag or component, and returns a
+JSX element. This function is used to create JSX elements in a context where
+JSX is not valid.
+
 ## Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `tag` | `any` |
 | `text` | `string` |
 
@@ -60,18 +76,22 @@ interface HyperFunc(tag: any, text: string): T
 
 `T`
 
-## Source
+## Defined in
 
-[src/types/interfaces.ts:202](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L202)
+[src/types/interfaces.ts:336](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/interfaces.ts#L336)
 
 ```ts
 interface HyperFunc(sel: any, children: T[]): T
 ```
 
+`HyperFunc` is a function that takes an HTML tag or component, and returns a
+JSX element. This function is used to create JSX elements in a context where
+JSX is not valid.
+
 ## Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `sel` | `any` |
 | `children` | `T`[] |
 
@@ -79,9 +99,9 @@ interface HyperFunc(sel: any, children: T[]): T
 
 `T`
 
-## Source
+## Defined in
 
-[src/types/interfaces.ts:205](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L205)
+[src/types/interfaces.ts:345](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/interfaces.ts#L345)
 
 ```ts
 interface HyperFunc(
@@ -90,10 +110,14 @@ interface HyperFunc(
    text: string): T
 ```
 
+`HyperFunc` is a function that takes an HTML tag or component, and returns a
+JSX element. This function is used to create JSX elements in a context where
+JSX is not valid.
+
 ## Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `sel` | `any` |
 | `data` | `any` |
 | `text` | `string` |
@@ -102,9 +126,9 @@ interface HyperFunc(
 
 `T`
 
-## Source
+## Defined in
 
-[src/types/interfaces.ts:208](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L208)
+[src/types/interfaces.ts:354](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/interfaces.ts#L354)
 
 ```ts
 interface HyperFunc(
@@ -113,10 +137,14 @@ interface HyperFunc(
    children: T[]): T
 ```
 
+`HyperFunc` is a function that takes an HTML tag or component, and returns a
+JSX element. This function is used to create JSX elements in a context where
+JSX is not valid.
+
 ## Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `sel` | `any` |
 | `data` | `any` |
 | `children` | `T`[] |
@@ -125,9 +153,9 @@ interface HyperFunc(
 
 `T`
 
-## Source
+## Defined in
 
-[src/types/interfaces.ts:211](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L211)
+[src/types/interfaces.ts:363](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/interfaces.ts#L363)
 
 ```ts
 interface HyperFunc(
@@ -136,10 +164,14 @@ interface HyperFunc(
    children: T): T
 ```
 
+`HyperFunc` is a function that takes an HTML tag or component, and returns a
+JSX element. This function is used to create JSX elements in a context where
+JSX is not valid.
+
 ## Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `sel` | `any` |
 | `data` | `any` |
 | `children` | `T` |
@@ -148,6 +180,6 @@ interface HyperFunc(
 
 `T`
 
-## Source
+## Defined in
 
-[src/types/interfaces.ts:214](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/interfaces.ts#L214)
+[src/types/interfaces.ts:372](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/interfaces.ts#L372)

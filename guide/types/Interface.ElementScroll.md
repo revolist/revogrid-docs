@@ -13,17 +13,17 @@ optional changeScroll(e: ViewPortScrollEvent, silent?: boolean): Promise<ViewPor
 #### Parameters
 
 | Parameter | Type |
-| :------ | :------ |
-| `e` | [`ViewPortScrollEvent`](Type.ViewPortScrollEvent.md) |
+| ------ | ------ |
+| `e` | [`ViewPortScrollEvent`](TypeAlias.ViewPortScrollEvent.md) |
 | `silent`? | `boolean` |
 
 #### Returns
 
-`Promise`\<[`ViewPortScrollEvent`](Type.ViewPortScrollEvent.md)\>
+`Promise`\<[`ViewPortScrollEvent`](TypeAlias.ViewPortScrollEvent.md)\>
 
-#### Source
+#### Defined in
 
-[src/types/viewport.interfaces.ts:14](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/viewport.interfaces.ts#L14)
+[src/types/viewport.interfaces.ts:22](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/viewport.interfaces.ts#L22)
 
 ***
 
@@ -36,13 +36,13 @@ optional setScroll(e: ViewPortScrollEvent): Promise<void>
 #### Parameters
 
 | Parameter | Type |
-| :------ | :------ |
-| `e` | [`ViewPortScrollEvent`](Type.ViewPortScrollEvent.md) |
+| ------ | ------ |
+| `e` | [`ViewPortScrollEvent`](TypeAlias.ViewPortScrollEvent.md) |
 
 #### Returns
 
 `Promise`\<`void`\>
 
-#### Source
+#### Defined in
 
-[src/types/viewport.interfaces.ts:15](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/viewport.interfaces.ts#L15)
+[src/types/viewport.interfaces.ts:26](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/viewport.interfaces.ts#L26)

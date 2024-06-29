@@ -2,6 +2,8 @@
 
 # Interface: AllDimensionType
 
+Represents the mapping of dimension types to their corresponding dimension types.
+
 ## Extended by
 
 - [`BeforeCellRenderEvent`](Interface.BeforeCellRenderEvent.md)
@@ -11,7 +13,7 @@
 
 ## Properties
 
-| Property | Type |
-| :------ | :------ |
-| `colType` | [`DimensionCols`](Type.DimensionCols.md) |
-| `rowType` | [`DimensionRows`](Type.DimensionRows.md) |
+| Property | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | Represents the dimension type for columns. | [src/types/interfaces.ts:733](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/interfaces.ts#L733) |
+| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | Represents the dimension type for rows. | [src/types/interfaces.ts:728](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/interfaces.ts#L728) |

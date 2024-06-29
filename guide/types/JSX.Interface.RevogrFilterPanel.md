@@ -4,13 +4,13 @@
 
 ## Properties
 
-| Property | Type |
-| :------ | :------ |
-| `disableDynamicFiltering?` | `boolean` |
-| `filterCaptions?` | [`FilterCaptions`](Type.FilterCaptions.md) |
-| `filterEntities?` | `Record`\<`string`, [`LogicFunction`](Type.LogicFunction.md)\> |
-| `filterItems?` | [`MultiFilterItem`](Type.MultiFilterItem.md) |
-| `filterNames?` | `Record`\<`string`, `string`\> |
-| `filterTypes?` | `Record`\<`string`, `string`[]\> |
-| `onFilterChange?` | (`event`: [`RevogrFilterPanelCustomEvent`](Interface.RevogrFilterPanelCustomEvent.md)\<[`MultiFilterItem`](Type.MultiFilterItem.md)\>) => `void` |
-| `uuid?` | `string` |
+| Property | Type | Defined in |
+| ------ | ------ | ------ |
+| `disableDynamicFiltering?` | `boolean` | [src/components.d.ts:1670](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L1670) |
+| `filterCaptions?` | [`FilterCaptions`](TypeAlias.FilterCaptions.md) | [src/components.d.ts:1671](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L1671) |
+| `filterEntities?` | `Record`\<`string`, [`LogicFunction`](TypeAlias.LogicFunction.md)\> | [src/components.d.ts:1672](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L1672) |
+| `filterItems?` | [`MultiFilterItem`](TypeAlias.MultiFilterItem.md) | [src/components.d.ts:1673](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L1673) |
+| `filterNames?` | `Record`\<`string`, `string`\> | [src/components.d.ts:1674](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L1674) |
+| `filterTypes?` | `Record`\<`string`, `string`[]\> | [src/components.d.ts:1675](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L1675) |
+| `onFilterChange?` | (`event`: [`RevogrFilterPanelCustomEvent`](Interface.RevogrFilterPanelCustomEvent.md)\<[`MultiFilterItem`](TypeAlias.MultiFilterItem.md)\>) => `void` | [src/components.d.ts:1676](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L1676) |
+| `uuid?` | `string` | [src/components.d.ts:1677](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L1677) |

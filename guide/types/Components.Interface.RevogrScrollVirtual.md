@@ -6,10 +6,10 @@ Virtual scroll component
 
 ## Properties
 
-| Property | Type | Description |
-| :------ | :------ | :------ |
-| `changeScroll` | (`e`: [`ViewPortScrollEvent`](Type.ViewPortScrollEvent.md)) => `Promise`\<[`ViewPortScrollEvent`](Type.ViewPortScrollEvent.md)\> | Update if `delta` exists in case we don't know current position or if it's external change |
-| `dimension` | [`DimensionType`](Type.DimensionType.md) | Scroll dimension (`X` - `rgCol` or `Y` - `rgRow`) |
-| `dimensionStore` | [`Observable`](Type.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | Dimensions |
-| `setScroll` | (`e`: [`ViewPortScrollEvent`](Type.ViewPortScrollEvent.md)) => `Promise`\<`void`\> | - |
-| `viewportStore` | [`Observable`](Type.Observable.md)\<[`ViewportState`](Interface.ViewportState.md)\> | Viewport |
+| Property | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| `changeScroll` | (`e`: [`ViewPortScrollEvent`](TypeAlias.ViewPortScrollEvent.md)) => `Promise`\<[`ViewPortScrollEvent`](TypeAlias.ViewPortScrollEvent.md)\> | Update if `delta` exists in case we don't know current position or if it's external change | [src/components.d.ts:618](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L618) |
+| `dimension` | [`DimensionType`](TypeAlias.DimensionType.md) | Scroll dimension (`X` - `rgCol` or `Y` - `rgRow`) | [src/components.d.ts:622](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L622) |
+| `dimensionStore` | [`Observable`](TypeAlias.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | Dimensions | [src/components.d.ts:626](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L626) |
+| `setScroll` | (`e`: [`ViewPortScrollEvent`](TypeAlias.ViewPortScrollEvent.md)) => `Promise`\<`void`\> | - | [src/components.d.ts:627](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L627) |
+| `viewportStore` | [`Observable`](TypeAlias.Observable.md)\<[`ViewportState`](Interface.ViewportState.md)\> | Viewport | [src/components.d.ts:631](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L631) |

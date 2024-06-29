@@ -2,22 +2,25 @@
 
 # Interface: BeforeCellRenderEvent\<T\>
 
+Represents the event object that is emitted before cell rendering.
+It includes information about the dimension type, column, row, and model.
+
 ## Extends
 
 - [`AllDimensionType`](Interface.AllDimensionType.md)
 
-## Type parameters
+## Type Parameters
 
-| Type parameter | Value |
-| :------ | :------ |
+| Type Parameter | Default type |
+| ------ | ------ |
 | `T` | `any` |
 
 ## Properties
 
-| Property | Type | Inherited from |
-| :------ | :------ | :------ |
-| `colType` | [`DimensionCols`](Type.DimensionCols.md) | [`AllDimensionType`](Interface.AllDimensionType.md).`colType` |
-| `column` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md) | - |
-| `model` | `T` | - |
-| `row` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md) | - |
-| `rowType` | [`DimensionRows`](Type.DimensionRows.md) | [`AllDimensionType`](Interface.AllDimensionType.md).`rowType` |
+| Property | Type | Description | Inherited from | Defined in |
+| ------ | ------ | ------ | ------ | ------ |
+| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | Represents the dimension type for columns. | [`AllDimensionType`](Interface.AllDimensionType.md).`colType` | [src/types/interfaces.ts:733](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/interfaces.ts#L733) |
+| `column` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md) | Represents the column being rendered. | - | [src/types/interfaces.ts:676](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/interfaces.ts#L676) |
+| `model` | `T` | Represents the model being rendered. | - | [src/types/interfaces.ts:686](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/interfaces.ts#L686) |
+| `row` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md) | Represents the row being rendered. | - | [src/types/interfaces.ts:681](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/interfaces.ts#L681) |
+| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | Represents the dimension type for rows. | [`AllDimensionType`](Interface.AllDimensionType.md).`rowType` | [src/types/interfaces.ts:728](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/interfaces.ts#L728) |

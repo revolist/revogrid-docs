@@ -16,7 +16,7 @@ new PluginExternalConstructor(
 #### Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `revogrid` | `HTMLRevoGridElement` |
 | `providers` | `Record`\<`string`, `any`\> |
 | ...`__namedParameters` | `Iterable`\<`any`\> |
@@ -25,6 +25,6 @@ new PluginExternalConstructor(
 
 [`PluginBaseComponent`](Interface.PluginBaseComponent.md)
 
-#### Source
+#### Defined in
 
-[src/types/plugin.ts:9](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/plugin.ts#L9)
+[src/types/plugin.ts:9](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/plugin.ts#L9)

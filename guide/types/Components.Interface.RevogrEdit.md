@@ -8,12 +8,12 @@ and managing the lifecycle of the editor instance.
 
 ## Properties
 
-| Property | Type | Description |
-| :------ | :------ | :------ |
-| `additionalData` | `any` | Additional data to pass to renderer |
-| `beforeDisconnect` | () => `Promise`\<`void`\> | Before editor got disconnected. Can be triggered multiple times before actual disconnect. |
-| `cancelChanges` | () => `Promise`\<`void`\> | Cancel pending changes flag. Editor will be closed without autosave. |
-| `column` | [`ColumnDataSchemaModel`](Type.ColumnDataSchemaModel.md) | Column data for editor. |
-| `editCell` | [`EditCell`](Type.EditCell.md) | Cell to edit data. |
-| `editor` | [`EditorCtr`](Type.EditorCtr.md) | Custom editors register |
-| `saveOnClose` | `boolean` | Save on editor close. Defines if data should be saved on editor close. |
+| Property | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| `additionalData` | `any` | Additional data to pass to renderer | [src/components.d.ts:363](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L363) |
+| `beforeDisconnect` | () => `Promise`\<`void`\> | Before editor got disconnected. Can be triggered multiple times before actual disconnect. | [src/components.d.ts:367](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L367) |
+| `cancelChanges` | () => `Promise`\<`void`\> | Cancel pending changes flag. Editor will be closed without autosave. | [src/components.d.ts:371](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L371) |
+| `column` | [`ColumnDataSchemaModel`](TypeAlias.ColumnDataSchemaModel.md) | Column data for editor. | [src/components.d.ts:375](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L375) |
+| `editCell` | [`EditCell`](TypeAlias.EditCell.md) | Cell to edit data. | [src/components.d.ts:379](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L379) |
+| `editor` | [`EditorCtr`](TypeAlias.EditorCtr.md) | Custom editors register | [src/components.d.ts:383](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L383) |
+| `saveOnClose` | `boolean` | Save on editor close. Defines if data should be saved on editor close. | [src/components.d.ts:387](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/components.d.ts#L387) |

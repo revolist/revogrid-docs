@@ -13,7 +13,7 @@ new PluginConstructor(revogrid: HTMLRevoGridElement, ...__namedParameters: Itera
 #### Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `revogrid` | `HTMLRevoGridElement` |
 | ...`__namedParameters` | `Iterable`\<`any`\> |
 
@@ -21,6 +21,6 @@ new PluginConstructor(revogrid: HTMLRevoGridElement, ...__namedParameters: Itera
 
 [`PluginBaseComponent`](Interface.PluginBaseComponent.md)
 
-#### Source
+#### Defined in
 
-[src/types/plugin.ts:5](https://github.com/revolist/revogrid/blob/ace6403c43f42f0eb026a7e73c0ae179d3a4c66f/src/types/plugin.ts#L5)
+[src/types/plugin.ts:5](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/plugin.ts#L5)

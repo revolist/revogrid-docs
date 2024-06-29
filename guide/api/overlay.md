@@ -2,6 +2,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Component for overlaying the grid with the selection.
+
 ## Properties
 
 | Property              | Attribute                | Description                                                                                     | Type                                                        | Default     |
@@ -15,7 +19,7 @@
 | `dimensionRow`        | --                       | Dimension settings Y.                                                                           | `ObservableMap<DimensionSettingsState>`                     | `undefined` |
 | `editors`             | --                       | Custom editors register.                                                                        | `{ [name: string]: EditorCtr; }`                            | `undefined` |
 | `isMobileDevice`      | `is-mobile-device`       | Is mobile view mode.                                                                            | `boolean`                                                   | `undefined` |
-| `lastCell`            | --                       | Last cell position.                                                                             | `Cell`                                                      | `undefined` |
+| `lastCell`            | --                       | Last real coordinates positions + 1.                                                            | `Cell`                                                      | `undefined` |
 | `range`               | `range`                  | Range selection allowed.                                                                        | `boolean`                                                   | `undefined` |
 | `readonly`            | `readonly`               | Readonly mode.                                                                                  | `boolean`                                                   | `undefined` |
 | `selectionStore`      | --                       | Selection, range, focus.                                                                        | `ObservableMap<SelectionStoreState>`                        | `undefined` |

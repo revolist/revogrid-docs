@@ -2,6 +2,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Component for handling row order editor.
+
 ## Properties
 
 | Property       | Attribute | Description                                                     | Type                                                   | Default     |
@@ -41,9 +45,9 @@ Type: `Promise<void>`
 
 #### Parameters
 
-| Name | Type                                                           | Description |
-| ---- | -------------------------------------------------------------- | ----------- |
-| `e`  | `{ originalEvent: MouseEvent; model: ColumnDataSchemaModel; }` |             |
+| Name | Type             | Description |
+| ---- | ---------------- | ----------- |
+| `e`  | `DragStartEvent` |             |
 
 #### Returns
 
