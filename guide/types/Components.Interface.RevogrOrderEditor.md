@@ -2,14 +2,16 @@
 
 # Interface: RevogrOrderEditor
 
+Component for handling row order editor.
+
 ## Properties
 
-| Property | Type | Description |
-| :------ | :------ | :------ |
-| `clearOrder` | () => `Promise`\<`void`\> | - |
-| `dataStore` | [`Observable`](Type.Observable.md)\<[`DSourceState`](Type.DSourceState.md)\<[`DataType`](Type.DataType.md), [`DimensionRows`](Type.DimensionRows.md)\>\> | Static stores, not expected to change during component lifetime |
-| `dimensionCol` | [`Observable`](Type.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | Dimension settings X |
-| `dimensionRow` | [`Observable`](Type.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | Dimension settings Y |
-| `dragStart` | (`e`: [`DragStartEvent`](Type.DragStartEvent.md)) => `Promise`\<`void`\> | - |
-| `endOrder` | (`e`: `MouseEvent`) => `Promise`\<`void`\> | - |
-| `parent` | `HTMLElement` | Parent element |
+| Property | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| `clearOrder` | () => `Promise`\<`void`\> | - | [src/components.d.ts:492](https://github.com/revolist/revogrid/blob/69db770b4dd0e83354c8d987e03567beaf944291/src/components.d.ts#L492) |
+| `dataStore` | [`Observable`](TypeAlias.Observable.md)\<[`DSourceState`](TypeAlias.DSourceState.md)\<[`DataType`](TypeAlias.DataType.md), [`DimensionRows`](TypeAlias.DimensionRows.md)\>\> | Static stores, not expected to change during component lifetime | [src/components.d.ts:496](https://github.com/revolist/revogrid/blob/69db770b4dd0e83354c8d987e03567beaf944291/src/components.d.ts#L496) |
+| `dimensionCol` | [`Observable`](TypeAlias.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | Dimension settings X | [src/components.d.ts:500](https://github.com/revolist/revogrid/blob/69db770b4dd0e83354c8d987e03567beaf944291/src/components.d.ts#L500) |
+| `dimensionRow` | [`Observable`](TypeAlias.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | Dimension settings Y | [src/components.d.ts:504](https://github.com/revolist/revogrid/blob/69db770b4dd0e83354c8d987e03567beaf944291/src/components.d.ts#L504) |
+| `dragStart` | (`e`: [`DragStartEvent`](Interface.DragStartEvent.md)) => `Promise`\<`void`\> | - | [src/components.d.ts:505](https://github.com/revolist/revogrid/blob/69db770b4dd0e83354c8d987e03567beaf944291/src/components.d.ts#L505) |
+| `endOrder` | (`e`: `MouseEvent`) => `Promise`\<`void`\> | - | [src/components.d.ts:506](https://github.com/revolist/revogrid/blob/69db770b4dd0e83354c8d987e03567beaf944291/src/components.d.ts#L506) |
+| `parent` | `HTMLElement` | Parent element | [src/components.d.ts:510](https://github.com/revolist/revogrid/blob/69db770b4dd0e83354c8d987e03567beaf944291/src/components.d.ts#L510) |

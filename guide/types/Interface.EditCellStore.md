@@ -8,8 +8,8 @@
 
 ## Properties
 
-| Property | Type | Inherited from |
-| :------ | :------ | :------ |
-| `val?` | `string` | - |
-| `x` | `number` | [`Cell`](Interface.Cell.md).`x` |
-| `y` | `number` | [`Cell`](Interface.Cell.md).`y` |
+| Property | Type | Inherited from | Defined in |
+| ------ | ------ | ------ | ------ |
+| `val?` | `string` | - | [src/types/selection.ts:97](https://github.com/revolist/revogrid/blob/69db770b4dd0e83354c8d987e03567beaf944291/src/types/selection.ts#L97) |
+| `x` | `number` | [`Cell`](Interface.Cell.md).`x` | [src/types/selection.ts:51](https://github.com/revolist/revogrid/blob/69db770b4dd0e83354c8d987e03567beaf944291/src/types/selection.ts#L51) |
+| `y` | `number` | [`Cell`](Interface.Cell.md).`y` | [src/types/selection.ts:52](https://github.com/revolist/revogrid/blob/69db770b4dd0e83354c8d987e03567beaf944291/src/types/selection.ts#L52) |
