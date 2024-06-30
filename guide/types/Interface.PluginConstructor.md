@@ -23,4 +23,4 @@ new PluginConstructor(revogrid: HTMLRevoGridElement, ...__namedParameters: Itera
 
 #### Defined in
 
-[src/types/plugin.ts:5](https://github.com/revolist/revogrid/blob/08de4537b2052abd86ff4eb5461780401e3c4fcb/src/types/plugin.ts#L5)
+[src/types/plugin.ts:5](https://github.com/revolist/revogrid/blob/69db770b4dd0e83354c8d987e03567beaf944291/src/types/plugin.ts#L5)
