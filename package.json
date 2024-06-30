@@ -1,6 +1,6 @@
 {
   "name": "revogrid",
-  "version": "4.0.11",
+  "version": "4.0.25",
   "description": "Data Grid Library on steroids - Revogrid",
   "main": "index.js",
   "scripts": {
@@ -52,7 +52,7 @@
     "@revolist/revogrid-column-date": "^2.0.0",
     "@revolist/revogrid-column-numeral": "^1.0.2",
     "@revolist/revogrid-column-select": "^2.0.2",
-    "@revolist/vue3-datagrid": "^4.0.11",
+    "@revolist/vue3-datagrid": "4.0.25",
     "vue-github-button": "^3.1.0"
   }
 }
