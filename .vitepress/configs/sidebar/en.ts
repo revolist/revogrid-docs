@@ -105,6 +105,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             link: '/guide/filters',
         },
         {
+            text: 'Security',
+            link: '/guide/security',
+        },
+        {
             text: 'Sorting',
             link: '/guide/sorting',
         },
