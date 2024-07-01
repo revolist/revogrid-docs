@@ -17,13 +17,13 @@ type SelectionStoreState: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `edit` | [`EditCellStore`](Interface.EditCellStore.md) \| `null` | [src/types/selection.ts:18](https://github.com/revolist/revogrid/blob/38c381e080d7e0c5d988f8833cd99eec7cce206d/src/types/selection.ts#L18) |
-| `focus` | [`Cell`](Interface.Cell.md) \| `null` | [src/types/selection.ts:17](https://github.com/revolist/revogrid/blob/38c381e080d7e0c5d988f8833cd99eec7cce206d/src/types/selection.ts#L17) |
-| `lastCell` | [`Cell`](Interface.Cell.md) \| `null` | [src/types/selection.ts:19](https://github.com/revolist/revogrid/blob/38c381e080d7e0c5d988f8833cd99eec7cce206d/src/types/selection.ts#L19) |
-| `range` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/types/selection.ts:14](https://github.com/revolist/revogrid/blob/38c381e080d7e0c5d988f8833cd99eec7cce206d/src/types/selection.ts#L14) |
-| `tempRange` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/types/selection.ts:15](https://github.com/revolist/revogrid/blob/38c381e080d7e0c5d988f8833cd99eec7cce206d/src/types/selection.ts#L15) |
-| `tempRangeType` | `string` \| `null` | [src/types/selection.ts:16](https://github.com/revolist/revogrid/blob/38c381e080d7e0c5d988f8833cd99eec7cce206d/src/types/selection.ts#L16) |
+| `edit` | [`EditCellStore`](Interface.EditCellStore.md) \| `null` | [src/types/selection.ts:18](https://github.com/revolist/revogrid/blob/c9c4fc1791ac452c4c9470419263ce544ebb624f/src/types/selection.ts#L18) |
+| `focus` | [`Cell`](Interface.Cell.md) \| `null` | [src/types/selection.ts:17](https://github.com/revolist/revogrid/blob/c9c4fc1791ac452c4c9470419263ce544ebb624f/src/types/selection.ts#L17) |
+| `lastCell` | [`Cell`](Interface.Cell.md) \| `null` | [src/types/selection.ts:19](https://github.com/revolist/revogrid/blob/c9c4fc1791ac452c4c9470419263ce544ebb624f/src/types/selection.ts#L19) |
+| `range` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/types/selection.ts:14](https://github.com/revolist/revogrid/blob/c9c4fc1791ac452c4c9470419263ce544ebb624f/src/types/selection.ts#L14) |
+| `tempRange` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/types/selection.ts:15](https://github.com/revolist/revogrid/blob/c9c4fc1791ac452c4c9470419263ce544ebb624f/src/types/selection.ts#L15) |
+| `tempRangeType` | `string` \| `null` | [src/types/selection.ts:16](https://github.com/revolist/revogrid/blob/c9c4fc1791ac452c4c9470419263ce544ebb624f/src/types/selection.ts#L16) |
 
 ## Defined in
 
-[src/types/selection.ts:13](https://github.com/revolist/revogrid/blob/38c381e080d7e0c5d988f8833cd99eec7cce206d/src/types/selection.ts#L13)
+[src/types/selection.ts:13](https://github.com/revolist/revogrid/blob/c9c4fc1791ac452c4c9470419263ce544ebb624f/src/types/selection.ts#L13)

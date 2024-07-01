@@ -13,9 +13,9 @@ type FocusedCells: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `end` | [`Cell`](Interface.Cell.md) | [src/types/selection.ts:56](https://github.com/revolist/revogrid/blob/38c381e080d7e0c5d988f8833cd99eec7cce206d/src/types/selection.ts#L56) |
-| `focus` | [`Cell`](Interface.Cell.md) | [src/types/selection.ts:55](https://github.com/revolist/revogrid/blob/38c381e080d7e0c5d988f8833cd99eec7cce206d/src/types/selection.ts#L55) |
+| `end` | [`Cell`](Interface.Cell.md) | [src/types/selection.ts:56](https://github.com/revolist/revogrid/blob/c9c4fc1791ac452c4c9470419263ce544ebb624f/src/types/selection.ts#L56) |
+| `focus` | [`Cell`](Interface.Cell.md) | [src/types/selection.ts:55](https://github.com/revolist/revogrid/blob/c9c4fc1791ac452c4c9470419263ce544ebb624f/src/types/selection.ts#L55) |
 
 ## Defined in
 
-[src/types/selection.ts:54](https://github.com/revolist/revogrid/blob/38c381e080d7e0c5d988f8833cd99eec7cce206d/src/types/selection.ts#L54)
+[src/types/selection.ts:54](https://github.com/revolist/revogrid/blob/c9c4fc1791ac452c4c9470419263ce544ebb624f/src/types/selection.ts#L54)

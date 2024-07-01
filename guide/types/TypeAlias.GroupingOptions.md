@@ -14,10 +14,10 @@ type GroupingOptions: {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `expandedAll` | `boolean` | is expanded by default | [src/plugins/groupingRow/grouping.row.types.ts:13](https://github.com/revolist/revogrid/blob/38c381e080d7e0c5d988f8833cd99eec7cce206d/src/plugins/groupingRow/grouping.row.types.ts#L13) |
-| `groupLabelTemplate` | `GroupLabelTemplateFunc` | - | [src/plugins/groupingRow/grouping.row.types.ts:15](https://github.com/revolist/revogrid/blob/38c381e080d7e0c5d988f8833cd99eec7cce206d/src/plugins/groupingRow/grouping.row.types.ts#L15) |
-| `props` | [`ColumnProp`](TypeAlias.ColumnProp.md)[] | - | [src/plugins/groupingRow/grouping.row.types.ts:11](https://github.com/revolist/revogrid/blob/38c381e080d7e0c5d988f8833cd99eec7cce206d/src/plugins/groupingRow/grouping.row.types.ts#L11) |
+| `expandedAll` | `boolean` | is expanded by default | [src/plugins/groupingRow/grouping.row.types.ts:13](https://github.com/revolist/revogrid/blob/c9c4fc1791ac452c4c9470419263ce544ebb624f/src/plugins/groupingRow/grouping.row.types.ts#L13) |
+| `groupLabelTemplate` | `GroupLabelTemplateFunc` | - | [src/plugins/groupingRow/grouping.row.types.ts:15](https://github.com/revolist/revogrid/blob/c9c4fc1791ac452c4c9470419263ce544ebb624f/src/plugins/groupingRow/grouping.row.types.ts#L15) |
+| `props` | [`ColumnProp`](TypeAlias.ColumnProp.md)[] | - | [src/plugins/groupingRow/grouping.row.types.ts:11](https://github.com/revolist/revogrid/blob/c9c4fc1791ac452c4c9470419263ce544ebb624f/src/plugins/groupingRow/grouping.row.types.ts#L11) |
 
 ## Defined in
 
-[src/plugins/groupingRow/grouping.row.types.ts:9](https://github.com/revolist/revogrid/blob/38c381e080d7e0c5d988f8833cd99eec7cce206d/src/plugins/groupingRow/grouping.row.types.ts#L9)
+[src/plugins/groupingRow/grouping.row.types.ts:9](https://github.com/revolist/revogrid/blob/c9c4fc1791ac452c4c9470419263ce544ebb624f/src/plugins/groupingRow/grouping.row.types.ts#L9)
