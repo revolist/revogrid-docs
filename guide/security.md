@@ -14,4 +14,4 @@ Applications using RevoGrid may need to pass security tests before production de
 
 The SonarQube security test results for our main NPM packages are available, ensuring that RevoGrid maintains high security standards.
 
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=revolist_revogrid)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=revolist_revogrid)](https://sonarcloud.io/summary/new_code?id=revolist_revogrid)
