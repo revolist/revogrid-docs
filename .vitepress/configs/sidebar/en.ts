@@ -255,12 +255,16 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             text: 'React',
             items: [
                 {
+                    text: 'Getting Started',
+                    link: '/demo/react/react.sample',
+                },
+                {
                     text: 'Cell component',
-                    link: '/demo/vue/vue.list',
+                    link: '/demo/react/react.cell.md',
                 },
                 {
                     text: 'Editor component',
-                    link: '/demo/vue/vue.list',
+                    link: '/demo/react/react.editor.md',
                 },
             ],
         },
