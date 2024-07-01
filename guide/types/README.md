@@ -123,7 +123,6 @@
 | [OldNewRangeMapping](TypeAlias.OldNewRangeMapping.md) | - |
 | [Order](TypeAlias.Order.md) | - |
 | [PluginProviders](TypeAlias.PluginProviders.md) | - |
-| [PluginSubscribe](TypeAlias.PluginSubscribe.md) | - |
 | [PropertiesFunc](TypeAlias.PropertiesFunc.md) | - |
 | [Providers](TypeAlias.Providers.md) | Providers for grid which are going to be injected into each cell template |
 | [Range](TypeAlias.Range.md) | `Range` is an object that represents a range of values. |
