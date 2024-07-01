@@ -22,9 +22,9 @@ Contains additional properties for custom cell rendering.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `class` | \{\} \| `string` | [src/types/interfaces.ts:274](https://github.com/revolist/revogrid/blob/69db770b4dd0e83354c8d987e03567beaf944291/src/types/interfaces.ts#L274) |
-| `style` | \{\} | [src/types/interfaces.ts:270](https://github.com/revolist/revogrid/blob/69db770b4dd0e83354c8d987e03567beaf944291/src/types/interfaces.ts#L270) |
+| `class` | \{\} \| `string` | [src/types/interfaces.ts:274](https://github.com/revolist/revogrid/blob/786bfc578aeb724125d022c69d878eb830c54a23/src/types/interfaces.ts#L274) |
+| `style` | \{\} | [src/types/interfaces.ts:270](https://github.com/revolist/revogrid/blob/786bfc578aeb724125d022c69d878eb830c54a23/src/types/interfaces.ts#L270) |
 
 ## Defined in
 
-[src/types/interfaces.ts:268](https://github.com/revolist/revogrid/blob/69db770b4dd0e83354c8d987e03567beaf944291/src/types/interfaces.ts#L268)
+[src/types/interfaces.ts:268](https://github.com/revolist/revogrid/blob/786bfc578aeb724125d022c69d878eb830c54a23/src/types/interfaces.ts#L268)

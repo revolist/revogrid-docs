@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
 import minimist from 'minimist';
+import { execa } from 'execa';
 import { fileURLToPath } from 'url';
 
 // Define __dirname and __filename for ESM
@@ -33,7 +34,7 @@ function updateDependencyVersion(packageJson, type, dependencyName, version) {
 
 
 
-function updatePackageJsonVersion(packageDir, version) {
+async function updatePackageJsonVersion(packageDir, version) {
   const packageJsonPath = path.join(packageDir, 'package.json');
 
   if (fs.existsSync(packageJsonPath)) {
@@ -47,6 +48,16 @@ function updatePackageJsonVersion(packageDir, version) {
       packageJsonPath,
       JSON.stringify(packageJson, null, 2) + '\n',
     );
+
+     // Run npm install to update package-lock.json
+     try {
+      await execa('npm', ['install'], { cwd: packageDir, stdio: 'inherit' });
+      console.log(chalk.green(`Updated package-lock.json for ${packageJson.name}`));
+    } catch (error) {
+      console.log(chalk.red(`Failed to update package-lock.json in ${packageDir}`));
+      console.error(error);
+    }
+
     console.log(
       chalk.green(`Updated ${packageJson.name} to version ${version}`),
     );
@@ -55,9 +66,9 @@ function updatePackageJsonVersion(packageDir, version) {
   }
 }
 
-function main() {
+async function main() {
   const fullPath = path.resolve(__dirname);
-  updatePackageJsonVersion(fullPath, newVersion);
+  await updatePackageJsonVersion(fullPath, newVersion);
 
   console.log(chalk.blue('Version update complete.'));
 }
