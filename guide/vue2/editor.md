@@ -1,5 +1,7 @@
 <!--@include: ../parts/editor.header.md-->
 
+
+## App
 ```vue
 // App.vue
 
@@ -9,7 +11,7 @@
 </template>
 
 <script>
-import Grid, { VGridVueEditor } from '@revolist/vue-datagrid' // Import the VGrid component
+import VGrid, { VGridVueEditor } from '@revolist/vue-datagrid' // Import the VGrid component
 import Editor from './Editor.vue' // Custom editor template
 const MY_EDITOR = 'custom-editor'
 
@@ -37,13 +39,14 @@ export default {
 </script>
 ```
 
+## Editor
+
 ```vue
 // Editor.vue
 <template>
     <button @click="onBtn">Finish edit</button>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
 export default {
     props: ['rowIndex', 'model', 'save', 'close'],
     methods: {
@@ -63,15 +66,5 @@ export default {
 </script>
 ```
 
-Check [Sandbox](https://codesandbox.io/s/Revogrid-vueeditor-bxpq0?file=/src/App.vue) for real live sample.
-<ClientOnly>
 
-  <div class="tile">
-    <iframe src="https://codesandbox.io/embed/Revogrid-vueeditor-bxpq0?fontsize=14&hidenavigation=1&theme=dark"
-      style="width:100%; height:300px; border:0; border-radius: 4px; overflow:hidden;"
-      title="Revogrid-VueEditor"
-      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-    ></iframe>
-  </div>
-</ClientOnly>
+<!--@include: ../../demo/vue/vue2.editor.md-->
