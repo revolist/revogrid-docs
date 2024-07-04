@@ -15,11 +15,11 @@ type AutoSizeColumnConfig: {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `allColumns` | `boolean` | autoSize for all columns if allColumnes true all columns treated as autoSize, worse for performance false by default | [src/plugins/column.auto-size.plugin.ts:45](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/plugins/column.auto-size.plugin.ts#L45) |
-| `letterBlockSize` | `number` | assumption per characted size by default defined as 8, can be changed in this config | [src/plugins/column.auto-size.plugin.ts:50](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/plugins/column.auto-size.plugin.ts#L50) |
-| `mode` | `ColumnAutoSizeMode` | - | [src/plugins/column.auto-size.plugin.ts:39](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/plugins/column.auto-size.plugin.ts#L39) |
-| `preciseSize` | `boolean` | make size calculation exact by default it based on assumption each character takes some space defined in letterBlockSize | [src/plugins/column.auto-size.plugin.ts:53](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/plugins/column.auto-size.plugin.ts#L53) |
+| `allColumns` | `boolean` | autoSize for all columns if allColumnes true all columns treated as autoSize, worse for performance false by default | [src/plugins/column.auto-size.plugin.ts:45](https://github.com/revolist/revogrid/blob/4056bfa6a410a4e819b4e23d2047ed6d5d60c1ea/src/plugins/column.auto-size.plugin.ts#L45) |
+| `letterBlockSize` | `number` | assumption per characted size by default defined as 8, can be changed in this config | [src/plugins/column.auto-size.plugin.ts:50](https://github.com/revolist/revogrid/blob/4056bfa6a410a4e819b4e23d2047ed6d5d60c1ea/src/plugins/column.auto-size.plugin.ts#L50) |
+| `mode` | `ColumnAutoSizeMode` | - | [src/plugins/column.auto-size.plugin.ts:39](https://github.com/revolist/revogrid/blob/4056bfa6a410a4e819b4e23d2047ed6d5d60c1ea/src/plugins/column.auto-size.plugin.ts#L39) |
+| `preciseSize` | `boolean` | make size calculation exact by default it based on assumption each character takes some space defined in letterBlockSize | [src/plugins/column.auto-size.plugin.ts:53](https://github.com/revolist/revogrid/blob/4056bfa6a410a4e819b4e23d2047ed6d5d60c1ea/src/plugins/column.auto-size.plugin.ts#L53) |
 
 ## Defined in
 
-[src/plugins/column.auto-size.plugin.ts:37](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/plugins/column.auto-size.plugin.ts#L37)
+[src/plugins/column.auto-size.plugin.ts:37](https://github.com/revolist/revogrid/blob/4056bfa6a410a4e819b4e23d2047ed6d5d60c1ea/src/plugins/column.auto-size.plugin.ts#L37)
