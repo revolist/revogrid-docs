@@ -6,12 +6,12 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `disableDynamicFiltering` | `boolean` | [src/components.d.ts:392](https://github.com/revolist/revogrid/blob/5b9d5acc12b1e8b58b94bf47dcbc001b6b394655/src/components.d.ts#L392) |
-| `filterCaptions` | [`FilterCaptions`](TypeAlias.FilterCaptions.md) | [src/components.d.ts:393](https://github.com/revolist/revogrid/blob/5b9d5acc12b1e8b58b94bf47dcbc001b6b394655/src/components.d.ts#L393) |
-| `filterEntities` | `Record`\<`string`, [`LogicFunction`](TypeAlias.LogicFunction.md)\> | [src/components.d.ts:394](https://github.com/revolist/revogrid/blob/5b9d5acc12b1e8b58b94bf47dcbc001b6b394655/src/components.d.ts#L394) |
-| `filterItems` | [`MultiFilterItem`](TypeAlias.MultiFilterItem.md) | [src/components.d.ts:395](https://github.com/revolist/revogrid/blob/5b9d5acc12b1e8b58b94bf47dcbc001b6b394655/src/components.d.ts#L395) |
-| `filterNames` | `Record`\<`string`, `string`\> | [src/components.d.ts:396](https://github.com/revolist/revogrid/blob/5b9d5acc12b1e8b58b94bf47dcbc001b6b394655/src/components.d.ts#L396) |
-| `filterTypes` | `Record`\<`string`, `string`[]\> | [src/components.d.ts:397](https://github.com/revolist/revogrid/blob/5b9d5acc12b1e8b58b94bf47dcbc001b6b394655/src/components.d.ts#L397) |
-| `getChanges` | () => `Promise`\<[`ShowData`](TypeAlias.ShowData.md)\> | [src/components.d.ts:398](https://github.com/revolist/revogrid/blob/5b9d5acc12b1e8b58b94bf47dcbc001b6b394655/src/components.d.ts#L398) |
-| `show` | (`newEntity`?: [`ShowData`](TypeAlias.ShowData.md)) => `Promise`\<`void`\> | [src/components.d.ts:399](https://github.com/revolist/revogrid/blob/5b9d5acc12b1e8b58b94bf47dcbc001b6b394655/src/components.d.ts#L399) |
-| `uuid` | `string` | [src/components.d.ts:400](https://github.com/revolist/revogrid/blob/5b9d5acc12b1e8b58b94bf47dcbc001b6b394655/src/components.d.ts#L400) |
+| `disableDynamicFiltering` | `boolean` | [src/components.d.ts:392](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/components.d.ts#L392) |
+| `filterCaptions` | [`FilterCaptions`](TypeAlias.FilterCaptions.md) | [src/components.d.ts:393](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/components.d.ts#L393) |
+| `filterEntities` | `Record`\<`string`, [`LogicFunction`](TypeAlias.LogicFunction.md)\> | [src/components.d.ts:394](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/components.d.ts#L394) |
+| `filterItems` | [`MultiFilterItem`](TypeAlias.MultiFilterItem.md) | [src/components.d.ts:395](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/components.d.ts#L395) |
+| `filterNames` | `Record`\<`string`, `string`\> | [src/components.d.ts:396](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/components.d.ts#L396) |
+| `filterTypes` | `Record`\<`string`, `string`[]\> | [src/components.d.ts:397](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/components.d.ts#L397) |
+| `getChanges` | () => `Promise`\<[`ShowData`](TypeAlias.ShowData.md)\> | [src/components.d.ts:398](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/components.d.ts#L398) |
+| `show` | (`newEntity`?: [`ShowData`](TypeAlias.ShowData.md)) => `Promise`\<`void`\> | [src/components.d.ts:399](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/components.d.ts#L399) |
+| `uuid` | `string` | [src/components.d.ts:400](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/components.d.ts#L400) |

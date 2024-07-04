@@ -13,9 +13,9 @@ type ShowData: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `x` | `number` | [src/plugins/filter/filter.pop.tsx:31](https://github.com/revolist/revogrid/blob/5b9d5acc12b1e8b58b94bf47dcbc001b6b394655/src/plugins/filter/filter.pop.tsx#L31) |
-| `y` | `number` | [src/plugins/filter/filter.pop.tsx:32](https://github.com/revolist/revogrid/blob/5b9d5acc12b1e8b58b94bf47dcbc001b6b394655/src/plugins/filter/filter.pop.tsx#L32) |
+| `x` | `number` | [src/plugins/filter/filter.pop.tsx:31](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/plugins/filter/filter.pop.tsx#L31) |
+| `y` | `number` | [src/plugins/filter/filter.pop.tsx:32](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/plugins/filter/filter.pop.tsx#L32) |
 
 ## Defined in
 
-[src/plugins/filter/filter.pop.tsx:30](https://github.com/revolist/revogrid/blob/5b9d5acc12b1e8b58b94bf47dcbc001b6b394655/src/plugins/filter/filter.pop.tsx#L30)
+[src/plugins/filter/filter.pop.tsx:30](https://github.com/revolist/revogrid/blob/41a50f3812b438de1179c5db15e284c71422e9de/src/plugins/filter/filter.pop.tsx#L30)
