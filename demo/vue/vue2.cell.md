@@ -1,12 +1,10 @@
 <ClientOnly>
-  <div class="tile">
-    <iframe src="https://codesandbox.io/embed/jgt3mv?view=preview&module=%2Fsrc%2FApp.tsx&hidenavigation=1"
+<iframe src="https://codesandbox.io/embed/78q5fl?view=preview&module=%2Fsrc%2FApp.vue&hidenavigation=1"
      style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="react-revogrid-cell"
+     title="RG Cell (Vue 2)"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
-  </div>
 </ClientOnly>
 
-[![Edit react-revogrid-cell](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/react-revogrid-cell-jgt3mv)
+[![Edit RG Cell (Vue 2)](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/rg-cell-vue-2-78q5fl)

@@ -1,5 +1,3 @@
-## How to sample
-
 <ClientOnly>
   <div class="tile">
     <iframe src="https://codesandbox.io/embed/vdjyp2?view=preview&module=%2Fsrc%2FApp.tsx&hidenavigation=1"

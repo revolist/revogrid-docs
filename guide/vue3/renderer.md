@@ -1,6 +1,6 @@
 <!--@include: ../parts/renderer.header.md-->
 
-
+## App
 
 ```vue
 // App.vue
@@ -58,6 +58,7 @@ function testAction(e: CustomEvent) {
 </script>
 ```
 
+## Cell Template
 
 ```vue
 // Cell.vue
@@ -67,7 +68,7 @@ function testAction(e: CustomEvent) {
 
 <script lang="ts" setup>
 import { defineProps, ref, inject } from 'vue';
-import type { ColumnDataSchemaModel } from '@revolist/revogrid';
+import type { ColumnDataSchemaModel } from '@revolist/vue3-datagrid';
 
 const props = defineProps<ColumnDataSchemaModel>();
 const cell = ref<HTMLElement>();
@@ -85,13 +86,4 @@ function customCellClickEvent() {
 ```
 
 
-Check [Sandbox](https://codesandbox.io/s/Revogrid-react-component-hrgrx?file=/src/App.js:0-247) for real live sample.
-<ClientOnly>
-  <div class="tile">
-    <iframe src="https://codesandbox.io/embed/Revogrid-react-component-hrgrx?fontsize=14&hidenavigation=1&theme=dark"
-      style="width:100%; height:200px; border:0; border-radius: 4px; overflow:hidden;"
-      title="Revogrid-React-Component"
-      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
-  </div>
-</ClientOnly>
+<!--@include: ../../demo/vue/vue.cell.composition.md-->

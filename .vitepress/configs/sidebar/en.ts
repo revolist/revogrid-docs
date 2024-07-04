@@ -281,28 +281,50 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 },
             ],
         },
+
+        {
+            text: 'Vue 3',
+            items: [
+                {
+                    text: 'Getting Started Options API',
+                    link: '/demo/vue/vue.sample.options',
+                },
+                {
+                    text: 'Getting Started Composition API',
+                    link: '/demo/vue/vue.sample.composition',
+                },
+                {
+                    text: 'Cell component',
+                    link: '/demo/vue/vue.cell.composition',
+                },
+                {
+                    text: 'Editor component',
+                    link: '/demo/vue/vue.editor.composition',
+                },
+            ],
+        },
         {
             text: 'Vue 2',
             items: [
                 {
+                    text: 'Getting Started Options API',
+                    link: '/demo/vue/vue2.sample',
+                },
+                {
                     text: 'Cell component',
-                    link: '/demo/vue/vue.list',
+                    link: '/demo/vue/vue2.cell',
                 },
                 {
                     text: 'Editor component',
-                    link: '/demo/vue/vue.list',
+                    link: '/demo/vue/vue2.editor',
                 },
                 {
                     text: 'List',
-                    link: '/demo/vue/vue.list',
+                    link: '/demo/vue/vue2.list',
                 },
                 {
                     text: 'Checkbox list with Select All',
-                    link: '/demo/vue/vue.selectall',
-                },
-                {
-                    text: 'Grouping',
-                    link: '/demo/vue/vue.grouping',
+                    link: '/demo/vue/vue2.select',
                 },
             ],
         },
