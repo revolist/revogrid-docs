@@ -6,4 +6,4 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `redraw` | () => [`VNode`](Interface.VNode.md)[] | [src/components.d.ts:681](https://github.com/revolist/revogrid/blob/c9c4fc1791ac452c4c9470419263ce544ebb624f/src/components.d.ts#L681) |
+| `redraw` | () => [`VNode`](Interface.VNode.md)[] | [src/components.d.ts:681](https://github.com/revolist/revogrid/blob/6957d67da887b25ac544cadb80669dc782e7d7d6/src/components.d.ts#L681) |
