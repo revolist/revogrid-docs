@@ -27,4 +27,4 @@ new PluginExternalConstructor(
 
 #### Defined in
 
-[src/types/plugin.ts:9](https://github.com/revolist/revogrid/blob/6957d67da887b25ac544cadb80669dc782e7d7d6/src/types/plugin.ts#L9)
+[src/types/plugin.ts:9](https://github.com/revolist/revogrid/blob/5b9d5acc12b1e8b58b94bf47dcbc001b6b394655/src/types/plugin.ts#L9)
