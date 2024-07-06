@@ -8,4 +8,4 @@ type TrimmedEntity: Record<number, boolean>;
 
 ## Defined in
 
-[src/store/dataSource/trimmed.plugin.ts:4](https://github.com/revolist/revogrid/blob/832a695f4c49c94511535fe3aac75fac9a36ad76/src/store/dataSource/trimmed.plugin.ts#L4)
+[src/store/dataSource/trimmed.plugin.ts:4](https://github.com/revolist/revogrid/blob/479ecce95b25b0761395add7477e34a6fe066174/src/store/dataSource/trimmed.plugin.ts#L4)
