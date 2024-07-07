@@ -15,9 +15,9 @@ type ColumnGrouping: {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `children` | [`ColumnDataSchema`](TypeAlias.ColumnDataSchema.md)[] | An array of `ColumnDataSchema` objects that represent the children of the grouping. | [src/types/interfaces.ts:91](https://github.com/revolist/revogrid/blob/32c6316d328fcc561520e19c2a4b987d1e8a85d2/src/types/interfaces.ts#L91) |
-| `name` | [`DataFormat`](TypeAlias.DataFormat.md) | A `DataFormat` object that represents the name of the grouping. | [src/types/interfaces.ts:95](https://github.com/revolist/revogrid/blob/32c6316d328fcc561520e19c2a4b987d1e8a85d2/src/types/interfaces.ts#L95) |
+| `children` | [`ColumnDataSchema`](TypeAlias.ColumnDataSchema.md)[] | An array of `ColumnDataSchema` objects that represent the children of the grouping. | [src/types/interfaces.ts:91](https://github.com/revolist/revogrid/blob/baf80d21081b40195ffd6e11abd1249f2fd26dae/src/types/interfaces.ts#L91) |
+| `name` | [`DataFormat`](TypeAlias.DataFormat.md) | A `DataFormat` object that represents the name of the grouping. | [src/types/interfaces.ts:95](https://github.com/revolist/revogrid/blob/baf80d21081b40195ffd6e11abd1249f2fd26dae/src/types/interfaces.ts#L95) |
 
 ## Defined in
 
-[src/types/interfaces.ts:87](https://github.com/revolist/revogrid/blob/32c6316d328fcc561520e19c2a4b987d1e8a85d2/src/types/interfaces.ts#L87)
+[src/types/interfaces.ts:87](https://github.com/revolist/revogrid/blob/baf80d21081b40195ffd6e11abd1249f2fd26dae/src/types/interfaces.ts#L87)
