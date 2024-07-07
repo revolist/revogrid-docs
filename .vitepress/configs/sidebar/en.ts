@@ -242,12 +242,16 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             text: 'Angular',
             items: [
                 {
+                    text: 'Getting Started Standalone',
+                    link: '/demo/angular/angular.sample',
+                },
+                {
                     text: 'Cell component',
-                    link: '/demo/vue/vue.list',
+                    link: '/demo/angular/angular.cell',
                 },
                 {
                     text: 'Editor component',
-                    link: '/demo/vue/vue.list',
+                    link: '/demo/angular/angular.editor',
                 },
             ],
         },
@@ -260,11 +264,11 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 },
                 {
                     text: 'Cell component',
-                    link: '/demo/react/react.cell.md',
+                    link: '/demo/react/react.cell',
                 },
                 {
                     text: 'Editor component',
-                    link: '/demo/react/react.editor.md',
+                    link: '/demo/react/react.editor',
                 },
             ],
         },
@@ -272,12 +276,8 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             text: 'Svelte',
             items: [
                 {
-                    text: 'Cell component',
-                    link: '/demo/vue/vue.list',
-                },
-                {
-                    text: 'Editor component',
-                    link: '/demo/vue/vue.list',
+                    text: 'Getting Started',
+                    link: '/demo/svelte/svelte.sample',
                 },
             ],
         },

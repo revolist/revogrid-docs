@@ -15,7 +15,7 @@
 | [ApplyFocusEvent](Interface.ApplyFocusEvent.md) | Represents the event object that is emitted when applying focus. It includes information about the dimension type and focused cells. |
 | [BeforeCellRenderEvent](Interface.BeforeCellRenderEvent.md) | Represents the event object that is emitted before cell rendering. It includes information about the dimension type, column, row, and model. |
 | [BeforeRowRenderEvent](Interface.BeforeRowRenderEvent.md) | Represents the event object that is emitted before row rendering. It includes information about the dimension type, data item, item, and node. |
-| [Cell](Interface.Cell.md) | - |
+| [Cell](Interface.Cell.md) | Cell coordinates |
 | [CellTemplate](Interface.CellTemplate.md) | - |
 | [CellTemplateProp](Interface.CellTemplateProp.md) | Template property for each cell, extends the column data schema model. Additionally, it provides access to the providers injected into the template. |
 | [ColumnProperties](Interface.ColumnProperties.md) | Configuration for header inner template properties |
@@ -25,10 +25,10 @@
 | [DimensionCalc](Interface.DimensionCalc.md) | Object containing information about calculated dimensions. Used for both columns and rows. |
 | [DimensionSettingsState](Interface.DimensionSettingsState.md) | Represents the settings state of a dimension. It extends the calculation properties of a dimension. It also includes the real size and origin item size of the dimension. |
 | [DragStartEvent](Interface.DragStartEvent.md) | Represents the event object that is emitted when the drag operation starts. |
-| [EditCellStore](Interface.EditCellStore.md) | - |
-| [EditorBase](Interface.EditorBase.md) | - |
+| [EditCellStore](Interface.EditCellStore.md) | Edit cell info for store |
+| [EditorBase](Interface.EditorBase.md) | Editor interface |
 | [EditorCtrCallable](Interface.EditorCtrCallable.md) | - |
-| [EditorCtrConstructible](Interface.EditorCtrConstructible.md) | - |
+| [EditorCtrConstructible](Interface.EditorCtrConstructible.md) | Editor component constructible class |
 | [ElementScroll](Interface.ElementScroll.md) | - |
 | [FocusRenderEvent](Interface.FocusRenderEvent.md) | Represents the event object that is emitted before focus rendering. It includes information about the dimension type and range area. |
 | [Group](Interface.Group.md) | Configuration for header inner template properties |
@@ -74,8 +74,7 @@
 | [ColPropertiesFunc](TypeAlias.ColPropertiesFunc.md) | - |
 | [ColumnCollection](TypeAlias.ColumnCollection.md) | - |
 | [ColumnData](TypeAlias.ColumnData.md) | - |
-| [ColumnDataSchema](TypeAlias.ColumnDataSchema.md) | - |
-| [ColumnDataSchemaModel](TypeAlias.ColumnDataSchemaModel.md) | - |
+| [ColumnDataSchemaModel](TypeAlias.ColumnDataSchemaModel.md) | Advanced column data schema model. Used for transpassing data to cell renderer and editor. |
 | [ColumnGrouping](TypeAlias.ColumnGrouping.md) | `ColumnGrouping` type is used to define a grouping in a column. |
 | [ColumnProp](TypeAlias.ColumnProp.md) | - |
 | [ColumnPropProp](TypeAlias.ColumnPropProp.md) | - |
@@ -101,9 +100,9 @@
 | [DimensionTypeCol](TypeAlias.DimensionTypeCol.md) | - |
 | [DimensionTypeRow](TypeAlias.DimensionTypeRow.md) | - |
 | [DispatchDetail](TypeAlias.DispatchDetail.md) | - |
-| [EditCell](TypeAlias.EditCell.md) | - |
-| [EditorCtr](TypeAlias.EditorCtr.md) | - |
-| [Editors](TypeAlias.Editors.md) | - |
+| [EditCell](TypeAlias.EditCell.md) | Edit cell info for editor |
+| [EditorCtr](TypeAlias.EditorCtr.md) | Editor component |
+| [Editors](TypeAlias.Editors.md) | Available editors in grid |
 | [ElementsScroll](TypeAlias.ElementsScroll.md) | - |
 | [FilterCaptions](TypeAlias.FilterCaptions.md) | - |
 | [FilterCollection](TypeAlias.FilterCollection.md) | - |

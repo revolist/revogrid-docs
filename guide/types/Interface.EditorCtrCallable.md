@@ -2,12 +2,16 @@
 
 # Interface: EditorCtrCallable()
 
+Editor component callable function
+
 ```ts
 interface EditorCtrCallable(
    column: ColumnDataSchemaModel, 
    save: (value: string, preventFocus?: boolean) => void, 
    close: (focusNext?: boolean) => void): EditorBase
 ```
+
+Editor component callable function
 
 ## Parameters
 
@@ -23,4 +27,4 @@ interface EditorCtrCallable(
 
 ## Defined in
 
-[src/types/selection.ts:106](https://github.com/revolist/revogrid/blob/4056bfa6a410a4e819b4e23d2047ed6d5d60c1ea/src/types/selection.ts#L106)
+[src/types/selection.ts:127](https://github.com/revolist/revogrid/blob/32c6316d328fcc561520e19c2a4b987d1e8a85d2/src/types/selection.ts#L127)

@@ -2,12 +2,16 @@
 
 # Interface: CellTemplate()
 
+Interface for custom cell renderer.
+
 ```ts
 interface CellTemplate(
    createElement: HyperFunc<VNode>, 
    props: CellTemplateProp, 
    additionalData?: any): any
 ```
+
+Interface for custom cell renderer.
 
 ## Parameters
 
@@ -23,4 +27,4 @@ interface CellTemplate(
 
 ## Defined in
 
-[src/types/interfaces.ts:124](https://github.com/revolist/revogrid/blob/4056bfa6a410a4e819b4e23d2047ed6d5d60c1ea/src/types/interfaces.ts#L124)
+[src/types/interfaces.ts:131](https://github.com/revolist/revogrid/blob/32c6316d328fcc561520e19c2a4b987d1e8a85d2/src/types/interfaces.ts#L131)

@@ -1,12 +1,9 @@
-# Project start
-
-[Check sample](https://codesandbox.io/s/Revogrid-svelte-d3zhi).
-
 <ClientOnly>
-  <iframe src="https://codesandbox.io/embed/Revogrid-svelte-latest-7g7vo8?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Revogrid-Svelte_Latest"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<iframe src="https://stackblitz.com/edit/vitejs-vite-dvilmw?embed=1&file=src%2FApp.svelte&hideExplorer=1&hideNavigation=1&view=preview"
+     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="RG Start (Svelte)"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" credentialless anonymous
    ></iframe>
 </ClientOnly>
+
+[![Edit RG Start (Svelte)](https://codesandbox.io/static/img/play-codesandbox.svg)](https://stackblitz.com/edit/vitejs-vite-dvilmw)
