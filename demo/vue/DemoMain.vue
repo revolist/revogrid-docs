@@ -18,9 +18,9 @@
 import { onMounted, ref } from 'vue'
 import { useData } from 'vitepress'
 import VGrid, { type ColumnDataSchema } from '@revolist/vue3-datagrid'
-// import ColumnDate from '@revolist/revogrid-column-date'
-// import ColumnNumeral from '@revolist/revogrid-column-numeral'
-// import ColumnSelect from '@revolist/revogrid-column-select'
+import ColumnDate from '@revolist/revogrid-column-date'
+import ColumnNumeral from '@revolist/revogrid-column-numeral'
+import ColumnSelect from '@revolist/revogrid-column-select'
 import { people } from './people.json'
 
 
@@ -44,9 +44,9 @@ function getRandomArbitrary(min: number, max: number) {
 }
 
 const gridColumnTypes: { [name: string]: any } = {
-    // date: new ColumnDate(),
-    // number: new ColumnNumeral(),
-    // select: new ColumnSelect(),
+    date: new ColumnDate(),
+    number: new ColumnNumeral(),
+    select: new ColumnSelect(),
 }
 const gridColumns = ref<ColumnDataSchema[]>([])
 const gridData = ref<any>([])

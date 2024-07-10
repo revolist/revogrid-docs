@@ -6,4 +6,18 @@
    ></iframe>
 </ClientOnly>
 
-[![Edit RG Start (Svelte)](https://codesandbox.io/static/img/play-codesandbox.svg)](https://stackblitz.com/edit/vitejs-vite-dvilmw)
+[Edit RG Start (Svelte)](https://stackblitz.com/edit/vitejs-vite-dvilmw)
+
+
+## Svelte Kit Demo
+
+<ClientOnly>
+<iframe src="https://codesandbox.io/p/devbox/rg-start-svelte-k7xdsh?embed=1&file=%2Fsrc%2Froutes%2F%2Bpage.svelte"
+     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="RG Start (Svelte)"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+</ClientOnly>
+
+[![Edit RG Start (Svelte)](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/devbox/rg-start-svelte-k7xdsh?embed=1&file=%2Fsrc%2Froutes%2F%2Bpage.svelte)
