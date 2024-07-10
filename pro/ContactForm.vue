@@ -117,12 +117,11 @@ const isFormValid = computed(() => {
 const handleSubmit = async () => {
     if (isFormValid.value) {
         const payload = {
-            subject: 'Hello my life',
             body: `
-        Full Name: ${form.value.fullName}
-        Company Name: ${form.value.companyName}
-        Business Email: ${form.value.businessEmail}
-        Application Info: ${form.value.applicationInfo}
+        <br>Full Name: ${form.value.fullName}
+        <br>Company Name: ${form.value.companyName}
+        <br>Business Email: ${form.value.businessEmail}
+        <br>Application Info: ${form.value.applicationInfo}
       `,
         }
 
