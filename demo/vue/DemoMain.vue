@@ -1,26 +1,23 @@
 <template>
-    <ClientOnly>
-        <VGrid
-            class="grid"
-            :theme="isDark ? 'darkMaterial' : 'compact'"
-            :source="gridData"
-            :columns="gridColumns"
-            :column-types="gridColumnTypes"
-            :filter="true"
-            range
-            resize
-            row-headers
-            :row-size="36"
-        />
-    </ClientOnly>
+<ClientOnly>
+    <VGrid
+        class="grid"
+        :theme="isDark ? 'darkMaterial' : 'compact'"
+        :source="gridData"
+        :columns="gridColumns"
+        :column-types="gridColumnTypes"
+        :filter="true"
+        range
+        resize
+        row-headers
+        :row-size="36"
+    />
+</ClientOnly>
 </template>
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
 import { useData } from 'vitepress'
 import VGrid, { type ColumnDataSchema } from '@revolist/vue3-datagrid'
-import ColumnDate from '@revolist/revogrid-column-date'
-import ColumnNumeral from '@revolist/revogrid-column-numeral'
-import ColumnSelect from '@revolist/revogrid-column-select'
 import { people } from './people.json'
 
 
@@ -43,16 +40,17 @@ function getRandomArbitrary(min: number, max: number) {
     return Math.random() * (max - min) + min
 }
 
-const gridColumnTypes: { [name: string]: any } = {
-    date: new ColumnDate(),
-    number: new ColumnNumeral(),
-    select: new ColumnSelect(),
-}
+const gridColumnTypes = ref<{ [name: string]: any }>({}); 
 const gridColumns = ref<ColumnDataSchema[]>([])
 const gridData = ref<any>([])
 const colsNumber = 100
 
-onMounted(() => {
+onMounted(async() => {
+    gridColumnTypes.value = {
+        date: new (await import('@revolist/revogrid-column-date')).default(),
+        number: new (await import('@revolist/revogrid-column-numeral')).default(),
+        select: new (await import('@revolist/revogrid-column-select')).default(),
+    };
     gridData.value = people.map((row) => {
         const newRow: Record<string, any> = {
             ...row,
