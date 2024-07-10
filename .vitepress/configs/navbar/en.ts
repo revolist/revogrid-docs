@@ -17,19 +17,19 @@ export const navbarEn: DefaultTheme.NavItem[] = [
     activeMatch: '^/pro/',
   }, {
     text: 'v4.x',
-    items: [{ text: 'v3.x', link: 'https://v3.router.vuejs.org' }],
+    items: [{ text: 'v3.x', link: 'https://revolist.github.io/revogrid/' }],
   },
-  {
-    text: 'Links',
-    items: [
-      {
-        text: 'Discussions',
-        link: 'https://github.com/vuejs/router/discussions',
-      },
-      {
-        text: 'Changelog',
-        link: 'https://github.com/vuejs/router/blob/main/packages/router/CHANGELOG.md',
-      },
-    ],
-  },
+  // {
+  //   text: 'Links',
+  //   items: [
+  //     {
+  //       text: 'Discussions',
+  //       link: 'https://github.com/vuejs/router/discussions',
+  //     },
+  //     {
+  //       text: 'Changelog',
+  //       link: 'https://github.com/vuejs/router/blob/main/packages/router/CHANGELOG.md',
+  //     },
+  //   ],
+  // },
 ]

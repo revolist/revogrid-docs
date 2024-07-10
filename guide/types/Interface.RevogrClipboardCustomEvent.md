@@ -1,3 +1,4 @@
+
 [@revolist/revogrid](README.md) / RevogrClipboardCustomEvent
 
 # Interface: RevogrClipboardCustomEvent\<T\>

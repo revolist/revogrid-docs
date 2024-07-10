@@ -1,3 +1,4 @@
+
 [@revolist/revogrid](README.md) / RevogrHeaderCustomEvent
 
 # Interface: RevogrHeaderCustomEvent\<T\>

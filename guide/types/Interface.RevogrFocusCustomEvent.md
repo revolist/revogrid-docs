@@ -1,3 +1,4 @@
+
 [@revolist/revogrid](README.md) / RevogrFocusCustomEvent
 
 # Interface: RevogrFocusCustomEvent\<T\>

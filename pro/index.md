@@ -8,7 +8,11 @@ next: false
 ---
 
 <script setup>
-import ProPlan from './ProPlan.vue'
+import { ref } from 'vue'
+import Plan from './Plan.vue'
+import ContactForm from './ContactForm.vue'
+
+let showForm = ref(false) // isVisible
 </script>
 
 <style scoped>
@@ -28,11 +32,10 @@ Maintaining and developing Revogrid, along with its documentation and community,
 We are excited to introduce the Pro version, aimed at supporting the future growth of the library and providing you with the exclusive benefits like direct support, prioritized feature requests, and unique insights into our latest offerings. 🌟
 
 <div class="plans-container">
-<ProPlan
+<Plan
   title="Professional"
   description="Best for companies and individuals that want a direct wire to the Revogrid team experience."
   buttonText="Request a Quote"
-  href="mailto:contact@revolist.eu"
   :features="[
     'Access to all Pro Examples',
     'Prioritized Github Issues',
@@ -40,13 +43,13 @@ We are excited to introduce the Pro version, aimed at supporting the future grow
     'Up to 1 hour of individual support via email per month',
     'Introduction call with one of the creators of Revogrid'
   ]"
+  @open="showForm = true"
 />
 
-<ProPlan
+<Plan
   title="Enterprise"
   description="For large companies who want to have guidance and insights from the Revogrid team."
   buttonText="Request a Quote"
-  href="mailto:contact@revolist.eu"
   :features="[
     'Perpetual access to all Pro Examples',
     'Prioritized Github Issues',
@@ -54,10 +57,11 @@ We are excited to introduce the Pro version, aimed at supporting the future grow
     '1 hour of individual support via voice, video, or email per month',
     'Custom procurement and payment process'
   ]"
+  @open="showForm = true"
 />
+<ContactForm :isVisible="showForm" @close="showForm = false"/>
 </div>
 
-<!-- Your support empowers us to keep growing, innovating, and making Revogrid the best it can be. We understand your time and resources are precious. That's why we're committed to providing you with the tools and support you need to build 🚀 incredible things. -->
 
 Thank you for being an essential part of our community and for helping us make Revogrid better every day. 🌟
 

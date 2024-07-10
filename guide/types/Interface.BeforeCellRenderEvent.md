@@ -1,3 +1,4 @@
+
 [@revolist/revogrid](README.md) / BeforeCellRenderEvent
 
 # Interface: BeforeCellRenderEvent\<T\>

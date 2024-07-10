@@ -214,7 +214,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             items: [
                 {
                     text: 'First run',
-                    link: '/demo/js/js.first',
+                    link: '/demo/js/js.overview',
                 },
                 {
                     text: 'Grouping',
@@ -222,6 +222,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 },
                 {
                     text: 'Individual row sizes',
+                    link: '/demo/js/js.custom.rows',
                 },
             ],
         },

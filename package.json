@@ -1,6 +1,6 @@
 {
   "name": "revogrid",
-  "version": "4.0.37",
+  "version": "4.0.50",
   "description": "Data Grid Library on steroids - Revogrid",
   "main": "index.js",
   "scripts": {

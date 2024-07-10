@@ -1,3 +1,4 @@
+
 [@revolist/revogrid](README.md) / ViewSettingSizeProp
 
 # Type Alias: ViewSettingSizeProp
