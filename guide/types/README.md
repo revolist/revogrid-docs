@@ -27,7 +27,6 @@
 | [DragStartEvent](Interface.DragStartEvent.md) | Represents the event object that is emitted when the drag operation starts. |
 | [EditCellStore](Interface.EditCellStore.md) | Edit cell info for store |
 | [EditorBase](Interface.EditorBase.md) | Editor interface |
-| [EditorCtrCallable](Interface.EditorCtrCallable.md) | - |
 | [EditorCtrConstructible](Interface.EditorCtrConstructible.md) | Editor component constructible class |
 | [ElementScroll](Interface.ElementScroll.md) | - |
 | [FocusRenderEvent](Interface.FocusRenderEvent.md) | Represents the event object that is emitted before focus rendering. It includes information about the dimension type and range area. |
@@ -102,6 +101,7 @@
 | [DispatchDetail](TypeAlias.DispatchDetail.md) | - |
 | [EditCell](TypeAlias.EditCell.md) | Edit cell info for editor |
 | [EditorCtr](TypeAlias.EditorCtr.md) | Editor component |
+| [EditorCtrCallable](TypeAlias.EditorCtrCallable.md) | Editor component callable function |
 | [Editors](TypeAlias.Editors.md) | Available editors in grid |
 | [ElementsScroll](TypeAlias.ElementsScroll.md) | - |
 | [FilterCaptions](TypeAlias.FilterCaptions.md) | - |

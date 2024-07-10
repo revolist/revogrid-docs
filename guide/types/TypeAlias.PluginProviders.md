@@ -16,12 +16,12 @@ type PluginProviders: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `column` | `ColumnDataProvider` | [src/types/plugin.types.ts:10](https://github.com/revolist/revogrid/blob/32c6316d328fcc561520e19c2a4b987d1e8a85d2/src/types/plugin.types.ts#L10) |
-| `data` | `DataProvider` | [src/types/plugin.types.ts:7](https://github.com/revolist/revogrid/blob/32c6316d328fcc561520e19c2a4b987d1e8a85d2/src/types/plugin.types.ts#L7) |
-| `dimension` | `DimensionProvider` | [src/types/plugin.types.ts:8](https://github.com/revolist/revogrid/blob/32c6316d328fcc561520e19c2a4b987d1e8a85d2/src/types/plugin.types.ts#L8) |
-| `selection` | `SelectionStoreConnector` | [src/types/plugin.types.ts:9](https://github.com/revolist/revogrid/blob/32c6316d328fcc561520e19c2a4b987d1e8a85d2/src/types/plugin.types.ts#L9) |
-| `viewport` | `ViewportProvider` | [src/types/plugin.types.ts:11](https://github.com/revolist/revogrid/blob/32c6316d328fcc561520e19c2a4b987d1e8a85d2/src/types/plugin.types.ts#L11) |
+| `column` | `ColumnDataProvider` | [src/types/plugin.types.ts:10](https://github.com/revolist/revogrid/blob/179ef4790c9da8e1216f1005cb3571a276adbd08/src/types/plugin.types.ts#L10) |
+| `data` | `DataProvider` | [src/types/plugin.types.ts:7](https://github.com/revolist/revogrid/blob/179ef4790c9da8e1216f1005cb3571a276adbd08/src/types/plugin.types.ts#L7) |
+| `dimension` | `DimensionProvider` | [src/types/plugin.types.ts:8](https://github.com/revolist/revogrid/blob/179ef4790c9da8e1216f1005cb3571a276adbd08/src/types/plugin.types.ts#L8) |
+| `selection` | `SelectionStoreConnector` | [src/types/plugin.types.ts:9](https://github.com/revolist/revogrid/blob/179ef4790c9da8e1216f1005cb3571a276adbd08/src/types/plugin.types.ts#L9) |
+| `viewport` | `ViewportProvider` | [src/types/plugin.types.ts:11](https://github.com/revolist/revogrid/blob/179ef4790c9da8e1216f1005cb3571a276adbd08/src/types/plugin.types.ts#L11) |
 
 ## Defined in
 
-[src/types/plugin.types.ts:6](https://github.com/revolist/revogrid/blob/32c6316d328fcc561520e19c2a4b987d1e8a85d2/src/types/plugin.types.ts#L6)
+[src/types/plugin.types.ts:6](https://github.com/revolist/revogrid/blob/179ef4790c9da8e1216f1005cb3571a276adbd08/src/types/plugin.types.ts#L6)

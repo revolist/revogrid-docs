@@ -8,4 +8,4 @@ type RowDrag: boolean | (params: ColumnDataSchemaModel) => boolean;
 
 ## Defined in
 
-[src/types/interfaces.ts:82](https://github.com/revolist/revogrid/blob/32c6316d328fcc561520e19c2a4b987d1e8a85d2/src/types/interfaces.ts#L82)
+[src/types/interfaces.ts:82](https://github.com/revolist/revogrid/blob/179ef4790c9da8e1216f1005cb3571a276adbd08/src/types/interfaces.ts#L82)
