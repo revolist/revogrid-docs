@@ -13,6 +13,7 @@ import { ColumnDataSchemaModel } from '@revolist/revogrid';
 
 @Component({
   selector: 'app-cell',
+  standalone: true,
   template: '<span> {{value}} works!</span>',
 })
 export class CellComponent {
