@@ -8,4 +8,4 @@ type DispatchDetail: any;
 
 ## Defined in
 
-[src/plugins/dispatcher.ts:3](https://github.com/revolist/revogrid/blob/ad41fd58f9a9de46c1cfbe02ca82c22180ee685c/src/plugins/dispatcher.ts#L3)
+[src/plugins/dispatcher.ts:3](https://github.com/revolist/revogrid/blob/2f44a261094fb5584023b62ddfd589facc70cf92/src/plugins/dispatcher.ts#L3)
