@@ -27,10 +27,20 @@ bun add @revolist/revogrid
 ```
 :::
 
-After installation, you can import `Revogrid` into your module. If you're using ES Modules in your project, here’s how you can import it:
+After installation, you can import `Revogrid` into your module. 
+
+Using lazy loading:
+
 ```js
-import { Revogrid } from '@revolist/revogrid';
+import { defineCustomElements } from "@revolist/revogrid/loader";
+// defineCustomElements function can be used to quickly define all Revogrid components in a project on the custom elements registry.
+defineCustomElements();
 ```
+
+If you're using ES Modules in your project, [here’s how you can import it](./standalone).
+
+
+
 This import statement brings the Revogrid component into your project, allowing you to utilize it within your JavaScript or TypeScript files. From here, you can proceed to instantiate and configure your grid according to your project's requirements.
 
 

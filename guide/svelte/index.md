@@ -26,24 +26,8 @@ bun add @revolist/svelte-datagrid
 ```svelte
 // App.svelte
 <script lang="ts">
-  import { RevoGrid } from '@revolist/svelte-datagrid';
-  import type { ColumnRegular } from '@revolist/revogrid';
-
-  // This part to makesure revogrid component is loaded and ready
-  import { defineCustomElements } from '@revolist/revogrid/loader';
-  defineCustomElements();
-
-  const columns = [
-      {
-        prop: 'name',
-        name: 'First',
-      },
-      {
-        prop: 'details',
-        name: 'Second',
-      },
-  ];
-  const source = [
+    import { RevoGrid, type ColumnRegular } from '@revolist/svelte-datagrid';
+    const source = [
     {
       name: '1',
       details: 'Item 1',
@@ -53,22 +37,25 @@ bun add @revolist/svelte-datagrid
       details: 'Item 2',
     },
   ];
+    const columns: ColumnRegular[] = [
+    {
+      prop: 'name',
+      name: 'First',
+      cellTemplate(h, { value }) {
+        return h('span', { style: { background: 'red' } }, value);
+      }
+    },
+    {
+      prop: 'details',
+      name: 'Second',
+    },
+  ];
 </script>
 
-<RevoGrid {source} {columns}></RevoGrid>
+<main>
+	<RevoGrid {source} {columns}></RevoGrid>
+</main>
 ```
 
 
-Check [Sandbox](https://codesandbox.io/s/Revogrid-svelte-latest-7g7vo8?file=/Grid.svelte:1152-1208) for real live sample.
-<demo-svelte/>
-
-<ClientOnly>
-  <div class="tile">
-   <iframe src="https://codesandbox.io/embed/Revogrid-svelte-latest-7g7vo8?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Revogrid-Svelte_Latest"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-  </div>
-</ClientOnly>
+<!--@include: ../../demo/svelte/svelte.sample.md-->

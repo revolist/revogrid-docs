@@ -195,6 +195,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             ],
         },
         {
+            text: 'Remove Attribution',
+            link: '/guide/attribution',
+        },
+        {
             text: 'Contributor Guide',
             link: '/guide/CONTRIBUTING',
         },
