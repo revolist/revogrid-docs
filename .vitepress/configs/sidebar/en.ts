@@ -221,12 +221,13 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     link: '/demo/js/js.overview',
                 },
                 {
-                    text: 'Grouping',
-                    link: '/demo/vue/vue.grouping',
-                },
-                {
                     text: 'Individual row sizes',
                     link: '/demo/js/js.custom.rows',
+                },
+
+                {
+                    text: 'Grouping',
+                    link: '/demo/js/js.grouping',
                 },
             ],
         },
@@ -306,6 +307,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     text: 'Editor component',
                     link: '/demo/vue/vue.editor.composition',
                 },
+                {
+                    text: 'Grouping',
+                    link: '/demo/vue/vue.grouping',
+                },
             ],
         },
         {
@@ -322,6 +327,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 {
                     text: 'Editor component',
                     link: '/demo/vue/vue2.editor',
+                },
+                {
+                    text: 'Grouping',
+                    link: '/demo/vue/vue2.grouping',
                 },
                 {
                     text: 'List',
