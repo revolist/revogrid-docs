@@ -14,7 +14,7 @@ export const navbarEn: DefaultTheme.NavItem[] = [
   {
     text: 'Revogrid Pro',
     link: '/pro/',
-    activeMatch: '^/(pro|pro-docs)/',
+    activeMatch: '^/pro/',
   }, {
     text: 'v4.x',
     items: [{ text: 'v3.x', link: 'https://revolist.github.io/revogrid/' }],
