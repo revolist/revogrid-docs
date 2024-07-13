@@ -1,0 +1,3 @@
+[submodule "pro-docs"]
+	path = pro-docs
+	url = https://github.com/revolist/revogrid-docs-pro.git
