@@ -119,3 +119,4 @@ For more information, visit the [RevoGrid GitHub repository](https://github.com/
 ```
 
 This `README.md` provides clear instructions on how to set up, fill, and contribute to the VitePress-based RevoGrid documentation. Adjust as needed to better fit the specific requirements of the project.
+
