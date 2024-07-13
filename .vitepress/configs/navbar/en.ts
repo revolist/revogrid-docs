@@ -14,22 +14,22 @@ export const navbarEn: DefaultTheme.NavItem[] = [
   {
     text: 'Revogrid Pro',
     link: '/pro/',
-    activeMatch: '^/pro/',
+    activeMatch: '^/(pro|pro-docs)/',
   }, {
     text: 'v4.x',
     items: [{ text: 'v3.x', link: 'https://revolist.github.io/revogrid/' }],
   },
-  // {
-  //   text: 'Links',
-  //   items: [
-  //     {
-  //       text: 'Discussions',
-  //       link: 'https://github.com/vuejs/router/discussions',
-  //     },
-  //     {
-  //       text: 'Changelog',
-  //       link: 'https://github.com/vuejs/router/blob/main/packages/router/CHANGELOG.md',
-  //     },
-  //   ],
-  // },
+  {
+    text: 'Links',
+    items: [
+      {
+        text: 'Discussions',
+        link: 'https://github.com/revolist/revogrid/discussions',
+      },
+      // {
+      //   text: 'Changelog',
+      //   link: 'https://github.com/revolist/revogrid/CHANGELOG.md',
+      // },
+    ],
+  },
 ]
