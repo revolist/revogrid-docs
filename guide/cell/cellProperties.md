@@ -1,5 +1,5 @@
 
-## Cell Properties [<Badge type="tip">Type: PropertiesFunc</Badge>](../types/Type.PropertiesFunc) 
+## Cell Properties [<Badge type="tip">Type: PropertiesFunc</Badge>](../types/TypeAlias.PropertiesFunc) 
 
 What are cell properties in RevoGrid. You can add various properties to cells, including tags, styles, classes, and events like `onClick`.
 

@@ -1,4 +1,4 @@
-## Column Grouping (Stacked Columns) [<Badge type="tip">Type: ColumnGrouping</Badge>](../types/Type.ColumnGrouping)
+## Column Grouping (Stacked Columns) [<Badge type="tip">Type: ColumnGrouping</Badge>](../types/TypeAlias.ColumnGrouping)
 
 Columns in RevoGrid can be defined as either regular columns or grouped columns (stacked columns). To create a stacked column, simply define it as a group. Check the interfaces for more information.
 

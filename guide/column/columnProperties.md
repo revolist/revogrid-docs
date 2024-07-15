@@ -1,4 +1,4 @@
-## Column Header Properties [<Badge type="tip">Type: ColPropertiesFunc</Badge>](../types/Type.ColPropertiesFunc)
+## Column Header Properties [<Badge type="tip">Type: ColPropertiesFunc</Badge>](../types/TypeAlias.ColPropertiesFunc)
 
 <!--@include: ../parts/column.props.md-->
 

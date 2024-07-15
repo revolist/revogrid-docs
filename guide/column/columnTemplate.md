@@ -6,7 +6,7 @@ This is a powerful feature.
 `Remember` to escape any HTML code that could be used for XSS attacks.
 
 :::tip
-Check [Type: ColumnTemplateFunc](../types/Type.ColumnTemplateFunc) for more information.
+Check [Type: ColumnTemplateFunc](../types/TypeAlias.ColumnTemplateFunc) for more information.
 :::
 
 ```ts
