@@ -19,5 +19,6 @@ Check [Interface: ColumnRegular](../types/Interface.ColumnRegular) for more info
 <!--@include: ./columnTemplate.md-->
 <!--@include: ./columnPin.md-->
 <!--@include: ./grouping.md-->
+<!--@include: ./readonly.md-->
 <!--@include: ./types.md-->
 
