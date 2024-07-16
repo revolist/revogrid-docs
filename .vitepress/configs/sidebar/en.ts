@@ -224,7 +224,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     text: 'Individual row sizes',
                     link: '/demo/js/js.custom.rows',
                 },
-
+                {
+                    text: 'Date column',
+                    link: '/demo/js/js.date',
+                },
                 {
                     text: 'Grouping',
                     link: '/demo/js/js.grouping',

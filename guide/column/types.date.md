@@ -1,6 +1,6 @@
 ### Date
 
-Date [column type plugin](https://github.com/revolist/Revogrid-column-date) based on based on [duetds-date-picker](https://github.com/duetds/date-picker) library.
+Date [column type plugin](https://github.com/revolist/revogrid-column-date) based on based on [duetds-date-picker](https://github.com/duetds/date-picker) library.
 
 In order to improve datepicker functionality please contribute with [duetds-date-picker](https://github.com/duetds/date-picker).
 Accept data as formated string or date format.
@@ -49,6 +49,7 @@ bun add @revolist/revogrid-column-date
 -   Per column specify column type;
 -   Register your column type.
 
+
 ```js
 // do import
 import Plugin from '@revolist/revogrid-column-date'
@@ -63,13 +64,5 @@ const columnTypes = { date: new Plugin() }
 <revo-grid source={rows} columns={columns} columnTypes={columnTypes} />
 ```
 
-<ClientOnly>
-  <div class="tile">
-   <iframe src="https://codesandbox.io/embed/vue-grid-date-plugin-6wudi?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue&theme=dark&view=preview"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Vue-grid-date-plugin"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-  </div>
-</ClientOnly>
+
+<!--@include: ../../demo/js/js.date.md-->
