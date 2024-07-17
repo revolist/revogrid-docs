@@ -2,6 +2,16 @@
 
 # Interface: PluginConstructor
 
+Interface for plugin constructors
+
+## Param
+
+The RevoGrid component instance
+
+## Param
+
+Additional parameters for the plugin constructor
+
 ## Constructors
 
 ### new PluginConstructor()
@@ -23,4 +33,4 @@ new PluginConstructor(revogrid: HTMLRevoGridElement, ...__namedParameters: Itera
 
 #### Defined in
 
-[src/types/plugin.ts:5](https://github.com/revolist/revogrid/blob/2f44a261094fb5584023b62ddfd589facc70cf92/src/types/plugin.ts#L5)
+[src/types/plugin.ts:21](https://github.com/revolist/revogrid/blob/25c443de65de6e4fb3ac1b2c638df62d9ca5c202/src/types/plugin.ts#L21)

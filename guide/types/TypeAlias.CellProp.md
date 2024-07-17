@@ -13,4 +13,4 @@ type CellProp:
 
 ## Defined in
 
-[src/types/interfaces.ts:259](https://github.com/revolist/revogrid/blob/2f44a261094fb5584023b62ddfd589facc70cf92/src/types/interfaces.ts#L259)
+[src/types/interfaces.ts:259](https://github.com/revolist/revogrid/blob/25c443de65de6e4fb3ac1b2c638df62d9ca5c202/src/types/interfaces.ts#L259)

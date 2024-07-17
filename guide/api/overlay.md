@@ -38,6 +38,7 @@ Component for overlaying the grid with the selection.
 | `beforeeditrender`     | Before editor render.                                                                                                                                                                            | `CustomEvent<FocusRenderEvent>`                                                                                                                                               |
 | `beforekeydown`        | Before key up event proxy, used to prevent key up trigger. If you have some custom behaviour event, use this event to check if it wasn't processed by internal logic. Call preventDefault().     | `CustomEvent<KeyboardEvent>`                                                                                                                                                  |
 | `beforekeyup`          | Before key down event proxy, used to prevent key down trigger. If you have some custom behaviour event, use this event to check if it wasn't processed by internal logic. Call preventDefault(). | `CustomEvent<KeyboardEvent>`                                                                                                                                                  |
+| `beforenextvpfocus`    | Fired when change of viewport happens. Usually when we switch between pinned regions.                                                                                                            | `CustomEvent<Cell>`                                                                                                                                                           |
 | `beforepasteregion`    | Before region paste happened.                                                                                                                                                                    | `CustomEvent<any>`                                                                                                                                                            |
 | `beforerangecopyapply` | Before range copy.                                                                                                                                                                               | `CustomEvent<{ type: DimensionRows; colType: DimensionCols; newRange: RangeArea; oldRange: RangeArea; mapping: OldNewRangeMapping; newData: { [key: number]: DataType; }; }>` |
 | `beforerangedataapply` | Range data apply.                                                                                                                                                                                | `CustomEvent<FocusRenderEvent>`                                                                                                                                               |
@@ -59,13 +60,13 @@ Component for overlaying the grid with the selection.
 
 ### Used by
 
- - [revo-grid](../revoGrid)
+ - [revo-grid](./revoGrid)
 
 ### Depends on
 
-- [revogr-edit](../editors)
-- [revogr-clipboard](../clipboard)
-- [revogr-order-editor](../order)
+- [revogr-edit](./editors)
+- [revogr-clipboard](./clipboard)
+- [revogr-order-editor](./order)
 
 ### Graph
 ```mermaid

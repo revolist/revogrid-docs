@@ -1,4 +1,5 @@
-## Column Template
+## Header Template
+[<Badge type="tip">Interface: ColumnRegular</Badge>](../types/Interface.ColumnRegular) [<Badge type="tip">Type: ColumnTemplateFunc</Badge>](../types/TypeAlias.ColumnTemplateFunc)
 
 This article explaines how to use custom header function to display HTML content in a header.
 This is a powerful feature.

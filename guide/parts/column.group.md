@@ -1,0 +1,1 @@
+The capability to group columns under a shared header to organize data more effectively.

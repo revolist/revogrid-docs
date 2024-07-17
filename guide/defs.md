@@ -22,16 +22,21 @@ Custom functions or components that define how data is displayed in cells, allow
 Clipboard operations like `copy`, `cut`, and `paste`. Users can easily manipulate grid data using standard clipboard shortcuts. [Read more in the API docs](./api/clipboard).
 
 ## Column
+
 <!--@include: ./parts/column.md-->
 
 ### Column Grouping
-The capability to group columns under a shared header to organize data more effectively.
+
+<!--@include: ./parts/column.group.md-->
+
 
 ### Column Header Property
-Configuration options for headers, such as even support (for ex. `onClick`), text alignment, background color, and text style, enhancing the grid's visual organization and readability.
+
+<!--@include: ./parts/column.props.md-->
 
 ### Column Pin/Freeze
-Allows columns to be fixed or "pinned" to one side of the grid, remaining visible as the user scrolls horizontally through other columns.
+
+<!--@include: ./parts/column.pin.md-->
 
 ### Column Property
 

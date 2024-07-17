@@ -32,9 +32,9 @@
 | [FocusRenderEvent](Interface.FocusRenderEvent.md) | Represents the event object that is emitted before focus rendering. It includes information about the dimension type and range area. |
 | [Group](Interface.Group.md) | Configuration for header inner template properties |
 | [HyperFunc](Interface.HyperFunc.md) | - |
-| [PluginBaseComponent](Interface.PluginBaseComponent.md) | - |
-| [PluginConstructor](Interface.PluginConstructor.md) | - |
-| [PluginExternalConstructor](Interface.PluginExternalConstructor.md) | - |
+| [PluginBaseComponent](Interface.PluginBaseComponent.md) | Interface for plugin components |
+| [PluginConstructor](Interface.PluginConstructor.md) | Interface for plugin constructors |
+| [PluginExternalConstructor](Interface.PluginExternalConstructor.md) | Interface for plugin constructors that expect a providers object |
 | [PositionItem](Interface.PositionItem.md) | - |
 | [RevoGridCustomEvent](Interface.RevoGridCustomEvent.md) | - |
 | [RevogrClipboardCustomEvent](Interface.RevogrClipboardCustomEvent.md) | - |
@@ -121,7 +121,7 @@
 | [Observable](TypeAlias.Observable.md) | - |
 | [OldNewRangeMapping](TypeAlias.OldNewRangeMapping.md) | - |
 | [Order](TypeAlias.Order.md) | - |
-| [PluginProviders](TypeAlias.PluginProviders.md) | - |
+| [PluginProviders](TypeAlias.PluginProviders.md) | Services that are provided by the various plugins for use by the grid. Each plugin is responsible for providing a specific service, and the `PluginProviders` type collects all the services provided by the plugins. |
 | [PropertiesFunc](TypeAlias.PropertiesFunc.md) | - |
 | [Providers](TypeAlias.Providers.md) | Providers for grid which are going to be injected into each cell template |
 | [Range](TypeAlias.Range.md) | `Range` is an object that represents a range of values. |
@@ -135,7 +135,7 @@
 | [SaveData](TypeAlias.SaveData.md) | - |
 | [SaveDataDetails](TypeAlias.SaveDataDetails.md) | - |
 | [ScrollCoordinateEvent](TypeAlias.ScrollCoordinateEvent.md) | Represents the event object that is emitted when scrolling occurs. The `type` property indicates the type of dimension (row or column) being scrolled. The `coordinate` property represents the current scroll position in that dimension. |
-| [SelectionStoreState](TypeAlias.SelectionStoreState.md) | - |
+| [SelectionStoreState](TypeAlias.SelectionStoreState.md) | Represents the state of the selection store. It contains information about the selection range, temporary range, focused cell, editing cell, last focused cell, and next cell to focus. |
 | [ShowData](TypeAlias.ShowData.md) | - |
 | [SlotType](TypeAlias.SlotType.md) | - |
 | [Target](TypeAlias.Target.md) | - |

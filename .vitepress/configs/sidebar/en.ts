@@ -26,6 +26,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     text: 'API',
                     link: '/guide/api/revoGrid',
                 },
+                { text: 'Typings', link: '/guide/types/README' },
             ],
         },
         {
@@ -46,80 +47,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 },
             ],
         },
-        {
-            text: 'Columns',
-            collapsed: true,
-            items: [
-                {
-                    text: 'Column Definitions',
-                    link: '/guide/column/',
-                    items: [
-                        {
-                            text: 'Column Resizing',
-                            link: '/guide/column/resize',
-                        },
-                        {
-                            text: 'Column Autosize',
-                            link: '/guide/column/autosize',
-                        },
-                    ],
-                },
-            ],
-        },
-        {
-            text: 'Cells',
-            collapsed: true,
-            items: [
-                {
-                    text: 'Cell Definitions',
-                    link: '/guide/cell/',
-                    items: [
-                        {
-                            text: 'Cell Renderer',
-                            link: '/guide/cell/renderer',
-                        },
-                        {
-                            text: 'Cell Editor',
-                            link: '/guide/cell/editor',
-                        },
-                    ]
-                },
-            ],
-        },
-        {
-            text: 'Rows',
-            collapsed: true,
-            items: [
-                {
-                    text: 'Row Definitions',
-                    link: '/guide/row',
-                },
-            ],
-        },
-        {
-            text: 'Export',
-            link: '/guide/export.plugin',
-        },
-        {
-            text: 'Filtering',
-            link: '/guide/filters',
-        },
-        {
-            text: 'Security',
-            link: '/guide/security',
-        },
-        {
-            text: 'Sorting',
-            link: '/guide/sorting',
-        },
-        {
-            text: 'SSR',
-            link: '/guide/ssr',
-        },
-        {
-            text: 'Theme Manager',
-            link: '/guide/theme',
-        },
+
         {
             text: 'Frameworks',
             items: [
@@ -183,15 +111,91 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             ],
         },
         {
+            text: 'Columns',
+            collapsed: true,
+            items: [
+                {
+                    text: 'Column Definitions',
+                    link: '/guide/column/',
+                    items: [
+                        {
+                            text: 'Column Resizing',
+                            link: '/guide/column/resize',
+                        },
+                        {
+                            text: 'Column Autosize',
+                            link: '/guide/column/autosize',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            text: 'Cells',
+            collapsed: true,
+            items: [
+                {
+                    text: 'Cell Definitions',
+                    link: '/guide/cell/',
+                    items: [
+                        {
+                            text: 'Cell Renderer',
+                            link: '/guide/cell/renderer',
+                        },
+                        {
+                            text: 'Cell Editor',
+                            link: '/guide/cell/editor',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            text: 'Rows',
+            collapsed: true,
+            items: [
+                {
+                    text: 'Row Definitions',
+                    link: '/guide/row',
+                },
+            ],
+        },
+        {
             text: 'Advance',
             items: [
+                {
+                    text: 'Export',
+                    link: '/guide/export.plugin',
+                },
+                {
+                    text: 'Filtering',
+                    link: '/guide/filters',
+                },
+                {
+                    text: 'Plugins',
+                    link: '/guide/plugin',
+                },
+                {
+                    text: 'Security',
+                    link: '/guide/security',
+                },
+                { text: 'Slots', link: '/guide/slots' },
+                {
+                    text: 'Sorting',
+                    link: '/guide/sorting',
+                },
                 {
                     text: 'Standalone',
                     link: '/guide/standalone',
                 },
-
-                { text: 'TypeScript', link: '/guide/ts/', items: [{ text: 'Typings', link: '/guide/types/README' }] },
-                { text: 'Slots', link: '/guide/slots' },
+                {
+                    text: 'SSR',
+                    link: '/guide/ssr',
+                },
+                {
+                    text: 'Theme Manager',
+                    link: '/guide/theme',
+                },
             ],
         },
         {

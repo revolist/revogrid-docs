@@ -2,6 +2,8 @@
 
 # Interface: PluginBaseComponent
 
+Interface for plugin components
+
 ## Methods
 
 ### destroy()
@@ -10,10 +12,12 @@
 destroy(): void
 ```
 
+Cleans up plugin's resources
+
 #### Returns
 
 `void`
 
 #### Defined in
 
-[src/types/plugin.ts:2](https://github.com/revolist/revogrid/blob/2f44a261094fb5584023b62ddfd589facc70cf92/src/types/plugin.ts#L2)
+[src/types/plugin.ts:8](https://github.com/revolist/revogrid/blob/25c443de65de6e4fb3ac1b2c638df62d9ca5c202/src/types/plugin.ts#L8)
