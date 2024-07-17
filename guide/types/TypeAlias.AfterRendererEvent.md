@@ -15,8 +15,8 @@ It includes information about the dimension type.
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `type` | [`DimensionType`](TypeAlias.DimensionType.md) | Represents the type of dimension being rendered. | [src/types/interfaces.ts:717](https://github.com/revolist/revogrid/blob/25c443de65de6e4fb3ac1b2c638df62d9ca5c202/src/types/interfaces.ts#L717) |
+| `type` | [`DimensionType`](TypeAlias.DimensionType.md) | Represents the type of dimension being rendered. | [src/types/interfaces.ts:717](https://github.com/revolist/revogrid/blob/a649ddca5a4a20f5f68ee92610066873d77a049a/src/types/interfaces.ts#L717) |
 
 ## Defined in
 
-[src/types/interfaces.ts:713](https://github.com/revolist/revogrid/blob/25c443de65de6e4fb3ac1b2c638df62d9ca5c202/src/types/interfaces.ts#L713)
+[src/types/interfaces.ts:713](https://github.com/revolist/revogrid/blob/a649ddca5a4a20f5f68ee92610066873d77a049a/src/types/interfaces.ts#L713)

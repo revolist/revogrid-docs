@@ -8,4 +8,4 @@ type DimensionRowPin: "rowPinStart" | "rowPinEnd";
 
 ## Defined in
 
-[src/types/dimension.ts:4](https://github.com/revolist/revogrid/blob/25c443de65de6e4fb3ac1b2c638df62d9ca5c202/src/types/dimension.ts#L4)
+[src/types/dimension.ts:4](https://github.com/revolist/revogrid/blob/a649ddca5a4a20f5f68ee92610066873d77a049a/src/types/dimension.ts#L4)
