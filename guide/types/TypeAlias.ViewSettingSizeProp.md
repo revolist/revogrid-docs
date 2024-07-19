@@ -11,4 +11,4 @@ corresponding sizes.
 
 ## Defined in
 
-[src/types/interfaces.ts:532](https://github.com/revolist/revogrid/blob/39cfd614966a26ee6ce63b18984e6b24b2874cc5/src/types/interfaces.ts#L532)
+[src/types/interfaces.ts:532](https://github.com/revolist/revogrid/blob/8aea4c92d6f61dbd5ec14b529d8993bb7069ef1f/src/types/interfaces.ts#L532)
