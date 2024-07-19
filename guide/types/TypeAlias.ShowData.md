@@ -4,6 +4,7 @@
 
 ```ts
 type ShowData: {
+  autoCorrect: boolean;
   x: number;
   y: number;
  } & FilterItem;
@@ -11,11 +12,12 @@ type ShowData: {
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `x` | `number` | [src/plugins/filter/filter.pop.tsx:31](https://github.com/revolist/revogrid/blob/bdb9e42430f63c1d6612c6ca28338cbed0c26a6c/src/plugins/filter/filter.pop.tsx#L31) |
-| `y` | `number` | [src/plugins/filter/filter.pop.tsx:32](https://github.com/revolist/revogrid/blob/bdb9e42430f63c1d6612c6ca28338cbed0c26a6c/src/plugins/filter/filter.pop.tsx#L32) |
+| Name | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| `autoCorrect` | `boolean` | Auto correct position if it is out of document bounds | [src/plugins/filter/filter.pop.tsx:36](https://github.com/revolist/revogrid/blob/74012ec30398bf39d0acc929bd7f7963856aba4e/src/plugins/filter/filter.pop.tsx#L36) |
+| `x` | `number` | - | [src/plugins/filter/filter.pop.tsx:31](https://github.com/revolist/revogrid/blob/74012ec30398bf39d0acc929bd7f7963856aba4e/src/plugins/filter/filter.pop.tsx#L31) |
+| `y` | `number` | - | [src/plugins/filter/filter.pop.tsx:32](https://github.com/revolist/revogrid/blob/74012ec30398bf39d0acc929bd7f7963856aba4e/src/plugins/filter/filter.pop.tsx#L32) |
 
 ## Defined in
 
-[src/plugins/filter/filter.pop.tsx:30](https://github.com/revolist/revogrid/blob/bdb9e42430f63c1d6612c6ca28338cbed0c26a6c/src/plugins/filter/filter.pop.tsx#L30)
+[src/plugins/filter/filter.pop.tsx:30](https://github.com/revolist/revogrid/blob/74012ec30398bf39d0acc929bd7f7963856aba4e/src/plugins/filter/filter.pop.tsx#L30)
