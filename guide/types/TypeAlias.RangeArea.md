@@ -15,11 +15,11 @@ type RangeArea: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `x` | [`ColIndex`](TypeAlias.ColIndex.md) | [src/types/selection.ts:47](https://github.com/revolist/revogrid/blob/8aea4c92d6f61dbd5ec14b529d8993bb7069ef1f/src/types/selection.ts#L47) |
-| `x1` | [`ColIndex`](TypeAlias.ColIndex.md) | [src/types/selection.ts:49](https://github.com/revolist/revogrid/blob/8aea4c92d6f61dbd5ec14b529d8993bb7069ef1f/src/types/selection.ts#L49) |
-| `y` | [`RowIndex`](TypeAlias.RowIndex.md) | [src/types/selection.ts:48](https://github.com/revolist/revogrid/blob/8aea4c92d6f61dbd5ec14b529d8993bb7069ef1f/src/types/selection.ts#L48) |
-| `y1` | [`RowIndex`](TypeAlias.RowIndex.md) | [src/types/selection.ts:50](https://github.com/revolist/revogrid/blob/8aea4c92d6f61dbd5ec14b529d8993bb7069ef1f/src/types/selection.ts#L50) |
+| `x` | [`ColIndex`](TypeAlias.ColIndex.md) | [src/types/selection.ts:47](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/types/selection.ts#L47) |
+| `x1` | [`ColIndex`](TypeAlias.ColIndex.md) | [src/types/selection.ts:49](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/types/selection.ts#L49) |
+| `y` | [`RowIndex`](TypeAlias.RowIndex.md) | [src/types/selection.ts:48](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/types/selection.ts#L48) |
+| `y1` | [`RowIndex`](TypeAlias.RowIndex.md) | [src/types/selection.ts:50](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/types/selection.ts#L50) |
 
 ## Defined in
 
-[src/types/selection.ts:46](https://github.com/revolist/revogrid/blob/8aea4c92d6f61dbd5ec14b529d8993bb7069ef1f/src/types/selection.ts#L46)
+[src/types/selection.ts:46](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/types/selection.ts#L46)

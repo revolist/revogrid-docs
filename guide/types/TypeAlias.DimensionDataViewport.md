@@ -14,4 +14,4 @@ type DimensionDataViewport: Pick<DimensionSettingsState,
 
 ## Defined in
 
-[src/store/vp/viewport.helpers.ts:12](https://github.com/revolist/revogrid/blob/8aea4c92d6f61dbd5ec14b529d8993bb7069ef1f/src/store/vp/viewport.helpers.ts#L12)
+[src/store/vp/viewport.helpers.ts:12](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/store/vp/viewport.helpers.ts#L12)

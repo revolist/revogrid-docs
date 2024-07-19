@@ -8,4 +8,4 @@ type ColIndex: number;
 
 ## Defined in
 
-[src/types/selection.ts:12](https://github.com/revolist/revogrid/blob/8aea4c92d6f61dbd5ec14b529d8993bb7069ef1f/src/types/selection.ts#L12)
+[src/types/selection.ts:12](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/types/selection.ts#L12)
