@@ -15,11 +15,11 @@ type ViewportData: {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `segmentSelectionStore` | [`Observable`](TypeAlias.Observable.md)\<[`SelectionStoreState`](TypeAlias.SelectionStoreState.md)\> | Selection connection | [src/types/viewport.interfaces.ts:51](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/types/viewport.interfaces.ts#L51) |
-| `slot` | [`SlotType`](TypeAlias.SlotType.md) | Slot to put data | [src/types/viewport.interfaces.ts:54](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/types/viewport.interfaces.ts#L54) |
-| `style` | \{\} | - | [src/types/viewport.interfaces.ts:58](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/types/viewport.interfaces.ts#L58) |
-| `uuid` | `string` | Current grid uniq Id | [src/types/viewport.interfaces.ts:57](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/types/viewport.interfaces.ts#L57) |
+| `segmentSelectionStore` | [`Observable`](TypeAlias.Observable.md)\<[`SelectionStoreState`](TypeAlias.SelectionStoreState.md)\> | Selection connection | [src/types/viewport.interfaces.ts:51](https://github.com/revolist/revogrid/blob/bdb9e42430f63c1d6612c6ca28338cbed0c26a6c/src/types/viewport.interfaces.ts#L51) |
+| `slot` | [`SlotType`](TypeAlias.SlotType.md) | Slot to put data | [src/types/viewport.interfaces.ts:54](https://github.com/revolist/revogrid/blob/bdb9e42430f63c1d6612c6ca28338cbed0c26a6c/src/types/viewport.interfaces.ts#L54) |
+| `style` | \{\} | - | [src/types/viewport.interfaces.ts:58](https://github.com/revolist/revogrid/blob/bdb9e42430f63c1d6612c6ca28338cbed0c26a6c/src/types/viewport.interfaces.ts#L58) |
+| `uuid` | `string` | Current grid uniq Id | [src/types/viewport.interfaces.ts:57](https://github.com/revolist/revogrid/blob/bdb9e42430f63c1d6612c6ca28338cbed0c26a6c/src/types/viewport.interfaces.ts#L57) |
 
 ## Defined in
 
-[src/types/viewport.interfaces.ts:49](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/types/viewport.interfaces.ts#L49)
+[src/types/viewport.interfaces.ts:49](https://github.com/revolist/revogrid/blob/bdb9e42430f63c1d6612c6ca28338cbed0c26a6c/src/types/viewport.interfaces.ts#L49)

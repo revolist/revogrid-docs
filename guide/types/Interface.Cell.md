@@ -12,5 +12,5 @@ Cell coordinates
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `x` | `number` | [src/types/selection.ts:80](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/types/selection.ts#L80) |
-| `y` | `number` | [src/types/selection.ts:81](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/types/selection.ts#L81) |
+| `x` | `number` | [src/types/selection.ts:80](https://github.com/revolist/revogrid/blob/bdb9e42430f63c1d6612c6ca28338cbed0c26a6c/src/types/selection.ts#L80) |
+| `y` | `number` | [src/types/selection.ts:81](https://github.com/revolist/revogrid/blob/bdb9e42430f63c1d6612c6ca28338cbed0c26a6c/src/types/selection.ts#L81) |

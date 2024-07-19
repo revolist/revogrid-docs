@@ -8,4 +8,4 @@ type DimensionPosition: Pick<DimensionSettingsState, "indexes" | "positionIndexe
 
 ## Defined in
 
-[src/store/dimension/dimension.helpers.ts:11](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/store/dimension/dimension.helpers.ts#L11)
+[src/store/dimension/dimension.helpers.ts:11](https://github.com/revolist/revogrid/blob/bdb9e42430f63c1d6612c6ca28338cbed0c26a6c/src/store/dimension/dimension.helpers.ts#L11)

@@ -8,4 +8,4 @@ type ViewportStoreCollection: { [T in MultiDimensionType]: ViewportStore };
 
 ## Defined in
 
-[src/store/vp/index.ts:7](https://github.com/revolist/revogrid/blob/0c3bb4ec80c81d5563060679540746537ed4be52/src/store/vp/index.ts#L7)
+[src/store/vp/index.ts:7](https://github.com/revolist/revogrid/blob/bdb9e42430f63c1d6612c6ca28338cbed0c26a6c/src/store/vp/index.ts#L7)
