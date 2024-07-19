@@ -12,4 +12,4 @@ type MultiFilterItem: {};
 
 ## Defined in
 
-[src/plugins/filter/filter.pop.tsx:26](https://github.com/revolist/revogrid/blob/a649ddca5a4a20f5f68ee92610066873d77a049a/src/plugins/filter/filter.pop.tsx#L26)
+[src/plugins/filter/filter.pop.tsx:26](https://github.com/revolist/revogrid/blob/04dd894203fb683ca28026a56e8b7c79feca958d/src/plugins/filter/filter.pop.tsx#L26)
