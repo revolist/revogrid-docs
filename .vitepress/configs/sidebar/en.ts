@@ -266,6 +266,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     text: 'Editor component',
                     link: '/demo/angular/angular.editor',
                 },
+                {
+                    text: 'Column resize',
+                    link: '/demo/angular/angular.column-resize',
+                },
             ],
         },
         {
