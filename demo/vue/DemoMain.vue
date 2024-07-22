@@ -17,7 +17,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
 import { useData } from 'vitepress'
-import VGrid, { type ColumnDataSchema } from '@revolist/vue3-datagrid'
+import VGrid, { type ColumnGrouping, type ColumnRegular } from '@revolist/vue3-datagrid'
 import { people } from './people.json'
 
 
@@ -41,7 +41,7 @@ function getRandomArbitrary(min: number, max: number) {
 }
 
 const gridColumnTypes = ref<{ [name: string]: any }>({}); 
-const gridColumns = ref<ColumnDataSchema[]>([])
+const gridColumns = ref<(ColumnGrouping | ColumnRegular)[]>([])
 const gridData = ref<any>([])
 const colsNumber = 100
 
@@ -62,9 +62,9 @@ onMounted(async() => {
         }
         return newRow
     })
-    const columns: ColumnDataSchema[] = [
+    const columns: (ColumnGrouping | ColumnRegular)[] = [
         {
-            name: 'Autosize',
+            name: 'Name group',
             children: [
                 {
                     name: '🎰 Name',
@@ -74,13 +74,8 @@ onMounted(async() => {
                     order: 'asc',
                     pin: 'colPinStart',
                     size: 200,
-                    autoSize: true,
-
-                    cellTemplate(h, { model, prop }) {
-                        return h('strong', null, model[prop])
-                    },
                 },
-            ],
+            ] as ColumnRegular[],
         },
         {
             name: 'Personal',
@@ -122,7 +117,7 @@ onMounted(async() => {
                     columnType: 'select',
                     source: ['green', 'blue', 'brown', 'red', 'yellow'],
                 },
-            ],
+            ] as ColumnRegular[],
         },
         {
             name: 'Birth date',
