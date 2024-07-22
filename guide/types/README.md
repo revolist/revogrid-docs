@@ -122,6 +122,7 @@
 | [OldNewRangeMapping](TypeAlias.OldNewRangeMapping.md) | - |
 | [Order](TypeAlias.Order.md) | - |
 | [PluginProviders](TypeAlias.PluginProviders.md) | Services that are provided by the various plugins for use by the grid. Each plugin is responsible for providing a specific service, and the `PluginProviders` type collects all the services provided by the plugins. |
+| [PluginSubscribe](TypeAlias.PluginSubscribe.md) | - |
 | [PropertiesFunc](TypeAlias.PropertiesFunc.md) | - |
 | [Providers](TypeAlias.Providers.md) | Providers for grid which are going to be injected into each cell template |
 | [Range](TypeAlias.Range.md) | `Range` is an object that represents a range of values. |

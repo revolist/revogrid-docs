@@ -15,5 +15,5 @@ Represents the mapping of dimension types to their corresponding dimension types
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | Represents the dimension type for columns. | [src/types/interfaces.ts:732](https://github.com/revolist/revogrid/blob/60f69439a769536c61ed98c75e87e11124ee6c9c/src/types/interfaces.ts#L732) |
-| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | Represents the dimension type for rows. | [src/types/interfaces.ts:727](https://github.com/revolist/revogrid/blob/60f69439a769536c61ed98c75e87e11124ee6c9c/src/types/interfaces.ts#L727) |
+| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | Represents the dimension type for columns. | [src/types/interfaces.ts:732](https://github.com/revolist/revogrid/blob/169fb7626f86c9813d59597eddde6f6dd50e49a6/src/types/interfaces.ts#L732) |
+| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | Represents the dimension type for rows. | [src/types/interfaces.ts:727](https://github.com/revolist/revogrid/blob/169fb7626f86c9813d59597eddde6f6dd50e49a6/src/types/interfaces.ts#L727) |
