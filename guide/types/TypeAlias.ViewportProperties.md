@@ -8,4 +8,4 @@ type ViewportProperties: RevogrViewportScroll & JSXBase.HTMLAttributes<HTMLRevog
 
 ## Defined in
 
-[src/types/viewport.interfaces.ts:32](https://github.com/revolist/revogrid/blob/60f69439a769536c61ed98c75e87e11124ee6c9c/src/types/viewport.interfaces.ts#L32)
+[src/types/viewport.interfaces.ts:32](https://github.com/revolist/revogrid/blob/169fb7626f86c9813d59597eddde6f6dd50e49a6/src/types/viewport.interfaces.ts#L32)
