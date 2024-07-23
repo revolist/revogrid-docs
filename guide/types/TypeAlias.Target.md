@@ -8,4 +8,4 @@ type Target: HTMLElement | Element | null;
 
 ## Defined in
 
-[src/plugins/dispatcher.ts:1](https://github.com/revolist/revogrid/blob/169fb7626f86c9813d59597eddde6f6dd50e49a6/src/plugins/dispatcher.ts#L1)
+[src/plugins/dispatcher.ts:1](https://github.com/revolist/revogrid/blob/b237f8e2bf171382439be1d1cad91b20987b8302/src/plugins/dispatcher.ts#L1)
