@@ -263,6 +263,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     link: '/demo/angular/angular.cell',
                 },
                 {
+                    text: 'Header component & Tooltip',
+                    link: '/demo/angular/angular.header',
+                },
+                {
                     text: 'Editor component',
                     link: '/demo/angular/angular.editor',
                 },
