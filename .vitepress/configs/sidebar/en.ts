@@ -348,6 +348,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     link: '/demo/vue/vue2.editor',
                 },
                 {
+                    text: 'Editor date component',
+                    link: '/demo/vue/vue2.date',
+                },
+                {
                     text: 'Grouping',
                     link: '/demo/vue/vue2.grouping',
                 },
