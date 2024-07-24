@@ -271,6 +271,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     link: '/demo/angular/angular.editor',
                 },
                 {
+                    text: 'Editor custom date format',
+                    link: '/demo/angular/angular.editor-custom',
+                },
+                {
                     text: 'Column resize',
                     link: '/demo/angular/angular.column-resize',
                 },
