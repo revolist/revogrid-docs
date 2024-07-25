@@ -40,7 +40,7 @@ All events propagate to the root level of the grid.
 | `jobsBeforeRender`   | --                  | Prevent rendering until job is done. Can be used for initial rendering performance improvement. When several plugins require initial rendering this will prevent double initial rendering.                                                                                                                      | `Promise<any>[]`                                                                                                                                                                                                                                 | `[]`        |
 | `pinnedBottomSource` | --                  | Pinned bottom Source: {[T in ColumnProp]: any} - defines pinned bottom rows data source.                                                                                                                                                                                                                        | `DataType[]`                                                                                                                                                                                                                                     | `[]`        |
 | `pinnedTopSource`    | --                  | Pinned top Source: {[T in ColumnProp]: any} - defines pinned top rows data source.                                                                                                                                                                                                                              | `DataType[]`                                                                                                                                                                                                                                     | `[]`        |
-| `plugins`            | --                  | Custom grid plugins. Has to be predefined during first grid init. Every plugin should be inherited from BasePlugin.                                                                                                                                                                                             | `PluginExternalConstructor[]`                                                                                                                                                                                                                    | `undefined` |
+| `plugins`            | --                  | Custom grid plugins. Has to be predefined during first grid init. Every plugin should be inherited from BasePlugin.                                                                                                                                                                                             | `(typeof BasePlugin)[]`                                                                                                                                                                                                                          | `[]`        |
 | `range`              | `range`             | When true, user can range selection.                                                                                                                                                                                                                                                                            | `boolean`                                                                                                                                                                                                                                        | `false`     |
 | `readonly`           | `readonly`          | When true, grid in read only mode.                                                                                                                                                                                                                                                                              | `boolean`                                                                                                                                                                                                                                        | `false`     |
 | `registerVNode`      | --                  | Register new virtual node inside of grid. Used for additional items creation such as plugin elements. Should be set before grid render inside of plugins.                                                                                                                                                       | `VNode[]`                                                                                                                                                                                                                                        | `[]`        |
@@ -441,15 +441,15 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [revogr-row-headers](../rowHeaders)
-- [revogr-header](../header)
-- [revogr-overlay-selection](../overlay)
-- [revogr-data](../data)
-- [revogr-temp-range](../selectionTempRange)
-- [revogr-focus](../selectionFocus)
-- [revogr-viewport-scroll](../scroll)
+- [revogr-row-headers](./rowHeaders)
+- [revogr-header](./header)
+- [revogr-overlay-selection](./overlay)
+- [revogr-data](./data)
+- [revogr-temp-range](./selectionTempRange)
+- [revogr-focus](./selectionFocus)
+- [revogr-viewport-scroll](./scroll)
 - revogr-attribution
-- [revogr-scroll-virtual](../scrollable)
+- [revogr-scroll-virtual](./scrollable)
 
 ### Graph
 ```mermaid

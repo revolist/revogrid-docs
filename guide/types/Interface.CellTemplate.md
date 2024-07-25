@@ -27,4 +27,4 @@ Interface for custom cell renderer.
 
 ## Defined in
 
-[src/types/interfaces.ts:131](https://github.com/revolist/revogrid/blob/b237f8e2bf171382439be1d1cad91b20987b8302/src/types/interfaces.ts#L131)
+[src/types/interfaces.ts:131](https://github.com/revolist/revogrid/blob/b6cbd022f95d7e046d6bc88abeaf01a3bc067577/src/types/interfaces.ts#L131)

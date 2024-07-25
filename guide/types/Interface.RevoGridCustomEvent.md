@@ -16,24 +16,24 @@
 
 | Property | Modifier | Type | Description | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-| `AT_TARGET` | `readonly` | `2` | - | - | `CustomEvent.AT_TARGET` | node\_modules/typescript/lib/lib.dom.d.ts:8145 |
-| `BUBBLING_PHASE` | `readonly` | `3` | - | - | `CustomEvent.BUBBLING_PHASE` | node\_modules/typescript/lib/lib.dom.d.ts:8146 |
-| `CAPTURING_PHASE` | `readonly` | `1` | - | - | `CustomEvent.CAPTURING_PHASE` | node\_modules/typescript/lib/lib.dom.d.ts:8144 |
-| `NONE` | `readonly` | `0` | - | - | `CustomEvent.NONE` | node\_modules/typescript/lib/lib.dom.d.ts:8143 |
-| `bubbles` | `readonly` | `boolean` | Returns true or false depending on how event was initialized. True if event goes through its target's ancestors in reverse tree order, and false otherwise. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/bubbles) | - | `CustomEvent.bubbles` | node\_modules/typescript/lib/lib.dom.d.ts:8040 |
-| ~~`cancelBubble`~~ | `public` | `boolean` | **Deprecated** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/cancelBubble) | - | `CustomEvent.cancelBubble` | node\_modules/typescript/lib/lib.dom.d.ts:8046 |
-| `cancelable` | `readonly` | `boolean` | Returns true or false depending on how event was initialized. Its return value does not always carry meaning, but true can indicate that part of the operation during which event was dispatched, can be canceled by invoking the preventDefault() method. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/cancelable) | - | `CustomEvent.cancelable` | node\_modules/typescript/lib/lib.dom.d.ts:8052 |
-| `composed` | `readonly` | `boolean` | Returns true or false depending on how event was initialized. True if event invokes listeners past a ShadowRoot node that is the root of its target, and false otherwise. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/composed) | - | `CustomEvent.composed` | node\_modules/typescript/lib/lib.dom.d.ts:8058 |
-| `currentTarget` | `readonly` | `EventTarget` | Returns the object whose event listener's callback is currently being invoked. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/currentTarget) | - | `CustomEvent.currentTarget` | node\_modules/typescript/lib/lib.dom.d.ts:8064 |
-| `defaultPrevented` | `readonly` | `boolean` | Returns true if preventDefault() was invoked successfully to indicate cancelation, and false otherwise. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/defaultPrevented) | - | `CustomEvent.defaultPrevented` | node\_modules/typescript/lib/lib.dom.d.ts:8070 |
-| `detail` | `public` | `T` | Returns any custom data event was created with. Typically used for synthetic events. [MDN Reference](https://developer.mozilla.org/docs/Web/API/CustomEvent/detail) | `CustomEvent.detail` | - | [src/components.d.ts:685](https://github.com/revolist/revogrid/blob/b237f8e2bf171382439be1d1cad91b20987b8302/src/components.d.ts#L685) |
-| `eventPhase` | `readonly` | `number` | Returns the event's phase, which is one of NONE, CAPTURING_PHASE, AT_TARGET, and BUBBLING_PHASE. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/eventPhase) | - | `CustomEvent.eventPhase` | node\_modules/typescript/lib/lib.dom.d.ts:8076 |
-| `isTrusted` | `readonly` | `boolean` | Returns true if event was dispatched by the user agent, and false otherwise. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/isTrusted) | - | `CustomEvent.isTrusted` | node\_modules/typescript/lib/lib.dom.d.ts:8082 |
-| ~~`returnValue`~~ | `public` | `boolean` | **Deprecated** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/returnValue) | - | `CustomEvent.returnValue` | node\_modules/typescript/lib/lib.dom.d.ts:8088 |
-| ~~`srcElement`~~ | `readonly` | `EventTarget` | **Deprecated** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/srcElement) | - | `CustomEvent.srcElement` | node\_modules/typescript/lib/lib.dom.d.ts:8094 |
-| `target` | `public` | `HTMLRevoGridElement` | Returns the object to which event is dispatched (its target). [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/target) | `CustomEvent.target` | - | [src/components.d.ts:686](https://github.com/revolist/revogrid/blob/b237f8e2bf171382439be1d1cad91b20987b8302/src/components.d.ts#L686) |
-| `timeStamp` | `readonly` | `number` | Returns the event's timestamp as the number of milliseconds measured relative to the time origin. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/timeStamp) | - | `CustomEvent.timeStamp` | node\_modules/typescript/lib/lib.dom.d.ts:8106 |
-| `type` | `readonly` | `string` | Returns the type of event, e.g. "click", "hashchange", or "submit". [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/type) | - | `CustomEvent.type` | node\_modules/typescript/lib/lib.dom.d.ts:8112 |
+| `AT_TARGET` | `readonly` | `2` | - | - | `CustomEvent.AT_TARGET` | node\_modules/typescript/lib/lib.dom.d.ts:8226 |
+| `BUBBLING_PHASE` | `readonly` | `3` | - | - | `CustomEvent.BUBBLING_PHASE` | node\_modules/typescript/lib/lib.dom.d.ts:8227 |
+| `CAPTURING_PHASE` | `readonly` | `1` | - | - | `CustomEvent.CAPTURING_PHASE` | node\_modules/typescript/lib/lib.dom.d.ts:8225 |
+| `NONE` | `readonly` | `0` | - | - | `CustomEvent.NONE` | node\_modules/typescript/lib/lib.dom.d.ts:8224 |
+| `bubbles` | `readonly` | `boolean` | Returns true or false depending on how event was initialized. True if event goes through its target's ancestors in reverse tree order, and false otherwise. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/bubbles) | - | `CustomEvent.bubbles` | node\_modules/typescript/lib/lib.dom.d.ts:8121 |
+| ~~`cancelBubble`~~ | `public` | `boolean` | **Deprecated** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/cancelBubble) | - | `CustomEvent.cancelBubble` | node\_modules/typescript/lib/lib.dom.d.ts:8127 |
+| `cancelable` | `readonly` | `boolean` | Returns true or false depending on how event was initialized. Its return value does not always carry meaning, but true can indicate that part of the operation during which event was dispatched, can be canceled by invoking the preventDefault() method. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/cancelable) | - | `CustomEvent.cancelable` | node\_modules/typescript/lib/lib.dom.d.ts:8133 |
+| `composed` | `readonly` | `boolean` | Returns true or false depending on how event was initialized. True if event invokes listeners past a ShadowRoot node that is the root of its target, and false otherwise. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/composed) | - | `CustomEvent.composed` | node\_modules/typescript/lib/lib.dom.d.ts:8139 |
+| `currentTarget` | `readonly` | `EventTarget` | Returns the object whose event listener's callback is currently being invoked. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/currentTarget) | - | `CustomEvent.currentTarget` | node\_modules/typescript/lib/lib.dom.d.ts:8145 |
+| `defaultPrevented` | `readonly` | `boolean` | Returns true if preventDefault() was invoked successfully to indicate cancelation, and false otherwise. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/defaultPrevented) | - | `CustomEvent.defaultPrevented` | node\_modules/typescript/lib/lib.dom.d.ts:8151 |
+| `detail` | `public` | `T` | Returns any custom data event was created with. Typically used for synthetic events. [MDN Reference](https://developer.mozilla.org/docs/Web/API/CustomEvent/detail) | `CustomEvent.detail` | - | [src/components.d.ts:685](https://github.com/revolist/revogrid/blob/b6cbd022f95d7e046d6bc88abeaf01a3bc067577/src/components.d.ts#L685) |
+| `eventPhase` | `readonly` | `number` | Returns the event's phase, which is one of NONE, CAPTURING_PHASE, AT_TARGET, and BUBBLING_PHASE. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/eventPhase) | - | `CustomEvent.eventPhase` | node\_modules/typescript/lib/lib.dom.d.ts:8157 |
+| `isTrusted` | `readonly` | `boolean` | Returns true if event was dispatched by the user agent, and false otherwise. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/isTrusted) | - | `CustomEvent.isTrusted` | node\_modules/typescript/lib/lib.dom.d.ts:8163 |
+| ~~`returnValue`~~ | `public` | `boolean` | **Deprecated** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/returnValue) | - | `CustomEvent.returnValue` | node\_modules/typescript/lib/lib.dom.d.ts:8169 |
+| ~~`srcElement`~~ | `readonly` | `EventTarget` | **Deprecated** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/srcElement) | - | `CustomEvent.srcElement` | node\_modules/typescript/lib/lib.dom.d.ts:8175 |
+| `target` | `public` | `HTMLRevoGridElement` | Returns the object to which event is dispatched (its target). [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/target) | `CustomEvent.target` | - | [src/components.d.ts:686](https://github.com/revolist/revogrid/blob/b6cbd022f95d7e046d6bc88abeaf01a3bc067577/src/components.d.ts#L686) |
+| `timeStamp` | `readonly` | `number` | Returns the event's timestamp as the number of milliseconds measured relative to the time origin. [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/timeStamp) | - | `CustomEvent.timeStamp` | node\_modules/typescript/lib/lib.dom.d.ts:8187 |
+| `type` | `readonly` | `string` | Returns the type of event, e.g. "click", "hashchange", or "submit". [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/type) | - | `CustomEvent.type` | node\_modules/typescript/lib/lib.dom.d.ts:8193 |
 
 ## Methods
 
@@ -57,7 +57,7 @@ Returns the invocation target objects of event's path (objects on which listener
 
 #### Defined in
 
-node\_modules/typescript/lib/lib.dom.d.ts:8118
+node\_modules/typescript/lib/lib.dom.d.ts:8199
 
 ***
 
@@ -84,17 +84,17 @@ initCustomEvent(
 
 `void`
 
-#### Inherited from
-
-`CustomEvent.initCustomEvent`
-
 #### Deprecated
 
 [MDN Reference](https://developer.mozilla.org/docs/Web/API/CustomEvent/initCustomEvent)
 
+#### Inherited from
+
+`CustomEvent.initCustomEvent`
+
 #### Defined in
 
-node\_modules/typescript/lib/lib.dom.d.ts:5965
+node\_modules/typescript/lib/lib.dom.d.ts:6031
 
 ***
 
@@ -119,17 +119,17 @@ initEvent(
 
 `void`
 
-#### Inherited from
-
-`CustomEvent.initEvent`
-
 #### Deprecated
 
 [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/initEvent)
 
+#### Inherited from
+
+`CustomEvent.initEvent`
+
 #### Defined in
 
-node\_modules/typescript/lib/lib.dom.d.ts:8124
+node\_modules/typescript/lib/lib.dom.d.ts:8205
 
 ***
 
@@ -153,7 +153,7 @@ If invoked when the cancelable attribute value is true, and while executing a li
 
 #### Defined in
 
-node\_modules/typescript/lib/lib.dom.d.ts:8130
+node\_modules/typescript/lib/lib.dom.d.ts:8211
 
 ***
 
@@ -177,7 +177,7 @@ Invoking this method prevents event from reaching any registered event listeners
 
 #### Defined in
 
-node\_modules/typescript/lib/lib.dom.d.ts:8136
+node\_modules/typescript/lib/lib.dom.d.ts:8217
 
 ***
 
@@ -201,4 +201,4 @@ When dispatched in a tree, invoking this method prevents event from reaching any
 
 #### Defined in
 
-node\_modules/typescript/lib/lib.dom.d.ts:8142
+node\_modules/typescript/lib/lib.dom.d.ts:8223

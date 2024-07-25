@@ -6,10 +6,10 @@ Interface for plugin components
 
 ## Methods
 
-### destroy()
+### destroy()?
 
 ```ts
-destroy(): void
+optional destroy(): void
 ```
 
 Cleans up plugin's resources
@@ -20,4 +20,4 @@ Cleans up plugin's resources
 
 #### Defined in
 
-[src/types/plugin.ts:8](https://github.com/revolist/revogrid/blob/b237f8e2bf171382439be1d1cad91b20987b8302/src/types/plugin.ts#L8)
+[src/types/plugin.ts:8](https://github.com/revolist/revogrid/blob/b6cbd022f95d7e046d6bc88abeaf01a3bc067577/src/types/plugin.ts#L8)
