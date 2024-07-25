@@ -14,4 +14,4 @@ type DimensionSize: Pick<DimensionSettingsState,
 
 ## Defined in
 
-[src/store/dimension/dimension.helpers.ts:19](https://github.com/revolist/revogrid/blob/b6cbd022f95d7e046d6bc88abeaf01a3bc067577/src/store/dimension/dimension.helpers.ts#L19)
+[src/store/dimension/dimension.helpers.ts:19](https://github.com/revolist/revogrid/blob/1ed53ebfdb262e9a8c2e5e06c64cb87ad0050ffc/src/store/dimension/dimension.helpers.ts#L19)

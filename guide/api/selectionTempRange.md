@@ -19,7 +19,7 @@ Temporary range selection component. Shows temporary range selection.
 
 ### Used by
 
- - [revo-grid](./revoGrid)
+ - [revo-grid](../revoGrid)
 
 ### Graph
 ```mermaid

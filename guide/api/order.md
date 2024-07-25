@@ -76,7 +76,7 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [revogr-overlay-selection](./overlay)
+ - [revogr-overlay-selection](../overlay)
 
 ### Graph
 ```mermaid
