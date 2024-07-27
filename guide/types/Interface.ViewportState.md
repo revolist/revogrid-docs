@@ -12,8 +12,8 @@
 
 | Property | Type | Description | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| `end` | `number` | The end of the range. | `ViewportStateItems.end` | [src/types/interfaces.ts:500](https://github.com/revolist/revogrid/blob/f56bf50e3d2048c8d7f3081240be2216cdbe01d4/src/types/interfaces.ts#L500) |
-| `items` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md)[] | The items in the viewport. | `ViewportStateItems.items` | [src/types/interfaces.ts:511](https://github.com/revolist/revogrid/blob/f56bf50e3d2048c8d7f3081240be2216cdbe01d4/src/types/interfaces.ts#L511) |
-| `realCount` | `number` | The number of real items in the viewport. | - | [src/types/interfaces.ts:521](https://github.com/revolist/revogrid/blob/f56bf50e3d2048c8d7f3081240be2216cdbe01d4/src/types/interfaces.ts#L521) |
-| `start` | `number` | The start of the range. | `ViewportStateItems.start` | [src/types/interfaces.ts:496](https://github.com/revolist/revogrid/blob/f56bf50e3d2048c8d7f3081240be2216cdbe01d4/src/types/interfaces.ts#L496) |
-| `virtualSize` | `number` | The virtual size of the viewport. | - | [src/types/interfaces.ts:525](https://github.com/revolist/revogrid/blob/f56bf50e3d2048c8d7f3081240be2216cdbe01d4/src/types/interfaces.ts#L525) |
+| `end` | `number` | The end of the range. | `ViewportStateItems.end` | [src/types/interfaces.ts:500](https://github.com/revolist/revogrid/blob/a849a2bedd405f9be6994ce2465b998f17fd214c/src/types/interfaces.ts#L500) |
+| `items` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md)[] | The items in the viewport. | `ViewportStateItems.items` | [src/types/interfaces.ts:511](https://github.com/revolist/revogrid/blob/a849a2bedd405f9be6994ce2465b998f17fd214c/src/types/interfaces.ts#L511) |
+| `realCount` | `number` | The number of real items in the viewport. | - | [src/types/interfaces.ts:521](https://github.com/revolist/revogrid/blob/a849a2bedd405f9be6994ce2465b998f17fd214c/src/types/interfaces.ts#L521) |
+| `start` | `number` | The start of the range. | `ViewportStateItems.start` | [src/types/interfaces.ts:496](https://github.com/revolist/revogrid/blob/a849a2bedd405f9be6994ce2465b998f17fd214c/src/types/interfaces.ts#L496) |
+| `virtualSize` | `number` | The virtual size of the viewport. | - | [src/types/interfaces.ts:525](https://github.com/revolist/revogrid/blob/a849a2bedd405f9be6994ce2465b998f17fd214c/src/types/interfaces.ts#L525) |
