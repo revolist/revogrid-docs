@@ -24,6 +24,10 @@ The `BasePlugin` class serves as a foundational layer for creating plugins. Here
 4. **Event Emission**: Plugins can emit custom events using `emit`.
 5. **Cleanup**: Plugins should clean up their subscriptions using `clearSubscriptions` and `destroy` methods.
 
+
+### Dispatching Events
+<!--@include: ./dispatcher.md-->
+
 ### Example Plugin
 
 <!--@include: ./example.md-->

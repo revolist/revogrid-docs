@@ -12,8 +12,8 @@ type DataInput: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `data` | [`DataType`](TypeAlias.DataType.md)[] | [src/plugins/export/types.ts:8](https://github.com/revolist/revogrid/blob/1ed53ebfdb262e9a8c2e5e06c64cb87ad0050ffc/src/plugins/export/types.ts#L8) |
+| `data` | [`DataType`](TypeAlias.DataType.md)[] | [src/plugins/export/types.ts:8](https://github.com/revolist/revogrid/blob/aad859c5867a15f34f8919817adea85dcff4ee63/src/plugins/export/types.ts#L8) |
 
 ## Defined in
 
-[src/plugins/export/types.ts:7](https://github.com/revolist/revogrid/blob/1ed53ebfdb262e9a8c2e5e06c64cb87ad0050ffc/src/plugins/export/types.ts#L7)
+[src/plugins/export/types.ts:7](https://github.com/revolist/revogrid/blob/aad859c5867a15f34f8919817adea85dcff4ee63/src/plugins/export/types.ts#L7)

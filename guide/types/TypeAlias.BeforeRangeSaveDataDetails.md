@@ -14,10 +14,10 @@ type BeforeRangeSaveDataDetails: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `data` | [`DataLookup`](TypeAlias.DataLookup.md) | [src/types/selection.ts:116](https://github.com/revolist/revogrid/blob/1ed53ebfdb262e9a8c2e5e06c64cb87ad0050ffc/src/types/selection.ts#L116) |
-| `models` | \{\} | [src/types/selection.ts:117](https://github.com/revolist/revogrid/blob/1ed53ebfdb262e9a8c2e5e06c64cb87ad0050ffc/src/types/selection.ts#L117) |
-| `type` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/types/selection.ts:120](https://github.com/revolist/revogrid/blob/1ed53ebfdb262e9a8c2e5e06c64cb87ad0050ffc/src/types/selection.ts#L120) |
+| `data` | [`DataLookup`](TypeAlias.DataLookup.md) | [src/types/selection.ts:116](https://github.com/revolist/revogrid/blob/aad859c5867a15f34f8919817adea85dcff4ee63/src/types/selection.ts#L116) |
+| `models` | \{\} | [src/types/selection.ts:117](https://github.com/revolist/revogrid/blob/aad859c5867a15f34f8919817adea85dcff4ee63/src/types/selection.ts#L117) |
+| `type` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/types/selection.ts:120](https://github.com/revolist/revogrid/blob/aad859c5867a15f34f8919817adea85dcff4ee63/src/types/selection.ts#L120) |
 
 ## Defined in
 
-[src/types/selection.ts:115](https://github.com/revolist/revogrid/blob/1ed53ebfdb262e9a8c2e5e06c64cb87ad0050ffc/src/types/selection.ts#L115)
+[src/types/selection.ts:115](https://github.com/revolist/revogrid/blob/aad859c5867a15f34f8919817adea85dcff4ee63/src/types/selection.ts#L115)

@@ -23,4 +23,4 @@ context where JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:378](https://github.com/revolist/revogrid/blob/1ed53ebfdb262e9a8c2e5e06c64cb87ad0050ffc/src/types/interfaces.ts#L378)
+[src/types/interfaces.ts:378](https://github.com/revolist/revogrid/blob/aad859c5867a15f34f8919817adea85dcff4ee63/src/types/interfaces.ts#L378)

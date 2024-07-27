@@ -8,4 +8,4 @@ type DimensionIndexInput: Pick<DimensionSettingsState, "indexes" | "originItemSi
 
 ## Defined in
 
-[src/store/dimension/dimension.helpers.ts:15](https://github.com/revolist/revogrid/blob/1ed53ebfdb262e9a8c2e5e06c64cb87ad0050ffc/src/store/dimension/dimension.helpers.ts#L15)
+[src/store/dimension/dimension.helpers.ts:15](https://github.com/revolist/revogrid/blob/aad859c5867a15f34f8919817adea85dcff4ee63/src/store/dimension/dimension.helpers.ts#L15)
