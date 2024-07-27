@@ -34,8 +34,8 @@
 
 ### Used by
 
- - [revo-grid](./revoGrid)
- - [revogr-row-headers](./rowHeaders)
+ - [revo-grid](../revoGrid)
+ - [revogr-row-headers](../rowHeaders)
 
 ### Graph
 ```mermaid
