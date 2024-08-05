@@ -80,6 +80,13 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     ],
                 },
                 {
+                    text: 'StencilJs',
+                    collapsed: true,
+                    items: [
+                        { text: 'Getting Started', link: '/guide/stencil/' },
+                    ],
+                },
+                {
                     text: 'Svelte',
                     collapsed: true,
                     items: [
@@ -248,6 +255,15 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 {
                     text: 'Tree',
                     link: '/demo/jsx/jsx.tree',
+                },
+            ],
+        },
+        {
+            text: 'StencilJs',
+            items: [
+                {
+                    text: 'Getting Started',
+                    link: '/demo/stencil/stencil.sample',
                 },
             ],
         },
