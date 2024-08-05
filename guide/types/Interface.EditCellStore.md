@@ -12,6 +12,6 @@ Edit cell info for store
 
 | Property | Type | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ |
-| `val?` | `string` | - | [src/types/selection.ts:129](https://github.com/revolist/revogrid/blob/a849a2bedd405f9be6994ce2465b998f17fd214c/src/types/selection.ts#L129) |
-| `x` | `number` | [`Cell`](Interface.Cell.md).`x` | [src/types/selection.ts:80](https://github.com/revolist/revogrid/blob/a849a2bedd405f9be6994ce2465b998f17fd214c/src/types/selection.ts#L80) |
-| `y` | `number` | [`Cell`](Interface.Cell.md).`y` | [src/types/selection.ts:81](https://github.com/revolist/revogrid/blob/a849a2bedd405f9be6994ce2465b998f17fd214c/src/types/selection.ts#L81) |
+| `val?` | `string` | - | [src/types/selection.ts:129](https://github.com/revolist/revogrid/blob/424884a9332ccde4a5d40c39536fe61d1ccacbfc/src/types/selection.ts#L129) |
+| `x` | `number` | [`Cell`](Interface.Cell.md).`x` | [src/types/selection.ts:80](https://github.com/revolist/revogrid/blob/424884a9332ccde4a5d40c39536fe61d1ccacbfc/src/types/selection.ts#L80) |
+| `y` | `number` | [`Cell`](Interface.Cell.md).`y` | [src/types/selection.ts:81](https://github.com/revolist/revogrid/blob/424884a9332ccde4a5d40c39536fe61d1ccacbfc/src/types/selection.ts#L81) |

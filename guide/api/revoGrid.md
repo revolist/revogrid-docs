@@ -256,7 +256,7 @@ Type: `Promise<any[]>`
 
 
 
-### `refresh(type?: DimensionRows | 'all') => Promise<void>`
+### `refresh(type?: DimensionRows | "all") => Promise<void>`
 
 Refreshes data viewport.
 Can be specific part as rgRow or pinned rgRow or 'all' by default.
@@ -393,7 +393,7 @@ Type: `Promise<void>`
 
 
 
-### `updateColumnSorting(column: ColumnRegular, index: number, order: 'asc' | 'desc', additive: boolean) => Promise<ColumnRegular>`
+### `updateColumnSorting(column: ColumnRegular, index: number, order: "asc" | "desc", additive: boolean) => Promise<ColumnRegular>`
 
 Update column sorting
 
