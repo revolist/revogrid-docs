@@ -14,10 +14,10 @@ type ShowData: {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `autoCorrect` | `boolean` | Auto correct position if it is out of document bounds | [src/plugins/filter/filter.pop.tsx:36](https://github.com/revolist/revogrid/blob/645c5b44e05a187c8aab0cf802e5a080c331a78f/src/plugins/filter/filter.pop.tsx#L36) |
-| `x` | `number` | - | [src/plugins/filter/filter.pop.tsx:31](https://github.com/revolist/revogrid/blob/645c5b44e05a187c8aab0cf802e5a080c331a78f/src/plugins/filter/filter.pop.tsx#L31) |
-| `y` | `number` | - | [src/plugins/filter/filter.pop.tsx:32](https://github.com/revolist/revogrid/blob/645c5b44e05a187c8aab0cf802e5a080c331a78f/src/plugins/filter/filter.pop.tsx#L32) |
+| `autoCorrect` | `boolean` | Auto correct position if it is out of document bounds | [src/plugins/filter/filter.panel.tsx:36](https://github.com/revolist/revogrid/blob/424884a9332ccde4a5d40c39536fe61d1ccacbfc/src/plugins/filter/filter.panel.tsx#L36) |
+| `x` | `number` | - | [src/plugins/filter/filter.panel.tsx:31](https://github.com/revolist/revogrid/blob/424884a9332ccde4a5d40c39536fe61d1ccacbfc/src/plugins/filter/filter.panel.tsx#L31) |
+| `y` | `number` | - | [src/plugins/filter/filter.panel.tsx:32](https://github.com/revolist/revogrid/blob/424884a9332ccde4a5d40c39536fe61d1ccacbfc/src/plugins/filter/filter.panel.tsx#L32) |
 
 ## Defined in
 
-[src/plugins/filter/filter.pop.tsx:30](https://github.com/revolist/revogrid/blob/645c5b44e05a187c8aab0cf802e5a080c331a78f/src/plugins/filter/filter.pop.tsx#L30)
+[src/plugins/filter/filter.panel.tsx:30](https://github.com/revolist/revogrid/blob/424884a9332ccde4a5d40c39536fe61d1ccacbfc/src/plugins/filter/filter.panel.tsx#L30)
