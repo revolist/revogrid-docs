@@ -26,6 +26,10 @@ export const navbarEn: DefaultTheme.NavItem[] = [
         text: 'Discussions',
         link: 'https://github.com/revolist/revogrid/discussions',
       },
+      {
+        text: 'Roadmap',
+        link: 'https://github.com/users/revolist/projects/3',
+      },
       // {
       //   text: 'Changelog',
       //   link: 'https://github.com/revolist/revogrid/CHANGELOG.md',
