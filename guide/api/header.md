@@ -22,12 +22,12 @@
 
 ## Events
 
-| Event                | Description             | Type                                                                                |
-| -------------------- | ----------------------- | ----------------------------------------------------------------------------------- |
-| `beforeheaderclick`  | On initial header click | `CustomEvent<{ index: number; originalEvent: MouseEvent; column: ColumnRegular; }>` |
-| `beforeheaderresize` | On before header resize | `CustomEvent<ColumnRegular[]>`                                                      |
-| `headerdblclick`     | On header double click  | `CustomEvent<{ index: number; originalEvent: MouseEvent; column: ColumnRegular; }>` |
-| `headerresize`       | On header resize        | `CustomEvent<{ [x: string]: number; }>`                                             |
+| Event                | Description             | Type                                                                                                                                     |
+| -------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `beforeheaderclick`  | On initial header click | `CustomEvent<{ index: number; originalEvent: MouseEvent; column: ColumnRegular; providers: Providers<DimensionCols \| "rowHeaders">; }>` |
+| `beforeheaderresize` | On before header resize | `CustomEvent<ColumnRegular[]>`                                                                                                           |
+| `headerdblclick`     | On header double click  | `CustomEvent<{ index: number; originalEvent: MouseEvent; column: ColumnRegular; providers: Providers<DimensionCols \| "rowHeaders">; }>` |
+| `headerresize`       | On header resize        | `CustomEvent<{ [x: string]: number; }>`                                                                                                  |
 
 
 ## Dependencies
