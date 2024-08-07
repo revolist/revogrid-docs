@@ -10,4 +10,4 @@ Edit cell info for editor
 
 ## Defined in
 
-[src/types/selection.ts:134](https://github.com/revolist/revogrid/blob/424884a9332ccde4a5d40c39536fe61d1ccacbfc/src/types/selection.ts#L134)
+[src/types/selection.ts:134](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/selection.ts#L134)

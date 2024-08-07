@@ -12,4 +12,4 @@ type ElementsScroll: {};
 
 ## Defined in
 
-[src/types/viewport.interfaces.ts:28](https://github.com/revolist/revogrid/blob/424884a9332ccde4a5d40c39536fe61d1ccacbfc/src/types/viewport.interfaces.ts#L28)
+[src/types/viewport.interfaces.ts:28](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/viewport.interfaces.ts#L28)

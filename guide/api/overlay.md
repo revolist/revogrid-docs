@@ -45,8 +45,8 @@ Component for overlaying the grid with the selection.
 | `beforesetrange`       | Before range selection applied.                                                                                                                                                                  | `CustomEvent<any>`                                                                                                                                                            |
 | `canceledit`           | Used for editors support when editor close requested.                                                                                                                                            | `CustomEvent<any>`                                                                                                                                                            |
 | `celleditapply`        | Cell edit apply to the data source. Triggers datasource edit on the root level.                                                                                                                  | `CustomEvent<{ prop: ColumnProp; model: DataType; val?: string; rowIndex: number; colIndex: number; colType: DimensionCols; type: DimensionRows; }>`                          |
-| `clipboardrangecopy`   | Range copy.                                                                                                                                                                                      | `CustomEvent<any>`                                                                                                                                                            |
-| `clipboardrangepaste`  |                                                                                                                                                                                                  | `CustomEvent<any>`                                                                                                                                                            |
+| `clipboardrangecopy`   | Range copy.                                                                                                                                                                                      | `CustomEvent<{ data: any[][]; range: RangeArea; mapping: OldNewRangeMapping; } & AllDimensionType>`                                                                           |
+| `clipboardrangepaste`  | Range paste event.                                                                                                                                                                               | `CustomEvent<{ data: DataLookup; models: { [rowIndex: number]: DataType; }; range: RangeArea; } & AllDimensionType>`                                                          |
 | `focuscell`            | Cell get focused. To prevent the default behavior of applying the edit data, you can call `e.preventDefault()`.                                                                                  | `CustomEvent<ApplyFocusEvent>`                                                                                                                                                |
 | `rangeeditapply`       | Range data apply. Triggers datasource edit on the root level.                                                                                                                                    | `CustomEvent<{ data: DataLookup; models: { [rowIndex: number]: DataType; }; type: DimensionRows; }>`                                                                          |
 | `selectall`            | Select all.                                                                                                                                                                                      | `CustomEvent<any>`                                                                                                                                                            |
@@ -60,13 +60,13 @@ Component for overlaying the grid with the selection.
 
 ### Used by
 
- - [revo-grid](../revoGrid)
+ - [revo-grid](./revoGrid)
 
 ### Depends on
 
-- [revogr-edit](../editors)
-- [revogr-clipboard](../clipboard)
-- [revogr-order-editor](../order)
+- [revogr-edit](./editors)
+- [revogr-clipboard](./clipboard)
+- [revogr-order-editor](./order)
 
 ### Graph
 ```mermaid
