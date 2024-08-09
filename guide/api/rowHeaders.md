@@ -23,23 +23,23 @@ Visible on the left side of the table
 
 ## Events
 
-| Event        | Description                | Type                                                                                                |
-| ------------ | -------------------------- | --------------------------------------------------------------------------------------------------- |
-| `ref`        | Register element to scroll | `CustomEvent<ElementScroll>`                                                                        |
-| `scrollview` | Scroll viewport            | `CustomEvent<{ dimension: DimensionType; coordinate: number; delta?: number; outside?: boolean; }>` |
+| Event        | Description                | Type                                                                                                                          |
+| ------------ | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `ref`        | Register element to scroll | `CustomEvent<ElementScroll>`                                                                                                  |
+| `scrollview` | Scroll viewport            | `CustomEvent<{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }>` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [revo-grid](./revoGrid)
+ - [revo-grid](../revoGrid)
 
 ### Depends on
 
-- [revogr-data](./data)
-- [revogr-viewport-scroll](./scroll)
-- [revogr-header](./header)
+- [revogr-data](../data)
+- [revogr-viewport-scroll](../scroll)
+- [revogr-header](../header)
 
 ### Graph
 ```mermaid

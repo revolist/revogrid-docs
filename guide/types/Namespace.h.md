@@ -38,7 +38,7 @@ node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:539
 ### h(sel, data)
 
 ```ts
-function h(sel: Node, data: VNodeData): VNode
+function h(sel: Node, data: null | VNodeData): VNode
 ```
 
 #### Parameters
@@ -46,7 +46,7 @@ function h(sel: Node, data: VNodeData): VNode
 | Parameter | Type |
 | ------ | ------ |
 | `sel` | `Node` |
-| `data` | `VNodeData` |
+| `data` | `null` \| `VNodeData` |
 
 #### Returns
 
@@ -59,7 +59,7 @@ node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:540
 ### h(sel, data)
 
 ```ts
-function h(sel: any, data: VNodeData): VNode
+function h(sel: any, data: null | VNodeData): VNode
 ```
 
 #### Parameters
@@ -67,7 +67,7 @@ function h(sel: any, data: VNodeData): VNode
 | Parameter | Type |
 | ------ | ------ |
 | `sel` | `any` |
-| `data` | `VNodeData` |
+| `data` | `null` \| `VNodeData` |
 
 #### Returns
 
@@ -101,7 +101,7 @@ node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:542
 ### h(sel, children)
 
 ```ts
-function h(sel: any, children: VNode[]): VNode
+function h(sel: any, children: (undefined | null | VNode)[]): VNode
 ```
 
 #### Parameters
@@ -109,7 +109,7 @@ function h(sel: any, children: VNode[]): VNode
 | Parameter | Type |
 | ------ | ------ |
 | `sel` | `any` |
-| `children` | [`VNode`](Interface.VNode.md)[] |
+| `children` | (`undefined` \| `null` \| [`VNode`](Interface.VNode.md))[] |
 
 #### Returns
 
@@ -124,7 +124,7 @@ node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:543
 ```ts
 function h(
    sel: any, 
-   data: VNodeData, 
+   data: null | VNodeData, 
    text: string): VNode
 ```
 
@@ -133,7 +133,7 @@ function h(
 | Parameter | Type |
 | ------ | ------ |
 | `sel` | `any` |
-| `data` | `VNodeData` |
+| `data` | `null` \| `VNodeData` |
 | `text` | `string` |
 
 #### Returns
@@ -149,8 +149,8 @@ node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:544
 ```ts
 function h(
    sel: any, 
-   data: VNodeData, 
-   children: VNode[]): VNode
+   data: null | VNodeData, 
+   children: (undefined | null | VNode)[]): VNode
 ```
 
 #### Parameters
@@ -158,8 +158,8 @@ function h(
 | Parameter | Type |
 | ------ | ------ |
 | `sel` | `any` |
-| `data` | `VNodeData` |
-| `children` | [`VNode`](Interface.VNode.md)[] |
+| `data` | `null` \| `VNodeData` |
+| `children` | (`undefined` \| `null` \| [`VNode`](Interface.VNode.md))[] |
 
 #### Returns
 
@@ -174,7 +174,7 @@ node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:545
 ```ts
 function h(
    sel: any, 
-   data: VNodeData, 
+   data: null | VNodeData, 
    children: VNode): VNode
 ```
 
@@ -183,7 +183,7 @@ function h(
 | Parameter | Type |
 | ------ | ------ |
 | `sel` | `any` |
-| `data` | `VNodeData` |
+| `data` | `null` \| `VNodeData` |
 | `children` | [`VNode`](Interface.VNode.md) |
 
 #### Returns

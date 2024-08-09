@@ -13,9 +13,9 @@ type TempRange: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `area` | [`RangeArea`](TypeAlias.RangeArea.md) | [src/types/selection.ts:54](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/selection.ts#L54) |
-| `type` | `string` | [src/types/selection.ts:53](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/selection.ts#L53) |
+| `area` | [`RangeArea`](TypeAlias.RangeArea.md) | [src/types/selection.ts:54](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/selection.ts#L54) |
+| `type` | `string` | [src/types/selection.ts:53](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/selection.ts#L53) |
 
 ## Defined in
 
-[src/types/selection.ts:52](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/selection.ts#L52)
+[src/types/selection.ts:52](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/selection.ts#L52)

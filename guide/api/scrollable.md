@@ -17,9 +17,9 @@ Virtual scroll component
 
 ## Events
 
-| Event           | Description  | Type                                                                                                |
-| --------------- | ------------ | --------------------------------------------------------------------------------------------------- |
-| `scrollvirtual` | Scroll event | `CustomEvent<{ dimension: DimensionType; coordinate: number; delta?: number; outside?: boolean; }>` |
+| Event           | Description  | Type                                                                                                                          |
+| --------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| `scrollvirtual` | Scroll event | `CustomEvent<{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }>` |
 
 
 ## Methods
@@ -30,9 +30,9 @@ Update if `delta` exists in case we don't know current position or if it's exter
 
 #### Parameters
 
-| Name | Type                                                                                   | Description |
-| ---- | -------------------------------------------------------------------------------------- | ----------- |
-| `e`  | `{ dimension: DimensionType; coordinate: number; delta?: number; outside?: boolean; }` |             |
+| Name | Type                                                                                                             | Description |
+| ---- | ---------------------------------------------------------------------------------------------------------------- | ----------- |
+| `e`  | `{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }` |             |
 
 #### Returns
 
@@ -46,9 +46,9 @@ Type: `Promise<ViewPortScrollEvent>`
 
 #### Parameters
 
-| Name | Type                                                                                   | Description |
-| ---- | -------------------------------------------------------------------------------------- | ----------- |
-| `e`  | `{ dimension: DimensionType; coordinate: number; delta?: number; outside?: boolean; }` |             |
+| Name | Type                                                                                                             | Description |
+| ---- | ---------------------------------------------------------------------------------------------------------------- | ----------- |
+| `e`  | `{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }` |             |
 
 #### Returns
 
@@ -61,7 +61,7 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [revo-grid](./revoGrid)
+ - [revo-grid](../revoGrid)
 
 ### Graph
 ```mermaid

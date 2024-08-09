@@ -18,12 +18,12 @@ Viewport scroll component for RevoGrid
 
 ## Events
 
-| Event                  | Description                                                                         | Type                                                                                                |
-| ---------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `resizeviewport`       | Viewport resize                                                                     | `CustomEvent<{ dimension: DimensionType; size: number; rowHeader?: boolean; }>`                     |
-| `scrollchange`         | Triggered on scroll change, can be used to get information about scroll visibility  | `CustomEvent<{ type: DimensionType; hasScroll: boolean; }>`                                         |
-| `scrollviewport`       | Before scroll event                                                                 | `CustomEvent<{ dimension: DimensionType; coordinate: number; delta?: number; outside?: boolean; }>` |
-| `scrollviewportsilent` | Silently scroll to coordinate Made to align negative coordinates for mobile devices | `CustomEvent<{ dimension: DimensionType; coordinate: number; delta?: number; outside?: boolean; }>` |
+| Event                  | Description                                                                         | Type                                                                                                                          |
+| ---------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `resizeviewport`       | Viewport resize                                                                     | `CustomEvent<{ dimension: DimensionType; size: number; rowHeader?: boolean \| undefined; }>`                                  |
+| `scrollchange`         | Triggered on scroll change, can be used to get information about scroll visibility  | `CustomEvent<{ type: DimensionType; hasScroll: boolean; }>`                                                                   |
+| `scrollviewport`       | Before scroll event                                                                 | `CustomEvent<{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }>` |
+| `scrollviewportsilent` | Silently scroll to coordinate Made to align negative coordinates for mobile devices | `CustomEvent<{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }>` |
 
 
 ## Methods
@@ -46,20 +46,20 @@ Type: `Promise<void>`
 
 
 
-### `changeScroll(e: ViewPortScrollEvent, silent?: boolean) => Promise<ViewPortScrollEvent>`
+### `changeScroll(e: ViewPortScrollEvent, silent?: boolean) => Promise<ViewPortScrollEvent | undefined>`
 
 update on delta in case we don't know existing position or external change
 
 #### Parameters
 
-| Name     | Type                                                                                   | Description |
-| -------- | -------------------------------------------------------------------------------------- | ----------- |
-| `e`      | `{ dimension: DimensionType; coordinate: number; delta?: number; outside?: boolean; }` |             |
-| `silent` | `boolean`                                                                              |             |
+| Name     | Type                                                                                                             | Description |
+| -------- | ---------------------------------------------------------------------------------------------------------------- | ----------- |
+| `e`      | `{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }` |             |
+| `silent` | `boolean`                                                                                                        |             |
 
 #### Returns
 
-Type: `Promise<ViewPortScrollEvent>`
+Type: `Promise<ViewPortScrollEvent | undefined>`
 
 
 
@@ -69,9 +69,9 @@ Type: `Promise<ViewPortScrollEvent>`
 
 #### Parameters
 
-| Name | Type                                                                                   | Description |
-| ---- | -------------------------------------------------------------------------------------- | ----------- |
-| `e`  | `{ dimension: DimensionType; coordinate: number; delta?: number; outside?: boolean; }` |             |
+| Name | Type                                                                                                             | Description |
+| ---- | ---------------------------------------------------------------------------------------------------------------- | ----------- |
+| `e`  | `{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }` |             |
 
 #### Returns
 
@@ -93,8 +93,8 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [revo-grid](./revoGrid)
- - [revogr-row-headers](./rowHeaders)
+ - [revo-grid](../revoGrid)
+ - [revogr-row-headers](../rowHeaders)
 
 ### Graph
 ```mermaid

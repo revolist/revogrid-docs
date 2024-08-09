@@ -32,7 +32,7 @@ JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:320](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L320)
+[src/types/interfaces.ts:324](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L324)
 
 ```ts
 interface HyperFunc(tag: any, data: any): T
@@ -55,7 +55,7 @@ JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:328](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L328)
+[src/types/interfaces.ts:332](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L332)
 
 ```ts
 interface HyperFunc(tag: any, text: string): T
@@ -78,10 +78,10 @@ JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:336](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L336)
+[src/types/interfaces.ts:340](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L340)
 
 ```ts
-interface HyperFunc(sel: any, children: T[]): T
+interface HyperFunc(sel: any, children: (undefined | null | T)[]): T
 ```
 
 `HyperFunc` is a function that takes an HTML tag or component, and returns a
@@ -93,7 +93,7 @@ JSX is not valid.
 | Parameter | Type |
 | ------ | ------ |
 | `sel` | `any` |
-| `children` | `T`[] |
+| `children` | (`undefined` \| `null` \| `T`)[] |
 
 ## Returns
 
@@ -101,7 +101,7 @@ JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:345](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L345)
+[src/types/interfaces.ts:349](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L349)
 
 ```ts
 interface HyperFunc(
@@ -128,13 +128,13 @@ JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:354](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L354)
+[src/types/interfaces.ts:358](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L358)
 
 ```ts
 interface HyperFunc(
    sel: any, 
    data: any, 
-   children: T[]): T
+   children: (undefined | null | T)[]): T
 ```
 
 `HyperFunc` is a function that takes an HTML tag or component, and returns a
@@ -147,7 +147,7 @@ JSX is not valid.
 | ------ | ------ |
 | `sel` | `any` |
 | `data` | `any` |
-| `children` | `T`[] |
+| `children` | (`undefined` \| `null` \| `T`)[] |
 
 ## Returns
 
@@ -155,7 +155,7 @@ JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:363](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L363)
+[src/types/interfaces.ts:367](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L367)
 
 ```ts
 interface HyperFunc(
@@ -182,4 +182,4 @@ JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:372](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L372)
+[src/types/interfaces.ts:376](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L376)

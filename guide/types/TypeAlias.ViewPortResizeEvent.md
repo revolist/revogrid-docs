@@ -17,10 +17,10 @@ event in the viewport.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `dimension` | [`DimensionType`](TypeAlias.DimensionType.md) | [src/types/interfaces.ts:441](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L441) |
-| `rowHeader` | `boolean` | [src/types/interfaces.ts:445](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L445) |
-| `size` | `number` | [src/types/interfaces.ts:443](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L443) |
+| `dimension` | [`DimensionType`](TypeAlias.DimensionType.md) | [src/types/interfaces.ts:445](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L445) |
+| `rowHeader` | `boolean` | [src/types/interfaces.ts:449](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L449) |
+| `size` | `number` | [src/types/interfaces.ts:447](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L447) |
 
 ## Defined in
 
-[src/types/interfaces.ts:439](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L439)
+[src/types/interfaces.ts:443](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L443)

@@ -24,4 +24,4 @@ number indicating the relative order of the two cells.
 
 ## Defined in
 
-[src/types/interfaces.ts:390](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L390)
+[src/types/interfaces.ts:394](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L394)

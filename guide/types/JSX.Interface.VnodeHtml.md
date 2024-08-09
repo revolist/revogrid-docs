@@ -6,5 +6,5 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `onHtml?` | (`event`: [`VnodeHtmlCustomEvent`](Interface.VnodeHtmlCustomEvent.md)\<\{ `html`: `string`; `vnodes`: [`VNode`](Interface.VNode.md)[]; \}\>) => `void` | [src/components.d.ts:2161](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/components.d.ts#L2161) |
-| `redraw?` | () => [`VNode`](Interface.VNode.md)[] | [src/components.d.ts:2162](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/components.d.ts#L2162) |
+| `onHtml?` | (`event`: [`VnodeHtmlCustomEvent`](Interface.VnodeHtmlCustomEvent.md)\<\{ `html`: `string`; `vnodes`: `null` \| [`VNode`](Interface.VNode.md)[]; \}\>) => `void` | [src/components.d.ts:2162](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/components.d.ts#L2162) |
+| `redraw?` | `null` \| () => [`VNode`](Interface.VNode.md)[] | [src/components.d.ts:2163](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/components.d.ts#L2163) |

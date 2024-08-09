@@ -6,7 +6,7 @@
 type RangeClipboardPasteEvent: {
   data: DataLookup;
   models: {};
-  range: RangeArea;
+  range: RangeArea | null;
  } & AllDimensionType;
 ```
 
@@ -16,10 +16,10 @@ Range paste.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `data` | [`DataLookup`](TypeAlias.DataLookup.md) | [src/types/interfaces.ts:780](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L780) |
-| `models` | \{\} | [src/types/interfaces.ts:781](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L781) |
-| `range` | [`RangeArea`](TypeAlias.RangeArea.md) | [src/types/interfaces.ts:784](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L784) |
+| `data` | [`DataLookup`](TypeAlias.DataLookup.md) | [src/types/interfaces.ts:784](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L784) |
+| `models` | \{\} | [src/types/interfaces.ts:785](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L785) |
+| `range` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/types/interfaces.ts:788](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L788) |
 
 ## Defined in
 
-[src/types/interfaces.ts:779](https://github.com/revolist/revogrid/blob/e1595e2274ede0d95fc882d4d4e21ec46b508cad/src/types/interfaces.ts#L779)
+[src/types/interfaces.ts:783](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L783)

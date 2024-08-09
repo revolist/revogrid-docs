@@ -19,7 +19,7 @@ This Clipboard provides functionality for handling clipboard events in a web app
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `afterpasteapply`  | Paste 4. Fired after paste applied to the grid defaultPrevented - if true, paste will be canceled                         | `CustomEvent<{ raw: string; parsed: string[][]; event: ClipboardEvent; }>`                |
 | `beforecopy`       | Copy 1. Fired before copy triggered defaultPrevented - if true, copy will be canceled                                     | `CustomEvent<{ event: ClipboardEvent; }>`                                                 |
-| `beforecopyapply`  | Copy Method 1. Fired before copy applied to the clipboard from outside. defaultPrevented - if true, copy will be canceled | `CustomEvent<{ event: DataTransfer; data?: string[][]; }>`                                |
+| `beforecopyapply`  | Copy Method 1. Fired before copy applied to the clipboard from outside. defaultPrevented - if true, copy will be canceled | `CustomEvent<{ event: DataTransfer; data?: string[][] \| undefined; }>`                   |
 | `beforecut`        | Cut 1. Fired before cut triggered defaultPrevented - if true, cut will be canceled                                        | `CustomEvent<{ event: ClipboardEvent; }>`                                                 |
 | `beforepaste`      | Paste 1. Fired before paste applied to the grid defaultPrevented - if true, paste will be canceled                        | `CustomEvent<{ raw: string; isHTML: boolean; event: ClipboardEvent; dataText: string; }>` |
 | `beforepasteapply` | Paste 2. Fired before paste applied to the grid and after data parsed                                                     | `CustomEvent<{ raw: string; parsed: string[][]; event: ClipboardEvent; }>`                |
@@ -36,10 +36,10 @@ This Clipboard provides functionality for handling clipboard events in a web app
 
 #### Parameters
 
-| Name   | Type           | Description |
-| ------ | -------------- | ----------- |
-| `e`    | `DataTransfer` |             |
-| `data` | `any[][]`      |             |
+| Name   | Type                   | Description |
+| ------ | ---------------------- | ----------- |
+| `e`    | `DataTransfer`         |             |
+| `data` | `any[][] \| undefined` |             |
 
 #### Returns
 
@@ -52,7 +52,7 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [revogr-overlay-selection](./overlay)
+ - [revogr-overlay-selection](../overlay)
 
 ### Graph
 ```mermaid

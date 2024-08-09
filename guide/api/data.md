@@ -12,7 +12,7 @@ Rows, columns, groups and cells
 | Property                         | Attribute         | Description                                                                                                                                                                                | Type                                                        | Default     |
 | -------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------- | ----------- |
 | `additionalData`                 | `additional-data` | Additional data to pass to renderer Used in plugins such as vue or react to pass root app entity to cells                                                                                  | `any`                                                       | `undefined` |
-| `colData`                        | --                | Column source                                                                                                                                                                              | `ObservableMap<DSourceState<ColumnRegular, DimensionCols>>` | `undefined` |
+| `colData` _(required)_           | --                | Column source                                                                                                                                                                              | `ObservableMap<DSourceState<ColumnRegular, DimensionCols>>` | `undefined` |
 | `colType` _(required)_           | `col-type`        | Column data type                                                                                                                                                                           | `"colPinEnd" \| "colPinStart" \| "rgCol" \| "rowHeaders"`   | `undefined` |
 | `dataStore` _(required)_         | --                | Data rows source                                                                                                                                                                           | `ObservableMap<DSourceState<DataType, DimensionRows>>`      | `undefined` |
 | `dimensionRow` _(required)_      | --                | Dimension settings Y                                                                                                                                                                       | `ObservableMap<DimensionSettingsState>`                     | `undefined` |
@@ -59,8 +59,8 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [revo-grid](./revoGrid)
- - [revogr-row-headers](./rowHeaders)
+ - [revo-grid](../revoGrid)
+ - [revogr-row-headers](../rowHeaders)
 
 ### Depends on
 
