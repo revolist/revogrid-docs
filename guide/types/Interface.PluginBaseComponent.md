@@ -20,4 +20,4 @@ Cleans up plugin's resources
 
 #### Defined in
 
-[src/types/plugin.ts:8](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/plugin.ts#L8)
+[src/types/plugin.ts:8](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/types/plugin.ts#L8)

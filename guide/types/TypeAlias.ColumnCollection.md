@@ -16,12 +16,12 @@ type ColumnCollection: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `columnByProp` | `Record`\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`ColumnRegular`](Interface.ColumnRegular.md)[]\> | [src/services/column.data.provider.ts:31](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/services/column.data.provider.ts#L31) |
-| `columnGrouping` | `ColumnGroupingCollection` | [src/services/column.data.provider.ts:32](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/services/column.data.provider.ts#L32) |
-| `columns` | `Record`\<[`DimensionCols`](TypeAlias.DimensionCols.md), [`ColumnRegular`](Interface.ColumnRegular.md)[]\> | [src/services/column.data.provider.ts:30](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/services/column.data.provider.ts#L30) |
-| `maxLevel` | `number` | [src/services/column.data.provider.ts:33](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/services/column.data.provider.ts#L33) |
-| `sort` | `Record`\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`ColumnRegular`](Interface.ColumnRegular.md)\> | [src/services/column.data.provider.ts:34](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/services/column.data.provider.ts#L34) |
+| `columnByProp` | `Record`\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`ColumnRegular`](Interface.ColumnRegular.md)[]\> | [src/services/column.data.provider.ts:31](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/services/column.data.provider.ts#L31) |
+| `columnGrouping` | `ColumnGroupingCollection` | [src/services/column.data.provider.ts:32](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/services/column.data.provider.ts#L32) |
+| `columns` | `Record`\<[`DimensionCols`](TypeAlias.DimensionCols.md), [`ColumnRegular`](Interface.ColumnRegular.md)[]\> | [src/services/column.data.provider.ts:30](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/services/column.data.provider.ts#L30) |
+| `maxLevel` | `number` | [src/services/column.data.provider.ts:33](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/services/column.data.provider.ts#L33) |
+| `sort` | `Record`\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`ColumnRegular`](Interface.ColumnRegular.md)\> | [src/services/column.data.provider.ts:34](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/services/column.data.provider.ts#L34) |
 
 ## Defined in
 
-[src/services/column.data.provider.ts:29](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/services/column.data.provider.ts#L29)
+[src/services/column.data.provider.ts:29](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/services/column.data.provider.ts#L29)

@@ -18,4 +18,4 @@ type ColPropertiesFunc: (props: ColumnPropProp) => CellProps | void | undefined;
 
 ## Defined in
 
-[src/types/interfaces.ts:410](https://github.com/revolist/revogrid/blob/0ab93afcbb5b98b002edc76b162fc6cdefa047cd/src/types/interfaces.ts#L410)
+[src/types/interfaces.ts:410](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/types/interfaces.ts#L410)
