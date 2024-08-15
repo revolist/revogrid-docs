@@ -10,4 +10,4 @@ Represents the mapping of dimension types to their corresponding observable stor
 
 ## Defined in
 
-[src/types/interfaces.ts:647](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/types/interfaces.ts#L647)
+[src/types/interfaces.ts:647](https://github.com/revolist/revogrid/blob/a84fead7f1878a976ea465cbf9b4f0472345b7b1/src/types/interfaces.ts#L647)

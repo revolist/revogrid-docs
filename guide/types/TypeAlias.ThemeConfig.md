@@ -12,8 +12,8 @@ type ThemeConfig: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `rowSize` | `number` | [src/types/theme.ts:6](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/types/theme.ts#L6) |
+| `rowSize` | `number` | [src/types/theme.ts:6](https://github.com/revolist/revogrid/blob/a84fead7f1878a976ea465cbf9b4f0472345b7b1/src/types/theme.ts#L6) |
 
 ## Defined in
 
-[src/types/theme.ts:5](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/types/theme.ts#L5)
+[src/types/theme.ts:5](https://github.com/revolist/revogrid/blob/a84fead7f1878a976ea465cbf9b4f0472345b7b1/src/types/theme.ts#L5)

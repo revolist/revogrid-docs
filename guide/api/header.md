@@ -14,7 +14,7 @@
 | `groupingDepth`     | `grouping-depth`  | Grouping depth, how many levels of grouping                                                     | `number`                                                       | `0`         |
 | `groups`            | --                | Column groups                                                                                   | `{ [x: string]: any; }`                                        | `undefined` |
 | `readonly`          | `readonly`        | Readonly mode                                                                                   | `boolean`                                                      | `undefined` |
-| `resizeHandler`     | --                | Defines resize position                                                                         | `("r" \| "b" \| "rt" \| "lt" \| "rb" \| "lb" \| "l" \| "t")[]` | `undefined` |
+| `resizeHandler`     | --                | Defines resize position                                                                         | `("b" \| "rt" \| "r" \| "lt" \| "rb" \| "lb" \| "l" \| "t")[]` | `undefined` |
 | `selectionStore`    | --                | Selection, range, focus                                                                         | `ObservableMap<SelectionStoreState>`                           | `undefined` |
 | `type` _(required)_ | `type`            | Column type                                                                                     | `"colPinEnd" \| "colPinStart" \| "rgCol" \| "rowHeaders"`      | `undefined` |
 | `viewportCol`       | --                | Viewport X                                                                                      | `ObservableMap<ViewportState>`                                 | `undefined` |
