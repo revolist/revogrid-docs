@@ -12,16 +12,20 @@ type ColumnCollection: {
 };
 ```
 
+Column collection definition.
+Used to access indexed data for columns.
+Can be accessed via different events.
+
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `columnByProp` | `Record`\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`ColumnRegular`](Interface.ColumnRegular.md)[]\> | [src/services/column.data.provider.ts:31](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/services/column.data.provider.ts#L31) |
-| `columnGrouping` | `ColumnGroupingCollection` | [src/services/column.data.provider.ts:32](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/services/column.data.provider.ts#L32) |
-| `columns` | `Record`\<[`DimensionCols`](TypeAlias.DimensionCols.md), [`ColumnRegular`](Interface.ColumnRegular.md)[]\> | [src/services/column.data.provider.ts:30](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/services/column.data.provider.ts#L30) |
-| `maxLevel` | `number` | [src/services/column.data.provider.ts:33](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/services/column.data.provider.ts#L33) |
-| `sort` | `Record`\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`ColumnRegular`](Interface.ColumnRegular.md)\> | [src/services/column.data.provider.ts:34](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/services/column.data.provider.ts#L34) |
+| Name | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| `columnByProp` | `Record`\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`ColumnRegular`](Interface.ColumnRegular.md)[]\> | Columns indexed by prop for quick access, it's possible to have multiple columns with same prop but not recommended | [src/utils/column.utils.ts:34](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/utils/column.utils.ts#L34) |
+| `columnGrouping` | [`ColumnGroupingCollection`](TypeAlias.ColumnGroupingCollection.md) | Grouped columns | [src/utils/column.utils.ts:38](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/utils/column.utils.ts#L38) |
+| `columns` | `Record`\<[`DimensionCols`](TypeAlias.DimensionCols.md), [`ColumnRegular`](Interface.ColumnRegular.md)[]\> | Columns as they are in stores | [src/utils/column.utils.ts:30](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/utils/column.utils.ts#L30) |
+| `maxLevel` | `number` | Max level of grouping | [src/utils/column.utils.ts:42](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/utils/column.utils.ts#L42) |
+| `sort` | `Record`\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`ColumnRegular`](Interface.ColumnRegular.md)\> | Sorting | [src/utils/column.utils.ts:46](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/utils/column.utils.ts#L46) |
 
 ## Defined in
 
-[src/services/column.data.provider.ts:29](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/services/column.data.provider.ts#L29)
+[src/utils/column.utils.ts:26](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/utils/column.utils.ts#L26)

@@ -1,11 +1,17 @@
 [@revolist/revogrid](README.md) / DataType
 
-# Type Alias: DataType
+# Type Alias: DataType\<D\>
 
 ```ts
-type DataType: { [T in ColumnProp]: DataFormat };
+type DataType<D>: { [T in ColumnProp]: DataFormat<D> };
 ```
+
+## Type Parameters
+
+| Type Parameter | Default type |
+| ------ | ------ |
+| `D` | `any` |
 
 ## Defined in
 
-[src/types/interfaces.ts:413](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/types/interfaces.ts#L413)
+[src/types/interfaces.ts:413](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/types/interfaces.ts#L413)

@@ -21,8 +21,8 @@ type LogicFunction: (value: any, extra?: LogicFunctionExtraParam) => boolean;
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `extra` | `ExtraField` | [src/plugins/filter/filter.types.ts:9](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/plugins/filter/filter.types.ts#L9) |
+| `extra` | `ExtraField` | [src/plugins/filter/filter.types.ts:9](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/plugins/filter/filter.types.ts#L9) |
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:7](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/plugins/filter/filter.types.ts#L7)
+[src/plugins/filter/filter.types.ts:7](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/plugins/filter/filter.types.ts#L7)

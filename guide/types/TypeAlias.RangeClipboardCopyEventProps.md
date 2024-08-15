@@ -1,10 +1,10 @@
 [@revolist/revogrid](README.md) / RangeClipboardCopyEventProps
 
-# Type Alias: RangeClipboardCopyEventProps
+# Type Alias: RangeClipboardCopyEventProps\<T\>
 
 ```ts
-type RangeClipboardCopyEventProps: {
-  data: DataFormat[][];
+type RangeClipboardCopyEventProps<T>: {
+  data: DataFormat<T>[][];
   mapping: OldNewRangeMapping;
   range: RangeArea;
  } & AllDimensionType;
@@ -16,10 +16,16 @@ Range copy.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `data` | [`DataFormat`](TypeAlias.DataFormat.md)[][] | [src/types/interfaces.ts:793](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/types/interfaces.ts#L793) |
-| `mapping` | [`OldNewRangeMapping`](TypeAlias.OldNewRangeMapping.md) | [src/types/interfaces.ts:795](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/types/interfaces.ts#L795) |
-| `range` | [`RangeArea`](TypeAlias.RangeArea.md) | [src/types/interfaces.ts:794](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/types/interfaces.ts#L794) |
+| `data` | [`DataFormat`](TypeAlias.DataFormat.md)\<`T`\>[][] | [src/types/interfaces.ts:793](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/types/interfaces.ts#L793) |
+| `mapping` | [`OldNewRangeMapping`](TypeAlias.OldNewRangeMapping.md) | [src/types/interfaces.ts:795](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/types/interfaces.ts#L795) |
+| `range` | [`RangeArea`](TypeAlias.RangeArea.md) | [src/types/interfaces.ts:794](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/types/interfaces.ts#L794) |
+
+## Type Parameters
+
+| Type Parameter | Default type |
+| ------ | ------ |
+| `T` | `any` |
 
 ## Defined in
 
-[src/types/interfaces.ts:792](https://github.com/revolist/revogrid/blob/477507f867ff98f395e0119897545945e222b246/src/types/interfaces.ts#L792)
+[src/types/interfaces.ts:792](https://github.com/revolist/revogrid/blob/684eab34b16e993178d736466d35507eda9850cd/src/types/interfaces.ts#L792)
