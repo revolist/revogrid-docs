@@ -20,7 +20,9 @@
           <VPButton
               size="medium"
               :text="props.buttonText"
-              @click="() => emit('open')"
+              :theme="props.buttonTheme"
+              :href="props.href"
+              @click="() => !props.href && emit('open')"
           />
       </div>
   </div>
@@ -37,6 +39,7 @@ interface PlanProps {
   buttonText: string
   href: string
   features: string[]
+  buttonTheme?: 'brand' | 'alt' | 'sponsor'
 }
 
 const props = defineProps<PlanProps>()

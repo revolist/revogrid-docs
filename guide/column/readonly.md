@@ -1,4 +1,4 @@
-## Readonly
+# Readonly
 
 [<Badge type="tip">ColumnDataSchemaModel</Badge>](../types/TypeAlias.ColumnDataSchemaModel)
 [<Badge type="tip">ReadOnlyFormat</Badge>](../types/TypeAlias.ReadOnlyFormat)

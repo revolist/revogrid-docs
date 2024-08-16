@@ -1,4 +1,4 @@
-## Pin/Freeze (fixed columns)
+# Pin/Freeze (Fixed columns)
 
 [<Badge type="tip">Interface: ColumnRegular</Badge>](../types/Interface.ColumnRegular) [<Badge type="tip">Type: DimensionColPin</Badge>](../types/TypeAlias.DimensionColPin)
 

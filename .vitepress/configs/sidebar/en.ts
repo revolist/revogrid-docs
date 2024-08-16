@@ -1,5 +1,6 @@
 import type { DefaultTheme } from 'vitepress'
 
+const PRO_BADGE = '<span class="VPBadge tip">P</span>';
 export const sidebarEn: DefaultTheme.Sidebar = {
     '/guide/': [
         {
@@ -61,10 +62,6 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                             link: '/guide/angular/renderer',
                         },
                         { text: 'Cell Editor', link: '/guide/angular/editor' },
-                        // {
-                        //     text: 'Web Component',
-                        //     link: '/guide/angular/webcomponent',
-                        // },
                     ],
                 },
                 {
@@ -133,7 +130,53 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                             text: 'Column Autosize',
                             link: '/guide/column/autosize',
                         },
-                    ],
+                        {
+                            text: 'Column Header',
+                            link: '/guide/column/header.template',
+                        },
+                        {
+                            text: 'Column Header Properties',
+                            link: '/guide/column/properties',
+                        },
+                        {
+                            text: 'Column Readonly',
+                            link: '/guide/column/readonly',
+                        },
+                        {
+                            text: 'Column Ordering',
+                            link: '/guide/column/order',
+                        },
+                        {
+                            text: 'Column Pinning',
+                            link: '/guide/column/pin',
+                        },
+                        {
+                            text: 'Column Groups',
+                            link: '/guide/column/grouping',
+                        },
+                        {
+                            text: 'Custom Columns',
+                            link: '/guide/column/types',
+                        },
+                        {
+                            text:  `Column Selection ${PRO_BADGE}`,
+                            link: '/guide/column/selection',
+                        },
+                        {
+                            text: 'Column Stretching',
+                            link: '/guide/column/stretch',
+                            items: [
+                                {
+                                    text: `Advanced Stretch ${PRO_BADGE}`,
+                                    link: '/guide/column/stretch.pro',
+                                }
+                            ]
+                        },
+                        {
+                            text: `Column Spanning ${PRO_BADGE}`,
+                            link: '/guide/column/span',
+                        },
+                    ]
                 },
             ],
         },
@@ -145,6 +188,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     text: 'Cell Definitions',
                     link: '/guide/cell/',
                     items: [
+                        {
+                            text: 'Cell Readonly',
+                            link: '/guide/column/readonly',
+                        },
                         {
                             text: 'Cell Renderer',
                             link: '/guide/cell/renderer',
@@ -164,15 +211,87 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 {
                     text: 'Row Definitions',
                     link: '/guide/row',
+                    items: [
+                        {
+                            text: 'Row Height',
+                            link: '/guide/row/height',
+                        },
+                        {
+                            text: 'Row Pinning',
+                            link: '/guide/row/pin',
+                        },
+                        {
+                            text: 'Row Headers',
+                            link: '/guide/row/headers',
+                        },
+                        {
+                            text: 'Row Ordering',
+                            link: '/guide/row/order',
+                            items: [
+                                {
+                                    text: `Multi Row Ordering ${PRO_BADGE}`,
+                                    link: '/guide/row/order.pro',  
+                                },
+                            ]
+                        },
+                        {
+                            text: `Row Auto-Focus ${PRO_BADGE}`,
+                            link: '/guide/row/next.focus',
+                        },
+                        {
+                            text: `Row Selection ${PRO_BADGE}`,
+                            link: '/guide/row/selection',
+                        },
+                        {
+                            text: `Row Odd ${PRO_BADGE}`,
+                            link: '/guide/row/odd',
+                        },
+                        {
+                            text: `Row Spanning ${PRO_BADGE}`,
+                            link: '/guide/row/span',
+                        }
+                    ]
                 },
             ],
         },
         {
             text: 'Advance',
             items: [
+                // {
+                //     text: 'Accessibility',
+                //     link: '/guide/wcag',
+                // },
+                {
+                    text: `Formula ${PRO_BADGE}`,
+                    link: '/guide/formula',
+                },
+                {
+                    text: `Pagination ${PRO_BADGE}`,
+                    link: '/guide/pagination',
+                },
+                {
+                    text: 'Copy and Paste',
+                    link: '/guide/clipboard',
+                    items: [
+                        {
+                            text: `JSON ${PRO_BADGE}`,
+                            link: '/guide/clipboard.pro',
+                        }
+                    ]
+                },
+                {
+                    text: 'Editing',
+                    link: '/guide/editing',
+                },
                 {
                     text: 'Export',
-                    link: '/guide/export.plugin',
+                    link: '/guide/export',
+                    items: [
+                        {
+                            text: `Excel ${PRO_BADGE}`,
+                            link: '/guide/export.excel',
+                        }
+                    ]
                 },
                 {
                     text: 'Filtering',

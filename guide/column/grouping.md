@@ -1,4 +1,4 @@
-## Grouping (Stacked Columns)
+# Grouping (Stacked Columns)
 [<Badge type="tip">Type: ColumnGrouping</Badge>](../types/TypeAlias.ColumnGrouping)
 
 

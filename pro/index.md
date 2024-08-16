@@ -32,6 +32,22 @@ Maintaining and developing Revogrid, along with its documentation and community,
 We are excited to introduce the Pro version, aimed at supporting the future growth of the library and providing you with the exclusive benefits like direct support, prioritized feature requests, and unique insights into our latest offerings. 🌟
 
 <div class="plans-container">
+
+<Plan
+  title="Forever free"
+  description="RevoGrid is open-source MIT-licensed software, and it will be forever."
+  buttonText="Continue"
+  buttonTheme="sponsor"
+  href="/guide"
+  :features="[
+    'Perpetual access to Extended Grid Core functionality.',
+    'Frequent product updates.',
+    'Documentation and community support.',
+    'Technical team insights.',
+  ]"
+  @open="showForm = true"
+/>
+
 <Plan
   title="Professional"
   description="Best for companies and individuals that want a direct wire to the Revogrid team experience."
@@ -39,23 +55,10 @@ We are excited to introduce the Pro version, aimed at supporting the future grow
   :features="[
     'Access to all Pro Examples',
     'Prioritized Github Issues',
-    'Keep the library running and maintained under an MIT License',
+    'Prioritized Roadmap Items',
     'Up to 1 hour of individual support via email per month',
-    'Introduction call with one of the creators of Revogrid'
-  ]"
-  @open="showForm = true"
-/>
-
-<Plan
-  title="Enterprise"
-  description="For large companies who want to have guidance and insights from the Revogrid team."
-  buttonText="Request a Quote"
-  :features="[
-    'Perpetual access to all Pro Examples',
-    'Prioritized Github Issues',
+    'Introduction call with one of the creators of Revogrid',
     'Keep the library running and maintained under an MIT License',
-    '1 hour of individual support via voice, video, or email per month',
-    'Custom procurement and payment process'
   ]"
   @open="showForm = true"
 />
