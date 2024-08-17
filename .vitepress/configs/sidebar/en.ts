@@ -1,6 +1,6 @@
 import type { DefaultTheme } from 'vitepress'
 
-const PRO_BADGE = '<span class="VPBadge tip">P</span>';
+const PRO_BADGE = '<a href="/pro" rel="noopener noreferrer" target="_blank"><span class="VPBadge info">P</span></a>';
 export const sidebarEn: DefaultTheme.Sidebar = {
     '/guide/': [
         {
@@ -199,6 +199,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                         {
                             text: 'Cell Editor',
                             link: '/guide/cell/editor',
+                        },
+                        {
+                            text: `Cell Merge ${PRO_BADGE}`,
+                            link: '/guide/cell/merge',
                         },
                     ],
                 },
