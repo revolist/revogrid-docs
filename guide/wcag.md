@@ -19,9 +19,9 @@ Comprehensive keyboard navigation ensures that all users, including those who re
 
 - **Tab Sequence Management**: Following WAI-ARIA practices, grid ensures that only the relevant focusable elements are included in the tab sequence, making navigation intuitive.
 - **Arrow Keys**: Navigate between cell elements using the arrow keys, ensuring that users can move horizontally and vertically across the grid.
-- **Home/End Keys**: Quickly navigate to the first or last cell of the current row, or use `Ctrl+Home` and `Ctrl+End` to jump to the first or last cell of the entire grid.
-- **Page Up/Page Down**: Scroll through pages of data, ensuring users can easily navigate through large datasets.
+- **Ctrl/CMD + A Keys**: Quickly all cells of the entire grid.
 - **Enter/Escape**: Select a cell or row for editing, or exit the edit mode using `Enter` or `Escape`.
+- **Ctrl/CMD + C/V Keys**: Copy and paste cells.
 
 ## Customizing Accessibility Features
 

@@ -2,10 +2,50 @@
 sidebar: false
 aside: false
 editLink: false
-footer: false
+footer: true
 prev: false
 next: false
+pageClass: proPage
 ---
+<style lang="scss">
+
+  @media (min-width: 1440px) {
+    .proPage .content .plans-container {
+        margin: 0 -200px;
+        max-width: 1104px;
+    }
+  }
+  @media (min-width: 960px) {
+    .proPage .content .plans-container {
+        margin: 0 -100px;
+        max-width: 992px;
+    }
+  }
+</style>
+
+<style lang="scss" scoped>
+:deep(.plans-container) {
+  display: flex;
+  gap: 1.5em;
+  justify-content: center;
+
+  .vp-card {
+    &.free {
+      max-width: 350px;
+      background-color: var(--vp-c-bg-soft);
+      border: 1px solid var(--vp-c-divider-light);
+    }
+    &.pro {
+      .plan-features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 50px;
+      }
+    }
+  }
+}
+
+</style>
 
 <script setup>
 import { ref } from 'vue'
@@ -15,17 +55,8 @@ import ContactForm from './ContactForm.vue'
 let showForm = ref(false) // isVisible
 </script>
 
-<style scoped>
-.plans-container {
-  display: flex;
-  gap: 1.5em;
-  margin: 0 -50px;
-  justify-content: center;
-}
 
-</style>
-
-# Build next level apps in a Pro version
+# Build next level apps as a Pro
 
 Maintaining and developing Revogrid, along with its documentation and community, is a big job. It demands time and resources—none of which would be possible without your incredible support. 
 
@@ -35,30 +66,33 @@ We are excited to introduce the Pro version, aimed at supporting the future grow
 
 <Plan
   title="Forever free"
+  class="free"
   description="RevoGrid is open-source MIT-licensed software, and it will be forever."
-  buttonText="Continue"
+  buttonText="Get Started"
   buttonTheme="sponsor"
   href="/guide"
+  icon="✔️"
   :features="[
     'Perpetual access to Extended Grid Core functionality.',
     'Frequent product updates.',
     'Documentation and community support.',
-    'Technical team insights.',
+    'Continuous Technical team insights.',
   ]"
   @open="showForm = true"
 />
 
 <Plan
   title="Professional"
+  class="pro"
   description="Best for companies and individuals that want a direct wire to the Revogrid team experience."
   buttonText="Request a Quote"
   :features="[
-    'Access to all Pro Examples',
-    'Prioritized Github Issues',
-    'Prioritized Roadmap Items',
-    'Up to 1 hour of individual support via email per month',
-    'Introduction call with one of the creators of Revogrid',
-    'Keep the library running and maintained under an MIT License',
+    'Access to all Pro Examples, Plugins and Documentation.',
+    'Up to 1 hour of individual support via email per month.',
+    'Prioritized Github Issues and Pull Requests.',
+    'Prioritized Roadmap Item and Feature Requests.',
+    'Introduction call with one of the creators.',
+    'Keep the library running and maintained under an MIT License.',
   ]"
   @open="showForm = true"
 />

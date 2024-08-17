@@ -26,6 +26,12 @@ featuresHeader:
   details: The magical, reusable Datagrid.
 
 features:
+  - title: Accessibility and WCAG
+    icon:
+      src: wcag.svg
+    details: Designed to ensure accessibility and WCAG compliance.
+    link: ./guide/wcag
+    linkText: Read mode
   - title: Reactivity upon the deep
     icon: 
       src: reactivity.svg

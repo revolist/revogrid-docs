@@ -1,7 +1,7 @@
 <template>
   <div class="vp-card">
       <div class="vp-card__header">
-          <span class="h2">{{ props.title }}</span>
+          <span class="plan-name">{{ props.title }}</span>
           <p>{{ props.description }}</p>
       </div>
       <div class="vp-card__body">
@@ -11,9 +11,10 @@
                   props.pricePeriod
               }}</span>
           </div>
+          <hr />
           <ul class="plan-features">
               <li v-for="feature in props.features" :key="feature">
-                  <span class="icon">✅</span> {{ feature }}
+                  <span class="icon">{{ props.icon || '✅' }}</span> {{ feature }}
               </li>
           </ul>
           <br />
@@ -39,6 +40,7 @@ interface PlanProps {
   buttonText: string
   href: string
   features: string[]
+  icon?: string
   buttonTheme?: 'brand' | 'alt' | 'sponsor'
 }
 
@@ -57,7 +59,6 @@ const props = defineProps<PlanProps>()
 
 .vp-card {
   flex: 1;
-  max-width: 400px;
   border: 1px solid var(--vp-c-divider-light);
   padding: 1.5em;
   margin: 1.5em 0;
@@ -81,9 +82,9 @@ const props = defineProps<PlanProps>()
       margin-bottom: 1em;
       padding-top: 20px;
 
-      .h2 {
+      .plan-name {
           margin: 0;
-          font-size: 2em;
+          font-size: 1.5em;
           font-weight: 600;
           color: var(--vp-c-text-1);
       }
@@ -113,12 +114,11 @@ const props = defineProps<PlanProps>()
           padding: 0;
           text-align: left;
           margin: 0 auto;
-          max-width: 300px;
 
           li {
               display: flex;
               margin: 0.5em 0;
-              font-size: 1em;
+              font-size: 0.95em;
               gap: 10px;
           }
       }

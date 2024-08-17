@@ -257,10 +257,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
         {
             text: 'Advance',
             items: [
-                // {
-                //     text: 'Accessibility',
-                //     link: '/guide/wcag',
-                // },
+                {
+                    text: 'Accessibility',
+                    link: '/guide/wcag',
+                },
                 {
                     text: `Formula ${PRO_BADGE}`,
                     link: '/guide/formula',
