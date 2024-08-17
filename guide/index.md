@@ -52,4 +52,3 @@ Once you've integrated grid into your `html`, the next step is to breathe life i
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
 </ClientOnly>
-

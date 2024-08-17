@@ -159,10 +159,6 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                             link: '/guide/column/types',
                         },
                         {
-                            text:  `Column Selection ${PRO_BADGE}`,
-                            link: '/guide/column/selection',
-                        },
-                        {
                             text: 'Column Stretching',
                             link: '/guide/column/stretch',
                             items: [
@@ -175,6 +171,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                         {
                             text: `Column Spanning ${PRO_BADGE}`,
                             link: '/guide/column/span',
+                        },
+                        {
+                            text:  `Column Selection ${PRO_BADGE}`,
+                            link: '/guide/column/selection',
                         },
                     ]
                 },

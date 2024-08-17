@@ -32,31 +32,33 @@ features:
     details: Designed to ensure accessibility and WCAG compliance.
     link: ./guide/wcag
     linkText: Read mode
+  
+  - title: Row Operations
+    icon: 
+      src: row.svg
+    details: Advanced row customization, including dragging and dropping rows, grouping them, and applying styles.
+    link: ./guide/row/
+    linkText: Read more
+
+  - title: Column Operations
+    icon:
+      src: column.svg
+    details: Comprehensive column customization, including resizing, reordering, grouping and defining data types.
+    link: ./guide/column/
+    linkText: Read mode
+
   - title: Reactivity upon the deep
     icon: 
       src: reactivity.svg
     details: The grid core is built upon an advanced reactive approach. By incorporating smart recombination, it handles substantial data loads and intricate operations.
     link: ./guide/overview.md#Magic-behind-the-scene
     linkText: Read mode
+
   - title: Enhanced Customization Toolkit
     icon: 
       src: template.svg
     details: Template every element - cells, rows, columns, headers. Customize nearly every action keeping performance with internal VNode support.
     link: ./guide/cell/renderer
-    linkText: Read mode
-
-  - title: TypeScript support
-    icon: 
-      src: ts.svg
-    details: Revogrid uses TypeScript, providing your components with type safety as your system scales.
-    link: ./guide/ts/
-    linkText: Read mode
-    
-  - title: JSX support
-    icon: 
-      src: jsx.svg
-    details: Leverage a widely recognized templating syntax to describe your custom content, ensuring a fast and reactive DOM while utilizing the full range of JavaScript's features.
-    link: ./guide/jsx.template
     linkText: Read mode
 
   - title: Pinning/Freezing
@@ -66,18 +68,11 @@ features:
     link: ./guide/column/columnPin
     linkText: Read mode
 
-  - title: Range Selection
+  - title: Cell and Range Selection
     icon: 
       src: range.svg
     details: Allows users to select and manipulate a range of cells efficiently.
     link: ./guide/defs.md#Focus
-    linkText: Read mode
-
-  - title: Column Operations
-    icon: 
-      src: column.svg
-    details: Comprehensive column customization, including resizing, reordering, grouping and defining data types.
-    link: ./guide/column/
     linkText: Read mode
 
   - title: Filtering
@@ -92,13 +87,6 @@ features:
       src: sort.svg
     details: Powerful sorting functionality for organizing data based on various criteria.
     link: ./guide/sorting
-    linkText: Read mode
-
-  - title: Data Grouping
-    icon: 
-      src: group.svg
-    details: Supports grouping of data on multiple levels for improved organization.
-    link: ./guide/jsx.template
     linkText: Read mode
 
   - title: Cell Editing
@@ -122,25 +110,39 @@ features:
     link: ./guide/export.plugin
     linkText: Read mode
 
-  - title: Slots
-    icon: 
-      src: menu.svg
-    details: Customizable containers for custom components.
-    link: ./guide/slots
-    linkText: Read mode
-
-  - title: Tree Data
+  - title: Grouping Data
     icon: 
       src: tree.svg
     details: Support for hierarchical data representation and management.
     link: ./guide/defs#Row-Grouping
     linkText: Read mode
 
-  - title:  Keyboard Support
+  - title: Keyboard Support
     icon: 
       src: keyboard.svg
     details: Handle all popular keyboard events, and unleash your creativity by extending functionality according to your unique requirements.
     link: ./guide/defs#Keyboard
+    linkText: Read mode
+
+  - title: Plugin Support
+    icon: 
+      src: menu.svg
+    details: Extend grid functionality with micro applications, allowing for limitless customization and enhancements.
+    link: ./guide/plugin
+    linkText: Read mode
+
+  - title: TypeScript support
+    icon: 
+      src: ts.svg
+    details: Revogrid uses TypeScript, providing your components with type safety as your system scales.
+    link: ./guide/ts/
+    linkText: Read mode
+    
+  - title: JSX support
+    icon: 
+      src: jsx.svg
+    details: Leverage a widely recognized templating syntax to describe your custom content, ensuring a fast and reactive DOM while utilizing the full range of JavaScript's features.
+    link: ./guide/jsx.template
     linkText: Read mode
 
 integrations:
