@@ -5,7 +5,7 @@
 ```ts
 type RangeClipboardPasteEvent: {
   data: DataLookup;
-  models: {};
+  models: Partial<DataLookup>;
   range: RangeArea | null;
  } & AllDimensionType;
 ```
@@ -16,10 +16,10 @@ Range paste.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `data` | [`DataLookup`](TypeAlias.DataLookup.md) | [src/types/interfaces.ts:784](https://github.com/revolist/revogrid/blob/e9570f9d5c0f862a9433b930661de46c89a93bd7/src/types/interfaces.ts#L784) |
-| `models` | \{\} | [src/types/interfaces.ts:785](https://github.com/revolist/revogrid/blob/e9570f9d5c0f862a9433b930661de46c89a93bd7/src/types/interfaces.ts#L785) |
-| `range` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/types/interfaces.ts:788](https://github.com/revolist/revogrid/blob/e9570f9d5c0f862a9433b930661de46c89a93bd7/src/types/interfaces.ts#L788) |
+| `data` | [`DataLookup`](TypeAlias.DataLookup.md) | [src/types/interfaces.ts:795](https://github.com/revolist/revogrid/blob/3fee8276dedac5f7aa7fa43a0495db32609daeca/src/types/interfaces.ts#L795) |
+| `models` | `Partial`\<[`DataLookup`](TypeAlias.DataLookup.md)\> | [src/types/interfaces.ts:796](https://github.com/revolist/revogrid/blob/3fee8276dedac5f7aa7fa43a0495db32609daeca/src/types/interfaces.ts#L796) |
+| `range` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/types/interfaces.ts:797](https://github.com/revolist/revogrid/blob/3fee8276dedac5f7aa7fa43a0495db32609daeca/src/types/interfaces.ts#L797) |
 
 ## Defined in
 
-[src/types/interfaces.ts:783](https://github.com/revolist/revogrid/blob/e9570f9d5c0f862a9433b930661de46c89a93bd7/src/types/interfaces.ts#L783)
+[src/types/interfaces.ts:794](https://github.com/revolist/revogrid/blob/3fee8276dedac5f7aa7fa43a0495db32609daeca/src/types/interfaces.ts#L794)

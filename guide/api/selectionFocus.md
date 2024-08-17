@@ -22,11 +22,11 @@ Focus component. Shows focus layer around the cell that is currently in focus.
 
 ## Events
 
-| Event                  | Description                                                                                                               | Type                                                  |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| `afterfocus`           | Used to setup properties after focus was rendered                                                                         | `CustomEvent<{ model: any; column: ColumnRegular; }>` |
-| `beforefocusrender`    | Before focus render event. Can be prevented by event.preventDefault(). If preventDefault used slot will be rendered.      | `CustomEvent<FocusRenderEvent>`                       |
-| `beforescrollintoview` | Before focus changed verify if it's in view and scroll viewport into this view Can be prevented by event.preventDefault() | `CustomEvent<{ el: HTMLElement; }>`                   |
+| Event                  | Description                                                                                                               | Type                                 |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| `afterfocus`           | Used to setup properties after focus was rendered                                                                         | `CustomEvent<FocusAfterRenderEvent>` |
+| `beforefocusrender`    | Before focus render event. Can be prevented by event.preventDefault(). If preventDefault used slot will be rendered.      | `CustomEvent<FocusRenderEvent>`      |
+| `beforescrollintoview` | Before focus changed verify if it's in view and scroll viewport into this view Can be prevented by event.preventDefault() | `CustomEvent<{ el: HTMLElement; }>`  |
 
 
 ## Slots
