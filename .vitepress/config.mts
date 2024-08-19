@@ -68,15 +68,15 @@ const config: UserConfig<DefaultTheme.Config> = {
                 content: 'summary_large_image',
             },
         ],
-        [
+        // [
             
-            'script',
-            {
-                id: 'cookieyes',
-                type: 'text/javascript',
-                src: 'https://cdn-cookieyes.com/client_data/77fa2aeccc90021ffe8b8f49/script.js',
-            },
-        ],
+        //     'script',
+        //     {
+        //         id: 'cookieyes',
+        //         type: 'text/javascript',
+        //         src: 'https://cdn-cookieyes.com/client_data/77fa2aeccc90021ffe8b8f49/script.js',
+        //     },
+        // ],
         [
             'script',
             {
