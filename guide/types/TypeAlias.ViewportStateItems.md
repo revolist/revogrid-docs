@@ -15,8 +15,8 @@ along with their corresponding range.
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `items` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md)[] | The items in the viewport. | [src/types/interfaces.ts:516](https://github.com/revolist/revogrid/blob/7441a116e7c14801fe05f009e2206ea7b70630f5/src/types/interfaces.ts#L516) |
+| `items` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md)[] | The items in the viewport. | [src/types/interfaces.ts:516](https://github.com/revolist/revogrid/blob/2a9402fdf050fa45d175b041168181a63cd72777/src/types/interfaces.ts#L516) |
 
 ## Defined in
 
-[src/types/interfaces.ts:512](https://github.com/revolist/revogrid/blob/7441a116e7c14801fe05f009e2206ea7b70630f5/src/types/interfaces.ts#L512)
+[src/types/interfaces.ts:512](https://github.com/revolist/revogrid/blob/2a9402fdf050fa45d175b041168181a63cd72777/src/types/interfaces.ts#L512)

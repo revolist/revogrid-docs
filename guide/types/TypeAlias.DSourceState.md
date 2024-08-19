@@ -12,7 +12,7 @@ type DSourceState<T1, T2>: DataSourceState<T1, T2> & {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `groupingCustomRenderer` | `GroupLabelTemplateFunc` \| `null` | [src/store/dataSource/data.store.ts:32](https://github.com/revolist/revogrid/blob/7441a116e7c14801fe05f009e2206ea7b70630f5/src/store/dataSource/data.store.ts#L32) |
+| `groupingCustomRenderer` | `GroupLabelTemplateFunc` \| `null` | [src/store/dataSource/data.store.ts:32](https://github.com/revolist/revogrid/blob/2a9402fdf050fa45d175b041168181a63cd72777/src/store/dataSource/data.store.ts#L32) |
 
 ## Type Parameters
 
@@ -23,4 +23,4 @@ type DSourceState<T1, T2>: DataSourceState<T1, T2> & {
 
 ## Defined in
 
-[src/store/dataSource/data.store.ts:28](https://github.com/revolist/revogrid/blob/7441a116e7c14801fe05f009e2206ea7b70630f5/src/store/dataSource/data.store.ts#L28)
+[src/store/dataSource/data.store.ts:28](https://github.com/revolist/revogrid/blob/2a9402fdf050fa45d175b041168181a63cd72777/src/store/dataSource/data.store.ts#L28)
