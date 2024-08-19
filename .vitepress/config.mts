@@ -51,10 +51,7 @@ const config: UserConfig<DefaultTheme.Config> = {
         },
     },
     head: [
-        [
-            'link',
-            { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' },
-        ],
+        ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
         ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
         [
             'meta',
@@ -70,6 +67,30 @@ const config: UserConfig<DefaultTheme.Config> = {
                 property: 'twitter:card',
                 content: 'summary_large_image',
             },
+        ],
+        [
+            
+            'script',
+            {
+                id: 'cookieyes',
+                type: 'text/javascript',
+                src: 'https://cdn-cookieyes.com/client_data/77fa2aeccc90021ffe8b8f49/script.js',
+            },
+        ],
+        [
+            'script',
+            {
+                async: '',
+                src: 'https://www.googletagmanager.com/gtag/js?id=G-894M8FYLZF',
+            },
+        ],
+        [
+            'script',
+            {},
+            `window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-894M8FYLZF');`,
         ],
     ],
     themeConfig: {
@@ -105,14 +126,21 @@ const config: UserConfig<DefaultTheme.Config> = {
         sidebar: sidebarEn,
     },
     vite: {
-        plugins: [
-            svgLoader(),
-        ],
+        plugins: [svgLoader()],
         build: {
-          chunkSizeWarningLimit: 2000,
+            chunkSizeWarningLimit: 2000,
         },
         resolve: {
-            extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.svg'],
+            extensions: [
+                '.mjs',
+                '.js',
+                '.mts',
+                '.ts',
+                '.jsx',
+                '.tsx',
+                '.json',
+                '.svg',
+            ],
             alias: [
                 {
                     find: /^.*\/VPImage\.vue$/,
@@ -121,7 +149,7 @@ const config: UserConfig<DefaultTheme.Config> = {
                     ),
                 },
             ],
-        }
+        },
     },
     ignoreDeadLinks: true,
 }
