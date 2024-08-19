@@ -68,29 +68,29 @@ const config: UserConfig<DefaultTheme.Config> = {
                 content: 'summary_large_image',
             },
         ],
-        [
-            'script',
-            {
-                id: 'cookieyes',
-                type: 'text/javascript',
-                src: 'https://cdn-cookieyes.com/client_data/77fa2aeccc90021ffe8b8f49/script.js',
-            },
-        ],
-        [
-            'script',
-            {
-                async: '',
-                src: 'https://www.googletagmanager.com/gtag/js?id=G-894M8FYLZF',
-            },
-        ],
-        [
-            'script',
-            {},
-            `window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-894M8FYLZF');`,
-        ],
+        // [
+        //     'script',
+        //     {
+        //         id: 'cookieyes',
+        //         type: 'text/javascript',
+        //         src: 'https://cdn-cookieyes.com/client_data/77fa2aeccc90021ffe8b8f49/script.js',
+        //     },
+        // ],
+        // [
+        //     'script',
+        //     {
+        //         async: '',
+        //         src: 'https://www.googletagmanager.com/gtag/js?id=G-894M8FYLZF',
+        //     },
+        // ],
+        // [
+        //     'script',
+        //     {},
+        //     `window.dataLayer = window.dataLayer || [];
+        //     function gtag(){dataLayer.push(arguments);}
+        //     gtag('js', new Date());
+        //     gtag('config', 'G-894M8FYLZF');`,
+        // ],
     ],
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
