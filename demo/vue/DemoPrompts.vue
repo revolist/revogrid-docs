@@ -23,6 +23,7 @@
             range
             resize
             row-headers
+            :editors="editors"
             :row-size="215"
         />
     </ClientOnly>
@@ -33,6 +34,11 @@ import { useData } from 'vitepress'
 import VGrid, {
     type ColumnGrouping,
     type ColumnRegular,
+    type EditorCtrConstructible,
+    type Editors,
+    type HyperFunc,
+    TextEditor,
+    type VNode,
 } from '@revolist/vue3-datagrid'
 // @ts-ignore
 import { data } from './demoPrompts.data.ts'
@@ -41,6 +47,38 @@ const { isDark } = useData()
 
 const gridColumns = ref<(ColumnGrouping | ColumnRegular)[]>([])
 const gridData = ref<any>([])
+
+class PromptEditor extends TextEditor {
+    constructor(...args: any[]) {
+        super(args[0], args[1]);
+    }
+    render(h: HyperFunc<VNode>) {
+        return h?.('textarea', {
+            style: {
+                width: '100%',
+                height: '100%',
+                resize: 'none',
+                outline: 'none',
+                border: 'none',
+                padding: '10px',
+            },
+            class: 'prompt',
+            enterKeyHint: 'enter',
+            // set input value from cell data
+            value: this.editCell?.val ?? '',
+            // save input element as ref for further usage
+            ref: (el: HTMLInputElement | null) => {
+                this.editInput = el;
+            },
+            // listen to keydown event on input element
+            onKeyDown: (e: KeyboardEvent) => this.onKeyDown(e),
+        })
+    }
+}
+
+const editors = ref<Editors>({
+    prompt: PromptEditor as EditorCtrConstructible,
+})
 
 onMounted(async () => {
     gridData.value = [...data]
@@ -53,7 +91,8 @@ onMounted(async () => {
         {
             name: 'AI Prompt',
             prop: 'prompt',
-            size: 610,
+            size: 650,
+            editor: 'prompt',
         },
     ]
 

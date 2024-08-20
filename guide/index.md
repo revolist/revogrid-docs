@@ -2,6 +2,10 @@
 
  Let's say you've got a ton of data to display on your web app. It's all about letting you throw in loads of data and manipulate it any way you fancy—without breaking a sweat. Read more about how and why you should use it in our [Overview section](./overview).
 
+:::warning
+If you are migrating from version 3, please read our full [migration guide](./migrations/v4).
+:::
+
 ## Find guides for your framework
 
 <!--@include: ./parts/framework.md-->

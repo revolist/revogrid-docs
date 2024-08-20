@@ -339,6 +339,12 @@ export const sidebarEn: DefaultTheme.Sidebar = {
         {
             text: 'Versioning',
             link: '/guide/migration',
+            items: [
+                {
+                    text: 'Migration Guide v4',
+                    link: '/guide/migrations/v4',
+                }
+            ]
         },
     ],
 
