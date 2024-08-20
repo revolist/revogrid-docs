@@ -26,6 +26,13 @@ featuresHeader:
   details: The magical, reusable Datagrid.
 
 features:
+  - title: Go Native
+    icon:
+      src: emoji-happy.svg
+    details: Integrate Vue, React, Angular, and Svelte components. Full capabilities of your chosen framework.
+    link: ./guide/overview#Framework-Native-Support
+    linkText: Read more
+
   - title: Accessibility and WCAG
     icon:
       src: wcag.svg
@@ -144,6 +151,13 @@ features:
     details: Leverage a widely recognized templating syntax to describe your custom content, ensuring a fast and reactive DOM while utilizing the full range of JavaScript's features.
     link: ./guide/jsx.template
     linkText: Read mode
+
+  - title: Transparent Codebase
+    icon:
+      src: code.svg
+    details: 'The code you truly own: understand, build, and extend with minimal effort.'
+    link: ./guide/overview#Magic-behind-the-scene
+    linkText: Read more
 
 integrations:
 - title: Vue

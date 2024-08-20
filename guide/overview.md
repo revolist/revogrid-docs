@@ -23,6 +23,18 @@ This approach allows Revogrid to be **framework-agnostic**, ensuring developers 
 
 <!--@include: ./parts/reactive.md-->
 
+
+## Framework Native Support
+
+We have built native support for all popular frameworks, enabling you to integrate native elements directly inside the grid cells. For example, you can embed Vue/React/Angular components within RevoGrid, allowing for a rich and interactive data grid experience.
+
+To use native elements in your grid, simply utilize our providers. This feature enhances flexibility and allows you to leverage the unique capabilities of each framework while maintaining a unified grid experience.
+
+For more detailed information on implementing this functionality, be sure to read the relevant sections of our documentation.
+
+<!--@include: ./parts/framework.md-->
+
+
 ## Why to choose?
 
 `Revogrid` is an essential tool for developers aiming to build high-quality, data-intensive applications.

@@ -344,7 +344,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
 
     '/demo/': [
         {
-            text: 'Demo',
+            text: 'Demo: Human HR Database',
             link: '/demo/',
         },
         {

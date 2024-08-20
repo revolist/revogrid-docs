@@ -18,6 +18,9 @@
               </li>
           </ul>
           <br />
+
+          <slot />
+
           <VPButton
               size="medium"
               :text="props.buttonText"

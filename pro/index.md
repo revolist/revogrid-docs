@@ -210,7 +210,7 @@ const features = [{
 
 Maintaining and developing Revogrid, along with its documentation and community, is a big job. It demands time and resources—none of which would be possible without your incredible support.
 
-We are excited to introduce the Pro version, aimed at supporting the future growth of the library and providing you with the exclusive benefits like direct support, prioritized feature requests, and unique insights into our latest offerings. 🌟
+We are excited to introduce the Pro version, aimed at supporting the future growth of the library and providing you with the exclusive benefits like direct support, prioritized feature requests, and unique insights into our latest offerings 💎
 
 <div class="plans-container">
 
@@ -229,7 +229,11 @@ icon="✔️"
 'Continuous Technical team insights.',
 ]"
 @open="showForm = true"
-/>
+>
+<hr />
+
+:star: [**Star us on Github**](https://github.com/revolist/revogrids)
+</Plan>
 
 <Plan
 title="Professional"
@@ -250,9 +254,9 @@ buttonText="Request a Quote"
 
 </div>
 
-Thank you for being an essential part of our community and for helping us make Revogrid better every day. 🌟
+Thank you for being an essential part of our community and for helping us make Revogrid better every day.
 
-Warm regards,
+Warm regards ❤️
 <br/>The Revolist Team
 
 <br/>
