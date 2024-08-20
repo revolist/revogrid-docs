@@ -8,4 +8,4 @@ type AfterEditEvent: BeforeRangeSaveDataDetails | BeforeSaveDataDetails;
 
 ## Defined in
 
-[src/types/selection.ts:121](https://github.com/revolist/revogrid/blob/2a9402fdf050fa45d175b041168181a63cd72777/src/types/selection.ts#L121)
+[src/types/selection.ts:121](https://github.com/revolist/revogrid/blob/1d7f63e049242097564b7da6ec33fe3875543951/src/types/selection.ts#L121)
