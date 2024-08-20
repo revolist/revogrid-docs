@@ -84,3 +84,17 @@ export default {
 
 
 <!--@include: ../../demo/vue/vue.sample.options.md-->
+
+
+
+### Method on component is not a function
+
+In order to access a method on a Stencil component in Vue, you will need to access the underlying Web Component instance first:
+
+```js
+// ✅ This is correct
+myComponentRef.value.$el.someMethod();
+
+// ❌ This is incorrect and will result in an error.
+myComponentRef.value.someMethod();
+```

@@ -344,6 +344,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
 
     '/demo/': [
         {
+            text: 'Demo: Prompts',
+            link: '/demo/vue/vue.prompts',
+        },
+        {
             text: 'Demo: Human HR Database',
             link: '/demo/',
         },
