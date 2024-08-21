@@ -8,4 +8,4 @@ type HeaderProperties: RevogrHeader;
 
 ## Defined in
 
-[src/types/viewport.interfaces.ts:30](https://github.com/revolist/revogrid/blob/1d7f63e049242097564b7da6ec33fe3875543951/src/types/viewport.interfaces.ts#L30)
+[src/types/viewport.interfaces.ts:30](https://github.com/revolist/revogrid/blob/47823c55f21dbab2ee19530dcd4c960a36eea0e4/src/types/viewport.interfaces.ts#L30)
