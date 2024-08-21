@@ -102,5 +102,3 @@ onBeforeUnmount(() => {
     clearInterval(interval)
 })
 </script>
-
-```

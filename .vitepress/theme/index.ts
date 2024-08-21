@@ -9,11 +9,13 @@ import HomeHeroInfoAfter from './HomeHeroInfoAfter.vue'
 import HomeHeroInfoBefore from './HomeHeroInfoBefore.vue'
 import HomeMit from './HomeMit.vue'
 
+
 export default {
   extends: DefaultTheme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
+      // 'home-hero-after': () => h(HomeHeroBefore),
       'home-hero-image': () => h(HomeHero),
       'home-hero-info-before': () => h(HomeHeroInfoBefore),
       'home-hero-info-after': () => h(HomeHeroInfoAfter),

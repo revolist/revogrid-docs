@@ -7,7 +7,7 @@ hero:
   text: Fine-tune. Propel.
   tagline: Revogrid is a datagrid system designed to boost the rendering of any data volume.
   license:
-    text: Revogrid is a MIT-licensed open source library.
+    text: Revogrid is a MIT-licensed open source library
     details: Help us to ensure the further development and maintenance by subscribing to
     action: Revogrid Pro
   banner:
