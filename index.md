@@ -1,6 +1,16 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+title: RevoGrid
+titleTemplate: Excel like modern data grid library
+
+head:
+  - - meta
+    - name: description
+      content: RevoGrid - Fast, responsive, and feature-rich excel like virtual data grid for modern web applications. Supports filtering, grouping, infinite scrolling, and integration with Vue, React, Angular, and Svelte.
+  - - meta
+    - name: keywords
+      content: fast-grid, virtual-grid, virtual-scroll, reactive-grid, infinity-grid, spreadsheet, virtual-list, virtual-data-grid, stenciljs, vue, vue3, vue-grid, vue-datagrid, vue3-datagrid, react, react-grid, react-datagrid, svelte, svelte-grid, svelte-datagrid, angular, angular-grid, angular-datagrid, angular-tree, filtering, grouping, treeview, spreadsheet-features, editable-grid, grid-performance, responsive-grid, grid-sorting, data-binding, data-grid, enterprise-grid, grid-component, UI-component, grid-library, frontend-grid, lightweight-grid, customizable-grid
 
 hero:
   name: Accelerate.

@@ -25,9 +25,9 @@ export const slugify = (str: string): string =>
         .replace(/^(\d)/, '_$1')
 
 const config: UserConfig<DefaultTheme.Config> = {
-    title: 'Revo Grid',
+    title: 'RevoGrid',
     appearance: 'dark',
-    description: 'Data Grid Library on steroids - Revogrid',
+    description: 'Data Grid Library on steroids - RevoGrid',
 
     markdown: {
         theme: {
