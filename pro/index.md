@@ -27,6 +27,17 @@ pageClass: proPage
           grid-template-columns: 1fr 1fr;
           column-gap: 50px;
         }
+
+        .plan-footer {
+          font-size: 10px;
+          color: var(--vp-c-text-2) !important;
+        }
+
+        .plan-footer a {
+          color: var(--vp-c-text-2) !important;
+          text-decoration: none;
+        }
+
       }
     }
   }
@@ -232,7 +243,7 @@ icon="✔️"
 >
 <hr />
 
-:star: [**Star us on Github**](https://github.com/revolist/revogrids)
+[**Star us :star: on Github**](https://github.com/revolist/revogrids)
 </Plan>
 
 <Plan
@@ -249,7 +260,13 @@ buttonText="Request a Quote"
 'Keep the library running and maintained under an MIT License.',
 ]"
 @open="showForm = true"
-/>
+>
+<template #footer>
+
+[Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms)
+
+</template>
+</Plan>
 <ContactForm :isVisible="showForm" @close="showForm = false"/>
 
 </div>

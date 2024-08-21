@@ -28,6 +28,10 @@
               :href="props.href"
               @click="() => !props.href && emit('open')"
           />
+
+          <span class="plan-footer">
+            <slot name="footer" />
+          </span>
       </div>
   </div>
 </template>
