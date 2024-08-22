@@ -11,7 +11,7 @@ We operate the websites [https://rv-grid.com](https://rv-grid.com) and [https://
 
 You can contact us email at [contact@revolist.eu](mailto:contact@revolist.eu).
 
-These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and **REVOLIST OÜ**, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. **IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.**
+These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and **REVOLIST OÜ**, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. **If you do not agree with these terms, we kindly ask you to discontinue using the services immediately.**
 
 Supplemental terms and conditions or documents that may be posted on the Services from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Legal Terms from time to time. We will alert you about any changes by updating the "Last updated" date of these Legal Terms, and you waive any right to receive specific notice of each such change. It is your responsibility to periodically review these Legal Terms to stay informed of updates. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Legal Terms by your continued use of the Services after the date such revised Legal Terms are posted.
 
@@ -119,7 +119,7 @@ We recommend that you print a copy of these Legal Terms for your records.
 
 2. The due date and the payment methods accepted by Revolist are determined by the description of the Service Plan selected by the User, which is subject to this Service Agreement. In case of doubt, the fees for a specific booked period are due in advance.
 
-3. Fees are always shown exclusive of and inclusive of VAT.
+3. Fees are always shown exclusive as well as inclusive of VAT.
 
 4. In the event of default, the User shall pay default interest to Revolist in accordance with the statutory provisions applicable in Estonia. Further rights of Revolist shall remain unaffected.
 
