@@ -8,4 +8,4 @@ type SaveData: string;
 
 ## Defined in
 
-[src/types/selection.ts:94](https://github.com/revolist/revogrid/blob/1d7f63e049242097564b7da6ec33fe3875543951/src/types/selection.ts#L94)
+[src/types/selection.ts:94](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/selection.ts#L94)
