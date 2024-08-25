@@ -31,4 +31,4 @@ interface Setter<P>(propName: P & string, value: T[P]): void
 
 ## Defined in
 
-[src/utils/store.types.ts:30](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/utils/store.types.ts#L30)
+[src/utils/store.types.ts:30](https://github.com/revolist/revogrid/blob/13683f406d4444f1320602b1f5f5b66b213da3f8/src/utils/store.types.ts#L30)

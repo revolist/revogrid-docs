@@ -12,4 +12,4 @@ type OldNewRangeMapping: {};
 
 ## Defined in
 
-[src/types/selection.ts:56](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/selection.ts#L56)
+[src/types/selection.ts:56](https://github.com/revolist/revogrid/blob/13683f406d4444f1320602b1f5f5b66b213da3f8/src/types/selection.ts#L56)

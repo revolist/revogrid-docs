@@ -8,5 +8,5 @@ This Clipboard provides functionality for handling clipboard events in a web app
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `doCopy` | (`e`: `DataTransfer`, `data`?: `any`[][]) => `Promise`\<`void`\> | - | [src/components.d.ts:294](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/components.d.ts#L294) |
-| `readonly` | `boolean` | If readonly mode - disabled Paste event | [src/components.d.ts:298](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/components.d.ts#L298) |
+| `doCopy` | (`e`: `DataTransfer`, `data`?: `any`[][]) => `Promise`\<`void`\> | - | [src/components.d.ts:294](https://github.com/revolist/revogrid/blob/13683f406d4444f1320602b1f5f5b66b213da3f8/src/components.d.ts#L294) |
+| `readonly` | `boolean` | If readonly mode - disabled Paste event | [src/components.d.ts:298](https://github.com/revolist/revogrid/blob/13683f406d4444f1320602b1f5f5b66b213da3f8/src/components.d.ts#L298) |
