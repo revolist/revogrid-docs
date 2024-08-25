@@ -3,28 +3,12 @@
 # Type Alias: CellProps
 
 ```ts
-type CellProps: {
-[attr: string]: CellProp;   class: {} | string;
-  style: {};
-};
+type CellProps: JSXBase.HTMLAttributes<HTMLDivElement> & {};
 ```
 
 Additional properties applied to the cell.
-Contains style object where key is CSS property and value is CSS property value.
-Contains class object where key is CSS class and value is boolean flag indicating if class should be applied.
-Contains additional properties for custom cell rendering.
-
-## Index Signature
-
- \[`attr`: `string`\]: [`CellProp`](TypeAlias.CellProp.md)
-
-## Type declaration
-
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `class` | \{\} \| `string` | [src/types/interfaces.ts:278](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L278) |
-| `style` | \{\} | [src/types/interfaces.ts:274](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L274) |
+Contains HTMLAttributes<HTMLDivElement> properties for custom cell rendering.
 
 ## Defined in
 
-[src/types/interfaces.ts:272](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L272)
+[src/types/interfaces.ts:275](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L275)

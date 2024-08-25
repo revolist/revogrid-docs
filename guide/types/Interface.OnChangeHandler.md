@@ -35,4 +35,4 @@ interface OnChangeHandler<Key>(propName: Key, cb: (newValue: StoreType[Key]) => 
 
 ## Defined in
 
-[src/utils/store.types.ts:18](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/utils/store.types.ts#L18)
+[src/utils/store.types.ts:18](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/utils/store.types.ts#L18)

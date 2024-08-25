@@ -8,4 +8,4 @@ type ColumnItems: Record<DimensionCols, ColumnRegular[]>;
 
 ## Defined in
 
-[src/utils/column.utils.ts:15](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/utils/column.utils.ts#L15)
+[src/utils/column.utils.ts:16](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/utils/column.utils.ts#L16)

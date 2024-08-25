@@ -5,6 +5,7 @@
 ```ts
 type ShowData: {
   autoCorrect: boolean;
+  filterTypes: Record<string, string[]>;
   x: number;
   y: number;
  } & FilterItem;
@@ -14,10 +15,11 @@ type ShowData: {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `autoCorrect` | `boolean` | Auto correct position if it is out of document bounds | [src/plugins/filter/filter.panel.tsx:36](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/plugins/filter/filter.panel.tsx#L36) |
-| `x` | `number` | - | [src/plugins/filter/filter.panel.tsx:31](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/plugins/filter/filter.panel.tsx#L31) |
-| `y` | `number` | - | [src/plugins/filter/filter.panel.tsx:32](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/plugins/filter/filter.panel.tsx#L32) |
+| `autoCorrect` | `boolean` | Auto correct position if it is out of document bounds | [src/plugins/filter/filter.types.ts:129](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/plugins/filter/filter.types.ts#L129) |
+| `filterTypes` | `Record`\<`string`, `string`[]\> | - | [src/plugins/filter/filter.types.ts:130](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/plugins/filter/filter.types.ts#L130) |
+| `x` | `number` | - | [src/plugins/filter/filter.types.ts:124](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/plugins/filter/filter.types.ts#L124) |
+| `y` | `number` | - | [src/plugins/filter/filter.types.ts:125](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/plugins/filter/filter.types.ts#L125) |
 
 ## Defined in
 
-[src/plugins/filter/filter.panel.tsx:30](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/plugins/filter/filter.panel.tsx#L30)
+[src/plugins/filter/filter.types.ts:123](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/plugins/filter/filter.types.ts#L123)

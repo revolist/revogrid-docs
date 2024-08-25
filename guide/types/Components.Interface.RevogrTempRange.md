@@ -8,6 +8,6 @@ Temporary range selection component. Shows temporary range selection.
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `dimensionCol` | [`Observable`](TypeAlias.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | Dimension column store | [src/components.d.ts:651](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/components.d.ts#L651) |
-| `dimensionRow` | [`Observable`](TypeAlias.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | Dimension row store | [src/components.d.ts:655](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/components.d.ts#L655) |
-| `selectionStore` | [`Observable`](TypeAlias.Observable.md)\<[`SelectionStoreState`](TypeAlias.SelectionStoreState.md)\> | Selection store, shows current selection and focus | [src/components.d.ts:659](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/components.d.ts#L659) |
+| `dimensionCol` | [`Observable`](TypeAlias.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | Dimension column store | [src/components.d.ts:646](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/components.d.ts#L646) |
+| `dimensionRow` | [`Observable`](TypeAlias.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | Dimension row store | [src/components.d.ts:650](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/components.d.ts#L650) |
+| `selectionStore` | [`Observable`](TypeAlias.Observable.md)\<[`SelectionStoreState`](TypeAlias.SelectionStoreState.md)\> | Selection store, shows current selection and focus | [src/components.d.ts:654](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/components.d.ts#L654) |

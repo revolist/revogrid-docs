@@ -25,14 +25,14 @@ type DataSourceState<T, ST>: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `groupingDepth` | `number` | [src/types/interfaces.ts:560](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L560) |
-| `groups` | `Record`\<`any`, `any`\> | [src/types/interfaces.ts:561](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L561) |
-| `items` | `number`[] | [src/types/interfaces.ts:554](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L554) |
-| `proxyItems` | `number`[] | [src/types/interfaces.ts:556](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L556) |
-| `source` | `T`[] | [src/types/interfaces.ts:558](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L558) |
-| `trimmed` | `Record`\<`any`, `any`\> | [src/types/interfaces.ts:565](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L565) |
-| `type` | `ST` | [src/types/interfaces.ts:563](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L563) |
+| `groupingDepth` | `number` | [src/types/interfaces.ts:553](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L553) |
+| `groups` | `Record`\<`any`, `any`\> | [src/types/interfaces.ts:554](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L554) |
+| `items` | `number`[] | [src/types/interfaces.ts:547](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L547) |
+| `proxyItems` | `number`[] | [src/types/interfaces.ts:549](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L549) |
+| `source` | `T`[] | [src/types/interfaces.ts:551](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L551) |
+| `trimmed` | `Record`\<`any`, `any`\> | [src/types/interfaces.ts:558](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L558) |
+| `type` | `ST` | [src/types/interfaces.ts:556](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L556) |
 
 ## Defined in
 
-[src/types/interfaces.ts:549](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L549)
+[src/types/interfaces.ts:542](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L542)

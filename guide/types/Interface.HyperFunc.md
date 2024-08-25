@@ -32,7 +32,7 @@ JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:324](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L324)
+[src/types/interfaces.ts:317](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L317)
 
 ```ts
 interface HyperFunc(tag: any, data: any): T
@@ -55,7 +55,7 @@ JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:332](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L332)
+[src/types/interfaces.ts:325](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L325)
 
 ```ts
 interface HyperFunc(tag: any, text: string): T
@@ -78,7 +78,7 @@ JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:340](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L340)
+[src/types/interfaces.ts:333](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L333)
 
 ```ts
 interface HyperFunc(sel: any, children: (undefined | null | T)[]): T
@@ -101,7 +101,7 @@ JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:349](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L349)
+[src/types/interfaces.ts:342](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L342)
 
 ```ts
 interface HyperFunc(
@@ -128,7 +128,7 @@ JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:358](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L358)
+[src/types/interfaces.ts:351](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L351)
 
 ```ts
 interface HyperFunc(
@@ -155,7 +155,7 @@ JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:367](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L367)
+[src/types/interfaces.ts:360](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L360)
 
 ```ts
 interface HyperFunc(
@@ -182,4 +182,4 @@ JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:376](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L376)
+[src/types/interfaces.ts:369](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L369)

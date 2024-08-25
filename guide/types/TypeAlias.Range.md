@@ -15,9 +15,9 @@ type Range: {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `end` | `number` | The end of the range. | [src/types/interfaces.ts:505](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L505) |
-| `start` | `number` | The start of the range. | [src/types/interfaces.ts:501](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L501) |
+| `end` | `number` | The end of the range. | [src/types/interfaces.ts:498](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L498) |
+| `start` | `number` | The start of the range. | [src/types/interfaces.ts:494](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L494) |
 
 ## Defined in
 
-[src/types/interfaces.ts:497](https://github.com/revolist/revogrid/blob/7dbd661cfbca0ebdb4daac15bcf7a7879e23703b/src/types/interfaces.ts#L497)
+[src/types/interfaces.ts:490](https://github.com/revolist/revogrid/blob/703fa47ec13d35676d07f3192b2741384647a863/src/types/interfaces.ts#L490)
