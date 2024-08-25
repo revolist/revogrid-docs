@@ -8,4 +8,4 @@ type DimensionColPin: "colPinStart" | "colPinEnd";
 
 ## Defined in
 
-[src/types/dimension.ts:3](https://github.com/revolist/revogrid/blob/13683f406d4444f1320602b1f5f5b66b213da3f8/src/types/dimension.ts#L3)
+[src/types/dimension.ts:3](https://github.com/revolist/revogrid/blob/7c04a51ec5214ac7292502c14a49e3fb70d452cb/src/types/dimension.ts#L3)

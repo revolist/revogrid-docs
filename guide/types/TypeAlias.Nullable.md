@@ -14,4 +14,4 @@ type Nullable<T>: { [P in keyof T]: T[P] | null };
 
 ## Defined in
 
-[src/types/interfaces.ts:21](https://github.com/revolist/revogrid/blob/13683f406d4444f1320602b1f5f5b66b213da3f8/src/types/interfaces.ts#L21)
+[src/types/interfaces.ts:21](https://github.com/revolist/revogrid/blob/7c04a51ec5214ac7292502c14a49e3fb70d452cb/src/types/interfaces.ts#L21)
