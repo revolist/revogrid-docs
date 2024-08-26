@@ -13,9 +13,9 @@ type DragStartEventDetails: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `data` | [`ColumnPropProp`](TypeAlias.ColumnPropProp.md) | [src/plugins/moveColumn/column.drag.plugin.ts:24](https://github.com/revolist/revogrid/blob/7c04a51ec5214ac7292502c14a49e3fb70d452cb/src/plugins/moveColumn/column.drag.plugin.ts#L24) |
-| `event` | `MouseEvent` | [src/plugins/moveColumn/column.drag.plugin.ts:23](https://github.com/revolist/revogrid/blob/7c04a51ec5214ac7292502c14a49e3fb70d452cb/src/plugins/moveColumn/column.drag.plugin.ts#L23) |
+| `data` | [`ColumnPropProp`](TypeAlias.ColumnPropProp.md) | [src/plugins/moveColumn/column.drag.plugin.ts:24](https://github.com/revolist/revogrid/blob/c4e80f786890231c76aca88d327b090657d3fbb9/src/plugins/moveColumn/column.drag.plugin.ts#L24) |
+| `event` | `MouseEvent` | [src/plugins/moveColumn/column.drag.plugin.ts:23](https://github.com/revolist/revogrid/blob/c4e80f786890231c76aca88d327b090657d3fbb9/src/plugins/moveColumn/column.drag.plugin.ts#L23) |
 
 ## Defined in
 
-[src/plugins/moveColumn/column.drag.plugin.ts:22](https://github.com/revolist/revogrid/blob/7c04a51ec5214ac7292502c14a49e3fb70d452cb/src/plugins/moveColumn/column.drag.plugin.ts#L22)
+[src/plugins/moveColumn/column.drag.plugin.ts:22](https://github.com/revolist/revogrid/blob/c4e80f786890231c76aca88d327b090657d3fbb9/src/plugins/moveColumn/column.drag.plugin.ts#L22)
