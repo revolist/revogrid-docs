@@ -16,10 +16,10 @@
         </div>
     </div>
 
-    <CarbonAds />
+    <!-- <CarbonAds /> -->
 </template>
 <script lang="ts" setup>
-import CarbonAds from './CarbonAds.vue'
+// import CarbonAds from './CarbonAds.vue'
 import GithubButton from 'vue-github-button'
 import { useData } from 'vitepress'
 import { computed } from 'vue'
