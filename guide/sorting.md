@@ -19,8 +19,10 @@ const columns = [
     prop: 'name',
     sortable: true,  // Enables sorting
     order: 'asc',     // Default sorting order
-    cellCompare: (a, b) => { // Custom sorting logic
-      return a - b;
+    cellCompare: (prop, a, b) => { // Custom sorting logic
+      const av = a[prop]?.toString().toLowerCase();
+      const bv = b[prop]?.toString().toLowerCase();
+      return av - bv;
     }
   },
 ];
