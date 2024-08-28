@@ -43,4 +43,4 @@ Please note that this standalone output does not automatically define the custom
 For more details, please see [Stencil.js documentation](https://stenciljs.com/docs/custom-elements).
 
 
-<!--@include: ../../demo/js/js.start.standalone.md-->
+<!--@include: ../demo/js/js.start.standalone.md-->

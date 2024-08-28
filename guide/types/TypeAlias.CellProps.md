@@ -14,7 +14,7 @@ type CellProps: JSXBase.HTMLAttributes<HTMLDivElement> & {
 ```
 
 Additional properties applied to the cell.
-Contains HTMLAttributes<HTMLDivElement> properties for custom cell rendering.
+Contains properties for custom cell rendering.
 
 ## Type declaration
 

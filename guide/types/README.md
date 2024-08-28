@@ -3832,7 +3832,7 @@ function updateMissingAndRange(
 | [BeforeRangeSaveDataDetails](TypeAlias.BeforeRangeSaveDataDetails.md) | - |
 | [BeforeSaveDataDetails](TypeAlias.BeforeSaveDataDetails.md) | - |
 | [CellCompareFunc](TypeAlias.CellCompareFunc.md) | `CellCompareFunc` is a function that takes the column property to compare, the data of the first cell, and the data of the second cell. It returns a number indicating the relative order of the two cells. |
-| [CellProps](TypeAlias.CellProps.md) | Additional properties applied to the cell. Contains HTMLAttributes<HTMLDivElement> properties for custom cell rendering. |
+| [CellProps](TypeAlias.CellProps.md) | Additional properties applied to the cell. Contains properties for custom cell rendering. |
 | [ChangedRange](TypeAlias.ChangedRange.md) | - |
 | [ColIndex](TypeAlias.ColIndex.md) | - |
 | [ColPropertiesFunc](TypeAlias.ColPropertiesFunc.md) | - |
