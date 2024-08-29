@@ -1,0 +1,11 @@
+[@revolist/revogrid](README.md) / FilterType
+
+# Type Alias: FilterType
+
+```ts
+type FilterType: keyof typeof filterNames;
+```
+
+## Defined in
+
+[src/plugins/filter/filter.indexed.ts:54](https://github.com/revolist/revogrid/blob/a808f70a0d197fcea56d269b7334fbc41eb74c5d/src/plugins/filter/filter.indexed.ts#L54)
