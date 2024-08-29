@@ -11,6 +11,12 @@
         "verbatimModuleSyntax": true,
         "jsx": "preserve",
         "lib": ["esnext", "dom", "dom.iterable"],
-        "types": ["vite/client"]
-    }
+        "types": ["vite/client"],
+        "composite": true
+    },
+    "references": [
+        { "path": "./pro-pages" }
+    ],
+    "include": ["./pro-pages/src/plugins/**.d.ts"],
+    "exclude": ["node_modules", "./pro-pages/"]
 }

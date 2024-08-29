@@ -5,13 +5,12 @@ aside: false
 ---
 
 <script setup>
-import Grid from './vue/DemoMain.vue'
+import Grid from './vue/DemoHR.vue'
 </script>
 
 # Demo Page - Human HR Database
 
 Welcome to the RevoGrid demo page! Here, you will find an example of a simple Human Resources (HR) database.
-
 
 <!--@include: ../guide/parts/cross-framework-banner.md-->
 
