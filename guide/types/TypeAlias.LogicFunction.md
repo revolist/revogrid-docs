@@ -1,17 +1,24 @@
 [@revolist/revogrid](README.md) / LogicFunction
 
-# Type Alias: LogicFunction()
+# Type Alias: LogicFunction()\<T1, T2\>
 
 ```ts
-type LogicFunction: (value: any, extra?: LogicFunctionExtraParam) => boolean;
+type LogicFunction<T1, T2>: (value: T1, extra?: T2) => boolean;
 ```
+
+## Type Parameters
+
+| Type Parameter | Default type |
+| ------ | ------ |
+| `T1` | [`LogicFunctionParam`](TypeAlias.LogicFunctionParam.md) |
+| `T2` | [`LogicFunctionExtraParam`](TypeAlias.LogicFunctionExtraParam.md) |
 
 ## Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `value` | `any` |
-| `extra`? | [`LogicFunctionExtraParam`](TypeAlias.LogicFunctionExtraParam.md) |
+| `value` | `T1` |
+| `extra`? | `T2` |
 
 ## Returns
 
@@ -21,8 +28,8 @@ type LogicFunction: (value: any, extra?: LogicFunctionExtraParam) => boolean;
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `extra` | [`ExtraField`](TypeAlias.ExtraField.md) | [src/plugins/filter/filter.types.ts:36](https://github.com/revolist/revogrid/blob/b7bc91178b5b059b1432f9bb6ddbfab652d2c8cf/src/plugins/filter/filter.types.ts#L36) |
+| `extra` | [`ExtraField`](TypeAlias.ExtraField.md) | [src/plugins/filter/filter.types.ts:36](https://github.com/revolist/revogrid/blob/0bf9217987a0038bc73b1aec64e1a3314302e790/src/plugins/filter/filter.types.ts#L36) |
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:34](https://github.com/revolist/revogrid/blob/b7bc91178b5b059b1432f9bb6ddbfab652d2c8cf/src/plugins/filter/filter.types.ts#L34)
+[src/plugins/filter/filter.types.ts:34](https://github.com/revolist/revogrid/blob/0bf9217987a0038bc73b1aec64e1a3314302e790/src/plugins/filter/filter.types.ts#L34)
