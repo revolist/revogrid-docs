@@ -4,24 +4,23 @@
             tabindex="0"
             class="grid"
             ref="grid"
-            :theme="isDark ? 'darkMaterial' : 'material'"
+            :theme="isDark ? 'darkMaterial' : 'compact'"
             :source="gridData"
             :columns="gridColumns"
             :column-types="gridColumnTypes"
-            :filter="true"
             :plugins="plugins"
-            :pinnedTopSource="pinnedTopSource"
+            :pinnedBottomSource="pinnedBottomSource"
             hide-attribution
             :additionalData="{
                 stretch: 3,
                 cellMerge: [
                     {
                         row: 0,
-                        column: 1,
+                        column: 0,
                         rowSpan: 1,
                         colSpan: 2,
-                        rowType: 'rowPinStart',
-                        colType: 'rgCol',
+                        rowType: 'rowPinEnd',
+                        colType: 'colPinStart',
                     },
                 ],
                 eventManager: {
@@ -50,6 +49,7 @@ import {
     type HyperFunc,
     TextEditor,
     type VNode,
+    FilterButton,
 } from '@revolist/vue3-datagrid'
 // @ts-ignore
 import { data } from './demoNobel.data.ts'
@@ -64,6 +64,7 @@ import { FormulaPlugin } from '../../pro-pages/src/plugins/formula'
 import { RowHeaderPlugin } from '../../pro-pages/src/plugins/row-header'
 import { RowOrderPlugin } from '../../pro-pages/src/plugins/row-order'
 import { RowOddPlugin } from '../../pro-pages/src/plugins/row-odd'
+import { AdvanceFilterPlugin } from '../../pro-pages/src/plugins/filter'
 import {
     RowSelectPlugin,
     RowSelectColumnType,
@@ -75,7 +76,13 @@ const { isDark } = useData()
 const gridColumns = ref<(ColumnGrouping | ColumnRegular)[]>([])
 const gridColumnTypes = ref<{ [name: string]: any }>({})
 const gridData = ref<any>([])
-const pinnedTopSource = ref<any>([])
+const pinnedBottomSource = ref<any>([
+     {
+        share: '=SUM(D1:D670)',
+        amount: '=SUM(E1:E670)',
+        category: '⚗️ Formula SUM()',
+    },
+])
 
 // class PromptEditor extends TextEditor {
 //     constructor(...args: any[]) {
@@ -111,6 +118,7 @@ const editors = ref<Editors>({
 
 const plugins = [
     // ColumnStretchPlugin,
+    AdvanceFilterPlugin,
     RowSelectPlugin,
     CellFlashPlugin,
     CellMergePlugin,
@@ -141,13 +149,6 @@ onMounted(async () => {
         ).default(),
         select: new RowSelectColumnType(),
     }
-    pinnedTopSource.value = [
-        // {
-        //     share: '=SUM(E2:E671)',
-        //     amount: '=SUM(F2:F671)',
-        //     description: 'Totals',
-        // },
-    ]
     gridData.value = [...data.prizes]
     const columns: (ColumnGrouping | ColumnRegular)[] = [
         {
@@ -159,6 +160,7 @@ onMounted(async () => {
                     filter: false,
                     columnType: 'select',
                     pin: 'colPinStart',
+                    readonly: (v) => v.type === 'rowPinEnd',
                 },
                 {
                     name: 'Year',
@@ -167,16 +169,23 @@ onMounted(async () => {
                     order: 'desc',
                     sortable: true,
                     size: 150,
-                    readonly: (v) => v.type === 'rowPinStart',
+                    readonly: (v) => v.type === 'rowPinEnd',
                     pin: 'colPinStart',
+                    columnTemplate: (h, data) => {
+                        return [
+                            data.name,
+                            FilterButton({ column: data }),
+                        ];
+                    }
                 },
                 {
                     name: 'Category',
                     prop: 'category',
                     size: 150,
+                    readonly: (v) => v.type === 'rowPinEnd',
                     cellTemplate: (h, { value }) => {
                         if (!value) return
-                        return `${data.categories[value].label}`
+                        return `${data.categories[value]?.label ?? value}`
                     },
                     columnType: 'dropdown',
                     labelKey: 'label',
@@ -269,6 +278,15 @@ onMounted(async () => {
     }
     i {
         font-style: normal;
+    }
+
+    revogr-filter-panel .filter {
+        display: block;
+
+        .filter-list {
+            max-height: 200px;
+            overflow: auto;
+        }
     }
 }
 </style>
