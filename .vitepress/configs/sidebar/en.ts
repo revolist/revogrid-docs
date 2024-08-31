@@ -32,6 +32,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     link: '/guide/api/revoGrid',
                 },
                 { text: 'Typings', link: '/guide/types/README' },
+                {
+                    text: 'Viewports',
+                    link: '/guide/viewports',
+                }
             ],
         },
         {
@@ -53,7 +57,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 {
                     text: 'Data Synchronization',
                     link: '/guide/data-sync',
-                }
+                },
             ],
         },
 
@@ -357,10 +361,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
     ],
 
     '/demo/': [
-        // {
-        //     text: 'Demo: Nobel Database',
-        //     link: '/demo/vue/vue.nobel',
-        // },
+        {
+            text: 'Demo: Nobel Database',
+            link: '/demo/vue/vue.nobel',
+        },
         {
             text: 'Demo: Prompts',
             link: '/demo/vue/vue.prompts',
