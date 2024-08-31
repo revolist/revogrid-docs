@@ -33,7 +33,6 @@
             range
             resize
             :row-headers="rowHeaders"
-            :editors="editors"
         />
     </ClientOnly>
 </template>
@@ -44,16 +43,12 @@ import {
     VGrid,
     type ColumnGrouping,
     type ColumnRegular,
-    type EditorCtrConstructible,
-    type Editors,
-    type HyperFunc,
-    TextEditor,
-    type VNode,
     FilterButton,
 } from '@revolist/vue3-datagrid'
+
 // @ts-ignore
 import { data } from './demoNobel.data.ts'
-import { ColumnStretchPlugin } from '../../pro-pages/src/plugins/column-stretch'
+
 import { CellFlashPlugin } from '../../pro-pages/src/plugins/cell-flash'
 import { cellFlashArrowTemplate } from '../../pro-pages/src/plugins/cell-flash/cell-flash-arrow.template.ts'
 import { CellMergePlugin } from '../../pro-pages/src/plugins/cell-merge'
@@ -83,38 +78,6 @@ const pinnedBottomSource = ref<any>([
         category: '⚗️ Formula SUM()',
     },
 ])
-
-// class PromptEditor extends TextEditor {
-//     constructor(...args: any[]) {
-//         super(args[0], args[1]);
-//     }
-//     render(h: HyperFunc<VNode>) {
-//         return h?.('textarea', {
-//             style: {
-//                 width: '100%',
-//                 height: '100%',
-//                 resize: 'none',
-//                 outline: 'none',
-//                 border: 'none',
-//                 padding: '10px',
-//             },
-//             class: 'prompt',
-//             enterKeyHint: 'enter',
-//             // set input value from cell data
-//             value: this.editCell?.val ?? '',
-//             // save input element as ref for further usage
-//             ref: (el: HTMLInputElement | null) => {
-//                 this.editInput = el;
-//             },
-//             // listen to keydown event on input element
-//             onKeyDown: (e: KeyboardEvent) => this.onKeyDown(e),
-//         })
-//     }
-// }
-
-const editors = ref<Editors>({
-    // prompt: PromptEditor as EditorCtrConstructible,
-})
 
 const plugins = [
     // ColumnStretchPlugin,
