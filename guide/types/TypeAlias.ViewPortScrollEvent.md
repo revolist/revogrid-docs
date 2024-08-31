@@ -18,11 +18,11 @@ event in the viewport.
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `coordinate` | `number` | The coordinate of the scroll event. | [src/types/interfaces.ts:457](https://github.com/revolist/revogrid/blob/0bf9217987a0038bc73b1aec64e1a3314302e790/src/types/interfaces.ts#L457) |
-| `delta` | `number` | The change in coordinate between scroll events. | [src/types/interfaces.ts:461](https://github.com/revolist/revogrid/blob/0bf9217987a0038bc73b1aec64e1a3314302e790/src/types/interfaces.ts#L461) |
-| `dimension` | [`DimensionType`](TypeAlias.DimensionType.md) | The dimension of the viewport being scrolled. | [src/types/interfaces.ts:453](https://github.com/revolist/revogrid/blob/0bf9217987a0038bc73b1aec64e1a3314302e790/src/types/interfaces.ts#L453) |
-| `outside` | `boolean` | Indicates whether the scroll event occurred outside the viewport. | [src/types/interfaces.ts:465](https://github.com/revolist/revogrid/blob/0bf9217987a0038bc73b1aec64e1a3314302e790/src/types/interfaces.ts#L465) |
+| `coordinate` | `number` | The coordinate of the scroll event. | [src/types/interfaces.ts:457](https://github.com/revolist/revogrid/blob/d69bb90753f30d16a898150d08ff61a1e2f66a39/src/types/interfaces.ts#L457) |
+| `delta` | `number` | The change in coordinate between scroll events. | [src/types/interfaces.ts:461](https://github.com/revolist/revogrid/blob/d69bb90753f30d16a898150d08ff61a1e2f66a39/src/types/interfaces.ts#L461) |
+| `dimension` | [`DimensionType`](TypeAlias.DimensionType.md) | The dimension of the viewport being scrolled. | [src/types/interfaces.ts:453](https://github.com/revolist/revogrid/blob/d69bb90753f30d16a898150d08ff61a1e2f66a39/src/types/interfaces.ts#L453) |
+| `outside` | `boolean` | Indicates whether the scroll event occurred outside the viewport. | [src/types/interfaces.ts:465](https://github.com/revolist/revogrid/blob/d69bb90753f30d16a898150d08ff61a1e2f66a39/src/types/interfaces.ts#L465) |
 
 ## Defined in
 
-[src/types/interfaces.ts:449](https://github.com/revolist/revogrid/blob/0bf9217987a0038bc73b1aec64e1a3314302e790/src/types/interfaces.ts#L449)
+[src/types/interfaces.ts:449](https://github.com/revolist/revogrid/blob/d69bb90753f30d16a898150d08ff61a1e2f66a39/src/types/interfaces.ts#L449)

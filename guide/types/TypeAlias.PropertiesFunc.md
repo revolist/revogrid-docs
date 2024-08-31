@@ -18,4 +18,4 @@ type PropertiesFunc: (props: ColumnDataSchemaModel) => CellProps | void | undefi
 
 ## Defined in
 
-[src/types/interfaces.ts:400](https://github.com/revolist/revogrid/blob/0bf9217987a0038bc73b1aec64e1a3314302e790/src/types/interfaces.ts#L400)
+[src/types/interfaces.ts:400](https://github.com/revolist/revogrid/blob/d69bb90753f30d16a898150d08ff61a1e2f66a39/src/types/interfaces.ts#L400)
