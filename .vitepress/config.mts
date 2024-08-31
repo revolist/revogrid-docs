@@ -109,6 +109,7 @@ const config: UserConfig<DefaultTheme.Config> = {
         plugins: [svgLoader()],
         build: {
             chunkSizeWarningLimit: 2000,
+            sourcemap: false,
         },
         resolve: {
             extensions: [

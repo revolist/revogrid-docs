@@ -8,6 +8,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             collapsed: false,
             items: [
                 {
+                    text: 'Best Practices',
+                    link: '/guide/patterns',
+                },
+                {
                     text: 'JSX/TSX Template',
                     link: '/guide/jsx.template',
                 },
@@ -46,6 +50,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     text: 'Installation',
                     link: '/guide/installation',
                 },
+                {
+                    text: 'Data Synchronization',
+                    link: '/guide/data-sync',
+                }
             ],
         },
 
@@ -349,10 +357,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
     ],
 
     '/demo/': [
-        {
-            text: 'Demo: Nobel Database',
-            link: '/demo/vue/vue.nobel',
-        },
+        // {
+        //     text: 'Demo: Nobel Database',
+        //     link: '/demo/vue/vue.nobel',
+        // },
         {
             text: 'Demo: Prompts',
             link: '/demo/vue/vue.prompts',

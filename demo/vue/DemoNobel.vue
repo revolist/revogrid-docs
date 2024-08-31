@@ -77,7 +77,7 @@ const gridColumns = ref<(ColumnGrouping | ColumnRegular)[]>([])
 const gridColumnTypes = ref<{ [name: string]: any }>({})
 const gridData = ref<any>([])
 const pinnedBottomSource = ref<any>([
-     {
+    {
         share: '=SUM(D1:D670)',
         amount: '=SUM(E1:E670)',
         category: '⚗️ Formula SUM()',
@@ -134,8 +134,8 @@ const plugins = [
 
 const rowHeaders = ref<Partial<ColumnRegular> | boolean>({
     cellProperties: (params) => ({
-        class: `group-${params.model.group}`
-    })
+        class: `group-${params.model.group}`,
+    }),
 })
 
 onMounted(async () => {
@@ -172,11 +172,8 @@ onMounted(async () => {
                     readonly: (v) => v.type === 'rowPinEnd',
                     pin: 'colPinStart',
                     columnTemplate: (h, data) => {
-                        return [
-                            data.name,
-                            FilterButton({ column: data }),
-                        ];
-                    }
+                        return [data.name, FilterButton({ column: data })]
+                    },
                 },
                 {
                     name: 'Category',
@@ -200,8 +197,8 @@ onMounted(async () => {
             prop: 'share',
             size: 150,
             flash: () => {
-            // Handle cell flash event, you can define your flash logic here per cell if needed
-                return true;
+                // Handle cell flash event, you can define your flash logic here per cell if needed
+                return true
             },
             cellProperties: (params) => {
                 return {
@@ -211,10 +208,10 @@ onMounted(async () => {
                             params.value < 30
                                 ? 'rgb(87, 155, 252)'
                                 : params.value < 70
-                                ? 'rgb(85, 89, 223)'
-                                : 'rgb(64, 22, 148)',
+                                  ? 'rgb(85, 89, 223)'
+                                  : 'rgb(64, 22, 148)',
                     },
-                };
+                }
             },
             cellTemplate: cellFlashArrowTemplate,
         },
@@ -223,8 +220,8 @@ onMounted(async () => {
             prop: 'amount',
             size: 150,
             flash: () => {
-            // Handle cell flash event, you can define your flash logic here per cell if needed
-                return true;
+                // Handle cell flash event, you can define your flash logic here per cell if needed
+                return true
             },
             cellTemplate: cellFlashArrowTemplate,
         },
@@ -279,13 +276,22 @@ onMounted(async () => {
     i {
         font-style: normal;
     }
+    revogr-filter-panel {
+        max-height: calc(100% - 80px);
+        min-width: 250px;
+        .filter {
+            display: block;
 
-    revogr-filter-panel .filter {
-        display: block;
+            .DocSearch-Button {
+                padding-left: 5px;
+            }
 
-        .filter-list {
-            max-height: 200px;
-            overflow: auto;
+            .filter-list {
+                max-height: 200px;
+                overflow: auto;
+                padding: 0;
+                padding-left: 5px;
+            }
         }
     }
 }
