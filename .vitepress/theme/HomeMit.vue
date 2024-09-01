@@ -2,11 +2,6 @@
     <div class="mit-section vp-doc">
         <div>
             {{ value.text }}
-            <span class="github"
-                ><github-button href="https://github.com/revolist/revogrid"
-                    >Star Me</github-button
-                ></span
-            >
             <br />
             <strong style="display: inline-block; padding-top: 10px">
                 {{ value.details }}
@@ -20,7 +15,6 @@
 </template>
 <script lang="ts" setup>
 // import CarbonAds from './CarbonAds.vue'
-import GithubButton from 'vue-github-button'
 import { useData } from 'vitepress'
 import { computed } from 'vue'
 const { frontmatter } = useData()
@@ -29,11 +23,6 @@ const value = computed(() => {
 })
 </script>
 <style lang="scss" scoped>
-.github {
-    vertical-align: middle;
-    margin-left: 5px;
-    margin-top: 2px;
-}
 .mit-section {
     display: flex;
     align-items: center;
