@@ -46,9 +46,6 @@ icon="✔️"
 ]"
 @open="showForm = true"
 >
-<hr />
-
-[**Star us :star: on Github**](https://github.com/revolist/revogrids)
 </Plan>
 
 <Plan
