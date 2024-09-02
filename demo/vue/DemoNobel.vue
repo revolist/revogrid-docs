@@ -29,6 +29,10 @@
                 rowSelect: {
                     prop: 'selection',
                 },
+                masterRow: {
+                    prop: 'master',
+                    template: masterRowTemplate,
+                }
             }"
             range
             resize
@@ -43,7 +47,10 @@ import {
     VGrid,
     type ColumnGrouping,
     type ColumnRegular,
+    type HyperFunc,
+    type VNode,
     FilterButton,
+    dispatchByEvent,
 } from '@revolist/vue3-datagrid'
 
 // @ts-ignore
@@ -65,6 +72,8 @@ import {
     RowSelectColumnType,
 } from '../../pro-pages/src/plugins/row-select'
 import { RowKeyboardNextLineFocusPlugin } from '../../pro-pages/src/plugins/row-next-focus'
+import { MasterRowPlugin } from '../../pro-pages/src/plugins/row-master'
+import { OverlayPlugin } from '../../pro-pages/src/plugins/overlay'
 
 const { isDark } = useData()
 
@@ -80,7 +89,6 @@ const pinnedBottomSource = ref<any>([
 ])
 
 const plugins = [
-    // ColumnStretchPlugin,
     AdvanceFilterPlugin,
     RowSelectPlugin,
     CellFlashPlugin,
@@ -93,6 +101,8 @@ const plugins = [
     RowOrderPlugin,
     RowOddPlugin,
     RowKeyboardNextLineFocusPlugin,
+    MasterRowPlugin,
+    OverlayPlugin,
 ]
 
 const rowHeaders = ref<Partial<ColumnRegular> | boolean>({
@@ -100,6 +110,12 @@ const rowHeaders = ref<Partial<ColumnRegular> | boolean>({
         class: `group-${params.model.group}`,
     }),
 })
+
+const masterRowTemplate = (h: HyperFunc<VNode>, props: any, additionalData?: any) => {
+    return h('div', {
+        class: { 'master-row': true, },
+    }, 'Master Row');
+};
 
 onMounted(async () => {
     gridColumnTypes.value = {
@@ -124,6 +140,19 @@ onMounted(async () => {
                     columnType: 'select',
                     pin: 'colPinStart',
                     readonly: (v) => v.type === 'rowPinEnd',
+                },
+                {
+                    pin: 'colPinStart',
+                    prop: 'master',
+                    size: 30,
+                    readonly: true,
+                    cellTemplate: (h, data) => {
+                        return h('button', {
+                            onClick: (e) => {
+                                dispatchByEvent(e, 'row-master', data)
+                            },
+                        }, '▶️')
+                    }
                 },
                 {
                     name: 'Year',
@@ -238,24 +267,6 @@ onMounted(async () => {
     }
     i {
         font-style: normal;
-    }
-    revogr-filter-panel {
-        max-height: calc(100% - 80px);
-        min-width: 250px;
-        .filter {
-            display: block;
-
-            .DocSearch-Button {
-                padding-left: 5px;
-            }
-
-            .filter-list {
-                max-height: 200px;
-                overflow: auto;
-                padding: 0;
-                padding-left: 5px;
-            }
-        }
     }
 }
 </style>
