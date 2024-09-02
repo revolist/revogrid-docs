@@ -4,7 +4,7 @@
             tabindex="0"
             class="grid"
             ref="grid"
-            :theme="isDark ? 'darkMaterial' : 'compact'"
+            :theme="isDark ? 'darkMaterial' : 'material'"
             :source="gridData"
             :columns="gridColumns"
             :column-types="gridColumnTypes"
@@ -31,8 +31,9 @@
                 },
                 masterRow: {
                     prop: 'master',
+                    rowHeight: 200,
                     template: masterRowTemplate,
-                }
+                },
             }"
             range
             resize
@@ -49,8 +50,8 @@ import {
     type ColumnRegular,
     type HyperFunc,
     type VNode,
-    FilterButton,
     dispatchByEvent,
+    type BeforeRowRenderEvent,
 } from '@revolist/vue3-datagrid'
 
 // @ts-ignore
@@ -82,7 +83,7 @@ const gridColumnTypes = ref<{ [name: string]: any }>({})
 const gridData = ref<any>([])
 const pinnedBottomSource = ref<any>([
     {
-        share: '=SUM(D1:D670)',
+        share: '=SUM(G1:G670)',
         amount: '=SUM(E1:E670)',
         category: '⚗️ Formula SUM()',
     },
@@ -111,11 +112,55 @@ const rowHeaders = ref<Partial<ColumnRegular> | boolean>({
     }),
 })
 
-const masterRowTemplate = (h: HyperFunc<VNode>, props: any, additionalData?: any) => {
-    return h('div', {
-        class: { 'master-row': true, },
-    }, 'Master Row');
-};
+const masterRowTemplate = (
+    h: HyperFunc<VNode>,
+    props: BeforeRowRenderEvent
+) => {
+    return h(
+        'div',
+        {
+            class: { 'master-row': true },
+        },
+        [
+            h('revo-grid', {
+                key: 1,
+                theme: isDark.value ? 'darkMaterial' : 'compact',
+                rowHeight: 28,
+                hideAttribution: true,
+                columns: [
+                    {
+                        prop: 'id',
+                        name: 'ID',
+                    },
+                    {
+                        prop: 'firstname',
+                        name: 'First Name',
+                        size: 180,
+                    },
+                    {
+                        prop: 'surname',
+                        name: 'Last Name',
+                        size: 180,
+                    },
+                    {
+                        prop: 'share',
+                        name: 'Share',
+                        size: 100,
+                    },
+                    {
+                        prop: 'motivation',
+                        name: 'Motivation',
+                        size: 300,
+                    },
+                ],
+                source: props.model?.laureates || [],
+                style: {
+                    minHeight: '100px',
+                },
+            }),
+        ]
+    )
+}
 
 onMounted(async () => {
     gridColumnTypes.value = {
@@ -128,7 +173,7 @@ onMounted(async () => {
         ).default(),
         select: new RowSelectColumnType(),
     }
-    gridData.value = [...data.prizes]
+    gridData.value = [...data.prizes] // .splice(0, 10)
     const columns: (ColumnGrouping | ColumnRegular)[] = [
         {
             name: `Total Prizes Won: ${data.prizes.length}`,
@@ -139,7 +184,13 @@ onMounted(async () => {
                     filter: false,
                     columnType: 'select',
                     pin: 'colPinStart',
-                    readonly: (v) => v.type === 'rowPinEnd',
+                    readonly: true,
+                    cellTemplate: (h, data) => {
+                        if (data.type === 'rowPinEnd') {
+                            return;
+                        }
+                        return gridColumnTypes.value.select.cellTemplate(h, data)
+                    }
                 },
                 {
                     pin: 'colPinStart',
@@ -147,47 +198,57 @@ onMounted(async () => {
                     size: 30,
                     readonly: true,
                     cellTemplate: (h, data) => {
-                        return h('button', {
-                            onClick: (e) => {
-                                dispatchByEvent(e, 'row-master', data)
+                        return h(
+                            'button',
+                            {
+                                onClick: (e) => {
+                                    dispatchByEvent(e, 'row-master', data)
+                                },
                             },
-                        }, '▶️')
-                    }
+                            '▶️'
+                        )
+                    },
                 },
                 {
-                    name: 'Year',
-                    prop: 'year',
+                    name: 'Date',
+                    prop: 'date',
                     columnType: 'date',
                     order: 'desc',
                     sortable: true,
                     size: 150,
                     readonly: (v) => v.type === 'rowPinEnd',
                     pin: 'colPinStart',
-                    columnTemplate: (h, data) => {
-                        return [data.name, FilterButton({ column: data })]
-                    },
-                },
-                {
-                    name: 'Category',
-                    prop: 'category',
-                    size: 150,
-                    readonly: (v) => v.type === 'rowPinEnd',
-                    cellTemplate: (h, { value }) => {
-                        if (!value) return
-                        return `${data.categories[value]?.label ?? value}`
-                    },
-                    columnType: 'dropdown',
-                    labelKey: 'label',
-                    valueKey: 'value',
-                    source: data.categories,
-                    pin: 'colPinStart',
+                    filter: true,
+                    cellTemplate: (h, data) => {
+                        if (data.type === 'rowPinEnd') {
+                            return;
+                        }
+                        return gridColumnTypes.value.date.cellTemplate(h, data)
+                    }
                 },
             ],
         },
         {
+            name: 'Category',
+            prop: 'category',
+            size: 200,
+            filter: true,
+            readonly: (v) => v.type === 'rowPinEnd',
+            cellTemplate: (h, { value }) => {
+                if (!value) return
+                return `${data.categories[value]?.label ?? value}`
+            },
+            columnType: 'dropdown',
+            labelKey: 'label',
+            valueKey: 'value',
+            source: data.categories,
+        },
+        {
             name: '🌡️ Prize Share',
             prop: 'share',
-            size: 150,
+            pin: 'colPinEnd',
+            filter: true,
+            size: 130,
             flash: () => {
                 // Handle cell flash event, you can define your flash logic here per cell if needed
                 return true
@@ -195,6 +256,7 @@ onMounted(async () => {
             cellProperties: (params) => {
                 return {
                     style: {
+                        fontWeight: params.type === 'rowPinEnd' ? 'bold' : 'normal',
                         color: 'white',
                         backgroundColor:
                             params.value < 30
@@ -210,7 +272,15 @@ onMounted(async () => {
         {
             name: '📟 Prize Amount',
             prop: 'amount',
+            filter: true,
             size: 150,
+            cellProperties: (params) => {
+              return {
+                  style: {
+                    fontWeight: params.type === 'rowPinEnd' ? 'bold' : 'normal',
+                  }
+              }  
+            },
             flash: () => {
                 // Handle cell flash event, you can define your flash logic here per cell if needed
                 return true
@@ -222,10 +292,6 @@ onMounted(async () => {
             prop: 'description',
             size: 350,
         },
-        {
-            name: 'Motivation',
-            prop: 'motivation',
-        },
     ]
 
     gridColumns.value = columns
@@ -235,8 +301,8 @@ onMounted(async () => {
 <style lang="scss" scoped>
 .grid {
     min-height: initial;
-    height: calc(100vh - 150px);
-    max-height: calc(100vh - 150px);
+    height: calc(100vh - 250px);
+    max-height: calc(100vh - 250px);
     font-family: 'Figtree', sans-serif;
     font-weight: 400;
 }
@@ -267,6 +333,22 @@ onMounted(async () => {
     }
     i {
         font-style: normal;
+    }
+    .revo-master-row {
+        .master-row {
+            background-color: var(--vp-c-bg);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            right: 20px;
+            bottom: 10px;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 0  1px rgba(black, 5%);
+        }
+        .header-rgRow {
+            height: 34px !important;
+        }
     }
 }
 </style>

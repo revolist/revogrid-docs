@@ -44,6 +44,7 @@ export default {
                 categories[category.value] = category
 
                 prize.share = Math.floor(Math.random() * 100)
+                prize.date = `${prize.year}-12-01`
                 prize.amount = Math.floor(Math.random() * 1000)
 
                 if (prize.year !== prev[prev.length - 1]?.year) {
