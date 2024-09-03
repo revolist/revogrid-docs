@@ -8,23 +8,25 @@ Component for handling row order editor.
 
 ## Properties
 
-| Property       | Attribute | Description                                                     | Type                                                   | Default     |
-| -------------- | --------- | --------------------------------------------------------------- | ------------------------------------------------------ | ----------- |
-| `dataStore`    | --        | Static stores, not expected to change during component lifetime | `ObservableMap<DSourceState<DataType, DimensionRows>>` | `undefined` |
-| `dimensionCol` | --        | Dimension settings X                                            | `ObservableMap<DimensionSettingsState>`                | `undefined` |
-| `dimensionRow` | --        | Dimension settings Y                                            | `ObservableMap<DimensionSettingsState>`                | `undefined` |
-| `parent`       | --        | Parent element                                                  | `HTMLElement`                                          | `undefined` |
+| Property       | Attribute  | Description                                                     | Type                                                   | Default     |
+| -------------- | ---------- | --------------------------------------------------------------- | ------------------------------------------------------ | ----------- |
+| `dataStore`    | --         | Static stores, not expected to change during component lifetime | `ObservableMap<DSourceState<DataType, DimensionRows>>` | `undefined` |
+| `dimensionCol` | --         | Dimension settings X                                            | `ObservableMap<DimensionSettingsState>`                | `undefined` |
+| `dimensionRow` | --         | Dimension settings Y                                            | `ObservableMap<DimensionSettingsState>`                | `undefined` |
+| `parent`       | --         | Parent element                                                  | `HTMLElement`                                          | `undefined` |
+| `rowType`      | `row-type` |                                                                 | `"rgRow" \| "rowPinEnd" \| "rowPinStart"`              | `undefined` |
 
 
 ## Events
 
-| Event              | Description                                | Type                                                                               |
-| ------------------ | ------------------------------------------ | ---------------------------------------------------------------------------------- |
-| `rowdragendinit`   | Row drag ended started                     | `CustomEvent<any>`                                                                 |
-| `rowdragmousemove` | Row mouse move started                     | `CustomEvent<Cell>`                                                                |
-| `rowdragmoveinit`  | Row move started                           | `CustomEvent<PositionItem>`                                                        |
-| `rowdragstartinit` | Row drag started                           | `CustomEvent<{ cell: Cell; text: string; pos: PositionItem; event: MouseEvent; }>` |
-| `rowdropinit`      | Row dragged, new range ready to be applied | `CustomEvent<{ from: number; to: number; }>`                                       |
+| Event              | Description                                 | Type                                                                                                       |
+| ------------------ | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `rowdragendinit`   | Row drag ended started                      | `CustomEvent<{ rowType: DimensionRows; }>`                                                                 |
+| `rowdragmousemove` | Row mouse move started                      | `CustomEvent<Cell & { rowType: DimensionRows; }>`                                                          |
+| `rowdragmoveinit`  | Row move started                            | `CustomEvent<PositionItem & { rowType: DimensionRows; }>`                                                  |
+| `rowdragstartinit` | Row drag started                            | `CustomEvent<{ cell: Cell; text: string; pos: PositionItem; event: MouseEvent; rowType: DimensionRows; }>` |
+| `rowdropinit`      | Row dragged, new range ready to be applied  | `CustomEvent<{ from: number; to: number; rowType: DimensionRows; }>`                                       |
+| `roworderchange`   | Row drag ended finished. Time to apply data | `CustomEvent<{ from: number; to: number; rowType: DimensionRows; }>`                                       |
 
 
 ## Methods
