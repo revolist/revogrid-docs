@@ -20,13 +20,11 @@ import Grid from './DemoNobel.vue'
 </script>
 
 <style>
- .demo-page-class {
-  @media (min-width: 1440px) {
-      .VPDoc:not(.has-sidebar) .content[data-v-343c73d6] {
-          max-width: 1440px;
-      }
-  }
- }
+@media (min-width: 1440px) {
+      .demo-page-class .VPDoc:not(.has-sidebar) .content[data-v-343c73d6] {
+        max-width: 1440px;
+    }
+}
 </style>
 
 # Nobel Prize winners 🏆
