@@ -83,8 +83,8 @@ const gridColumnTypes = ref<{ [name: string]: any }>({})
 const gridData = ref<any>([])
 const pinnedBottomSource = ref<any>([
     {
-        share: '=SUM(G1:G670)',
-        amount: '=SUM(E1:E670)',
+        share: '=SUM(G1:G5)',
+        amount: '=SUM(E1:E5)',
         category: '⚗️ Formula SUM()',
     },
 ])
@@ -173,7 +173,7 @@ onMounted(async () => {
         ).default(),
         select: new RowSelectColumnType(),
     }
-    gridData.value = [...data.prizes] // .splice(0, 10)
+    gridData.value = [...data.prizes].splice(0, 10)
     const columns: (ColumnGrouping | ColumnRegular)[] = [
         {
             name: `Total Prizes Won: ${data.prizes.length}`,
@@ -214,7 +214,6 @@ onMounted(async () => {
                     prop: 'date',
                     columnType: 'date',
                     order: 'desc',
-                    sortable: true,
                     size: 150,
                     readonly: (v) => v.type === 'rowPinEnd',
                     pin: 'colPinStart',

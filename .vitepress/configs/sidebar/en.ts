@@ -1,6 +1,6 @@
 import type { DefaultTheme } from 'vitepress'
 
-const PRO_BADGE = '<a href="/pro" rel="noopener noreferrer" target="_blank"><span class="VPBadge info">P</span></a>';
+// const PRO_BADGE = '<a href="/pro" rel="noopener noreferrer" target="_blank"><span class="VPBadge info">P</span></a>';
 export const sidebarEn: DefaultTheme.Sidebar = {
     '/guide/': [
         {
@@ -173,21 +173,21 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                         {
                             text: 'Column Stretching',
                             link: '/guide/column/stretch',
-                            items: [
-                                {
-                                    text: `Advanced Stretch ${PRO_BADGE}`,
-                                    link: '/guide/column/stretch.pro',
-                                }
-                            ]
+                            // items: [
+                            //     {
+                            //         text: `Advanced Stretch ${PRO_BADGE}`,
+                            //         link: '/guide/column/stretch.pro',
+                            //     }
+                            // ]
                         },
-                        {
-                            text: `Column Spanning ${PRO_BADGE}`,
-                            link: '/guide/column/span',
-                        },
-                        {
-                            text:  `Column Selection ${PRO_BADGE}`,
-                            link: '/guide/column/selection',
-                        },
+                        // {
+                        //     text: `Column Spanning ${PRO_BADGE}`,
+                        //     link: '/guide/column/span',
+                        // },
+                        // {
+                        //     text:  `Column Selection ${PRO_BADGE}`,
+                        //     link: '/guide/column/selection',
+                        // },
                     ]
                 },
             ],
@@ -212,10 +212,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                             text: 'Cell Editor',
                             link: '/guide/cell/editor',
                         },
-                        {
-                            text: `Cell Merge ${PRO_BADGE}`,
-                            link: '/guide/cell/merge',
-                        },
+                        // {
+                        //     text: `Cell Merge ${PRO_BADGE}`,
+                        //     link: '/guide/cell/merge',
+                        // },
                     ],
                 },
             ],
@@ -243,29 +243,29 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                         {
                             text: 'Row Ordering',
                             link: '/guide/row/order',
-                            items: [
-                                {
-                                    text: `Multi Row Ordering ${PRO_BADGE}`,
-                                    link: '/guide/row/order.pro',  
-                                },
-                            ]
+                            // items: [
+                            //     {
+                            //         text: `Multi Row Ordering ${PRO_BADGE}`,
+                            //         link: '/guide/row/order.pro',  
+                            //     },
+                            // ]
                         },
-                        {
-                            text: `Row Auto-Focus ${PRO_BADGE}`,
-                            link: '/guide/row/next.focus',
-                        },
-                        {
-                            text: `Row Selection ${PRO_BADGE}`,
-                            link: '/guide/row/selection',
-                        },
-                        {
-                            text: `Row Odd ${PRO_BADGE}`,
-                            link: '/guide/row/odd',
-                        },
-                        {
-                            text: `Row Spanning ${PRO_BADGE}`,
-                            link: '/guide/row/span',
-                        }
+                        // {
+                        //     text: `Row Auto-Focus ${PRO_BADGE}`,
+                        //     link: '/guide/row/next.focus',
+                        // },
+                        // {
+                        //     text: `Row Selection ${PRO_BADGE}`,
+                        //     link: '/guide/row/selection',
+                        // },
+                        // {
+                        //     text: `Row Odd ${PRO_BADGE}`,
+                        //     link: '/guide/row/odd',
+                        // },
+                        // {
+                        //     text: `Row Spanning ${PRO_BADGE}`,
+                        //     link: '/guide/row/span',
+                        // }
                     ]
                 },
             ],
@@ -277,24 +277,24 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     text: 'Accessibility',
                     link: '/guide/wcag',
                 },
-                {
-                    text: `Formula ${PRO_BADGE}`,
-                    link: '/guide/formula',
-                },
-                {
-                    text: `Pagination ${PRO_BADGE}`,
-                    link: '/guide/pagination',
-                },
-                {
-                    text: 'Copy and Paste',
-                    link: '/guide/clipboard',
-                    items: [
-                        {
-                            text: `JSON ${PRO_BADGE}`,
-                            link: '/guide/clipboard.pro',
-                        }
-                    ]
-                },
+                // {
+                //     text: `Formula ${PRO_BADGE}`,
+                //     link: '/guide/formula',
+                // },
+                // {
+                //     text: `Pagination ${PRO_BADGE}`,
+                //     link: '/guide/pagination',
+                // },
+                // {
+                //     text: 'Copy and Paste',
+                //     link: '/guide/clipboard',
+                //     items: [
+                //         {
+                //             text: `JSON ${PRO_BADGE}`,
+                //             link: '/guide/clipboard.pro',
+                //         }
+                //     ]
+                // },
                 {
                     text: 'Editing',
                     link: '/guide/editing',
@@ -303,10 +303,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     text: 'Export',
                     link: '/guide/export',
                     items: [
-                        {
-                            text: `Excel ${PRO_BADGE}`,
-                            link: '/guide/export.excel',
-                        }
+                        // {
+                        //     text: `Excel ${PRO_BADGE}`,
+                        //     link: '/guide/export.excel',
+                        // }
                     ]
                 },
                 {
