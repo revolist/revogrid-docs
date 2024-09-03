@@ -15,4 +15,4 @@ ColumnDataSchemaModel.
 
 ## Defined in
 
-[src/types/interfaces.ts:85](https://github.com/revolist/revogrid/blob/97bf2134af01be0f2e3e5ac6768e7a2e7070a947/src/types/interfaces.ts#L85)
+[src/types/interfaces.ts:85](https://github.com/revolist/revogrid/blob/db3bbd7b3dfb60c01decc2efa78ae175ced1baa0/src/types/interfaces.ts#L85)
