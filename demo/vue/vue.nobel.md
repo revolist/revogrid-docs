@@ -21,7 +21,7 @@ import Grid from './DemoNobel.vue'
 
 <style>
 @media (min-width: 1440px) {
-      .demo-page-class .VPDoc:not(.has-sidebar) .content[data-v-343c73d6] {
+      .demo-page-class .VPDoc:not(.has-sidebar) .content {
         max-width: 1440px;
     }
 }
