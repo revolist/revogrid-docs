@@ -24,6 +24,7 @@
 
 | Event                | Description                                                                 | Type                                                                                                                                                                                                                                                                                                                                                                      |
 | -------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `afterheaderrender`  | After all header cells rendered. Finalizes cell rendering.                  | `CustomEvent<{ type: DimensionCols \| "rowHeaders"; readonly: boolean; data: Observable<DataSourceState<any, any>> \| ColumnRegular[]; viewport: Observable<ViewportState>; dimension: Observable<DimensionSettingsState>; selection: Observable<SelectionStoreState>; }>`                                                                                                |
 | `beforeheaderclick`  | On initial header click                                                     | `CustomEvent<{ index: number; originalEvent: MouseEvent; column: ColumnRegular; providers: Providers<DimensionCols \| "rowHeaders">; }>`                                                                                                                                                                                                                                  |
 | `beforeheaderrender` | Before each header cell render function. Allows to override cell properties | `CustomEvent<{ column: VirtualPositionItem; additionalData: any; data: ColumnTemplateProp; range?: RangeArea \| null \| undefined; canResize?: boolean \| undefined; canFilter?: boolean \| undefined; onResize?(e: ResizeEvent): void; onClick?(data: InitialHeaderClick): void; onDblClick?(data: InitialHeaderClick): void; } & Partial<Pick<ResizeProps, "active">>>` |
 | `beforeheaderresize` | On before header resize                                                     | `CustomEvent<ColumnRegular[]>`                                                                                                                                                                                                                                                                                                                                            |
@@ -35,8 +36,8 @@
 
 ### Used by
 
- - [revo-grid](./revoGrid)
- - [revogr-row-headers](./rowHeaders)
+ - [revo-grid](../revoGrid)
+ - [revogr-row-headers](../rowHeaders)
 
 ### Graph
 ```mermaid

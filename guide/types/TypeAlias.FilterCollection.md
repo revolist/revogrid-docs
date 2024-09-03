@@ -8,4 +8,4 @@ type FilterCollection: Record<ColumnProp, FilterCollectionItem>;
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:100](https://github.com/revolist/revogrid/blob/e4a447d6483665fe275065ba5ef60722f4635503/src/plugins/filter/filter.types.ts#L100)
+[src/plugins/filter/filter.types.ts:101](https://github.com/revolist/revogrid/blob/2d9504ecff6b493d547df979b2259be6b639351c/src/plugins/filter/filter.types.ts#L101)

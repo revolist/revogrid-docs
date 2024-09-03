@@ -8,4 +8,4 @@ type Order: "asc" | "desc" | undefined;
 
 ## Defined in
 
-[src/types/interfaces.ts:192](https://github.com/revolist/revogrid/blob/e4a447d6483665fe275065ba5ef60722f4635503/src/types/interfaces.ts#L192)
+[src/types/interfaces.ts:192](https://github.com/revolist/revogrid/blob/2d9504ecff6b493d547df979b2259be6b639351c/src/types/interfaces.ts#L192)

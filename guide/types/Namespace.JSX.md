@@ -14,6 +14,7 @@
 | [RevogrClipboard](JSX.Interface.RevogrClipboard.md) | This Clipboard provides functionality for handling clipboard events in a web application. |
 | [RevogrData](JSX.Interface.RevogrData.md) | This component is responsible for rendering data Rows, columns, groups and cells |
 | [RevogrEdit](JSX.Interface.RevogrEdit.md) | Represents a cell editor in a grid. It manages the editing of cells by handling events, saving data, rendering the editor UI, and managing the lifecycle of the editor instance. |
+| [RevogrExtra](JSX.Interface.RevogrExtra.md) | - |
 | [RevogrFilterPanel](JSX.Interface.RevogrFilterPanel.md) | - |
 | [RevogrFocus](JSX.Interface.RevogrFocus.md) | Focus component. Shows focus layer around the cell that is currently in focus. |
 | [RevogrHeader](JSX.Interface.RevogrHeader.md) | - |
