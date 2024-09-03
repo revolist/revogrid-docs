@@ -8,4 +8,4 @@ type SortingOrder: Record<ColumnProp, Order>;
 
 ## Defined in
 
-[src/plugins/sorting/sorting.plugin.ts:19](https://github.com/revolist/revogrid/blob/20b33a0db6e2f2e1c06bc58b03fe68189a928a64/src/plugins/sorting/sorting.plugin.ts#L19)
+[src/plugins/sorting/sorting.plugin.ts:18](https://github.com/revolist/revogrid/blob/db3bbd7b3dfb60c01decc2efa78ae175ced1baa0/src/plugins/sorting/sorting.plugin.ts#L18)
