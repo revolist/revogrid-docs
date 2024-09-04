@@ -35,7 +35,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 {
                     text: 'Viewports',
                     link: '/guide/viewports',
-                }
+                },
             ],
         },
         {
@@ -188,7 +188,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                         //     text:  `Column Selection ${PRO_BADGE}`,
                         //     link: '/guide/column/selection',
                         // },
-                    ]
+                    ],
                 },
             ],
         },
@@ -246,7 +246,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                             // items: [
                             //     {
                             //         text: `Multi Row Ordering ${PRO_BADGE}`,
-                            //         link: '/guide/row/order.pro',  
+                            //         link: '/guide/row/order.pro',
                             //     },
                             // ]
                         },
@@ -266,7 +266,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                         //     text: `Row Spanning ${PRO_BADGE}`,
                         //     link: '/guide/row/span',
                         // }
-                    ]
+                    ],
                 },
             ],
         },
@@ -307,7 +307,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                         //     text: `Excel ${PRO_BADGE}`,
                         //     link: '/guide/export.excel',
                         // }
-                    ]
+                    ],
                 },
                 {
                     text: 'Filtering',
@@ -355,8 +355,8 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 {
                     text: 'Migration Guide v4',
                     link: '/guide/migrations/v4',
-                }
-            ]
+                },
+            ],
         },
     ],
 
@@ -442,6 +442,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 {
                     text: 'Column resize',
                     link: '/demo/angular/angular.column-resize',
+                },
+                {
+                    text: 'Demo: Inventory List',
+                    link: '/demo/angular/angular.full-demo',
                 },
             ],
         },
