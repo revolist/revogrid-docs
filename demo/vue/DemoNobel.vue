@@ -173,7 +173,7 @@ onMounted(async () => {
         ).default(),
         select: new RowSelectColumnType(),
     }
-    gridData.value = [...data.prizes].splice(0, 10)
+    gridData.value = [...data.prizes] // .splice(0, 10)
     const columns: (ColumnGrouping | ColumnRegular)[] = [
         {
             name: `Total Prizes Won: ${data.prizes.length}`,

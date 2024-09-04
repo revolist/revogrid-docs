@@ -28,6 +28,10 @@ import Grid from './DemoNobel.vue'
 </style>
 
 # Nobel Prize winners 🏆
+
+
+<!--@include: ../../guide/parts/cross-framework-banner.md-->
+
 <br /> 
 
 <div class="demo-container">

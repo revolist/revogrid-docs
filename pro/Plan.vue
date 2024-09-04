@@ -14,7 +14,7 @@
           <hr />
           <ul class="plan-features">
               <li v-for="feature in props.features" :key="feature">
-                  <span class="icon">{{ props.icon || '✅' }}</span> {{ feature }}
+                  <span class="icon">{{ props.icon || '✅' }}</span> <span v-html="feature"></span>
               </li>
           </ul>
           <br />

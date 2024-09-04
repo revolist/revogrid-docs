@@ -20,6 +20,14 @@ import VPTeamMembers from 'vitepress/dist/client/theme-default/components/VPTeam
 import { features } from './features'
 
 let showForm = ref(false) // isVisible
+const proFeat = [
+'Access to all <a href="#Pro-Features">Pro Examples</a>, Plugins and Documentation.',
+'Up to 1 hour of individual support via email per month.',
+'Prioritized Github Issues and Pull Requests.',
+'Prioritized Roadmap Item and Feature Requests.',
+'Introduction call with one of the creators.',
+'Keep the library running and maintained under an MIT License.',
+]
 </script>
 
 # Build next level apps as a Pro
@@ -53,14 +61,7 @@ title="Professional"
 class="pro"
 description="Best for companies and individuals that want a direct wire to the Revogrid team experience."
 buttonText="Request a Quote"
-:features="[
-'Access to all Pro Examples, Plugins and Documentation.',
-'Up to 1 hour of individual support via email per month.',
-'Prioritized Github Issues and Pull Requests.',
-'Prioritized Roadmap Item and Feature Requests.',
-'Introduction call with one of the creators.',
-'Keep the library running and maintained under an MIT License.',
-]"
+:features="proFeat"
 @open="showForm = true"
 >
 <template #footer>
@@ -86,6 +87,6 @@ Warm regards ❤️
 <br/>
 <br/>
 
-### The most popular Pro Features
+## Pro Features
 
 <VPTeamMembers :members="features" size="small" />
