@@ -361,10 +361,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
     ],
 
     '/demo/': [
-        {
-            text: 'Demo: Nobel Database',
-            link: '/demo/vue/vue.nobel',
-        },
+        // {
+        //     text: 'Demo: Nobel Database',
+        //     link: '/demo/vue/vue.nobel',
+        // },
         {
             text: 'Demo: Prompts',
             link: '/demo/vue/vue.prompts',
