@@ -365,10 +365,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
         //     text: 'Demo: Nobel Database',
         //     link: '/demo/vue/vue.nobel',
         // },
-        {
-            text: 'Demo: Prompts',
-            link: '/demo/vue/vue.prompts',
-        },
+        // {
+        //     text: 'Demo: Prompts',
+        //     link: '/demo/vue/vue.prompts',
+        // },
         {
             text: 'Demo: Human HR Database',
             link: '/demo/',
