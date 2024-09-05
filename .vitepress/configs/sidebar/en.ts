@@ -440,6 +440,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     text: 'Column resize',
                     link: '/demo/angular/angular.column-resize',
                 },
+                {
+                    text: 'Demo: Inventory List',
+                    link: '/demo/angular/angular.full-demo',
+                },
             ],
         },
         {

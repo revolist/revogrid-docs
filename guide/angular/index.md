@@ -1,5 +1,10 @@
 # Getting Started
 
+::: info
+This tutorial assumes that an Angular project has already been set up.
+If not, please refer to the official documentation [Angular Installation](https://angular.dev/installation)
+:::
+
 Revogrid provide special wrapper based on [stenciljs adapter](https://www.npmjs.com/package/@revolist/angular-datagrid). Just import it to your project and it can be used as part of angular system.
 
 ::: code-group
@@ -25,29 +30,8 @@ bun add @revolist/angular-datagrid
 
 ## Standalone Components
 
-From Angular CLI v17+, the default behavior is to generate a new project with standalone components.
-
-From your Angular workspace `(/packages/angular-workspace)`, run the following command to generate an Angular application:
-
-```npx -p @angular/cli ng generate app my-app```
-
 Now you can import and reference your components in your consuming application in the same way you would with any other standalone Angular components:
 
-### Main App
-
-```ts
-import "@angular/compiler";
-import { bootstrapApplication } from "@angular/platform-browser";
-import { AppComponent } from "./app/app.component";
-
-bootstrapApplication(AppComponent, {
-  providers: [],
-}).catch((err) =>
-  console.error(err)
-);
-```
-
-### Component
 
 ```ts
 // app.component.ts
@@ -62,7 +46,7 @@ import { RevoGrid, Template } from "@revolist/angular-datagrid";
     style="height: 200px; width: 200px"
     [columns]="columns"
     [source]="source"
-  ></revo-grid>`,
+></revo-grid>`
 })
 export class AppComponent {
   source = [
@@ -87,6 +71,7 @@ export class AppComponent {
   ];
 }
 ```
+
 ### Example
 
 <!--@include: ../../demo/angular/angular.sample.md-->
@@ -97,15 +82,13 @@ export class AppComponent {
 
 Import your component library into your component. You must distribute your components through a primary NgModule to use your components in a standalone component.
 
-### App Module
+::: code-group
 
-```ts
+```ts [app.module.ts]
 // app.module.ts
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
+import { BrowserModule } from "@angular/platform-browser";
 import { RevoGrid } from "@revolist/angular-datagrid";
-
 import { AppComponent } from "./app.component";
 
 @NgModule({
@@ -117,14 +100,13 @@ import { AppComponent } from "./app.component";
 export class AppModule {}
 ```
 
-### Angular Component
-```ts
+```ts [app.component.ts]
 // app.component.ts
 import { Component } from "@angular/core";
 
 @Component({
   selector: "app-root",
-  template: "<revo-grid [source]='source' [columns]='columns'/>",
+  template: `<revo-grid [source]='source' [columns]='columns'/>`,
 })
 export class AppComponent {
   source = [
@@ -148,8 +130,8 @@ export class AppComponent {
     },
   ];
 }
-
 ```
+:::
 
 ### Example
 
