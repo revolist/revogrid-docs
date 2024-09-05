@@ -316,11 +316,6 @@ onMounted(async () => {
     i {
         font-style: normal;
     }
-    .rgRow[expanded] {
-        .expand-button {
-            rotate: 90deg;
-        }
-    }
     .cell-checkbox {
         padding: 0 !important;
         text-align: center;
