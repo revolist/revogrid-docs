@@ -109,10 +109,6 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                         { text: 'Getting Started', link: '/guide/vue2/' },
                         { text: 'Cell Renderer', link: '/guide/vue2/renderer' },
                         { text: 'Cell Editor', link: '/guide/vue2/editor' },
-                        // {
-                        //     text: 'Web Component',
-                        //     link: '/guide/vue2/webcomponent',
-                        // },
                     ],
                 },
                 {
@@ -173,21 +169,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                         {
                             text: 'Column Stretching',
                             link: '/guide/column/stretch',
-                            // items: [
-                            //     {
-                            //         text: `Advanced Stretch ${PRO_BADGE}`,
-                            //         link: '/guide/column/stretch.pro',
-                            //     }
-                            // ]
                         },
-                        // {
-                        //     text: `Column Spanning ${PRO_BADGE}`,
-                        //     link: '/guide/column/span',
-                        // },
-                        // {
-                        //     text:  `Column Selection ${PRO_BADGE}`,
-                        //     link: '/guide/column/selection',
-                        // },
                     ],
                 },
             ],
@@ -212,10 +194,6 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                             text: 'Cell Editor',
                             link: '/guide/cell/editor',
                         },
-                        // {
-                        //     text: `Cell Merge ${PRO_BADGE}`,
-                        //     link: '/guide/cell/merge',
-                        // },
                     ],
                 },
             ],
@@ -243,29 +221,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                         {
                             text: 'Row Ordering',
                             link: '/guide/row/order',
-                            // items: [
-                            //     {
-                            //         text: `Multi Row Ordering ${PRO_BADGE}`,
-                            //         link: '/guide/row/order.pro',
-                            //     },
-                            // ]
                         },
-                        // {
-                        //     text: `Row Auto-Focus ${PRO_BADGE}`,
-                        //     link: '/guide/row/next.focus',
-                        // },
-                        // {
-                        //     text: `Row Selection ${PRO_BADGE}`,
-                        //     link: '/guide/row/selection',
-                        // },
-                        // {
-                        //     text: `Row Odd ${PRO_BADGE}`,
-                        //     link: '/guide/row/odd',
-                        // },
-                        // {
-                        //     text: `Row Spanning ${PRO_BADGE}`,
-                        //     link: '/guide/row/span',
-                        // }
                     ],
                 },
             ],
@@ -277,24 +233,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     text: 'Accessibility',
                     link: '/guide/wcag',
                 },
-                // {
-                //     text: `Formula ${PRO_BADGE}`,
-                //     link: '/guide/formula',
-                // },
-                // {
-                //     text: `Pagination ${PRO_BADGE}`,
-                //     link: '/guide/pagination',
-                // },
-                // {
-                //     text: 'Copy and Paste',
-                //     link: '/guide/clipboard',
-                //     items: [
-                //         {
-                //             text: `JSON ${PRO_BADGE}`,
-                //             link: '/guide/clipboard.pro',
-                //         }
-                //     ]
-                // },
+
                 {
                     text: 'Editing',
                     link: '/guide/editing',
@@ -302,12 +241,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 {
                     text: 'Export',
                     link: '/guide/export',
-                    items: [
-                        // {
-                        //     text: `Excel ${PRO_BADGE}`,
-                        //     link: '/guide/export.excel',
-                        // }
-                    ],
+                    items: [],
                 },
                 {
                     text: 'Filtering',
@@ -340,6 +274,69 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 },
             ],
         },
+        // {
+        //     text: 'Pro',
+        //     items: [
+        //         {
+        //             text: `Advanced Stretch ${PRO_BADGE}`,
+        //             link: '/guide/column/stretch.pro',
+        //         },
+        //         {
+        //             text: `Column Spanning ${PRO_BADGE}`,
+        //             link: '/guide/column/span',
+        //         },
+        //         {
+        //             text: `Column Selection ${PRO_BADGE}`,
+        //             link: '/guide/column/selection',
+        //         },
+        //         {
+        //             text: `Cell Merge ${PRO_BADGE}`,
+        //             link: '/guide/cell/merge',
+        //         },
+        //         {
+        //             text: `Multi Row Ordering ${PRO_BADGE}`,
+        //             link: '/guide/row/order.pro',
+        //         },
+        //         {
+        //             text: `Row Auto-Focus ${PRO_BADGE}`,
+        //             link: '/guide/row/next.focus',
+        //         },
+        //         {
+        //             text: `Row Selection ${PRO_BADGE}`,
+        //             link: '/guide/row/selection',
+        //         },
+        //         {
+        //             text: `Row Odd ${PRO_BADGE}`,
+        //             link: '/guide/row/odd',
+        //         },
+        //         {
+        //             text: `Row Spanning ${PRO_BADGE}`,
+        //             link: '/guide/row/span',
+        //         },
+        //         {
+        //             text: `Formula ${PRO_BADGE}`,
+        //             link: '/guide/formula',
+        //         },
+        //         {
+        //             text: `Pagination ${PRO_BADGE}`,
+        //             link: '/guide/pagination',
+        //         },
+        //         {
+        //             text: 'Copy and Paste',
+        //             link: '/guide/clipboard',
+        //             items: [
+        //                 {
+        //                     text: `JSON ${PRO_BADGE}`,
+        //                     link: '/guide/clipboard.pro',
+        //                 },
+        //             ],
+        //         },
+        //         {
+        //             text: `Excel ${PRO_BADGE}`,
+        //             link: '/guide/export.excel',
+        //         },
+        //     ],
+        // },
         {
             text: 'Remove Attribution',
             link: '/guide/attribution',

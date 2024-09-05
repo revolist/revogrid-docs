@@ -18,4 +18,4 @@ type DataLookup<T>: {};
 
 ## Defined in
 
-[src/types/interfaces.ts:410](https://github.com/revolist/revogrid/blob/db3bbd7b3dfb60c01decc2efa78ae175ced1baa0/src/types/interfaces.ts#L410)
+[src/types/interfaces.ts:410](https://github.com/revolist/revogrid/blob/a348821be3a2642110f5dc893d4bd9cba16c5101/src/types/interfaces.ts#L410)
