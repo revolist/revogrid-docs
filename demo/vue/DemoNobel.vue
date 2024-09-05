@@ -30,8 +30,7 @@
                     prop: 'selection',
                 },
                 masterRow: {
-                    prop: 'master',
-                    rowHeight: 200,
+                    rowHeight: 100,
                     template: masterRowTemplate,
                 },
             }"
@@ -50,7 +49,6 @@ import {
     type ColumnRegular,
     type HyperFunc,
     type VNode,
-    dispatchByEvent,
     type BeforeRowRenderEvent,
 } from '@revolist/vue3-datagrid'
 
@@ -73,7 +71,7 @@ import {
     RowSelectColumnType,
 } from '../../pro-pages/src/plugins/row-select'
 import { RowKeyboardNextLineFocusPlugin } from '../../pro-pages/src/plugins/row-next-focus'
-import { MasterRowPlugin } from '../../pro-pages/src/plugins/row-master'
+import { MasterRowPlugin, EXPAND_COLUMN } from '../../pro-pages/src/plugins/row-master'
 import { OverlayPlugin } from '../../pro-pages/src/plugins/overlay'
 
 const { isDark } = useData()
@@ -154,9 +152,6 @@ const masterRowTemplate = (
                     },
                 ],
                 source: props.model?.laureates || [],
-                style: {
-                    minHeight: '100px',
-                },
             }),
         ]
     )
@@ -173,14 +168,14 @@ onMounted(async () => {
         ).default(),
         select: new RowSelectColumnType(),
     }
-    gridData.value = [...data.prizes] // .splice(0, 10)
+    gridData.value = [...data.prizes].splice(0, 20)
     const columns: (ColumnGrouping | ColumnRegular)[] = [
         {
             name: `Total Prizes Won: ${data.prizes.length}`,
             children: [
                 {
                     prop: 'selection',
-                    size: 50,
+                    size: 40,
                     filter: false,
                     columnType: 'select',
                     pin: 'colPinStart',
@@ -193,28 +188,16 @@ onMounted(async () => {
                     }
                 },
                 {
+                    ...EXPAND_COLUMN,
                     pin: 'colPinStart',
                     prop: 'master',
-                    size: 30,
-                    readonly: true,
-                    cellTemplate: (h, data) => {
-                        return h(
-                            'button',
-                            {
-                                onClick: (e) => {
-                                    dispatchByEvent(e, 'row-master', data)
-                                },
-                            },
-                            '▶️'
-                        )
-                    },
                 },
                 {
                     name: 'Date',
                     prop: 'date',
                     columnType: 'date',
-                    order: 'desc',
-                    size: 150,
+                    sortable: true,
+                    size: 130,
                     readonly: (v) => v.type === 'rowPinEnd',
                     pin: 'colPinStart',
                     filter: true,
@@ -333,7 +316,20 @@ onMounted(async () => {
     i {
         font-style: normal;
     }
+    .rgRow[expanded] {
+        .expand-button {
+            rotate: 90deg;
+        }
+    }
+    .cell-checkbox {
+        padding: 0 !important;
+        text-align: center;
+    }
     .revo-master-row {
+        revo-grid {
+            height: 100%;
+            min-height: initial;
+        }
         .master-row {
             background-color: var(--vp-c-bg);
             position: absolute;
