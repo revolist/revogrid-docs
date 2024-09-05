@@ -42,7 +42,6 @@
   },
   "homepage": "https://github.com/revolist/revogrid#readme",
   "devDependencies": {
-    "astro": "^4.15.1",
     "execa": "^9.3.0",
     "mermaid": "^10.9.1",
     "sass": "^1.72.0",
