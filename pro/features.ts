@@ -8,6 +8,13 @@ export const features = [
         actionText,
     },
     {
+        name: 'Master Detail',
+        avatar: '/master-detail.svg',
+        desc: 'Expand rows to  reveal detailed child information. Display additional data or build customizable subtables within the grid.',
+        sponsor: '/guide/formula',
+        actionText,
+    },
+    {
         name: 'Merge Cells',
         avatar: '/merge.svg',
         desc: 'Combine adjacent cells into a single cell.',
@@ -26,34 +33,6 @@ export const features = [
         avatar: '/pagination.svg',
         desc: 'Break larger datasets into smaller pages, enhancing both performance and user experience.',
         sponsor: '/guide/pagination',
-        actionText,
-    },
-    {
-        name: 'Column Stretch',
-        avatar: '/column-stretch.svg',
-        desc: 'Automatically adjusts column widths to fit the grid layout efficiently.',
-        sponsor: '/guide/column/stretch',
-        actionText,
-    },
-    {
-        name: 'Column Selection',
-        avatar: '/column-selection.svg',
-        desc: 'Enable easy selection of entire columns for enhanced data manipulation.',
-        sponsor: '/guide/column/selection',
-        actionText,
-    },
-    {
-        name: 'Clipboard with JSON and Advanced Objects',
-        avatar: '/clipboard.svg',
-        desc: 'Support for JSON and other objects. Copy and paste complex data structures explained.',
-        sponsor: '/guide/clipboard.pro',
-        actionText,
-    },
-    {
-        name: 'Advanced Drag and Drop',
-        avatar: '/drag-and-drop.svg',
-        desc: "Sophisticated drag-and-drop functionality with custom behavior and interactions, enhancing the grid's interactivity and usability.",
-        sponsor: '/guide/drag-and-drop',
         actionText,
     },
     {
@@ -96,6 +75,34 @@ export const features = [
         avatar: '/data-validation.svg',
         desc: 'Built-in data validation to ensure data integrity. Define customizable validation rules and error handling to maintain high-quality data.',
         sponsor: '/guide/data-validation',
+        actionText,
+    },
+    {
+        name: 'Column Stretch',
+        avatar: '/column-stretch.svg',
+        desc: 'Automatically adjusts column widths to fit the grid layout efficiently.',
+        sponsor: '/guide/column/stretch',
+        actionText,
+    },
+    {
+        name: 'Column Selection',
+        avatar: '/column-selection.svg',
+        desc: 'Enable easy selection of entire columns for enhanced data manipulation.',
+        sponsor: '/guide/column/selection',
+        actionText,
+    },
+    {
+        name: 'Clipboard with JSON and Advanced Objects',
+        avatar: '/clipboard.svg',
+        desc: 'Support for JSON and other objects. Copy and paste complex data structures explained.',
+        sponsor: '/guide/clipboard.pro',
+        actionText,
+    },
+    {
+        name: 'Advanced Drag and Drop',
+        avatar: '/drag-and-drop.svg',
+        desc: "Sophisticated drag-and-drop functionality with custom behavior and interactions, enhancing the grid's interactivity and usability.",
+        sponsor: '/guide/drag-and-drop',
         actionText,
     },
     {
@@ -146,7 +153,13 @@ export const features = [
         desc: 'Add custom heading to rows for improved readability and data distinction.',
         sponsor: '/guide/row/heading',
         actionText,
-    }
+    },
+    {
+        name: 'Overlay layers',
+        avatar: '/overlay.svg',
+        desc: 'Push and pop layers on top of the grid to enhance the user experience.',
+        actionText,
+    },
     // {
     //   name: 'Audit Trail/History',
     //   avatar: '/audit-trail.svg',
@@ -190,4 +203,22 @@ export const features = [
     //   sponsor: '/guide/hierarchical-data',
     //   actionText,
     // },
+]
+
+export const proWhy = [
+    {
+        avatar: '/flash-circle.svg',
+        name: 'Accelerate Time-to-Market',
+        desc: 'Leverage our comprehensive toolset to rapidly implement complex functionality.',
+    },
+    {
+        avatar: '/flash-circle.svg',
+        name: 'Pro-Level Plugins for Extensibility',
+        desc: 'Real-world examples that demonstrate how to implement complex features effectively.',
+    },
+    {
+        avatar: '/flash-circle.svg',
+        name: 'Gain Insights and Support',
+        desc: 'Benefit from access to exclusive expert support that helps you troubleshoot complex issues quickly.',
+    }
 ]

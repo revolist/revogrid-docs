@@ -17,7 +17,7 @@ import ContactForm from './ContactForm.vue'
 
 import type { DefaultTheme } from 'vitepress/theme'
 import VPTeamMembers from 'vitepress/dist/client/theme-default/components/VPTeamMembers.vue'
-import { features } from './features'
+import { features, proWhy } from './features'
 
 let showForm = ref(false) // isVisible
 const proFeat = [
@@ -34,7 +34,7 @@ const proFeat = [
 
 Maintaining and developing Revogrid, along with its documentation and community, is a big job. It demands time and resources—none of which would be possible without your incredible support.
 
-We are excited to introduce the Pro version, aimed at supporting the future growth of the library and providing you with the exclusive benefits like direct support, prioritized feature requests, and unique insights into our latest offerings 💎
+We are excited to introduce the Pro version 💎, aimed at supporting the future growth of the library and providing you with the exclusive benefits.
 
 <div class="plans-container">
 
@@ -74,19 +74,22 @@ buttonText="Request a Quote"
 
 </div>
 
-Thank you for being an essential part of our community and for helping us make Revogrid better every day.
+<!-- Thank you for being an essential part of our community and for helping us make Revogrid better every day.
 
 Warm regards ❤️
 <br/>The Revolist Team
 
+<br/> -->
+<br/>
+
+## Why Pro?
+
+<VPTeamMembers class="whyPro" :members="proWhy" size="small" />
+
+
 <br/>
 <br/>
 
------
-
-<br/>
-<br/>
-
-## Pro Features
+## What's included?
 
 <VPTeamMembers :members="features" size="small" />
