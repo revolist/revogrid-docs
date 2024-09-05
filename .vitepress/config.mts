@@ -132,6 +132,7 @@ const config: UserConfig<DefaultTheme.Config> = {
             ],
         },
     },
+    srcExclude: ['demo/pro/**'],
     ignoreDeadLinks: true,
 }
 
