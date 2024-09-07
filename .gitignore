@@ -1,6 +1,7 @@
 node_modules
 .temp
 .cache
+pro-pages/
 cache
 dist
 .DS_Store

@@ -55,24 +55,24 @@ import {
 // @ts-ignore
 import { data } from './demoNobel.data.ts'
 
-import { CellFlashPlugin } from '../../pro-pages/src/plugins/cell-flash'
-import { cellFlashArrowTemplate } from '../../pro-pages/src/plugins/cell-flash/cell-flash-arrow.template.ts'
-import { CellMergePlugin } from '../../pro-pages/src/plugins/cell-merge'
-import { EventManagerPlugin } from '../../pro-pages/src/plugins/event-manager'
-import { ColumnSelectionPlugin } from '../../pro-pages/src/plugins/column-selection'
-import { ExportExcelPlugin } from '../../pro-pages/src/plugins/export-excel'
-import { FormulaPlugin } from '../../pro-pages/src/plugins/formula'
-import { RowHeaderPlugin } from '../../pro-pages/src/plugins/row-header'
-import { RowOrderPlugin } from '../../pro-pages/src/plugins/row-order'
-import { RowOddPlugin } from '../../pro-pages/src/plugins/row-odd'
-import { AdvanceFilterPlugin } from '../../pro-pages/src/plugins/filter'
+import { CellFlashPlugin } from '@revolist/revogrid-pro/src/plugins/cell-flash'
+import { cellFlashArrowTemplate } from '@revolist/revogrid-pro/src/plugins/cell-flash/cell-flash-arrow.template.ts'
+import { CellMergePlugin } from '@revolist/revogrid-pro/src/plugins/cell-merge'
+import { EventManagerPlugin } from '@revolist/revogrid-pro/src/plugins/event-manager'
+import { ColumnSelectionPlugin } from '@revolist/revogrid-pro/src/plugins/column-selection'
+import { ExportExcelPlugin } from '@revolist/revogrid-pro/src/plugins/export-excel'
+import { FormulaPlugin } from '@revolist/revogrid-pro/src/plugins/formula'
+import { RowHeaderPlugin } from '@revolist/revogrid-pro/src/plugins/row-header'
+import { RowOrderPlugin } from '@revolist/revogrid-pro/src/plugins/row-order'
+import { RowOddPlugin } from '@revolist/revogrid-pro/src/plugins/row-odd'
+import { AdvanceFilterPlugin } from '@revolist/revogrid-pro/src/plugins/filter'
 import {
     RowSelectPlugin,
     RowSelectColumnType,
-} from '../../pro-pages/src/plugins/row-select'
-import { RowKeyboardNextLineFocusPlugin } from '../../pro-pages/src/plugins/row-next-focus'
-import { MasterRowPlugin, EXPAND_COLUMN } from '../../pro-pages/src/plugins/row-master'
-import { OverlayPlugin } from '../../pro-pages/src/plugins/overlay'
+} from '@revolist/revogrid-pro/src/plugins/row-select'
+import { RowKeyboardNextLineFocusPlugin } from '@revolist/revogrid-pro/src/plugins/row-next-focus'
+import { MasterRowPlugin, EXPAND_COLUMN } from '@revolist/revogrid-pro/src/plugins/row-master'
+import { OverlayPlugin } from '@revolist/revogrid-pro/src/plugins/overlay'
 
 const { isDark } = useData()
 

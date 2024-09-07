@@ -75,7 +75,7 @@ const config: UserConfig<DefaultTheme.Config> = {
         logo: '/logo.svg?skipsvgo',
         outline: [2, 3],
         socialLinks: [
-            { icon: 'x', link: 'https://x.com/revolist_ou/' },
+            // { icon: 'x', link: 'https://x.com/revolist_ou/' },
             {
                 icon: 'github',
                 link: 'https://github.com/revolist/revogrid',
@@ -132,7 +132,7 @@ const config: UserConfig<DefaultTheme.Config> = {
             ],
         },
     },
-    srcExclude: ['demo/pro/**'],
+    srcExclude: import.meta.env?.VITE_PROD_BUILD ? undefined : ['demo/pro/**', 'pro-pages/**'],
     ignoreDeadLinks: true,
 }
 
