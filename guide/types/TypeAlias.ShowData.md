@@ -15,11 +15,11 @@ type ShowData: {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `autoCorrect` | `boolean` | Auto correct position if it is out of document bounds | [src/plugins/filter/filter.types.ts:130](https://github.com/revolist/revogrid/blob/a348821be3a2642110f5dc893d4bd9cba16c5101/src/plugins/filter/filter.types.ts#L130) |
-| `filterTypes` | `Record`\<`string`, `string`[]\> | - | [src/plugins/filter/filter.types.ts:131](https://github.com/revolist/revogrid/blob/a348821be3a2642110f5dc893d4bd9cba16c5101/src/plugins/filter/filter.types.ts#L131) |
-| `x` | `number` | - | [src/plugins/filter/filter.types.ts:125](https://github.com/revolist/revogrid/blob/a348821be3a2642110f5dc893d4bd9cba16c5101/src/plugins/filter/filter.types.ts#L125) |
-| `y` | `number` | - | [src/plugins/filter/filter.types.ts:126](https://github.com/revolist/revogrid/blob/a348821be3a2642110f5dc893d4bd9cba16c5101/src/plugins/filter/filter.types.ts#L126) |
+| `autoCorrect` | `boolean` | Auto correct position if it is out of document bounds | [src/plugins/filter/filter.types.ts:130](https://github.com/revolist/revogrid/blob/60c4961e100e626252b5238bec5f6c11285d15d0/src/plugins/filter/filter.types.ts#L130) |
+| `filterTypes` | `Record`\<`string`, `string`[]\> | - | [src/plugins/filter/filter.types.ts:131](https://github.com/revolist/revogrid/blob/60c4961e100e626252b5238bec5f6c11285d15d0/src/plugins/filter/filter.types.ts#L131) |
+| `x` | `number` | - | [src/plugins/filter/filter.types.ts:125](https://github.com/revolist/revogrid/blob/60c4961e100e626252b5238bec5f6c11285d15d0/src/plugins/filter/filter.types.ts#L125) |
+| `y` | `number` | - | [src/plugins/filter/filter.types.ts:126](https://github.com/revolist/revogrid/blob/60c4961e100e626252b5238bec5f6c11285d15d0/src/plugins/filter/filter.types.ts#L126) |
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:124](https://github.com/revolist/revogrid/blob/a348821be3a2642110f5dc893d4bd9cba16c5101/src/plugins/filter/filter.types.ts#L124)
+[src/plugins/filter/filter.types.ts:124](https://github.com/revolist/revogrid/blob/60c4961e100e626252b5238bec5f6c11285d15d0/src/plugins/filter/filter.types.ts#L124)

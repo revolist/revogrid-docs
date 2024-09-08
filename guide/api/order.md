@@ -19,14 +19,14 @@ Component for handling row order editor.
 
 ## Events
 
-| Event              | Description                                 | Type                                                                                                       |
-| ------------------ | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `rowdragendinit`   | Row drag ended started                      | `CustomEvent<{ rowType: DimensionRows; }>`                                                                 |
-| `rowdragmousemove` | Row mouse move started                      | `CustomEvent<Cell & { rowType: DimensionRows; }>`                                                          |
-| `rowdragmoveinit`  | Row move started                            | `CustomEvent<PositionItem & { rowType: DimensionRows; }>`                                                  |
-| `rowdragstartinit` | Row drag started                            | `CustomEvent<{ cell: Cell; text: string; pos: PositionItem; event: MouseEvent; rowType: DimensionRows; }>` |
-| `rowdropinit`      | Row dragged, new range ready to be applied  | `CustomEvent<{ from: number; to: number; rowType: DimensionRows; }>`                                       |
-| `roworderchange`   | Row drag ended finished. Time to apply data | `CustomEvent<{ from: number; to: number; rowType: DimensionRows; }>`                                       |
+| Event              | Description                                 | Type                                                                                                                   |
+| ------------------ | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `rowdragendinit`   | Row drag ended started                      | `CustomEvent<{ rowType: DimensionRows; }>`                                                                             |
+| `rowdragmousemove` | Row mouse move started                      | `CustomEvent<Cell & { rowType: DimensionRows; }>`                                                                      |
+| `rowdragmoveinit`  | Row move started                            | `CustomEvent<PositionItem & { rowType: DimensionRows; }>`                                                              |
+| `rowdragstartinit` | Row drag started                            | `CustomEvent<{ cell: Cell; text: string; pos: PositionItem; event: MouseEvent; rowType: DimensionRows; model: any; }>` |
+| `rowdropinit`      | Row dragged, new range ready to be applied  | `CustomEvent<{ from: number; to: number; rowType: DimensionRows; }>`                                                   |
+| `roworderchange`   | Row drag ended finished. Time to apply data | `CustomEvent<{ from: number; to: number; rowType: DimensionRows; }>`                                                   |
 
 
 ## Methods
