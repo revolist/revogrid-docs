@@ -125,17 +125,6 @@ const config: UserConfig<DefaultTheme.Config> = {
         ],
         build: {
             sourcemap: false,
-            minify: 'terser',
-            terserOptions: {
-                compress: {
-                    drop_console: true,
-                },
-                mangle: {
-                    toplevel: true, // Mangle top-level variable names, including class names
-                },
-                keep_classnames: false, // Allow mangling of class names
-                keep_fnames: false, // Allow mangling of function names
-            },
         },
         optimizeDeps: {
             include: ['@revolist/revogrid-pro', 'pro-pages'], // List of node modules to include in bundling
