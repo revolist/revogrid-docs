@@ -135,7 +135,7 @@ const config: UserConfig<DefaultTheme.Config> = {
             ],
         },
     },
-    srcExclude:  process.env.VITE_PRO_INCLUDE ? undefined : ['pro/demo/**', 'pro-pages/**'],
+    srcExclude:  process.env.VITE_PRO_INCLUDE ? undefined : ['demo/**-pro/**', 'pro-pages/**'],
     ignoreDeadLinks: true,
 }
 

@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 // const PRO_BADGE = '<a href="/pro" rel="noopener noreferrer" target="_blank"><span class="VPBadge info">P</span></a>';
-
+console.log('env', process.env.VITE_PRO_INCLUDE)
 export const sidebarEn: DefaultTheme.Sidebar = {
     '/guide/': [
         {
