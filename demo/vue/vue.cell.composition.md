@@ -1,3 +1,7 @@
+---
+title: Vue 3 Cell component
+---
+
 <ClientOnly>
   <div class="tile">
     <iframe src="https://codesandbox.io/embed/cvv97n?view=preview&module=%2Fsrc%2Fcomponents%2FCell.vue&hidenavigation=1"

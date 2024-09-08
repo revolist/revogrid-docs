@@ -272,6 +272,7 @@
         padding: 0 64px;
     }
 
+
     .rv-overline-1 {
         font-weight: 600;
         font-size: 1rem;
@@ -283,10 +284,10 @@
     .rv-heading-2 {
         font-weight: 700;
         letter-spacing: -0.03em;
-        padding-bottom: 5rem;
         font-size: 2.5rem;
         line-height: 1.12;
         max-width: 400px;
+        overflow-wrap: break-word;
     }
 }
 

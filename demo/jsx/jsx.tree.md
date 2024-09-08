@@ -1,3 +1,7 @@
+---
+title: TSX Tree
+---
+
 # Tree view
 
 Grid allows you to build any possible structure you have in mind. Check our tree view sample:

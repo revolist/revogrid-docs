@@ -1,3 +1,7 @@
+---
+title: Vue 2 Editor component
+---
+
 ## How to sample
 
 <ClientOnly>

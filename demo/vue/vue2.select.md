@@ -1,3 +1,6 @@
+---
+title: Vue 2 Checkbox list with Select All
+---
 <ClientOnly>
 <iframe src="https://codesandbox.io/embed/rr25l9??view=preview&module=%2Fsrc%2FApp.vue&hidenavigation=1"
      style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"

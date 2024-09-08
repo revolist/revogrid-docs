@@ -1,3 +1,7 @@
+---
+title: TSX Template
+---
+
 # JSX/TSX - Custom Content Rendering
 
 JSX (or TSX if you're using TypeScript) is a syntax extension to JavaScript that simplifies template rendering. We highly recommend using JSX/TSX as it will make your development process much easier.

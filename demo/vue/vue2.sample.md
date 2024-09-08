@@ -1,3 +1,7 @@
+---
+title: Vue 2 Getting Started
+---
+
 <ClientOnly>
 <iframe src="https://codesandbox.io/embed/3zl8hd?view=preview&module=%2Fsrc%2FApp.vue&hidenavigation=1"
      style="width:100%; height: 300px; border:0; border-radius: 4px; overflow:hidden;"

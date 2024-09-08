@@ -31,6 +31,25 @@ hero:
       text: Demo
       link: /demo/
 
+recommended:
+  title: Engineered for
+  details: Every Challenge.
+  features:
+    - title: Enterprise Solutions
+      icon:
+        src: org.svg
+      details: For large organizations managing massive datasets. Performance and scalability to handle even the most complex data tables. 
+
+    - title: Startups and Innovators
+      icon:
+        src: startup.svg
+      details: Rapid prototyping with intuitive and extendable codebase. Agility to build robust data-driven applications in no time.
+
+    - title: Individuals
+      icon: 
+        src: individual.svg
+      details: Quickly build elegant and efficient data grids. Lightweight yet powerful architecture lets you easily scale as your needs grow.
+
 featuresHeader:
   title: Features
   details: The magical, reusable Datagrid.

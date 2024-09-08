@@ -1,3 +1,7 @@
+---
+title: Vue 3 Editor component
+---
+
 <ClientOnly>
   <div class="tile">
     <iframe src="https://codesandbox.io/embed/sl8vvw?view=preview&module=%2Fsrc%2FApp.vue&hidenavigation=1"

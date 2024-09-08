@@ -1,4 +1,8 @@
-# Grouping Vue 2
+---
+title: Vue 2 Grouping
+---
+
+# Grouping
 
 <ClientOnly>
 <iframe src="https://codesandbox.io/embed/2m3lzc?view=preview&module=%2Fsrc%2FApp.vue&hidenavigation=1"

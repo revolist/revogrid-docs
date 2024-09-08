@@ -1,3 +1,7 @@
+---
+title: React Cell component
+---
+
 <ClientOnly>
   <div class="tile">
     <iframe src="https://codesandbox.io/embed/jgt3mv?view=preview&module=%2Fsrc%2FApp.tsx&hidenavigation=1"

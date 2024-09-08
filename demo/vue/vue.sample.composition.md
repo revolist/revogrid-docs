@@ -1,3 +1,7 @@
+---
+title: Vue 3 Getting Started Composition
+---
+
 <ClientOnly>
   <div class="tile">
     <iframe src="https://codesandbox.io/embed/3775m4?view=preview&module=%2Fsrc%2FApp.vue&hidenavigation=1"

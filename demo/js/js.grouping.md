@@ -1,3 +1,7 @@
+---
+title: Grouping
+---
+
 # Grouping
 
 <ClientOnly>

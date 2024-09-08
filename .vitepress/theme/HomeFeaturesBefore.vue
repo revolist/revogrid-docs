@@ -1,8 +1,8 @@
 <template>
     <header class="VPFeatures VPHomeFeatures">
         <div class="container">
-            <h2 class="rv-overline-1">{{ value.title }}</h2>
-            <h3 class="rv-heading-2">{{ value.details }}</h3>
+            <h3 class="rv-overline-1">{{ value.title }}</h3>
+            <div class="rv-heading-2">{{ value.details }}</div>
         </div>
     </header>
 </template>

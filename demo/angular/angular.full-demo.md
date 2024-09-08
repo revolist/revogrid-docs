@@ -1,3 +1,7 @@
+---
+title: Angular Demo - Inventory List
+---
+
 <ClientOnly>
 <iframe src="https://codesandbox.io/embed/pys3hf?view=preview"
      style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
