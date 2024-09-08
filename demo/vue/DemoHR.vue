@@ -54,7 +54,7 @@ const plugins = [class Plugin extends BasePlugin {
     constructor(r: HTMLRevoGridElement, p: PluginProviders) {
         super(r, p)
         this.addEventListener('rowdragstart', (e) => {
-            // e.detail.text = e.detail.pos.itemIndex
+            e.detail.text = e.detail.model['name']
         })
     }
 }]

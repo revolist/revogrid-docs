@@ -13,6 +13,9 @@
             hide-attribution
             :additionalData="{
                 stretch: 3,
+                rowOrder: {
+                    prop: 'date'
+                },
                 cellMerge: [
                     {
                         row: 0,
