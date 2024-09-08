@@ -12,7 +12,10 @@
         "jsx": "preserve",
         "lib": ["esnext", "dom", "dom.iterable"],
         "types": ["vite/client"],
-        "composite": true
+        "composite": true,
+        "paths": {
+            "@revolist/revogrid-pro/*": ["/pro-pages/*"]
+        }
     },
     "exclude": ["node_modules"]
 }

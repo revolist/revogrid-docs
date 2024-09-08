@@ -6,6 +6,7 @@ import { navbarEn } from './configs/navbar'
 import { sidebarEn } from './configs/sidebar'
 import { viteObfuscateFile } from 'vite-plugin-obfuscator'
 import dotenv from 'dotenv'
+import path from 'node:path'
 
 dotenv.config()
 
@@ -124,13 +125,24 @@ const config: UserConfig<DefaultTheme.Config> = {
         ],
         build: {
             sourcemap: false,
+            // minify: 'terser',
+            // terserOptions: {
+            //     compress: {
+            //         drop_console: true,
+            //     },
+            //     mangle: {
+            //         toplevel: true, // Mangle top-level variable names, including class names
+            //     },
+            //     keep_classnames: false, // Allow mangling of class names
+            //     keep_fnames: false, // Allow mangling of function names
+            // },
         },
         optimizeDeps: {
-            include: ['@revolist/revogrid-pro', './pro-pages'], // List of node modules to include in bundling
-            esbuildOptions: {
-                minify: true,  // Pre-minify using esbuild
-                target: 'es2020',  // Set the target JavaScript version
-            },
+            include: ['@revolist/revogrid-pro', 'pro-pages'], // List of node modules to include in bundling
+            // esbuildOptions: {
+            //     minify: true,  // Pre-minify using esbuild
+            //     target: 'es2020',  // Set the target JavaScript version
+            // },
         },
         resolve: {
             extensions: [
@@ -149,6 +161,10 @@ const config: UserConfig<DefaultTheme.Config> = {
                     replacement: fileURLToPath(
                         new URL('./theme/VPImage.vue', import.meta.url)
                     ),
+                },
+                {
+                    find: '@revolist/revogrid-pro',
+                    replacement: path.resolve(__dirname, '../pro-pages'),
                 },
             ],
         },
