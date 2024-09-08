@@ -21,7 +21,7 @@ import { features, proWhy } from './features'
 
 let showForm = ref(false) // isVisible
 const proFeat = [
-'Access to all <a href="#Pro-Features">Pro Examples</a>, Plugins and Documentation.',
+'Access to all <a href="#What-s-included-">Pro Examples</a>, Plugins and Documentation.',
 'Up to 1 hour of individual support via email per month.',
 'Prioritized Github Issues and Pull Requests.',
 'Prioritized Roadmap Item and Feature Requests.',
