@@ -1,25 +1,31 @@
 <template>
-<ClientOnly>
-    <VGrid
-        class="grid"
-        :theme="isDark ? 'darkMaterial' : 'compact'"
-        :source="gridData"
-        :columns="gridColumns"
-        :column-types="gridColumnTypes"
-        :filter="true"
-        range
-        resize
-        row-headers
-        :row-size="36"
-    />
-</ClientOnly>
+    <ClientOnly>
+        <VGrid
+            class="grid"
+            :theme="isDark ? 'darkMaterial' : 'compact'"
+            :source="gridData"
+            :columns="gridColumns"
+            :column-types="gridColumnTypes"
+            :filter="true"
+            :plugins="plugins"
+            range
+            resize
+            row-headers
+            hide-attribution
+            :row-size="36"
+        />
+    </ClientOnly>
 </template>
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
 import { useData } from 'vitepress'
-import VGrid, { type ColumnGrouping, type ColumnRegular } from '@revolist/vue3-datagrid'
+import VGrid, {
+    BasePlugin,
+    type ColumnGrouping,
+    type ColumnRegular,
+    type PluginProviders,
+} from '@revolist/vue3-datagrid'
 import { people } from './people.json'
-
 
 const { isDark } = useData()
 function generateHeader(index: number) {
@@ -40,17 +46,43 @@ function getRandomArbitrary(min: number, max: number) {
     return Math.random() * (max - min) + min
 }
 
-const gridColumnTypes = ref<{ [name: string]: any }>({}); 
+const gridColumnTypes = ref<{ [name: string]: any }>({})
 const gridColumns = ref<(ColumnGrouping | ColumnRegular)[]>([])
 const gridData = ref<any>([])
 const colsNumber = 100
+const plugins = [class Plugin extends BasePlugin {
+    constructor(r: HTMLRevoGridElement, p: PluginProviders) {
+        super(r, p)
+        this.addEventListener('rowdragstart', (e) => {
+            // e.detail.text = e.detail.pos.itemIndex
+        })
+    }
+}]
 
-onMounted(async() => {
+function getColorByAge(age: number): string {
+  if (age <= 12) {
+    return 'lightblue'
+  } else if (age >= 13 && age <= 19) {
+    return 'green'
+  } else if (age >= 20 && age <= 35) {
+    return 'orange'
+  } else if (age >= 36 && age <= 60) {
+    return 'purple'
+  } else {
+    return 'grey'
+  }
+}
+
+onMounted(async () => {
     gridColumnTypes.value = {
         date: new (await import('@revolist/revogrid-column-date')).default(),
-        number: new (await import('@revolist/revogrid-column-numeral')).default(),
-        select: new (await import('@revolist/revogrid-column-select')).default(),
-    };
+        number: new (
+            await import('@revolist/revogrid-column-numeral')
+        ).default(),
+        select: new (
+            await import('@revolist/revogrid-column-select')
+        ).default(),
+    }
     gridData.value = people.map((row) => {
         const newRow: Record<string, any> = {
             ...row,
@@ -67,15 +99,42 @@ onMounted(async() => {
             name: 'Name group',
             children: [
                 {
+                    prop: 'sort',
+                    size: 30,
+                    pin: 'colPinStart',
+                    rowDrag: true,
+                    readonly: true,
+                    cellProperties: () => ({
+                        class: {
+                            'drag-icon': true,
+                        }
+                    })
+                },
+                {
                     name: '🎰 Name',
                     prop: 'name',
-                    rowDrag: true,
                     sortable: true,
                     order: 'asc',
                     pin: 'colPinStart',
                     size: 200,
+                    cellTemplate: (h, props) =>
+                        h('span', undefined, [
+                            h(
+                                'span',
+                                {
+                                    class: {
+                                        'avatar': true,
+                                    }
+                                },
+                                h('img', {
+                                    src: `https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 20) + 1}.jpg`,
+                                })
+                            ),
+                            ,
+                            props.value,
+                        ]),
                 },
-            ] as ColumnRegular[],
+            ],
         },
         {
             name: 'Personal',
@@ -84,6 +143,19 @@ onMounted(async() => {
                     sortable: true,
                     name: 'Age',
                     prop: 'age',
+                    cellTemplate: (h, props) => {
+                        return [
+                            h('i', {
+                                class: {
+                                    'circle': true,
+                                },
+                                style: {
+                                    borderColor: getColorByAge(props.value),
+                                },
+                            }),
+                            props.value,
+                        ]
+                    }
                 },
                 {
                     sortable: true,
@@ -134,12 +206,22 @@ onMounted(async() => {
             columnType: 'number',
         })
     }
-    gridColumns.value = columns;
+    gridColumns.value = columns
 })
 </script>
 
 <style lang="scss" scoped>
 :deep() {
+    .avatar {
+        $s: 24px;
+        display: inline-block;
+        overflow: hidden;
+        border-radius: 50%;
+        width: $s;
+        height: $s;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
     .bubble {
         display: inline-block;
         line-height: 24px;
@@ -147,8 +229,27 @@ onMounted(async() => {
         padding: 0 10px;
         color: white;
     }
+    
+    .circle {
+        $s: 12px;
+        display: inline-block;
+        vertical-align: middle;
+        width: $s;
+        height: $s;
+        border-radius: 50%;
+        border: 3px solid;
+        margin-right: 5px;
+    }
+
+    revogr-data .rgCell.disabled.drag-icon {
+        text-align: center;
+        background-color: transparent;
+        padding: 0;
+    }
 }
 .grid {
-    height: 500px;
+    min-height: initial;
+    height: calc(100vh - 250px);
+    max-height: 800px;
 }
 </style>

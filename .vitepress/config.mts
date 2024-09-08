@@ -4,6 +4,9 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 import svgLoader from 'vite-svg-loader'
 import { navbarEn } from './configs/navbar'
 import { sidebarEn } from './configs/sidebar'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const rControl = /[\u0000-\u001f]/g
 const rSpecial = /[\s~`!@#$%^&*()\-_+=[\]{}|\\;:"'“”‘’<>,.?/]+/g
@@ -132,7 +135,7 @@ const config: UserConfig<DefaultTheme.Config> = {
             ],
         },
     },
-    srcExclude: import.meta.env?.VITE_PROD_BUILD ? undefined : ['demo/pro/**', 'pro-pages/**'],
+    srcExclude:  process.env.VITE_PRO_INCLUDE ? undefined : ['pro/demo/**', 'pro-pages/**'],
     ignoreDeadLinks: true,
 }
 

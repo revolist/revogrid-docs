@@ -8,6 +8,7 @@
             :resize="true"
             :source="gridData"
             :columns="gridColumns"
+            hide-attribution
         />
     </ClientOnly>
 </template>

@@ -46,6 +46,8 @@ export default {
                 prize.share = Math.floor(Math.random() * 100)
                 prize.date = `${prize.year}-12-01`
                 prize.amount = Math.floor(Math.random() * 1000)
+                prize.rate = Math.floor(Math.random() * 5) + 1
+                prize.progress = Math.floor(Math.random() * 100) + 1
 
                 if (prize.year !== prev[prev.length - 1]?.year) {
                     prevGroup++

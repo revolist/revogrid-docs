@@ -101,12 +101,20 @@
     );
 
     --vp-home-hero-image-background-image: transparent;
-    --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe 30%, #41d1ff);
+    --vp-home-hero-name-background: -webkit-linear-gradient(
+        120deg,
+        #bd34fe 30%,
+        #41d1ff
+    );
     --vp-c-brand-3: #108750;
 }
 
 :root:not(.dark) {
-    --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #66a6ff 10%, #10874d);
+    --vp-home-hero-name-background: -webkit-linear-gradient(
+        120deg,
+        #66a6ff 10%,
+        #10874d
+    );
     --vp-c-bg-soft: #f6f6fc;
 }
 
@@ -143,7 +151,7 @@
     .image {
         overflow: hidden;
         margin: -40px 0 20px 0;
-    
+
         @media (min-width: 960px) {
             margin: 0;
         }
@@ -182,10 +190,11 @@
             padding-right: 80px;
         }
 
-        .name, .text {
-          font-weight: 800;
-          font-size: clamp(3.5rem, 14vw, 5rem);
-          line-height: 100%;
+        .name,
+        .text {
+            font-weight: 800;
+            font-size: clamp(3.5rem, 14vw, 5rem);
+            line-height: 100%;
         }
 
         .topPill {
@@ -205,10 +214,10 @@
     }
 
     .items {
-      grid-column-gap: 4rem;
-      column-gap: 4rem;
-      grid-row-gap: 4rem;
-      row-gap: 4rem;
+        grid-column-gap: 4rem;
+        column-gap: 4rem;
+        grid-row-gap: 4rem;
+        row-gap: 4rem;
     }
 
     @media (min-width: 640px) {
@@ -217,7 +226,8 @@
             grid-template-columns: 1fr 1fr;
         }
 
-        .item.grid-4, .item.grid-3 {
+        .item.grid-4,
+        .item.grid-3 {
             width: auto;
         }
     }
@@ -242,7 +252,7 @@
         }
 
         .box {
-          padding: 0;
+            padding: 0;
         }
 
         .title {
@@ -285,5 +295,32 @@
         line-height: 16px;
         padding: 0 6px;
         font-size: 10px;
+    }
+}
+
+@media (min-width: 1240px) {
+    .demo-page-wrapper .demo-container {
+        max-width: 1240px;
+    }
+    .demo-page-class .VPDoc:not(.has-sidebar) .content {
+        max-width: 1240px;
+    }
+}
+
+@media (min-width: 960px) {
+    .demo-page-wrapper {
+        margin-right: -50%;
+    }
+    .demo-container {
+        max-width: 960px;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--vp-custom-block-info-bg);
+    }
+}
+.demo-container > revo-grid {
+    + .custom-block {
+        margin: 0;
+        border-radius: 0 0 8px 8px;
     }
 }
