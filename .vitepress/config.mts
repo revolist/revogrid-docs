@@ -119,11 +119,18 @@ const config: UserConfig<DefaultTheme.Config> = {
                 deadCodeInjection: true,
                 debugProtection: true,
                 disableConsoleOutput: true,
+                renameProperties: true,
             }),
         ],
         build: {
-            chunkSizeWarningLimit: 2000,
             sourcemap: false,
+        },
+        optimizeDeps: {
+            include: ['@revolist/revogrid-pro', './pro-pages'], // List of node modules to include in bundling
+            esbuildOptions: {
+                minify: true,  // Pre-minify using esbuild
+                target: 'es2020',  // Set the target JavaScript version
+            },
         },
         resolve: {
             extensions: [
