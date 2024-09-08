@@ -302,6 +302,7 @@
 @media (min-width: 1240px) {
     .demo-page-wrapper .demo-container {
         max-width: 1240px;
+        width: calc(100vw - ((100vw - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width) + 32px * 4));
     }
     .demo-page-class .VPDoc:not(.has-sidebar) .content {
         max-width: 1240px;
@@ -310,7 +311,7 @@
 
 @media (min-width: 960px) {
     .demo-page-wrapper {
-        margin-right: -50%;
+        // margin-right: -50%;
     }
     .demo-container {
         max-width: 960px;
