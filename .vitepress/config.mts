@@ -4,6 +4,7 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 import svgLoader from 'vite-svg-loader'
 import { navbarEn } from './configs/navbar'
 import { sidebarEn } from './configs/sidebar'
+import { viteObfuscateFile } from 'vite-plugin-obfuscator'
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -105,11 +106,21 @@ const config: UserConfig<DefaultTheme.Config> = {
         sidebar: sidebarEn,
         carbonAds: {
             code: 'CW7DPKQL',
-            placement: 'rv-gridcom'
-        }
+            placement: 'rv-gridcom',
+        },
     },
     vite: {
-        plugins: [svgLoader()],
+        plugins: [
+            svgLoader(),
+            viteObfuscateFile({
+                // Obfuscation options, for example:
+                compact: true,
+                controlFlowFlattening: true,
+                deadCodeInjection: true,
+                debugProtection: true,
+                disableConsoleOutput: true,
+            }),
+        ],
         build: {
             chunkSizeWarningLimit: 2000,
             sourcemap: false,
@@ -135,7 +146,9 @@ const config: UserConfig<DefaultTheme.Config> = {
             ],
         },
     },
-    srcExclude:  process.env.VITE_PRO_INCLUDE ? undefined : ['demo/**-pro/**', 'pro-pages/**'],
+    srcExclude: process.env.VITE_PRO_INCLUDE
+        ? undefined
+        : ['demo/**-pro/**', 'pro-pages/**'],
     ignoreDeadLinks: true,
 }
 
