@@ -13,6 +13,9 @@
             hide-attribution
             :additionalData="{
                 stretch: 3,
+                rowOrder: {
+                    prop: 'date'
+                },
                 cellMerge: [
                     {
                         row: 0,
@@ -30,7 +33,7 @@
                     prop: 'selection',
                 },
                 masterRow: {
-                    rowHeight: 100,
+                    rowHeight: 150,
                     template: masterRowTemplate,
                 },
             }"
@@ -53,10 +56,11 @@ import {
 } from '@revolist/vue3-datagrid'
 
 // @ts-ignore
-import { data } from './demoNobel.data.ts'
+import { data } from './demoNobel.data.js'
 
 import { CellFlashPlugin } from '@revolist/revogrid-pro/src/plugins/cell-flash'
-import { cellFlashArrowTemplate } from '@revolist/revogrid-pro/src/plugins/cell-flash/cell-flash-arrow.template.ts'
+import { CellValidatePlugin } from '@revolist/revogrid-pro/src/plugins/cell-validate'
+import { cellFlashArrowTemplate } from '@revolist/revogrid-pro/src/plugins/cell-flash/cell-flash-arrow.template'
 import { CellMergePlugin } from '@revolist/revogrid-pro/src/plugins/cell-merge'
 import { EventManagerPlugin } from '@revolist/revogrid-pro/src/plugins/event-manager'
 import { ColumnSelectionPlugin } from '@revolist/revogrid-pro/src/plugins/column-selection'
@@ -64,6 +68,7 @@ import { ExportExcelPlugin } from '@revolist/revogrid-pro/src/plugins/export-exc
 import { FormulaPlugin } from '@revolist/revogrid-pro/src/plugins/formula'
 import { RowHeaderPlugin } from '@revolist/revogrid-pro/src/plugins/row-header'
 import { RowOrderPlugin } from '@revolist/revogrid-pro/src/plugins/row-order'
+import { rowHeaders as rowHeadersTemplate } from '@revolist/revogrid-pro/src/plugins/row-header'
 import { RowOddPlugin } from '@revolist/revogrid-pro/src/plugins/row-odd'
 import { AdvanceFilterPlugin } from '@revolist/revogrid-pro/src/plugins/filter'
 import {
@@ -73,6 +78,8 @@ import {
 import { RowKeyboardNextLineFocusPlugin } from '@revolist/revogrid-pro/src/plugins/row-next-focus'
 import { MasterRowPlugin, EXPAND_COLUMN } from '@revolist/revogrid-pro/src/plugins/row-master'
 import { OverlayPlugin } from '@revolist/revogrid-pro/src/plugins/overlay'
+import { RatingColumnType } from '@revolist/revogrid-pro/src/plugins/column-type-rate'
+import { ProgressColumnType } from '@revolist/revogrid-pro/src/plugins/column-type-progress'
 
 const { isDark } = useData()
 
@@ -91,6 +98,7 @@ const plugins = [
     AdvanceFilterPlugin,
     RowSelectPlugin,
     CellFlashPlugin,
+    CellValidatePlugin,
     CellMergePlugin,
     EventManagerPlugin,
     ColumnSelectionPlugin,
@@ -104,7 +112,9 @@ const plugins = [
     OverlayPlugin,
 ]
 
+const draggableHeaders = rowHeadersTemplate({ showHeaderFocusBtn: false, allowDrag: true, });
 const rowHeaders = ref<Partial<ColumnRegular> | boolean>({
+    ...draggableHeaders,
     cellProperties: (params) => ({
         class: `group-${params.model.group}`,
     }),
@@ -167,8 +177,10 @@ onMounted(async () => {
             await import('@revolist/revogrid-column-select')
         ).default(),
         select: new RowSelectColumnType(),
+        rating: new RatingColumnType(),
+        progress: new ProgressColumnType(),
     }
-    gridData.value = [...data.prizes].splice(0, 20)
+    gridData.value = [...data.prizes] //.splice(0, 20)
     const columns: (ColumnGrouping | ColumnRegular)[] = [
         {
             name: `Total Prizes Won: ${data.prizes.length}`,
@@ -195,11 +207,11 @@ onMounted(async () => {
                 {
                     name: 'Date',
                     prop: 'date',
+                    pin: 'colPinStart',
                     columnType: 'date',
                     sortable: true,
                     size: 130,
                     readonly: (v) => v.type === 'rowPinEnd',
-                    pin: 'colPinStart',
                     filter: true,
                     cellTemplate: (h, data) => {
                         if (data.type === 'rowPinEnd') {
@@ -218,7 +230,7 @@ onMounted(async () => {
             readonly: (v) => v.type === 'rowPinEnd',
             cellTemplate: (h, { value }) => {
                 if (!value) return
-                return `${data.categories[value]?.label ?? value}`
+                return [h('span', null, `${data.categories[value]?.label ?? value}`), h('span', { class: { 'arrow-down': true } }, '▼')]
             },
             columnType: 'dropdown',
             labelKey: 'label',
@@ -226,7 +238,7 @@ onMounted(async () => {
             source: data.categories,
         },
         {
-            name: '🌡️ Prize Share',
+            name: '🌡️ Share',
             prop: 'share',
             pin: 'colPinEnd',
             filter: true,
@@ -252,10 +264,16 @@ onMounted(async () => {
             cellTemplate: cellFlashArrowTemplate,
         },
         {
-            name: '📟 Prize Amount',
+            name: 'Years Until Nobel',
+            prop: 'progress',
+            columnType: 'progress',
+            size: 150,
+        },
+        {
+            name: 'Prize',
             prop: 'amount',
             filter: true,
-            size: 150,
+            size: 100,
             cellProperties: (params) => {
               return {
                   style: {
@@ -268,6 +286,12 @@ onMounted(async () => {
                 return true
             },
             cellTemplate: cellFlashArrowTemplate,
+        },
+        {
+            name: 'Legacy Rating',
+            prop: 'rate',
+            size: 140,
+            columnType: 'rating',
         },
         {
             name: 'Description',
@@ -284,7 +308,7 @@ onMounted(async () => {
 .grid {
     min-height: initial;
     height: calc(100vh - 250px);
-    max-height: calc(100vh - 250px);
+    max-height: 800px;
     font-family: 'Figtree', sans-serif;
     font-weight: 400;
 }
@@ -313,12 +337,19 @@ onMounted(async () => {
             box-shadow: 6px 0 0 rgb(162, 93, 220) inset;
         }
     }
+    .rowHeaders revogr-data .rgCell {
+        color: inherit !important;
+    }
     i {
         font-style: normal;
     }
     .cell-checkbox {
         padding: 0 !important;
         text-align: center;
+    }
+    .arrow-down {
+        font-size: 9px;
+        opacity: 0.5;
     }
     .revo-master-row {
         revo-grid {

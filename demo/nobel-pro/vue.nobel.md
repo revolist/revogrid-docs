@@ -2,7 +2,6 @@
 pageClass: demo-page-class
 layout: doc
 aside: false
-sidebar: false
 head:
     - - link
       - rel: preconnect
@@ -16,24 +15,27 @@ head:
 ---
 
 <script setup>
+import ShowoffBanner from '../../guide/parts/ShowoffBanner.vue'
 import Grid from './DemoNobel.vue'
 </script>
 
-<style>
-@media (min-width: 1440px) {
-      .demo-page-class .VPDoc:not(.has-sidebar) .content {
-        max-width: 1440px;
-    }
-}
-</style>
-
 # Nobel Prize winners 🏆
 
+<br />
 
 <!--@include: ../../guide/parts/cross-framework-banner.md-->
 
-<br /> 
+<div class="demo-page-wrapper">
+  <div class="demo-container">
 
-<div class="demo-container">
-<Grid class="nobel-grid"/>
+
+  <Grid />
+
+  <!--@include: ../../guide/parts/fake-data-banner.md-->
+
+  </div>
 </div>
+
+<br /><br />
+
+<ShowoffBanner />
