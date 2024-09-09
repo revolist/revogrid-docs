@@ -10,4 +10,4 @@ Editor component
 
 ## Defined in
 
-[src/types/selection.ts:144](https://github.com/revolist/revogrid/blob/60c4961e100e626252b5238bec5f6c11285d15d0/src/types/selection.ts#L144)
+[src/types/selection.ts:144](https://github.com/revolist/revogrid/blob/cef5db5acf21deb63962d633ec5e3d088dfc6c5b/src/types/selection.ts#L144)

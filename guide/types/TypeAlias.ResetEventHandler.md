@@ -12,4 +12,4 @@ type ResetEventHandler: () => void;
 
 ## Defined in
 
-[src/utils/store.types.ts:9](https://github.com/revolist/revogrid/blob/60c4961e100e626252b5238bec5f6c11285d15d0/src/utils/store.types.ts#L9)
+[src/utils/store.types.ts:9](https://github.com/revolist/revogrid/blob/cef5db5acf21deb63962d633ec5e3d088dfc6c5b/src/utils/store.types.ts#L9)
