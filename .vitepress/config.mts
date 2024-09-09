@@ -105,10 +105,6 @@ const config: UserConfig<DefaultTheme.Config> = {
         nav: navbarEn,
 
         sidebar: sidebarEn,
-        carbonAds: {
-            code: 'CW7DPKQL',
-            placement: 'rv-gridcom',
-        },
     },
     vite: {
         plugins: [
