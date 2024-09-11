@@ -1,3 +1,12 @@
+---
+title: Vue 3 Native Cell Render Support in RevoGrid
+description: Learn about native cell rendering in RevoGrid for Vue 3, enabling smooth integration of custom Vue components within grid cells.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid, Vue 3, native cell rendering, custom cell rendering, Vue components in grid, data grid rendering, Vue 3 grid integration, RevoGrid Vue 3 cells, grid component render, Vue 3 custom cells
+---
+
 <!--@include: ../parts/renderer.header.md-->
 
 ## App

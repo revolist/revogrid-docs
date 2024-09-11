@@ -1,3 +1,12 @@
+---
+title: React Native Editor Rendering in RevoGrid
+description: Learn how to use React for native editor rendering in RevoGrid, allowing custom in-cell editing with React components.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid, React, native editor rendering, custom editor, in-cell editing, React editor grid, data grid editor, React integration, custom cell editor, React grid components
+---
+
 <!--@include: ../parts/editor.header.md-->
 
 ```tsx{4,8-11,13,18,27}

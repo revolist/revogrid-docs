@@ -1,4 +1,13 @@
-# Getting Started
+---
+title: Vue 3 Integration Guide
+description: Learn how to integrate RevoGrid with Vue 3 for creating efficient, scalable data grids with support for virtual rows and columns.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid, Vue 3, data grid, Vue 3 integration, virtual grid, virtual rows, virtual columns, reactive data grid, Vue 3 grid example, grid performance, large data sets, customizable grid
+---
+
+# Vue 3 Getting Started
 
 Revogrid provide special wrapper based on [stenciljs vue3 adapter](https://www.npmjs.com/package/@stencil/vue3-output-target). Just import it to your project and it can be used as part of vue3 system.
 

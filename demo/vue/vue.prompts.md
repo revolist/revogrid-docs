@@ -19,7 +19,6 @@ import Grid from './DemoPrompts.vue'
 
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
-Welcome to the RevoGrid demo page!
 
 :::warning
 This dataset is based on  🧠 **[Awesome ChatGPT Prompts Repository](https://github.com/f/awesome-chatgpt-prompts)**.
@@ -31,14 +30,7 @@ We encourage you to contribute your own prompts to the list and explore the poss
 
 <Grid />
 
-
-## Key information
-
-
-| Field                | Type                          |
-|----------------------|-------------------------------|
-| **Actor**           | string                        |
-| **AI Prompt**            | string                        |
+### Key information
 
 You will find an assortment of prompts that can be utilized with ChatGPT.
 Feel free to explore the demo and see how RevoGrid's features can enhance your applications! For more details on setting up and customizing this demo, please refer to our documentation.

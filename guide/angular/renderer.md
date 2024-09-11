@@ -1,3 +1,12 @@
+---
+title: Angular Native Cell Render Support in RevoGrid
+description: Discover how to leverage native cell rendering in RevoGrid for Angular, enabling custom Angular components inside grid cells.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid, Angular, native cell rendering, custom cell rendering, Angular components in grid, data grid rendering, Angular grid integration, RevoGrid Angular cells, grid component render, Angular custom cells
+---
+
 <!--@include: ../parts/renderer.header.md-->
 
 

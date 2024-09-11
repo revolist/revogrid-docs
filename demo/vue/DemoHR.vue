@@ -102,6 +102,7 @@ onMounted(async () => {
                     prop: 'sort',
                     size: 30,
                     pin: 'colPinStart',
+                    filter: false,
                     rowDrag: true,
                     readonly: true,
                     cellProperties: () => ({

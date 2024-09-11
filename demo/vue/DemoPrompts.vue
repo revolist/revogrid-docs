@@ -1,31 +1,36 @@
 <template>
     <ClientOnly>
-        <div class="search-wrapper">
-            <input
-                class="search"
-                type="text"
-                placeholder="Search"
-                autocomplete="off"
-                tabindex="0"
-                @input="search"
-            />
-            <span class="vp-icon DocSearch-Search-Icon"></span>
+                <div class="search-wrapper">
+                    <input
+                        class="search"
+                        type="text"
+                        placeholder="Search"
+                        autocomplete="off"
+                        tabindex="0"
+                        @input="search"
+                    />
+                    <span class="vp-icon DocSearch-Search-Icon"></span>
+                </div>
+                <br />
+        <div class="demo-page-wrapper">
+            <div class="demo-container">
+                <VGrid
+                    tabindex="0"
+                    class="grid"
+                    ref="grid"
+                    :theme="isDark ? 'darkMaterial' : 'compact'"
+                    :source="gridData"
+                    :columns="gridColumns"
+                    :filter="true"
+                    range
+                    resize
+                    row-headers
+                    hide-attribution
+                    :editors="editors"
+                    :row-size="215"
+                />
+            </div>
         </div>
-        <br />
-        <VGrid
-            tabindex="0"
-            class="grid"
-            ref="grid"
-            :theme="isDark ? 'darkMaterial' : 'compact'"
-            :source="gridData"
-            :columns="gridColumns"
-            :filter="true"
-            range
-            resize
-            row-headers
-            :editors="editors"
-            :row-size="215"
-        />
     </ClientOnly>
 </template>
 <script lang="ts" setup>
@@ -50,7 +55,7 @@ const gridData = ref<any>([])
 
 class PromptEditor extends TextEditor {
     constructor(...args: any[]) {
-        super(args[0], args[1]);
+        super(args[0], args[1])
     }
     render(h: HyperFunc<VNode>) {
         return h?.('textarea', {
@@ -68,7 +73,7 @@ class PromptEditor extends TextEditor {
             value: this.editCell?.val ?? '',
             // save input element as ref for further usage
             ref: (el: HTMLInputElement | null) => {
-                this.editInput = el;
+                this.editInput = el
             },
             // listen to keydown event on input element
             onKeyDown: (e: KeyboardEvent) => this.onKeyDown(e),

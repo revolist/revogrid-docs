@@ -1,3 +1,12 @@
+---
+title: RevoGrid Angular Integration Guide
+description: Learn how to integrate RevoGrid with Angular for creating scalable data grids with virtual rows and columns, improving performance for large datasets.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid, Angular, data grid, Angular integration, virtual grid, virtual rows, virtual columns, Angular grid example, grid performance, large data sets, customizable grid, RevoGrid Angular components
+---
+
 # Getting Started
 
 ::: info

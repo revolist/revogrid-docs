@@ -1,3 +1,12 @@
+---
+title: Vue 2 Native Cell Render Support in RevoGrid
+description: Explore native cell rendering support in RevoGrid for Vue 2, enabling seamless integration of custom Vue components inside grid cells.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid, Vue 2, native cell rendering, custom cell rendering, Vue components in grid, data grid rendering, Vue 2 grid integration, RevoGrid Vue 2 cells, grid component render, Vue grid custom cells
+---
+
 <!--@include: ../parts/renderer.header.md-->
 
 Create component which you would like to be presented as cell.

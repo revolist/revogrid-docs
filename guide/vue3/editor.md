@@ -1,3 +1,12 @@
+---
+title: Vue 3 Native Editor Rendering
+description: Discover how to utilize Vue 3 for native editor rendering in RevoGrid, enabling seamless in-cell editing using Vue components.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid, Vue 3, native editor rendering, custom editor, in-cell editing, Vue editor grid, data grid editor, Vue 3 integration, custom cell editor, Vue 3 grid components
+---
+
 <!--@include: ../parts/editor.header.md-->
 
 

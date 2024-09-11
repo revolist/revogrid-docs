@@ -1,3 +1,12 @@
+---
+title: Vue 2 Native Editor Rendering in RevoGrid
+description: Discover how to use Vue 2 for native editor rendering in RevoGrid, allowing for custom in-cell editing with Vue components.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid, Vue 2, native editor rendering, custom editor, in-cell editing, Vue editor grid, data grid editor, Vue 2 integration, custom cell editor, Vue grid components
+---
+
 <!--@include: ../parts/editor.header.md-->
 
 
