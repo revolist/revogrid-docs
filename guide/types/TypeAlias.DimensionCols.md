@@ -8,4 +8,4 @@ type DimensionCols: DimensionColPin | DimensionTypeCol;
 
 ## Defined in
 
-[src/types/dimension.ts:6](https://github.com/revolist/revogrid/blob/5e3002471d0c6a5af7f60949f39b6639df457ad1/src/types/dimension.ts#L6)
+[src/types/dimension.ts:6](https://github.com/revolist/revogrid/blob/52c8861ed92574ba1d5817b32afec294ddb1f986/src/types/dimension.ts#L6)
