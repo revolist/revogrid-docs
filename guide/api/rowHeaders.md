@@ -33,13 +33,13 @@ Visible on the left side of the table
 
 ### Used by
 
- - [revo-grid](../revoGrid)
+ - [revo-grid](./revoGrid)
 
 ### Depends on
 
-- [revogr-data](../data)
-- [revogr-viewport-scroll](../scroll)
-- [revogr-header](../header)
+- [revogr-data](./data)
+- [revogr-viewport-scroll](./scroll)
+- [revogr-header](./header)
 
 ### Graph
 ```mermaid

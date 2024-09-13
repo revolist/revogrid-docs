@@ -28,13 +28,13 @@ Rows, columns, groups and cells
 
 ## Events
 
-| Event              | Description                                                          | Type                                                        |
-| ------------------ | -------------------------------------------------------------------- | ----------------------------------------------------------- |
-| `afterrender`      | When data render finished for the designated type                    | `CustomEvent<{ type: DimensionRows; }>`                     |
-| `beforecellrender` | Before each cell render function. Allows to override cell properties | `CustomEvent<BeforeCellRenderEvent<ColumnDataSchemaModel>>` |
-| `beforedatarender` | Before data render                                                   | `CustomEvent<AllDimensionType>`                             |
-| `beforerowrender`  | Before each row render                                               | `CustomEvent<BeforeRowRenderEvent<any>>`                    |
-| `dragstartcell`    | Event emitted on cell drag start                                     | `CustomEvent<DragStartEvent>`                               |
+| Event              | Description                                                          | Type                                                   |
+| ------------------ | -------------------------------------------------------------------- | ------------------------------------------------------ |
+| `afterrender`      | When data render finished for the designated type                    | `CustomEvent<{ type: DimensionRows; }>`                |
+| `beforecellrender` | Before each cell render function. Allows to override cell properties | `CustomEvent<BeforeCellRenderEvent<CellTemplateProp>>` |
+| `beforedatarender` | Before data render                                                   | `CustomEvent<AllDimensionType>`                        |
+| `beforerowrender`  | Before each row render                                               | `CustomEvent<BeforeRowRenderEvent<any>>`               |
+| `dragstartcell`    | Event emitted on cell drag start                                     | `CustomEvent<DragStartEvent>`                          |
 
 
 ## Methods
@@ -60,8 +60,8 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [revo-grid](../revoGrid)
- - [revogr-row-headers](../rowHeaders)
+ - [revo-grid](./revoGrid)
+ - [revogr-row-headers](./rowHeaders)
 
 ### Depends on
 

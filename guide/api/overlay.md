@@ -61,13 +61,13 @@ Component for overlaying the grid with the selection.
 
 ### Used by
 
- - [revo-grid](../revoGrid)
+ - [revo-grid](./revoGrid)
 
 ### Depends on
 
-- [revogr-edit](../editors)
-- [revogr-clipboard](../clipboard)
-- [revogr-order-editor](../order)
+- [revogr-edit](./editors)
+- [revogr-clipboard](./clipboard)
+- [revogr-order-editor](./order)
 
 ### Graph
 ```mermaid
