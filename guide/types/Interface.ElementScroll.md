@@ -23,7 +23,7 @@ optional changeScroll(e: ViewPortScrollEvent, silent?: boolean): Promise<undefin
 
 #### Defined in
 
-[src/types/viewport.interfaces.ts:22](https://github.com/revolist/revogrid/blob/8958a60bd3054871bb3d1706c4eb92c83a8c6b6c/src/types/viewport.interfaces.ts#L22)
+[src/types/viewport.interfaces.ts:22](https://github.com/revolist/revogrid/blob/5e3002471d0c6a5af7f60949f39b6639df457ad1/src/types/viewport.interfaces.ts#L22)
 
 ***
 
@@ -45,4 +45,4 @@ optional setScroll(e: ViewPortScrollEvent): Promise<void>
 
 #### Defined in
 
-[src/types/viewport.interfaces.ts:26](https://github.com/revolist/revogrid/blob/8958a60bd3054871bb3d1706c4eb92c83a8c6b6c/src/types/viewport.interfaces.ts#L26)
+[src/types/viewport.interfaces.ts:26](https://github.com/revolist/revogrid/blob/5e3002471d0c6a5af7f60949f39b6639df457ad1/src/types/viewport.interfaces.ts#L26)

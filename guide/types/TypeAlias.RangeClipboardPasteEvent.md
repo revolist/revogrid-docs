@@ -16,10 +16,10 @@ Range paste.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `data` | [`DataLookup`](TypeAlias.DataLookup.md) | [src/types/interfaces.ts:796](https://github.com/revolist/revogrid/blob/8958a60bd3054871bb3d1706c4eb92c83a8c6b6c/src/types/interfaces.ts#L796) |
-| `models` | `Partial`\<[`DataLookup`](TypeAlias.DataLookup.md)\> | [src/types/interfaces.ts:797](https://github.com/revolist/revogrid/blob/8958a60bd3054871bb3d1706c4eb92c83a8c6b6c/src/types/interfaces.ts#L797) |
-| `range` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/types/interfaces.ts:798](https://github.com/revolist/revogrid/blob/8958a60bd3054871bb3d1706c4eb92c83a8c6b6c/src/types/interfaces.ts#L798) |
+| `data` | [`DataLookup`](TypeAlias.DataLookup.md) | [src/types/interfaces.ts:796](https://github.com/revolist/revogrid/blob/5e3002471d0c6a5af7f60949f39b6639df457ad1/src/types/interfaces.ts#L796) |
+| `models` | `Partial`\<[`DataLookup`](TypeAlias.DataLookup.md)\> | [src/types/interfaces.ts:797](https://github.com/revolist/revogrid/blob/5e3002471d0c6a5af7f60949f39b6639df457ad1/src/types/interfaces.ts#L797) |
+| `range` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/types/interfaces.ts:798](https://github.com/revolist/revogrid/blob/5e3002471d0c6a5af7f60949f39b6639df457ad1/src/types/interfaces.ts#L798) |
 
 ## Defined in
 
-[src/types/interfaces.ts:795](https://github.com/revolist/revogrid/blob/8958a60bd3054871bb3d1706c4eb92c83a8c6b6c/src/types/interfaces.ts#L795)
+[src/types/interfaces.ts:795](https://github.com/revolist/revogrid/blob/5e3002471d0c6a5af7f60949f39b6639df457ad1/src/types/interfaces.ts#L795)

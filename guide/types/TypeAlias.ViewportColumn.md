@@ -18,14 +18,14 @@ type ViewportColumn: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `colStore` | [`Observable`](TypeAlias.Observable.md)\<[`DSourceState`](TypeAlias.DSourceState.md)\<[`ColumnRegular`](Interface.ColumnRegular.md), [`DimensionCols`](TypeAlias.DimensionCols.md)\>\> | [src/types/viewport.interfaces.ts:45](https://github.com/revolist/revogrid/blob/8958a60bd3054871bb3d1706c4eb92c83a8c6b6c/src/types/viewport.interfaces.ts#L45) |
-| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | [src/types/viewport.interfaces.ts:36](https://github.com/revolist/revogrid/blob/8958a60bd3054871bb3d1706c4eb92c83a8c6b6c/src/types/viewport.interfaces.ts#L36) |
-| `dimensions` | [`DimensionStoreCollection`](TypeAlias.DimensionStoreCollection.md) | [src/types/viewport.interfaces.ts:42](https://github.com/revolist/revogrid/blob/8958a60bd3054871bb3d1706c4eb92c83a8c6b6c/src/types/viewport.interfaces.ts#L42) |
-| `fixWidth` | `boolean` | [src/types/viewport.interfaces.ts:39](https://github.com/revolist/revogrid/blob/8958a60bd3054871bb3d1706c4eb92c83a8c6b6c/src/types/viewport.interfaces.ts#L39) |
-| `position` | [`Cell`](Interface.Cell.md) | [src/types/viewport.interfaces.ts:37](https://github.com/revolist/revogrid/blob/8958a60bd3054871bb3d1706c4eb92c83a8c6b6c/src/types/viewport.interfaces.ts#L37) |
-| `rowStores` | `RowDataSources` | [src/types/viewport.interfaces.ts:44](https://github.com/revolist/revogrid/blob/8958a60bd3054871bb3d1706c4eb92c83a8c6b6c/src/types/viewport.interfaces.ts#L44) |
-| `viewports` | [`ViewportStoreCollection`](TypeAlias.ViewportStoreCollection.md) | [src/types/viewport.interfaces.ts:41](https://github.com/revolist/revogrid/blob/8958a60bd3054871bb3d1706c4eb92c83a8c6b6c/src/types/viewport.interfaces.ts#L41) |
+| `colStore` | [`Observable`](TypeAlias.Observable.md)\<[`DSourceState`](TypeAlias.DSourceState.md)\<[`ColumnRegular`](Interface.ColumnRegular.md), [`DimensionCols`](TypeAlias.DimensionCols.md)\>\> | [src/types/viewport.interfaces.ts:45](https://github.com/revolist/revogrid/blob/5e3002471d0c6a5af7f60949f39b6639df457ad1/src/types/viewport.interfaces.ts#L45) |
+| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | [src/types/viewport.interfaces.ts:36](https://github.com/revolist/revogrid/blob/5e3002471d0c6a5af7f60949f39b6639df457ad1/src/types/viewport.interfaces.ts#L36) |
+| `dimensions` | [`DimensionStoreCollection`](TypeAlias.DimensionStoreCollection.md) | [src/types/viewport.interfaces.ts:42](https://github.com/revolist/revogrid/blob/5e3002471d0c6a5af7f60949f39b6639df457ad1/src/types/viewport.interfaces.ts#L42) |
+| `fixWidth` | `boolean` | [src/types/viewport.interfaces.ts:39](https://github.com/revolist/revogrid/blob/5e3002471d0c6a5af7f60949f39b6639df457ad1/src/types/viewport.interfaces.ts#L39) |
+| `position` | [`Cell`](Interface.Cell.md) | [src/types/viewport.interfaces.ts:37](https://github.com/revolist/revogrid/blob/5e3002471d0c6a5af7f60949f39b6639df457ad1/src/types/viewport.interfaces.ts#L37) |
+| `rowStores` | `RowDataSources` | [src/types/viewport.interfaces.ts:44](https://github.com/revolist/revogrid/blob/5e3002471d0c6a5af7f60949f39b6639df457ad1/src/types/viewport.interfaces.ts#L44) |
+| `viewports` | [`ViewportStoreCollection`](TypeAlias.ViewportStoreCollection.md) | [src/types/viewport.interfaces.ts:41](https://github.com/revolist/revogrid/blob/5e3002471d0c6a5af7f60949f39b6639df457ad1/src/types/viewport.interfaces.ts#L41) |
 
 ## Defined in
 
-[src/types/viewport.interfaces.ts:35](https://github.com/revolist/revogrid/blob/8958a60bd3054871bb3d1706c4eb92c83a8c6b6c/src/types/viewport.interfaces.ts#L35)
+[src/types/viewport.interfaces.ts:35](https://github.com/revolist/revogrid/blob/5e3002471d0c6a5af7f60949f39b6639df457ad1/src/types/viewport.interfaces.ts#L35)
