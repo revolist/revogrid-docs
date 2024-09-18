@@ -7,6 +7,7 @@ import { sidebarEn } from './configs/sidebar'
 import { viteObfuscateFile } from 'vite-plugin-obfuscator'
 import dotenv from 'dotenv'
 import path from 'node:path'
+import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 
 dotenv.config()
 
@@ -54,6 +55,9 @@ const config: UserConfig<DefaultTheme.Config> = {
             yarn: 'js',
             bun: 'js',
         },
+        config(md) {
+          md.use(tabsMarkdownPlugin)
+        }
     },
     head: [
         ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],

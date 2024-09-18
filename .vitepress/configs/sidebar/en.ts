@@ -497,6 +497,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     link: '/demo/vue/vue.editor.composition',
                 },
                 {
+                    text: 'Checkbox list with Select All',
+                    link: '/demo/vue/vue.select',
+                },
+                {
                     text: 'Grouping',
                     link: '/demo/vue/vue.grouping',
                 },
