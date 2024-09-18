@@ -275,6 +275,18 @@ Type: `Promise<void>`
 
 
 
+### `refreshExtraElements() => Promise<void>`
+
+Refresh extra elements. Triggers re-rendering of extra elements and functions.
+Part of extraElements and registerVNode methods.
+Useful for plugins.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `scrollToColumnIndex(coordinate?: number) => Promise<void>`
 
 Scrolls viewport to specified column by index.
@@ -433,10 +445,11 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot                                | Description |
-| ----------------------------------- | ----------- |
-| `"data-{column-type}-{row-type}."`  |             |
-| `"focus-{column-type}-{row-type}."` |             |
+| Slot                                | Description    |
+| ----------------------------------- | -------------- |
+| `"data-{column-type}-{row-type}."`  |                |
+| `"focus-{column-type}-{row-type}."` |                |
+| `"viewport"`                        | Viewport slot. |
 
 
 ## Dependencies
