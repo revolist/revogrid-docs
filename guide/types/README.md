@@ -808,14 +808,14 @@ Editor interface
 #### new TextEditor()
 
 ```ts
-new TextEditor(column: ColumnRegular, saveCallback?: SaveCallback): TextEditor
+new TextEditor(dataSchema: ColumnDataSchemaModel, saveCallback?: SaveCallback): TextEditor
 ```
 
 ##### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `column` | [`ColumnRegular`](Interface.ColumnRegular.md) |
+| `dataSchema` | [`ColumnDataSchemaModel`]  |
 | `saveCallback`? | `SaveCallback` |
 
 ##### Returns

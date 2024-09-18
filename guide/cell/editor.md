@@ -6,7 +6,7 @@ In order to do so you have to define your class with render method.
 ## As a Function
 ```js
 
-function TextEditor(column, saveCallback, closeCallback) {
+function TextEditor(dataSchema, saveCallback, closeCallback) {
   return {
       element: null, // will be setup up after render
       editCell: null, // will be setup up after render
@@ -31,12 +31,12 @@ class TextEditor {
     public editCell: EditCell|null = null;
 
     /**
-      *  @column: {ColumnDataSchemaRegular} - column data
+      *  @dataSchema: {ColumnDataSchemaModel} - data
       *  @editCallback: { (val) => void } - callback for finishing edit
       */
 
     constructor(
-        public column: ColumnDataSchemaRegular,
+        public dataSchema: ColumnDataSchemaModel,
         saveCallback: (value: any) => void,
         closeCallback: () => void
     ) {}
