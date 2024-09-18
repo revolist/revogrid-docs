@@ -22,6 +22,11 @@ export const features = [
         actionText,
     },
     {
+        avatar: '/row-transpose.svg',
+        name: 'Row Transpose',
+        desc: 'Modify the grid by transposing its data: columns become rows and vice versa.',
+    },
+    {
         name: 'Excel Export',
         avatar: '/export.svg',
         desc: 'Export data to Excel format. Supported types include `xlsx`, `xlsm`, `xlsb`, `xls`, and more.',
@@ -134,7 +139,7 @@ export const features = [
         actionText,
     },
     {
-        name: 'Odd Rows Styling',
+        name: 'Row Odd Styling',
         avatar: '/odd-rows.svg',
         desc: 'Apply distinct styles to odd rows for improved readability and data distinction.',
         sponsor: '/guide/odd-rows',
@@ -220,5 +225,5 @@ export const proWhy = [
         avatar: '/flash-circle.svg',
         name: 'Gain Insights and Support',
         desc: 'Benefit from access to exclusive expert support that helps you troubleshoot complex issues quickly.',
-    }
+    },
 ]
