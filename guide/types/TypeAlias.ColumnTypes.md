@@ -15,4 +15,4 @@ The keys are the names of the column types and the values are the corresponding 
 
 ## Defined in
 
-[src/types/interfaces.ts:125](https://github.com/revolist/revogrid/blob/3cf03d1039e53d8581c1791130c13324e129dd40/src/types/interfaces.ts#L125)
+[src/types/interfaces.ts:125](https://github.com/revolist/revogrid/blob/834ef2bcc7d11d36bb9e66716a7f07087a633494/src/types/interfaces.ts#L125)

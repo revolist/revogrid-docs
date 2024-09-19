@@ -18,4 +18,4 @@ type PropertiesFunc: (props: CellTemplateProp) => CellProps | void | undefined;
 
 ## Defined in
 
-[src/types/interfaces.ts:400](https://github.com/revolist/revogrid/blob/3cf03d1039e53d8581c1791130c13324e129dd40/src/types/interfaces.ts#L400)
+[src/types/interfaces.ts:400](https://github.com/revolist/revogrid/blob/834ef2bcc7d11d36bb9e66716a7f07087a633494/src/types/interfaces.ts#L400)

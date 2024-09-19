@@ -28,8 +28,8 @@ type LogicFunction<T1, T2>: (value: T1, extra?: T2) => boolean;
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `extra` | [`ExtraField`](TypeAlias.ExtraField.md) | [src/plugins/filter/filter.types.ts:36](https://github.com/revolist/revogrid/blob/3cf03d1039e53d8581c1791130c13324e129dd40/src/plugins/filter/filter.types.ts#L36) |
+| `extra` | [`ExtraField`](TypeAlias.ExtraField.md) | [src/plugins/filter/filter.types.ts:36](https://github.com/revolist/revogrid/blob/834ef2bcc7d11d36bb9e66716a7f07087a633494/src/plugins/filter/filter.types.ts#L36) |
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:34](https://github.com/revolist/revogrid/blob/3cf03d1039e53d8581c1791130c13324e129dd40/src/plugins/filter/filter.types.ts#L34)
+[src/plugins/filter/filter.types.ts:34](https://github.com/revolist/revogrid/blob/834ef2bcc7d11d36bb9e66716a7f07087a633494/src/plugins/filter/filter.types.ts#L34)

@@ -14,4 +14,4 @@ type PluginSubscribe<T>: Subscription<T>;
 
 ## Defined in
 
-[src/utils/store.utils.ts:5](https://github.com/revolist/revogrid/blob/3cf03d1039e53d8581c1791130c13324e129dd40/src/utils/store.utils.ts#L5)
+[src/utils/store.utils.ts:5](https://github.com/revolist/revogrid/blob/834ef2bcc7d11d36bb9e66716a7f07087a633494/src/utils/store.utils.ts#L5)
