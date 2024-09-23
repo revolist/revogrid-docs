@@ -4,7 +4,7 @@ const scriptSetupCommonRE =
     /<\s*script\s+(setup|lang='ts'|lang="ts")?\s*(setup|lang='ts'|lang="ts")?\s*>/
 
 
-export const injectNewComponentImportScript = (env: any) => {
+export const injectNewComponentImportScript = (env: any, demoPath: string) => {
     // https://github.com/vuejs/vitepress/issues/1258  __Path、__Relativepath、__data.Hoistedtags 被删除解决方案
     // https://github.com/mdit-vue/mdit-vue/blob/main/packages/plugin-sfc/src/types.ts
     // https://github.com/mdit-vue/mdit-vue/blob/main/packages/plugin-sfc/tests/__snapshots__/sfc-plugin.spec.ts.snap
@@ -26,14 +26,13 @@ export const injectNewComponentImportScript = (env: any) => {
     const importContent = `
     import { defineComponent, h, onMounted, ref } from 'vue'
     import { useData } from 'vitepress'
+    import * as m from '${demoPath}'
     const { isDark } = useData()
     
     const DynamicComponent = defineComponent({
-          props: ['path'],
           setup(props) {
             const container = ref(null);
             onMounted(async () => {
-              const m = await import(/* @vite-ignore */props.path)
               m?.render()
               const grid = container.value?.parentElement?.querySelector('revo-grid')
               grid?.setAttribute('theme', isDark.value ? 'darkCompact' : 'compact')

@@ -5,16 +5,16 @@ title: JavaScript Overview
 :::tabs
 == Preview
 
-:::preview #demo-overview .rv-overview :path /demo/js/js.overview.ts
+:::preview #demo-overview .rv-overview :path /demo/js/js.overview.example
 
 
 
 == Source code
-<<< @/demo/js/js.overview.ts
+<<< @/demo/js/js.overview.example.ts
 
 
 == JSON
-<<< @/demo/vue/stock.json
+<<< @/json/stock.json
 
 == Codesandbox
 
