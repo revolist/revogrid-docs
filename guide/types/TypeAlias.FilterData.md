@@ -15,11 +15,11 @@ type FilterData: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `id` | `number` | [src/plugins/filter/filter.types.ts:114](https://github.com/revolist/revogrid/blob/834ef2bcc7d11d36bb9e66716a7f07087a633494/src/plugins/filter/filter.types.ts#L114) |
-| `relation` | `"and"` \| `"or"` | [src/plugins/filter/filter.types.ts:117](https://github.com/revolist/revogrid/blob/834ef2bcc7d11d36bb9e66716a7f07087a633494/src/plugins/filter/filter.types.ts#L117) |
-| `type` | [`FilterType`](TypeAlias.FilterType.md) | [src/plugins/filter/filter.types.ts:115](https://github.com/revolist/revogrid/blob/834ef2bcc7d11d36bb9e66716a7f07087a633494/src/plugins/filter/filter.types.ts#L115) |
-| `value` | `any` | [src/plugins/filter/filter.types.ts:116](https://github.com/revolist/revogrid/blob/834ef2bcc7d11d36bb9e66716a7f07087a633494/src/plugins/filter/filter.types.ts#L116) |
+| `id` | `number` | [src/plugins/filter/filter.types.ts:114](https://github.com/revolist/revogrid/blob/93797f94eaa9e63cf9af5b06a562d49fdbb8dcd2/src/plugins/filter/filter.types.ts#L114) |
+| `relation` | `"and"` \| `"or"` | [src/plugins/filter/filter.types.ts:117](https://github.com/revolist/revogrid/blob/93797f94eaa9e63cf9af5b06a562d49fdbb8dcd2/src/plugins/filter/filter.types.ts#L117) |
+| `type` | [`FilterType`](TypeAlias.FilterType.md) | [src/plugins/filter/filter.types.ts:115](https://github.com/revolist/revogrid/blob/93797f94eaa9e63cf9af5b06a562d49fdbb8dcd2/src/plugins/filter/filter.types.ts#L115) |
+| `value` | `any` | [src/plugins/filter/filter.types.ts:116](https://github.com/revolist/revogrid/blob/93797f94eaa9e63cf9af5b06a562d49fdbb8dcd2/src/plugins/filter/filter.types.ts#L116) |
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:113](https://github.com/revolist/revogrid/blob/834ef2bcc7d11d36bb9e66716a7f07087a633494/src/plugins/filter/filter.types.ts#L113)
+[src/plugins/filter/filter.types.ts:113](https://github.com/revolist/revogrid/blob/93797f94eaa9e63cf9af5b06a562d49fdbb8dcd2/src/plugins/filter/filter.types.ts#L113)
