@@ -5,9 +5,6 @@ const scriptSetupCommonRE =
 
 
 export const injectNewComponentImportScript = (env: any) => {
-    // https://github.com/vuejs/vitepress/issues/1258  __Path、__Relativepath、__data.Hoistedtags 被删除解决方案
-    // https://github.com/mdit-vue/mdit-vue/blob/main/packages/plugin-sfc/src/types.ts
-    // https://github.com/mdit-vue/mdit-vue/blob/main/packages/plugin-sfc/tests/__snapshots__/sfc-plugin.spec.ts.snap
     const scriptsCode = env.sfcBlocks.scripts as any[]
 
     // Find the index of the first script tag that is a setup script
