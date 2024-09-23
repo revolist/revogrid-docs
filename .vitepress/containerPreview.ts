@@ -28,10 +28,10 @@ export const containerDirectiveMount = (md: MarkdownIt) => {
             if (token.nesting === 1 && paramArr) {
                 let [, id, , , path] = paramArr
                 id = id ? id.substring(1) : 'example-1'
-                injectNewComponentImportScript(env)
+                injectNewComponentImportScript(env, path)
                 return ` 
                 <div id="${id}" class="example-container">
-                 <DynamicComponent path="${path}" />`
+                 <DynamicComponent />`
             } else {
                 // closing tag
                 return '</div>\n'

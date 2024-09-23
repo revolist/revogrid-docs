@@ -4,7 +4,7 @@ const scriptSetupCommonRE =
     /<\s*script\s+(setup|lang='ts'|lang="ts")?\s*(setup|lang='ts'|lang="ts")?\s*>/
 
 
-export const injectNewComponentImportScript = (env: any) => {
+export const injectNewComponentImportScript = (env: any, demoPath: string) => {
     const scriptsCode = env.sfcBlocks.scripts as any[]
 
     // Find the index of the first script tag that is a setup script
@@ -23,14 +23,13 @@ export const injectNewComponentImportScript = (env: any) => {
     const importContent = `
     import { defineComponent, h, onMounted, ref } from 'vue'
     import { useData } from 'vitepress'
+    import * as m from '${demoPath}'
     const { isDark } = useData()
     
     const DynamicComponent = defineComponent({
-          props: ['path'],
           setup(props) {
             const container = ref(null);
             onMounted(async () => {
-              const m = await import(/* @vite-ignore */props.path)
               m?.render()
               const grid = container.value?.parentElement?.querySelector('revo-grid')
               grid?.setAttribute('theme', isDark.value ? 'darkCompact' : 'compact')
