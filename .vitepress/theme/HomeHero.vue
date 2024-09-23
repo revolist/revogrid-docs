@@ -16,7 +16,7 @@
 import { onMounted, onBeforeUnmount, ref } from 'vue'
 import { useData } from 'vitepress'
 import VGrid, { type ColumnRegular, type VNode } from '@revolist/vue3-datagrid'
-import { stocks } from './stock.json'
+import { stocks } from '@/json/stock.json'
 
 const { isDark } = useData()
 const gridColumns = ref<ColumnRegular[]>([])

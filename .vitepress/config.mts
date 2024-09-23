@@ -8,6 +8,7 @@ import { viteObfuscateFile } from 'vite-plugin-obfuscator'
 import dotenv from 'dotenv'
 import path from 'node:path'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
+import { containerPreview } from './containerPreview'
 
 dotenv.config()
 
@@ -57,6 +58,7 @@ const config: UserConfig<DefaultTheme.Config> = {
         },
         config(md) {
           md.use(tabsMarkdownPlugin)
+          md.use(containerPreview)
         }
     },
     head: [
@@ -146,6 +148,10 @@ const config: UserConfig<DefaultTheme.Config> = {
                     replacement: fileURLToPath(
                         new URL('./theme/VPImage.vue', import.meta.url)
                     ),
+                },
+                {
+                    find: '@/',
+                    replacement: path.resolve(__dirname, '/'),
                 },
                 {
                     find: '@revolist/revogrid-pro',
