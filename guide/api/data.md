@@ -60,8 +60,8 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [revo-grid](../revoGrid)
- - [revogr-row-headers](../rowHeaders)
+ - [revo-grid](./revoGrid)
+ - [revogr-row-headers](./rowHeaders)
 
 ### Depends on
 
