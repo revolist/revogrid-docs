@@ -8,5 +8,5 @@ Represents the event object that is emitted when the drag operation starts.
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `model` | [`ColumnDataSchemaModel`](TypeAlias.ColumnDataSchemaModel.md) | Represents the model of the column being dragged. | [src/types/interfaces.ts:666](https://github.com/revolist/revogrid/blob/69d5bd9cb55a69f54242342681dca616def73994/src/types/interfaces.ts#L666) |
-| `originalEvent` | `MouseEvent` | Represents the original mouse event that triggered the drag operation. | [src/types/interfaces.ts:661](https://github.com/revolist/revogrid/blob/69d5bd9cb55a69f54242342681dca616def73994/src/types/interfaces.ts#L661) |
+| `model` | [`ColumnDataSchemaModel`](TypeAlias.ColumnDataSchemaModel.md) | Represents the model of the column being dragged. | [src/types/interfaces.ts:666](https://github.com/revolist/revogrid/blob/2ea7abe619348281bd56e0a8ea657ffef9c19154/src/types/interfaces.ts#L666) |
+| `originalEvent` | `MouseEvent` | Represents the original mouse event that triggered the drag operation. | [src/types/interfaces.ts:661](https://github.com/revolist/revogrid/blob/2ea7abe619348281bd56e0a8ea657ffef9c19154/src/types/interfaces.ts#L661) |
