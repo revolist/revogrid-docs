@@ -14,4 +14,4 @@ type Observable<T>: ObservableMap<T>;
 
 ## Defined in
 
-[src/utils/store.utils.ts:4](https://github.com/revolist/revogrid/blob/93797f94eaa9e63cf9af5b06a562d49fdbb8dcd2/src/utils/store.utils.ts#L4)
+[src/utils/store.utils.ts:4](https://github.com/revolist/revogrid/blob/65763a3c3cbba79c84cbcd4109976d8fec48b078/src/utils/store.utils.ts#L4)

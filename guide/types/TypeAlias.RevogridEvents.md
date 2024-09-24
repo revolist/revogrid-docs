@@ -111,4 +111,4 @@ type RevogridEvents:
 
 ## Defined in
 
-[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/93797f94eaa9e63cf9af5b06a562d49fdbb8dcd2/src/types/events.ts#L2)
+[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/65763a3c3cbba79c84cbcd4109976d8fec48b078/src/types/events.ts#L2)
