@@ -429,6 +429,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     link: '/demo/angular/angular.cell',
                 },
                 {
+                    text: 'Column resize',
+                    link: '/demo/angular/angular.column-resize',
+                },
+                {
                     text: 'Header component & Tooltip',
                     link: '/demo/angular/angular.header',
                 },
@@ -441,8 +445,8 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     link: '/demo/angular/angular.editor-custom',
                 },
                 {
-                    text: 'Column resize',
-                    link: '/demo/angular/angular.column-resize',
+                    text: 'Focus Catch',
+                    link: '/demo/angular/angular.focus',
                 },
                 {
                     text: 'Demo: Inventory List',
