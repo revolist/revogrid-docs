@@ -8,4 +8,4 @@ type GDimension: DimensionRows | DimensionCols;
 
 ## Defined in
 
-[src/store/dataSource/data.store.ts:27](https://github.com/revolist/revogrid/blob/2ea7abe619348281bd56e0a8ea657ffef9c19154/src/store/dataSource/data.store.ts#L27)
+[src/store/dataSource/data.store.ts:27](https://github.com/revolist/revogrid/blob/b38c1177864e6fa9f2bec506ea55d1b2f7e35679/src/store/dataSource/data.store.ts#L27)
