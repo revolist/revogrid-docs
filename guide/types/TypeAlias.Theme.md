@@ -14,4 +14,4 @@ type Theme:
 
 ## Defined in
 
-[src/types/theme.ts:9](https://github.com/revolist/revogrid/blob/b38c1177864e6fa9f2bec506ea55d1b2f7e35679/src/types/theme.ts#L9)
+[src/types/theme.ts:9](https://github.com/revolist/revogrid/blob/33fdf87718e4421a1302a23338379f45f99055c0/src/types/theme.ts#L9)
