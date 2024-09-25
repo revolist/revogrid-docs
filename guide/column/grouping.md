@@ -8,17 +8,7 @@ Columns in RevoGrid can be defined as either regular columns or grouped columns 
 
 Here's an example demonstrating how to define both regular and grouped columns:
 
-```typescript
-const columns: ColumnGrouping[] = [
-  { name: 'Name', prop: 'name' }, // Regular column
 
-  // Stacked column group
-  {
-    name: 'Personal',
-    children: [
-      { name: 'Eyes', prop: 'eyeColor' }, // Regular column within the group
-      { name: 'Company', prop: 'company' }, // Regular column within the group
-    ]
-  }
-];
-```
+<<< @/demo/js/js.column.group.example.ts#columns
+
+<!--@include: ../../demo/js/js.column.group.md-->

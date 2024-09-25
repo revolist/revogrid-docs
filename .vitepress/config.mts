@@ -8,7 +8,7 @@ import { viteObfuscateFile } from 'vite-plugin-obfuscator'
 import dotenv from 'dotenv'
 import path from 'node:path'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
-import { containerPreview } from './containerPreview'
+import { containerPreview } from './plugin.preview'
 
 dotenv.config()
 
@@ -94,7 +94,7 @@ const config: UserConfig<DefaultTheme.Config> = {
         ],
 
         footer: {
-            copyright: 'Copyright © 2014-present',
+            copyright: 'Copyright © 2017-present',
             message:
                 'Revogrid is a MIT-licensed open source library made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. <br/><br/>',
         },

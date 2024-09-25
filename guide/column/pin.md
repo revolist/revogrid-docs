@@ -10,9 +10,12 @@
 ``` ts
 
 const columns = [
-  { name: 'Name', prop: 'name', },
-  { name: 'Eyes', prop: 'eyeColor', pin: 'colPinStart', },
-  { name: 'Company', prop: 'company', pin: 'colPinEnd', },
+  { name: 'First Name', prop: 'firstName', },
+  { name: 'Status', prop: 'status', pin: 'colPinStart', },
+  { name: 'Age', prop: 'age', pin: 'colPinEnd', },
 ];
 
 ```
+
+
+<!--@include: ../../demo/js/js.column.pin.md-->

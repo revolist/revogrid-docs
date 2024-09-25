@@ -17,8 +17,7 @@ head:
 
 [Edit RG Start (Svelte)](https://stackblitz.com/edit/vitejs-vite-dvilmw)
 
-
-## Svelte Kit Demo
+<!-- ## Svelte Kit Demo
 
 <ClientOnly>
 <iframe src="https://codesandbox.io/p/devbox/rg-start-svelte-k7xdsh?embed=1&file=%2Fsrc%2Froutes%2F%2Bpage.svelte"
@@ -29,4 +28,4 @@ head:
    ></iframe>
 </ClientOnly>
 
-[![Edit RG Start (Svelte)](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/devbox/rg-start-svelte-k7xdsh?embed=1&file=%2Fsrc%2Froutes%2F%2Bpage.svelte)
+[![Edit RG Start (Svelte)](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/devbox/rg-start-svelte-k7xdsh?embed=1&file=%2Fsrc%2Froutes%2F%2Bpage.svelte) -->

@@ -1,5 +1,6 @@
 # Getting Started
 
+
 Revogrid provide special wrapper based on [stenciljs svelte adapter](https://www.npmjs.com/package/@stencil/svelte-output-target). Just import it to your project and it can be used as part of svelte system.
 
 ::: code-group
@@ -23,39 +24,11 @@ bun add @revolist/svelte-datagrid
 :::
 
 
-```svelte
-// App.svelte
-<script lang="ts">
-    import { RevoGrid, type ColumnRegular } from '@revolist/svelte-datagrid';
-    const source = [
-    {
-      name: '1',
-      details: 'Item 1',
-    },
-    {
-      name: '2',
-      details: 'Item 2',
-    },
-  ];
-    const columns: ColumnRegular[] = [
-    {
-      prop: 'name',
-      name: 'First',
-      cellTemplate(h, { value }) {
-        return h('span', { style: { background: 'red' } }, value);
-      }
-    },
-    {
-      prop: 'details',
-      name: 'Second',
-    },
-  ];
-</script>
+::: warning
 
-<main>
-	<RevoGrid {source} {columns}></RevoGrid>
-</main>
-```
+Svelte is releasing v5.0.0. This version still has some breaking changes. We recommend using the latest stable version of svelte instead. But if you want to use the newest 5+ version of svelte, please use [@revolist/svelte-datagrid@v4.10.11-next](https://www.npmjs.com/package/@revolist/svelte-datagrid/v/4.10.11-next).
 
+
+<<< @/demo/svelte/svelte.sample.svelte
 
 <!--@include: ../../demo/svelte/svelte.sample.md-->

@@ -326,3 +326,11 @@
         border-radius: 0 0 8px 8px;
     }
 }
+
+.plugin-tabs--content {
+    revo-grid {
+        background-color: var(--vp-c-bg);
+        border-radius: 8px;
+        margin: -5px 0;
+    }
+}

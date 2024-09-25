@@ -2,6 +2,23 @@
 title: Vue 3 Getting Started Options
 ---
 
+<script setup lang="ts">
+import Example from '@/demo/vue/vue.sample.options.example.vue';
+</script>
+
+:::tabs
+== Preview
+
+<Example />
+
+
+== Source code
+
+<<< @/demo/vue/vue.sample.options.example.vue
+
+
+== Codesandbox
+
 <ClientOnly>
   <div class="tile">
     <iframe src="https://codesandbox.io/embed/8mlqjx?view=preview&module=%2Fsrc%2FApp.vue&hidenavigation=1"
@@ -14,3 +31,5 @@ title: Vue 3 Getting Started Options
 </ClientOnly>
 
 [![Edit RG Start (Vue 3 Options AP)](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/rg-start-vue-3-options-ap-8mlqjx)
+
+:::

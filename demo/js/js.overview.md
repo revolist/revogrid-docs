@@ -2,6 +2,7 @@
 title: JavaScript Overview
 ---
 
+
 :::tabs
 == Preview
 
@@ -10,14 +11,14 @@ title: JavaScript Overview
 
 
 == Source code
-<<< @/demo/js/js.overview.example.ts
+
+<<< @/demo/js/js.overview.example.ts#snippet
 
 
 == JSON
 <<< @/json/stock.json
 
 == Codesandbox
-
 
 [![Edit RG - Quick Overview](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/rg-quick-overview-88rf36?from-embed=)
 

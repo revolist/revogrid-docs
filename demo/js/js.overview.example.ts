@@ -1,11 +1,10 @@
-import { stocks } from '@/json/stock.json'
 import { defineCustomElements } from '@revolist/revogrid/loader'
-import type { ColumnRegular } from '@revolist/revogrid'
-
-// A utility defineCustomElements() function is exported from the index.js file of the output directory.
 // This function can be used to quickly define all Revogrid components in a project on the custom elements registry.
 defineCustomElements()
 
+// #region snippet
+import { stocks } from '@/json/stock.json'
+import type { ColumnRegular } from '@revolist/revogrid'
 
 // Define columns
 const columns: ColumnRegular[] = [
@@ -14,9 +13,7 @@ const columns: ColumnRegular[] = [
         prop: 'symbol',
         sortable: true,
         pin: 'colPinStart',
-        cellTemplate(h, { model, prop }) {
-            return h('strong', null, model[prop])
-        },
+        cellTemplate: (h, { model, prop }) => h('strong', null, model[prop]),
     },
     {
         name: '🔠 Company Name',
@@ -101,4 +98,8 @@ function render() {
     }, 1000)
 }
 
-export { render }
+// #endregion snippet
+
+export {
+    render
+}

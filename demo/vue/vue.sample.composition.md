@@ -2,6 +2,24 @@
 title: Vue 3 Getting Started Composition
 ---
 
+
+
+<script setup lang="ts">
+import Example from '@/demo/vue/vue.sample.composition.example.vue';
+</script>
+
+:::tabs
+== Preview
+
+<Example />
+
+
+== Source code
+
+<<< @/demo/vue/vue.sample.composition.example.vue
+
+
+== Codesandbox
 <ClientOnly>
   <div class="tile">
     <iframe src="https://codesandbox.io/embed/3775m4?view=preview&module=%2Fsrc%2FApp.vue&hidenavigation=1"
@@ -14,3 +32,5 @@ title: Vue 3 Getting Started Composition
 </ClientOnly>
 
 [![Edit RG Start (Vue 3 Composition api)](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/rg-start-vue-3-composition-api-3775m4)
+
+:::
