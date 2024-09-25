@@ -12,7 +12,7 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `dispose` | [`DisposeEventHandler`](TypeAlias.DisposeEventHandler.md)[] | [src/utils/store.types.ts:2](https://github.com/revolist/revogrid/blob/33fdf87718e4421a1302a23338379f45f99055c0/src/utils/store.types.ts#L2) |
-| `get` | [`GetEventHandler`](TypeAlias.GetEventHandler.md)\<`T`\>[] | [src/utils/store.types.ts:3](https://github.com/revolist/revogrid/blob/33fdf87718e4421a1302a23338379f45f99055c0/src/utils/store.types.ts#L3) |
-| `reset` | [`ResetEventHandler`](TypeAlias.ResetEventHandler.md)[] | [src/utils/store.types.ts:4](https://github.com/revolist/revogrid/blob/33fdf87718e4421a1302a23338379f45f99055c0/src/utils/store.types.ts#L4) |
-| `set` | [`SetEventHandler`](TypeAlias.SetEventHandler.md)\<`T`\>[] | [src/utils/store.types.ts:5](https://github.com/revolist/revogrid/blob/33fdf87718e4421a1302a23338379f45f99055c0/src/utils/store.types.ts#L5) |
+| `dispose` | [`DisposeEventHandler`](TypeAlias.DisposeEventHandler.md)[] | [src/utils/store.types.ts:2](https://github.com/revolist/revogrid/blob/2f07f30b37da771d7d712c0b9b9b90928758921a/src/utils/store.types.ts#L2) |
+| `get` | [`GetEventHandler`](TypeAlias.GetEventHandler.md)\<`T`\>[] | [src/utils/store.types.ts:3](https://github.com/revolist/revogrid/blob/2f07f30b37da771d7d712c0b9b9b90928758921a/src/utils/store.types.ts#L3) |
+| `reset` | [`ResetEventHandler`](TypeAlias.ResetEventHandler.md)[] | [src/utils/store.types.ts:4](https://github.com/revolist/revogrid/blob/2f07f30b37da771d7d712c0b9b9b90928758921a/src/utils/store.types.ts#L4) |
+| `set` | [`SetEventHandler`](TypeAlias.SetEventHandler.md)\<`T`\>[] | [src/utils/store.types.ts:5](https://github.com/revolist/revogrid/blob/2f07f30b37da771d7d712c0b9b9b90928758921a/src/utils/store.types.ts#L5) |
