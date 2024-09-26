@@ -339,6 +339,11 @@ onMounted(async () => {
         font-size: 9px;
         opacity: 0.5;
     }
+    revogr-overlay-selection[type="rowPinEnd"] {
+        .expand-button, .arrow-down {
+            display: none;
+        }
+    }
     .revo-master-row {
         revo-grid {
             height: 100%;
