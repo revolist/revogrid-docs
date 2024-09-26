@@ -16,16 +16,6 @@
                 rowOrder: {
                     prop: 'date'
                 },
-                cellMerge: [
-                    {
-                        row: 0,
-                        column: 0,
-                        rowSpan: 1,
-                        colSpan: 2,
-                        rowType: 'rowPinEnd',
-                        colType: 'colPinStart',
-                    },
-                ],
                 eventManager: {
                     applyEventsToSource: true,
                 },
@@ -61,7 +51,6 @@ import { data } from './demoNobel.data.js'
 import { CellFlashPlugin } from '@revolist/revogrid-pro/src/plugins/cell-flash'
 import { CellValidatePlugin } from '@revolist/revogrid-pro/src/plugins/cell-validate'
 import { cellFlashArrowTemplate } from '@revolist/revogrid-pro/src/plugins/cell-flash/cell-flash-arrow.template'
-import { CellMergePlugin } from '@revolist/revogrid-pro/src/plugins/cell-merge'
 import { EventManagerPlugin } from '@revolist/revogrid-pro/src/plugins/event-manager'
 import { ColumnSelectionPlugin } from '@revolist/revogrid-pro/src/plugins/column-selection'
 import { ExportExcelPlugin } from '@revolist/revogrid-pro/src/plugins/export-excel'
@@ -99,7 +88,6 @@ const plugins = [
     RowSelectPlugin,
     CellFlashPlugin,
     CellValidatePlugin,
-    CellMergePlugin,
     EventManagerPlugin,
     ColumnSelectionPlugin,
     ExportExcelPlugin,
