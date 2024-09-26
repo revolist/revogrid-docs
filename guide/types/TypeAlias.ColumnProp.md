@@ -8,4 +8,4 @@ type ColumnProp: string | number;
 
 ## Defined in
 
-[src/types/interfaces.ts:267](https://github.com/revolist/revogrid/blob/2f07f30b37da771d7d712c0b9b9b90928758921a/src/types/interfaces.ts#L267)
+[src/types/interfaces.ts:268](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/types/interfaces.ts#L268)

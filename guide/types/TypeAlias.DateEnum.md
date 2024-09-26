@@ -20,4 +20,4 @@ type DateEnum:
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:4](https://github.com/revolist/revogrid/blob/2f07f30b37da771d7d712c0b9b9b90928758921a/src/plugins/filter/filter.types.ts#L4)
+[src/plugins/filter/filter.types.ts:4](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/plugins/filter/filter.types.ts#L4)

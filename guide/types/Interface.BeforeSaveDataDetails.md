@@ -1,9 +1,9 @@
-[@revolist/revogrid](README.md) / CellTemplateProp
+[@revolist/revogrid](README.md) / BeforeSaveDataDetails
 
-# Interface: CellTemplateProp
+# Interface: BeforeSaveDataDetails
 
-Template property for each cell, extends the column data schema model.
-Additionally, it provides access to the providers injected into the template.
+Advanced column data schema model.
+Used for transpassing data to cell renderer and editor.
 
 ## Extends
 
@@ -19,7 +19,7 @@ Additionally, it provides access to the providers injected into the template.
 | `data` | [`DataType`](TypeAlias.DataType.md)\<`any`\>[] | Row models based on viewport | `ColumnDataSchemaModel.data` | [src/types/interfaces.ts:61](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/types/interfaces.ts#L61) |
 | `model` | [`DataType`](TypeAlias.DataType.md)\<`any`\> | Row data object | `ColumnDataSchemaModel.model` | [src/types/interfaces.ts:37](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/types/interfaces.ts#L37) |
 | `prop` | [`ColumnProp`](TypeAlias.ColumnProp.md) | Column prop used for mapping value to cell from data source model/row | `ColumnDataSchemaModel.prop` | [src/types/interfaces.ts:33](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/types/interfaces.ts#L33) |
-| `providers` | [`Providers`](TypeAlias.Providers.md)\<[`DimensionRows`](TypeAlias.DimensionRows.md)\> | Providers injected into the template | - | [src/types/interfaces.ts:76](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/types/interfaces.ts#L76) |
 | `rowIndex` | `number` | Index of the row in the viewport | `ColumnDataSchemaModel.rowIndex` | [src/types/interfaces.ts:45](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/types/interfaces.ts#L45) |
 | `type` | [`DimensionRows`](TypeAlias.DimensionRows.md) | Row type based on viewport | `ColumnDataSchemaModel.type` | [src/types/interfaces.ts:57](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/types/interfaces.ts#L57) |
+| `val?` | `string` | Value from editor to save, not part of the model value yet | - | [src/types/selection.ts:110](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/types/selection.ts#L110) |
 | `value?` | `any` | Current cell data value Mapped from model through column property like model['prop'] | `ColumnDataSchemaModel.value` | [src/types/interfaces.ts:66](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/types/interfaces.ts#L66) |

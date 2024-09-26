@@ -14,4 +14,4 @@ type DataFormat<T>: T;
 
 ## Defined in
 
-[src/types/interfaces.ts:269](https://github.com/revolist/revogrid/blob/2f07f30b37da771d7d712c0b9b9b90928758921a/src/types/interfaces.ts#L269)
+[src/types/interfaces.ts:270](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/types/interfaces.ts#L270)

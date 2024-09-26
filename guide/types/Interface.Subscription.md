@@ -22,7 +22,7 @@ optional dispose(): void
 
 #### Defined in
 
-[src/utils/store.types.ts:21](https://github.com/revolist/revogrid/blob/2f07f30b37da771d7d712c0b9b9b90928758921a/src/utils/store.types.ts#L21)
+[src/utils/store.types.ts:21](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/utils/store.types.ts#L21)
 
 ***
 
@@ -50,7 +50,7 @@ optional get<KeyFromStoreType>(key: KeyFromStoreType): void
 
 #### Defined in
 
-[src/utils/store.types.ts:22](https://github.com/revolist/revogrid/blob/2f07f30b37da771d7d712c0b9b9b90928758921a/src/utils/store.types.ts#L22)
+[src/utils/store.types.ts:22](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/utils/store.types.ts#L22)
 
 ***
 
@@ -66,7 +66,7 @@ optional reset(): void
 
 #### Defined in
 
-[src/utils/store.types.ts:24](https://github.com/revolist/revogrid/blob/2f07f30b37da771d7d712c0b9b9b90928758921a/src/utils/store.types.ts#L24)
+[src/utils/store.types.ts:24](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/utils/store.types.ts#L24)
 
 ***
 
@@ -99,4 +99,4 @@ optional set<KeyFromStoreType>(
 
 #### Defined in
 
-[src/utils/store.types.ts:23](https://github.com/revolist/revogrid/blob/2f07f30b37da771d7d712c0b9b9b90928758921a/src/utils/store.types.ts#L23)
+[src/utils/store.types.ts:23](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/utils/store.types.ts#L23)
