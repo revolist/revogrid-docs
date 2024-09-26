@@ -2,21 +2,20 @@
 
  Let's say you've got a ton of data to display on your web app. It's all about letting you throw in loads of data and manipulate it any way you fancy—without breaking a sweat. Read more about how and why you should use it in our [Overview section](./overview).
 
-:::warning
-If you are migrating from version 3, please read our full [migration guide](./migrations/v4).
-:::
+
+
+
 
 ## Find guides for your framework
 
 <!--@include: ./parts/framework.md-->
 
-
-<!--@include: ./parts/key-concepts.md-->
-
 ## Play online
-Try `revo-grid` directly on CodeSandbox without setting up anything locally
+Try `revo-grid` directly without setting up anything locally
 
 <!--@include: ../demo/js/js.overview.md-->
+
+<!--@include: ./parts/key-concepts.md-->
 
 
 ## Revogrid in 60 seconds

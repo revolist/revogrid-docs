@@ -83,11 +83,12 @@ onMounted(async () => {
             await import('@revolist/revogrid-column-select')
         ).default(),
     }
-    gridData.value = people.map((row) => {
+    gridData.value = people.map((row, i) => {
         const newRow: Record<string, any> = {
             ...row,
             highlighted: row.eyeColor,
             date: '2020-08-24',
+            avatar: `https://randomuser.me/api/portraits/${Math.floor(Math.random() * 2) ? 'men' : 'women'}/${Math.floor(Math.random() * 20) + 1}.jpg`
         }
         for (let j = 0; j < colsNumber; j++) {
             newRow[j] = getRandomArbitrary(0, 10000)
@@ -128,7 +129,7 @@ onMounted(async () => {
                                     }
                                 },
                                 h('img', {
-                                    src: `https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 20) + 1}.jpg`,
+                                    src: props.model.avatar,
                                 })
                             ),
                             ,

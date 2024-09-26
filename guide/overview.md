@@ -1,3 +1,12 @@
+---
+title: RevoGrid Overview
+---
+
+<script setup>
+import Grid from '@/demo/vue/DemoHR.vue'
+</script>
+
+
 # Overview
 
 So, you have an app that manages intensive datasets and you might think it’s straightforward enough to handle on your own. After all, implementing virtual scrolling might seem like all it takes. 
@@ -7,6 +16,10 @@ So, you have an app that manages intensive datasets and you might think it’s s
 Suppose you want to [`pin`](./defs.md#Row-Pin-Freeze) a row at the top or bottom. [`Add a column`](./defs.md#Column) that also needs to be pinned. And then start [`grouping`](./defs.md#Row-Grouping) these elements. Soon, you might find yourself needing [`cell focus`](./defs.md#Focus) and [`range selections`](./defs.md#Range). This is where the complexity increases significantly.
 
 In scenarios like this, maintaining performance while adding sophisticated grid functionalities can become difficult.
+
+<div class="example-container">
+<Grid />
+</div>
 
 ## Motivation
 
