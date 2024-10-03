@@ -18,6 +18,8 @@ import ContactForm from './ContactForm.vue'
 import type { DefaultTheme } from 'vitepress/theme'
 import VPTeamMembers from 'vitepress/dist/client/theme-default/components/VPTeamMembers.vue'
 import { features, proWhy } from './features'
+import { featuresPro } from './features.pro'
+import FeaturesGrid from './FeaturesGrid.vue'
 
 let showForm = ref(false) // isVisible
 const proFeat = [
@@ -82,6 +84,7 @@ Warm regards ❤️
 <br/> -->
 <br/>
 
+
 ## Why Pro?
 
 <VPTeamMembers class="whyPro" :members="proWhy" size="small" />
@@ -92,4 +95,4 @@ Warm regards ❤️
 
 ## What's included?
 
-<VPTeamMembers :members="features" size="small" />
+<FeaturesGrid :features="featuresPro" />
