@@ -341,9 +341,10 @@
 .example-container + details {
     summary {
         display: flex;
-        justify-content: space-between;
         pointer-events: none;
+        align-items: center;
         margin: -8px 0 0 0 !important;
+        gap: 10px;
 
         .source-btn {
             pointer-events: all;
