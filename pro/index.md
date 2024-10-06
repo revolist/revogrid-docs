@@ -18,6 +18,8 @@ import ContactForm from './ContactForm.vue'
 import type { DefaultTheme } from 'vitepress/theme'
 import VPTeamMembers from 'vitepress/dist/client/theme-default/components/VPTeamMembers.vue'
 import { features, proWhy } from './features'
+import { featuresPro } from './features.pro'
+import FeaturesGrid from './FeaturesGrid.vue'
 
 let showForm = ref(false) // isVisible
 const proFeat = [
@@ -30,11 +32,13 @@ const proFeat = [
 ]
 </script>
 
+<div class="description">
+
 # Build next level apps as a Pro
 
-Maintaining and developing Revogrid, along with its documentation and community, is a big job. It demands time and resources—none of which would be possible without your incredible support.
+Pro version 💎 aimed at supporting the future growth of the library and providing you with the exclusive benefits.
 
-We are excited to introduce the Pro version 💎, aimed at supporting the future growth of the library and providing you with the exclusive benefits.
+</div>
 
 <div class="plans-container">
 
@@ -82,6 +86,7 @@ Warm regards ❤️
 <br/> -->
 <br/>
 
+
 ## Why Pro?
 
 <VPTeamMembers class="whyPro" :members="proWhy" size="small" />
@@ -92,4 +97,4 @@ Warm regards ❤️
 
 ## What's included?
 
-<VPTeamMembers :members="features" size="small" />
+<FeaturesGrid :features="featuresPro" />
