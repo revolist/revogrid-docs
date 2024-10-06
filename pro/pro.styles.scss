@@ -1,3 +1,14 @@
+@media (min-width: 1440px) {
+    .proPage .VPDoc:not(.has-sidebar) .content[data-v-343c73d6] {
+        max-width: 1104px;
+    }
+}
+
+@media (min-width: 960px) {
+    .proPage .VPDoc:not(.has-sidebar) .content[data-v-343c73d6] {
+        max-width: 992px;
+    }
+}
 .plans-container {
     display: flex;
     flex-direction: column;
@@ -29,16 +40,8 @@
     }
 }
 
-@media (min-width: 1440px) {
-    .plans-container {
-        margin: 0 -200px;
-        max-width: 1104px;
-    }
-}
 @media (min-width: 960px) {
     .plans-container {
-        margin: 0 -100px;
-        max-width: 992px;
         flex-direction: row;
     }
 
@@ -47,6 +50,11 @@
             max-width: 350px;
         }
     }
+}
+.description {
+    max-width: 600px;
+    text-align: center;
+    margin: 0 auto;
 }
 figure.avatar {
     display: flex;

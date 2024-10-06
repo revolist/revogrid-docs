@@ -43,10 +43,10 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
 interface PlanProps {
   title: string
   description: string
-  price: string
+  price?: string
   pricePeriod?: string
   buttonText: string
-  href: string
+  href?: string
   features: string[]
   icon?: string
   buttonTheme?: 'brand' | 'alt' | 'sponsor'

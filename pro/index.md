@@ -32,11 +32,13 @@ const proFeat = [
 ]
 </script>
 
+<div class="description">
+
 # Build next level apps as a Pro
 
-Maintaining and developing Revogrid, along with its documentation and community, is a big job. It demands time and resources—none of which would be possible without your incredible support.
+Pro version 💎 aimed at supporting the future growth of the library and providing you with the exclusive benefits.
 
-We are excited to introduce the Pro version 💎, aimed at supporting the future growth of the library and providing you with the exclusive benefits.
+</div>
 
 <div class="plans-container">
 
