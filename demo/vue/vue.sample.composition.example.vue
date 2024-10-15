@@ -1,5 +1,5 @@
 <template>
-    <VGrid theme="material" :columns="columns" :source="rows" />
+    <VGrid theme="material" hide-attribution :columns="columns" :source="rows" />
 </template>
 
 <script setup>
