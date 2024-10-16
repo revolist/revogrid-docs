@@ -31,8 +31,7 @@ export default {
             VueGtag,
             {
                 config: { id: 'G-894M8FYLZF' }, 
-            },
-            router
+            }
         )
     },
 } satisfies Theme
