@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import VPImage from '../.vitepress/theme/VPImage.vue'
+import { event } from 'vue-gtag'
 
 // Define the interface for a feature card
 interface Feature {
@@ -24,6 +25,7 @@ const toggleFlip = (id: string) => {
     } else {
         // Flip the new card and reset any previously flipped card
         flippedCardId.value = id
+        event('pro_feature', { event_category: 'feature', event_label: id })
     }
 }
 </script>
