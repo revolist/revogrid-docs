@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <VGrid theme="material" :source="rows" :columns="columns" />
+    <VGrid theme="material" hide-attribution :source="rows" :columns="columns" />
   </div>
 </template>
 

@@ -124,6 +124,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                         { text: 'Cell Editor', link: '/guide/vue3/editor' },
                     ],
                 },
+                {
+                    text: 'Tanstack',
+                    link: '/guide/tanstack',
+                },
             ],
         },
         {
