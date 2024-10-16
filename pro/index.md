@@ -70,7 +70,7 @@ buttonText="Request a Quote"
 >
 <template #footer>
 
-[Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms)
+[Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms) | [License](./policies/license)
 
 </template>
 </Plan>
