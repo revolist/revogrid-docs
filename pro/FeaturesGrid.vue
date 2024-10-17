@@ -25,7 +25,7 @@ const toggleFlip = (id: string) => {
     } else {
         // Flip the new card and reset any previously flipped card
         flippedCardId.value = id
-        event('view_item', { event_category: 'feature', event_label: id })
+        event('view_item', { event_category: 'feature', description: id })
     }
 }
 </script>
