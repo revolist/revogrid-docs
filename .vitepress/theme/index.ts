@@ -27,11 +27,13 @@ export default {
     },
     enhanceApp({ app, router, siteData }) {
         enhanceAppWithTabs(app)
-        app.use(
-            VueGtag,
-            {
-                config: { id: 'G-894M8FYLZF' }, 
-            }
-        )
+        app.use(VueGtag, {
+            config: {
+                id: 'G-894M8FYLZF',
+                params: {
+                    anonymize_ip: true,
+                },
+            },
+        })
     },
 } satisfies Theme
