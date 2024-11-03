@@ -5,13 +5,15 @@
         readonly
         :can-focus="false"
         hide-attribution
-        theme="compact"
+        :theme="isDark ? 'darkCompact' : 'compact'"
     />
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
 import VGrid from '@revolist/vue3-datagrid'
+import { useData } from 'vitepress'
+const { isDark } = useData()
 
 // mock data
 function generateFakeDataRows(rowsNumber) {
@@ -79,9 +81,10 @@ const columns = computed(() => {
                 })
                 return [inputVNode, 'Select all']
             },
-            cellTemplate: (h, { model, prop }) => {
+            cellTemplate: (h, { model, prop, rowIndex }) => {
                 const inputVNode = h('input', {
                     type: 'checkbox',
+                    key: rowIndex,
                     checked: model.selected || undefined,
                     onChange: (e) => selectSingle(model, e.target.checked),
                 })

@@ -370,10 +370,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             text: 'Demo',
             link: '/demo/',
         },
-        ...(process.env.VITE_PRO_INCLUDE ? [{
-            text: 'Demo: Master Rows',
-            link: '/demo/nobel-pro/vue.nobel',
-        }]: []),
+        // ...(process.env.VITE_PRO_INCLUDE ? [{
+        //     text: 'Demo: Master Rows',
+        //     link: '/demo/nobel-pro/vue.nobel',
+        // }]: []),
         {
             text: 'Demo: Prompts',
             link: '/demo/vue/vue.prompts',
