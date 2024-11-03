@@ -389,17 +389,17 @@ Type: `Promise<void>`
 
 
 
-### `setDataAt(data: { row: number; col: number; } & AllDimensionType) => Promise<void | undefined>`
+### `setDataAt({ row, col, colType, rowType, val, skipDataUpdate }: { row: number; col: number; val?: any; skipDataUpdate?: boolean; } & AllDimensionType) => Promise<void | undefined>`
 
-Sets data at specified cell.
+Refreshes data at specified cell.
 Useful for performance optimization.
 No viewport update will be triggered.
 
 #### Parameters
 
-| Name   | Type                                               | Description |
-| ------ | -------------------------------------------------- | ----------- |
-| `data` | `{ row: number; col: number; } & AllDimensionType` |             |
+| Name  | Type                                                                                                 | Description |
+| ----- | ---------------------------------------------------------------------------------------------------- | ----------- |
+| `__0` | `{ row: number; col: number; val?: any; skipDataUpdate?: boolean \| undefined; } & AllDimensionType` |             |
 
 #### Returns
 

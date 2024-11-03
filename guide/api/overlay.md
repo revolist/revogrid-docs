@@ -8,22 +8,22 @@ Component for overlaying the grid with the selection.
 
 ## Properties
 
-| Property                    | Attribute                | Description                                                                                     | Type                                                        | Default     |
-| --------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ----------- |
-| `additionalData`            | `additional-data`        | Additional data to pass to renderer.                                                            | `any`                                                       | `undefined` |
-| `applyChangesOnClose`       | `apply-changes-on-close` | If true applys changes when cell closes if not Escape.                                          | `boolean`                                                   | `false`     |
-| `canDrag`                   | `can-drag`               | Enable revogr-order-editor component (read more in revogr-order-editor component). Allows D&D.  | `boolean`                                                   | `undefined` |
-| `colData`                   | --                       | Column data store.                                                                              | `ObservableMap<DSourceState<ColumnRegular, DimensionCols>>` | `undefined` |
-| `dataStore`                 | --                       | Row data store.                                                                                 | `ObservableMap<DSourceState<DataType, DimensionRows>>`      | `undefined` |
-| `dimensionCol` _(required)_ | --                       | Dimension settings X.                                                                           | `ObservableMap<DimensionSettingsState>`                     | `undefined` |
-| `dimensionRow`              | --                       | Dimension settings Y.                                                                           | `ObservableMap<DimensionSettingsState>`                     | `undefined` |
-| `editors`                   | --                       | Custom editors register.                                                                        | `{ [name: string]: EditorCtr; }`                            | `undefined` |
-| `isMobileDevice`            | `is-mobile-device`       | Is mobile view mode.                                                                            | `boolean`                                                   | `undefined` |
-| `lastCell`                  | --                       | Last real coordinates positions + 1.                                                            | `Cell`                                                      | `undefined` |
-| `range`                     | `range`                  | Range selection allowed.                                                                        | `boolean`                                                   | `undefined` |
-| `readonly`                  | `readonly`               | Readonly mode.                                                                                  | `boolean`                                                   | `undefined` |
-| `selectionStore`            | --                       | Selection, range, focus.                                                                        | `ObservableMap<SelectionStoreState>`                        | `undefined` |
-| `useClipboard`              | `use-clipboard`          | Enable revogr-clipboard component (read more in revogr-clipboard component). Allows copy/paste. | `boolean`                                                   | `undefined` |
+| Property                      | Attribute                | Description                                                                                     | Type                                                        | Default     |
+| ----------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ----------- |
+| `additionalData`              | `additional-data`        | Additional data to pass to renderer.                                                            | `any`                                                       | `undefined` |
+| `applyChangesOnClose`         | `apply-changes-on-close` | If true applys changes when cell closes if not Escape.                                          | `boolean`                                                   | `false`     |
+| `canDrag`                     | `can-drag`               | Enable revogr-order-editor component (read more in revogr-order-editor component). Allows D&D.  | `boolean`                                                   | `undefined` |
+| `colData` _(required)_        | --                       | Column data store.                                                                              | `ObservableMap<DSourceState<ColumnRegular, DimensionCols>>` | `undefined` |
+| `dataStore` _(required)_      | --                       | Row data store.                                                                                 | `ObservableMap<DSourceState<DataType, DimensionRows>>`      | `undefined` |
+| `dimensionCol` _(required)_   | --                       | Dimension settings X.                                                                           | `ObservableMap<DimensionSettingsState>`                     | `undefined` |
+| `dimensionRow`                | --                       | Dimension settings Y.                                                                           | `ObservableMap<DimensionSettingsState>`                     | `undefined` |
+| `editors`                     | --                       | Custom editors register.                                                                        | `{ [name: string]: EditorCtr; }`                            | `undefined` |
+| `isMobileDevice`              | `is-mobile-device`       | Is mobile view mode.                                                                            | `boolean`                                                   | `undefined` |
+| `lastCell`                    | --                       | Last real coordinates positions + 1.                                                            | `Cell`                                                      | `undefined` |
+| `range`                       | `range`                  | Range selection allowed.                                                                        | `boolean`                                                   | `undefined` |
+| `readonly`                    | `readonly`               | Readonly mode.                                                                                  | `boolean`                                                   | `undefined` |
+| `selectionStore` _(required)_ | --                       | Selection, range, focus.                                                                        | `ObservableMap<SelectionStoreState>`                        | `undefined` |
+| `useClipboard`                | `use-clipboard`          | Enable revogr-clipboard component (read more in revogr-clipboard component). Allows copy/paste. | `boolean`                                                   | `undefined` |
 
 
 ## Events

@@ -8,4 +8,4 @@ type GridPlugin: typeof BasePlugin;
 
 ## Defined in
 
-[src/plugins/base.plugin.ts:101](https://github.com/revolist/revogrid/blob/ec98f5e49749ad8581a7f9ebef8e2f6167a106af/src/plugins/base.plugin.ts#L101)
+[src/plugins/base.plugin.ts:101](https://github.com/revolist/revogrid/blob/d240e7e144f55d013a7a7b8d313a97b83af7bd06/src/plugins/base.plugin.ts#L101)

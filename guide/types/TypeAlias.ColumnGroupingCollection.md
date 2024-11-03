@@ -8,4 +8,4 @@ type ColumnGroupingCollection: Record<DimensionCols, ColumnGroup[]>;
 
 ## Defined in
 
-[src/utils/column.utils.ts:20](https://github.com/revolist/revogrid/blob/ec98f5e49749ad8581a7f9ebef8e2f6167a106af/src/utils/column.utils.ts#L20)
+[src/utils/column.utils.ts:20](https://github.com/revolist/revogrid/blob/d240e7e144f55d013a7a7b8d313a97b83af7bd06/src/utils/column.utils.ts#L20)
