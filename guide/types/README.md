@@ -34,16 +34,16 @@ new AutoAddRowsPlugin(revogrid: HTMLRevoGridElement, providers: PluginProviders)
 
 ##### Defined in
 
-[src/plugins/add-rows-on-past.plugin.ts:9](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/add-rows-on-past.plugin.ts#L9)
+[src/plugins/add-rows-on-paste.plugin.ts:9](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/add-rows-on-paste.plugin.ts#L9)
 
 ### Properties
 
 | Property | Modifier | Type | Default value | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
-| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | [`BasePlugin`](README.md#baseplugin).`h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L12) |
-| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | [`BasePlugin`](README.md#baseplugin).`providers` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L14) |
-| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | [`BasePlugin`](README.md#baseplugin).`revogrid` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L14) |
-| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | [`BasePlugin`](README.md#baseplugin).`subscriptions` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L13) |
+| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | [`BasePlugin`](README.md#baseplugin).`h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L12) |
+| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | [`BasePlugin`](README.md#baseplugin).`providers` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L14) |
+| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | [`BasePlugin`](README.md#baseplugin).`revogrid` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L14) |
+| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | [`BasePlugin`](README.md#baseplugin).`subscriptions` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L13) |
 
 ### Methods
 
@@ -76,7 +76,7 @@ addEventListener<T>(eventName: string, callback: (e: CustomEvent<T>) => void): v
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L20)
+[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L20)
 
 ***
 
@@ -98,7 +98,7 @@ Clear all subscriptions
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:87](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L87)
+[src/plugins/base.plugin.ts:87](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L87)
 
 ***
 
@@ -120,7 +120,7 @@ Destroy plugin and clear all subscriptions
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:96](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L96)
+[src/plugins/base.plugin.ts:96](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L96)
 
 ***
 
@@ -156,7 +156,7 @@ Event can be cancelled by calling event.preventDefault() in callback
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L78)
+[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L78)
 
 ***
 
@@ -182,7 +182,7 @@ handleBeforePasteApply(event: CustomEvent<{
 
 ##### Defined in
 
-[src/plugins/add-rows-on-past.plugin.ts:16](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/add-rows-on-past.plugin.ts#L16)
+[src/plugins/add-rows-on-paste.plugin.ts:16](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/add-rows-on-paste.plugin.ts#L16)
 
 ***
 
@@ -210,7 +210,7 @@ Remove event listener
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L69)
+[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L69)
 
 ***
 
@@ -250,7 +250,7 @@ You can return false in callback to prevent default value set
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L36)
+[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L36)
 
 ***
 
@@ -293,22 +293,22 @@ new AutoSizeColumnPlugin(
 
 ##### Defined in
 
-[src/plugins/column.auto-size.plugin.ts:75](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L75)
+[src/plugins/column.auto-size.plugin.ts:75](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L75)
 
 ### Properties
 
 | Property | Modifier | Type | Default value | Description | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-| `autoSizeColumns` | `public` | `null` \| `Partial`\<`AutoSizeColumns`\> | `null` | - | - | [src/plugins/column.auto-size.plugin.ts:65](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L65) |
-| `config?` | `public` | [`AutoSizeColumnConfig`](TypeAlias.AutoSizeColumnConfig.md) | `undefined` | - | - | [src/plugins/column.auto-size.plugin.ts:78](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L78) |
-| `dataReject` | `public` | `null` \| `Reject` | `null` | - | - | [src/plugins/column.auto-size.plugin.ts:73](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L73) |
-| `dataResolve` | `public` | `null` \| `Resolve` | `null` | for edge case when no columns defined before data | - | [src/plugins/column.auto-size.plugin.ts:72](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L72) |
-| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | - | [`BasePlugin`](README.md#baseplugin).`h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L12) |
-| `letterBlockSize` | `readonly` | `number` | `undefined` | - | - | [src/plugins/column.auto-size.plugin.ts:66](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L66) |
-| `precsizeCalculationArea` | `readonly` | `HTMLElement` | `undefined` | for config option when **Precise Size** enabled | - | [src/plugins/column.auto-size.plugin.ts:69](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L69) |
-| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | - | [`BasePlugin`](README.md#baseplugin).`providers` | [src/plugins/column.auto-size.plugin.ts:77](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L77) |
-| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | - | [`BasePlugin`](README.md#baseplugin).`revogrid` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L14) |
-| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | - | [`BasePlugin`](README.md#baseplugin).`subscriptions` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L13) |
+| `autoSizeColumns` | `public` | `null` \| `Partial`\<`AutoSizeColumns`\> | `null` | - | - | [src/plugins/column.auto-size.plugin.ts:65](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L65) |
+| `config?` | `public` | [`AutoSizeColumnConfig`](TypeAlias.AutoSizeColumnConfig.md) | `undefined` | - | - | [src/plugins/column.auto-size.plugin.ts:78](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L78) |
+| `dataReject` | `public` | `null` \| `Reject` | `null` | - | - | [src/plugins/column.auto-size.plugin.ts:73](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L73) |
+| `dataResolve` | `public` | `null` \| `Resolve` | `null` | for edge case when no columns defined before data | - | [src/plugins/column.auto-size.plugin.ts:72](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L72) |
+| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | - | [`BasePlugin`](README.md#baseplugin).`h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L12) |
+| `letterBlockSize` | `readonly` | `number` | `undefined` | - | - | [src/plugins/column.auto-size.plugin.ts:66](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L66) |
+| `precsizeCalculationArea` | `readonly` | `HTMLElement` | `undefined` | for config option when **Precise Size** enabled | - | [src/plugins/column.auto-size.plugin.ts:69](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L69) |
+| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | - | [`BasePlugin`](README.md#baseplugin).`providers` | [src/plugins/column.auto-size.plugin.ts:77](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L77) |
+| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | - | [`BasePlugin`](README.md#baseplugin).`revogrid` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L14) |
+| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | - | [`BasePlugin`](README.md#baseplugin).`subscriptions` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L13) |
 
 ### Methods
 
@@ -341,7 +341,7 @@ addEventListener<T>(eventName: string, callback: (e: CustomEvent<T>) => void): v
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L20)
+[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L20)
 
 ***
 
@@ -363,7 +363,7 @@ afterEditAll(e: EditEvent): void
 
 ##### Defined in
 
-[src/plugins/column.auto-size.plugin.ts:219](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L219)
+[src/plugins/column.auto-size.plugin.ts:219](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L219)
 
 ***
 
@@ -385,7 +385,7 @@ afteredit(e: EditEvent): void
 
 ##### Defined in
 
-[src/plugins/column.auto-size.plugin.ts:187](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L187)
+[src/plugins/column.auto-size.plugin.ts:187](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L187)
 
 ***
 
@@ -401,7 +401,7 @@ clearPromise(): void
 
 ##### Defined in
 
-[src/plugins/column.auto-size.plugin.ts:290](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L290)
+[src/plugins/column.auto-size.plugin.ts:290](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L290)
 
 ***
 
@@ -423,7 +423,7 @@ Clear all subscriptions
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:87](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L87)
+[src/plugins/base.plugin.ts:87](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L87)
 
 ***
 
@@ -445,7 +445,7 @@ columnSet(columns: Record<DimensionCols, ColumnRegular[]>): void
 
 ##### Defined in
 
-[src/plugins/column.auto-size.plugin.ts:263](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L263)
+[src/plugins/column.auto-size.plugin.ts:263](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L263)
 
 ***
 
@@ -467,7 +467,7 @@ Destroy plugin and clear all subscriptions
 
 ##### Defined in
 
-[src/plugins/column.auto-size.plugin.ts:318](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L318)
+[src/plugins/column.auto-size.plugin.ts:318](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L318)
 
 ***
 
@@ -503,7 +503,7 @@ Event can be cancelled by calling event.preventDefault() in callback
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L78)
+[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L78)
 
 ***
 
@@ -526,7 +526,7 @@ getColumnSize(index: number, type: DimensionCols): number
 
 ##### Defined in
 
-[src/plugins/column.auto-size.plugin.ts:241](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L241)
+[src/plugins/column.auto-size.plugin.ts:241](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L241)
 
 ***
 
@@ -548,7 +548,7 @@ getLength(len?: any): number
 
 ##### Defined in
 
-[src/plugins/column.auto-size.plugin.ts:168](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L168)
+[src/plugins/column.auto-size.plugin.ts:168](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L168)
 
 ***
 
@@ -564,7 +564,7 @@ initiatePresizeElement(): HTMLElement
 
 ##### Defined in
 
-[src/plugins/column.auto-size.plugin.ts:299](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L299)
+[src/plugins/column.auto-size.plugin.ts:299](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L299)
 
 ***
 
@@ -586,7 +586,7 @@ isRangeEdit(e: EditEvent): e is BeforeRangeSaveDataDetails
 
 ##### Defined in
 
-[src/plugins/column.auto-size.plugin.ts:295](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L295)
+[src/plugins/column.auto-size.plugin.ts:295](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L295)
 
 ***
 
@@ -614,7 +614,7 @@ Remove event listener
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L69)
+[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L69)
 
 ***
 
@@ -636,7 +636,7 @@ setSource(source: DataType[]): Promise<void>
 
 ##### Defined in
 
-[src/plugins/column.auto-size.plugin.ts:134](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.auto-size.plugin.ts#L134)
+[src/plugins/column.auto-size.plugin.ts:134](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.auto-size.plugin.ts#L134)
 
 ***
 
@@ -676,7 +676,7 @@ You can return false in callback to prevent default value set
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L36)
+[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L36)
 
 ***
 
@@ -721,16 +721,16 @@ new BasePlugin(revogrid: HTMLRevoGridElement, providers: PluginProviders): BaseP
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L14)
+[src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L14)
 
 ### Properties
 
 | Property | Modifier | Type | Default value | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L12) |
-| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L14) |
-| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L14) |
-| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L13) |
+| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L12) |
+| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L14) |
+| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L14) |
+| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L13) |
 
 ### Methods
 
@@ -759,7 +759,7 @@ addEventListener<T>(eventName: string, callback: (e: CustomEvent<T>) => void): v
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L20)
+[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L20)
 
 ***
 
@@ -777,7 +777,7 @@ Clear all subscriptions
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:87](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L87)
+[src/plugins/base.plugin.ts:87](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L87)
 
 ***
 
@@ -799,7 +799,7 @@ Destroy plugin and clear all subscriptions
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:96](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L96)
+[src/plugins/base.plugin.ts:96](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L96)
 
 ***
 
@@ -831,7 +831,7 @@ Event can be cancelled by calling event.preventDefault() in callback
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L78)
+[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L78)
 
 ***
 
@@ -855,7 +855,7 @@ Remove event listener
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L69)
+[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L69)
 
 ***
 
@@ -891,7 +891,7 @@ You can return false in callback to prevent default value set
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L36)
+[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L36)
 
 ***
 
@@ -930,16 +930,16 @@ new ColumnMovePlugin(revogrid: HTMLRevoGridElement, providers: PluginProviders):
 
 ##### Defined in
 
-[src/plugins/moveColumn/column.drag.plugin.ts:54](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/moveColumn/column.drag.plugin.ts#L54)
+[src/plugins/moveColumn/column.drag.plugin.ts:54](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/moveColumn/column.drag.plugin.ts#L54)
 
 ### Properties
 
 | Property | Modifier | Type | Default value | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
-| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | [`BasePlugin`](README.md#baseplugin).`h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L12) |
-| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | [`BasePlugin`](README.md#baseplugin).`providers` | [src/plugins/moveColumn/column.drag.plugin.ts:54](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/moveColumn/column.drag.plugin.ts#L54) |
-| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | [`BasePlugin`](README.md#baseplugin).`revogrid` | [src/plugins/moveColumn/column.drag.plugin.ts:54](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/moveColumn/column.drag.plugin.ts#L54) |
-| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | [`BasePlugin`](README.md#baseplugin).`subscriptions` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L13) |
+| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | [`BasePlugin`](README.md#baseplugin).`h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L12) |
+| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | [`BasePlugin`](README.md#baseplugin).`providers` | [src/plugins/moveColumn/column.drag.plugin.ts:54](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/moveColumn/column.drag.plugin.ts#L54) |
+| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | [`BasePlugin`](README.md#baseplugin).`revogrid` | [src/plugins/moveColumn/column.drag.plugin.ts:54](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/moveColumn/column.drag.plugin.ts#L54) |
+| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | [`BasePlugin`](README.md#baseplugin).`subscriptions` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L13) |
 
 ### Methods
 
@@ -972,7 +972,7 @@ addEventListener<T>(eventName: string, callback: (e: CustomEvent<T>) => void): v
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L20)
+[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L20)
 
 ***
 
@@ -988,7 +988,7 @@ clearOrder(): void
 
 ##### Defined in
 
-[src/plugins/moveColumn/column.drag.plugin.ts:190](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/moveColumn/column.drag.plugin.ts#L190)
+[src/plugins/moveColumn/column.drag.plugin.ts:197](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/moveColumn/column.drag.plugin.ts#L197)
 
 ***
 
@@ -1010,7 +1010,7 @@ Clearing subscription
 
 ##### Defined in
 
-[src/plugins/moveColumn/column.drag.plugin.ts:199](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/moveColumn/column.drag.plugin.ts#L199)
+[src/plugins/moveColumn/column.drag.plugin.ts:206](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/moveColumn/column.drag.plugin.ts#L206)
 
 ***
 
@@ -1032,7 +1032,7 @@ Destroy plugin and clear all subscriptions
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:96](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L96)
+[src/plugins/base.plugin.ts:96](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L96)
 
 ***
 
@@ -1054,7 +1054,7 @@ doMove(e: MouseEvent): void
 
 ##### Defined in
 
-[src/plugins/moveColumn/column.drag.plugin.ts:127](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/moveColumn/column.drag.plugin.ts#L127)
+[src/plugins/moveColumn/column.drag.plugin.ts:127](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/moveColumn/column.drag.plugin.ts#L127)
 
 ***
 
@@ -1076,7 +1076,7 @@ dragStart(__namedParameters: DragStartEventDetails): void
 
 ##### Defined in
 
-[src/plugins/moveColumn/column.drag.plugin.ts:78](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/moveColumn/column.drag.plugin.ts#L78)
+[src/plugins/moveColumn/column.drag.plugin.ts:78](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/moveColumn/column.drag.plugin.ts#L78)
 
 ***
 
@@ -1112,7 +1112,7 @@ Event can be cancelled by calling event.preventDefault() in callback
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L78)
+[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L78)
 
 ***
 
@@ -1134,7 +1134,7 @@ move(e: MouseEvent): void
 
 ##### Defined in
 
-[src/plugins/moveColumn/column.drag.plugin.ts:148](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/moveColumn/column.drag.plugin.ts#L148)
+[src/plugins/moveColumn/column.drag.plugin.ts:153](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/moveColumn/column.drag.plugin.ts#L153)
 
 ***
 
@@ -1156,7 +1156,7 @@ onMouseOut(_: MouseEvent): void
 
 ##### Defined in
 
-[src/plugins/moveColumn/column.drag.plugin.ts:153](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/moveColumn/column.drag.plugin.ts#L153)
+[src/plugins/moveColumn/column.drag.plugin.ts:158](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/moveColumn/column.drag.plugin.ts#L158)
 
 ***
 
@@ -1178,7 +1178,7 @@ onMouseUp(e: MouseEvent): void
 
 ##### Defined in
 
-[src/plugins/moveColumn/column.drag.plugin.ts:156](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/moveColumn/column.drag.plugin.ts#L156)
+[src/plugins/moveColumn/column.drag.plugin.ts:161](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/moveColumn/column.drag.plugin.ts#L161)
 
 ***
 
@@ -1206,7 +1206,7 @@ Remove event listener
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L69)
+[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L69)
 
 ***
 
@@ -1246,7 +1246,7 @@ You can return false in callback to prevent default value set
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L36)
+[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L36)
 
 ***
 
@@ -1283,7 +1283,7 @@ new DataStore<T, ST>(type: ST, storeData?: DSourceState<T, ST>): DataStore<T, ST
 
 ##### Defined in
 
-[src/store/dataSource/data.store.ts:45](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.store.ts#L45)
+[src/store/dataSource/data.store.ts:45](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.store.ts#L45)
 
 ### Accessors
 
@@ -1299,7 +1299,7 @@ get store(): Observable<DSourceState<T, ST>>
 
 ##### Defined in
 
-[src/store/dataSource/data.store.ts:42](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.store.ts#L42)
+[src/store/dataSource/data.store.ts:42](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.store.ts#L42)
 
 ### Methods
 
@@ -1321,7 +1321,7 @@ addTrimmed(some: Partial<Trimmed>): void
 
 ##### Defined in
 
-[src/store/dataSource/data.store.ts:100](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.store.ts#L100)
+[src/store/dataSource/data.store.ts:100](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.store.ts#L100)
 
 ***
 
@@ -1337,7 +1337,7 @@ refresh(): void
 
 ##### Defined in
 
-[src/store/dataSource/data.store.ts:118](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.store.ts#L118)
+[src/store/dataSource/data.store.ts:118](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.store.ts#L118)
 
 ***
 
@@ -1359,7 +1359,7 @@ setData(input: Partial<DSourceState<T, ST>>): void
 
 ##### Defined in
 
-[src/store/dataSource/data.store.ts:111](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.store.ts#L111)
+[src/store/dataSource/data.store.ts:111](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.store.ts#L111)
 
 ***
 
@@ -1382,7 +1382,7 @@ setSourceData(items: Record<number, any>, mutate: boolean): void
 
 ##### Defined in
 
-[src/store/dataSource/data.store.ts:106](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.store.ts#L106)
+[src/store/dataSource/data.store.ts:106](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.store.ts#L106)
 
 ***
 
@@ -1418,7 +1418,7 @@ full data source update
 
 ##### Defined in
 
-[src/store/dataSource/data.store.ts:66](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.store.ts#L66)
+[src/store/dataSource/data.store.ts:66](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.store.ts#L66)
 
 ***
 
@@ -1444,14 +1444,14 @@ new DimensionStore(type: MultiDimensionType): DimensionStore
 
 ##### Defined in
 
-[src/store/dimension/dimension.store.ts:56](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.store.ts#L56)
+[src/store/dimension/dimension.store.ts:56](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.store.ts#L56)
 
 ### Properties
 
 | Property | Modifier | Type | Defined in |
 | ------ | ------ | ------ | ------ |
-| `store` | `readonly` | [`Observable`](TypeAlias.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | [src/store/dimension/dimension.store.ts:55](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.store.ts#L55) |
-| `type` | `readonly` | [`MultiDimensionType`](TypeAlias.MultiDimensionType.md) | [src/store/dimension/dimension.store.ts:56](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.store.ts#L56) |
+| `store` | `readonly` | [`Observable`](TypeAlias.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | [src/store/dimension/dimension.store.ts:55](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.store.ts#L55) |
+| `type` | `readonly` | [`MultiDimensionType`](TypeAlias.MultiDimensionType.md) | [src/store/dimension/dimension.store.ts:56](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.store.ts#L56) |
 
 ### Methods
 
@@ -1467,7 +1467,7 @@ dispose(): void
 
 ##### Defined in
 
-[src/store/dimension/dimension.store.ts:82](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.store.ts#L82)
+[src/store/dimension/dimension.store.ts:82](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.store.ts#L82)
 
 ***
 
@@ -1483,7 +1483,7 @@ drop(): void
 
 ##### Defined in
 
-[src/store/dimension/dimension.store.ts:90](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.store.ts#L90)
+[src/store/dimension/dimension.store.ts:90](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.store.ts#L90)
 
 ***
 
@@ -1499,7 +1499,7 @@ getCurrentState(): DimensionSettingsState
 
 ##### Defined in
 
-[src/store/dimension/dimension.store.ts:68](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.store.ts#L68)
+[src/store/dimension/dimension.store.ts:68](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.store.ts#L68)
 
 ***
 
@@ -1524,7 +1524,7 @@ Generates new indexes based on sizes
 
 ##### Defined in
 
-[src/store/dimension/dimension.store.ts:99](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.store.ts#L99)
+[src/store/dimension/dimension.store.ts:99](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.store.ts#L99)
 
 ***
 
@@ -1552,7 +1552,7 @@ setStore<T>(data: Partial<T>): void
 
 ##### Defined in
 
-[src/store/dimension/dimension.store.ts:86](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.store.ts#L86)
+[src/store/dimension/dimension.store.ts:86](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.store.ts#L86)
 
 ***
 
@@ -1575,7 +1575,7 @@ updateSizesPositionByIndexes(newItemsOrder: number[], prevItemsOrder: number[]):
 
 ##### Defined in
 
-[src/store/dimension/dimension.store.ts:110](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.store.ts#L110)
+[src/store/dimension/dimension.store.ts:110](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.store.ts#L110)
 
 ***
 
@@ -1605,13 +1605,13 @@ new ExportCsv(options: Partial<CSVFormat>): ExportCsv
 
 ##### Defined in
 
-[src/plugins/export/csv.ts:26](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/export/csv.ts#L26)
+[src/plugins/export/csv.ts:26](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/export/csv.ts#L26)
 
 ### Properties
 
 | Property | Modifier | Type | Defined in |
 | ------ | ------ | ------ | ------ |
-| `options` | `readonly` | `Readonly`\<[`CSVFormat`](Interface.CSVFormat.md)\> | [src/plugins/export/csv.ts:25](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/export/csv.ts#L25) |
+| `options` | `readonly` | `Readonly`\<[`CSVFormat`](Interface.CSVFormat.md)\> | [src/plugins/export/csv.ts:25](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/export/csv.ts#L25) |
 
 ### Methods
 
@@ -1637,7 +1637,7 @@ doExport(__namedParameters: DataInput): string
 
 ##### Defined in
 
-[src/plugins/export/csv.ts:30](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/export/csv.ts#L30)
+[src/plugins/export/csv.ts:30](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/export/csv.ts#L30)
 
 ***
 
@@ -1676,16 +1676,16 @@ new ExportFilePlugin(revogrid: HTMLRevoGridElement, providers: PluginProviders):
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L14)
+[src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L14)
 
 ### Properties
 
 | Property | Modifier | Type | Default value | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
-| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | [`BasePlugin`](README.md#baseplugin).`h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L12) |
-| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | [`BasePlugin`](README.md#baseplugin).`providers` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L14) |
-| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | [`BasePlugin`](README.md#baseplugin).`revogrid` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L14) |
-| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | [`BasePlugin`](README.md#baseplugin).`subscriptions` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L13) |
+| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | [`BasePlugin`](README.md#baseplugin).`h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L12) |
+| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | [`BasePlugin`](README.md#baseplugin).`providers` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L14) |
+| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | [`BasePlugin`](README.md#baseplugin).`revogrid` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L14) |
+| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | [`BasePlugin`](README.md#baseplugin).`subscriptions` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L13) |
 
 ### Methods
 
@@ -1718,7 +1718,7 @@ addEventListener<T>(eventName: string, callback: (e: CustomEvent<T>) => void): v
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L20)
+[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L20)
 
 ***
 
@@ -1740,7 +1740,7 @@ Clear all subscriptions
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:87](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L87)
+[src/plugins/base.plugin.ts:87](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L87)
 
 ***
 
@@ -1762,7 +1762,7 @@ Destroy plugin and clear all subscriptions
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:96](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L96)
+[src/plugins/base.plugin.ts:96](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L96)
 
 ***
 
@@ -1798,7 +1798,7 @@ Event can be cancelled by calling event.preventDefault() in callback
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L78)
+[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L78)
 
 ***
 
@@ -1823,7 +1823,7 @@ Exports Blob
 
 ##### Defined in
 
-[src/plugins/export/export.plugin.ts:30](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/export/export.plugin.ts#L30)
+[src/plugins/export/export.plugin.ts:30](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/export/export.plugin.ts#L30)
 
 ***
 
@@ -1848,7 +1848,7 @@ Export file
 
 ##### Defined in
 
-[src/plugins/export/export.plugin.ts:35](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/export/export.plugin.ts#L35)
+[src/plugins/export/export.plugin.ts:35](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/export/export.plugin.ts#L35)
 
 ***
 
@@ -1873,7 +1873,7 @@ Exports string
 
 ##### Defined in
 
-[src/plugins/export/export.plugin.ts:21](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/export/export.plugin.ts#L21)
+[src/plugins/export/export.plugin.ts:21](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/export/export.plugin.ts#L21)
 
 ***
 
@@ -1897,7 +1897,7 @@ Blob object
 
 ##### Defined in
 
-[src/plugins/export/export.plugin.ts:61](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/export/export.plugin.ts#L61)
+[src/plugins/export/export.plugin.ts:61](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/export/export.plugin.ts#L61)
 
 ***
 
@@ -1925,7 +1925,7 @@ Remove event listener
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L69)
+[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L69)
 
 ***
 
@@ -1965,7 +1965,7 @@ You can return false in callback to prevent default value set
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L36)
+[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L36)
 
 ***
 
@@ -2004,16 +2004,16 @@ new GroupingRowPlugin(revogrid: HTMLRevoGridElement, providers: PluginProviders)
 
 ##### Defined in
 
-[src/plugins/groupingRow/grouping.row.plugin.ts:52](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/groupingRow/grouping.row.plugin.ts#L52)
+[src/plugins/groupingRow/grouping.row.plugin.ts:52](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/groupingRow/grouping.row.plugin.ts#L52)
 
 ### Properties
 
 | Property | Modifier | Type | Default value | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
-| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | [`BasePlugin`](README.md#baseplugin).`h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L12) |
-| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | [`BasePlugin`](README.md#baseplugin).`providers` | [src/plugins/groupingRow/grouping.row.plugin.ts:54](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/groupingRow/grouping.row.plugin.ts#L54) |
-| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | [`BasePlugin`](README.md#baseplugin).`revogrid` | [src/plugins/groupingRow/grouping.row.plugin.ts:53](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/groupingRow/grouping.row.plugin.ts#L53) |
-| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | [`BasePlugin`](README.md#baseplugin).`subscriptions` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L13) |
+| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | [`BasePlugin`](README.md#baseplugin).`h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L12) |
+| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | [`BasePlugin`](README.md#baseplugin).`providers` | [src/plugins/groupingRow/grouping.row.plugin.ts:54](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/groupingRow/grouping.row.plugin.ts#L54) |
+| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | [`BasePlugin`](README.md#baseplugin).`revogrid` | [src/plugins/groupingRow/grouping.row.plugin.ts:53](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/groupingRow/grouping.row.plugin.ts#L53) |
+| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | [`BasePlugin`](README.md#baseplugin).`subscriptions` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L13) |
 
 ### Accessors
 
@@ -2029,7 +2029,7 @@ get hasProps(): undefined | number
 
 ##### Defined in
 
-[src/plugins/groupingRow/grouping.row.plugin.ts:35](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/groupingRow/grouping.row.plugin.ts#L35)
+[src/plugins/groupingRow/grouping.row.plugin.ts:35](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/groupingRow/grouping.row.plugin.ts#L35)
 
 ***
 
@@ -2045,7 +2045,7 @@ get rowItems(): number[]
 
 ##### Defined in
 
-[src/plugins/groupingRow/grouping.row.plugin.ts:44](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/groupingRow/grouping.row.plugin.ts#L44)
+[src/plugins/groupingRow/grouping.row.plugin.ts:44](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/groupingRow/grouping.row.plugin.ts#L44)
 
 ***
 
@@ -2061,7 +2061,7 @@ get store(): Observable<DSourceState<DataType, DimensionRows>>
 
 ##### Defined in
 
-[src/plugins/groupingRow/grouping.row.plugin.ts:39](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/groupingRow/grouping.row.plugin.ts#L39)
+[src/plugins/groupingRow/grouping.row.plugin.ts:39](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/groupingRow/grouping.row.plugin.ts#L39)
 
 ***
 
@@ -2077,7 +2077,7 @@ get trimmed(): Record<any, any>
 
 ##### Defined in
 
-[src/plugins/groupingRow/grouping.row.plugin.ts:48](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/groupingRow/grouping.row.plugin.ts#L48)
+[src/plugins/groupingRow/grouping.row.plugin.ts:48](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/groupingRow/grouping.row.plugin.ts#L48)
 
 ### Methods
 
@@ -2110,7 +2110,7 @@ addEventListener<T>(eventName: string, callback: (e: CustomEvent<T>) => void): v
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L20)
+[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L20)
 
 ***
 
@@ -2126,7 +2126,7 @@ clearGrouping(): void
 
 ##### Defined in
 
-[src/plugins/groupingRow/grouping.row.plugin.ts:311](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/groupingRow/grouping.row.plugin.ts#L311)
+[src/plugins/groupingRow/grouping.row.plugin.ts:311](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/groupingRow/grouping.row.plugin.ts#L311)
 
 ***
 
@@ -2148,7 +2148,7 @@ Clear all subscriptions
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:87](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L87)
+[src/plugins/base.plugin.ts:87](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L87)
 
 ***
 
@@ -2170,7 +2170,7 @@ Destroy plugin and clear all subscriptions
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:96](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L96)
+[src/plugins/base.plugin.ts:96](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L96)
 
 ***
 
@@ -2206,7 +2206,7 @@ Event can be cancelled by calling event.preventDefault() in callback
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L78)
+[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L78)
 
 ***
 
@@ -2234,7 +2234,7 @@ Remove event listener
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L69)
+[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L69)
 
 ***
 
@@ -2256,7 +2256,7 @@ setGrouping(options: GroupingOptions): void
 
 ##### Defined in
 
-[src/plugins/groupingRow/grouping.row.plugin.ts:284](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/groupingRow/grouping.row.plugin.ts#L284)
+[src/plugins/groupingRow/grouping.row.plugin.ts:284](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/groupingRow/grouping.row.plugin.ts#L284)
 
 ***
 
@@ -2296,7 +2296,7 @@ You can return false in callback to prevent default value set
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L36)
+[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L36)
 
 ***
 
@@ -2316,13 +2316,13 @@ new SelectionStore(): SelectionStore
 
 ##### Defined in
 
-[src/store/selection/selection.store.ts:25](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.store.ts#L25)
+[src/store/selection/selection.store.ts:25](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.store.ts#L25)
 
 ### Properties
 
 | Property | Modifier | Type | Defined in |
 | ------ | ------ | ------ | ------ |
-| `store` | `readonly` | [`Observable`](TypeAlias.Observable.md)\<[`SelectionStoreState`](TypeAlias.SelectionStoreState.md)\> | [src/store/selection/selection.store.ts:23](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.store.ts#L23) |
+| `store` | `readonly` | [`Observable`](TypeAlias.Observable.md)\<[`SelectionStoreState`](TypeAlias.SelectionStoreState.md)\> | [src/store/selection/selection.store.ts:23](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.store.ts#L23) |
 
 ### Methods
 
@@ -2338,7 +2338,7 @@ clearFocus(): void
 
 ##### Defined in
 
-[src/store/selection/selection.store.ts:38](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.store.ts#L38)
+[src/store/selection/selection.store.ts:38](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.store.ts#L38)
 
 ***
 
@@ -2354,7 +2354,7 @@ clearTemp(): void
 
 ##### Defined in
 
-[src/store/selection/selection.store.ts:63](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.store.ts#L63)
+[src/store/selection/selection.store.ts:63](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.store.ts#L63)
 
 ***
 
@@ -2370,7 +2370,7 @@ dispose(): void
 
 ##### Defined in
 
-[src/store/selection/selection.store.ts:91](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.store.ts#L91)
+[src/store/selection/selection.store.ts:91](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.store.ts#L91)
 
 ***
 
@@ -2399,7 +2399,7 @@ onChange<Key>(propName: Key, cb: (newValue: SelectionStoreState[Key]) => void): 
 
 ##### Defined in
 
-[src/store/selection/selection.store.ts:34](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.store.ts#L34)
+[src/store/selection/selection.store.ts:34](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.store.ts#L34)
 
 ***
 
@@ -2421,7 +2421,7 @@ setEdit(val?: string | boolean): void
 
 ##### Defined in
 
-[src/store/selection/selection.store.ts:80](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.store.ts#L80)
+[src/store/selection/selection.store.ts:80](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.store.ts#L80)
 
 ***
 
@@ -2444,7 +2444,7 @@ setFocus(focus: Cell, end?: Cell): void
 
 ##### Defined in
 
-[src/store/selection/selection.store.ts:42](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.store.ts#L42)
+[src/store/selection/selection.store.ts:42](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.store.ts#L42)
 
 ***
 
@@ -2466,7 +2466,7 @@ setLastCell(lastCell: Cell): void
 
 ##### Defined in
 
-[src/store/selection/selection.store.ts:76](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.store.ts#L76)
+[src/store/selection/selection.store.ts:76](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.store.ts#L76)
 
 ***
 
@@ -2488,7 +2488,7 @@ setNextFocus(focus: Cell): void
 
 ##### Defined in
 
-[src/store/selection/selection.store.ts:55](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.store.ts#L55)
+[src/store/selection/selection.store.ts:55](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.store.ts#L55)
 
 ***
 
@@ -2511,7 +2511,7 @@ setRange(start: Cell, end: Cell): void
 
 ##### Defined in
 
-[src/store/selection/selection.store.ts:71](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.store.ts#L71)
+[src/store/selection/selection.store.ts:71](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.store.ts#L71)
 
 ***
 
@@ -2535,7 +2535,7 @@ Can be applied from selection change or from simple keyboard change clicks
 
 ##### Defined in
 
-[src/store/selection/selection.store.ts:68](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.store.ts#L68)
+[src/store/selection/selection.store.ts:68](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.store.ts#L68)
 
 ***
 
@@ -2557,7 +2557,7 @@ setTempArea(range: null | Nullable<TempRange>): void
 
 ##### Defined in
 
-[src/store/selection/selection.store.ts:59](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.store.ts#L59)
+[src/store/selection/selection.store.ts:59](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.store.ts#L59)
 
 ***
 
@@ -2604,20 +2604,20 @@ new SortingPlugin(revogrid: HTMLRevoGridElement, providers: PluginProviders): So
 
 ##### Defined in
 
-[src/plugins/sorting/sorting.plugin.ts:56](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.plugin.ts#L56)
+[src/plugins/sorting/sorting.plugin.ts:56](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.plugin.ts#L56)
 
 ### Properties
 
 | Property | Modifier | Type | Default value | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
-| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | [`BasePlugin`](README.md#baseplugin).`h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L12) |
-| `postponeSort` | `public` | `DebouncedFunc`\<(`order`?: [`SortingOrder`](TypeAlias.SortingOrder.md), `comparison`?: `SortingOrderFunction`) => `void`\> | `undefined` | - | [src/plugins/sorting/sorting.plugin.ts:41](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.plugin.ts#L41) |
-| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | [`BasePlugin`](README.md#baseplugin).`providers` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L14) |
-| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | [`BasePlugin`](README.md#baseplugin).`revogrid` | [src/plugins/sorting/sorting.plugin.ts:57](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.plugin.ts#L57) |
-| `sorting?` | `public` | [`SortingOrder`](TypeAlias.SortingOrder.md) | `undefined` | - | [src/plugins/sorting/sorting.plugin.ts:36](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.plugin.ts#L36) |
-| `sortingFunc?` | `public` | `SortingOrderFunction` | `undefined` | - | [src/plugins/sorting/sorting.plugin.ts:39](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.plugin.ts#L39) |
-| `sortingPromise` | `public` | `null` \| () => `void` | `null` | - | [src/plugins/sorting/sorting.plugin.ts:40](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.plugin.ts#L40) |
-| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | [`BasePlugin`](README.md#baseplugin).`subscriptions` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L13) |
+| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | [`BasePlugin`](README.md#baseplugin).`h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L12) |
+| `postponeSort` | `public` | `DebouncedFunc`\<(`order`?: [`SortingOrder`](TypeAlias.SortingOrder.md), `comparison`?: `SortingOrderFunction`) => `void`\> | `undefined` | - | [src/plugins/sorting/sorting.plugin.ts:41](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.plugin.ts#L41) |
+| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | [`BasePlugin`](README.md#baseplugin).`providers` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L14) |
+| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | [`BasePlugin`](README.md#baseplugin).`revogrid` | [src/plugins/sorting/sorting.plugin.ts:57](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.plugin.ts#L57) |
+| `sorting?` | `public` | [`SortingOrder`](TypeAlias.SortingOrder.md) | `undefined` | - | [src/plugins/sorting/sorting.plugin.ts:36](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.plugin.ts#L36) |
+| `sortingFunc?` | `public` | `SortingOrderFunction` | `undefined` | - | [src/plugins/sorting/sorting.plugin.ts:39](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.plugin.ts#L39) |
+| `sortingPromise` | `public` | `null` \| () => `void` | `null` | - | [src/plugins/sorting/sorting.plugin.ts:40](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.plugin.ts#L40) |
+| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | [`BasePlugin`](README.md#baseplugin).`subscriptions` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L13) |
 
 ### Methods
 
@@ -2650,7 +2650,7 @@ addEventListener<T>(eventName: string, callback: (e: CustomEvent<T>) => void): v
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L20)
+[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L20)
 
 ***
 
@@ -2672,7 +2672,7 @@ Clear all subscriptions
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:87](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L87)
+[src/plugins/base.plugin.ts:87](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L87)
 
 ***
 
@@ -2704,7 +2704,7 @@ defaultCellCompare(
 
 ##### Defined in
 
-[src/plugins/sorting/sorting.plugin.ts:262](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.plugin.ts#L262)
+[src/plugins/sorting/sorting.plugin.ts:262](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.plugin.ts#L262)
 
 ***
 
@@ -2738,7 +2738,7 @@ descCellCompare(cmp: CellCompareFunc): (prop: ColumnProp, a: DataType, b: DataTy
 
 ##### Defined in
 
-[src/plugins/sorting/sorting.plugin.ts:271](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.plugin.ts#L271)
+[src/plugins/sorting/sorting.plugin.ts:271](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.plugin.ts#L271)
 
 ***
 
@@ -2760,7 +2760,7 @@ Destroy plugin and clear all subscriptions
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:96](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L96)
+[src/plugins/base.plugin.ts:96](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L96)
 
 ***
 
@@ -2796,7 +2796,7 @@ Event can be cancelled by calling event.preventDefault() in callback
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L78)
+[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L78)
 
 ***
 
@@ -2819,7 +2819,7 @@ getComparer(column: undefined | ColumnRegular, order: Order): undefined | CellCo
 
 ##### Defined in
 
-[src/plugins/sorting/sorting.plugin.ts:125](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.plugin.ts#L125)
+[src/plugins/sorting/sorting.plugin.ts:125](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.plugin.ts#L125)
 
 ***
 
@@ -2841,7 +2841,7 @@ getNextOrder(currentOrder: Order): Order
 
 ##### Defined in
 
-[src/plugins/sorting/sorting.plugin.ts:310](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.plugin.ts#L310)
+[src/plugins/sorting/sorting.plugin.ts:310](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.plugin.ts#L310)
 
 ***
 
@@ -2871,7 +2871,7 @@ If additive - add to existing sorting, multiple columns can be sorted
 
 ##### Defined in
 
-[src/plugins/sorting/sorting.plugin.ts:141](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.plugin.ts#L141)
+[src/plugins/sorting/sorting.plugin.ts:141](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.plugin.ts#L141)
 
 ***
 
@@ -2899,7 +2899,7 @@ Remove event listener
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L69)
+[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L69)
 
 ***
 
@@ -2922,7 +2922,7 @@ runSorting(order?: SortingOrder, comparison?: SortingOrderFunction): void
 
 ##### Defined in
 
-[src/plugins/sorting/sorting.plugin.ts:47](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.plugin.ts#L47)
+[src/plugins/sorting/sorting.plugin.ts:47](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.plugin.ts#L47)
 
 ***
 
@@ -2959,7 +2959,7 @@ source applied to row store
 
 ##### Defined in
 
-[src/plugins/sorting/sorting.plugin.ts:209](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.plugin.ts#L209)
+[src/plugins/sorting/sorting.plugin.ts:209](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.plugin.ts#L209)
 
 ***
 
@@ -2986,7 +2986,7 @@ sortIndexByItems(
 
 ##### Defined in
 
-[src/plugins/sorting/sorting.plugin.ts:277](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.plugin.ts#L277)
+[src/plugins/sorting/sorting.plugin.ts:277](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.plugin.ts#L277)
 
 ***
 
@@ -3009,7 +3009,7 @@ startSorting(order?: SortingOrder, sortingFunc?: SortingOrderFunction): void
 
 ##### Defined in
 
-[src/plugins/sorting/sorting.plugin.ts:113](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.plugin.ts#L113)
+[src/plugins/sorting/sorting.plugin.ts:113](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.plugin.ts#L113)
 
 ***
 
@@ -3049,7 +3049,7 @@ You can return false in callback to prevent default value set
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L36)
+[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L36)
 
 ***
 
@@ -3088,16 +3088,16 @@ new StretchColumn(revogrid: HTMLRevoGridElement, providers: PluginProviders): St
 
 ##### Defined in
 
-[src/plugins/column.stretch.plugin.ts:26](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.stretch.plugin.ts#L26)
+[src/plugins/column.stretch.plugin.ts:26](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.stretch.plugin.ts#L26)
 
 ### Properties
 
 | Property | Modifier | Type | Default value | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
-| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | [`BasePlugin`](README.md#baseplugin).`h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L12) |
-| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | [`BasePlugin`](README.md#baseplugin).`providers` | [src/plugins/column.stretch.plugin.ts:28](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.stretch.plugin.ts#L28) |
-| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | [`BasePlugin`](README.md#baseplugin).`revogrid` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L14) |
-| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | [`BasePlugin`](README.md#baseplugin).`subscriptions` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L13) |
+| `h` | `readonly` | *typeof* [`h`](README.md#h) | `h` | [`BasePlugin`](README.md#baseplugin).`h` | [src/plugins/base.plugin.ts:12](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L12) |
+| `providers` | `public` | [`PluginProviders`](TypeAlias.PluginProviders.md) | `undefined` | [`BasePlugin`](README.md#baseplugin).`providers` | [src/plugins/column.stretch.plugin.ts:28](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.stretch.plugin.ts#L28) |
+| `revogrid` | `public` | `HTMLRevoGridElement` | `undefined` | [`BasePlugin`](README.md#baseplugin).`revogrid` | [src/plugins/base.plugin.ts:14](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L14) |
+| `subscriptions` | `readonly` | `Record`\<`string`, (...`args`: `any`[]) => `void`\> | `{}` | [`BasePlugin`](README.md#baseplugin).`subscriptions` | [src/plugins/base.plugin.ts:13](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L13) |
 
 ### Methods
 
@@ -3130,7 +3130,7 @@ addEventListener<T>(eventName: string, callback: (e: CustomEvent<T>) => void): v
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L20)
+[src/plugins/base.plugin.ts:20](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L20)
 
 ***
 
@@ -3154,7 +3154,7 @@ Apply stretch changes
 
 ##### Defined in
 
-[src/plugins/column.stretch.plugin.ts:86](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.stretch.plugin.ts#L86)
+[src/plugins/column.stretch.plugin.ts:86](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.stretch.plugin.ts#L86)
 
 ***
 
@@ -3176,7 +3176,7 @@ Clear all subscriptions
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:87](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L87)
+[src/plugins/base.plugin.ts:87](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L87)
 
 ***
 
@@ -3198,7 +3198,7 @@ Destroy plugin and clear all subscriptions
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:96](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L96)
+[src/plugins/base.plugin.ts:96](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L96)
 
 ***
 
@@ -3234,7 +3234,7 @@ Event can be cancelled by calling event.preventDefault() in callback
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L78)
+[src/plugins/base.plugin.ts:78](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L78)
 
 ***
 
@@ -3262,7 +3262,7 @@ Remove event listener
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L69)
+[src/plugins/base.plugin.ts:69](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L69)
 
 ***
 
@@ -3302,7 +3302,7 @@ You can return false in callback to prevent default value set
 
 ##### Defined in
 
-[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/base.plugin.ts#L36)
+[src/plugins/base.plugin.ts:36](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/base.plugin.ts#L36)
 
 ***
 
@@ -3335,16 +3335,16 @@ new TextEditor(data: ColumnDataSchemaModel, saveCallback?: SaveCallback): TextEd
 
 ##### Defined in
 
-[src/components/editors/text-editor.ts:26](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/components/editors/text-editor.ts#L26)
+[src/components/editors/text-editor.ts:26](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/components/editors/text-editor.ts#L26)
 
 ### Properties
 
 | Property | Modifier | Type | Default value | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| `data` | `public` | [`ColumnDataSchemaModel`](TypeAlias.ColumnDataSchemaModel.md) | `undefined` | [src/components/editors/text-editor.ts:27](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/components/editors/text-editor.ts#L27) |
-| `editCell?` | `public` | [`EditCell`](TypeAlias.EditCell.md) | `undefined` | [src/components/editors/text-editor.ts:24](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/components/editors/text-editor.ts#L24) |
-| `editInput` | `public` | `null` \| `HTMLInputElement` | `null` | [src/components/editors/text-editor.ts:21](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/components/editors/text-editor.ts#L21) |
-| `element` | `public` | `null` \| `Element` | `null` | [src/components/editors/text-editor.ts:23](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/components/editors/text-editor.ts#L23) |
+| `data` | `public` | [`ColumnDataSchemaModel`](TypeAlias.ColumnDataSchemaModel.md) | `undefined` | [src/components/editors/text-editor.ts:27](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/components/editors/text-editor.ts#L27) |
+| `editCell?` | `public` | [`EditCell`](TypeAlias.EditCell.md) | `undefined` | [src/components/editors/text-editor.ts:24](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/components/editors/text-editor.ts#L24) |
+| `editInput` | `public` | `null` \| `HTMLInputElement` | `null` | [src/components/editors/text-editor.ts:21](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/components/editors/text-editor.ts#L21) |
+| `element` | `public` | `null` \| `Element` | `null` | [src/components/editors/text-editor.ts:23](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/components/editors/text-editor.ts#L23) |
 
 ### Methods
 
@@ -3366,7 +3366,7 @@ IMPORTANT: Prevent scroll glitches when editor is closed and focus is on current
 
 ##### Defined in
 
-[src/components/editors/text-editor.ts:61](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/components/editors/text-editor.ts#L61)
+[src/components/editors/text-editor.ts:61](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/components/editors/text-editor.ts#L61)
 
 ***
 
@@ -3388,7 +3388,7 @@ Callback triggered on cell editor render
 
 ##### Defined in
 
-[src/components/editors/text-editor.ts:34](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/components/editors/text-editor.ts#L34)
+[src/components/editors/text-editor.ts:34](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/components/editors/text-editor.ts#L34)
 
 ***
 
@@ -3410,7 +3410,7 @@ Get value from input
 
 ##### Defined in
 
-[src/components/editors/text-editor.ts:68](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/components/editors/text-editor.ts#L68)
+[src/components/editors/text-editor.ts:68](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/components/editors/text-editor.ts#L68)
 
 ***
 
@@ -3432,7 +3432,7 @@ onKeyDown(e: KeyboardEvent): void
 
 ##### Defined in
 
-[src/components/editors/text-editor.ts:41](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/components/editors/text-editor.ts#L41)
+[src/components/editors/text-editor.ts:41](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/components/editors/text-editor.ts#L41)
 
 ***
 
@@ -3468,7 +3468,7 @@ Renders input element with passed data from cell.
 
 ##### Defined in
 
-[src/components/editors/text-editor.ts:81](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/components/editors/text-editor.ts#L81)
+[src/components/editors/text-editor.ts:81](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/components/editors/text-editor.ts#L81)
 
 ***
 
@@ -3496,14 +3496,14 @@ new ViewportStore(type: MultiDimensionType): ViewportStore
 
 ##### Defined in
 
-[src/store/vp/viewport.store.ts:60](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.store.ts#L60)
+[src/store/vp/viewport.store.ts:60](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.store.ts#L60)
 
 ### Properties
 
 | Property | Modifier | Type | Defined in |
 | ------ | ------ | ------ | ------ |
-| `store` | `readonly` | [`Observable`](TypeAlias.Observable.md)\<[`ViewportState`](Interface.ViewportState.md)\> | [src/store/vp/viewport.store.ts:49](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.store.ts#L49) |
-| `type` | `readonly` | [`MultiDimensionType`](TypeAlias.MultiDimensionType.md) | [src/store/vp/viewport.store.ts:60](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.store.ts#L60) |
+| `store` | `readonly` | [`Observable`](TypeAlias.Observable.md)\<[`ViewportState`](Interface.ViewportState.md)\> | [src/store/vp/viewport.store.ts:49](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.store.ts#L49) |
+| `type` | `readonly` | [`MultiDimensionType`](TypeAlias.MultiDimensionType.md) | [src/store/vp/viewport.store.ts:60](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.store.ts#L60) |
 
 ### Accessors
 
@@ -3529,7 +3529,7 @@ set lastCoordinate(value: number): void
 
 ##### Defined in
 
-[src/store/vp/viewport.store.ts:54](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.store.ts#L54)
+[src/store/vp/viewport.store.ts:54](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.store.ts#L54)
 
 ### Methods
 
@@ -3545,7 +3545,7 @@ getItems(): ItemsToUpdate
 
 ##### Defined in
 
-[src/store/vp/viewport.store.ts:196](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.store.ts#L196)
+[src/store/vp/viewport.store.ts:196](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.store.ts#L196)
 
 ***
 
@@ -3569,7 +3569,7 @@ Set sizes for existing items
 
 ##### Defined in
 
-[src/store/vp/viewport.store.ts:178](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.store.ts#L178)
+[src/store/vp/viewport.store.ts:178](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.store.ts#L178)
 
 ***
 
@@ -3600,7 +3600,7 @@ Use force if you want to re-render viewport
 
 ##### Defined in
 
-[src/store/vp/viewport.store.ts:69](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.store.ts#L69)
+[src/store/vp/viewport.store.ts:69](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.store.ts#L69)
 
 ***
 
@@ -3622,7 +3622,7 @@ setViewport(data: Partial<ViewportState>): void
 
 ##### Defined in
 
-[src/store/vp/viewport.store.ts:204](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.store.ts#L204)
+[src/store/vp/viewport.store.ts:204](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.store.ts#L204)
 
 ***
 
@@ -3634,7 +3634,7 @@ const AND_OR_BUTTON: "and-or-button" = 'and-or-button';
 
 ### Defined in
 
-[src/plugins/filter/filter.button.tsx:8](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.button.tsx#L8)
+[src/plugins/filter/filter.button.tsx:8](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.button.tsx#L8)
 
 ***
 
@@ -3646,7 +3646,7 @@ const CELL_CLASS: "rgCell" = 'rgCell';
 
 ### Defined in
 
-[src/utils/consts.ts:8](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L8)
+[src/utils/consts.ts:8](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L8)
 
 ***
 
@@ -3658,7 +3658,7 @@ const CELL_HANDLER_CLASS: "autofill-handle" = 'autofill-handle';
 
 ### Defined in
 
-[src/utils/consts.ts:23](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L23)
+[src/utils/consts.ts:23](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L23)
 
 ***
 
@@ -3670,7 +3670,7 @@ const DATA_COL: "data-rgCol" = 'data-rgCol';
 
 ### Defined in
 
-[src/utils/consts.ts:4](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L4)
+[src/utils/consts.ts:4](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L4)
 
 ***
 
@@ -3682,7 +3682,7 @@ const DATA_ROW: "data-rgRow" = 'data-rgRow';
 
 ### Defined in
 
-[src/utils/consts.ts:5](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L5)
+[src/utils/consts.ts:5](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L5)
 
 ***
 
@@ -3694,7 +3694,7 @@ const DISABLED_CLASS: "disabled" = 'disabled';
 
 ### Defined in
 
-[src/utils/consts.ts:7](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L7)
+[src/utils/consts.ts:7](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L7)
 
 ***
 
@@ -3706,7 +3706,7 @@ const DRAGGABLE_CLASS: "revo-draggable" = 'revo-draggable';
 
 ### Defined in
 
-[src/utils/consts.ts:16](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L16)
+[src/utils/consts.ts:16](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L16)
 
 ***
 
@@ -3718,7 +3718,7 @@ const DRAGG_TEXT: "Draggable item" = 'Draggable item';
 
 ### Defined in
 
-[src/utils/consts.ts:27](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L27)
+[src/utils/consts.ts:27](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L27)
 
 ***
 
@@ -3730,7 +3730,7 @@ const DRAG_ICON_CLASS: "revo-drag-icon" = 'revo-drag-icon';
 
 ### Defined in
 
-[src/utils/consts.ts:15](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L15)
+[src/utils/consts.ts:15](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L15)
 
 ***
 
@@ -3742,7 +3742,7 @@ const EDIT_INPUT_WR: "edit-input-wrapper" = 'edit-input-wrapper';
 
 ### Defined in
 
-[src/utils/consts.ts:25](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L25)
+[src/utils/consts.ts:25](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L25)
 
 ***
 
@@ -3754,7 +3754,7 @@ const FILTER_BUTTON_ACTIVE: "active" = 'active';
 
 ### Defined in
 
-[src/plugins/filter/filter.button.tsx:5](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.button.tsx#L5)
+[src/plugins/filter/filter.button.tsx:5](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.button.tsx#L5)
 
 ***
 
@@ -3766,7 +3766,7 @@ const FILTER_BUTTON_CLASS: "rv-filter" = 'rv-filter';
 
 ### Defined in
 
-[src/plugins/filter/filter.button.tsx:4](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.button.tsx#L4)
+[src/plugins/filter/filter.button.tsx:4](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.button.tsx#L4)
 
 ***
 
@@ -3778,7 +3778,7 @@ const FILTER_CONFIG_CHANGED_EVENT: "filterconfigchanged" = 'filterconfigchanged'
 
 ### Defined in
 
-[src/plugins/filter/filter.plugin.tsx:27](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.plugin.tsx#L27)
+[src/plugins/filter/filter.plugin.tsx:26](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.plugin.tsx#L26)
 
 ***
 
@@ -3790,7 +3790,7 @@ const FILTER_PROP: "hasFilter" = 'hasFilter';
 
 ### Defined in
 
-[src/plugins/filter/filter.button.tsx:7](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.button.tsx#L7)
+[src/plugins/filter/filter.button.tsx:7](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.button.tsx#L7)
 
 ***
 
@@ -3802,7 +3802,7 @@ const FILTER_TRIMMED_TYPE: "filter" = 'filter';
 
 ### Defined in
 
-[src/plugins/filter/filter.plugin.tsx:26](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.plugin.tsx#L26)
+[src/plugins/filter/filter.plugin.tsx:25](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.plugin.tsx#L25)
 
 ***
 
@@ -3814,7 +3814,7 @@ const FILTE_PANEL: "revogr-filter-panel" = 'revogr-filter-panel';
 
 ### Defined in
 
-[src/plugins/filter/filter.plugin.tsx:28](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.plugin.tsx#L28)
+[src/plugins/filter/filter.plugin.tsx:27](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.plugin.tsx#L27)
 
 ***
 
@@ -3826,7 +3826,7 @@ const FOCUS_CLASS: "focused-cell" = 'focused-cell';
 
 ### Defined in
 
-[src/utils/consts.ts:18](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L18)
+[src/utils/consts.ts:18](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L18)
 
 ***
 
@@ -3838,7 +3838,7 @@ const GRID_INTERNALS: "__rvgr" = '__rvgr';
 
 ### Defined in
 
-[src/utils/consts.ts:28](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L28)
+[src/utils/consts.ts:28](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L28)
 
 ***
 
@@ -3850,7 +3850,7 @@ const HEADER_ACTUAL_ROW_CLASS: "actual-rgRow" = 'actual-rgRow';
 
 ### Defined in
 
-[src/utils/consts.ts:13](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L13)
+[src/utils/consts.ts:13](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L13)
 
 ***
 
@@ -3862,7 +3862,7 @@ const HEADER_CLASS: "rgHeaderCell" = 'rgHeaderCell';
 
 ### Defined in
 
-[src/utils/consts.ts:10](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L10)
+[src/utils/consts.ts:10](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L10)
 
 ***
 
@@ -3874,7 +3874,7 @@ const HEADER_ROW_CLASS: "header-rgRow" = 'header-rgRow';
 
 ### Defined in
 
-[src/utils/consts.ts:12](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L12)
+[src/utils/consts.ts:12](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L12)
 
 ***
 
@@ -3886,7 +3886,7 @@ const HEADER_SORTABLE_CLASS: "sortable" = 'sortable';
 
 ### Defined in
 
-[src/utils/consts.ts:11](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L11)
+[src/utils/consts.ts:11](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L11)
 
 ***
 
@@ -3898,7 +3898,7 @@ const MIN_COL_SIZE: 30 = 30;
 
 ### Defined in
 
-[src/utils/consts.ts:1](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L1)
+[src/utils/consts.ts:1](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L1)
 
 ***
 
@@ -3910,7 +3910,7 @@ const MOBILE_CLASS: "mobile-handler" = 'mobile-handler';
 
 ### Defined in
 
-[src/utils/consts.ts:20](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L20)
+[src/utils/consts.ts:20](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L20)
 
 ***
 
@@ -3922,7 +3922,7 @@ const RESIZE_INTERVAL: 40 = 40;
 
 ### Defined in
 
-[src/utils/consts.ts:2](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L2)
+[src/utils/consts.ts:2](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L2)
 
 ***
 
@@ -3934,7 +3934,7 @@ const REVOGRID_EVENTS: Map<RevogridEvents, RevogridEvents>;
 
 ### Defined in
 
-[src/types/events.ts:105](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/types/events.ts#L105)
+[src/types/events.ts:105](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/types/events.ts#L105)
 
 ***
 
@@ -3946,7 +3946,7 @@ const ROW_FOCUSED_CLASS: "focused-rgRow" = 'focused-rgRow';
 
 ### Defined in
 
-[src/utils/consts.ts:29](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L29)
+[src/utils/consts.ts:29](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L29)
 
 ***
 
@@ -3958,7 +3958,7 @@ const ROW_HEADER_TYPE: "rowHeaders" = 'rowHeaders';
 
 ### Defined in
 
-[src/utils/consts.ts:9](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L9)
+[src/utils/consts.ts:9](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L9)
 
 ***
 
@@ -3970,7 +3970,7 @@ const SELECTION_BORDER_CLASS: "selection-border-range" = 'selection-border-range
 
 ### Defined in
 
-[src/utils/consts.ts:19](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L19)
+[src/utils/consts.ts:19](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L19)
 
 ***
 
@@ -3982,7 +3982,7 @@ const TMP_SELECTION_BG_CLASS: "temp-bg-range" = 'temp-bg-range';
 
 ### Defined in
 
-[src/utils/consts.ts:21](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/consts.ts#L21)
+[src/utils/consts.ts:21](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/consts.ts#L21)
 
 ***
 
@@ -3994,7 +3994,7 @@ const TRASH_BUTTON: "trash-button" = 'trash-button';
 
 ### Defined in
 
-[src/plugins/filter/filter.button.tsx:9](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.button.tsx#L9)
+[src/plugins/filter/filter.button.tsx:9](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.button.tsx#L9)
 
 ***
 
@@ -4006,7 +4006,7 @@ const columnTypes: DimensionCols[];
 
 ### Defined in
 
-[src/store/index.ts:9](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/index.ts#L9)
+[src/store/index.ts:9](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/index.ts#L9)
 
 ***
 
@@ -4018,7 +4018,7 @@ const filterCoreFunctionsIndexedByType: Record<FilterType, LogicFunction>;
 
 ### Defined in
 
-[src/plugins/filter/filter.indexed.ts:12](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L12)
+[src/plugins/filter/filter.indexed.ts:12](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L12)
 
 ***
 
@@ -4047,24 +4047,24 @@ const filterNames: {
 
 | Name | Type | Default value | Defined in |
 | ------ | ------ | ------ | ------ |
-| `begins` | `string` | 'Begins with' | [src/plugins/filter/filter.indexed.ts:42](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L42) |
-| `contains` | `string` | 'Contains' | [src/plugins/filter/filter.indexed.ts:43](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L43) |
-| `empty` | `string` | 'Not set' | [src/plugins/filter/filter.indexed.ts:37](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L37) |
-| `eq` | `string` | 'Equal' | [src/plugins/filter/filter.indexed.ts:40](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L40) |
-| `eqN` | `string` | '=' | [src/plugins/filter/filter.indexed.ts:46](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L46) |
-| `gt` | `string` | '\>' | [src/plugins/filter/filter.indexed.ts:48](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L48) |
-| `gte` | `string` | '\>=' | [src/plugins/filter/filter.indexed.ts:49](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L49) |
-| `lt` | `string` | '\<' | [src/plugins/filter/filter.indexed.ts:50](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L50) |
-| `lte` | `string` | '\<=' | [src/plugins/filter/filter.indexed.ts:51](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L51) |
-| `neqN` | `string` | '!=' | [src/plugins/filter/filter.indexed.ts:47](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L47) |
-| `none` | `string` | 'None' | [src/plugins/filter/filter.indexed.ts:36](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L36) |
-| `notContains` | `string` | 'Does not contain' | [src/plugins/filter/filter.indexed.ts:44](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L44) |
-| `notEmpty` | `string` | 'Set' | [src/plugins/filter/filter.indexed.ts:38](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L38) |
-| `notEq` | `string` | 'Not equal' | [src/plugins/filter/filter.indexed.ts:41](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L41) |
+| `begins` | `string` | 'Begins with' | [src/plugins/filter/filter.indexed.ts:42](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L42) |
+| `contains` | `string` | 'Contains' | [src/plugins/filter/filter.indexed.ts:43](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L43) |
+| `empty` | `string` | 'Not set' | [src/plugins/filter/filter.indexed.ts:37](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L37) |
+| `eq` | `string` | 'Equal' | [src/plugins/filter/filter.indexed.ts:40](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L40) |
+| `eqN` | `string` | '=' | [src/plugins/filter/filter.indexed.ts:46](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L46) |
+| `gt` | `string` | '\>' | [src/plugins/filter/filter.indexed.ts:48](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L48) |
+| `gte` | `string` | '\>=' | [src/plugins/filter/filter.indexed.ts:49](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L49) |
+| `lt` | `string` | '\<' | [src/plugins/filter/filter.indexed.ts:50](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L50) |
+| `lte` | `string` | '\<=' | [src/plugins/filter/filter.indexed.ts:51](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L51) |
+| `neqN` | `string` | '!=' | [src/plugins/filter/filter.indexed.ts:47](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L47) |
+| `none` | `string` | 'None' | [src/plugins/filter/filter.indexed.ts:36](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L36) |
+| `notContains` | `string` | 'Does not contain' | [src/plugins/filter/filter.indexed.ts:44](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L44) |
+| `notEmpty` | `string` | 'Set' | [src/plugins/filter/filter.indexed.ts:38](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L38) |
+| `notEq` | `string` | 'Not equal' | [src/plugins/filter/filter.indexed.ts:41](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L41) |
 
 ### Defined in
 
-[src/plugins/filter/filter.indexed.ts:35](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L35)
+[src/plugins/filter/filter.indexed.ts:35](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L35)
 
 ***
 
@@ -4076,7 +4076,7 @@ const filterTypes: Record<string, FilterType[]>;
 
 ### Defined in
 
-[src/plugins/filter/filter.indexed.ts:30](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.indexed.ts#L30)
+[src/plugins/filter/filter.indexed.ts:30](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.indexed.ts#L30)
 
 ***
 
@@ -4088,7 +4088,7 @@ const rowTypes: DimensionRows[];
 
 ### Defined in
 
-[src/store/index.ts:8](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/index.ts#L8)
+[src/store/index.ts:8](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/index.ts#L8)
 
 ***
 
@@ -4110,7 +4110,7 @@ function AndOrButton(__namedParameters: any): any
 
 ### Defined in
 
-[src/plugins/filter/filter.button.tsx:42](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.button.tsx#L42)
+[src/plugins/filter/filter.button.tsx:42](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.button.tsx#L42)
 
 ***
 
@@ -4132,7 +4132,7 @@ function FilterButton(__namedParameters: Props): any
 
 ### Defined in
 
-[src/plugins/filter/filter.button.tsx:14](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.button.tsx#L14)
+[src/plugins/filter/filter.button.tsx:14](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.button.tsx#L14)
 
 ***
 
@@ -4154,7 +4154,7 @@ function SortingSign(__namedParameters: Props): any
 
 ### Defined in
 
-[src/plugins/sorting/sorting.sign.tsx:7](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/sorting/sorting.sign.tsx#L7)
+[src/plugins/sorting/sorting.sign.tsx:7](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/sorting/sorting.sign.tsx#L7)
 
 ***
 
@@ -4170,7 +4170,7 @@ function TrashButton(): any
 
 ### Defined in
 
-[src/plugins/filter/filter.button.tsx:33](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.button.tsx#L33)
+[src/plugins/filter/filter.button.tsx:33](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.button.tsx#L33)
 
 ***
 
@@ -4210,7 +4210,7 @@ this function adds items if viewport has some space left
 
 ### Defined in
 
-[src/store/vp/viewport.helpers.ts:123](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.helpers.ts#L123)
+[src/store/vp/viewport.helpers.ts:123](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.helpers.ts#L123)
 
 ***
 
@@ -4235,7 +4235,7 @@ Type script mixins
 
 ### Defined in
 
-[src/utils/index.ts:140](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/index.ts#L140)
+[src/utils/index.ts:140](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/index.ts#L140)
 
 ***
 
@@ -4274,14 +4274,14 @@ Keeps only changed sizes, skips origin size
 
 | Name | Type | Default value | Defined in |
 | ------ | ------ | ------ | ------ |
-| `indexToItem` | \{\} | - | [src/store/dimension/dimension.helpers.ts:66](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.helpers.ts#L66) |
-| `indexes` | `number`[] | newIndexes | [src/store/dimension/dimension.helpers.ts:63](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.helpers.ts#L63) |
-| `positionIndexToItem` | \{\} | - | [src/store/dimension/dimension.helpers.ts:65](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.helpers.ts#L65) |
-| `positionIndexes` | `number`[] | - | [src/store/dimension/dimension.helpers.ts:64](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.helpers.ts#L64) |
+| `indexToItem` | \{\} | - | [src/store/dimension/dimension.helpers.ts:66](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.helpers.ts#L66) |
+| `indexes` | `number`[] | newIndexes | [src/store/dimension/dimension.helpers.ts:63](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.helpers.ts#L63) |
+| `positionIndexToItem` | \{\} | - | [src/store/dimension/dimension.helpers.ts:65](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.helpers.ts#L65) |
+| `positionIndexes` | `number`[] | - | [src/store/dimension/dimension.helpers.ts:64](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.helpers.ts#L64) |
 
 ### Defined in
 
-[src/store/dimension/dimension.helpers.ts:31](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.helpers.ts#L31)
+[src/store/dimension/dimension.helpers.ts:31](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.helpers.ts#L31)
 
 ***
 
@@ -4308,7 +4308,7 @@ function calculateRowHeaderSize(
 
 ### Defined in
 
-[src/utils/row-header-utils.ts:4](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/row-header-utils.ts#L4)
+[src/utils/row-header-utils.ts:4](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/row-header-utils.ts#L4)
 
 ***
 
@@ -4331,7 +4331,7 @@ function cropCellToMax(cell: Cell, lastCell: Cell): Cell
 
 ### Defined in
 
-[src/store/selection/selection.helpers.ts:29](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.helpers.ts#L29)
+[src/store/selection/selection.helpers.ts:29](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.helpers.ts#L29)
 
 ***
 
@@ -4368,7 +4368,7 @@ The custom event that was dispatched.
 
 ### Defined in
 
-[src/plugins/dispatcher.ts:9](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/dispatcher.ts#L9)
+[src/plugins/dispatcher.ts:9](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/dispatcher.ts#L9)
 
 ***
 
@@ -4405,7 +4405,7 @@ The custom event that was dispatched.
 
 ### Defined in
 
-[src/plugins/dispatcher.ts:36](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/dispatcher.ts#L36)
+[src/plugins/dispatcher.ts:36](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/dispatcher.ts#L36)
 
 ***
 
@@ -4438,7 +4438,7 @@ function findPositionInArray<T>(
 
 ### Defined in
 
-[src/utils/index.ts:22](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/index.ts#L22)
+[src/utils/index.ts:22](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/index.ts#L22)
 
 ***
 
@@ -4473,7 +4473,7 @@ function gatherGroup<T>(
 
 ### Defined in
 
-[src/utils/column.utils.ts:173](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/column.utils.ts#L173)
+[src/utils/column.utils.ts:173](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/column.utils.ts#L173)
 
 ***
 
@@ -4495,7 +4495,7 @@ function gatherTrimmedItems(trimmedItems: Trimmed): TrimmedEntity
 
 ### Defined in
 
-[src/store/dataSource/trimmed.plugin.ts:30](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/trimmed.plugin.ts#L30)
+[src/store/dataSource/trimmed.plugin.ts:30](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/trimmed.plugin.ts#L30)
 
 ***
 
@@ -4517,7 +4517,7 @@ function getCellData(val?: any): any
 
 ### Defined in
 
-[src/utils/column.utils.ts:22](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/column.utils.ts#L22)
+[src/utils/column.utils.ts:22](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/column.utils.ts#L22)
 
 ***
 
@@ -4540,7 +4540,7 @@ function getCellDataParsed(model: DataType, column: ColumnRegular): any
 
 ### Defined in
 
-[src/utils/column.utils.ts:39](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/column.utils.ts#L39)
+[src/utils/column.utils.ts:39](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/column.utils.ts#L39)
 
 ***
 
@@ -4563,7 +4563,7 @@ function getCellRaw(model: DataType, column?: ColumnRegular): any
 
 ### Defined in
 
-[src/utils/column.utils.ts:29](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/column.utils.ts#L29)
+[src/utils/column.utils.ts:29](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/column.utils.ts#L29)
 
 ***
 
@@ -4586,7 +4586,7 @@ function getColumnByProp(columns: ColumnData, prop: ColumnProp): ColumnRegular |
 
 ### Defined in
 
-[src/utils/column.utils.ts:234](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/column.utils.ts#L234)
+[src/utils/column.utils.ts:234](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/column.utils.ts#L234)
 
 ***
 
@@ -4608,7 +4608,7 @@ function getColumnSizes(cols: ColumnRegular[]): ViewSettingSizeProp
 
 ### Defined in
 
-[src/utils/column.utils.ts:81](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/column.utils.ts#L81)
+[src/utils/column.utils.ts:81](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/column.utils.ts#L81)
 
 ***
 
@@ -4632,7 +4632,7 @@ Get column type from column data
 
 ### Defined in
 
-[src/utils/column.utils.ts:74](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/column.utils.ts#L74)
+[src/utils/column.utils.ts:74](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/column.utils.ts#L74)
 
 ***
 
@@ -4661,7 +4661,7 @@ This function is used to create a collection of columns.
 
 ### Defined in
 
-[src/utils/column.utils.ts:104](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/column.utils.ts#L104)
+[src/utils/column.utils.ts:104](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/column.utils.ts#L104)
 
 ***
 
@@ -4683,7 +4683,7 @@ function getFirstItem(s: ItemsToUpdate): VirtualPositionItem
 
 ### Defined in
 
-[src/store/vp/viewport.helpers.ts:340](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.helpers.ts#L340)
+[src/store/vp/viewport.helpers.ts:340](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.helpers.ts#L340)
 
 ***
 
@@ -4706,14 +4706,14 @@ function getItemByIndex(dimension: Pick<DimensionIndexInput, "indexes" | "origin
 
 ### Defined in
 
-[src/store/dimension/dimension.helpers.ts:109](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.helpers.ts#L109)
+[src/store/dimension/dimension.helpers.ts:109](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.helpers.ts#L109)
 
 ***
 
 ## getItemByPosition()
 
 ```ts
-function getItemByPosition(__namedParameters: DimensionPosition, pos: number): PositionItem
+function getItemByPosition(__namedParameters: Pick<DimensionPosition, "indexes" | "positionIndexes" | "originItemSize" | "positionIndexToItem">, pos: number): PositionItem
 ```
 
 Calculate item by position
@@ -4722,7 +4722,7 @@ Calculate item by position
 
 | Parameter | Type |
 | ------ | ------ |
-| `__namedParameters` | [`DimensionPosition`](TypeAlias.DimensionPosition.md) |
+| `__namedParameters` | `Pick`\<[`DimensionPosition`](TypeAlias.DimensionPosition.md), `"indexes"` \| `"positionIndexes"` \| `"originItemSize"` \| `"positionIndexToItem"`\> |
 | `pos` | `number` |
 
 ### Returns
@@ -4731,7 +4731,7 @@ Calculate item by position
 
 ### Defined in
 
-[src/store/dimension/dimension.helpers.ts:73](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dimension/dimension.helpers.ts#L73)
+[src/store/dimension/dimension.helpers.ts:73](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dimension/dimension.helpers.ts#L73)
 
 ***
 
@@ -4770,7 +4770,7 @@ caching position and calculating items count in viewport
 
 ### Defined in
 
-[src/store/vp/viewport.helpers.ts:146](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.helpers.ts#L146)
+[src/store/vp/viewport.helpers.ts:146](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.helpers.ts#L146)
 
 ***
 
@@ -4792,7 +4792,7 @@ function getLastItem(s: ItemsToUpdate): VirtualPositionItem
 
 ### Defined in
 
-[src/store/vp/viewport.helpers.ts:346](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.helpers.ts#L346)
+[src/store/vp/viewport.helpers.ts:346](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.helpers.ts#L346)
 
 ***
 
@@ -4819,7 +4819,7 @@ function getLeftRelative(
 
 ### Defined in
 
-[src/plugins/moveColumn/column.drag.plugin.ts:224](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/moveColumn/column.drag.plugin.ts#L224)
+[src/plugins/moveColumn/column.drag.plugin.ts:231](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/moveColumn/column.drag.plugin.ts#L231)
 
 ***
 
@@ -4844,7 +4844,7 @@ get physical index by virtual
 
 ### Defined in
 
-[src/store/dataSource/data.store.ts:127](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.store.ts#L127)
+[src/store/dataSource/data.store.ts:127](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.store.ts#L127)
 
 ***
 
@@ -4867,7 +4867,7 @@ function getRange(start?: null | Cell, end?: null | Cell): RangeArea | null
 
 ### Defined in
 
-[src/store/selection/selection.helpers.ts:44](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.helpers.ts#L44)
+[src/store/selection/selection.helpers.ts:44](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.helpers.ts#L44)
 
 ***
 
@@ -4891,7 +4891,7 @@ Calculate system scrollbar size
 
 ### Defined in
 
-[src/utils/index.ts:87](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/index.ts#L87)
+[src/utils/index.ts:87](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/index.ts#L87)
 
 ***
 
@@ -4923,7 +4923,7 @@ get mapped item from source
 
 ### Defined in
 
-[src/store/dataSource/data.store.ts:151](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.store.ts#L151)
+[src/store/dataSource/data.store.ts:151](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.store.ts#L151)
 
 ***
 
@@ -4946,7 +4946,7 @@ function getSourceItemVirtualIndexByProp(store: Observable<DSourceState<any, any
 
 ### Defined in
 
-[src/store/dataSource/data.store.ts:220](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.store.ts#L220)
+[src/store/dataSource/data.store.ts:220](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.store.ts#L220)
 
 ***
 
@@ -4978,7 +4978,7 @@ Get physical index from virtual index
 
 ### Defined in
 
-[src/store/dataSource/data.store.ts:161](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.store.ts#L161)
+[src/store/dataSource/data.store.ts:161](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.store.ts#L161)
 
 ***
 
@@ -5019,7 +5019,7 @@ Otherwise rebuild viewport items
 
 ### Defined in
 
-[src/store/vp/viewport.helpers.ts:28](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.helpers.ts#L28)
+[src/store/vp/viewport.helpers.ts:28](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.helpers.ts#L28)
 
 ***
 
@@ -5043,7 +5043,7 @@ get all visible items
 
 ### Defined in
 
-[src/store/dataSource/data.store.ts:139](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.store.ts#L139)
+[src/store/dataSource/data.store.ts:139](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.store.ts#L139)
 
 ***
 
@@ -5257,7 +5257,7 @@ Verify if position is in range of the PositionItem, start and end are included
 
 ### Defined in
 
-[src/store/vp/viewport.helpers.ts:310](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.helpers.ts#L310)
+[src/store/vp/viewport.helpers.ts:310](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.helpers.ts#L310)
 
 ***
 
@@ -5286,7 +5286,7 @@ function isActiveRangeOutsideLastItem(
 
 ### Defined in
 
-[src/store/vp/viewport.helpers.ts:327](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.helpers.ts#L327)
+[src/store/vp/viewport.helpers.ts:327](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.helpers.ts#L327)
 
 ***
 
@@ -5308,7 +5308,7 @@ function isAll(event: KeyboardEvent): boolean
 
 ### Defined in
 
-[src/utils/key.utils.ts:95](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/key.utils.ts#L95)
+[src/utils/key.utils.ts:95](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/key.utils.ts#L95)
 
 ***
 
@@ -5330,7 +5330,7 @@ function isClear(code: string): boolean
 
 ### Defined in
 
-[src/utils/key.utils.ts:62](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/key.utils.ts#L62)
+[src/utils/key.utils.ts:62](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/key.utils.ts#L62)
 
 ***
 
@@ -5354,7 +5354,7 @@ Check if column is grouping column
 
 ### Defined in
 
-[src/utils/column.utils.ts:95](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/column.utils.ts#L95)
+[src/utils/column.utils.ts:95](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/column.utils.ts#L95)
 
 ***
 
@@ -5376,7 +5376,7 @@ function isCopy(event: KeyboardEvent): boolean
 
 ### Defined in
 
-[src/utils/key.utils.ts:83](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/key.utils.ts#L83)
+[src/utils/key.utils.ts:83](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/key.utils.ts#L83)
 
 ***
 
@@ -5399,7 +5399,7 @@ function isCtrlKey(code: number, platform: string): boolean
 
 ### Defined in
 
-[src/utils/key.utils.ts:41](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/key.utils.ts#L41)
+[src/utils/key.utils.ts:41](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/key.utils.ts#L41)
 
 ***
 
@@ -5421,7 +5421,7 @@ function isCtrlMetaKey(code: codes): boolean
 
 ### Defined in
 
-[src/utils/key.utils.ts:53](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/key.utils.ts#L53)
+[src/utils/key.utils.ts:53](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/key.utils.ts#L53)
 
 ***
 
@@ -5443,7 +5443,7 @@ function isCut(event: KeyboardEvent): boolean
 
 ### Defined in
 
-[src/utils/key.utils.ts:77](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/key.utils.ts#L77)
+[src/utils/key.utils.ts:77](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/key.utils.ts#L77)
 
 ***
 
@@ -5465,7 +5465,7 @@ function isEnterKeyValue(key: string): boolean
 
 ### Defined in
 
-[src/utils/key.utils.ts:73](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/key.utils.ts#L73)
+[src/utils/key.utils.ts:73](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/key.utils.ts#L73)
 
 ***
 
@@ -5487,7 +5487,7 @@ function isFilterBtn(e: HTMLElement): null | true | Element
 
 ### Defined in
 
-[src/plugins/filter/filter.button.tsx:46](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/filter/filter.button.tsx#L46)
+[src/plugins/filter/filter.button.tsx:46](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/filter/filter.button.tsx#L46)
 
 ***
 
@@ -5509,7 +5509,7 @@ function isHiddenStore(pos: number): pos is -1
 
 ### Defined in
 
-[src/store/selection/selection.helpers.ts:4](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.helpers.ts#L4)
+[src/store/selection/selection.helpers.ts:4](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.helpers.ts#L4)
 
 ***
 
@@ -5531,7 +5531,7 @@ function isMetaKey(code: number): boolean
 
 ### Defined in
 
-[src/utils/key.utils.ts:5](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/key.utils.ts#L5)
+[src/utils/key.utils.ts:5](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/key.utils.ts#L5)
 
 ***
 
@@ -5553,7 +5553,7 @@ function isPaste(event: KeyboardEvent): boolean
 
 ### Defined in
 
-[src/utils/key.utils.ts:89](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/key.utils.ts#L89)
+[src/utils/key.utils.ts:89](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/key.utils.ts#L89)
 
 ***
 
@@ -5575,7 +5575,7 @@ function isRangeSingleCell(a: RangeArea): boolean
 
 ### Defined in
 
-[src/store/selection/selection.helpers.ts:55](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.helpers.ts#L55)
+[src/store/selection/selection.helpers.ts:55](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.helpers.ts#L55)
 
 ***
 
@@ -5597,7 +5597,7 @@ function isRowType(type: any): type is DimensionRows
 
 ### Defined in
 
-[src/store/index.ts:15](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/index.ts#L15)
+[src/store/index.ts:15](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/index.ts#L15)
 
 ***
 
@@ -5621,7 +5621,7 @@ Check plugin type is Stretch
 
 ### Defined in
 
-[src/plugins/column.stretch.plugin.ts:136](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/plugins/column.stretch.plugin.ts#L136)
+[src/plugins/column.stretch.plugin.ts:136](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/column.stretch.plugin.ts#L136)
 
 ***
 
@@ -5643,7 +5643,7 @@ function isTab(code: string): boolean
 
 ### Defined in
 
-[src/utils/key.utils.ts:66](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/key.utils.ts#L66)
+[src/utils/key.utils.ts:66](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/key.utils.ts#L66)
 
 ***
 
@@ -5665,7 +5665,7 @@ function isTabKeyValue(key: string): boolean
 
 ### Defined in
 
-[src/utils/key.utils.ts:69](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/key.utils.ts#L69)
+[src/utils/key.utils.ts:69](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/key.utils.ts#L69)
 
 ***
 
@@ -5700,7 +5700,7 @@ Merge sorted array helper function
 
 ### Defined in
 
-[src/utils/index.ts:60](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/index.ts#L60)
+[src/utils/index.ts:60](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/index.ts#L60)
 
 ***
 
@@ -5723,7 +5723,7 @@ function nextCell(cell: Cell, lastCell: Cell): Partial<Cell> | null
 
 ### Defined in
 
-[src/store/selection/selection.helpers.ts:8](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/selection/selection.helpers.ts#L8)
+[src/store/selection/selection.helpers.ts:8](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/selection/selection.helpers.ts#L8)
 
 ***
 
@@ -5749,7 +5749,7 @@ This plugin is used keep sortint in the data source, even when trimming is appli
 
 ### Defined in
 
-[src/store/dataSource/data.proxy.ts:11](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.proxy.ts#L11)
+[src/store/dataSource/data.proxy.ts:11](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.proxy.ts#L11)
 
 ***
 
@@ -5784,7 +5784,7 @@ Sorted push
 
 ### Defined in
 
-[src/utils/index.ts:47](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/index.ts#L47)
+[src/utils/index.ts:47](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/index.ts#L47)
 
 ***
 
@@ -5807,7 +5807,7 @@ function range(size: number, startAt: number): number[]
 
 ### Defined in
 
-[src/utils/index.ts:12](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/index.ts#L12)
+[src/utils/index.ts:12](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/index.ts#L12)
 
 ***
 
@@ -5830,7 +5830,7 @@ function recombineByOffset(offset: number, data: RecombineOffsetData): ItemsToUp
 
 ### Defined in
 
-[src/store/vp/viewport.helpers.ts:189](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.helpers.ts#L189)
+[src/store/vp/viewport.helpers.ts:189](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.helpers.ts#L189)
 
 ***
 
@@ -5857,7 +5857,7 @@ function scaleValue(
 
 ### Defined in
 
-[src/utils/index.ts:124](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/index.ts#L124)
+[src/utils/index.ts:124](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/index.ts#L124)
 
 ***
 
@@ -5888,7 +5888,7 @@ Set items sizes from start index to end
 
 ### Defined in
 
-[src/store/vp/viewport.helpers.ts:358](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.helpers.ts#L358)
+[src/store/vp/viewport.helpers.ts:358](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.helpers.ts#L358)
 
 ***
 
@@ -5917,7 +5917,7 @@ function setItems<T>(store: Observable<DSourceState<T, any>>, items: number[]): 
 
 ### Defined in
 
-[src/store/dataSource/data.store.ts:213](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.store.ts#L213)
+[src/store/dataSource/data.store.ts:213](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.store.ts#L213)
 
 ***
 
@@ -5952,7 +5952,7 @@ set item to source
 
 ### Defined in
 
-[src/store/dataSource/data.store.ts:199](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.store.ts#L199)
+[src/store/dataSource/data.store.ts:199](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.store.ts#L199)
 
 ***
 
@@ -5987,7 +5987,7 @@ Apply silently item/model/row value to data source
 
 ### Defined in
 
-[src/store/dataSource/data.store.ts:175](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/data.store.ts#L175)
+[src/store/dataSource/data.store.ts:175](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/data.store.ts#L175)
 
 ***
 
@@ -6018,7 +6018,7 @@ Sets the given data on the specified store.
 
 ### Defined in
 
-[src/utils/store.utils.ts:13](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/store.utils.ts#L13)
+[src/utils/store.utils.ts:13](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/store.utils.ts#L13)
 
 ***
 
@@ -6042,7 +6042,7 @@ Async timeout
 
 ### Defined in
 
-[src/utils/index.ts:131](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/utils/index.ts#L131)
+[src/utils/index.ts:131](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/utils/index.ts#L131)
 
 ***
 
@@ -6073,7 +6073,7 @@ But keep them in store
 
 ### Defined in
 
-[src/store/dataSource/trimmed.plugin.ts:11](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/dataSource/trimmed.plugin.ts#L11)
+[src/store/dataSource/trimmed.plugin.ts:11](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/dataSource/trimmed.plugin.ts#L11)
 
 ***
 
@@ -6100,7 +6100,7 @@ function updateMissingAndRange(
 
 ### Defined in
 
-[src/store/vp/viewport.helpers.ts:103](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/store/vp/viewport.helpers.ts#L103)
+[src/store/vp/viewport.helpers.ts:103](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/store/vp/viewport.helpers.ts#L103)
 
 ## Namespaces
 
