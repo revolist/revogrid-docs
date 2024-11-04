@@ -96,7 +96,7 @@ const config: UserConfig<DefaultTheme.Config> = {
         footer: {
             copyright: 'Copyright © 2017-present',
             message:
-                'Revogrid is a MIT-licensed open source library made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. <br/><br/>',
+                'Revogrid is a powerful data grid library made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. <br/><br/>',
         },
 
         editLink: {

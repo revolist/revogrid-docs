@@ -397,6 +397,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                     text: 'Grouping',
                     link: '/demo/js/js.grouping',
                 },
+                {
+                    text: 'Filtering',
+                    link: '/demo/js/js.filtering',
+                },
             ],
         },
         {
