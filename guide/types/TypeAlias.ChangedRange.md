@@ -17,13 +17,13 @@ type ChangedRange: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | [src/types/selection.ts:67](https://github.com/revolist/revogrid/blob/d240e7e144f55d013a7a7b8d313a97b83af7bd06/src/types/selection.ts#L67) |
-| `mapping` | [`OldNewRangeMapping`](TypeAlias.OldNewRangeMapping.md) | [src/types/selection.ts:70](https://github.com/revolist/revogrid/blob/d240e7e144f55d013a7a7b8d313a97b83af7bd06/src/types/selection.ts#L70) |
-| `newData` | \{\} | [src/types/selection.ts:71](https://github.com/revolist/revogrid/blob/d240e7e144f55d013a7a7b8d313a97b83af7bd06/src/types/selection.ts#L71) |
-| `newRange` | [`RangeArea`](TypeAlias.RangeArea.md) | [src/types/selection.ts:68](https://github.com/revolist/revogrid/blob/d240e7e144f55d013a7a7b8d313a97b83af7bd06/src/types/selection.ts#L68) |
-| `oldRange` | [`RangeArea`](TypeAlias.RangeArea.md) | [src/types/selection.ts:69](https://github.com/revolist/revogrid/blob/d240e7e144f55d013a7a7b8d313a97b83af7bd06/src/types/selection.ts#L69) |
-| `type` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/types/selection.ts:66](https://github.com/revolist/revogrid/blob/d240e7e144f55d013a7a7b8d313a97b83af7bd06/src/types/selection.ts#L66) |
+| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | [src/types/selection.ts:67](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/types/selection.ts#L67) |
+| `mapping` | [`OldNewRangeMapping`](TypeAlias.OldNewRangeMapping.md) | [src/types/selection.ts:70](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/types/selection.ts#L70) |
+| `newData` | \{\} | [src/types/selection.ts:71](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/types/selection.ts#L71) |
+| `newRange` | [`RangeArea`](TypeAlias.RangeArea.md) | [src/types/selection.ts:68](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/types/selection.ts#L68) |
+| `oldRange` | [`RangeArea`](TypeAlias.RangeArea.md) | [src/types/selection.ts:69](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/types/selection.ts#L69) |
+| `type` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/types/selection.ts:66](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/types/selection.ts#L66) |
 
 ## Defined in
 
-[src/types/selection.ts:65](https://github.com/revolist/revogrid/blob/d240e7e144f55d013a7a7b8d313a97b83af7bd06/src/types/selection.ts#L65)
+[src/types/selection.ts:65](https://github.com/revolist/revogrid/blob/339b58d64f0e4822db63d040318421d77ef85671/src/types/selection.ts#L65)
