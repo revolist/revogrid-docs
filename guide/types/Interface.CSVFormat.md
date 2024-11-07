@@ -10,10 +10,10 @@
 
 | Property | Type | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ |
-| `bom` | `boolean` | - | [src/plugins/export/types.ts:23](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/export/types.ts#L23) |
-| `columnDelimiter` | `string` | - | [src/plugins/export/types.ts:24](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/export/types.ts#L24) |
-| `encoding` | `string` | [`FormatterOptions`](Interface.FormatterOptions.md).`encoding` | [src/plugins/export/types.ts:13](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/export/types.ts#L13) |
-| `fileKind` | `"csv"` | - | [src/plugins/export/types.ts:22](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/export/types.ts#L22) |
-| `filename?` | `string` | - | [src/plugins/export/types.ts:26](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/export/types.ts#L26) |
-| `mime` | `string` | [`FormatterOptions`](Interface.FormatterOptions.md).`mime` | [src/plugins/export/types.ts:12](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/export/types.ts#L12) |
-| `rowDelimiter` | `string` | - | [src/plugins/export/types.ts:25](https://github.com/revolist/revogrid/blob/8d359a6641aa3d85978ae1d816f404366e0fe6c4/src/plugins/export/types.ts#L25) |
+| `bom` | `boolean` | - | [src/plugins/export/types.ts:23](https://github.com/revolist/revogrid/blob/d396742969a06bfcb70f8e511e9e4fd6e640c7e3/src/plugins/export/types.ts#L23) |
+| `columnDelimiter` | `string` | - | [src/plugins/export/types.ts:24](https://github.com/revolist/revogrid/blob/d396742969a06bfcb70f8e511e9e4fd6e640c7e3/src/plugins/export/types.ts#L24) |
+| `encoding` | `string` | [`FormatterOptions`](Interface.FormatterOptions.md).`encoding` | [src/plugins/export/types.ts:13](https://github.com/revolist/revogrid/blob/d396742969a06bfcb70f8e511e9e4fd6e640c7e3/src/plugins/export/types.ts#L13) |
+| `fileKind` | `"csv"` | - | [src/plugins/export/types.ts:22](https://github.com/revolist/revogrid/blob/d396742969a06bfcb70f8e511e9e4fd6e640c7e3/src/plugins/export/types.ts#L22) |
+| `filename?` | `string` | - | [src/plugins/export/types.ts:26](https://github.com/revolist/revogrid/blob/d396742969a06bfcb70f8e511e9e4fd6e640c7e3/src/plugins/export/types.ts#L26) |
+| `mime` | `string` | [`FormatterOptions`](Interface.FormatterOptions.md).`mime` | [src/plugins/export/types.ts:12](https://github.com/revolist/revogrid/blob/d396742969a06bfcb70f8e511e9e4fd6e640c7e3/src/plugins/export/types.ts#L12) |
+| `rowDelimiter` | `string` | - | [src/plugins/export/types.ts:25](https://github.com/revolist/revogrid/blob/d396742969a06bfcb70f8e511e9e4fd6e640c7e3/src/plugins/export/types.ts#L25) |
