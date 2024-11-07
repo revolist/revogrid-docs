@@ -17,9 +17,9 @@ The `coordinate` property represents the current scroll position in that dimensi
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `coordinate` | `number` | Represents the current scroll position in the specified dimension. The value is a number representing the coordinate in pixels. | [src/types/interfaces.ts:813](https://github.com/revolist/revogrid/blob/d396742969a06bfcb70f8e511e9e4fd6e640c7e3/src/types/interfaces.ts#L813) |
-| `type` | [`DimensionType`](TypeAlias.DimensionType.md) | Represents the type of dimension being scrolled. Possible values are 'rgRow' and 'rgCol'. | [src/types/interfaces.ts:807](https://github.com/revolist/revogrid/blob/d396742969a06bfcb70f8e511e9e4fd6e640c7e3/src/types/interfaces.ts#L807) |
+| `coordinate` | `number` | Represents the current scroll position in the specified dimension. The value is a number representing the coordinate in pixels. | [src/types/interfaces.ts:813](https://github.com/revolist/revogrid/blob/825821baadfa2debcf4d39f08d4e13cf00eca4b8/src/types/interfaces.ts#L813) |
+| `type` | [`DimensionType`](TypeAlias.DimensionType.md) | Represents the type of dimension being scrolled. Possible values are 'rgRow' and 'rgCol'. | [src/types/interfaces.ts:807](https://github.com/revolist/revogrid/blob/825821baadfa2debcf4d39f08d4e13cf00eca4b8/src/types/interfaces.ts#L807) |
 
 ## Defined in
 
-[src/types/interfaces.ts:802](https://github.com/revolist/revogrid/blob/d396742969a06bfcb70f8e511e9e4fd6e640c7e3/src/types/interfaces.ts#L802)
+[src/types/interfaces.ts:802](https://github.com/revolist/revogrid/blob/825821baadfa2debcf4d39f08d4e13cf00eca4b8/src/types/interfaces.ts#L802)
