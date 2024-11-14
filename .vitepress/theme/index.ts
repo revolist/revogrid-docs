@@ -10,7 +10,6 @@ import HomeHeroInfoBefore from './HomeHeroInfoBefore.vue'
 import HomeMit from './HomeMit.vue'
 import HomeHeroAfter from './HomeHeroAfter.vue'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
-import VueGtag from 'vue-gtag'
 
 export default {
     extends: DefaultTheme,
@@ -27,13 +26,5 @@ export default {
     },
     enhanceApp({ app, router, siteData }) {
         enhanceAppWithTabs(app)
-        app.use(VueGtag, {
-            config: {
-                id: 'GTM-T7JNJDXW',
-                params: {
-                    anonymize_ip: true,
-                },
-            },
-        })
     },
 } satisfies Theme
