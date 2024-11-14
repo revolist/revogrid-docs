@@ -29,7 +29,7 @@ export default {
         enhanceAppWithTabs(app)
         app.use(VueGtag, {
             config: {
-                id: 'G-894M8FYLZF',
+                id: 'GTM-T7JNJDXW',
                 params: {
                     anonymize_ip: true,
                 },
