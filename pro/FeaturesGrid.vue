@@ -96,7 +96,6 @@ const toggleFlip = (id: string) => {
 
         .card-inner {
             // transform: rotateY(180deg);
-            pointer-events: none;
 
             .card-back {
                 display: flex;
@@ -113,6 +112,7 @@ const toggleFlip = (id: string) => {
     transition: transform ease-in-out 0.3s;
     transform-style: preserve-3d;
     height: 100%;
+    pointer-events: none;
 }
 
 
