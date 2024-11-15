@@ -35,6 +35,7 @@ const toggleFlip = (id: string) => {
             :key="feature.title"
             class="feature-card"
             :class="{ flipped: flippedCardId === feature.title, disabled: !feature.videoUrl }"
+            :id="feature.title.replace(' ', '-')"
             @click="feature.videoUrl && toggleFlip(feature.title)"
         >
             <div class="card-inner">
@@ -95,6 +96,7 @@ const toggleFlip = (id: string) => {
 
         .card-inner {
             // transform: rotateY(180deg);
+            pointer-events: none;
 
             .card-back {
                 display: flex;
