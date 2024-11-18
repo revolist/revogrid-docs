@@ -8,4 +8,4 @@ type BeforeEdit: BeforeSaveDataDetails;
 
 ## Defined in
 
-[src/types/selection.ts:103](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/types/selection.ts#L103)
+[src/types/selection.ts:104](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/types/selection.ts#L104)
