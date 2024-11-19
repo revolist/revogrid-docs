@@ -348,7 +348,9 @@ onMounted(async () => {
 })
 
 const setData = async (mode: number) => {
+    selectLoading.value = true
     gridData.value = await getHRData(mode)
+    selectLoading.value = false
 }
 </script>
 
