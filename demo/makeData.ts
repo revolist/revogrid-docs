@@ -4,6 +4,7 @@ export type Person = {
   avatar: string
   firstName: string
   lastName: string
+  name: string
   age: number
   visits: number
   progress: number
@@ -20,10 +21,13 @@ const range = (len: number) => {
 }
 
 const newPerson = (): Person => {
+  const firstName = faker.person.firstName()
+  const lastName = faker.person.lastName()
   return {
     avatar: faker.image.avatar(),
-    firstName: faker.person.firstName(),
-    lastName: faker.person.lastName(),
+    firstName,
+    lastName,
+    name: `${firstName} ${lastName}`,
     age: faker.number.int(40),
     visits: faker.number.int(1000),
     progress: faker.number.int(100),

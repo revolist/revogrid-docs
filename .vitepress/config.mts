@@ -9,6 +9,9 @@ import dotenv from 'dotenv'
 import path from 'node:path'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import { containerPreview } from './plugin.preview'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 dotenv.config()
 
@@ -123,6 +126,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     },
     vite: {
         plugins: [
+            AutoImport({
+                resolvers: [ElementPlusResolver()],
+            }),
+            Components({
+                resolvers: [ElementPlusResolver()],
+            }),
             svgLoader(),
             viteObfuscateFile({
                 // Obfuscation options, for example:
@@ -134,6 +143,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 renameProperties: true,
             }),
         ],
+        ssr: {
+            noExternal: ['element-plus']
+        },
         build: {
             sourcemap: false,
         },

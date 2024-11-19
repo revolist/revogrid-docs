@@ -5,7 +5,16 @@ title: RevoGrid Overview
 <script setup>
 import Grid from '@/demo/vue/DemoHR.vue'
 </script>
-
+<style lang="scss" scoped>
+.example {
+    max-width: 100%;    
+}
+:deep() {
+    .demo-page-wrapper .demo-container {
+        width: 100%;
+    }
+}
+</style>
 
 # Overview
 
@@ -17,7 +26,7 @@ Suppose you want to [`pin`](./defs.md#Row-Pin-Freeze) a row at the top or bottom
 
 In scenarios like this, maintaining performance while adding sophisticated grid functionalities can become difficult.
 
-<div class="example-container">
+<div class="example">
 <Grid />
 </div>
 
