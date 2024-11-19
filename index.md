@@ -15,7 +15,7 @@ head:
 hero:
   name: Accelerate.
   text: Fine-tune. Propel.
-  tagline: Revogrid is a datagrid system designed to boost the rendering of any data volume.
+  tagline: Revogrid is a datagrid system designed to boost the rendering of any data volume. 60fps, 3x less memory.
   license:
     text: Revogrid is a MIT-licensed open source library
     details: Help us to ensure the further development and maintenance by subscribing to
