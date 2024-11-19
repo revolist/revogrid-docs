@@ -17,18 +17,13 @@ import Grid from './vue/DemoHR.vue'
 
 # Demo Page
 
-<br />
 
 <!--@include: ../guide/parts/cross-framework-banner.md-->
 
-<div class="demo-page-wrapper">
-  <div class="demo-container">
-  
-
 <Grid />
+
+
 <!--@include: ../guide/parts/fake-data-banner.md-->
 
-</div>
-</div>
 <br /><br />
 <ShowoffBanner />

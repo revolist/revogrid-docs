@@ -124,6 +124,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                         { text: 'Cell Editor', link: '/guide/vue3/editor' },
                     ],
                 },
+                {
+                    text: 'Tanstack',
+                    link: '/guide/tanstack',
+                },
             ],
         },
         {
@@ -366,10 +370,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             text: 'Demo',
             link: '/demo/',
         },
-        ...(process.env.VITE_PRO_INCLUDE ? [{
-            text: 'Demo: Master Rows',
-            link: '/demo/nobel-pro/vue.nobel',
-        }]: []),
+        // ...(process.env.VITE_PRO_INCLUDE ? [{
+        //     text: 'Demo: Master Rows',
+        //     link: '/demo/nobel-pro/vue.nobel',
+        // }]: []),
         {
             text: 'Demo: Prompts',
             link: '/demo/vue/vue.prompts',
@@ -392,6 +396,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 {
                     text: 'Grouping',
                     link: '/demo/js/js.grouping',
+                },
+                {
+                    text: 'Filtering',
+                    link: '/demo/js/js.filtering',
                 },
             ],
         },

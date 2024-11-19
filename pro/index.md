@@ -9,6 +9,21 @@ pageClass: proPage
 ---
 
 <style lang="scss" src="./pro.styles.scss"></style>
+<style lang="scss" scoped>
+.vp-card {
+  flex: 1;
+  border: 1px solid var(--vp-c-divider-light);
+  padding: 1.5em;
+  margin: 1.5em 0;
+  border-radius: 10px;
+  background-color: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-gutter);
+  text-align: center;
+  &.free {
+      text-align: left;
+  }
+}
+</style>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
@@ -43,24 +58,6 @@ Pro version 💎 aimed at supporting the future growth of the library and provid
 <div class="plans-container">
 
 <Plan
-title="Forever free"
-class="free"
-description="RevoGrid is open-source MIT-licensed software, and it will be forever."
-buttonText="Get Started"
-buttonTheme="sponsor"
-href="/guide"
-icon="✔️"
-:features="[
-'Perpetual access to Extended Grid Core functionality.',
-'Frequent product updates.',
-'Documentation and community support.',
-'Continuous Technical team insights.',
-]"
-@open="showForm = true"
->
-</Plan>
-
-<Plan
 title="Professional"
 class="pro"
 description="Best for companies and individuals that want a direct wire to the Revogrid team experience."
@@ -70,11 +67,29 @@ buttonText="Request a Quote"
 >
 <template #footer>
 
-[Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms)
+[Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms) | [License](./policies/license)
 
 </template>
 </Plan>
 <ContactForm :isVisible="showForm" @close="showForm = false"/>
+
+<div class="vp-card free"><div class="vp-card__body">
+<br /><br />
+<strong>Accelerate Time-to-Market</strong><br/>
+Comprehensive toolset to rapidly implement complex functionality.
+
+<hr/>
+
+<strong>Pro-Level Plugins for Extensibility </strong><br/>
+Real-world examples that demonstrate how to implement complex features effectively.
+
+
+<hr/>
+
+<strong>Insights and Support</strong><br/>
+Access to exclusive expert support that helps you troubleshoot complex issues quickly.
+
+</div></div>
 
 </div>
 
@@ -87,14 +102,10 @@ Warm regards ❤️
 <br/>
 
 
-## Why Pro?
-
-<VPTeamMembers class="whyPro" :members="proWhy" size="small" />
-
 
 <br/>
-<br/>
 
-## What's included?
+### What's included?
+<br/>
 
 <FeaturesGrid :features="featuresPro" />

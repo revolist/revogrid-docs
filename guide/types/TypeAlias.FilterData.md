@@ -4,6 +4,7 @@
 
 ```ts
 type FilterData: {
+  hidden: boolean;
   id: number;
   relation: "and" | "or";
   type: FilterType;
@@ -13,13 +14,14 @@ type FilterData: {
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `id` | `number` | [src/plugins/filter/filter.types.ts:114](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/plugins/filter/filter.types.ts#L114) |
-| `relation` | `"and"` \| `"or"` | [src/plugins/filter/filter.types.ts:117](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/plugins/filter/filter.types.ts#L117) |
-| `type` | [`FilterType`](TypeAlias.FilterType.md) | [src/plugins/filter/filter.types.ts:115](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/plugins/filter/filter.types.ts#L115) |
-| `value` | `any` | [src/plugins/filter/filter.types.ts:116](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/plugins/filter/filter.types.ts#L116) |
+| Name | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| `hidden` | `boolean` | Filter invisible in filter panel | [src/plugins/filter/filter.types.ts:126](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/plugins/filter/filter.types.ts#L126) |
+| `id` | `number` | - | [src/plugins/filter/filter.types.ts:114](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/plugins/filter/filter.types.ts#L114) |
+| `relation` | `"and"` \| `"or"` | Filter relation | [src/plugins/filter/filter.types.ts:130](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/plugins/filter/filter.types.ts#L130) |
+| `type` | [`FilterType`](TypeAlias.FilterType.md) | Filter type | [src/plugins/filter/filter.types.ts:118](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/plugins/filter/filter.types.ts#L118) |
+| `value` | `any` | Filter value | [src/plugins/filter/filter.types.ts:122](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/plugins/filter/filter.types.ts#L122) |
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:113](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/plugins/filter/filter.types.ts#L113)
+[src/plugins/filter/filter.types.ts:113](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/plugins/filter/filter.types.ts#L113)

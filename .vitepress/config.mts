@@ -9,6 +9,9 @@ import dotenv from 'dotenv'
 import path from 'node:path'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import { containerPreview } from './plugin.preview'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 dotenv.config()
 
@@ -79,6 +82,15 @@ const config: UserConfig<DefaultTheme.Config> = {
                 content: 'summary_large_image',
             },
         ],
+        [
+            'script',
+            {},
+            `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T7JNJDXW');`
+        ]
     ],
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
@@ -96,7 +108,7 @@ const config: UserConfig<DefaultTheme.Config> = {
         footer: {
             copyright: 'Copyright © 2017-present',
             message:
-                'Revogrid is a MIT-licensed open source library made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. <br/><br/>',
+                'Revogrid is a powerful data grid library made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. <br/><br/>',
         },
 
         editLink: {
@@ -114,6 +126,12 @@ const config: UserConfig<DefaultTheme.Config> = {
     },
     vite: {
         plugins: [
+            AutoImport({
+                resolvers: [ElementPlusResolver()],
+            }),
+            Components({
+                resolvers: [ElementPlusResolver()],
+            }),
             svgLoader(),
             viteObfuscateFile({
                 // Obfuscation options, for example:
@@ -125,6 +143,9 @@ const config: UserConfig<DefaultTheme.Config> = {
                 renameProperties: true,
             }),
         ],
+        ssr: {
+            noExternal: ['element-plus']
+        },
         build: {
             sourcemap: false,
         },

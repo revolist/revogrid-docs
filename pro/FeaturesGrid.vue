@@ -35,6 +35,7 @@ const toggleFlip = (id: string) => {
             :key="feature.title"
             class="feature-card"
             :class="{ flipped: flippedCardId === feature.title, disabled: !feature.videoUrl }"
+            :id="feature.title.replace(' ', '-')"
             @click="feature.videoUrl && toggleFlip(feature.title)"
         >
             <div class="card-inner">
@@ -111,6 +112,7 @@ const toggleFlip = (id: string) => {
     transition: transform ease-in-out 0.3s;
     transform-style: preserve-3d;
     height: 100%;
+    pointer-events: none;
 }
 
 

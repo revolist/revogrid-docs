@@ -11,7 +11,7 @@ Editor component constructible class
 ```ts
 new EditorCtrConstructible(
    column: ColumnDataSchemaModel, 
-   save: (value: string, preventFocus?: boolean) => void, 
+   save: (value: any, preventFocus?: boolean) => void, 
    close: (focusNext?: boolean) => void): EditorBase
 ```
 
@@ -20,7 +20,7 @@ new EditorCtrConstructible(
 | Parameter | Type |
 | ------ | ------ |
 | `column` | [`ColumnDataSchemaModel`](TypeAlias.ColumnDataSchemaModel.md) |
-| `save` | (`value`: `string`, `preventFocus`?: `boolean`) => `void` |
+| `save` | (`value`: `any`, `preventFocus`?: `boolean`) => `void` |
 | `close` | (`focusNext`?: `boolean`) => `void` |
 
 #### Returns
@@ -29,4 +29,4 @@ new EditorCtrConstructible(
 
 #### Defined in
 
-[src/types/selection.ts:159](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/types/selection.ts#L159)
+[src/types/selection.ts:158](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/types/selection.ts#L158)

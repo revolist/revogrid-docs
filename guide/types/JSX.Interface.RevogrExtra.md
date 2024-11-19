@@ -2,8 +2,26 @@
 
 # Interface: RevogrExtra
 
+Contains extra elements for stencil components.
+Performs rendering and updates for external components.
+
+## Example
+
+```ts
+In Plugins if you want to add extra elements to grid and use stenciljs vnodes reactivity:
+function paginationPanel(this: PaginationPlugin, config: { refresh: () => void }) {
+   // use `config.refresh()` for component to re-render
+   return h('div')
+}
+revogrid.registerVNode = [
+   ...existingNodes,
+    paginationPanel.bind(this)
+];
+/**
+```
+
 ## Properties
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `nodes?` | `null` \| ([`VNode`](Interface.VNode.md) \| () => [`VNode`](Interface.VNode.md))[] | Nodes to render | [src/components.d.ts:1756](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L1756) |
+| `nodes?` | ([`VNode`](Interface.VNode.md) \| (`c`: [`ExtraNodeFuncConfig`](Interface.ExtraNodeFuncConfig.md)) => [`VNode`](Interface.VNode.md))[] | Nodes to render | [src/components.d.ts:1805](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L1805) |

@@ -13,7 +13,7 @@
 | [RevogrClipboard](Components.Interface.RevogrClipboard.md) | This Clipboard provides functionality for handling clipboard events in a web application. |
 | [RevogrData](Components.Interface.RevogrData.md) | This component is responsible for rendering data Rows, columns, groups and cells |
 | [RevogrEdit](Components.Interface.RevogrEdit.md) | Represents a cell editor in a grid. It manages the editing of cells by handling events, saving data, rendering the editor UI, and managing the lifecycle of the editor instance. |
-| [RevogrExtra](Components.Interface.RevogrExtra.md) | - |
+| [RevogrExtra](Components.Interface.RevogrExtra.md) | Contains extra elements for stencil components. Performs rendering and updates for external components. |
 | [RevogrFilterPanel](Components.Interface.RevogrFilterPanel.md) | - |
 | [RevogrFocus](Components.Interface.RevogrFocus.md) | Focus component. Shows focus layer around the cell that is currently in focus. |
 | [RevogrHeader](Components.Interface.RevogrHeader.md) | - |

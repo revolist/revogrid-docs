@@ -6,19 +6,19 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `revo-grid` | [`RevoGrid`](JSX.Interface.RevoGrid.md) | [src/components.d.ts:2242](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2242) |
-| `revogr-attribution` | [`RevogrAttribution`](JSX.Interface.RevogrAttribution.md) | [src/components.d.ts:2243](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2243) |
-| `revogr-clipboard` | [`RevogrClipboard`](JSX.Interface.RevogrClipboard.md) | [src/components.d.ts:2244](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2244) |
-| `revogr-data` | [`RevogrData`](JSX.Interface.RevogrData.md) | [src/components.d.ts:2245](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2245) |
-| `revogr-edit` | [`RevogrEdit`](JSX.Interface.RevogrEdit.md) | [src/components.d.ts:2246](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2246) |
-| `revogr-extra` | [`RevogrExtra`](JSX.Interface.RevogrExtra.md) | [src/components.d.ts:2247](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2247) |
-| `revogr-filter-panel` | [`RevogrFilterPanel`](JSX.Interface.RevogrFilterPanel.md) | [src/components.d.ts:2248](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2248) |
-| `revogr-focus` | [`RevogrFocus`](JSX.Interface.RevogrFocus.md) | [src/components.d.ts:2249](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2249) |
-| `revogr-header` | [`RevogrHeader`](JSX.Interface.RevogrHeader.md) | [src/components.d.ts:2250](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2250) |
-| `revogr-order-editor` | [`RevogrOrderEditor`](JSX.Interface.RevogrOrderEditor.md) | [src/components.d.ts:2251](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2251) |
-| `revogr-overlay-selection` | [`RevogrOverlaySelection`](JSX.Interface.RevogrOverlaySelection.md) | [src/components.d.ts:2252](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2252) |
-| `revogr-row-headers` | [`RevogrRowHeaders`](JSX.Interface.RevogrRowHeaders.md) | [src/components.d.ts:2253](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2253) |
-| `revogr-scroll-virtual` | [`RevogrScrollVirtual`](JSX.Interface.RevogrScrollVirtual.md) | [src/components.d.ts:2254](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2254) |
-| `revogr-temp-range` | [`RevogrTempRange`](JSX.Interface.RevogrTempRange.md) | [src/components.d.ts:2255](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2255) |
-| `revogr-viewport-scroll` | [`RevogrViewportScroll`](JSX.Interface.RevogrViewportScroll.md) | [src/components.d.ts:2256](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2256) |
-| `vnode-html` | [`VnodeHtml`](JSX.Interface.VnodeHtml.md) | [src/components.d.ts:2257](https://github.com/revolist/revogrid/blob/1d0ce44a71b6b80efaa7b83dae9a188a9f2de653/src/components.d.ts#L2257) |
+| `revo-grid` | [`RevoGrid`](JSX.Interface.RevoGrid.md) | [src/components.d.ts:2293](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2293) |
+| `revogr-attribution` | [`RevogrAttribution`](JSX.Interface.RevogrAttribution.md) | [src/components.d.ts:2294](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2294) |
+| `revogr-clipboard` | [`RevogrClipboard`](JSX.Interface.RevogrClipboard.md) | [src/components.d.ts:2295](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2295) |
+| `revogr-data` | [`RevogrData`](JSX.Interface.RevogrData.md) | [src/components.d.ts:2296](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2296) |
+| `revogr-edit` | [`RevogrEdit`](JSX.Interface.RevogrEdit.md) | [src/components.d.ts:2297](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2297) |
+| `revogr-extra` | [`RevogrExtra`](JSX.Interface.RevogrExtra.md) | [src/components.d.ts:2298](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2298) |
+| `revogr-filter-panel` | [`RevogrFilterPanel`](JSX.Interface.RevogrFilterPanel.md) | [src/components.d.ts:2299](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2299) |
+| `revogr-focus` | [`RevogrFocus`](JSX.Interface.RevogrFocus.md) | [src/components.d.ts:2300](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2300) |
+| `revogr-header` | [`RevogrHeader`](JSX.Interface.RevogrHeader.md) | [src/components.d.ts:2301](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2301) |
+| `revogr-order-editor` | [`RevogrOrderEditor`](JSX.Interface.RevogrOrderEditor.md) | [src/components.d.ts:2302](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2302) |
+| `revogr-overlay-selection` | [`RevogrOverlaySelection`](JSX.Interface.RevogrOverlaySelection.md) | [src/components.d.ts:2303](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2303) |
+| `revogr-row-headers` | [`RevogrRowHeaders`](JSX.Interface.RevogrRowHeaders.md) | [src/components.d.ts:2304](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2304) |
+| `revogr-scroll-virtual` | [`RevogrScrollVirtual`](JSX.Interface.RevogrScrollVirtual.md) | [src/components.d.ts:2305](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2305) |
+| `revogr-temp-range` | [`RevogrTempRange`](JSX.Interface.RevogrTempRange.md) | [src/components.d.ts:2306](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2306) |
+| `revogr-viewport-scroll` | [`RevogrViewportScroll`](JSX.Interface.RevogrViewportScroll.md) | [src/components.d.ts:2307](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2307) |
+| `vnode-html` | [`VnodeHtml`](JSX.Interface.VnodeHtml.md) | [src/components.d.ts:2308](https://github.com/revolist/revogrid/blob/541ed3c2070ab701e47c29bb6172b17d19a08816/src/components.d.ts#L2308) |

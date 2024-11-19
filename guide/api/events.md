@@ -16,7 +16,7 @@ aside: false
 | roworderchanged | `{ from: number; to: number; }` | revo-grid | Before the order of `rgRow` is applied. To prevent the default behavior of changing the order of `rgRow`, you can call `e.preventDefault()`. |
 | beforesortingapply | `{ column: ColumnRegular; order: "asc" \| "desc"; additive: boolean; }` | revo-grid | By sorting.plugin.ts Before sorting apply. Use e.preventDefault() to prevent sorting data change. |
 | beforesorting | `{ column: ColumnRegular; order: "asc" \| "desc"; additive: boolean; }` | revo-grid | By sorting.plugin.ts Before sorting event. Initial sorting triggered, if this event stops no other event called. Use e.preventDefault() to prevent sorting. |
-| rowdragstart | `{ pos: PositionItem; text: string; }` | revo-grid | This event is triggered when the row order change is started. To prevent the default behavior of changing the row order, you can call `e.preventDefault()`. To change the item name at the start of the row order change, you can set `e.text` to the desired new name. |
+| rowdragstart | `{ cell: Cell; text: string; pos: PositionItem; event: MouseEvent; rowType: DimensionRows; model: any; }` | revo-grid | This event is triggered when the row order change is started. To prevent the default behavior of changing the row order, you can call `e.preventDefault()`. To change the item name at the start of the row order change, you can set `e.text` to the desired new name. |
 | headerclick | `ColumnRegular` | revo-grid | On header click. |
 | beforecellfocus | `BeforeSaveDataDetails` | revo-grid | Before the cell focus is changed. To prevent the default behavior of changing the cell focus, you can call `e.preventDefault()`. |
 | beforefocuslost | `null \| { model: any; cell: Cell; colType: DimensionCols; rowType: DimensionRows; column?: ColumnRegular \| undefined; }` | revo-grid | Before the grid focus is lost. To prevent the default behavior of changing the cell focus, you can call `e.preventDefault()`. |
@@ -43,6 +43,7 @@ aside: false
 | aftergridinit | `any` | revo-grid | Emmited after the grid is initialized. Connected to the DOM. |
 | additionaldatachanged | `any` | revo-grid | Emmited after the additional data is changed |
 | afterthemechanged | `string` | revo-grid | Emmited after the theme is changed |
+| created | `any` | revo-grid | Emmited after grid created |
 | beforepaste | `{ raw: string; isHTML: boolean; event: ClipboardEvent; dataText: string; }` | revogr-clipboard | Paste 1. Fired before paste applied to the grid defaultPrevented - if true, paste will be canceled |
 | beforepasteapply | `{ raw: string; parsed: string[][]; event: ClipboardEvent; }` | revogr-clipboard | Paste 2. Fired before paste applied to the grid and after data parsed |
 | pasteregion | `string[][]` | revogr-clipboard | Paste 3. Internal method. When data region is ready pass it to the top. |
@@ -69,7 +70,7 @@ aside: false
 | beforeheaderresize | `ColumnRegular[]` | revogr-header | On before header resize |
 | headerdblclick | `{ index: number; originalEvent: MouseEvent; column: ColumnRegular; providers: Providers<DimensionCols \| "rowHeaders">; }` | revogr-header | On header double click |
 | beforeheaderrender | `{ column: VirtualPositionItem; additionalData: any; data: ColumnTemplateProp; range?: RangeArea \| null \| undefined; canResize?: boolean \| undefined; canFilter?: boolean \| undefined; onResize?(e: ResizeEvent): void; onClick?(data: InitialHeaderClick): void; onDblClick?(data: InitialHeaderClick): void; } & Partial<Pick<ResizeProps, "active">>` | revogr-header | Before each header cell render function. Allows to override cell properties |
-| afterheaderrender | `{ type: DimensionCols \| "rowHeaders"; readonly: boolean; data: Observable<DataSourceState<any, any>> \| ColumnRegular[]; viewport: Observable<ViewportState>; dimension: Observable<DimensionSettingsState>; selection: Observable<SelectionStoreState>; }` | revogr-header | After all header cells rendered. Finalizes cell rendering. |
+| afterheaderrender | `{ type: DimensionCols \| "rowHeaders"; readonly: boolean; data: ColumnRegular[] \| Observable<DataSourceState<any, any>>; viewport: Observable<ViewportState>; dimension: Observable<DimensionSettingsState>; selection: Observable<SelectionStoreState>; }` | revogr-header | After all header cells rendered. Finalizes cell rendering. |
 | rowdragstartinit | `{ cell: Cell; text: string; pos: PositionItem; event: MouseEvent; rowType: DimensionRows; model: any; }` | revogr-order-editor | Row drag started |
 | rowdragendinit | `{ rowType: DimensionRows; }` | revogr-order-editor | Row drag ended started |
 | rowdragmoveinit | `PositionItem & { rowType: DimensionRows; }` | revogr-order-editor | Row move started |

@@ -111,7 +111,7 @@ export const featuresPro = [
         title: 'Excel Export',
         thumbnail: '/export.svg',
         description: 'Export data to Excel format. Supported types include `xlsx`, `xlsm`, `xlsb`, `xls`, and more.',
-        sponsor: '/guide/export.excel',
+        videoUrl: '/video/excel-export.mp4',
     },
     {
         title: 'Event Manager',
@@ -123,7 +123,7 @@ export const featuresPro = [
         title: 'Advanced Filtering',
         thumbnail: '/filtering.svg',
         description: 'Advanced multi-condition filters and custom filter logic to refine and display your data more effectively.',
-        sponsor: '/guide/advanced-filtering',
+        videoUrl: '/video/filter-advance.mp4',
     },
     {
         title: 'Data Processing',
