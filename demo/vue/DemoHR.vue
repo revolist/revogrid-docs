@@ -3,6 +3,7 @@
         <div class="panel">
             Data source:
             <ElSelectV2
+                class="source-select"
                 v-model:model-value="currentSourceSize"
                 :options="options"
                 :disabled="selectLoading"
