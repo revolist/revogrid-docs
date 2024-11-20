@@ -67,4 +67,4 @@ export default {
 </script>
 ```
 
-<!--@include: ../../demo/vue/vue2.sample.md-->
+<!--@include: ../../demo/vue/vue2-datagrid.md-->

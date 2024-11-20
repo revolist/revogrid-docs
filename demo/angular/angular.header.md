@@ -1,5 +1,5 @@
 ---
-title: Angular Header component & Tooltip
+title: Header component & Tooltip - Angular Data Grid
 ---
 
 

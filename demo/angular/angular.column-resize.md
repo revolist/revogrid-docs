@@ -1,5 +1,5 @@
 ---
-title: Angular Column resize
+title: Column resize - Angular Data Grid
 ---
 
 <ClientOnly>

@@ -1,5 +1,5 @@
 ---
-title: Vue 2 Cell component
+title: Native Cell component - Vue 2 Data Grid
 ---
 
 <ClientOnly>

@@ -1,5 +1,5 @@
 ---
-title: Angular Demo - Inventory List
+title: Inventory List Spreedsheet Demo - Angular Data Grid
 ---
 
 <ClientOnly>

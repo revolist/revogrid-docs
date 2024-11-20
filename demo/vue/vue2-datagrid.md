@@ -1,5 +1,5 @@
 ---
-title: Vue 2 Getting Started
+title: Getting Started - Vue 2 Data Grid
 ---
 
 <ClientOnly>

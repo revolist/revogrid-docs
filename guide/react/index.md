@@ -1,5 +1,5 @@
 ---
-title: React Integration Guide
+title: React Data Grid Guide
 description: Learn how to integrate RevoGrid with React to build fast, scalable data grids with support for virtual rows and columns.
 head:
   - - meta
@@ -69,4 +69,4 @@ export default App
 
 ```
 
-<!--@include: ../../demo/react/react.sample.md-->
+<!--@include: ../../demo/react/react-datagrid.md-->

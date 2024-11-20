@@ -132,6 +132,8 @@
     --vp-custom-block-tip-text: var(--vp-c-text-1);
     --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
     --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+
+    --el-loading-spinner-size: 20px !important;
 }
 
 /**
@@ -298,7 +300,6 @@
         font-size: 10px;
     }
 }
-
 @media (min-width: 1240px) {
     .demo-page-wrapper .demo-container {
         max-width: 1240px;
@@ -313,11 +314,15 @@
     .demo-container {
         max-width: 960px;
         border-radius: 10px;
-        overflow: hidden;
         border: 1px solid var(--vp-custom-block-info-bg);
     }
 }
 .demo-container > revo-grid {
+    border-radius: 10px;
+
+    revogr-row-headers {
+        border-radius: 10px 0 0 0;
+    }
     + .custom-block {
         margin: 0;
         border-radius: 0 0 8px 8px;

@@ -43,6 +43,7 @@ aside: false
 | aftergridinit | `any` | revo-grid | Emmited after the grid is initialized. Connected to the DOM. |
 | additionaldatachanged | `any` | revo-grid | Emmited after the additional data is changed |
 | afterthemechanged | `string` | revo-grid | Emmited after the theme is changed |
+| created | `any` | revo-grid | Emmited after grid created |
 | beforepaste | `{ raw: string; isHTML: boolean; event: ClipboardEvent; dataText: string; }` | revogr-clipboard | Paste 1. Fired before paste applied to the grid defaultPrevented - if true, paste will be canceled |
 | beforepasteapply | `{ raw: string; parsed: string[][]; event: ClipboardEvent; }` | revogr-clipboard | Paste 2. Fired before paste applied to the grid and after data parsed |
 | pasteregion | `string[][]` | revogr-clipboard | Paste 3. Internal method. When data region is ready pass it to the top. |

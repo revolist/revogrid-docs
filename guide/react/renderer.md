@@ -1,5 +1,5 @@
 ---
-title: React Native Cell Render Support in RevoGrid
+title: React Data Grid Native Cell Render Support
 description: Explore native cell rendering in RevoGrid for React, allowing the use of custom React components inside grid cells.
 head:
   - - meta

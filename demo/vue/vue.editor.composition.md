@@ -1,16 +1,24 @@
 ---
-title: Vue 3 Editor component
+title: Native Editor component (Composition API) - Vue 3 Data Grid
 ---
 
-<ClientOnly>
-  <div class="tile">
-    <iframe src="https://codesandbox.io/embed/sl8vvw?view=preview&module=%2Fsrc%2FApp.vue&hidenavigation=1"
-     style="width:100%; height: 300px; border:0; border-radius: 4px; overflow:hidden;"
-     title="RG Editor (Vue 3 Composition api)"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-  </div>
-</ClientOnly>
 
-[![Edit RG Editor (Vue 3 Composition api)](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/rg-editor-vue-3-composition-api-sl8vvw)
+# Vue 3 - Native Cell component (Composition API)
+
+<br />
+
+<script setup lang="ts">
+import Example from '@/demo/vue/vue.editor.composition.example.vue';
+</script>
+
+<div class="example-container">
+<Example />
+</div>
+
+::: details <span class="source-btn">Source code</span> <span class="external"> [Git](https://github.com/revolist/revogrid-docs/tree/main/demo/vue/vue.editor.composition.example.vue) [Codesandbox](https://codesandbox.io/p/sandbox/rg-editor-vue-3-composition-api-sl8vvw) </span>
+
+
+::: code-group
+<<< @/demo/vue/vue.editor.composition.example.vue
+<<< @/demo/vue/vue.editor.composition.example-editor.vue
+:::

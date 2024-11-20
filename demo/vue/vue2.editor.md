@@ -1,5 +1,5 @@
 ---
-title: Vue 2 Editor component
+title: Native Editor component - Vue 2 Data Grid
 ---
 
 ## How to sample

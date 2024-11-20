@@ -1,5 +1,5 @@
 ---
-title: React Cell component
+title: Native Cell component - React Data Grid
 ---
 
 <ClientOnly>

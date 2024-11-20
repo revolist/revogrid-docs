@@ -1,5 +1,5 @@
 ---
-title: Angular Editor custom date format
+title: Native Date Editor - Angular Data Grid
 ---
 
 <ClientOnly>

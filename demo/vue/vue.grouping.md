@@ -1,8 +1,8 @@
 ---
-title: Vue 3 Grouping
+title: Row Grouping - Vue 3 Data Grid
 ---
 
-# Grouping
+# Vue 3 - Row Grouping
 
 
 <ClientOnly>

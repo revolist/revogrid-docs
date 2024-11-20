@@ -9,6 +9,9 @@ import dotenv from 'dotenv'
 import path from 'node:path'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import { containerPreview } from './plugin.preview'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 dotenv.config()
 
@@ -32,9 +35,12 @@ export const slugify = (str: string): string =>
         .replace(/^(\d)/, '_$1')
 
 const config: UserConfig<DefaultTheme.Config> = {
+    sitemap: {
+        hostname: 'https://rv-grid.com', 
+    },
     title: 'RevoGrid',
     appearance: 'dark',
-    description: 'Data Grid Library on steroids - RevoGrid',
+    description: 'Data Grid Library on steroids for Vue, Angular, React, Svelte and JS',
 
     markdown: {
         theme: {
@@ -123,6 +129,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     },
     vite: {
         plugins: [
+            AutoImport({
+                resolvers: [ElementPlusResolver()],
+            }),
+            Components({
+                resolvers: [ElementPlusResolver()],
+            }),
             svgLoader(),
             viteObfuscateFile({
                 // Obfuscation options, for example:
@@ -134,6 +146,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 renameProperties: true,
             }),
         ],
+        ssr: {
+            noExternal: ['element-plus']
+        },
         build: {
             sourcemap: false,
         },
