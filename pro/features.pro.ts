@@ -12,6 +12,12 @@ export const featuresPro = [
         description: 'Complex formulas similar to Excel. Provides dynamic calculations & data manipulation.',  
     },
     {
+        title: 'Trail History',
+        thumbnail: '/history.svg',
+        videoUrl: '/video/history.mp4',
+        description: 'Track your history of changes. Undo and redo operations.',  
+    },
+    {
         title: 'Conditional Formatting',
         thumbnail: '/conditional-formatting.svg',
         description: 'Customize cell styles based on specific conditions. Highlight important data, create visual cues, and improve the readability.',
