@@ -383,7 +383,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             items: [
                 {
                     text: 'Getting Started Composition API',
-                    link: '/demo/vue/vue.sample.composition',
+                    link: '/demo/vue/vue3-datagrid',
                 },
                 {
                     text: 'Getting Started Options API',
@@ -412,7 +412,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             items: [
                 {
                     text: 'Getting Started Options API',
-                    link: '/demo/vue/vue2.sample',
+                    link: '/demo/vue/vue2-datagrid',
                 },
                 {
                     text: 'Cell component',

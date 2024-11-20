@@ -1,10 +1,18 @@
 <template>
-    <VGrid :columns="columns" :source="rows" />
+    <RevoGrid
+        hide-attribution
+        :columns="columns"
+        :source="rows"
+        :theme="isDark ? 'darkCompact' : 'compact'"
+    />
 </template>
 
 <script lang="ts" setup>
+import { useData } from 'vitepress'
+const { isDark } = useData()
+
 import { ref } from 'vue'
-import VGrid, {
+import RevoGrid, {
     VGridVueTemplate,
     type ColumnRegular,
 } from '@revolist/vue3-datagrid'

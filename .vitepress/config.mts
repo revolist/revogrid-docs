@@ -35,9 +35,12 @@ export const slugify = (str: string): string =>
         .replace(/^(\d)/, '_$1')
 
 const config: UserConfig<DefaultTheme.Config> = {
+    sitemap: {
+        hostname: 'https://rv-grid.com', 
+    },
     title: 'RevoGrid',
     appearance: 'dark',
-    description: 'Data Grid Library on steroids - RevoGrid',
+    description: 'Data Grid Library on steroids for Vue, Angular, React, Svelte and JS',
 
     markdown: {
         theme: {
