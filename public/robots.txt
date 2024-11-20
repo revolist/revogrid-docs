@@ -1,0 +1,32 @@
+# robots.txt for rv-grid.com
+
+User-agent: *
+Disallow: /private/
+Disallow: /temp/
+Allow: /
+
+# Sitemap location
+Sitemap: https://rv-grid.com/sitemap.xml
+
+# Crawling Delay to avoid server overload
+Crawl-delay: 10
+
+# Specific rules for well-known crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# Block some unnecessary files
+User-agent: *
+Disallow: /*.pdf$
+Disallow: /*.zip$
+Disallow: /*.doc$
+
+# Block any URLs with query parameters
+User-agent: *
+Disallow: /*?
