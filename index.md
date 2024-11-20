@@ -6,7 +6,7 @@ title: High performance data grid for any framework - Vue, React, Angular, Svelt
 head:
   - - meta
     - name: description
-      content: Fast, responsive, and feature-rich excel like virtual data grid for modern web applications. Provides out-of-the-box integration with Vue, React, Angular, and Svelte. Supports filtering, grouping, infinite scrolling.
+      content: Fast and feature-rich excel like data grid with native support for Vue, React, Angular, and Svelte
   - - meta
     - name: keywords
       content: Fast Grid, Virtual Grid, Reactive Grid, Infinity Grid, Spreadsheet Features, Virtual Data Grid, Excel-like Grid, High-performance Grid, Responsive Grid, Data Grid Library, Enterprise Data Grid, Lightweight Grid, Customizable Grid, Vue Grid, Vue3 Data Grid, Vue3 Virtual Grid, Vue Grid Component, Vue Datagrid Features, React Grid, React Data Grid, React Editable Grid, React Virtual Scrolling Grid, Svelte Grid, Svelte Data Grid, Svelte Virtual Grid, Svelte UI Grid, Angular Grid, Angular Data Grid, Angular Tree Grid, Angular Grid Component, Angular Virtual Scrolling Grid, Virtual Scrolling, Grid Performance, Data Sorting, Data Filtering, Grouping, Editable Grid Component, Treeview Grid, Spreadsheet Editing, Conditional Formatting, Merge Cells, Master-detail Rows, Row Management, Column Management, Pagination, Large Dataset Handling, Interactive Data Grid, Frontend Grid, Grid Plugins, StencilJS Grid, JavaScript Grid, Scalable Grid, RevoGrid, RevoGrid Demo, RevoGrid Plugins, RevoGrid Features, Data Visualization, Data Editing, Enterprise-grade Data Grid, Startup Data Grid
