@@ -83,7 +83,7 @@ export class AppComponent {
 
 ### Example
 
-<!--@include: ../../demo/angular/angular.sample.md-->
+<!--@include: ../../demo/angular/angular-datagrid.md-->
 
 
 

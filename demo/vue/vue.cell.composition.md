@@ -1,16 +1,24 @@
 ---
-title: Vue 3 Cell component
+title: Native Cell component (Composition API) - Vue 3 Data Grid
 ---
 
-<ClientOnly>
-  <div class="tile">
-    <iframe src="https://codesandbox.io/embed/cvv97n?view=preview&module=%2Fsrc%2Fcomponents%2FCell.vue&hidenavigation=1"
-     style="width:100%; height: 300px; border:0; border-radius: 4px; overflow:hidden;"
-     title="RG Cell (Vue 3 Composition api)"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-  </div>
-</ClientOnly>
 
-[![Edit RG Cell (Vue 3 Composition api)](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/rg-cell-vue-3-composition-api-cvv97n)
+# Vue 3 - Native Cell component (Composition API)
+
+<br />
+
+<script setup lang="ts">
+import Example from '@/demo/vue/vue.cell.composition.example.vue';
+</script>
+
+<div class="example-container">
+<Example />
+</div>
+
+::: details <span class="source-btn">Source code</span> <span class="external"> [Git](https://github.com/revolist/revogrid-docs/tree/main/demo/vue/vue.cell.composition.example.vue) [Codesandbox](https://codesandbox.io/p/sandbox/rg-cell-vue-3-composition-api-cvv97n) </span>
+
+
+::: code-group
+<<< @/demo/vue/vue.cell.composition.example.vue
+<<< @/demo/vue/vue.cell.composition.example-cell.vue
+:::

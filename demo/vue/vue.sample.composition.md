@@ -1,8 +1,10 @@
 ---
-title: Vue 3 Getting Started Composition
+title: Getting Started Composition API - Vue 3 Data Grid
 ---
 
+# Vue 3 - Getting Started with Composition API
 
+<br />
 
 <script setup lang="ts">
 import Example from '@/demo/vue/vue.sample.composition.example.vue';

@@ -31,4 +31,4 @@ Svelte is releasing v5.0.0. This version still has some breaking changes. We rec
 
 <<< @/demo/svelte/svelte.sample.svelte
 
-<!--@include: ../../demo/svelte/svelte.sample.md-->
+<!--@include: ../../demo/svelte/svelte-datagrid.md-->

@@ -1,5 +1,5 @@
 ---
-title: Vue 3 Select Example
+title: Multi Select Virtual List - Vue 3 Data Grid
 ---
 
 
@@ -7,7 +7,7 @@ title: Vue 3 Select Example
     import Demo from './vue.select.vue'
 </script>
 
-# Vue 3 Select Example
+# Vue 3 - Multi Select (Composition API)
 
 :::tabs
 == Preview

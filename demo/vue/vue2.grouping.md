@@ -1,5 +1,5 @@
 ---
-title: Vue 2 Grouping
+title: Grouping - Vue 2 Data Grid
 ---
 
 # Grouping

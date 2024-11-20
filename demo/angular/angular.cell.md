@@ -1,5 +1,5 @@
 ---
-title: Angular Cell component
+title: Native Cell component - Angular Data Grid
 ---
 
 

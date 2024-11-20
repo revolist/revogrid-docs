@@ -1,5 +1,5 @@
 ---
-title: Angular Getting Started Standalone
+title: Getting Started Standalone - Angular Data Grid
 ---
 
 <ClientOnly>

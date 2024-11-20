@@ -1,5 +1,5 @@
 ---
-title: Vue 2 Editor date component
+title: Native Date Editor component - Vue 2 Data Grid
 ---
 <ClientOnly>
   <iframe src="https://codesandbox.io/embed/nnd8w3?view=preview&module=%2Fsrc%2FApp.vue&hidenavigation=1"

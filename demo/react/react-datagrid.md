@@ -1,5 +1,5 @@
 ---
-title: React Getting Started
+title: Getting Started - React Data Grid
 ---
 
 

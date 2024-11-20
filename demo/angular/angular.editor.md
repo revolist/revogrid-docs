@@ -1,5 +1,5 @@
 ---
-title: Angular Editor component
+title: Native Editor component - Angular Data Grid
 ---
 
 <ClientOnly>

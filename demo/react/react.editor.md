@@ -1,5 +1,5 @@
 ---
-title: React Editor component
+title: Native Editor component - React Data Grid
 ---
 
 <ClientOnly>

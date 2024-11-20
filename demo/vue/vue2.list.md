@@ -1,5 +1,5 @@
 ---
-title: Vue 2 list
+title: Virtual list - Vue 2 Data Grid
 ---
 
 <ClientOnly>

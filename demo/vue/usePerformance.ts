@@ -86,14 +86,18 @@ const measureScrollFPS = (elementSelector: string) =>{
 
   // Measure memory usage
   const measureMemoryUsage = () => {
-    // @ts-ignore
-    if (performance.memory) {
+    try {
       // @ts-ignore
-      const { usedJSHeapSize, totalJSHeapSize, jsHeapSizeLimit } = performance.memory;
-      memoryUsage.value = { usedJSHeapSize, totalJSHeapSize, jsHeapSizeLimit };
-    //   console.log('Memory Usage:', memoryUsage.value);
-    } else {
-      console.warn('Memory measurement is not supported in this browser.');
+      if (performance.memory) {
+        // @ts-ignore
+        const { usedJSHeapSize, totalJSHeapSize, jsHeapSizeLimit } = performance.memory;
+        memoryUsage.value = { usedJSHeapSize, totalJSHeapSize, jsHeapSizeLimit };
+      //   console.log('Memory Usage:', memoryUsage.value);
+      } else {
+        console.warn('Memory measurement is not supported in this browser.');
+      }
+    } catch (error) {
+      console.error('Error measuring memory usage:', error);
     }
   };
 

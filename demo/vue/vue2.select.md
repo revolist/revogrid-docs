@@ -1,5 +1,5 @@
 ---
-title: Vue 2 Checkbox list with Select All
+title: Multi Select Data Grid Virtual list - Vue 2 Data Grid
 ---
 <ClientOnly>
 <iframe src="https://codesandbox.io/embed/rr25l9??view=preview&module=%2Fsrc%2FApp.vue&hidenavigation=1"

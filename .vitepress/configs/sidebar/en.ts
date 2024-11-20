@@ -376,129 +376,18 @@ export const sidebarEn: DefaultTheme.Sidebar = {
         // }]: []),
         {
             text: 'Demo: Prompts',
-            link: '/demo/vue/vue.prompts',
+            link: '/demo/vue/ai-prompts',
         },
-        {
-            text: 'Vanilla Js',
-            items: [
-                {
-                    text: 'First run',
-                    link: '/demo/js/js.overview',
-                },
-                {
-                    text: 'Individual row sizes',
-                    link: '/demo/js/js.custom.rows',
-                },
-                {
-                    text: 'Date column',
-                    link: '/demo/js/js.date',
-                },
-                {
-                    text: 'Grouping',
-                    link: '/demo/js/js.grouping',
-                },
-                {
-                    text: 'Filtering',
-                    link: '/demo/js/js.filtering',
-                },
-            ],
-        },
-        {
-            text: 'JSX/TSX',
-            items: [
-                {
-                    text: 'Template',
-                    link: '/demo/jsx/jsx.template',
-                },
-                {
-                    text: 'Tree',
-                    link: '/demo/jsx/jsx.tree',
-                },
-            ],
-        },
-        {
-            text: 'StencilJs',
-            items: [
-                {
-                    text: 'Getting Started',
-                    link: '/demo/stencil/stencil.sample',
-                },
-            ],
-        },
-        {
-            text: 'Angular',
-            items: [
-                {
-                    text: 'Getting Started Standalone',
-                    link: '/demo/angular/angular.sample',
-                },
-                {
-                    text: 'Cell component',
-                    link: '/demo/angular/angular.cell',
-                },
-                {
-                    text: 'Column resize',
-                    link: '/demo/angular/angular.column-resize',
-                },
-                {
-                    text: 'Header component & Tooltip',
-                    link: '/demo/angular/angular.header',
-                },
-                {
-                    text: 'Editor component',
-                    link: '/demo/angular/angular.editor',
-                },
-                {
-                    text: 'Editor custom date format',
-                    link: '/demo/angular/angular.editor-custom',
-                },
-                {
-                    text: 'Focus Catch',
-                    link: '/demo/angular/angular.focus',
-                },
-                {
-                    text: 'Demo: Inventory List',
-                    link: '/demo/angular/angular.full-demo',
-                },
-            ],
-        },
-        {
-            text: 'React',
-            items: [
-                {
-                    text: 'Getting Started',
-                    link: '/demo/react/react.sample',
-                },
-                {
-                    text: 'Cell component',
-                    link: '/demo/react/react.cell',
-                },
-                {
-                    text: 'Editor component',
-                    link: '/demo/react/react.editor',
-                },
-            ],
-        },
-        {
-            text: 'Svelte',
-            items: [
-                {
-                    text: 'Getting Started',
-                    link: '/demo/svelte/svelte.sample',
-                },
-            ],
-        },
-
         {
             text: 'Vue 3',
             items: [
                 {
-                    text: 'Getting Started Options API',
-                    link: '/demo/vue/vue.sample.options',
-                },
-                {
                     text: 'Getting Started Composition API',
                     link: '/demo/vue/vue.sample.composition',
+                },
+                {
+                    text: 'Getting Started Options API',
+                    link: '/demo/vue/vue.sample.options',
                 },
                 {
                     text: 'Cell component',
@@ -551,6 +440,119 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 },
             ],
         },
+        {
+            text: 'Angular',
+            items: [
+                {
+                    text: 'Getting Started Standalone',
+                    link: '/demo/angular/angular-datagrid',
+                },
+                {
+                    text: 'Cell component',
+                    link: '/demo/angular/angular.cell',
+                },
+                {
+                    text: 'Column resize',
+                    link: '/demo/angular/angular.column-resize',
+                },
+                {
+                    text: 'Header component & Tooltip',
+                    link: '/demo/angular/angular.header',
+                },
+                {
+                    text: 'Editor component',
+                    link: '/demo/angular/angular.editor',
+                },
+                {
+                    text: 'Editor custom date format',
+                    link: '/demo/angular/angular.editor-custom',
+                },
+                {
+                    text: 'Focus Catch',
+                    link: '/demo/angular/angular.focus',
+                },
+                {
+                    text: 'Demo: Inventory List',
+                    link: '/demo/angular/angular.full-demo',
+                },
+            ],
+        },
+        {
+            text: 'React',
+            items: [
+                {
+                    text: 'Getting Started',
+                    link: '/demo/react/react-datagrid',
+                },
+                {
+                    text: 'Cell component',
+                    link: '/demo/react/react.cell',
+                },
+                {
+                    text: 'Editor component',
+                    link: '/demo/react/react.editor',
+                },
+            ],
+        },
+        {
+            text: 'Svelte',
+            items: [
+                {
+                    text: 'Getting Started',
+                    link: '/demo/svelte/svelte-datagrid',
+                },
+            ],
+        },
+
+        
+        {
+            text: 'Vanilla Js',
+            items: [
+                {
+                    text: 'First run',
+                    link: '/demo/js/js.overview',
+                },
+                {
+                    text: 'Individual row sizes',
+                    link: '/demo/js/js.custom.rows',
+                },
+                {
+                    text: 'Date column',
+                    link: '/demo/js/js.date',
+                },
+                {
+                    text: 'Grouping',
+                    link: '/demo/js/js.grouping',
+                },
+                {
+                    text: 'Filtering',
+                    link: '/demo/js/js.filtering',
+                },
+            ],
+        },
+        {
+            text: 'JSX/TSX',
+            items: [
+                {
+                    text: 'Template',
+                    link: '/demo/jsx/jsx.template',
+                },
+                {
+                    text: 'Tree',
+                    link: '/demo/jsx/jsx.tree',
+                },
+            ],
+        },
+        {
+            text: 'StencilJs',
+            items: [
+                {
+                    text: 'Getting Started',
+                    link: '/demo/stencil/stencil.sample',
+                },
+            ],
+        },
+        
     ],
     '/pro/': [
         {

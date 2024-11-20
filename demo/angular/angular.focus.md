@@ -1,5 +1,5 @@
 ---
-title: Angular Focus Catch
+title: Focus Catch - Angular Data Grid
 ---
 
 <ClientOnly>
