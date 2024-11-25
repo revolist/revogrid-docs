@@ -37,6 +37,7 @@ aside: false
 | aftercolumnresize | `{ [index: number]: ColumnRegular; }` | revo-grid | Emitted after column resizing. Useful for retrieving the resized columns. |
 | beforerowdefinition | `{ vals: any; oldVals: any; }` | revo-grid | Emitted before the row definition is applied. Useful for modifying or preventing the default row definition behavior. |
 | filterconfigchanged | `any` | revo-grid | Emitted when the filter configuration is changed |
+| sortingconfigchanged | `{ columns?: { prop: ColumnProp; order: Order; cellCompare?: CellCompareFunc \| undefined; }[] \| undefined; }` | revo-grid | Emitted when the sorting configuration is changed |
 | rowheaderschanged | `any` | revo-grid | Emmited when the row headers are changed. |
 | beforegridrender | `any` | revo-grid | Emmited before the grid is rendered. |
 | aftergridrender | `any` | revo-grid | Emmited after the grid is rendered. |
