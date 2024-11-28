@@ -147,6 +147,7 @@ export const featuresPro = [
         title: 'Header Input Filtering',
         thumbnail: '/filtering.svg',
         description: 'Header input filter, filtering data based on user input in the first row.',
+        videoUrl: '/video/filter-header.mp4',
     },
     {
         title: 'Data Processing',
