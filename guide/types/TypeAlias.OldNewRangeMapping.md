@@ -8,8 +8,8 @@ type OldNewRangeMapping: {};
 
 ## Index Signature
 
- \[`rowIndex`: `number`\]: `{ [T in ColumnProp]: Object }`
+ \[`newRowIndex`: `number`\]: `{ [T in ColumnProp]: Object }`
 
 ## Defined in
 
-[src/types/selection.ts:57](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/types/selection.ts#L57)
+[src/types/selection.ts:57](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/types/selection.ts#L57)
