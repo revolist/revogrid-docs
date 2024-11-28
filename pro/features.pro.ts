@@ -126,10 +126,27 @@ export const featuresPro = [
         sponsor: '/guide/event-manager',
     },
     {
-        title: 'Advanced Filtering',
+        title: 'Multi-Filtering',
         thumbnail: '/filtering.svg',
-        description: 'Advanced multi-condition filters and custom filter logic to refine and display your data more effectively.',
+        description: 'Multi-condition filters logic example to refine and display your data more effectively.',
+        videoUrl: '/video/filter-multi.mp4',
+    },
+    {
+        title: 'Advanced Selection Filtering',
+        thumbnail: '/filtering.svg',
+        description: 'Advanced multi-condition filters based on selection.',
         videoUrl: '/video/filter-advance.mp4',
+    },
+    {
+        title: 'Advanced Slider Filtering',
+        thumbnail: '/filtering.svg',
+        description: 'Advanced slider filter, defining a range of values for filtering.',
+        videoUrl: '/video/filter-advance-slider.mp4',
+    },
+    {
+        title: 'Header Input Filtering',
+        thumbnail: '/filtering.svg',
+        description: 'Header input filter, filtering data based on user input in the first row.',
     },
     {
         title: 'Data Processing',
