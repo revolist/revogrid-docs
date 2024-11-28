@@ -24,5 +24,5 @@ revogrid.registerVNode = [
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `nodes` | ([`VNode`](Interface.VNode.md) \| (`c`: [`ExtraNodeFuncConfig`](Interface.ExtraNodeFuncConfig.md)) => [`VNode`](Interface.VNode.md))[] | Nodes to render | [src/components.d.ts:429](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/components.d.ts#L429) |
-| `refresh` | () => `Promise`\<`void`\> | Refreshes the extra component. Useful if you want to manually force the component to re-render. | [src/components.d.ts:436](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/components.d.ts#L436) |
+| `nodes` | ([`VNode`](Interface.VNode.md) \| (`c`: [`ExtraNodeFuncConfig`](Interface.ExtraNodeFuncConfig.md)) => [`VNode`](Interface.VNode.md))[] | Nodes to render | [src/components.d.ts:429](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/components.d.ts#L429) |
+| `refresh` | () => `Promise`\<`void`\> | Refreshes the extra component. Useful if you want to manually force the component to re-render. | [src/components.d.ts:436](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/components.d.ts#L436) |

@@ -14,10 +14,10 @@ type FilterItem: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `prop` | [`ColumnProp`](TypeAlias.ColumnProp.md) | [src/plugins/filter/filter.types.ts:106](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/plugins/filter/filter.types.ts#L106) |
-| `type` | [`FilterType`](TypeAlias.FilterType.md) | [src/plugins/filter/filter.types.ts:108](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/plugins/filter/filter.types.ts#L108) |
-| `value` | `any` | [src/plugins/filter/filter.types.ts:110](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/plugins/filter/filter.types.ts#L110) |
+| `prop` | [`ColumnProp`](TypeAlias.ColumnProp.md) | [src/plugins/filter/filter.types.ts:114](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/plugins/filter/filter.types.ts#L114) |
+| `type` | [`FilterType`](TypeAlias.FilterType.md) | [src/plugins/filter/filter.types.ts:116](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/plugins/filter/filter.types.ts#L116) |
+| `value` | `any` | [src/plugins/filter/filter.types.ts:118](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/plugins/filter/filter.types.ts#L118) |
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:104](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/plugins/filter/filter.types.ts#L104)
+[src/plugins/filter/filter.types.ts:112](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/plugins/filter/filter.types.ts#L112)

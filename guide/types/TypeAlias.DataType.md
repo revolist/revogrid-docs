@@ -14,4 +14,4 @@ type DataType<D>: { [T in ColumnProp]: DataFormat<D> };
 
 ## Defined in
 
-[src/types/interfaces.ts:421](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/types/interfaces.ts#L421)
+[src/types/interfaces.ts:421](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/types/interfaces.ts#L421)

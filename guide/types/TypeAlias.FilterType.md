@@ -8,4 +8,4 @@ type FilterType: keyof typeof filterNames;
 
 ## Defined in
 
-[src/plugins/filter/filter.indexed.ts:54](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/plugins/filter/filter.indexed.ts#L54)
+[src/plugins/filter/filter.indexed.ts:56](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/plugins/filter/filter.indexed.ts#L56)

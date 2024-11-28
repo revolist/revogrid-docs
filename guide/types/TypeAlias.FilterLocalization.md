@@ -13,9 +13,9 @@ type FilterLocalization: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `captions` | [`FilterCaptions`](TypeAlias.FilterCaptions.md) | [src/plugins/filter/filter.types.ts:58](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/plugins/filter/filter.types.ts#L58) |
-| `filterNames` | `Record`\<[`FilterType`](TypeAlias.FilterType.md), `string`\> | [src/plugins/filter/filter.types.ts:59](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/plugins/filter/filter.types.ts#L59) |
+| `captions` | [`FilterCaptions`](TypeAlias.FilterCaptions.md) | [src/plugins/filter/filter.types.ts:69](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/plugins/filter/filter.types.ts#L69) |
+| `filterNames` | `Record`\<[`FilterType`](TypeAlias.FilterType.md), `string`\> | [src/plugins/filter/filter.types.ts:70](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/plugins/filter/filter.types.ts#L70) |
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:57](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/plugins/filter/filter.types.ts#L57)
+[src/plugins/filter/filter.types.ts:68](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/plugins/filter/filter.types.ts#L68)

@@ -16,12 +16,12 @@ type FocusedData: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `cell` | [`Cell`](Interface.Cell.md) | [src/components/revoGrid/viewport.service.ts:47](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/components/revoGrid/viewport.service.ts#L47) |
-| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | [src/components/revoGrid/viewport.service.ts:48](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/components/revoGrid/viewport.service.ts#L48) |
-| `column` | [`ColumnRegular`](Interface.ColumnRegular.md) | [src/components/revoGrid/viewport.service.ts:50](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/components/revoGrid/viewport.service.ts#L50) |
-| `model` | `any` | [src/components/revoGrid/viewport.service.ts:46](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/components/revoGrid/viewport.service.ts#L46) |
-| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/components/revoGrid/viewport.service.ts:49](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/components/revoGrid/viewport.service.ts#L49) |
+| `cell` | [`Cell`](Interface.Cell.md) | [src/components/revoGrid/viewport.service.ts:47](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/components/revoGrid/viewport.service.ts#L47) |
+| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | [src/components/revoGrid/viewport.service.ts:48](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/components/revoGrid/viewport.service.ts#L48) |
+| `column` | [`ColumnRegular`](Interface.ColumnRegular.md) | [src/components/revoGrid/viewport.service.ts:50](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/components/revoGrid/viewport.service.ts#L50) |
+| `model` | `any` | [src/components/revoGrid/viewport.service.ts:46](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/components/revoGrid/viewport.service.ts#L46) |
+| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/components/revoGrid/viewport.service.ts:49](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/components/revoGrid/viewport.service.ts#L49) |
 
 ## Defined in
 
-[src/components/revoGrid/viewport.service.ts:45](https://github.com/revolist/revogrid/blob/93978cbf92b3c4002586c5528517b1ce86d856d9/src/components/revoGrid/viewport.service.ts#L45)
+[src/components/revoGrid/viewport.service.ts:45](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/components/revoGrid/viewport.service.ts#L45)
