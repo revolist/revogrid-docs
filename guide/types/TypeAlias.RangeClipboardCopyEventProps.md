@@ -16,9 +16,9 @@ Range copy.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `data` | [`DataFormat`](TypeAlias.DataFormat.md)\<`T`\>[][] | [src/types/interfaces.ts:825](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/types/interfaces.ts#L825) |
-| `mapping` | [`OldNewRangeMapping`](TypeAlias.OldNewRangeMapping.md) | [src/types/interfaces.ts:827](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/types/interfaces.ts#L827) |
-| `range` | [`RangeArea`](TypeAlias.RangeArea.md) | [src/types/interfaces.ts:826](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/types/interfaces.ts#L826) |
+| `data` | [`DataFormat`](TypeAlias.DataFormat.md)\<`T`\>[][] | [src/types/interfaces.ts:825](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/types/interfaces.ts#L825) |
+| `mapping` | [`OldNewRangeMapping`](TypeAlias.OldNewRangeMapping.md) | [src/types/interfaces.ts:827](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/types/interfaces.ts#L827) |
+| `range` | [`RangeArea`](TypeAlias.RangeArea.md) | [src/types/interfaces.ts:826](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/types/interfaces.ts#L826) |
 
 ## Type Parameters
 
@@ -28,4 +28,4 @@ Range copy.
 
 ## Defined in
 
-[src/types/interfaces.ts:824](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/types/interfaces.ts#L824)
+[src/types/interfaces.ts:824](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/types/interfaces.ts#L824)

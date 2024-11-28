@@ -159,47 +159,4 @@ export const featuresPro = [
         thumbnail: '/overlay.svg',
         description: 'Push and pop layers on top of the grid to enhance the user experience.',
     },
-    // {
-    //   title: 'Audit Trail/History',
-    //   thumbnail: '/audit-trail.svg',
-    //   description: 'Track changes made to the grid data with a detailed history of edits. Maintain an audit trail for data modifications, enabling review and accountability.',
-    //   sponsor: '/guide/audit-trail',
-    //   actionText,
-    // },
-    // {
-    //   title: 'Advanced Multiple Selection with Ctrl (CMD) Key',
-    //   thumbnail: '/multiple-selection.svg',
-    //   description: 'Implement advanced multiple selection capabilities using the Ctrl (CMD) key. This allows users to select multiple, non-adjacent cells or rows, enhancing data manipulation and interaction within the grid.',
-    //   sponsor: '/guide/multiple-selection',
-    //   actionText,
-    // },
-
-    // {
-    //   title: 'SSR render',
-    //   thumbnail: '/ssr-render.svg',
-    //   description: 'Pro examples on how to render Revogrid in SSR applications across frameworks.',
-    //   sponsor: '/guide/ssr-render',
-    //   actionText,
-    // },
-    // {
-    //   title: 'Inline Editing Enhancements',
-    //   thumbnail: '/inline-editing.svg',
-    //   description: 'Enhance inline editing capabilities with custom editors, validation rules, and real-time data updates.',
-    //   sponsor: '/guide/inline-editing',
-    //   actionText,
-    // },
-    // {
-    //   title: 'Custom Themes and Styling',
-    //   thumbnail: '/custom-themes.svg',
-    //   description: 'Create and apply custom themes to your grid, allowing extensive styling and branding options. Customize the appearance of your grid to match your application\'s design.',
-    //   sponsor: '/guide/custom-themes',
-    //   actionText,
-    // },
-    // {
-    //   title: 'Hierarchical Data Support',
-    //   thumbnail: '/hierarchical-data.svg',
-    //   description: 'Support nested rows and tree structures to represent hierarchical data within your grid. Easily manage and display parent-child relationships and complex data structures.',
-    //   sponsor: '/guide/hierarchical-data',
-    //   actionText,
-    // },
 ]

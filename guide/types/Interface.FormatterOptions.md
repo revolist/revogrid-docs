@@ -10,5 +10,5 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `encoding` | `string` | [src/plugins/export/types.ts:13](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/plugins/export/types.ts#L13) |
-| `mime` | `string` | [src/plugins/export/types.ts:12](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/plugins/export/types.ts#L12) |
+| `encoding` | `string` | [src/plugins/export/types.ts:13](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/plugins/export/types.ts#L13) |
+| `mime` | `string` | [src/plugins/export/types.ts:12](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/plugins/export/types.ts#L12) |

@@ -10,10 +10,10 @@ and managing the lifecycle of the editor instance.
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `additionalData` | `any` | Additional data to pass to renderer | [src/components.d.ts:379](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/components.d.ts#L379) |
-| `beforeDisconnect` | () => `Promise`\<`void`\> | Before editor got disconnected. Can be triggered multiple times before actual disconnect. | [src/components.d.ts:383](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/components.d.ts#L383) |
-| `cancelChanges` | () => `Promise`\<`void`\> | Cancel pending changes flag. Editor will be closed without autosave. | [src/components.d.ts:387](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/components.d.ts#L387) |
-| `column` | `null` \| [`ColumnDataSchemaModel`](TypeAlias.ColumnDataSchemaModel.md) | Column data for editor. | [src/components.d.ts:391](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/components.d.ts#L391) |
-| `editCell` | [`EditCell`](TypeAlias.EditCell.md) | Cell to edit data. | [src/components.d.ts:395](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/components.d.ts#L395) |
-| `editor` | `null` \| [`EditorCtr`](TypeAlias.EditorCtr.md) | Custom editors register | [src/components.d.ts:399](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/components.d.ts#L399) |
-| `saveOnClose` | `boolean` | Save on editor close. Defines if data should be saved on editor close. | [src/components.d.ts:403](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/components.d.ts#L403) |
+| `additionalData` | `any` | Additional data to pass to renderer | [src/components.d.ts:385](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/components.d.ts#L385) |
+| `beforeDisconnect` | () => `Promise`\<`void`\> | Before editor got disconnected. Can be triggered multiple times before actual disconnect. | [src/components.d.ts:389](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/components.d.ts#L389) |
+| `cancelChanges` | () => `Promise`\<`void`\> | Cancel pending changes flag. Editor will be closed without autosave. | [src/components.d.ts:393](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/components.d.ts#L393) |
+| `column` | `null` \| [`ColumnDataSchemaModel`](TypeAlias.ColumnDataSchemaModel.md) | Column data for editor. | [src/components.d.ts:397](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/components.d.ts#L397) |
+| `editCell` | [`EditCell`](TypeAlias.EditCell.md) | Cell to edit data. | [src/components.d.ts:401](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/components.d.ts#L401) |
+| `editor` | `null` \| [`EditorCtr`](TypeAlias.EditorCtr.md) | Custom editors register | [src/components.d.ts:405](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/components.d.ts#L405) |
+| `saveOnClose` | `boolean` | Save on editor close. Defines if data should be saved on editor close. | [src/components.d.ts:409](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/components.d.ts#L409) |

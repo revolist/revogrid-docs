@@ -35,12 +35,14 @@ type RevogridEvents:
   | "aftercolumnresize"
   | "beforerowdefinition"
   | "filterconfigchanged"
+  | "sortingconfigchanged"
   | "rowheaderschanged"
   | "beforegridrender"
   | "aftergridrender"
   | "aftergridinit"
   | "additionaldatachanged"
   | "afterthemechanged"
+  | "created"
   | "beforepaste"
   | "beforepasteapply"
   | "pasteregion"
@@ -111,4 +113,4 @@ type RevogridEvents:
 
 ## Defined in
 
-[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/types/events.ts#L2)
+[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/types/events.ts#L2)

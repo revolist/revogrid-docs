@@ -19,4 +19,4 @@ type CSVFormatter: (options: Partial<CSVFormat>, data: DataInput) => string;
 
 ## Defined in
 
-[src/plugins/export/csv.ts:14](https://github.com/revolist/revogrid/blob/ec9aef33f9c1bf72c73d96c05d2eb8650d7cd25f/src/plugins/export/csv.ts#L14)
+[src/plugins/export/csv.ts:14](https://github.com/revolist/revogrid/blob/029346d93426056ab8f85e88430904164676d501/src/plugins/export/csv.ts#L14)
