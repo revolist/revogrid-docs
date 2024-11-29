@@ -6,5 +6,5 @@
 
 | Enumeration Member | Value | Defined in |
 | ------ | ------ | ------ |
-| `ENTER` | `"Enter"` | [src/utils/key.codes.ts:72](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/utils/key.codes.ts#L72) |
-| `TAB` | `"Tab"` | [src/utils/key.codes.ts:73](https://github.com/revolist/revogrid/blob/78d14b7c443343ec06c8d385824462d784f2615f/src/utils/key.codes.ts#L73) |
+| `ENTER` | `"Enter"` | [src/utils/key.codes.ts:72](https://github.com/revolist/revogrid/blob/2ebd07d1ea2e60cec0c080f59af7557401bdcc98/src/utils/key.codes.ts#L72) |
+| `TAB` | `"Tab"` | [src/utils/key.codes.ts:73](https://github.com/revolist/revogrid/blob/2ebd07d1ea2e60cec0c080f59af7557401bdcc98/src/utils/key.codes.ts#L73) |
