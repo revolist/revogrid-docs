@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export const featuresPro = [
     {
         title: 'Pagination',
@@ -46,6 +48,12 @@ export const featuresPro = [
         thumbnail: '/reference-data.svg',
         description: 'Manage static key/value pairs for displaying meaningful labels alongside coded values.',
         videoUrl: '/video/reference-data.mp4',
+    },
+    {
+        title: 'Tree Data View',
+        thumbnail: '/tree-data.svg',
+        description: 'Display hierarchical data in a tree-like structure, enabling navigation and organization.',
+        videoUrl: '/video/tree-data.mp4',
     },
     {
         title: 'Master Detail',
