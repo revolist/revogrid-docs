@@ -1,6 +1,10 @@
-import { title } from "process";
-
 export const featuresPro = [
+    {
+        title: 'Smart Auto Fill',
+        thumbnail: '/autofill.svg',
+        videoUrl: '/video/autofill.mp4',
+        description: 'Automatically populating cells with a series, pattern based on the initial input. Perfect for repetitive tasks, saving users time.',
+    },
     {
         title: 'Pagination',
         thumbnail: '/pagination.svg',
@@ -14,7 +18,7 @@ export const featuresPro = [
         description: 'Complex formulas similar to Excel. Provides dynamic calculations & data manipulation.',  
     },
     {
-        title: 'Trail History',
+        title: 'History',
         thumbnail: '/history.svg',
         videoUrl: '/video/history.mp4',
         description: 'Track your history of changes. Undo and redo operations.',  
