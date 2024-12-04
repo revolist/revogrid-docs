@@ -106,6 +106,8 @@ Warm regards ❤️
 <br/>
 
 ### What's included?
+
+Click on the features below to learn more about it.
 <br/>
 
 <FeaturesGrid :features="featuresPro" />

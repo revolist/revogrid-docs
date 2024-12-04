@@ -6,6 +6,24 @@ export const featuresPro = [
         description: 'Automatically populating cells with a series, pattern based on the initial input. Perfect for repetitive tasks, saving users time.',
     },
     {
+        title: 'Dynamic Cell Formats',
+        thumbnail: '/renders.svg',
+        videoUrl: '/video/renders.mp4',
+        description: 'Empower your data grid with visually rich, interactive, and context-driven cells. From ratings to timelines, our custom cell renders elevate data visualization to the next level.',
+    },
+    {
+        "title": "Heat&Cold Maps",
+        "thumbnail": "/heatmap.svg",
+        "videoUrl": "/video/heatmap.mp4",
+        "description": "Data interpretation with a gradient legend, displaying the value range for heatmaps and coldmaps. Perfect for giving users context on how colors map to values."
+    },
+    {
+        title: 'Conditional Formatting',
+        thumbnail: '/conditional-formatting.svg',
+        description: 'Customize cell styles based on specific conditions. Highlight important data, create visual cues, and improve the readability.',
+        videoUrl: '/video/conditional-formatting.mp4',
+    },
+    {
         title: 'Pagination',
         thumbnail: '/pagination.svg',
         description: 'Break larger datasets into smaller pages, enhancing both performance and user experience.',
@@ -22,12 +40,6 @@ export const featuresPro = [
         thumbnail: '/history.svg',
         videoUrl: '/video/history.mp4',
         description: 'Track your history of changes. Undo and redo operations.',  
-    },
-    {
-        title: 'Conditional Formatting',
-        thumbnail: '/conditional-formatting.svg',
-        description: 'Customize cell styles based on specific conditions. Highlight important data, create visual cues, and improve the readability.',
-        videoUrl: '/video/conditional-formatting.mp4',
     },
     {
         title: 'Cell Flash',

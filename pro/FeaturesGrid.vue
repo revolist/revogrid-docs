@@ -15,7 +15,7 @@ defineProps<{
 }>()
 
 // State to track which card is currently flipped
-const flippedCardId = ref<string | null>(null)
+const flippedCardId = ref<string | null>('Smart Auto Fill')
 
 const toggleFlip = (id: string) => {
     if (flippedCardId.value === id) {
