@@ -26,7 +26,11 @@ bun add @revolist/svelte-datagrid
 
 ::: warning
 
-Svelte is releasing v5.0.0. This version still has some breaking changes. We recommend using the latest stable version of svelte instead. But if you want to use the newest 5+ version of svelte, please use [@revolist/svelte-datagrid@v4.10.11-next](https://www.npmjs.com/package/@revolist/svelte-datagrid/v/4.10.11-next).
+We have updated our latest version to support **Svelte 5** following its official release. 🎉  
+Read more about the announcement here: [Svelte 5 is Alive](https://svelte.dev/blog/svelte-5-is-alive).
+
+If you want to continue using **Svelte 4**, please switch to the [svelte-4](https://github.com/revolist/svelte-datagrid/tree/svelte-4) branch or use version prior to 4.11.0.
+
 :::
 
 <<< @/demo/svelte/svelte.sample.svelte
