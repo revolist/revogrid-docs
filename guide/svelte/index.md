@@ -67,7 +67,7 @@ With this setup, your +page.svelte can directly use RevoGrid:
 
 ```svelte
 <script>
-  import { RevoGrid } from '@revolist/revogrid';
+  import { RevoGrid } from '@revolist/svelte-datagrid';
 </script>
 <RevoGrid />
 ```
@@ -83,7 +83,7 @@ Use the browser variable from SvelteKit to ensure RevoGrid is only rendered on t
 ```svelte
 <script>
   import { browser } from '$app/environment';
-  import { RevoGrid } from '@revolist/revogrid';
+  import { RevoGrid } from '@revolist/svelte-datagrid';
 </script>
 
 {#if browser}
