@@ -115,6 +115,8 @@ You can dynamically import RevoGrid using Svelte’s onMount lifecycle method. T
 {/if}
 ```
 
+Check out our repo for example: [SvelteKit](https://github.com/revolist/revogrid-svelte-kit)
+
 When to Use These Options?
 
 - Disabling SSR for the Page: Use this if the entire page depends on RevoGrid and SSR isn’t necessary.
