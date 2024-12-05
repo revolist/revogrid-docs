@@ -452,6 +452,8 @@ Type: `Promise<void>`
 | ----------------------------------- | -------------- |
 | `"data-{column-type}-{row-type}."`  |                |
 | `"focus-{column-type}-{row-type}."` |                |
+| `"footer"`                          | Footer slot.   |
+| `"header"`                          | Header slot.   |
 | `"viewport"`                        | Viewport slot. |
 
 
