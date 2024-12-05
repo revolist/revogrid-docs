@@ -27,15 +27,15 @@ type ResizeProps: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `active` | ( \| `"r"` \| `"rb"` \| `"b"` \| `"lb"` \| `"l"` \| `"lt"` \| `"t"` \| `"rt"`)[] | [src/components/header/resizable.directive.tsx:2](https://github.com/revolist/revogrid/blob/4748dc40d552fad7de1d972fe2fbcf7386e67858/src/components/header/resizable.directive.tsx#L2) |
-| `disableAttributes` | (`"l"` \| `"t"` \| `"w"` \| `"h"`)[] | [src/components/header/resizable.directive.tsx:7](https://github.com/revolist/revogrid/blob/4748dc40d552fad7de1d972fe2fbcf7386e67858/src/components/header/resizable.directive.tsx#L7) |
-| `fitParent` | `boolean` | [src/components/header/resizable.directive.tsx:3](https://github.com/revolist/revogrid/blob/4748dc40d552fad7de1d972fe2fbcf7386e67858/src/components/header/resizable.directive.tsx#L3) |
-| `maxHeight` | `number` | [src/components/header/resizable.directive.tsx:9](https://github.com/revolist/revogrid/blob/4748dc40d552fad7de1d972fe2fbcf7386e67858/src/components/header/resizable.directive.tsx#L9) |
-| `maxWidth` | `number` | [src/components/header/resizable.directive.tsx:8](https://github.com/revolist/revogrid/blob/4748dc40d552fad7de1d972fe2fbcf7386e67858/src/components/header/resizable.directive.tsx#L8) |
-| `minHeight` | `number` | [src/components/header/resizable.directive.tsx:5](https://github.com/revolist/revogrid/blob/4748dc40d552fad7de1d972fe2fbcf7386e67858/src/components/header/resizable.directive.tsx#L5) |
-| `minWidth` | `number` | [src/components/header/resizable.directive.tsx:4](https://github.com/revolist/revogrid/blob/4748dc40d552fad7de1d972fe2fbcf7386e67858/src/components/header/resizable.directive.tsx#L4) |
-| `onResize` | `void` | [src/components/header/resizable.directive.tsx:11](https://github.com/revolist/revogrid/blob/4748dc40d552fad7de1d972fe2fbcf7386e67858/src/components/header/resizable.directive.tsx#L11) |
+| `active` | ( \| `"r"` \| `"rb"` \| `"b"` \| `"lb"` \| `"l"` \| `"lt"` \| `"t"` \| `"rt"`)[] | [src/components/header/resizable.directive.tsx:2](https://github.com/revolist/revogrid/blob/fc07fa1dfd1d2d56902bfb887503d551faf5878d/src/components/header/resizable.directive.tsx#L2) |
+| `disableAttributes` | (`"l"` \| `"t"` \| `"w"` \| `"h"`)[] | [src/components/header/resizable.directive.tsx:7](https://github.com/revolist/revogrid/blob/fc07fa1dfd1d2d56902bfb887503d551faf5878d/src/components/header/resizable.directive.tsx#L7) |
+| `fitParent` | `boolean` | [src/components/header/resizable.directive.tsx:3](https://github.com/revolist/revogrid/blob/fc07fa1dfd1d2d56902bfb887503d551faf5878d/src/components/header/resizable.directive.tsx#L3) |
+| `maxHeight` | `number` | [src/components/header/resizable.directive.tsx:9](https://github.com/revolist/revogrid/blob/fc07fa1dfd1d2d56902bfb887503d551faf5878d/src/components/header/resizable.directive.tsx#L9) |
+| `maxWidth` | `number` | [src/components/header/resizable.directive.tsx:8](https://github.com/revolist/revogrid/blob/fc07fa1dfd1d2d56902bfb887503d551faf5878d/src/components/header/resizable.directive.tsx#L8) |
+| `minHeight` | `number` | [src/components/header/resizable.directive.tsx:5](https://github.com/revolist/revogrid/blob/fc07fa1dfd1d2d56902bfb887503d551faf5878d/src/components/header/resizable.directive.tsx#L5) |
+| `minWidth` | `number` | [src/components/header/resizable.directive.tsx:4](https://github.com/revolist/revogrid/blob/fc07fa1dfd1d2d56902bfb887503d551faf5878d/src/components/header/resizable.directive.tsx#L4) |
+| `onResize` | `void` | [src/components/header/resizable.directive.tsx:11](https://github.com/revolist/revogrid/blob/fc07fa1dfd1d2d56902bfb887503d551faf5878d/src/components/header/resizable.directive.tsx#L11) |
 
 ## Defined in
 
-[src/components/header/resizable.directive.tsx:1](https://github.com/revolist/revogrid/blob/4748dc40d552fad7de1d972fe2fbcf7386e67858/src/components/header/resizable.directive.tsx#L1)
+[src/components/header/resizable.directive.tsx:1](https://github.com/revolist/revogrid/blob/fc07fa1dfd1d2d56902bfb887503d551faf5878d/src/components/header/resizable.directive.tsx#L1)

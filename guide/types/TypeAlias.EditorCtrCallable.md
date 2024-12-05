@@ -22,4 +22,4 @@ Editor component callable function
 
 ## Defined in
 
-[src/types/selection.ts:159](https://github.com/revolist/revogrid/blob/4748dc40d552fad7de1d972fe2fbcf7386e67858/src/types/selection.ts#L159)
+[src/types/selection.ts:159](https://github.com/revolist/revogrid/blob/fc07fa1dfd1d2d56902bfb887503d551faf5878d/src/types/selection.ts#L159)

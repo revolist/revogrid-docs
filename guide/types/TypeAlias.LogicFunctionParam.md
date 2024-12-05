@@ -8,4 +8,4 @@ type LogicFunctionParam: any;
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:22](https://github.com/revolist/revogrid/blob/4748dc40d552fad7de1d972fe2fbcf7386e67858/src/plugins/filter/filter.types.ts#L22)
+[src/plugins/filter/filter.types.ts:22](https://github.com/revolist/revogrid/blob/fc07fa1dfd1d2d56902bfb887503d551faf5878d/src/plugins/filter/filter.types.ts#L22)

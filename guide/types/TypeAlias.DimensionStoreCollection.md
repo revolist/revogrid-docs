@@ -8,4 +8,4 @@ type DimensionStoreCollection: { [T in MultiDimensionType]: DimensionStore };
 
 ## Defined in
 
-[src/store/dimension/dimension.store.ts:19](https://github.com/revolist/revogrid/blob/4748dc40d552fad7de1d972fe2fbcf7386e67858/src/store/dimension/dimension.store.ts#L19)
+[src/store/dimension/dimension.store.ts:19](https://github.com/revolist/revogrid/blob/fc07fa1dfd1d2d56902bfb887503d551faf5878d/src/store/dimension/dimension.store.ts#L19)

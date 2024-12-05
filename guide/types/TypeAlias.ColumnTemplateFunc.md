@@ -20,4 +20,4 @@ type ColumnTemplateFunc: (createElement: HyperFunc<VNode>, props: ColumnTemplate
 
 ## Defined in
 
-[src/types/interfaces.ts:410](https://github.com/revolist/revogrid/blob/4748dc40d552fad7de1d972fe2fbcf7386e67858/src/types/interfaces.ts#L410)
+[src/types/interfaces.ts:410](https://github.com/revolist/revogrid/blob/fc07fa1dfd1d2d56902bfb887503d551faf5878d/src/types/interfaces.ts#L410)
