@@ -24,6 +24,18 @@ export const featuresPro = [
         videoUrl: '/video/conditional-formatting.mp4',
     },
     {
+        title: 'Cell Validation',
+        thumbnail: '/data-validation.svg',
+        description: 'Built-in data validation to ensure data integrity. Define customizable validation rules and error handling to maintain high-quality data.',
+        videoUrl: '/video/data-validation.mp4',
+    },
+    {
+        title: 'Input Validation',
+        thumbnail: '/data-validation-input.svg',
+        description: 'Advanced validation with plugin support to prevent invalid edits and highlight erroneous cells, ensuring data accuracy.',
+        videoUrl: '/video/data-validation-input.mp4',
+    },
+    {
         title: 'Pagination',
         thumbnail: '/pagination.svg',
         description: 'Break larger datasets into smaller pages, enhancing both performance and user experience.',
@@ -54,12 +66,6 @@ export const featuresPro = [
         videoUrl: '/video/merge.mp4',
     },
     {
-        title: 'Data Validation',
-        thumbnail: '/data-validation.svg',
-        description: 'Built-in data validation to ensure data integrity. Define customizable validation rules and error handling to maintain high-quality data.',
-        videoUrl: '/video/data-validation.mp4',
-    },
-    {
         title: 'Reference Data',
         thumbnail: '/reference-data.svg',
         description: 'Manage static key/value pairs for displaying meaningful labels alongside coded values.',
@@ -76,6 +82,12 @@ export const featuresPro = [
         thumbnail: '/master-detail.svg',
         videoUrl: '/video/master-detail.mp4',
         description: 'Expand rows to  reveal detailed child information. Display additional data or build customizable subtables within the grid.',     
+    },
+    {
+        title: 'Row Grouping Drag and Drop',
+        thumbnail: '/grouping.svg',
+        description: 'Drag columns to the top panel to create grouped rows, improving data organization and visibility.',
+        videoUrl: '/video/grouping.mp4',
     },
     {
         thumbnail: '/row-transpose.svg',
@@ -104,7 +116,7 @@ export const featuresPro = [
     {
         title: 'Row Checkbox Selection',
         thumbnail: '/row-selection.svg',
-        description: 'Select rows using checkboxes and perform actions on selected data.',
+        description: 'Performance pluging for row selection using checkboxes.',
         videoUrl: '/video/row-selection.mp4',
     },
     {
