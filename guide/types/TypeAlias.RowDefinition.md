@@ -17,10 +17,10 @@ viewport.
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `index` | `number` | The index of the row. | [src/types/interfaces.ts:444](https://github.com/revolist/revogrid/blob/6d16baf0ac19236f5511b0ce2aeccf75326e95c2/src/types/interfaces.ts#L444) |
-| `size` | `number` | The size of the row. | [src/types/interfaces.ts:440](https://github.com/revolist/revogrid/blob/6d16baf0ac19236f5511b0ce2aeccf75326e95c2/src/types/interfaces.ts#L440) |
-| `type` | [`DimensionRows`](TypeAlias.DimensionRows.md) | The type of the row. | [src/types/interfaces.ts:436](https://github.com/revolist/revogrid/blob/6d16baf0ac19236f5511b0ce2aeccf75326e95c2/src/types/interfaces.ts#L436) |
+| `index` | `number` | The index of the row. | [src/types/interfaces.ts:444](https://github.com/revolist/revogrid/blob/c3fbdc69076950cb371c4e48faf1a5d5a21237f4/src/types/interfaces.ts#L444) |
+| `size` | `number` | The size of the row. | [src/types/interfaces.ts:440](https://github.com/revolist/revogrid/blob/c3fbdc69076950cb371c4e48faf1a5d5a21237f4/src/types/interfaces.ts#L440) |
+| `type` | [`DimensionRows`](TypeAlias.DimensionRows.md) | The type of the row. | [src/types/interfaces.ts:436](https://github.com/revolist/revogrid/blob/c3fbdc69076950cb371c4e48faf1a5d5a21237f4/src/types/interfaces.ts#L436) |
 
 ## Defined in
 
-[src/types/interfaces.ts:432](https://github.com/revolist/revogrid/blob/6d16baf0ac19236f5511b0ce2aeccf75326e95c2/src/types/interfaces.ts#L432)
+[src/types/interfaces.ts:432](https://github.com/revolist/revogrid/blob/c3fbdc69076950cb371c4e48faf1a5d5a21237f4/src/types/interfaces.ts#L432)
