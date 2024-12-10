@@ -8,34 +8,75 @@
     .proPage .VPDoc:not(.has-sidebar) .content {
         max-width: 992px;
     }
-}
-.plans-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
-    justify-content: center;
 
-    .vp-card {
-        &.free {
-            background-color: var(--vp-c-bg-soft);
-            border: 1px solid var(--vp-c-divider-light);
+    .proPage .VPDoc:not(.has-sidebar) .plans-container {
+        flex-direction: row;
+
+        .plan {
+            width: 50%;
+
+            .header p {
+                max-width: 300px;
+            }
         }
-        &.pro {
-            .plan-features {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                column-gap: 50px;
-            }
+    }
+}
 
-            .plan-footer {
-                font-size: 10px;
-                color: var(--vp-c-text-2) !important;
-            }
 
-            .plan-footer a {
-                color: var(--vp-c-text-2) !important;
-                text-decoration: none;
-            }
+.vp-card {
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.1),
+        0 2px 4px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    border: 1px solid var(--vp-c-divider-light);
+    margin: 1.5em 0;
+    border-radius: 10px;
+    background-color: var(--vp-c-bg);
+    border: 1px solid var(--vp-c-gutter);
+    text-align: center;
+    overflow: hidden;
+
+    &.free {
+        text-align: left;
+        background-color: var(--vp-c-bg-soft);
+        border: 1px solid var(--vp-c-divider-light);
+    }
+
+    &.pro {
+        .plan-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 50px;
+        }
+
+        .plan-footer {
+            font-size: 10px;
+            color: var(--vp-c-text-2) !important;
+        }
+
+        .plan-footer a {
+            color: var(--vp-c-text-2) !important;
+            text-decoration: none;
+        }
+    }
+}
+
+.plans-container {
+    flex-direction: column;
+    display: flex;
+    gap: 2em;
+    justify-content: space-around;
+
+    .plan {
+        padding: 1em 3em;
+        text-align: left;
+    }
+
+    .highlight {
+        background-color: var(--vp-c-success-soft);
+
+        .plan-name {
+            color: var(--vp-c-success-1);
         }
     }
 }
