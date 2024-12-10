@@ -22,7 +22,17 @@ import { features, proWhy } from './features'
 import { featuresPro } from './features.pro'
 import FeaturesGrid from './FeaturesGrid.vue'
 
+import { ElSwitch, ElTooltip } from 'element-plus'
+import 'element-plus/es/components/switch/style/css'
+import 'element-plus/es/components/tooltip/style/css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
+
 let showForm = ref(false) // isVisible
+
+const isAnnual = ref(true)
+const onSwitchChange = (value: boolean) => {
+    console.log('License type changed:', value ? 'Annual' : 'Perpetual')
+}
 </script>
 
 <div class="description">
@@ -31,6 +41,19 @@ let showForm = ref(false) // isVisible
 
 Switch to a 💎 commercial plan to access advanced features & technical support.
 
+  <!-- Toggle Switch for Perpetual / Annual -->
+<!-- <el-tooltip
+          :content="!isAnnual ? 'One-time purchase to use the current released versions forever. 12 months of updates included.' : 'Upon expiration, your permission to use the Software in development ends. The license is perpetual in production.'"
+          placement="top"
+      >
+  <el-switch
+    v-model="isAnnual"
+    active-text="Annual"
+    inactive-text="Perpetual"
+    style="--el-switch-on-color: var(--vp-input-switch-bg-color); --el-switch-off-color: var(--vp-input-switch-bg-color); --el-color-primary: var(--vp-c-brand-1)"
+    @change="onSwitchChange"
+  />
+</el-tooltip> -->
 </div>
 
 <div class="vp-card plans">
@@ -40,7 +63,8 @@ Switch to a 💎 commercial plan to access advanced features & technical support
         class="pro highlight"
         description="Best for start-ups and businesses who build commercial products with Revogrid."
         buttonText="Buy now"
-        :price="12.5"
+        :price="isAnnual ? 12.5 : 300"
+        :pricePeriod="isAnnual ? 'month' : 'year'"
         :features="[
         `Access to all <a href='#What-s-included-'>Pro Examples</a>.`,
         `Plugins and Documentation.`,
@@ -53,7 +77,8 @@ Switch to a 💎 commercial plan to access advanced features & technical support
         buttonTheme="alt"
         description="Best for companies and individuals that want a direct wire to the Revogrid team experience."
         buttonText="Buy Now"
-        :price="30"
+        :price="isAnnual ? 30 : 700"
+        :pricePeriod="isAnnual ? 'month' : 'year'"
         :features="[
           `Access to all <a href='#What-s-included-'>Pro Examples</a>, Plugins and Documentation.`,
           `Up to 1 hour of individual support via email per month.`,

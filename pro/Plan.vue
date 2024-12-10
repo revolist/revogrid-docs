@@ -1,7 +1,8 @@
 <template>
     <div class="plan">
         <div class="header">
-            <span class="plan-name">{{ props.title }}</span>
+            <div class="plan-name">{{ props.title }}
+              </div>
             <p>{{ props.description }}</p>
         </div>
 
@@ -12,13 +13,18 @@
                 :theme="props.buttonTheme"
                 :href="props.href"
             />
-            <span class="plan-price-box">
+            <span class="plan-price-box" v-if="props.pricePeriod === 'month'">
                 <span
                     ><span class="plan-price-value">{{ props.price }}€</span> /
                     month / dev</span
                 >
                 <span class="plan-price-period"
                     >Billed annually at {{ props.price * 12 }}€ / dev</span
+                >
+            </span>
+            <span class="plan-price-box" v-else>
+                <span
+                    ><span class="plan-price-value">{{ props.price }}€</span> / dev</span
                 >
             </span>
         </div>
@@ -37,7 +43,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue'
+import { defineProps, ref } from 'vue'
 // @ts-ignore
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue'
 
@@ -47,7 +53,7 @@ interface PlanProps {
     title: string
     description: string
     price?: number
-    pricePeriod?: string
+    pricePeriod?: 'month' | 'year'
     buttonText: string
     href?: string
     features: string[]
