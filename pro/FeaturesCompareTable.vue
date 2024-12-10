@@ -7,29 +7,42 @@
                     <th></th>
                     <th>
                         <div class="plan-title">{{ plans[0].name }}</div>
-                        <div class="plan-price">{{ plans[0].price }}</div>
-                        <ul class="plan-details">
+                        <!-- <div class="plan-price">{{ plans[0].price }}</div> -->
+                        <!-- <ul class="plan-details">
                             <li
                                 v-for="detail in plans[0].details"
                                 :key="detail"
                             >
                                 {{ detail }}
                             </li>
-                        </ul>
-                        <button>Get Started</button>
+                        </ul> -->
+                        <!-- <button>Get Started</button> -->
                     </th>
                     <th>
                         <div class="plan-title">{{ plans[1].name }}</div>
-                        <div class="plan-price">{{ plans[1].price }}</div>
-                        <ul class="plan-details">
+                        <!-- <div class="plan-price">{{ plans[1].price }}</div> -->
+                        <!-- <ul class="plan-details">
                             <li
                                 v-for="detail in plans[1].details"
                                 :key="detail"
                             >
                                 {{ detail }}
                             </li>
-                        </ul>
-                        <button>Get Started</button>
+                        </ul> -->
+                        <!-- <button>Get Started</button> -->
+                    </th>
+                    <th>
+                        <div class="plan-title">{{ plans[2].name }}</div>
+                        <!-- <div class="plan-price">{{ plans[2].price }}</div> -->
+                        <!-- <ul class="plan-details">
+                            <li
+                                v-for="detail in plans[2].details"
+                                :key="detail"
+                            >
+                                {{ detail }}
+                            </li>
+                        </ul> -->
+                        <!-- <button>Get Started</button> -->
                     </th>
                 </tr>
             </thead>
@@ -127,23 +140,55 @@ const toggleGroup = (index: number) => {
 
 .pricing-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
     border: none;
-    font-family: Arial, sans-serif;
+    border-spacing: 2px;
+
+    tr {
+        &:nth-child(2n) {
+         background-color: transparent;   
+        }
+    }
+
+    th {
+        background-color: transparent;
+        color: inherit;
+    }
 
     th,
     td {
-        border: 1px solid #ccc;
+        border: 0;
         padding: 10px;
+        box-sizing: border-box;
+        text-align: left;
+        &:first-child {
+            width: 100%;
+        }
+        &:not(:first-child) {
+            min-width: 150px;
+        }
+    }
+
+    td:not(:first-child) {
         text-align: center;
     }
 
     .group-header {
-        background-color: #f1f1f1;
         font-weight: bold;
         text-align: left;
         cursor: pointer;
         color: #333;
+        border: 1px solid transparent;
+
+        > td {
+            background-color: var(--vp-c-bg-alt);
+            border-radius: 8px;
+            box-shadow: 0 0 0 1px var(--vp-c-gray-3) inset;
+        }
+
+        + tr {
+            border-top: none;
+        }
     }
 
     .nested-feature {
@@ -151,10 +196,7 @@ const toggleGroup = (index: number) => {
     }
 
     .plan-title {
-        font-size: 18px;
         font-weight: bold;
-        color: #333;
-        margin-bottom: 5px;
     }
 
     .plan-price {
@@ -175,7 +217,6 @@ const toggleGroup = (index: number) => {
         }
 
         button {
-            margin-top: 10px;
             padding: 5px 10px;
             background-color: #007bff;
             color: white;

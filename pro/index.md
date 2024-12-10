@@ -42,7 +42,7 @@ const onSwitchChange = (value: boolean) => {
 Switch to a 💎 commercial plan to access advanced features & technical support.
 
   <!-- Toggle Switch for Perpetual / Annual -->
-<!-- <el-tooltip
+<el-tooltip
           :content="!isAnnual ? 'One-time purchase to use the current released versions forever. 12 months of updates included.' : 'Upon expiration, your permission to use the Software in development ends. The license is perpetual in production.'"
           placement="top"
       >
@@ -53,7 +53,7 @@ Switch to a 💎 commercial plan to access advanced features & technical support
     style="--el-switch-on-color: var(--vp-input-switch-bg-color); --el-switch-off-color: var(--vp-input-switch-bg-color); --el-color-primary: var(--vp-c-brand-1)"
     @change="onSwitchChange"
   />
-</el-tooltip> -->
+</el-tooltip>
 </div>
 
 <div class="vp-card plans">
