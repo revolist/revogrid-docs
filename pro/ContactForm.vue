@@ -134,15 +134,6 @@ const isFormValid = computed(() => {
 
 const handleSubmit = async () => {
     if (isFormValid.value) {
-        const payload = {
-            body: `
-        <br>Full Name: ${form.value.fullName}
-        <br>Company Name: ${form.value.companyName}
-        <br>Business Email: ${form.value.businessEmail}
-        <br>Application Info: ${form.value.applicationInfo}
-      `,
-        }
-
         isSubmitting.value = true
 
         try {
@@ -151,13 +142,11 @@ const handleSubmit = async () => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(payload),
+                    body: JSON.stringify(form.value),
                 }
             )
 
             if (response.ok) {
-                const result = await response.json()
-                console.log('Email sent successfully:', result)
                 emit('submit', form.value)
                 isSent.value = true
             } else {

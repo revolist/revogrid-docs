@@ -67,7 +67,7 @@
                         >
                             <td
                                 :style="{
-                                    paddingLeft: `${20 * feature.nesting}px`,
+                                    paddingLeft: `${feature.nesting ? 20 * feature.nesting : 20}px`,
                                 }"
                             >
                                 {{ feature.name }}
@@ -76,11 +76,7 @@
                                 v-for="(plan, planIndex) in plans"
                                 :key="planIndex"
                             >
-                                {{
-                                    feature.supported.includes(plan.name)
-                                        ? '✔'
-                                        : ''
-                                }}
+                            <VPImage v-if="feature.supported.includes(plan.name)" :image="{ src: 'check.svg' }" />
                             </td>
                         </tr>
                     </template>
@@ -91,7 +87,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
+import VPImage from '../.vitepress/theme/VPImage.vue'
 
 // Props
 interface Plan {
@@ -153,6 +150,10 @@ const toggleGroup = (index: number) => {
     th {
         background-color: transparent;
         color: inherit;
+
+        &:not(:first-child) {
+            text-align: center;
+        }
     }
 
     th,
@@ -171,13 +172,18 @@ const toggleGroup = (index: number) => {
 
     td:not(:first-child) {
         text-align: center;
+
+        :deep(svg)  {
+            margin: 0 auto;
+            width: 15px;
+        }
     }
 
     .group-header {
         font-weight: bold;
         text-align: left;
         cursor: pointer;
-        color: #333;
+        color: var(--vp-c-text-1);
         border: 1px solid transparent;
 
         > td {
@@ -192,7 +198,7 @@ const toggleGroup = (index: number) => {
     }
 
     .nested-feature {
-        background-color: #f9f9f9;
+        background-color: var(--vp-c-bg-soft);
     }
 
     .plan-title {
