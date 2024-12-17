@@ -9,21 +9,7 @@ pageClass: proPage
 ---
 
 <style lang="scss" src="./pro.styles.scss"></style>
-<style lang="scss" scoped>
-.vp-card {
-  flex: 1;
-  border: 1px solid var(--vp-c-divider-light);
-  padding: 1.5em;
-  margin: 1.5em 0;
-  border-radius: 10px;
-  background-color: var(--vp-c-bg);
-  border: 1px solid var(--vp-c-gutter);
-  text-align: center;
-  &.free {
-      text-align: left;
-  }
-}
-</style>
+
 
 <script lang="ts" setup>
 import { ref } from 'vue'
@@ -36,78 +22,90 @@ import { features, proWhy } from './features'
 import { featuresPro } from './features.pro'
 import FeaturesGrid from './FeaturesGrid.vue'
 
+import { ElSwitch, ElTooltip } from 'element-plus'
+import 'element-plus/es/components/switch/style/css'
+import 'element-plus/es/components/tooltip/style/css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
+
 let showForm = ref(false) // isVisible
-const proFeat = [
-'Access to all <a href="#What-s-included-">Pro Examples</a>, Plugins and Documentation.',
-'Up to 1 hour of individual support via email per month.',
-'Prioritized Github Issues and Pull Requests.',
-'Prioritized Roadmap Item and Feature Requests.',
-'Introduction call with one of the creators.',
-'Keep the library running and maintained under an MIT License.',
-]
+
+const isAnnual = ref(true)
+const onSwitchChange = (value: boolean) => {
+    console.log('License type changed:', value ? 'Annual' : 'Perpetual')
+}
 </script>
 
 <div class="description">
 
 # Build next level apps as a Pro
 
-Pro version 💎 aimed at supporting the future growth of the library and providing you with the exclusive benefits.
+Switch to a 💎 commercial plan to access advanced features & technical support.
 
+  <!-- Toggle Switch for Perpetual / Annual -->
+<!-- <el-tooltip
+          :content="!isAnnual ? 'One-time purchase to use the current released versions forever. 12 months of updates included.' : 'Upon expiration, your permission to use the Software in development ends. The license is perpetual in production.'"
+          placement="top"
+      >
+  <el-switch
+    v-model="isAnnual"
+    active-text="Annual"
+    inactive-text="Perpetual"
+    style="--el-switch-on-color: var(--vp-input-switch-bg-color); --el-switch-off-color: var(--vp-input-switch-bg-color); --el-color-primary: var(--vp-c-brand-1)"
+    @change="onSwitchChange"
+  />
+</el-tooltip> -->
 </div>
 
-<div class="plans-container">
+<div class="vp-card plans">
+    <div class="plans-container">
+      <Plan
+        title="Pro Light"
+        class="pro highlight"
+        description="Best for start-ups and businesses who build commercial products with Revogrid."
+        buttonText="Buy now"
+        :price="isAnnual ? 12.5 : 300"
+        :pricePeriod="isAnnual ? 'month' : 'year'"
+        :features="[
+        `Access to all <a href='#What-s-included-'>Pro Examples</a>.`,
+        `Plugins and Documentation.`,
+        ]"
+        href="https://buy.stripe.com/dR6cPS98V8Xn90IaEI"
+      />
+      <Plan
+        title="Pro Advanced"
+        class="pro"
+        buttonTheme="alt"
+        description="Best for companies and individuals that want a direct wire to the Revogrid team experience."
+        buttonText="Buy Now"
+        :price="isAnnual ? 30 : 700"
+        :pricePeriod="isAnnual ? 'month' : 'year'"
+        :features="[
+          `Access to all <a href='#What-s-included-'>Pro Examples</a>, Plugins and Documentation.`,
+          `Up to 1 hour of individual support via email per month.`,
+          `Prioritized Feature Requests, Github Issues and Pull Requests.`,
+          `Introduction call with one of the creators.`,
+        ]"
+        href="https://buy.stripe.com/aEUcPS0Cpb5v3Go149"
+        />
+    </div>
+</div>
 
-<Plan
-title="Professional"
-class="pro"
-description="Best for companies and individuals that want a direct wire to the Revogrid team experience."
-buttonText="Request a Quote"
-:features="proFeat"
-@open="showForm = true"
->
-<template #footer>
+<div style="text-align: center;">
 
-[Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms) | [License](./policies/license)
+[Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms) | [License](./policies/license) | <a @click="showForm = true">Contact us</a>
 
-</template>
-</Plan>
+</div>
 <ContactForm :isVisible="showForm" @close="showForm = false"/>
 
-<div class="vp-card free"><div class="vp-card__body">
-<br /><br />
-<strong>Accelerate Time-to-Market</strong><br/>
-Comprehensive toolset to rapidly implement complex functionality.
-
-<hr/>
-
-<strong>Pro-Level Plugins for Extensibility </strong><br/>
-Real-world examples that demonstrate how to implement complex features effectively.
 
 
-<hr/>
+<div class="description">
 
-<strong>Insights and Support</strong><br/>
-Access to exclusive expert support that helps you troubleshoot complex issues quickly.
-
-</div></div>
-
-</div>
-
-<!-- Thank you for being an essential part of our community and for helping us make Revogrid better every day.
-
-Warm regards ❤️
-<br/>The Revolist Team
-
-<br/> -->
-<br/>
-
-
-
-<br/>
-
-### What's included?
+## What's included?
 
 Click on the features below to learn more about it.
+
+</div>
 <br/>
 
 <FeaturesGrid :features="featuresPro" />

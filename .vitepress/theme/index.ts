@@ -9,6 +9,7 @@ import HomeHeroInfoAfter from './HomeHeroInfoAfter.vue'
 import HomeHeroInfoBefore from './HomeHeroInfoBefore.vue'
 import HomeMit from './HomeMit.vue'
 import HomeHeroAfter from './HomeHeroAfter.vue'
+import CustomLayout from './CustomLayout.vue'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 
 export default {
@@ -26,5 +27,6 @@ export default {
     },
     enhanceApp({ app, router, siteData }) {
         enhanceAppWithTabs(app)
+        app.component('custom', CustomLayout)
     },
 } satisfies Theme
