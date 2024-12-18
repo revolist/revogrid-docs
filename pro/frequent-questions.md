@@ -30,12 +30,6 @@ layout: custom
 
 <div class="grid">
 
-::: details How do I know if I need to buy a license?
-
-You only need to buy a license/access if you are using RevoGrid Pro in a production environment.
-
-:::
-
 ::: details How many developer licenses do I need?
 
 The number of licenses required must match the maximum number of concurrent developers contributing to the front-end code using RevoGrid Pro.

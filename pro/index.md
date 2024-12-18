@@ -109,3 +109,9 @@ Click on the features below to learn more about it.
 <br/>
 
 <FeaturesGrid :features="featuresPro" />
+
+<br />
+<br />
+<br />
+
+<!--@include: ./frequent-questions.md -->
