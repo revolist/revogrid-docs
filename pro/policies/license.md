@@ -35,21 +35,50 @@ By clicking "I accept" or otherwise accepting these Terms, You are entering into
 
 ## 3. Grant of License
 
-1. **License Grant**: Subject to the terms of this Agreement, Revolist grants the User a non-exclusive, non-transferable license to use, copy, integrate, and distribute RevoGrid Pro as part of the User's Product. The license permits the use of RevoGrid Pro for internal development, modification, and integration within commercial products.
+### 3.1. License Grant
+Subject to the terms of this Agreement, Revolist grants the User a non-exclusive, non-transferable license to use, copy, integrate, and distribute RevoGrid Pro as part of the User's Product. The license permits the use of RevoGrid Pro for internal development, modification, and integration within commercial products.
 
-2. **Modification and Commercial Use**: The User is permitted to modify RevoGrid Pro examples, integrate them with their own projects, and use them for commercial purposes. The User is responsible for ensuring compliance with third-party licenses when modifying and integrating RevoGrid Pro. The modifications may be distributed only as part of larger projects or products, not as standalone components.
+### 3.2. Modification and Commercial Use
+The User is permitted to modify RevoGrid Pro examples, integrate them with their own projects, and use them for commercial purposes. The User is responsible for ensuring compliance with third-party licenses when modifying and integrating RevoGrid Pro. The modifications may be distributed only as part of larger projects or products, not as standalone components.
 
-3. **Pro Lite vs. Pro Advanced**:
+### 3.3. Pro Lite vs. Pro Advanced
    - **Pro Lite**: The User has access to Pro examples and the repository for development purposes.
    - **Pro Advanced**: In addition to the features of Pro Lite, the User has access to premium support services, including priority handling of reported issues.
 
-4. **Usage Limitations**: The license granted does not permit the User to resell, redistribute, sublicense, or make RevoGrid Pro available as a standalone product. Any modifications of RevoGrid Pro must only be used in conjunction with broader software projects. Except as expressly set forth herein, Revolist grants and the User receives no other rights or licenses to the Software, derivative works, or any intellectual property rights related to the Software, whether by implication, estoppel, or otherwise.
+### 3.4. Usage Limitations
+The license granted does not permit the User to resell, redistribute, sublicense, or make RevoGrid Pro available as a standalone product. Any modifications of RevoGrid Pro must only be used in conjunction with broader software projects. Except as expressly set forth herein, Revolist grants and the User receives no other rights or licenses to the Software, derivative works, or any intellectual property rights related to the Software, whether by implication, estoppel, or otherwise.
 
-5. **Access to Repository**: Subject to the chosen plan, the User may access the RevoGrid Pro repository via GitHub. Access is granted solely for use in accordance with this Agreement and may be revoked if the User breaches these terms.
+#### 3.4.1. Required quantity of licenses
+The number of developers licensed must correspond to the maximum number of concurrent developers (in any continuous 24-hour period) contributing changes to the front-end code of the projects that use the Software.
 
-6. **User Account**: The User must create an account to access the Repository and Services. The User Account is personal, and sharing credentials or allowing unauthorized third-party access is strictly prohibited.
+For example, a developer using the Software indirectly through a wrapper library needs to be licensed, a developer working on the front-end code of a project that includes the Software but who doesn't use the Software directly needs to be licensed.
 
+To define the previous terms more precisely:
 
+- **front-end code** is code that is executed in a browser, JavaScript most of the time.
+- **concurrent** is development work carried out during the same calendar day, regardless of timezone.
+- People who are solely executing the front end for testing purposes, such as verifying back-end changes, and are not contributing changes to the front-end code, do not need to be licensed.
+
+If Licensee has not purchased sufficient licenses, Licensee will be required to purchase such licenses as required to comply with the terms of this agreement, at a price determined by Licensor, but not to exceed full price. Support will co-terminate with existing licenses.
+
+### 3.5. Access to Repository
+Subject to the chosen plan, the User may access the RevoGrid Pro repository via GitHub. Access is granted solely for use in accordance with this Agreement and may be revoked if the User breaches these terms.
+
+### 3.6. User Account
+The User must create an account to access the Repository and Services. The User Account is personal, and sharing credentials or allowing unauthorized third-party access is strictly prohibited.
+
+### 3.7. License model
+
+- **Choice of license model**
+Licensee can decide between two different license models when it enters the agreement: Annual license or Perpetual license. Licensee can later change its license model by paying a transfer fee if necessary. Unless mentioned explicitly during payment, the license model used is the Annual as the Perpetual comes with a higher fee.
+
+- **Annual license**
+   - **Non-perpetual outside of production.** All the developers contributing changes to the front-end code of a project that includes the Software need an active license. A license is active as long as it hasn't reached the end of the License Term. Licensee doesn't need to renew its license if no developers work with the API and source code of the Software in any capacity (indirectly or directly).
+
+   - **Perpetual in production.** Licensee is allowed to perpetually use in a production environment any versions of the Software released before the end of the License Term.
+
+- **Perpetual license**
+Licensee is allowed to perpetually use any versions of the Software released before the end of the License Term, in any environment (staging, development, production, etc.).
 
 ## 4. License Restrictions
 

@@ -12,7 +12,7 @@ import { containerPreview } from './plugin.preview'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-
+import markdownItAttrs from 'markdown-it-attrs';
 dotenv.config()
 
 const rControl = /[\u0000-\u001f]/g
@@ -65,6 +65,13 @@ const config: UserConfig<DefaultTheme.Config> = {
         config(md) {
           md.use(tabsMarkdownPlugin)
           md.use(containerPreview)
+          md.use(markdownItAttrs, {
+            // optional, these are default options
+            leftDelimiter: '{',
+            rightDelimiter: '}',
+            allowedAttributes: []  // empty array = all attributes are allowed
+          })
+
         }
     },
     head: [

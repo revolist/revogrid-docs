@@ -2,7 +2,7 @@
     <div
         v-if="frontmatter.layout !== false"
         class="Layout"
-        :class="frontmatter.pageClass"
+        :class="{ [frontmatter.pageClass || 'no-class']: true}"
     >
         <VPPage>
             <template #doc-top> <Breadcrumbs /></template>
@@ -26,6 +26,8 @@ const { frontmatter } = useData()
 .Layout {
     max-width: 1200px;
     margin: 0 auto;
+
+   
 }
 .breadcrumbs {
     background-color: var(--vp-c-bg);
