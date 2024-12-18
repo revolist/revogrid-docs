@@ -6,7 +6,7 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `options` | [`FormatterOptions`](Interface.FormatterOptions.md) | [src/plugins/export/types.ts:17](https://github.com/revolist/revogrid/blob/c3fbdc69076950cb371c4e48faf1a5d5a21237f4/src/plugins/export/types.ts#L17) |
+| `options` | [`FormatterOptions`](Interface.FormatterOptions.md) | [src/plugins/export/types.ts:17](https://github.com/revolist/revogrid/blob/13653d8ee505d63a363463d1b61354eec56320a1/src/plugins/export/types.ts#L17) |
 
 ## Methods
 
@@ -28,4 +28,4 @@ doExport(data: DataInput): string
 
 #### Defined in
 
-[src/plugins/export/types.ts:18](https://github.com/revolist/revogrid/blob/c3fbdc69076950cb371c4e48faf1a5d5a21237f4/src/plugins/export/types.ts#L18)
+[src/plugins/export/types.ts:18](https://github.com/revolist/revogrid/blob/13653d8ee505d63a363463d1b61354eec56320a1/src/plugins/export/types.ts#L18)

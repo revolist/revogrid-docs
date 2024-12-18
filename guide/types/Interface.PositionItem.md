@@ -10,6 +10,6 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `end` | `number` | [src/types/interfaces.ts:586](https://github.com/revolist/revogrid/blob/c3fbdc69076950cb371c4e48faf1a5d5a21237f4/src/types/interfaces.ts#L586) |
-| `itemIndex` | `number` | [src/types/interfaces.ts:584](https://github.com/revolist/revogrid/blob/c3fbdc69076950cb371c4e48faf1a5d5a21237f4/src/types/interfaces.ts#L584) |
-| `start` | `number` | [src/types/interfaces.ts:585](https://github.com/revolist/revogrid/blob/c3fbdc69076950cb371c4e48faf1a5d5a21237f4/src/types/interfaces.ts#L585) |
+| `end` | `number` | [src/types/interfaces.ts:586](https://github.com/revolist/revogrid/blob/13653d8ee505d63a363463d1b61354eec56320a1/src/types/interfaces.ts#L586) |
+| `itemIndex` | `number` | [src/types/interfaces.ts:584](https://github.com/revolist/revogrid/blob/13653d8ee505d63a363463d1b61354eec56320a1/src/types/interfaces.ts#L584) |
+| `start` | `number` | [src/types/interfaces.ts:585](https://github.com/revolist/revogrid/blob/13653d8ee505d63a363463d1b61354eec56320a1/src/types/interfaces.ts#L585) |
