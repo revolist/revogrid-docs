@@ -32,12 +32,13 @@ layout: custom
 
 ::: details How many developer licenses do I need?
 
-The number of licenses required must match the maximum number of concurrent developers contributing to the front-end code using RevoGrid Pro.
+The number of licenses required must match the maximum number of concurrent developers contributing to the front-end code.
 
 **Examples:**
 
-- Example 1: A project has 3 front-end developers and 10 back-end developers. If only the 3 front-end developers work with RevoGrid, you need 3 licenses.
-- Example 2: A UI team with 2 front-end developers uses RevoGrid as part of a shared library for multiple apps. If the apps have 5 and 3 front-end developers, you will need 10 licenses (2 + 5 + 3).
+- **Example 1**: A project has 3 front-end developers and 10 back-end developers. If only the 3 front-end developers work with RevoGrid Pro, you need 3 licenses.
+
+- **Example 2**: A UI team with 2 front-end developers uses RevoGrid Pro as part of a shared library for multiple apps. If the apps have 5 and 3 front-end developers, you will need 10 licenses (2 + 5 + 3).
 
 For more details, refer to the relevant clause in the [EULA](./policies/license.md#_3-4-1-Required-quantity-of-licenses).
 :::
@@ -54,18 +55,16 @@ To renew, contact [sales](mailto:contact@revolist.eu).
 
 :::
 
-::: details How to remove the “unlicensed” watermark?
 
-Once you purchase a license, you’ll receive a license key via email.
-Follow the setup instructions to remove the watermark.
-:::
 
 ::: details Do developers have to be named?
 
 No. Licenses are transferable between developers when team members join or leave projects.
+
 We trust that your team will not exceed the number of licensed developers.
 
 :::
+
 
 ::: details What is the policy on redistributing the software?
 
@@ -74,16 +73,19 @@ RevoGrid Pro licenses are royalty-free for:
 - Hosted applications.
 - Commercial solutions deployed to end users.
 
-If sublicensing is needed, it must be part of a larger work, and sublicenses must follow the same EULA terms.
+If sublicensing is needed, it must be part of a larger work, and sublicenses must follow the same [EULA terms](./policies/license.md).
 
 Examples:
+
 - **Example 1:** Agency ‘A’ builds apps for two clients and sublicenses RevoGrid components. No extra fee is needed if the apps are used without source modification.
+
 - **Example 2:** If clients modify the application themselves, they must purchase their own licenses.
 
 For custom use cases or licensing concerns, please [contact sales](mailto:contact@revolist.eu).
 :::
 
 ::: details Do you offer discounts to educational and non-profit organizations?
+
 Yes, we offer a 50% discount for students, instructors, non-profits, and charities.
 
 To qualify:
@@ -92,12 +94,13 @@ To qualify:
 [Contact sales](mailto:contact@revolist.eu) to apply.
 :::
 
+
 ::: details Why must we license developers not using the software directly?
 
 All developers contributing to a project using RevoGrid Pro must be licensed, even if they only use it indirectly (e.g., via a wrapper library).
 
 This ensures fair licensing and helps teams comply easily. The per-developer price is adjusted to account for this broader requirement.
-Learn more in the EULA.
+Learn more in the [EULA](./policies/license.md).
 
 :::
 
