@@ -80,6 +80,7 @@ Switch to a 💎 commercial plan to access advanced features & technical support
         :price="isAnnual ? 30 : 700"
         :pricePeriod="isAnnual ? 'month' : 'year'"
         :features="[
+          `<a href='/pro/ai' class='VPBadge danger'>AI Agent</a> for plugin code generation`,
           `Access to all <a href='#What-s-included-'>Pro Examples</a>, Plugins and Documentation.`,
           `Up to 1 hour of individual support via email per month.`,
           `Prioritized Feature Requests, Github Issues and Pull Requests.`,
