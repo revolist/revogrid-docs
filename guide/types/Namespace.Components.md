@@ -8,7 +8,7 @@
 
 | Interface | Description |
 | ------ | ------ |
-| [RevoGrid](Components.Interface.RevoGrid.md) | Revogrid - High-performance, customizable grid library for managing large datasets. :::tip Read [type definition file](https://github.com/revolist/revogrid/blob/master/src/interfaces.d.ts) for the full interface information. All complex property types such as `ColumnRegular`, `ColumnProp`, `ColumnDataSchemaModel` can be found there. ::: :::info For a comprehensive events guide, check the [Events](./events.md). All events propagate to the root level of the grid. [Dependency tree](#Dependencies). ::: |
+| [RevoGrid](Components.Interface.RevoGrid.md) | Revogrid - High-performance, customizable grid library for managing large datasets. ### Events guide For a comprehensive events guide, check the [Events API Page](./events.md). All events propagate to the root level of the grid. [Dependency tree](#Dependencies). ### Type definitions Read [type definition file](https://github.com/revolist/revogrid/blob/master/src/interfaces.d.ts) for the full interface information. All complex property types such as `ColumnRegular`, `ColumnProp`, `ColumnDataSchemaModel` can be found there. ### HTMLRevoGridElement |
 | [RevogrAttribution](Components.Interface.RevogrAttribution.md) | - |
 | [RevogrClipboard](Components.Interface.RevogrClipboard.md) | This Clipboard provides functionality for handling clipboard events in a web application. |
 | [RevogrData](Components.Interface.RevogrData.md) | This component is responsible for rendering data Rows, columns, groups and cells |

@@ -5,16 +5,18 @@
 ## Overview
 
 Revogrid - High-performance, customizable grid library for managing large datasets.
+### Events guide
 
-:::tip
-Read [type definition file](https://github.com/revolist/revogrid/blob/master/src/interfaces.d.ts) for the full interface information.
-All complex property types such as `ColumnRegular`, `ColumnProp`, `ColumnDataSchemaModel` can be found there.
-:::
-
-:::info
-For a comprehensive events guide, check the [Events](./events.md).
+For a comprehensive events guide, check the [Events API Page](./events.md).
 All events propagate to the root level of the grid. [Dependency tree](#Dependencies).
-:::
+
+### Type definitions
+
+Read [type definition file](https://github.com/revolist/revogrid/blob/master/src/interfaces.d.ts) for the full interface information.
+
+All complex property types such as `ColumnRegular`, `ColumnProp`, `ColumnDataSchemaModel` can be found there.
+
+### HTMLRevoGridElement
 
 ## Properties
 
