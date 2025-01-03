@@ -8,4 +8,4 @@ type Groups: Record<any, any>;
 
 ## Defined in
 
-[src/store/dataSource/data.store.ts:26](https://github.com/revolist/revogrid/blob/7eb028636fe9635cf32f3cf0775076c9e2dde053/src/store/dataSource/data.store.ts#L26)
+[src/store/dataSource/data.store.ts:26](https://github.com/revolist/revogrid/blob/af3362245c6506a51c4b9ff572c0e5ce6908767a/src/store/dataSource/data.store.ts#L26)

@@ -13,9 +13,9 @@ type ViewportData: {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `slot` | [`SlotType`](TypeAlias.SlotType.md) | Slot to put data | [src/types/viewport.interfaces.ts:51](https://github.com/revolist/revogrid/blob/7eb028636fe9635cf32f3cf0775076c9e2dde053/src/types/viewport.interfaces.ts#L51) |
-| `style` | \{\} | - | [src/types/viewport.interfaces.ts:52](https://github.com/revolist/revogrid/blob/7eb028636fe9635cf32f3cf0775076c9e2dde053/src/types/viewport.interfaces.ts#L52) |
+| `slot` | [`SlotType`](TypeAlias.SlotType.md) | Slot to put data | [src/types/viewport.interfaces.ts:51](https://github.com/revolist/revogrid/blob/af3362245c6506a51c4b9ff572c0e5ce6908767a/src/types/viewport.interfaces.ts#L51) |
+| `style` | \{\} | - | [src/types/viewport.interfaces.ts:52](https://github.com/revolist/revogrid/blob/af3362245c6506a51c4b9ff572c0e5ce6908767a/src/types/viewport.interfaces.ts#L52) |
 
 ## Defined in
 
-[src/types/viewport.interfaces.ts:49](https://github.com/revolist/revogrid/blob/7eb028636fe9635cf32f3cf0775076c9e2dde053/src/types/viewport.interfaces.ts#L49)
+[src/types/viewport.interfaces.ts:49](https://github.com/revolist/revogrid/blob/af3362245c6506a51c4b9ff572c0e5ce6908767a/src/types/viewport.interfaces.ts#L49)

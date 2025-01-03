@@ -29,7 +29,7 @@ interface OnHandler(eventName: "set", callback: SetEventHandler<StoreType>): () 
 
 ## Defined in
 
-[src/utils/store.types.ts:12](https://github.com/revolist/revogrid/blob/7eb028636fe9635cf32f3cf0775076c9e2dde053/src/utils/store.types.ts#L12)
+[src/utils/store.types.ts:12](https://github.com/revolist/revogrid/blob/af3362245c6506a51c4b9ff572c0e5ce6908767a/src/utils/store.types.ts#L12)
 
 ```ts
 interface OnHandler(eventName: "get", callback: GetEventHandler<StoreType>): () => void
@@ -52,7 +52,7 @@ interface OnHandler(eventName: "get", callback: GetEventHandler<StoreType>): () 
 
 ## Defined in
 
-[src/utils/store.types.ts:13](https://github.com/revolist/revogrid/blob/7eb028636fe9635cf32f3cf0775076c9e2dde053/src/utils/store.types.ts#L13)
+[src/utils/store.types.ts:13](https://github.com/revolist/revogrid/blob/af3362245c6506a51c4b9ff572c0e5ce6908767a/src/utils/store.types.ts#L13)
 
 ```ts
 interface OnHandler(eventName: "dispose", callback: DisposeEventHandler): () => void
@@ -75,7 +75,7 @@ interface OnHandler(eventName: "dispose", callback: DisposeEventHandler): () => 
 
 ## Defined in
 
-[src/utils/store.types.ts:14](https://github.com/revolist/revogrid/blob/7eb028636fe9635cf32f3cf0775076c9e2dde053/src/utils/store.types.ts#L14)
+[src/utils/store.types.ts:14](https://github.com/revolist/revogrid/blob/af3362245c6506a51c4b9ff572c0e5ce6908767a/src/utils/store.types.ts#L14)
 
 ```ts
 interface OnHandler(eventName: "reset", callback: ResetEventHandler): () => void
@@ -98,4 +98,4 @@ interface OnHandler(eventName: "reset", callback: ResetEventHandler): () => void
 
 ## Defined in
 
-[src/utils/store.types.ts:15](https://github.com/revolist/revogrid/blob/7eb028636fe9635cf32f3cf0775076c9e2dde053/src/utils/store.types.ts#L15)
+[src/utils/store.types.ts:15](https://github.com/revolist/revogrid/blob/af3362245c6506a51c4b9ff572c0e5ce6908767a/src/utils/store.types.ts#L15)
