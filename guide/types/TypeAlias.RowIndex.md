@@ -8,4 +8,4 @@ type RowIndex: number;
 
 ## Defined in
 
-[src/types/selection.ts:12](https://github.com/revolist/revogrid/blob/af3362245c6506a51c4b9ff572c0e5ce6908767a/src/types/selection.ts#L12)
+[src/types/selection.ts:12](https://github.com/revolist/revogrid/blob/e3c4d102f429c82d34023490b300d210ef8d9573/src/types/selection.ts#L12)
