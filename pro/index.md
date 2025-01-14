@@ -104,7 +104,7 @@ Switch to a 💎 commercial plan to access advanced features & technical support
 
 ## What's included?
 
-Click on the features below to learn more about it.
+Click on the features below to see video previews or [compare our plans](./version-compare).
 
 </div>
 <br/>

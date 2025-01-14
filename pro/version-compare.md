@@ -13,113 +13,31 @@ layout: custom
 import Table from './FeaturesCompareTable.vue'
 const plans = [
   { name: 'Free' },
-  { name: 'Pro Lite' },
-  { name: 'Pro Advanced' },
+  { name: 'Pro Lite', link: '/pro' },
+  { name: 'Pro Advanced', link: '/pro' },
 ];
 
 const features = [
   {
-    name: 'Column Features',
-    expanded: true,
-    features: [
-      { name: 'Column Groups', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Column Spanning', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Column Resizing', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Column Autosizing', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Column Ordering', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Column Pinning', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      // { name: 'Column Menu', supported: ['Pro Advanced'], nesting: 1 },
-      // { name: 'Columns Tool Panel', supported: ['Pro Advanced'], nesting: 1 },
-    ],
-  },
-  {
-    name: 'Row Features',
-    expanded: false,
-    features: [
-      { name: 'Row Height', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Row Spanning', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Row Reordering', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Multiple Row Reordering', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2 },
-      { name: 'Row Pinning', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Row Grouping', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Row Grouping with drag to panel', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Row Spanning', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-    ],
-  },
-  {
-    name: 'Selection Features',
-    expanded: false,
-    features: [
-      { name: 'Cell Range Selection', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Fill Handle', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Row Selection and Check', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-    ],
-  },
-  {
-    name: 'Filtering Features',
-    expanded: true,
-    features: [
-      { name: 'Column Filters', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Header Filters', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Quick Filter (Search)', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Set Filter', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Multi Filter', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Slider Filter', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2 },
-      { name: 'Selection Filter', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2 },
-    ],
-  },
-  {
-    name: 'Editing Features',
-    expanded: false,
-    features: [
-      { name: 'Row Editing', supported: ['Pro Advanced'], nesting: 1 },
-      { name: 'Cell Editing', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Text Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Number Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Date Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Checkbox Editor', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Large Text Editor', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Select Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Undo / Redo', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-    ],
-  },
-  {
-    name: 'Import & Export',
-    expanded: false,
-    features: [
-      { name: 'CSV Export', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Excel Export', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Clipboard Operations', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Drag & Drop', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-    ],
-  },
-  {
-    name: 'Rendering Features',
-    expanded: true,
-    features: [
-      { name: 'Customizable Components', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Column Virtualization', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Row Virtualization > 100 Rows', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-    ],
-  },
-  {
     name: 'Group & Pivot',
-    expanded: false,
+    expanded: true,
     features: [
-      { name: 'Tree Data', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Master Detail', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Smart Data Auto Fill', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
+      { name: 'Tree Data', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/tree' },
+      { name: 'Master Detail', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/row-master' },
+      { name: 'Smart Data Auto Fill', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/autofill' },
+      { name: 'Formula', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/formula-excel' },
+      { name: 'Pagination', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/pagination-remote' },
       // { name: 'Aggregation', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
       // { name: 'Pivoting', supported: ['Pro Advanced'], nesting: 1 },
     ],
   },
   {
     name: 'Charting Features',
-    expanded: false,
+    expanded: true,
     features: [
-      { name: 'Integrated Charts', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Sparklines', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Heat & Cool Maps', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
+      { name: 'Integrated Charts', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/charts' },
+      { name: 'Sparklines', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/charts' },
+      { name: 'Heat & Cool Maps', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/heatmap' },
     ],
   },
   // {
@@ -131,14 +49,114 @@ const features = [
   //   ],
   // },
   {
-    name: 'Miscellaneous',
-    expanded: false,
+    name: 'Column Features',
+    expanded: true,
     features: [
-      { name: 'Accessibility', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Context Menu', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Localization', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
+      { name: 'Column Spanning', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/cell-merge' },
+      { name: 'Column Selection', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/column-selection' },
+      { name: 'Column Type Icons', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/demo/ecommerce' },
+      { name: 'Column Header Summary', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/demo/ecommerce' },
+      { name: 'Column Stretching', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/column-stretch' },
+      { name: 'Last Column Stretch', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/stretch' },
+      // { name: 'Column Menu', supported: ['Pro Advanced'], nesting: 1 },
+      // { name: 'Columns Tool Panel', supported: ['Pro Advanced'], nesting: 1 },
+      { name: 'Column Groups', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/grouping' },
+      { name: 'Column Resizing', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/resize' },
+      { name: 'Column Autosizing', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/autosize' },
+      { name: 'Column Ordering', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/order' },
+      { name: 'Column Pinning', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/pin' },
+    ],
+  },
+  {
+    name: 'Row Features',
+    expanded: true,
+    features: [
+      { name: 'Row Spanning', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/cell-merge' },
+      { name: 'Row Grouping', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
+      { name: 'Row Grouping with drag to panel', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://pro.rv-grid.com/demo/ecommerce' },
+      { name: 'Row Odd Style', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/row-odd' },
+      { name: 'Row Transpose', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/row-transpose' },
+      { name: 'Row Height', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/row/height' },
+      { name: 'Row Reordering', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/row/order' },
+      { name: 'Multiple Row Reordering', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://pro.rv-grid.com/guides/row-advanced-drag-drop' },
+      { name: 'Row Pinning', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/row/pin' },
+    ],
+  },
+  {
+    name: 'Selection Features',
+    expanded: true,
+      features: [
+        { name: 'Row Selection and Check', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/row-select' },
+        { name: 'Cell Range Selection', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
+        { name: 'Fill Handle', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
+      ],
+  },
+  {
+    name: 'Filtering Features',
+    expanded: true,
+    features: [
+      { name: 'Header Filters', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/filter-header' },
+      { name: 'Quick Filter (Search)', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/filter-showcase' },
+      { name: 'Slider Filter', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/filter-slider' },
+      { name: 'Selection Filter', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/filter-selection' },
+      { name: 'Column Filters', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/filters' },
+      { name: 'Multi Column Filters', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/filters' },
+    ],
+  },
+  {
+    name: 'Editing Features',
+    expanded: true,
+    features: [
+      { name: 'Undo / Redo', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/features/history' },
+      { name: 'Row Editing', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
+      { name: 'Checkbox Editor', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
+      { name: 'Large Text Editor', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
+      { name: 'Validation', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/validate-basic' },
+      { name: 'Cell Tooltips', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/validate-basic' },
+      { name: 'Flashing Cells', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/cell-flash' },
+      { name: 'Cell Editing', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/editing' },
+      { name: 'Text Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types.html#String' },
+      { name: 'Number Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types.html#Number' },
+      { name: 'Date Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types.html#Date' },
+      { name: 'Select Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types.html#Select-Dropdown' },
+    ],
+  },
+  {
+    name: 'Import & Export',
+    expanded: true,
+    features: [
+      { name: 'Excel Export', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/excel-export' },
+      { name: 'Drag & Drop Import', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/excel-export' },
+      { name: 'Clipboard Operations', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/clipboard' },
+      { name: 'Clipboard JSON', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://pro.rv-grid.com/guides/clipboard-json' },
+      { name: 'CSV Export', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/export.plugin' },
+    ],
+  },
+  {
+    name: 'Rendering Features',
+    expanded: true,
+    features: [
+      { name: 'Column Virtualization', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/viewports' },
+      { name: 'Row Virtualization', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/viewports' },
+    ],
+  },
+  {
+    name: 'Support',
+    expanded: true,
+    features: [
+      { name: 'AI Agent Support', supported: ['Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/pro/ai' },
       { name: 'Support via GitHub', supported: ['Pro Advanced'], nesting: 1 },
-      { name: 'Enterprise Support', supported: ['Pro Advanced'], nesting: 1 },
+      { name: 'Support via Email', supported: ['Pro Advanced'], nesting: 1 },
+    ]
+  },
+  {
+    name: 'Miscellaneous',
+    expanded: true,
+    features: [
+      { name: 'Event Manager', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/event-manager-explanation' },
+      { name: 'Context Menu', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
+      { name: 'Accessibility', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
+      { name: 'Localization', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
     ],
   },
 ]
@@ -147,9 +165,12 @@ const features = [
 
 <div style="text-align: center">
 
-# Start using RevoGrid products for free!
-Switch to a commercial plan to access advanced features & technical support.
+# Start using RevoGrid
+# products for free!
+Switch to a [commercial plan](/pro)
+<br/> to access advanced features & technical support.
 
 </div>
+
 
 <Table  :plans="plans" :features="features" />

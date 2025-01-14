@@ -248,8 +248,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
                 },
                 {
                     text: 'Export',
-                    link: '/guide/export',
-                    items: [],
+                    link: '/guide/export.plugin',
                 },
                 {
                     text: 'Filtering',

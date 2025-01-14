@@ -6,7 +6,10 @@
                 <tr>
                     <th></th>
                     <th>
-                        <div class="plan-title">{{ plans[0].name }}</div>
+                        <div class="plan-title">
+                            <a v-if="plans[0].link" :href="plans[0].link">{{ plans[0].name }}</a>
+                            <template v-else>{{ plans[0].name }}</template>
+                        </div>
                         <!-- <div class="plan-price">{{ plans[0].price }}</div> -->
                         <!-- <ul class="plan-details">
                             <li
@@ -19,7 +22,10 @@
                         <!-- <button>Get Started</button> -->
                     </th>
                     <th>
-                        <div class="plan-title">{{ plans[1].name }}</div>
+                        <div class="plan-title">
+                            <a v-if="plans[1].link" :href="plans[1].link">{{ plans[1].name }}</a>
+                            <template v-else>{{ plans[1].name }}</template>
+                        </div>
                         <!-- <div class="plan-price">{{ plans[1].price }}</div> -->
                         <!-- <ul class="plan-details">
                             <li
@@ -32,7 +38,10 @@
                         <!-- <button>Get Started</button> -->
                     </th>
                     <th>
-                        <div class="plan-title">{{ plans[2].name }}</div>
+                        <div class="plan-title">
+                            <a v-if="plans[2].link" :href="plans[2].link">{{ plans[2].name }}</a>
+                            <template v-else>{{ plans[2].name }}</template>
+                        </div>
                         <!-- <div class="plan-price">{{ plans[2].price }}</div> -->
                         <!-- <ul class="plan-details">
                             <li
@@ -54,10 +63,11 @@
                     :key="groupIndex"
                 >
                     <tr class="group-header" @click="toggleGroup(groupIndex)">
-                        <td :colspan="plans.length + 1">
-                            <span v-if="expandedGroups[groupIndex]">▼</span>
-                            <span v-else>▶</span> {{ group.name }}
+                        <td>
+                            <span class="expand-icon" v-if="expandedGroups[groupIndex]">▼</span>
+                            <span class="expand-icon" v-else>▶</span> {{ group.name }}
                         </td>
+                        <td v-for="plan in plans"></td>
                     </tr>
                     <template v-if="expandedGroups[groupIndex]">
                         <tr
@@ -70,7 +80,12 @@
                                     paddingLeft: `${feature.nesting ? 20 * feature.nesting : 20}px`,
                                 }"
                             >
-                                {{ feature.name }}
+                                <template v-if="feature.link">
+                                    <a :href="feature.link" target="_blank">{{ feature.name }}</a>
+                                </template>
+                                <template v-else>
+                                    {{ feature.name }}
+                                </template>
                             </td>
                             <td
                                 v-for="(plan, planIndex) in plans"
@@ -95,6 +110,7 @@ interface Plan {
     name: string
     price: string
     details: string[]
+    link?: string
 }
 
 interface Feature {
@@ -102,6 +118,7 @@ interface Feature {
     supported: string[]
     nesting: number
     children?: Feature[]
+    link?: string
 }
 
 interface FeatureGroup {
@@ -137,13 +154,32 @@ const toggleGroup = (index: number) => {
 
 .pricing-table {
     width: 100%;
-    border-collapse: separate;
+    border-collapse:collapse;
     border: none;
-    border-spacing: 2px;
+
+    a {
+        text-decoration: none;
+    }
+
+    thead {
+        a {
+            font-weight: 600;
+        }
+        tr {
+            border: 0;
+
+            th {
+                border-top-color: transparent;
+            }
+        }
+    }
 
     tr {
         &:nth-child(2n) {
-         background-color: transparent;   
+            background-color: transparent;
+        }
+        &:hover {
+            background-color: var(--vp-c-bg-soft);
         }
     }
 
@@ -158,15 +194,24 @@ const toggleGroup = (index: number) => {
 
     th,
     td {
-        border: 0;
-        padding: 10px;
+        padding: 6px 10px;
         box-sizing: border-box;
         text-align: left;
+        border-bottom: 0;
         &:first-child {
+            border-left-width: 0;
             width: 100%;
+        }
+        &:last-child {
+            border-right-width: 0;
         }
         &:not(:first-child) {
             min-width: 150px;
+        }
+
+        &:nth-of-type(3) {
+            background-color: var(--vp-c-success-soft);
+            border-color: var(--vp-c-success-soft);
         }
     }
 
@@ -179,6 +224,10 @@ const toggleGroup = (index: number) => {
         }
     }
 
+    .expand-icon {
+        font-size: 11px;
+    }
+
     .group-header {
         font-weight: bold;
         text-align: left;
@@ -188,17 +237,39 @@ const toggleGroup = (index: number) => {
 
         > td {
             background-color: var(--vp-c-bg-alt);
-            border-radius: 8px;
+            &:first-child {
+                border-radius: 8px 0 0 8px;
+            }
+            &:last-child {
+                border-radius: 0 8px 8px 0;
+            }
             box-shadow: 0 0 0 1px var(--vp-c-gray-3) inset;
+            border: 0;
+
+
+            &:nth-of-type(3) {
+                background-color: var(--vp-c-success-soft);
+                position: relative;
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    background-color: var(--vp-c-success-soft);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
         }
 
         + tr {
             border-top: none;
-        }
-    }
 
-    .nested-feature {
-        background-color: var(--vp-c-bg-soft);
+            td {
+                border-top-width: 0;
+            }
+        }
     }
 
     .plan-title {
