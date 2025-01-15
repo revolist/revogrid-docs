@@ -9,7 +9,10 @@
                         <div class="plan-title">
                             {{ plan.name }}
                         </div>
-                        <div class="plan-price"><span v-if="plan.price">{{ plan.price }} € / dev</span></div>
+                        <div class="plan-price" v-if="plan.price">
+                            <div><span class="price-value">{{ plan.price }} €</span> / month / dev</div>
+                            <div class="summary">Billed annually at {{ plan.price * 12 }}€ / dev</div>
+                        </div>
                         <ul class="plan-details" v-if="plan.details">
                             <li
                                 v-for="detail in plan.details"
@@ -97,7 +100,7 @@ const videoUrl = ref('')
 // Props
 interface Plan {
     name: string
-    price: string
+    price: number
     details: string[]
     buttonText: string
     link?: string
@@ -192,7 +195,6 @@ const openPreview = (video: string) => {
         &:not(:first-child) {
             padding: 20px;
             text-align: left;
-            vertical-align: top;
         }
     }
 
@@ -279,12 +281,25 @@ const openPreview = (video: string) => {
     .plan-title {
         font-weight: bold;
         font-size: 21px;
+        margin-bottom: 10px;
     }
 
     .plan-price {
+        font-weight: normal;
         font-size: 14px;
         margin-bottom: 10px;
         min-height: 18px;
+        line-height: 21px;
+
+        .price-value {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .summary {
+            font-size: 12px;
+            font-weight: normal;
+        }
     }
 
     .plan-details {

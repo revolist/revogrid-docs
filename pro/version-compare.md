@@ -21,7 +21,7 @@ const plans = [
   {
     name: 'Pro Lite',
     link: '/pro',
-    price: '12.5',
+    price: 12.5,
     pricePeriod: 'month',
     buttonText: 'Buy Now',
     link: 'https://buy.stripe.com/dR6cPS98V8Xn90IaEI',
@@ -29,7 +29,7 @@ const plans = [
   {
     name: 'Pro Advanced',
     link: 'https://buy.stripe.com/aEUcPS0Cpb5v3Go149',
-    price: '30',
+    price:  30,
     pricePeriod: 'month',
     buttonText: 'Buy Now',
     buttonTheme: 'alt'
