@@ -11,9 +11,29 @@ layout: custom
 <script lang="ts" setup>
 import Table from './FeaturesCompareTable.vue'
 const plans = [
-  { name: 'Free' },
-  { name: 'Pro Lite', link: '/pro' },
-  { name: 'Pro Advanced', link: '/pro' },
+  {
+    name: 'Free',
+
+    link: '/Guide',
+    buttonText: 'Get Started',
+    buttonTheme: 'sponsor'
+  },
+  {
+    name: 'Pro Lite',
+    link: '/pro',
+    price: '12.5',
+    pricePeriod: 'month',
+    buttonText: 'Buy Now',
+    link: 'https://buy.stripe.com/dR6cPS98V8Xn90IaEI',
+  },
+  {
+    name: 'Pro Advanced',
+    link: 'https://buy.stripe.com/aEUcPS0Cpb5v3Go149',
+    price: '30',
+    pricePeriod: 'month',
+    buttonText: 'Buy Now',
+    buttonTheme: 'alt'
+  },
 ];
 
 const features = [
@@ -180,3 +200,10 @@ Switch to a [commercial plan](/pro)
 </div>
 
 <Table  :plans="plans" :features="features" />
+
+
+<br />
+<br />
+<br />
+
+<!--@include: ./frequent-questions.md -->

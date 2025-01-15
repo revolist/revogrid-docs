@@ -5,53 +5,26 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>
+                    <th v-for="plan in plans" :key="plan.name">
                         <div class="plan-title">
-                            <a v-if="plans[0].link" :href="plans[0].link">{{ plans[0].name }}</a>
-                            <template v-else>{{ plans[0].name }}</template>
+                            {{ plan.name }}
                         </div>
-                        <!-- <div class="plan-price">{{ plans[0].price }}</div> -->
-                        <!-- <ul class="plan-details">
+                        <div class="plan-price"><span v-if="plan.price">{{ plan.price }} € / dev</span></div>
+                        <ul class="plan-details" v-if="plan.details">
                             <li
-                                v-for="detail in plans[0].details"
+                                v-for="detail in plan.details"
                                 :key="detail"
                             >
                                 {{ detail }}
                             </li>
-                        </ul> -->
-                        <!-- <button>Get Started</button> -->
-                    </th>
-                    <th>
-                        <div class="plan-title">
-                            <a v-if="plans[1].link" :href="plans[1].link">{{ plans[1].name }}</a>
-                            <template v-else>{{ plans[1].name }}</template>
-                        </div>
-                        <!-- <div class="plan-price">{{ plans[1].price }}</div> -->
-                        <!-- <ul class="plan-details">
-                            <li
-                                v-for="detail in plans[1].details"
-                                :key="detail"
-                            >
-                                {{ detail }}
-                            </li>
-                        </ul> -->
-                        <!-- <button>Get Started</button> -->
-                    </th>
-                    <th>
-                        <div class="plan-title">
-                            <a v-if="plans[2].link" :href="plans[2].link">{{ plans[2].name }}</a>
-                            <template v-else>{{ plans[2].name }}</template>
-                        </div>
-                        <!-- <div class="plan-price">{{ plans[2].price }}</div> -->
-                        <!-- <ul class="plan-details">
-                            <li
-                                v-for="detail in plans[2].details"
-                                :key="detail"
-                            >
-                                {{ detail }}
-                            </li>
-                        </ul> -->
-                        <!-- <button>Get Started</button> -->
+                        </ul>
+                        <VPButton
+                            v-if="plan.link"
+                            size="medium"
+                            :text="plan.buttonText"
+                            :href="plan.link"
+                            :theme="plan.buttonTheme"
+                        />
                     </th>
                 </tr>
             </thead>
@@ -113,6 +86,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import VPImage from '../.vitepress/theme/VPImage.vue'
+import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue'
 
 import { ElDialog } from 'element-plus'
 import 'element-plus/es/components/dialog/style/css'
@@ -125,7 +99,9 @@ interface Plan {
     name: string
     price: string
     details: string[]
+    buttonText: string
     link?: string
+    buttonTheme?: 'alt'
 }
 
 interface Feature {
@@ -211,9 +187,12 @@ const openPreview = (video: string) => {
     th {
         background-color: transparent;
         color: inherit;
+        text-align: left;
 
         &:not(:first-child) {
-            text-align: center;
+            padding: 20px;
+            text-align: left;
+            vertical-align: top;
         }
     }
 
@@ -231,7 +210,7 @@ const openPreview = (video: string) => {
             border-right-width: 0;
         }
         &:not(:first-child) {
-            min-width: 150px;
+            min-width: 250px;
         }
 
         &:nth-of-type(3) {
@@ -299,12 +278,13 @@ const openPreview = (video: string) => {
 
     .plan-title {
         font-weight: bold;
+        font-size: 21px;
     }
 
     .plan-price {
         font-size: 14px;
-        color: #555;
         margin-bottom: 10px;
+        min-height: 18px;
     }
 
     .plan-details {
