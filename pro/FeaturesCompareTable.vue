@@ -86,6 +86,10 @@
                                 <template v-else>
                                     {{ feature.name }}
                                 </template>
+
+                                <button class="video-preview" v-if="feature.video" @click="openPreview(feature.video)">
+                                   <VPImage style="width: 18px;" :image="{ src: 'video.svg' }" />
+                                </button>
                             </td>
                             <td
                                 v-for="(plan, planIndex) in plans"
@@ -99,11 +103,22 @@
             </tbody>
         </table>
     </div>
+    <ElDialog
+        v-model="dialogVisible"
+        width="600">
+        <video class="video" :src="videoUrl" loop muted playsinline autoplay></video>    
+    </ElDialog>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 import VPImage from '../.vitepress/theme/VPImage.vue'
+
+import { ElDialog } from 'element-plus'
+import 'element-plus/es/components/dialog/style/css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
+const dialogVisible = ref(false)
+const videoUrl = ref('')
 
 // Props
 interface Plan {
@@ -119,6 +134,7 @@ interface Feature {
     nesting: number
     children?: Feature[]
     link?: string
+    video?: string
 }
 
 interface FeatureGroup {
@@ -144,12 +160,21 @@ props.features.forEach((group, index) => {
 const toggleGroup = (index: number) => {
     expandedGroups.value[index] = !expandedGroups.value[index]
 }
+
+const openPreview = (video: string) => {
+    videoUrl.value = video
+    dialogVisible.value = true
+}
 </script>
 
 <style lang="scss" scoped>
 .table-container {
     overflow-x: auto;
     margin-top: 20px;
+}
+
+.video-preview {
+    float: right;
 }
 
 .pricing-table {
