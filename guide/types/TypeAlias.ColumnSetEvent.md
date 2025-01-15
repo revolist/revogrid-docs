@@ -12,8 +12,8 @@ type ColumnSetEvent: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `order` | [`SortingOrder`](TypeAlias.SortingOrder.md) | [src/plugins/sorting/sorting.types.ts:9](https://github.com/revolist/revogrid/blob/e3c4d102f429c82d34023490b300d210ef8d9573/src/plugins/sorting/sorting.types.ts#L9) |
+| `order` | [`SortingOrder`](TypeAlias.SortingOrder.md) | [src/plugins/sorting/sorting.types.ts:9](https://github.com/revolist/revogrid/blob/6916c62aedeba77f36804fdc386f78e588e18412/src/plugins/sorting/sorting.types.ts#L9) |
 
 ## Defined in
 
-[src/plugins/sorting/sorting.types.ts:8](https://github.com/revolist/revogrid/blob/e3c4d102f429c82d34023490b300d210ef8d9573/src/plugins/sorting/sorting.types.ts#L8)
+[src/plugins/sorting/sorting.types.ts:8](https://github.com/revolist/revogrid/blob/6916c62aedeba77f36804fdc386f78e588e18412/src/plugins/sorting/sorting.types.ts#L8)
