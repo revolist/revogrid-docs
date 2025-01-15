@@ -108,9 +108,9 @@ const features = [
     expanded: true,
     features: [
       { name: 'Undo / Redo', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/features/history' },
-      { name: 'Row Editing', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Checkbox Editor', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-      { name: 'Large Text Editor', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
+      { name: 'Row Editing', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/editor-row' },
+      { name: 'Checkbox Editor', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/editor-checkbox' },
+      { name: 'Large Text Editor', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/editor-textarea' },
       { name: 'Validation', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/validate-basic' },
       { name: 'Cell Tooltips', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/validate-basic' },
       { name: 'Flashing Cells', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/cell-flash' },
