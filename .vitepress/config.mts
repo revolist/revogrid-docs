@@ -12,7 +12,8 @@ import { containerPreview } from './plugin.preview'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import markdownItAttrs from 'markdown-it-attrs';
+import markdownItAttrs from 'markdown-it-attrs'
+import { text } from 'node:stream/consumers'
 dotenv.config()
 
 const rControl = /[\u0000-\u001f]/g
@@ -36,11 +37,12 @@ export const slugify = (str: string): string =>
 
 const config: UserConfig<DefaultTheme.Config> = {
     sitemap: {
-        hostname: 'https://rv-grid.com', 
+        hostname: 'https://rv-grid.com',
     },
     title: 'RevoGrid',
     appearance: 'dark',
-    description: 'Data Grid Library on steroids for Vue, Angular, React, Svelte and JS',
+    description:
+        'Data Grid Library on steroids for Vue, Angular, React, Svelte and JS',
 
     markdown: {
         theme: {
@@ -63,16 +65,15 @@ const config: UserConfig<DefaultTheme.Config> = {
             bun: 'js',
         },
         config(md) {
-          md.use(tabsMarkdownPlugin)
-          md.use(containerPreview)
-          md.use(markdownItAttrs, {
-            // optional, these are default options
-            leftDelimiter: '{',
-            rightDelimiter: '}',
-            allowedAttributes: []  // empty array = all attributes are allowed
-          })
-
-        }
+            md.use(tabsMarkdownPlugin)
+            md.use(containerPreview)
+            md.use(markdownItAttrs, {
+                // optional, these are default options
+                leftDelimiter: '{',
+                rightDelimiter: '}',
+                allowedAttributes: [], // empty array = all attributes are allowed
+            })
+        },
     },
     head: [
         ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
@@ -99,8 +100,8 @@ const config: UserConfig<DefaultTheme.Config> = {
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-T7JNJDXW');`
-        ]
+})(window,document,'script','dataLayer','GTM-T7JNJDXW');`,
+        ],
     ],
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
@@ -117,8 +118,43 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         footer: {
             copyright: 'Copyright © 2017-present',
-            message:
-                'Revogrid is a powerful data grid library made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. <br/><br/>',
+            message: `Revogrid is a powerful data grid library
+                <br/> made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. <br/>`,
+            items: [
+                {
+                    title: 'Documentation',
+                    links: [
+                        {
+                            link: '/guide/',
+                            text: 'Quick Start',
+                        },
+                        {
+                            link: '/guide/api/revoGrid',
+                            text: 'API',
+                        },
+                        {
+                            link: '/guide/api/events',
+                            text: 'Events',
+                        },
+                    ],
+                },
+                {
+                title: 'The Company',
+                links: [
+                    {
+                        link: 'https://revolist.eu/about-us/',
+                        text: 'About us',
+                    },
+                    {
+                        link: 'https://revolist.eu/services/',
+                        text: 'Services',
+                    },
+                    {
+                        link: 'https://revolist.eu/lets-talk/',
+                        text: 'Contact us',
+                    },
+                ],
+            }],
         },
 
         editLink: {
@@ -154,7 +190,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }),
         ],
         ssr: {
-            noExternal: ['element-plus']
+            noExternal: ['element-plus'],
         },
         build: {
             sourcemap: false,
@@ -178,6 +214,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     find: /^.*\/VPImage\.vue$/,
                     replacement: fileURLToPath(
                         new URL('./theme/VPImage.vue', import.meta.url)
+                    ),
+                },
+                {
+                    find: /^.*\/VPFooter\.vue$/,
+                    replacement: fileURLToPath(
+                        new URL('./theme/VPFooter.vue', import.meta.url)
                     ),
                 },
                 {
