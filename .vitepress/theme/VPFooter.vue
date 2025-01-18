@@ -15,7 +15,7 @@ const { hasSidebar } = useSidebar()
     >
         <div class="container">
             <div>
-                <span class="logo-container">
+                <a class="logo-container" href="/">
                     <VPImage
                         v-if="theme.logo"
                         class="logo"
@@ -28,33 +28,32 @@ const { hasSidebar } = useSidebar()
                     <strong v-else-if="theme.siteTitle === undefined">{{
                         site.title
                     }}</strong>
-                </span>
-                <p
-                    v-if="theme.footer.message"
-                    class="message"
-                    v-html="theme.footer.message"
-                ></p>
-                <p
-                    v-if="theme.footer.copyright"
-                    class="copyright"
-                    v-html="theme.footer.copyright"
-                ></p>
+                </a>
             </div>
             <div class="sections">
-                <div v-for="section in theme.footer.items">
-                    <div class="footer-title">{{ section.title }}</div>
-                    <ul>
-                        <li
-                            v-for="item in section.links"
-                            :key="item.text"
-                            class="link"
-                        >
-                            <a :href="item.link" v-html="item.text"></a>
-                        </li>
-                    </ul>
-                </div>
+                <ul v-for="section in theme.footer.items">
+                    <li
+                        v-for="item in section.links"
+                        :key="item.text"
+                        class="link"
+                    >
+                        <a :href="item.link" v-html="item.text"></a>
+                    </li>
+                </ul>
             </div>
         </div>
+        <hr />
+
+        <p
+            v-if="theme.footer.message"
+            class="message"
+            v-html="theme.footer.message"
+        ></p>
+        <p
+            v-if="theme.footer.copyright"
+            class="copyright"
+            v-html="theme.footer.copyright"
+        ></p>
     </footer>
 </template>
 
@@ -63,7 +62,7 @@ const { hasSidebar } = useSidebar()
     position: relative;
     z-index: var(--vp-z-index-footer);
     border-top: 1px solid var(--vp-c-gutter);
-    padding: 32px 24px;
+    padding: 20px 24px 32px 24px;
     background-color: var(--vp-c-bg);
 }
 
@@ -84,6 +83,7 @@ const { hasSidebar } = useSidebar()
 @media (min-width: 768px) {
     .VPFooter {
         padding: 32px;
+        padding-top: 20px;
     }
 }
 
@@ -92,7 +92,7 @@ const { hasSidebar } = useSidebar()
     text-align: left;
 
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
     flex-wrap: wrap;
     margin: 0 auto;
     width: 100%;
@@ -117,7 +117,17 @@ const { hasSidebar } = useSidebar()
 
 .sections {
     display: flex;
-    gap: 90px;
+
+    ul {
+        gap: 15px;
+        padding: 0 40px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
 
 a {
@@ -139,9 +149,14 @@ a:not(:hover) {
 .message,
 .copyright {
     line-height: 24px;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 12px;
     padding: 5px 0;
     color: var(--vp-c-text-2);
+}
+hr {
+    background-color: transparent;
+    border: 0;
+    border-top: 1px solid var(--vp-c-gutter);
+    margin-bottom: 10px;
 }
 </style>

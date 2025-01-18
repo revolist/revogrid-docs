@@ -117,30 +117,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ],
 
         footer: {
-            copyright: 'Copyright © 2017-present',
-            message: `Revogrid is a powerful data grid library
-                <br/> made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. <br/>`,
+            // copyright: '',
+            message: `Revogrid is a powerful data grid library made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. Copyright © 2017-present.`,
             items: [
                 {
-                    title: 'Documentation',
-                    links: [
-                        {
-                            link: '/guide/',
-                            text: 'Quick Start',
-                        },
-                        {
-                            link: '/guide/api/revoGrid',
-                            text: 'API',
-                        },
-                        {
-                            link: '/guide/api/events',
-                            text: 'Events',
-                        },
-                    ],
-                },
-                {
-                title: 'The Company',
                 links: [
+                    {
+                        link: '/pro/policies/privacy',
+                        text: 'Privacy Policy',
+                    },
+                    {
+                        link: '/pro/policies/terms',
+                        text: 'Terms of Service',
+                    },
+                    {
+                        link: '/guide/',
+                        text: 'Quick Start',
+                    },
                     {
                         link: 'https://revolist.eu/about-us/',
                         text: 'About us',
