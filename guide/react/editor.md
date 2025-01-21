@@ -23,7 +23,7 @@ RevoGrid allows you to define custom editors for grid cells using the editor pro
 In this example, we’ll create a custom button editor that, when clicked, closes the editor. This demonstrates how you can use React components as editors.
 
 
-```tsx{4,9-11,19,28}
+```tsx{4,10-12,22,34}
 
 
 <!--@include: ../../demo/react/react.editor.tsx-->

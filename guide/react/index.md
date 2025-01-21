@@ -15,14 +15,9 @@ head:
 
 <img src="/react.svg" alt="React logo" width="300" height="300" style="margin: 20px auto;" />
 
-<p>
-
-Revogrid provide special [react adapter](https://github.com/revolist/react-datagrid). Just import it to your project and it can be used as part of react system.
-
-</p>
-
 </div>
 
+Revogrid provide special [react adapter](https://github.com/revolist/react-datagrid). Just import it to your project and it can be used as part of react system.
 
 <!--@include: ./install.md-->
 

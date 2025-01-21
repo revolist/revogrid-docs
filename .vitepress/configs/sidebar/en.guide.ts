@@ -74,7 +74,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                         link: '/guide/column/autosize',
                     },
                     {
-                        text: 'Column Header',
+                        text: 'Column Header Template',
                         link: '/guide/column/header.template',
                     },
                     {
@@ -122,7 +122,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                         link: '/guide/column/readonly',
                     },
                     {
-                        text: 'Cell Renderer',
+                        text: 'Cell Template',
                         link: '/guide/cell/renderer',
                     },
                     {
@@ -220,7 +220,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 items: [
                     { text: 'Getting Started', link: '/guide/angular/' },
                     {
-                        text: 'Cell Renderer',
+                        text: 'Cell Template',
                         link: '/guide/angular/renderer',
                     },
                     { text: 'Cell Editor', link: '/guide/angular/editor' },
@@ -232,7 +232,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 items: [
                     { text: 'Getting Started', link: '/guide/react/' },
                     {
-                        text: 'Cell Renderer',
+                        text: 'Cell Template',
                         link: '/guide/react/renderer',
                     },
                     { text: 'Cell Editor', link: '/guide/react/editor' },
@@ -257,7 +257,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 collapsed: true,
                 items: [
                     { text: 'Getting Started', link: '/guide/vue2/' },
-                    { text: 'Cell Renderer', link: '/guide/vue2/renderer' },
+                    { text: 'Cell Template', link: '/guide/vue2/renderer' },
                     { text: 'Cell Editor', link: '/guide/vue2/editor' },
                 ],
             },
@@ -266,7 +266,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 collapsed: true,
                 items: [
                     { text: 'Getting Started', link: '/guide/vue3/' },
-                    { text: 'Cell Renderer', link: '/guide/vue3/renderer' },
+                    { text: 'Cell Template', link: '/guide/vue3/renderer' },
                     { text: 'Cell Editor', link: '/guide/vue3/editor' },
                 ],
             },

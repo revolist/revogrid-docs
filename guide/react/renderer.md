@@ -22,7 +22,7 @@ In this guide, we will explore how to implement custom cell renderers and templa
 
 Here’s an example of how you can use a simple React component to render custom content inside a grid cell.
 
-```tsx{9-11,18}
+```tsx{10-12,21}
 
 
 <!--@include: ../../demo/react/react.cell.tsx-->

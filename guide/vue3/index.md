@@ -15,18 +15,15 @@ head:
 
 <img src="/vuejs.svg" alt="Vue logo" width="300" height="300" style="margin: 20px auto;" />
 
-<p>
-
-Revogrid provide special [Vue adapter](https://github.com/revolist/vue3-datagrid). Just import it to your project and it can be used as part of vue system.
-
-</p>
-
 </div>
 
 ::: info
 This tutorial assumes that an Vue project has already been set up.
 If not, please refer to the official documentation [Vue Installation](https://vuejs.org/guide/quick-start)
 :::
+
+
+Revogrid provide special [Vue adapter](https://github.com/revolist/vue3-datagrid). Just import it to your project and it can be used as part of vue system.
 
 <!--@include: ./install.md-->
 

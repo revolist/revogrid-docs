@@ -6,7 +6,16 @@ head:
     - name: keywords
       content: RevoGrid, Vue 2, data grid, Vue 2 integration, virtual grid, virtual rows, virtual columns, reactive data grid, Vue data grid, Vue 2 grid example, grid performance, large data sets, customizable grid
 ---
-# Vue 2 Getting Started
+
+
+<div style="text-align: center">
+
+
+# Vue 2 Data Grid Getting Started
+
+<img src="/vuejs.svg" alt="Vue logo" width="300" height="300" style="margin: 20px auto;" />
+
+</div>
 
 Revogrid provide special wrapper based on [stenciljs vue adapter](https://www.npmjs.com/package/@revolist/vue-datagrid). Just import it to your project and it can be used as part of vue system.
 
