@@ -4,69 +4,26 @@ description: Learn how to integrate RevoGrid with React to build fast, scalable 
 head:
   - - meta
     - name: keywords
-      content: RevoGrid, React, data grid, React integration, virtual grid, virtual rows, virtual columns, React grid example, grid performance, large data sets, customizable grid, RevoGrid React components
+      content: RevoGrid, React, data grid, React integration, virtual grid, virtual rows, virtual columns, React grid example, grid performance, large data sets, customizable grid, RevoGrid React components, React Table
 ---
 
 # Getting Started
 
 Revogrid provide special wrapper based on [stenciljs react adapter](https://www.npmjs.com/package/@stencil/react-output-target). Just import it to your project and it can be used as part of react system.
 
-::: code-group
 
-```npm
-npm i @revolist/react-datagrid
+<!--@include: ./install.md-->
 
-```
+## Basic Setup
 
-```pnpm
-pnpm add @revolist/react-datagrid
-```
+RevoGrid is designed to be highly performant, even with large datasets, by leveraging virtualization for both rows and columns. It allows you to render only the visible portion of the grid, significantly improving performance when dealing with large datasets.
 
-```yarn
-yarn add @revolist/react-datagrid
-```
+### Example
 
-```bun
-bun add @revolist/react-datagrid
-```
-:::
-
-
+Below is an example of a basic setup using RevoGrid in React. The grid accepts columns and data through props and can be further customized to suit your specific needs.
 
 ```tsx
-// App.tsx
-import { RevoGrid } from '@revolist/react-datagrid';
-
-function App() {
-  const columns = [
-    {
-      prop: 'name',
-      name: 'First',
-    },
-    {
-      prop: 'details',
-      name: 'Second',
-    },
-  ];
-  const source = [
-    {
-      name: '1',
-      details: 'Item 1',
-    },
-    {
-      name: '2',
-      details: 'Item 2',
-    },
-  ];
-  return (
-    <>
-      <RevoGrid columns={columns} source={source} />
-    </>
-  )
-}
-
-export default App
+<!--@include: ../../demo/react/react-datagrid.tsx-->
 
 ```
-
 <!--@include: ../../demo/react/react-datagrid.md-->

@@ -1,6 +1,16 @@
 ---
-title: Getting Started - React Data Grid
+title: Getting Started - React Data Grid Table
+aside: false
+head:
+  - - meta
+    - name: description
+      content: Show case of React Data Grid implemented in RevoGrid.
+  - - meta
+    - name: keywords
+      content: React Data Grid, RevoGrid, data grid, React integration, virtual grid, virtual rows, virtual columns, React grid example, grid performance, large data sets, customizable grid, RevoGrid React components, React Table
 ---
+
+Show case of React Data Grid implemented in RevoGrid
 
 
 <ClientOnly>

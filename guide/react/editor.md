@@ -9,44 +9,29 @@ head:
 
 <!--@include: ../parts/editor.header.md-->
 
-```tsx{4,8-11,13,18,27}
+By integrating React components as native editors, RevoGrid gives you full control over how each cell behaves during the editing process, enabling complex and highly interactive editing scenarios.
 
-// App.tsx
-import { RevoGrid, Editor, type EditorType, type Editors } from '@revolist/react-datagrid';
 
-/**
- * Custom editor component
- */
-const Button = ({ close } : EditorType) => {
-  return <button onClick={close}>Close</button>
-};
+<!--@include: ../parts/editor.why.md-->
 
-function App() {
-  const MY_EDITOR = 'custom-editor';
-  const columns = [
-    {
-      prop: 'name',
-      name: 'First',
-      editor: MY_EDITOR,
-    },
-  ];
-  const source = [
-    {
-      name: '1',
-      details: 'Item 1',
-    },
-  ];
-  const gridEditors: Editors = { [MY_EDITOR]: Editor(Button) };
-  return (
-    <>
-      <RevoGrid columns={columns} source={source} editors={gridEditors} />
-    </>
-  )
-}
+## Basic Setup
 
-export default App
+RevoGrid allows you to define custom editors for grid cells using the editor property on columns. You can then assign React components to handle the rendering and editing of cell values.
+
+In this example, we’ll create a custom button editor that, when clicked, closes the editor. This demonstrates how you can use React components as editors.
+
+
+```tsx{4,9-11,19,28}
+
+
+<!--@include: ../../demo/react/react.editor.tsx-->
 
 ```
+
+### Key Components
+-	**Custom Editor**: The Button component is a simple React component that will be used as a custom editor for the “First” column. When clicked, it will close the editor.
+-	**Editor Registration**: The gridEditors object registers the custom editor using the Editor function. In this case, it links the custom editor (the Button component) to the identifier MY_EDITOR.
+-	**Editor Prop**: In the columns array, the editor property is set to MY_EDITOR, indicating that the custom editor should be used for the “First” column.
 
 <!--@include: ../../demo/react/react.editor.md-->
 

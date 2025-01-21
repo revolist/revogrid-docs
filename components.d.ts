@@ -13,17 +13,3 @@ declare module 'vue' {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }
-
-declare module 'vitepress' {
-    export namespace DefaultTheme {
-        export interface Footer {
-            items: {
-                title: string
-                links: {
-                    link: string
-                    text: string
-                }[]
-            }[]
-        }
-    }
-}

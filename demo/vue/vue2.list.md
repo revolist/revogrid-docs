@@ -1,5 +1,5 @@
 ---
-title: Virtual list - Vue 2 Data Grid
+title: Multiselect Virtual list - Vue 2 Data Grid
 ---
 
 <ClientOnly>

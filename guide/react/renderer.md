@@ -9,42 +9,27 @@ head:
 
 <!--@include: ../parts/renderer.header.md-->
 
-```tsx{5,9-13,18}
+This capability, known as native cell rendering, allows developers to customize how the grid cells are displayed, providing a high degree of control over their appearance and behavior.
 
-// App.tsx
-import { createContext, useContext } from 'react';
-import { type ColumnDataSchemaModel, RevoGrid, Template } from '@revolist/react-datagrid';
+In this guide, we will explore how to implement custom cell renderers and templates within your RevoGrid in React. Whether you need to render custom React components, include dynamic data, or create interactive cell behaviors, RevoGrid’s native rendering support ensures that your cells are more than just plain text.
 
-/**
- * Custom cell component
- */
-const Cell = ({ model, prop }: ColumnDataSchemaModel) => {
-  return <div><strong>{model[prop]}</strong></div>;
-};
+<!--@include: ../parts/renderer.why.md-->
 
-function App() {
-  const columns = [
-    {
-      prop: 'name',
-      name: 'First',
-      cellTemplate: Template(Cell),
-    },
-  ];
-  const source = [
-    {
-      name: '1',
-      details: 'Item 1',
-    },
-  ];
-  return (
-    <>
-      <RevoGrid columns={columns} source={source} />
-    </>
-  )
-}
+## Basic Setup
 
-export default App
+Here’s an example of how you can use a simple React component to render custom content inside a grid cell.
+
+```tsx{9-11,18}
+
+
+<!--@include: ../../demo/react/react.cell.tsx-->
 
 ```
+
+In the example above:
+-	We define a `Cell` component that accepts a value prop and renders it inside a `span` element with custom styles.
+-	The columns definition includes the `cellTemplate` property, which references the `Cell` component.
+-	RevoGrid automatically uses `Cell` to render the name column.
+
 
 <!--@include: ../../demo/react/react.cell.md-->

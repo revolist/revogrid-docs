@@ -375,6 +375,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
         },
         {
             text: 'Vue 3',
+            collapsed: true,
             items: [
                 {
                     text: 'Getting Started Composition API',
@@ -404,6 +405,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
         },
         {
             text: 'Vue 2',
+            collapsed: true,
             items: [
                 {
                     text: 'Getting Started Options API',
@@ -436,7 +438,38 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             ],
         },
         {
+            text: 'React',
+            collapsed: true,
+            items: [
+                {
+                    text: 'Getting Started',
+                    link: '/demo/react/react-datagrid',
+                },
+                {
+                    text: 'Cell component',
+                    link: '/demo/react/react.cell',
+                },
+                {
+                    text: 'Editor component',
+                    link: '/demo/react/react.editor',
+                },
+                {
+                    text: 'Grouping',
+                    link: '/demo/react/react-grouping',
+                },
+                {
+                    text: 'Multi selection',
+                    link: '/demo/react/react-multiselect',
+                },
+                {
+                    text: 'Tree view',
+                    link: '/demo/react/react-tree',
+                },
+            ],
+        },
+        {
             text: 'Angular',
+            collapsed: true,
             items: [
                 {
                     text: 'Getting Started Standalone',
@@ -473,24 +506,8 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             ],
         },
         {
-            text: 'React',
-            items: [
-                {
-                    text: 'Getting Started',
-                    link: '/demo/react/react-datagrid',
-                },
-                {
-                    text: 'Cell component',
-                    link: '/demo/react/react.cell',
-                },
-                {
-                    text: 'Editor component',
-                    link: '/demo/react/react.editor',
-                },
-            ],
-        },
-        {
             text: 'Svelte',
+            collapsed: true,
             items: [
                 {
                     text: 'Getting Started',
@@ -501,7 +518,8 @@ export const sidebarEn: DefaultTheme.Sidebar = {
 
         
         {
-            text: 'Vanilla Js',
+            text: 'Vanilla JS/TS',
+            collapsed: true,
             items: [
                 {
                     text: 'First run',
@@ -527,6 +545,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
         },
         {
             text: 'JSX/TSX',
+            collapsed: true,
             items: [
                 {
                     text: 'Template',
@@ -540,6 +559,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
         },
         {
             text: 'StencilJs',
+            collapsed: true,
             items: [
                 {
                     text: 'Getting Started',
