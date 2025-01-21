@@ -1,5 +1,6 @@
 ---
 title: Individual row sizes
+aside: false
 ---
 
 <ClientOnly>

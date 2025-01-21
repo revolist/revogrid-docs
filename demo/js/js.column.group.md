@@ -1,5 +1,6 @@
 ---
 title: JavaScript Column Grouping
+aside: false
 ---
 
 

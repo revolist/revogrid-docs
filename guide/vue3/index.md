@@ -7,43 +7,40 @@ head:
       content: RevoGrid, Vue 3, data grid, Vue 3 integration, virtual grid, virtual rows, virtual columns, reactive data grid, Vue 3 grid example, grid performance, large data sets, customizable grid
 ---
 
-# Vue 3 Getting Started
 
-Revogrid provide special wrapper based on [stenciljs vue3 adapter](https://www.npmjs.com/package/@stencil/vue3-output-target). Just import it to your project and it can be used as part of vue3 system.
+<div style="text-align: center">
 
-### Installation
 
-::: code-group
+# Vue 3 Data Grid Getting Started
 
-```npm
-npm i @revolist/vue3-datagrid
+<img src="/vuejs.svg" alt="Vue logo" width="300" height="300" style="margin: 20px auto;" />
 
-```
+<p>
 
-```pnpm
-pnpm add @revolist/vue3-datagrid
-```
+Revogrid provide special [Vue adapter](https://github.com/revolist/vue3-datagrid). Just import it to your project and it can be used as part of vue system.
 
-```yarn
-yarn add @revolist/vue3-datagrid
-```
+</p>
 
-```bun
-bun add @revolist/vue3-datagrid
-```
+</div>
+
+::: info
+This tutorial assumes that an Vue project has already been set up.
+If not, please refer to the official documentation [Vue Installation](https://vuejs.org/guide/quick-start)
 :::
+
+<!--@include: ./install.md-->
 
 ## Usage
 
 ### App Composition Api
 ```vue
 <template>
-  <VGrid :columns="columns" :source="rows" />
+  <RevoGrid :columns="columns" :source="rows" />
 </template>
 
 <script setup>
 import { ref } from "vue";
-import VGrid from "@revolist/vue3-datagrid";
+import RevoGrid from "@revolist/vue3-datagrid";
 const columns = ref([
   { prop: "name", name: "A" },
   { prop: "details", name: "B" },
@@ -63,7 +60,7 @@ const rows = ref([
 ```vue
 <template>
   <div id="app">
-    <v-grid
+    <RevoGrid
       theme="compact"
       :source="rows"
       :columns="columns"
@@ -72,7 +69,7 @@ const rows = ref([
 </template>
  
 <script>
-import VGrid from "@revolist/vue3-datagrid";
+import RevoGrid from "@revolist/vue3-datagrid";
 export default {
   name: "App",
   data() {
@@ -85,7 +82,7 @@ export default {
     };
   },
   components: {
-    VGrid,
+    RevoGrid,
   },
 };
 </script>

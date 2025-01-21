@@ -1,5 +1,6 @@
 ---
 title: JavaScript Overview
+aside: false
 ---
 
 

@@ -7,35 +7,30 @@ head:
       content: RevoGrid, Angular, data grid, Angular integration, virtual grid, virtual rows, virtual columns, Angular grid example, grid performance, large data sets, customizable grid, RevoGrid Angular components
 ---
 
-# Getting Started
+
+<div style="text-align: center">
+
+
+# Angular Data Grid Getting Started
+
+<img src="/angular.svg" alt="Angular logo" width="300" height="300" style="margin: 20px auto;" />
+
+<p>
+
+Revogrid provide special [Angular adapter](https://github.com/revolist/angular-datagrid). Just import it to your project and it can be used as part of angular system.
+
+</p>
+
+</div>
 
 ::: info
 This tutorial assumes that an Angular project has already been set up.
 If not, please refer to the official documentation [Angular Installation](https://angular.dev/installation)
 :::
 
-Revogrid provide special wrapper based on [stenciljs adapter](https://www.npmjs.com/package/@revolist/angular-datagrid). Just import it to your project and it can be used as part of angular system.
 
-::: code-group
 
-```npm
-npm i @revolist/angular-datagrid
-
-```
-
-```pnpm
-pnpm add @revolist/angular-datagrid
-```
-
-```yarn
-yarn add @revolist/angular-datagrid
-```
-
-```bun
-bun add @revolist/angular-datagrid
-```
-
-:::
+<!--@include: ./install.md-->
 
 ## Standalone Components
 

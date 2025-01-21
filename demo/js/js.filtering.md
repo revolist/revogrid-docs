@@ -1,5 +1,6 @@
 ---
 title: Filter Plugin
+aside: false
 ---
 
 <ClientOnly>
