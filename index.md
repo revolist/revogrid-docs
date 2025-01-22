@@ -1,11 +1,11 @@
 ---
 layout: home
-title: High performance data grid table for any framework - Vue, React, Angular, Svelte and JS
+title: High-Performance Data Grid for Vue, React, Angular, Svelte, and JavaScript
 
 head:
   - - meta
     - name: description
-      content: Fast and feature-rich excel like data table with native support for Vue, React, Angular, and Svelte
+      content: RevoGrid is a high-performance data grid component compatible with Vue, React, Angular, Svelte, and JavaScript frameworks.
   - - meta
     - name: keywords
       content: AI Table, AI Grid, Virtual Table, React Table, Vue Table, Svelte Table, Fast Grid, Virtual Grid, Reactive Grid, Infinity Grid, Spreadsheet Features, Virtual Data Grid, Excel-like Grid, High-performance Grid, Responsive Grid, Data Grid Library, Enterprise Data Grid, Lightweight Grid, Customizable Grid, Vue Grid, Vue3 Data Grid, Vue3 Virtual Grid, Vue Grid Component, Vue Datagrid Features, React Grid, React Data Grid, React Editable Grid, React Virtual Scrolling Grid, Svelte Grid, Svelte Data Grid, Svelte Virtual Grid, Svelte UI Grid, Angular Grid, Angular Data Grid, Angular Tree Grid, Angular Grid Component, Angular Virtual Scrolling Grid, Virtual Scrolling, Grid Performance, Data Sorting, Data Filtering, Grouping, Editable Grid Component, Treeview Grid, Spreadsheet Editing, Conditional Formatting, Merge Cells, Master-detail Rows, Row Management, Column Management, Pagination, Large Dataset Handling, Interactive Data Grid, Frontend Grid, Grid Plugins, StencilJS Grid, JavaScript Grid, Scalable Grid, RevoGrid, RevoGrid Demo, RevoGrid Plugins, RevoGrid Features, Data Visualization, Data Editing, Enterprise-grade Data Grid, Startup Data Grid, Drag&Drop List
@@ -13,7 +13,7 @@ head:
 hero:
   name: Accelerate.
   text: Fine-tune. Propel.
-  tagline: RevoGrid is a datagrid library designed to boost the rendering of any data volume. 60fps, 3x less memory. Now with <a href="/pro/ai" class="VPBadge danger">AI support</a>
+  tagline: RevoGrid is a Data Grid library designed to boost the rendering of any data volume. 60fps, 3x less memory. Now with <a href="/pro/ai" class="VPBadge danger">AI support</a>
   license:
     text: RevoGrid is a MIT-licensed open source library
     details: Unlock advanced features by subscribing to
