@@ -11,7 +11,7 @@ head:
 <div style="text-align: center">
 
 
-# Vue 3 Data Grid Getting Started
+# Vue 3 Data Grid
 
 <img src="/vuejs.svg" alt="Vue logo" width="300" height="300" style="margin: 20px auto;" />
 

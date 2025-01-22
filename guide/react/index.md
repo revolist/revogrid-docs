@@ -11,7 +11,7 @@ head:
 <div style="text-align: center">
 
 
-# React Data Grid Getting Started
+# React Data Grid
 
 <img src="/react.svg" alt="React logo" width="300" height="300" style="margin: 20px auto;" />
 

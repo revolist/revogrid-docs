@@ -11,7 +11,7 @@ head:
 <div style="text-align: center">
 
 
-# Angular Data Grid Getting Started
+# Angular Data Grid
 
 <img src="/angular.svg" alt="Angular logo" width="300" height="300" style="margin: 20px auto;" />
 
