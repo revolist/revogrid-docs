@@ -3,7 +3,7 @@ title: Native Cell component (Composition API) - Vue 3 Data Grid
 ---
 
 
-# Vue 3 - Native Cell component (Composition API)
+## Vue 3 - Native Cell component (Composition API)
 
 <br />
 
