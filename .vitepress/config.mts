@@ -13,7 +13,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import markdownItAttrs from 'markdown-it-attrs'
-import { text } from 'node:stream/consumers'
+
 dotenv.config()
 
 const rControl = /[\u0000-\u001f]/g

@@ -106,3 +106,8 @@ Real estate platforms can utilize RevoGrid to display property listings, includi
 - ### Logistics and Supply Chain Management
 
 For logistics and supply chain applications, RevoGrid can manage and display shipping schedules, inventory levels, and transport routes. Its high performance and dynamic data manipulation capabilities support the complex, real-time data needs of logistics operations.
+
+
+## Find guides for your framework
+
+<!--@include: ./parts/framework.md-->

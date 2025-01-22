@@ -1,10 +1,10 @@
 ---
-title: React Data Grid Guide
+title: React Data Grid Integration
 description: Learn how to integrate RevoGrid with React to build fast, scalable data grids with support for virtual rows and columns.
 head:
   - - meta
     - name: keywords
-      content: RevoGrid, React, data grid, React integration, virtual grid, virtual rows, virtual columns, React grid example, grid performance, large data sets, customizable grid, RevoGrid React components, React Table
+      content: RevoGrid, React, data grid, React datagrid integration, virtual grid, virtual rows, virtual columns, React grid example, grid performance, large data sets, customizable grid, RevoGrid React, React Table
 ---
 
 

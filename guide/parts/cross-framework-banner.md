@@ -1,3 +1,3 @@
 :::tip
-RevoGrid's API is consistent across all major frameworks. Transfer your experience and knowledge from one framework to another.
+RevoGrid's [API](/guide/api/revoGrid) is consistent across all major frameworks. Transfer your experience and knowledge from one framework to another.
 :::

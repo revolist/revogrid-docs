@@ -1,4 +1,14 @@
-# Getting Started
+---
+title: Stencil Data Grid Integration
+description: Integrate RevoGrid with Stencil for creating efficient, scalable data grids with support for virtual rows and columns.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid, data grid, stencil table, stencil integration, virtual grid, virtual rows, virtual columns, reactive data grid, stencil grid example, grid performance, large data sets, customizable grid
+---
+
+
+# Stencil Data Grid
 
 
 ## What is StencilJS?

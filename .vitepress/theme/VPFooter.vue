@@ -46,7 +46,7 @@ const { hasSidebar } = useSidebar()
 
         <p
             v-if="theme.footer.message"
-            class="message"
+            class="container message"
             v-html="theme.footer.message"
         ></p>
         <p

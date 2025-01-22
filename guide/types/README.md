@@ -1,4 +1,4 @@
-# @revolist/revogrid
+# Types guide
 
 ## AutoAddRowsPlugin
 

@@ -1,7 +1,17 @@
+---
+title: Svelte Data Grid Integration
+description: Integrate RevoGrid with Svelte to build fast, scalable data grids with support for virtual rows and columns.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid, Svelte, data grid, Svelte datagrid integration, virtual grid, virtual rows, virtual columns, Svelte grid example, grid performance, large data sets, customizable grid, RevoGrid Svelte, Svelte Table
+---
+
+
 <div style="text-align: center">
 
 
-# Svelte Data Grid Getting Started
+# Svelte Data Grid
 
 <img src="/svelte.svg" alt="Svelte logo" width="300" height="300" style="margin: 20px auto;" />
 

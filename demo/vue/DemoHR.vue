@@ -359,6 +359,7 @@ const setData = async (mode: number) => {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin: 0 auto;
 }
 
 .VPCard__body {
@@ -368,6 +369,10 @@ const setData = async (mode: number) => {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 10px;
+}
+
+.performance-metrics {
+    max-width: 800px;
 }
 
 .VPCard {
