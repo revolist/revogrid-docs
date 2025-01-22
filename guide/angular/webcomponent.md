@@ -1,4 +1,4 @@
-# Integration as webcomponent
+# Integration as WebComponent
 
 
 Using `revo-grid` web component collection within an Angular CLI project is a two-step process. We need to:
@@ -41,7 +41,7 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 // Note: loader import location set using "esmLoaderPath" within the output target config
-import {defineCustomElements} from '@revolist/Revogrid/loader';
+import {defineCustomElements} from '@revolist/revogrid/loader';
 
 if (environment.production) {
   enableProdMode();
@@ -59,7 +59,7 @@ Once included, components could be referenced in your code using `ViewChild` and
 ```tsx
 import {Component, ElementRef, ViewChild} from '@angular/core';
 
-import '@revolist/Revogrid';
+import '@revolist/revogrid';
 
 @Component({
     selector: 'app-home',

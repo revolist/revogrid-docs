@@ -1,6 +1,6 @@
 # Lifecycle Hooks
 
-For detailed interactions and operations, Revogrid provides a variety of [events](./api/revoGrid.md#Events) that function similarly to lifecycle hooks, allowing developers to listen and respond to different stages and actions within the grid's lifecycle.
+For detailed interactions and operations, RevoGrid provides a variety of [events](./api/revoGrid.md#Events) that function similarly to lifecycle hooks, allowing developers to listen and respond to different stages and actions within the grid's lifecycle.
 
 Here's a brief overview of some key events which can help in managing grid behavior, data manipulation, and user interactions:
 
@@ -28,4 +28,4 @@ Here's a brief overview of some key events which can help in managing grid behav
 - **`beforefocuslost`**: Happens before grid focus is lost.
 - **`afterfocus`**: Fires after focus render is completed.
 
-Events provide a structured approach to handling Revogrid's functionalities, making it easier to implement and manage complex data grid behaviors in web applications.
+Events provide a structured approach to handling RevoGrid's functionalities, making it easier to implement and manage complex data grid behaviors in web applications.

@@ -7,7 +7,7 @@ import { Component, h } from '@stencil/core';
   shadow: true,
 })
 export class MyComponent {
-  // Define the columns for the Revogrid
+  // Define the columns for the RevoGrid
   columns: ColumnRegular[] = [
     { prop: 'id', name: 'ID' },
     { prop: 'name', name: 'Name' },
@@ -15,14 +15,14 @@ export class MyComponent {
     { prop: 'email', name: 'Email' },
   ];
 
-  // Define the data source for the Revogrid
+  // Define the data source for the RevoGrid
   source: any[] = [
     { id: 1, name: 'John', age: 30, email: 'xxx@xxx.xxx' },
     { id: 2, name: 'Mike', age: 25, email: 'www@www.www' },
   ];
 
   componentWillLoad() {
-    // Initialize Revogrid custom elements
+    // Initialize RevoGrid custom elements
     return defineCustomElements();
   }
 

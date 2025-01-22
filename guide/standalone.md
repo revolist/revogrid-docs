@@ -1,8 +1,8 @@
 # Single file bundle
 
-Revogrid also offers a single file bundle without the polyfills and other additional functionality included in the default output.
+RevoGrid also offers a single file bundle without the polyfills and other additional functionality included in the default output.
 
-You would need additional dependency to load Revogrid as standalone esm module.
+You would need additional dependency to load RevoGrid as standalone esm module.
 
 ::: code-group
 
@@ -24,13 +24,13 @@ bun add @stencil/core
 ```
 :::
 
-Now you can import `Revogrid` into your app:
+Now you can import `RevoGrid` into your app:
 
 ```js
 import { defineCustomElement } from "@revolist/revogrid/standalone";
 
 // A utility defineCustomElement() function is exported from esm file of the output directory.
-// This function can be used to quickly define all Revogrid components in a project on the custom elements registry.
+// This function can be used to quickly define all RevoGrid components in a project on the custom elements registry.
 defineCustomElement();
 
 import { defineCustomElement as defineFilterPanel } from '@revolist/revogrid/standalone/revogr-filter-panel.js';

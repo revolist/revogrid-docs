@@ -1,6 +1,6 @@
 ### Select/Dropdown
 
-Complex [selection data type plugin](https://github.com/revolist/Revogrid-column-select) based on [revo-dropdown](https://github.com/revolist/revodropdown) library.
+Complex [selection data type plugin](https://github.com/revolist/RevoGrid-column-select) based on [revo-dropdown](https://github.com/revolist/revodropdown) library.
 
 In order to improve dropdown functionality please contribute with [revo-dropdown](https://github.com/revolist/revodropdown).
 

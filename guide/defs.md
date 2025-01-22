@@ -1,9 +1,9 @@
 # Features and Definitions
 
-This document is intended to help both new and experienced developers familiarize themselves with the terminologies associated with Revogrid.
+This document is intended to help both new and experienced developers familiarize themselves with the terminologies associated with RevoGrid.
 
 ## API (Application Programming Interface)
-Defines a set of rules and protocols for building and interacting with software applications. Revogrid's API allows for programmatic interaction with the grid, including methods for data manipulation, event handling, and customization.
+Defines a set of rules and protocols for building and interacting with software applications. RevoGrid's API allows for programmatic interaction with the grid, including methods for data manipulation, event handling, and customization.
 
 
 ## Cell
@@ -68,13 +68,13 @@ interface Person {
 
 
 ## DOM (Document Object Model)
-A programming interface for HTML and XML documents, allowing scripts to update the content, structure, and style of a document. Revogrid manipulates the DOM to render and dynamically update the grid.
+A programming interface for HTML and XML documents, allowing scripts to update the content, structure, and style of a document. RevoGrid manipulates the DOM to render and dynamically update the grid.
 
 ## ES Modules (ECMAScript Modules)
 A module system for JavaScript, allowing developers to import library as an ES Module in modern JavaScript projects.
 
 ## Event
-Custom events triggered by Revogrid, allowing developers to respond to various actions within the grid, such as cell editing, row selection, or data updates.
+Custom events triggered by RevoGrid, allowing developers to respond to various actions within the grid, such as cell editing, row selection, or data updates.
 
 ## Export to Excel, CSV
 The functionality to export grid data to Excel or CSV formats, enabling users to share or analyze data outside the grid environment.
@@ -106,14 +106,14 @@ Functions provided by component that can be called to perform actions or retriev
 
 ## Plugin
 
-A modular extension designed to enhance or add new functionalities to the Revogrid library. 
+A modular extension designed to enhance or add new functionalities to the RevoGrid library. 
 
 Plugins allow developers to customize and extend the grid's capabilities beyond its core features. They can be used for integrating additional tools, improving user interaction, or automating tasks within the grid. 
 
 By leveraging plugins, users can update the grid to meet specific requirements of their applications, ensuring a more versatile and adaptable data management solution.
 
 ### Pagination
-A method of dividing the dataset into separate pages, enhancing the user's ability to navigate through large datasets. Revogrid supports pagination in a Pro version plugin.
+A method of dividing the dataset into separate pages, enhancing the user's ability to navigate through large datasets. RevoGrid supports pagination in a Pro version plugin.
 
 ### Filtering
 The plugin that enables the grid to display only those rows that meet certain criteria, with support for custom filter functions.
@@ -146,7 +146,7 @@ Allows rows to be fixed or "pinned" to one top/bottom of the grid, remaining vis
 Rows which are present in datasource but not visible in viewport. For example filtered values.
 
 ## Viewport
-Refers to the currently visible portion of the grid to the user. Revogrid's virtual scrolling technology efficiently updates the viewport with visible rows and columns as the user scrolls, significantly improving the performance and user experience when navigating large datasets.
+Refers to the currently visible portion of the grid to the user. RevoGrid's virtual scrolling technology efficiently updates the viewport with visible rows and columns as the user scrolls, significantly improving the performance and user experience when navigating large datasets.
 
 ### Virtual Scrolling
 A performance optimization technique that renders only the rows and columns visible to the user, significantly enhancing performance for grids handling large datasets.
@@ -154,4 +154,4 @@ A performance optimization technique that renders only the rows and columns visi
 <!--@include: ../guide/parts/reactive.md-->
 
 ## Web Component
-Revogrid is implemented as a Web Component, making it framework-agnostic and capable of being used in any web application, enhancing its versatility and ease of integration.
+RevoGrid is implemented as a Web Component, making it framework-agnostic and capable of being used in any web application, enhancing its versatility and ease of integration.

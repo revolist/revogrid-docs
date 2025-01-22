@@ -21,7 +21,7 @@ const integrations = computed(() => {
                 </h3>
             </div>
             <p class="rv-paragraph-2">
-                Revogrid components are built to work with any major framework
+                RevoGrid components are built to work with any major framework
                 or no framework at all.
             </p>
         </header>
@@ -53,7 +53,7 @@ const integrations = computed(() => {
                 </li>
             </ul>
             <div class="ctaFlex">
-                <a href="docs/overview.html" class="buttonSecondary"
+                <a href="docs/overview" class="buttonSecondary"
                     >Explore Integrations →</a
                 >
             </div>

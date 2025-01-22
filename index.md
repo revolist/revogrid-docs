@@ -13,13 +13,13 @@ head:
 hero:
   name: Accelerate.
   text: Fine-tune. Propel.
-  tagline: Revogrid is a datagrid library designed to boost the rendering of any data volume. 60fps, 3x less memory. Now with <a href="/pro/ai" class="VPBadge danger">AI support</a>
+  tagline: RevoGrid is a datagrid library designed to boost the rendering of any data volume. 60fps, 3x less memory. Now with <a href="/pro/ai" class="VPBadge danger">AI support</a>
   license:
-    text: Revogrid is a MIT-licensed open source library
+    text: RevoGrid is a MIT-licensed open source library
     details: Unlock advanced features by subscribing to
-    action: Revogrid Pro
+    action: RevoGrid Pro
   banner:
-    text: Revogrid 4 is here
+    text: RevoGrid 4 is here
     action: Read what’s new →
   actions:
     - theme: brand
@@ -168,7 +168,7 @@ features:
   - title: TypeScript support
     icon: 
       src: ts.svg
-    details: Revogrid uses TypeScript, providing your components with type safety as your system scales.
+    details: RevoGrid uses TypeScript, providing your components with type safety as your system scales.
     link: ./guide/ts/
     linkText: Read mode
     

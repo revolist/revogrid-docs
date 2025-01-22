@@ -1,6 +1,6 @@
 ### Number
 
-Primitive [numeric data type plugin](https://github.com/revolist/Revogrid-column-numeral) based on [numeraljs](http://numeraljs.com) library.
+Primitive [numeric data type plugin](https://github.com/revolist/revogrid-column-numeral) based on [numeraljs](http://numeraljs.com) library.
 Accept data in numeric format.
 
 <b>Installation</b>
@@ -43,4 +43,4 @@ grid.columns = columns
 
 <b>Advance usage</b>
 
-Check [plugin page](https://github.com/revolist/Revogrid-column-numeral) and [numeraljs](http://numeraljs.com).
+Check [plugin page](https://github.com/revolist/revogrid-column-numeral) and [numeraljs](http://numeraljs.com).

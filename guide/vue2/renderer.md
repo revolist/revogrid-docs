@@ -11,7 +11,7 @@ head:
 
 Create component which you would like to be presented as cell.
 You can use `props` to access row model object, column property or other props described in `ColumnDataSchemaModel`.
-<br>Check [interfaces](https://github.com/revolist/Revogrid/blob/master/src/interfaces.d.ts) for mode information about types.
+<br>Check [interfaces](https://github.com/revolist/revogrid/blob/master/src/interfaces.d.ts) for mode information about types.
 
 
 ## App

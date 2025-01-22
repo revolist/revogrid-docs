@@ -1,5 +1,5 @@
 import { defineCustomElements } from '@revolist/revogrid/loader'
-// This function can be used to quickly define all Revogrid components in a project on the custom elements registry.
+// This function can be used to quickly define all RevoGrid components in a project on the custom elements registry.
 defineCustomElements()
 
 // #region snippet

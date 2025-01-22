@@ -17,7 +17,7 @@ head:
 
 <p>
 
-Revogrid provide special [Angular adapter](https://github.com/revolist/angular-datagrid). Just import it to your project and it can be used as part of angular system.
+RevoGrid provide special [Angular adapter](https://github.com/revolist/angular-datagrid). Just import it to your project and it can be used as part of angular system.
 
 </p>
 

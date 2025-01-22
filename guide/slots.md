@@ -1,6 +1,6 @@
 # Slots
 
-Revogrid uses slots, a feature of StencilJS, to allow you to inject custom content into specific parts of the grid. This provides flexibility for customizing the appearance and functionality of your grid.
+RevoGrid uses slots, a feature of StencilJS, to allow you to inject custom content into specific parts of the grid. This provides flexibility for customizing the appearance and functionality of your grid.
 
 ## Available Slots
 

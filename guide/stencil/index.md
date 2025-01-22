@@ -47,10 +47,10 @@ Define the custom elements and configure your component as follows:
 2. **Component Decorator**: Use the `@Component` decorator to define a new Stencil component with the tag name `my-component`.
 3. **Column Definition**: Define the columns for the grid using the `ColumnRegular` type.
 4. **Data Source**: Define the data source for the grid.
-5. **Lifecycle Method**: Use the `componentWillLoad` lifecycle method to initialize the Revogrid custom elements.
+5. **Lifecycle Method**: Use the `componentWillLoad` lifecycle method to initialize the RevoGrid custom elements.
 6. **Render Method**: Render the `revo-grid` component with the defined columns and data source, and enable filtering.
 
-That's it! Your StencilJS project is now set up to use Revogrid.
+That's it! Your StencilJS project is now set up to use RevoGrid.
 
 
 <!--@include: ../../demo/stencil/stencil.sample.md-->

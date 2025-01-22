@@ -12,7 +12,7 @@ export const sidebarEn: DefaultTheme.Sidebar = {
     '/demo/': sidebarDemonEn,
     '/pro/': [
         {
-            text: 'Revogrid Pro',
+            text: 'RevoGrid Pro',
             link: '/pro/',
         },
     ],

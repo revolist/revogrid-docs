@@ -25,11 +25,11 @@ head:
 
 <script lang="ts" setup>
 /**
- * This is an example of a Vue3 component using Revogrid
+ * This is an example of a Vue3 component using RevoGrid
  */
 import { provide, readonly, ref } from 'vue';
 /**
- * Import Revogrid, Renderer and Editor for Vue
+ * Import RevoGrid, Renderer and Editor for Vue
  */
 import Grid, { VGridVueEditor, Editors } from '@revolist/vue3-datagrid';
 

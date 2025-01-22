@@ -1,6 +1,6 @@
 # Sorting
 
-## Sorting in Revogrid
+## Sorting in RevoGrid
 
 Adding sorting to your grid is quite straightforward:
 

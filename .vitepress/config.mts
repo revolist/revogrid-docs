@@ -39,6 +39,7 @@ const config: UserConfig<DefaultTheme.Config> = {
     sitemap: {
         hostname: 'https://rv-grid.com',
     },
+    cleanUrls: true,
     title: 'RevoGrid',
     appearance: 'dark',
     description:
@@ -118,7 +119,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         footer: {
             // copyright: '',
-            message: `Revogrid is a powerful data grid library made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. Copyright © 2017-present.`,
+            message: `RevoGrid is a powerful data grid library made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. Copyright © 2017-present.`,
             items: [
                 {
                 links: [

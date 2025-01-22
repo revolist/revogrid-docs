@@ -61,7 +61,7 @@ Switch to a 💎 commercial plan to access advanced features & technical support
       <Plan
         title="Pro Light"
         class="pro highlight"
-        description="Best for start-ups and businesses who build commercial products with Revogrid."
+        description="Best for start-ups and businesses who build commercial products with RevoGrid."
         buttonText="Buy now"
         :price="isAnnual ? 12.5 : 300"
         :pricePeriod="isAnnual ? 'month' : 'year'"
@@ -75,7 +75,7 @@ Switch to a 💎 commercial plan to access advanced features & technical support
         title="Pro Advanced"
         class="pro"
         buttonTheme="alt"
-        description="Best for companies and individuals that want a direct wire to the Revogrid team experience."
+        description="Best for companies and individuals that want a direct wire to the RevoGrid team experience."
         buttonText="Buy Now"
         :price="isAnnual ? 30 : 700"
         :pricePeriod="isAnnual ? 'month' : 'year'"

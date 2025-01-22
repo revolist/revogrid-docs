@@ -4,7 +4,7 @@
 
 ## Overview
 
-Revogrid - High-performance, customizable grid library for managing large datasets.
+RevoGrid - High-performance, customizable grid library for managing large datasets.
 ### Events guide
 
 For a comprehensive events guide, check the [Events API Page](./events.md).

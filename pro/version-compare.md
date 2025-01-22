@@ -20,7 +20,6 @@ const plans = [
   },
   {
     name: 'Pro Lite',
-    link: '/pro',
     price: 12.5,
     pricePeriod: 'month',
     buttonText: 'Buy Now',
@@ -141,10 +140,10 @@ const features = [
       { name: 'Cell Tooltips', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/validate-basic', video: '/video/data-validation.mp4', },
       { name: 'Flashing Cells', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/cell-flash', video: '/video/cell-flash.mp4', },
       { name: 'Cell Editing', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/editing' },
-      { name: 'Text Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types.html#String' },
-      { name: 'Number Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types.html#Number' },
-      { name: 'Date Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types.html#Date' },
-      { name: 'Select Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types.html#Select-Dropdown' },
+      { name: 'Text Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#String' },
+      { name: 'Number Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#Number' },
+      { name: 'Date Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#Date' },
+      { name: 'Select Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#Select-Dropdown' },
     ],
   },
   {

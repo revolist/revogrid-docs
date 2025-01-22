@@ -1,10 +1,10 @@
 # Contributing
 
-Thank you for your interest in contributing to Revogrid! 🎉
+Thank you for your interest in contributing to RevoGrid! 🎉
 
 ## Why Contribute?
 
-Contributing to Revogrid not only offers developers the chance to enhance their skills and collaborate on cutting-edge data grid technology but also presents a unique opportunity for professional growth and financial gain. By participating in the development of Revogrid, contributors can directly influence a tool used by companies worldwide, adding significant value to their professional portfolio. Moreover, standout contributors may have the opportunity to join our team full-time or benefit from paid project work, tapping into new career opportunities and monetary rewards. Contributing to Revogrid is more than just coding—it's a chance to join a community that rewards your expertise and dedication with tangible benefits.
+Contributing to RevoGrid not only offers developers the chance to enhance their skills and collaborate on cutting-edge data grid technology but also presents a unique opportunity for professional growth and financial gain. By participating in the development of RevoGrid, contributors can directly influence a tool used by companies worldwide, adding significant value to their professional portfolio. Moreover, standout contributors may have the opportunity to join our team full-time or benefit from paid project work, tapping into new career opportunities and monetary rewards. Contributing to RevoGrid is more than just coding—it's a chance to join a community that rewards your expertise and dedication with tangible benefits.
 
 
 
@@ -59,7 +59,7 @@ Please see our [Contributor Code of Conduct](./CODE_OF_CONDUCT) for information 
 After you've made sure all tests pass:
 
 1. Push your changes to your fork.
-2. Submit a pull request to the Revogrid repository.
+2. Submit a pull request to the RevoGrid repository.
 3. Provide a detailed description of your changes and reference the issue number.
 
 ### Commit Message Format
@@ -71,4 +71,4 @@ We follow the [Angular Commit Message Format](https://github.com/angular/angular
 
 ## License
 
-By contributing to Revogrid, you agree that your contributions will be licensed under its MIT License.
+By contributing to RevoGrid, you agree that your contributions will be licensed under its MIT License.

@@ -183,7 +183,7 @@ export const features = [
     // {
     //   name: 'SSR render',
     //   avatar: '/ssr-render.svg',
-    //   desc: 'Pro examples on how to render Revogrid in SSR applications across frameworks.',
+    //   desc: 'Pro examples on how to render RevoGrid in SSR applications across frameworks.',
     //   sponsor: '/guide/ssr-render',
     //   actionText,
     // },

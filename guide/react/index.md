@@ -17,7 +17,7 @@ head:
 
 </div>
 
-Revogrid provide special [react adapter](https://github.com/revolist/react-datagrid). Just import it to your project and it can be used as part of react system.
+RevoGrid provide special [react adapter](https://github.com/revolist/react-datagrid). Just import it to your project and it can be used as part of react system.
 
 <!--@include: ./install.md-->
 

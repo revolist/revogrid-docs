@@ -51,5 +51,5 @@ type FormatterOptions = {
 ```
 
 :::tip
-For the latest information it's recommended to read [export-plugin](https://github.com/revolist/Revogrid/blob/master/src/plugins/export/export.plugin.ts) file for better understanding of parameters and options.
+For the latest information it's recommended to read [export-plugin](https://github.com/revolist/revogrid/blob/master/src/plugins/export/export.plugin.ts) file for better understanding of parameters and options.
 :::

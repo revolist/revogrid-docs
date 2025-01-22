@@ -12,7 +12,7 @@ export const navbarEn: DefaultTheme.NavItem[] = [
     activeMatch: '^/demo/',
   },
   {
-    text: 'Revogrid Pro',
+    text: 'RevoGrid Pro',
     link: '/pro/',
     activeMatch: '^/(pro|pro-docs)/',
   }, {

@@ -23,7 +23,7 @@ If not, please refer to the official documentation [Vue Installation](https://vu
 :::
 
 
-Revogrid provide special [Vue adapter](https://github.com/revolist/vue3-datagrid). Just import it to your project and it can be used as part of vue system.
+RevoGrid provide special [Vue adapter](https://github.com/revolist/vue3-datagrid). Just import it to your project and it can be used as part of vue system.
 
 <!--@include: ./install.md-->
 
