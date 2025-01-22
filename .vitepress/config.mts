@@ -79,21 +79,19 @@ const config: UserConfig<DefaultTheme.Config> = {
     head: [
         ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
         ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
-        [
-            'meta',
-            {
-                property: 'og:type',
-                content: 'website',
-            },
-        ],
+        ['meta', { property: 'og:title', content: 'RevoGrid - High-Performance Data Grid' }],
+        ['meta', { property: 'og:url', content: 'https://rv-grid.com/guide' }],
+        ['meta', { property: 'og:image', content: 'https://rv-grid.com/og-image.jpg' }],
+        ['meta', { property: 'og:type', content: 'website' }],
+        ['meta', { property: 'og:description', content: 'Explore RevoGrid documentation to build high-performance, customizable data grids.' }],
+        ['meta', { property: 'og:site_name', content: 'RevoGrid Documentation' }],
 
-        [
-            'meta',
-            {
-                property: 'twitter:card',
-                content: 'summary_large_image',
-            },
-        ],
+        ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+        ['meta', { name: 'twitter:title', content: 'RevoGrid - High-Performance Data Grid Framework' }],
+        ['meta', { name: 'twitter:description', content: 'Explore RevoGrid documentation to build high-performance, customizable data grids.' }],
+        ['meta', { name: 'twitter:image', content: 'https://rv-grid.com/og-image.jpg' }],
+        ['meta', { name: 'twitter:site', content: '@RevoGrid' }],
+
         [
             'script',
             {},
