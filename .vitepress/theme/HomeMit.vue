@@ -29,7 +29,7 @@ const value = computed(() => {
     gap: 2rem;
     font-size: 0.875rem;
     max-width: 500px;
-    padding-top: 4rem;
+    padding-top: 1.5rem;
     color: var(--vp-c-text-2);
     margin: 0 auto;
 }

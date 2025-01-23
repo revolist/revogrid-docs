@@ -1,7 +1,4 @@
 <template>
-    <br />
-    <br />
-    <br />
     <div class="VPFeatures VPHomeFeatures">
         <div class="container">
             <hr />

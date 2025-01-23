@@ -153,6 +153,10 @@
     }
 }
 .VPHomeHero {
+    .main {
+        order: 1;
+        margin-bottom: 50px;
+    }
     .image {
         overflow: hidden;
         margin: -40px 0 20px 0;
