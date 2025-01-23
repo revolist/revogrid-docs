@@ -40,7 +40,7 @@ The Pro Advanced version is available under a commercial license—visit the [Li
 
 The npm packages of any given plan are an extension for the Community version. To upgrade, you must install the respective paid package and add all imports accordingly.
 
-Below are upgrading scenarios using the Data Grid as an example:
+Below are upgrading scenarios:
 
 ### From Community to Pro
 
