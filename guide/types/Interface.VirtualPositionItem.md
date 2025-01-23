@@ -13,7 +13,7 @@ in the viewport.
 
 | Property | Type | Description | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| `end` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`end` | [src/types/interfaces.ts:586](https://github.com/revolist/revogrid/blob/a05de3c33a7ba2a618c9fb3780f2f2c0197bcd28/src/types/interfaces.ts#L586) |
-| `itemIndex` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`itemIndex` | [src/types/interfaces.ts:584](https://github.com/revolist/revogrid/blob/a05de3c33a7ba2a618c9fb3780f2f2c0197bcd28/src/types/interfaces.ts#L584) |
-| `size` | `number` | The size of the virtual position item. | - | [src/types/interfaces.ts:563](https://github.com/revolist/revogrid/blob/a05de3c33a7ba2a618c9fb3780f2f2c0197bcd28/src/types/interfaces.ts#L563) |
-| `start` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`start` | [src/types/interfaces.ts:585](https://github.com/revolist/revogrid/blob/a05de3c33a7ba2a618c9fb3780f2f2c0197bcd28/src/types/interfaces.ts#L585) |
+| `end` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`end` | [src/types/interfaces.ts:586](https://github.com/revolist/revogrid/blob/b102ae971c99d2b260b571c48c9b2f785d580474/src/types/interfaces.ts#L586) |
+| `itemIndex` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`itemIndex` | [src/types/interfaces.ts:584](https://github.com/revolist/revogrid/blob/b102ae971c99d2b260b571c48c9b2f785d580474/src/types/interfaces.ts#L584) |
+| `size` | `number` | The size of the virtual position item. | - | [src/types/interfaces.ts:563](https://github.com/revolist/revogrid/blob/b102ae971c99d2b260b571c48c9b2f785d580474/src/types/interfaces.ts#L563) |
+| `start` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`start` | [src/types/interfaces.ts:585](https://github.com/revolist/revogrid/blob/b102ae971c99d2b260b571c48c9b2f785d580474/src/types/interfaces.ts#L585) |

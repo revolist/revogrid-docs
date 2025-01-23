@@ -8,4 +8,4 @@ type DimensionTypeRow: "rgRow";
 
 ## Defined in
 
-[src/types/dimension.ts:1](https://github.com/revolist/revogrid/blob/a05de3c33a7ba2a618c9fb3780f2f2c0197bcd28/src/types/dimension.ts#L1)
+[src/types/dimension.ts:1](https://github.com/revolist/revogrid/blob/b102ae971c99d2b260b571c48c9b2f785d580474/src/types/dimension.ts#L1)

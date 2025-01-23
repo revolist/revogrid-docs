@@ -2,7 +2,7 @@
 aside: false
 ---
 
-# RevoGrid Events
+# Revogrid Events
 
 | Name | Type | Component | Description |
 | ---- | ---- | --------- | ----------- |
