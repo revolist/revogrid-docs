@@ -1,7 +1,7 @@
 <template>
     <div class="mit-section vp-doc">
         <div>
-            {{ value.text }}
+            <span v-html="md.renderInline(value.text ?? '')"></span>
             <br />
             <strong style="display: inline-block; padding-top: 10px">
                 {{ value.details }}
@@ -15,8 +15,10 @@
 </template>
 <script lang="ts" setup>
 // import CarbonAds from './CarbonAds.vue'
+import markdownit from 'markdown-it'
 import { useData } from 'vitepress'
 import { computed } from 'vue'
+const md = markdownit()
 const { frontmatter } = useData()
 const value = computed(() => {
     return frontmatter.value.hero.license ?? {}

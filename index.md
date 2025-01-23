@@ -15,7 +15,7 @@ hero:
   text: Fine-tune. Propel.
   tagline: RevoGrid is a Data Grid library designed to boost the rendering of any data volume. 60fps, 3x less memory. Now with <a href="/pro/ai" class="VPBadge danger">AI support</a>
   license:
-    text: RevoGrid is a MIT-licensed open source library
+    text: RevoGrid is a [MIT-licensed](/guide/licensing) open source library
     details: Unlock advanced features by subscribing to
     action: RevoGrid Pro
   banner:
