@@ -1,6 +1,6 @@
 ---
-title: Vue 2 Data Grid Integration
-description: Learn how to integrate RevoGrid with Vue 2 for creating high-performance, scalable data grids with support for virtual rows and columns.
+title: Vue 2 Data Grid
+description: Learn how to use Vue 2 Data Grid to build fast, scalable data applications with support for virtual rows and columns.
 head:
   - - meta
     - name: keywords

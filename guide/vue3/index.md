@@ -1,10 +1,10 @@
 ---
-title: Vue 3 Data Grid Integration
-description: Integrate RevoGrid with Vue 3 for creating efficient, scalable data grids with support for virtual rows and columns.
+title: Vue 3 Data Grid
+description: Learn how to use Vue 3 Data Grid to build fast, scalable data applications with support for virtual rows and columns.
 head:
   - - meta
     - name: keywords
-      content: RevoGrid, data grid, vue 3 table, vue 3 integration, virtual grid, virtual rows, virtual columns, reactive data grid, Vue 3 grid example, grid performance, large data sets, customizable grid
+      content: RevoGrid, data grid, vue 3 table, vue 3 data grid, virtual grid, virtual rows, virtual columns, reactive data grid, Vue 3 grid example, grid performance, large data sets, customizable grid
 ---
 
 
