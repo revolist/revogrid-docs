@@ -7,7 +7,7 @@ Defines a set of rules and protocols for building and interacting with software 
 
 
 ## Cell
-<!--@include: ./parts/cell.md-->
+<!--@include: ./parts/_cell.md-->
 
 ### Cell Editors
 Customizable components that enable cell editing within the grid, allowing for a variety of data input methods, including text, date, select options, and more.
@@ -27,7 +27,7 @@ Clipboard operations like `copy`, `cut`, and `paste`. Users can easily manipulat
 
 ### Column Grouping
 
-<!--@include: ./parts/column.group.md-->
+<!--@include: ./parts/_column.group.md-->
 
 
 ### Column Header Property
@@ -131,7 +131,7 @@ Short for "property," refers to the attributes that can be passed to customize a
 
 ## Row
 
-<!--@include: ../guide/parts/row.md-->
+<!--@include: ../guide/parts/_row.md-->
 
 ### Row Grouping
 The capability to group rows or columns under a shared header to organize data more effectively. This feature enhances the readability and usability of large datasets by structuring them into meaningful groups.
@@ -151,7 +151,7 @@ Refers to the currently visible portion of the grid to the user. RevoGrid's virt
 ### Virtual Scrolling
 A performance optimization technique that renders only the rows and columns visible to the user, significantly enhancing performance for grids handling large datasets.
 
-<!--@include: ../guide/parts/reactive.md-->
+<!--@include: ../guide/parts/_reactive.md-->
 
 ## Web Component
 RevoGrid is implemented as a Web Component, making it framework-agnostic and capable of being used in any web application, enhancing its versatility and ease of integration.

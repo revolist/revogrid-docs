@@ -28,19 +28,12 @@ const features = computed(() => {
 <style lang="scss" scoped>
 .VPFeatures {
     background-color: transparent;
+    padding-bottom: 5px;
     hr {
         margin: 16px 0;
         border: none;
         border-top: 1px solid var(--vp-c-divider);
     }
-}
-
-:deep() {
-
-    // .container {
-    //     background-color: var(--vp-c-bg-soft);
-    // }
-
 }
 
 :deep(.VPFeature) {

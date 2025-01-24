@@ -1,13 +1,15 @@
 ---
-title: Angular Native Editor Rendering in RevoGrid
-description: Learn how to implement native editor rendering in RevoGrid with Angular, enabling custom in-cell editing using Angular components.
+title: Angular Data Grid Editor
+description: Learn how to implement editor in Data Grid with Angular, enabling custom in-cell editing using Angular components.
 head:
   - - meta
     - name: keywords
       content: RevoGrid, Angular, native editor rendering, custom editor, in-cell editing, Angular editor grid, data grid editor, Angular integration, custom cell editor, Angular grid components
 ---
 
-<!--@include: ../parts/editor.header.md-->
+# Angular Data Grid Editor
+
+<!--@include: ../parts/_editor.header.md-->
 
 ## Editor as standalone component
 
@@ -92,3 +94,7 @@ export class AppComponent {
 
 
 <!--@include: ../../demo/angular/angular.editor.md-->
+
+
+<!--@include: ./_examples.md-->
+

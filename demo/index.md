@@ -1,5 +1,5 @@
 ---
-title: Main RevoGrid Demo
+title: Data Grid Demo
 pageClass: demo-page-class
 layout: doc
 aside: false
@@ -24,13 +24,13 @@ import Grid from './vue/DemoHR.vue'
 
 <div style="max-width: 800px;">
 
-<!--@include: ../guide/parts/fake-data-banner.md-->
+<!--@include: ../guide/parts/_fake-data-banner.md-->
 
 <br /><br />
 <ShowoffBanner />
 
 
 
-<!--@include: ../guide/parts/framework.md-->
+<!--@include: ../guide/parts/_framework.md-->
 
 </div>

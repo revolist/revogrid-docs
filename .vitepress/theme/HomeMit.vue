@@ -1,20 +1,15 @@
 <template>
     <div class="mit-section vp-doc">
-        <div>
-            <span v-html="md.renderInline(value.text ?? '')"></span>
-            <br />
+        <span v-html="md.renderInline(value.text ?? '')"></span>
+            <!-- <br />
             <strong style="display: inline-block; padding-top: 10px">
                 {{ value.details }}
                 <a v-if="value.action" href="/pro/">{{ value.action }}</a
-                >.</strong
-            >
-        </div>
+                ></strong
+            > -->
     </div>
-
-    <!-- <CarbonAds /> -->
 </template>
 <script lang="ts" setup>
-// import CarbonAds from './CarbonAds.vue'
 import markdownit from 'markdown-it'
 import { useData } from 'vitepress'
 import { computed } from 'vue'
@@ -34,5 +29,6 @@ const value = computed(() => {
     padding-top: 1.5rem;
     color: var(--vp-c-text-2);
     margin: 0 auto;
+    justify-content: center;
 }
 </style>

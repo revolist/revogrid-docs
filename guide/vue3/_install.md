@@ -1,4 +1,4 @@
-## Installation
+## Install your Vue Data Grid
 
 Install RevoGrid for Vue using the following command:
 

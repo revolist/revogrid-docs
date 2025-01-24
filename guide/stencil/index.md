@@ -19,29 +19,8 @@ Integrating web components directly into existing applications can be challengin
 
 For more information about getting started with StencilJS, visit the [official StencilJS documentation](https://stenciljs.com/docs/getting-started).
 
-## Installation
 
-Install the necessary dependencies:
-
-::: code-group
-
-```npm
-npm install @revolist/revogrid @stencil/store @types/lodash lodash
-```
-
-```pnpm
-pnpm add @revolist/revogrid @stencil/store @types/lodash lodash
-```
-
-```yarn
-yarn add @revolist/revogrid @stencil/store @types/lodash lodash
-```
-
-```bun
-bun add @revolist/revogrid @stencil/store @types/lodash lodash
-```
-
-:::
+<!--@include: ./_install.md-->
 
 ## Usage
 

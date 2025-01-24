@@ -13,6 +13,8 @@ head:
 
 # Vue 3 Data Grid
 
+This page covers the key concepts of RevoGrid - a high-performance, customizable Vue Table and Vue Data Grid for managing large datasets.
+
 <img src="/vuejs.svg" alt="Vue logo" width="300" height="300" style="margin: 20px auto;" />
 
 </div>
@@ -23,66 +25,24 @@ If not, please refer to the official documentation [Vue Installation](https://vu
 :::
 
 
-RevoGrid provide special [Vue adapter](https://github.com/revolist/vue3-datagrid). Just import it to your project and it can be used as part of vue system.
 
-<!--@include: ./install.md-->
+To start, just import [vue-datagrid](https://github.com/revolist/vue3-datagrid) to your project and it can be used as part of vue system.
 
-## Usage
+<!--@include: ./_install.md-->
 
-### App Composition Api
+## Vue Data Grid Usage
+
+### Composition Api
 ```vue
-<template>
-  <RevoGrid :columns="columns" :source="rows" />
-</template>
 
-<script setup>
-import { ref } from "vue";
-import RevoGrid from "@revolist/vue3-datagrid";
-const columns = ref([
-  { prop: "name", name: "A" },
-  { prop: "details", name: "B" },
-]);
-const rows = ref([
-  {
-    name: "1",
-    details: "Item 1",
-  },
-]);
-</script>
-
+<!--@include: ../../demo/vue/vue3-datagrid.composition.getstarted.vue-->
 ```
-
-
-### App Options Api
-```vue
-<template>
-  <div id="app">
-    <RevoGrid
-      theme="compact"
-      :source="rows"
-      :columns="columns"
-    />
-  </div>
-</template>
  
-<script>
-import RevoGrid from "@revolist/vue3-datagrid";
-export default {
-  name: "App",
-  data() {
-    return {
-      columns: [{ prop: "name" }, { prop: "details" }],
-      rows: [{
-        name: "1",
-        details: "Item 1",
-      }]
-    };
-  },
-  components: {
-    RevoGrid,
-  },
-};
-</script>
+
+
+### Options Api
+```vue
+<!--@include: ../../demo/vue/vue3-datagrid.options.getstarted.vue-->
 ```
 
 
@@ -90,7 +50,7 @@ export default {
 
 
 
-### Method on component is not a function
+### Method on Vue Data Grid instance is not a function
 
 In order to access a method on a Stencil component in Vue, you will need to access the underlying Web Component instance first:
 
@@ -101,3 +61,6 @@ myComponentRef.value.$el.someMethod();
 // ❌ This is incorrect and will result in an error.
 myComponentRef.value.someMethod();
 ```
+
+
+<!--@include: ./_examples.md-->

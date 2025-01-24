@@ -30,7 +30,7 @@ If you want to continue using **Svelte 4**, please switch to the [svelte-4](http
 RevoGrid provide special wrapper based on [stenciljs svelte adapter](https://www.npmjs.com/package/@stencil/svelte-output-target). Just import it to your project and it can be used as part of svelte system.
 
 
-<!--@include: ./install.md-->
+<!--@include: ./_install.md-->
 
 
 ## Example

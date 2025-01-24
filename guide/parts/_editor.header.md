@@ -1,6 +1,4 @@
-# Editor as native component
-
-We provide a way to render native components as editor.
+RevoGrid provides a way to render native components as editor.
 
 
 ::: tip

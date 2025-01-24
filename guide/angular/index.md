@@ -13,13 +13,12 @@ head:
 
 # Angular Data Grid
 
+
+This page covers the key concepts of RevoGrid - a high-performance, customizable Angular Table and Angular Data Grid for managing large datasets.
+
 <img src="/angular.svg" alt="Angular logo" width="300" height="300" style="margin: 20px auto;" />
 
-<p>
-
-RevoGrid provide special [Angular adapter](https://github.com/revolist/angular-datagrid). Just import it to your project and it can be used as part of angular system.
-
-</p>
+To start, just import [angular-datagrid](https://github.com/revolist/angular-datagrid) to your project and it can be used as part of angular system.
 
 </div>
 
@@ -30,7 +29,7 @@ If not, please refer to the official documentation [Angular Installation](https:
 
 
 
-<!--@include: ./install.md-->
+<!--@include: ./_install.md-->
 
 ## Standalone Components
 
@@ -140,3 +139,6 @@ export class AppComponent {
 ### Example
 
 <!--@include: ../../demo/angular/angular.sample.module.md-->
+
+
+<!--@include: ./_examples.md-->

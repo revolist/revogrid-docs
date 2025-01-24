@@ -143,6 +143,13 @@
  * Component: Algolia
  * -------------------------------------------------------------------------- */
 
+ .VPHero {
+    .actions {
+        @media (min-width: 640px) {
+            padding-top: 20px;
+       }
+    }
+ }
 .DocSearch {
     --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
@@ -196,7 +203,7 @@
     @media (min-width: 960px) {
         &.has-image .container .main {
             max-width: 560px;
-            padding-right: 80px;
+            padding-right: 60px;
         }
 
         .name,
@@ -210,6 +217,10 @@
             display: inline-flex;
         }
     }
+}
+
+header.VPFeatures {
+    padding-bottom: 10px;
 }
 
 .VPFeatures {
@@ -323,6 +334,10 @@
         border-radius: 10px;
         border: 1px solid var(--vp-custom-block-info-bg);
     }
+
+    .main .mit-section.vp-doc {
+        justify-content: left;
+    }    
 }
 .demo-container > revo-grid {
     border-radius: 10px;

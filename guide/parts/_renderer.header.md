@@ -1,5 +1,3 @@
-# Cell as native component
-
 RevoGrid provide a way to render native components inside of cells.
 
 ::: warning

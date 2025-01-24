@@ -1,4 +1,4 @@
-[@revolist/revogrid](README.md) / Components
+[RevoGrid Documentation v4.11.16](README.md) / Components
 
 # Components
 

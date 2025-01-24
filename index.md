@@ -16,8 +16,8 @@ hero:
   tagline: RevoGrid is a Data Grid library designed to boost the rendering of any data volume. 60fps, 3x less memory. Now with <a href="/pro/ai" class="VPBadge danger">AI support</a>
   license:
     text: RevoGrid is a [MIT-licensed](/guide/licensing) open source library
-    details: Unlock advanced features by subscribing to
-    action: RevoGrid Pro
+    # details: Unlock advanced features by subscribing to
+    # action: RevoGrid Pro
   banner:
     text: RevoGrid 4 is here
     action: Read what’s new →
@@ -188,20 +188,29 @@ features:
 
 integrations:
 - title: Vue
-  icon: vuejs
-  details: Use to speed up your Vue code base.
+  alt: Vue Data Grid
+  icon: vuejs.svg
+  details: Vue Data Grid to speed up your Vue code base.
   path: /guide/vue3/
 - title: Angular
-  icon: angular
-  details: Use to speed up your Angular code base.
+  alt: Angular Data Grid
+  icon: angular.svg
+  details: Angular Data Grid to speed up your Angular code base.
   path: /guide/angular/
 - title: React
-  icon: react
-  details: Use to speed up your React code base.
+  alt: React Data Grid
+  icon: react.svg
+  details: React Data Grid to speed up your React code base.
   path: /guide/react/
 - title: Svelte
-  icon: svelte
-  details: Use to speed up your Svelte code base.
+  alt: Svelte Data Grid
+  icon: svelte.svg
+  details: Svelte Data Grid to speed up your Svelte code base.
   path: /guide/svelte/
+- title: JavaScript
+  alt: JavaScript Data Grid
+  icon: js.svg
+  details: JavaScript Data Grid to speed up your JavaScript code base.
+  path: /guide/
 ---
 

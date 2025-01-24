@@ -1,6 +1,6 @@
 # Rows and Data
 
-<!--@include: ../parts/row.md-->
+<!--@include: ../parts/_row.md-->
 
 RevoGrid offers extensive capabilities for managing rows and the data they contain. From customizing row appearances with class bindings to handling complex data structures, RevoGrid provides the tools you need to create dynamic and responsive data grids.
 

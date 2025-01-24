@@ -43,7 +43,7 @@ Confronted with vast data streams, we realized the limitations of existing solut
 
 This approach allows RevoGrid to be **framework-agnostic**, ensuring developers can integrate it into any project regardless of the underlying technology stack.
 
-<!--@include: ./parts/reactive.md-->
+<!--@include: ./parts/_reactive.md-->
 
 
 ## Framework Native Support
@@ -54,7 +54,7 @@ To use native elements in your grid, simply utilize our providers. This feature 
 
 For more detailed information on implementing this functionality, be sure to read the relevant sections of our documentation.
 
-<!--@include: ./parts/framework.md-->
+<!--@include: ./parts/_framework.md-->
 
 
 ## Why to choose?
@@ -110,4 +110,4 @@ For logistics and supply chain applications, RevoGrid can manage and display shi
 
 ## Find guides for your framework
 
-<!--@include: ./parts/framework.md-->
+<!--@include: ./parts/_framework.md-->

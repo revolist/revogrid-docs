@@ -2,7 +2,7 @@
     import { sidebarReactEn } from '../../.vitepress/configs/sidebar/en.demo';
 </script>
 
-## Check out our examples
+## Check out our React Data Grid examples
 
 <ul>
 <li v-for="example in sidebarReactEn">

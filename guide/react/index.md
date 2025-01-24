@@ -13,13 +13,16 @@ head:
 
 # React Data Grid
 
+This page covers the key concepts of RevoGrid - a high-performance, customizable React Table and React Data Grid for managing large datasets.
+
 <img src="/react.svg" alt="React logo" width="300" height="300" style="margin: 20px auto;" />
 
 </div>
 
-RevoGrid provide special [react adapter](https://github.com/revolist/react-datagrid). Just import it to your project and it can be used as part of react system.
 
-<!--@include: ./install.md-->
+To start, just import [react-datagrid](https://github.com/revolist/react-datagrid). Just import it to your project and it can be used as part of react system.
+
+<!--@include: ./_install.md-->
 
 ## Basic Setup
 
@@ -38,4 +41,4 @@ Below is an example of a basic setup using RevoGrid in React. The grid accepts c
 
 ```
 
-<!--@include: ./examples.md-->
+<!--@include: ./_examples.md-->

@@ -1,13 +1,15 @@
 ---
-title: React Data Grid Native Editor Rendering 
-description: Learn how to use React for native editor rendering in RevoGrid, allowing custom in-cell editing with React components.
+title: React Data Grid Editor
+description: Learn how to implement editor in Data Grid with React, enabling custom in-cell editing using React components.
 head:
   - - meta
     - name: keywords
       content: RevoGrid, React, native editor rendering, custom editor, in-cell editing, React editor grid, data grid editor, React integration, custom cell editor, React grid components
 ---
 
-<!--@include: ../parts/editor.header.md-->
+# React Data Grid Editor
+
+<!--@include: ../parts/_editor.header.md-->
 
 By integrating React components as native editors, RevoGrid gives you full control over how each cell behaves during the editing process, enabling complex and highly interactive editing scenarios.
 
@@ -38,5 +40,5 @@ In this example, we’ll create a custom button editor that, when clicked, close
 
 
 
-<!--@include: ./examples.md-->
+<!--@include: ./_examples.md-->
 

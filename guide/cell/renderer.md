@@ -6,7 +6,7 @@ This article explains how to use a [custom cell function](../types/Interface.Cel
 > [!WARNING]
 > Remember to escape any HTML code that could be used for XSS attacks.
 
-<!--@include: ../parts/framework.cell.md-->
+<!--@include: ../parts/_framework.cell.md-->
 
 <br/>
 

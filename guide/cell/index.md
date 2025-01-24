@@ -1,4 +1,4 @@
 # Cell
 
-<!--@include: ../parts/cell.md-->
+<!--@include: ../parts/_cell.md-->
 <!--@include: ./cellProperties.md-->

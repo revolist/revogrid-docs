@@ -226,8 +226,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         },
     },
     srcExclude: process.env.VITE_PRO_INCLUDE
-        ? undefined
-        : ['demo/**-pro/**', 'pro-pages/**'],
+        ? ['**/_*.md']
+        : ['demo/**-pro/**', 'pro-pages/**', '**/_*.md'],
     ignoreDeadLinks: true,
 }
 

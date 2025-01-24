@@ -1,4 +1,4 @@
-## Installation
+## Install your React Data Grid
 
 Install RevoGrid for React using the following command:
 
