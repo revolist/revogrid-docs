@@ -1,5 +1,6 @@
 ---
-title: Getting Started Standalone - Angular Data Grid
+title: Demo Angular Data Grid Standalone
+aside: false
 ---
 
 <ClientOnly>

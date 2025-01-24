@@ -45,6 +45,7 @@ To start, just import [vue-datagrid](https://github.com/revolist/vue3-datagrid) 
 <!--@include: ../../demo/vue/vue3-datagrid.options.getstarted.vue-->
 ```
 
+##  Getting Started with Options API
 
 <!--@include: ../../demo/vue/vue.sample.options.md-->
 

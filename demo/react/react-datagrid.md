@@ -1,5 +1,5 @@
 ---
-title: Getting Started - React Data Grid Table
+title: Demo React Data Grid and Table
 aside: false
 head:
   - - meta

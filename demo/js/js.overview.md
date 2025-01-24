@@ -1,5 +1,5 @@
 ---
-title: JavaScript Overview
+title: Demo JavaScript Data Grid
 aside: false
 ---
 

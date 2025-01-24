@@ -1,8 +1,8 @@
 ---
-title: Getting Started Composition API - Vue 3 Data Grid
+title: Get Started with Vue 3 Data Grid Demo - Composition API
 ---
 
-# Vue 3 - Getting Started with Composition API
+# Get Started with Vue 3 Data Grid Demo - Composition API
 
 <br />
 

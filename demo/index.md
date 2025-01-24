@@ -1,5 +1,5 @@
 ---
-title: Data Grid Demo
+title: Data Grid Demo - Vue, Angular, React, and Svelte
 pageClass: demo-page-class
 layout: doc
 aside: false

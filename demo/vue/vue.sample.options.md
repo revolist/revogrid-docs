@@ -1,12 +1,11 @@
 ---
-title:  Getting Started Options API - Vue 3 Data Grid
+title:  Get Started with Vue 3 Data Grid Demo - Options API
+aside: false
 ---
 
 <script setup lang="ts">
 import Example from '@/demo/vue/vue.sample.options.example.vue';
 </script>
-
-##  Getting Started with Options API
 
 <br />
 

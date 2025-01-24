@@ -1,9 +1,9 @@
 ---
-title: Data Tree Grid
+title: JavaScript Data Grid Tree View
 aside: false
 ---
 
-# Tree view
+# JavaScript Data Grid Tree View
 
 Grid allows you to build any possible structure you have in mind. Check our tree view sample:
 [Check sample](https://codesandbox.io/s/revo-grid-vanilla-tree-jsx-vyqs3).
