@@ -81,13 +81,6 @@ features:
     link: ./guide/column/
     linkText: Read mode
 
-  - title: Reactivity upon the deep
-    icon: 
-      src: reactivity.svg
-    details: The grid core is built upon an advanced reactive approach. By incorporating smart recombination, it handles substantial data loads and intricate operations.
-    link: ./guide/overview.md#Magic-behind-the-scene
-    linkText: Read mode
-
   - title: Enhanced Customization Toolkit
     icon: 
       src: template.svg
@@ -99,7 +92,7 @@ features:
     icon: 
       src: pin.svg
     details: Pin any row or column, to the any edge of the screen, ensure that specific elements remain visible while scrolling.
-    link: ./guide/column/columnPin
+    link: ./guide/column/pin
     linkText: Read mode
 
   - title: Cell and Range Selection
@@ -179,12 +172,19 @@ features:
     link: ./guide/jsx.template
     linkText: Read mode
 
-  - title: Transparent Codebase
-    icon:
-      src: code.svg
-    details: 'The code you truly own: understand, build, and extend with minimal effort.'
-    link: ./guide/overview#Magic-behind-the-scene
-    linkText: Read more
+  # - title: Reactivity upon the deep
+  #   icon: 
+  #     src: reactivity.svg
+  #   details: The grid core is built upon an advanced reactive approach. By incorporating smart recombination, it handles substantial data loads and intricate operations.
+  #   link: ./guide/overview.md#Magic-behind-the-scene
+  #   linkText: Read mode
+  
+  # - title: Transparent Codebase
+  #   icon:
+  #     src: code.svg
+  #   details: 'The code you truly own: understand, build, and extend with minimal effort.'
+  #   link: ./guide/overview#Magic-behind-the-scene
+  #   linkText: Read more
 
 integrations:
 - title: Vue
