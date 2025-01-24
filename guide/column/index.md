@@ -1,6 +1,6 @@
 ---
-title: Data Grid: Column Options
-description: Column Options for Data Grid. Browse all Column Properties used to configure Columns and Column Groups. Lists properties, types and defaults. Download RevoGrid today: The best JavaScript Table & JavaScript Data Grid in the world.
+title: Data Grid - Column Options
+description: Column Options for Data Grid. Browse all Column Properties used to configure Columns and Column Groups. Lists properties, types and defaults. Download RevoGrid today - The best JavaScript Table & JavaScript Data Grid in the world.
 head:
   - - meta
     - name: keywords
