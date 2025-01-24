@@ -1,4 +1,4 @@
-### Considering Removing the Attribution? 🤔
+# Considering Removing the Attribution? 🤔
 
 If you’re thinking about removing the attribution, we’d first like to mention:
 
