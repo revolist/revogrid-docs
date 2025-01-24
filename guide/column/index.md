@@ -1,4 +1,13 @@
-# Column
+---
+title: Data Grid: Column Options
+description: Column Options for Data Grid. Browse all Column Properties used to configure Columns and Column Groups. Lists properties, types and defaults. Download RevoGrid today: The best JavaScript Table & JavaScript Data Grid in the world.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid, column, column options, column properties, column types, column defaults, column size, column width, column min size, column max size
+---
+
+# Column Options
 [<Badge type="tip">Interface: ColumnRegular</Badge>](../types/Interface.ColumnRegular)
 
 <!--@include: ../parts/column.md-->

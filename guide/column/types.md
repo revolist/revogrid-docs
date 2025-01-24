@@ -18,10 +18,10 @@ You can define your own plugins or use default one:
 -   [Date](#Date).
 
 
-<!--@include: ./types.string.md-->
+<!--@include: ./_types.string.md-->
 <br /><br />
-<!--@include: ./types.number.md-->
+<!--@include: ./_types.number.md-->
 <br /><br />
-<!--@include: ./types.select.md-->
+<!--@include: ./_types.select.md-->
 <br /><br />
-<!--@include: ./types.date.md-->
+<!--@include: ./_types.date.md-->
