@@ -4,7 +4,7 @@
             <h3 class="rv-overline-1">{{ value.title }}</h3>
             <div class="rv-heading-2">{{ value.details }}</div>
             <br/>
-            <div class="vp-doc"><a href="/pro/version-compare">Complete Feature List</a></div>
+            <div class="vp-doc"><a href="/pro">Complete Feature List</a></div>
         </div>
     </header>
 </template>

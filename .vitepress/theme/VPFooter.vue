@@ -2,12 +2,17 @@
 import { useData } from 'vitepress'
 import { useSidebar } from 'vitepress/theme'
 import VPImage from './VPImage.vue'
+import { ref } from 'vue'
+import ContactForm from '../../pro/ContactForm.vue'
 
+let showForm = ref(false) // isVisible
 const { site, theme, frontmatter } = useData()
 const { hasSidebar } = useSidebar()
 </script>
 
 <template>
+    
+    <ContactForm key="footer-contact" :isVisible="showForm" @close="showForm = false"/>
     <footer
         v-if="theme.footer && frontmatter.footer !== false"
         class="VPFooter"
@@ -39,6 +44,9 @@ const { hasSidebar } = useSidebar()
                     >
                         <a :href="item.link" v-html="item.text"></a>
                     </li>
+                </ul>
+                <ul style="margin-left: 15px;">
+                    <li><a href="#contact" @click="showForm = true">Contact us</a></li>
                 </ul>
             </div>
         </div>

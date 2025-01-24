@@ -7,7 +7,8 @@
                     <th></th>
                     <th v-for="plan in plans" :key="plan.name">
                         <div class="plan-title">
-                            {{ plan.name }}
+                            {{ plan.name }} 
+                            <a v-if="plan.ai" href='/pro/ai' class='VPBadge danger'>AI</a> 
                         </div>
                         <div class="plan-price" v-if="plan.price">
                             <div><span class="price-value">{{ plan.price }} €</span> / month / dev</div>
@@ -104,6 +105,7 @@ interface Plan {
     details: string[]
     buttonText: string
     link?: string
+    ai?: boolean
     buttonTheme?: 'alt'
 }
 
@@ -206,13 +208,14 @@ const openPreview = (video: string) => {
         border-bottom: 0;
         &:first-child {
             border-left-width: 0;
-            width: 100%;
+            width: 30%;
+            min-width: 250px;
         }
         &:last-child {
             border-right-width: 0;
         }
         &:not(:first-child) {
-            min-width: 250px;
+            min-width: 200px;
         }
 
         &:nth-of-type(3) {

@@ -141,10 +141,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         link: 'https://revolist.eu/services/',
                         text: 'Services',
                     },
-                    {
-                        link: 'https://revolist.eu/lets-talk/',
-                        text: 'Contact us',
-                    },
                 ],
             }],
         },
