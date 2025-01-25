@@ -133,6 +133,10 @@ grid.trimmedRows = trimmedRows;
 
 The [`RowOddPlugin`](./odd.pro.md) allows you to automatically highlight odd-numbered rows in your data grid, enhancing the visual clarity and readability of your data.
 
+## Master Rows
+
+The [`MasterRowsPlugin`](./master.pro.md) enables expandable rows within the grid, allowing you to display detailed or hierarchical data for each row. This is ideal for presenting nested information such as sub-rows, additional details, or hierarchical structures.
+
 **Benefits:**
 
 - **Performance Optimization**: Reduces the amount of visible data, which can enhance grid performance.
