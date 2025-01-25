@@ -1,10 +1,24 @@
-# Export to file
+---
+title: Data Grid Export
+description: Export Data from your Data Grid to excel or csv.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid, data grid, virtual grid, virtual rows, virtual columns,angular data grid, grid performance, large data sets, customizable grid, data grid export, data grid export excel, data grid export csv
+---
 
-## Overview
+# Export Data from your Data Grid to file
 
-With `revo-grid` starting from version `2.1.0` you can export data to file. Currently only `csv` file format supported.
+With our data grid you can export your data to file.
 
-For plugin access you need:
+There are two ways to export data:
+- [Export to CSV file](#Export-to-CSV-file)
+- [Export to Excel file](./data-grid-export-excel.md)
+
+
+## Export to CSV file
+
+To export data to CSV file you need to use `exporting` option.
 
 - Setup `exporting` option on `revo-grid` to `true`:
 

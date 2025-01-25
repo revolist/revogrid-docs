@@ -6,7 +6,21 @@ head:
     - name: keywords
       content: RevoGrid, data grid, vue 3 table, vue 3 data grid, virtual grid, virtual rows, virtual columns, reactive data grid, Vue 3 grid example, grid performance, large data sets, customizable grid
 ---
+<script lang="ts">
+import Grid from '@/demo/vue/DemoHR.vue'
+import Examples from './examples.vue'
+</script>
 
+<style lang="scss" scoped>
+.example {
+    max-width: 100%;    
+}
+:deep() {
+    .demo-page-wrapper .demo-container {
+        width: 100%;
+    }
+}
+</style>
 
 <div style="text-align: center">
 
@@ -27,6 +41,11 @@ If not, please refer to the official documentation [Vue Installation](https://vu
 
 
 To start, just import [vue-datagrid](https://github.com/revolist/vue3-datagrid) to your project and it can be used as part of vue system.
+
+<div class="example">
+<Grid />
+</div>
+
 
 <!--@include: ./_install.md-->
 
@@ -53,7 +72,7 @@ To start, just import [vue-datagrid](https://github.com/revolist/vue3-datagrid) 
 
 ### Method on Vue Data Grid instance is not a function
 
-In order to access a method on a Stencil component in Vue, you will need to access the underlying Web Component instance first:
+In order to access a method on a data grid component in Vue, you will need to access the underlying Web Component instance first:
 
 ```js
 // ✅ This is correct
@@ -64,4 +83,4 @@ myComponentRef.value.someMethod();
 ```
 
 
-<!--@include: ./_examples.md-->
+<Examples />

@@ -1,8 +1,8 @@
-# Advanced Excel-Like Formulas with RevoGrid Pro
+# Excel Formulas in Data Grid
 
-Feature that allows users to implement and use complex Excel-like formulas directly within their data grids. The Formula Plugin enables dynamic calculations and data manipulation, providing an advanced tool for users who need to process and analyze data efficiently.
+Feature in [Pro Version](../../pro/index.md) that allows users to implement and use complex Excel-like formulas directly within their data grids. The Formula Plugin enables dynamic calculations and data manipulation, providing an advanced tool for users who need to process and analyze data efficiently.
 
-## How It Works
+## How does it work
 
 The Formula Plugin allows you to enter and manage formulas in grid cells just as you would in Excel. Formulas are entered using an equal sign (`=`) followed by the desired calculation or function (e.g., `=SUM(A1:B2)`). The plugin then parses the formula, computes the result, and displays it in the cell. Moreover, the result is automatically updated whenever the referenced cells change, ensuring that your data remains accurate and up-to-date.
 
@@ -21,4 +21,4 @@ The Formula Plugin is built on top of the `formulajs` engine, which provides ext
 
 ## Conclusion
 
-The Formula Plugin in RevoGrid Pro transforms your data grid into a powerful calculation engine, allowing you to perform advanced data processing tasks directly within the grid. Whether you're summing up rows of data, calculating averages, or performing complex statistical analysis, this plugin provides the tools you need to handle data with the sophistication of Excel.
+The Formula Plugin in transforms your data grid into a powerful calculation engine, allowing you to perform advanced data processing tasks directly within the grid. Whether you're summing up rows of data, calculating averages, or performing complex statistical analysis, this plugin provides the tools you need to handle data with the sophistication of Excel.

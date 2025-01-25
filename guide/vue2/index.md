@@ -19,42 +19,19 @@ head:
 
 
 
-RevoGrid provide special wrapper based on [stenciljs vue adapter](https://www.npmjs.com/package/@revolist/vue-datagrid). Just import it to your project and it can be used as part of vue system.
+To start, just import [vue2-datagrid](https://www.npmjs.com/package/@revolist/vue-datagrid) to your project and it can be used as part of vue 2 system.
 
 <!--@include: ./_install.md-->
 
-## Usage
-
-### App.vue
+## Vue 2 Data Grid Usage
 
 ```vue
-// App.vue
 
-<template>
-    <!-- Use the VGrid component and bind the data source and columns -->
-    <v-grid :source="rows" :columns="columns" />
-</template>
+<!--@include: ../../demo/vue/vue2-datagrid.example.vue-->
 
-<script>
-import VGrid from '@revolist/vue-datagrid' // Import the VGrid component
-
-export default {
-    name: 'App',
-    data() {
-        return {
-            // Define the columns for the grid
-            columns: [
-                { prop: 'name', name: 'First' }, // Simple column definition
-            ],
-            // Define the data source for the grid
-            rows: [{ name: '1', details: 'Item 1' }],
-        }
-    },
-    components: {
-        VGrid, // Register the VGrid component
-    },
-}
-</script>
 ```
 
 <!--@include: ../../demo/vue/vue2-datagrid.md-->
+
+
+<!--@include: ./_examples.md-->

@@ -1,4 +1,4 @@
-# Row Selection
+# Row Selection in Data Grid
 
 The Row Selection feature in RevoGrid Pro allows users to easily select entire rows within the grid. This feature enhances user interaction by enabling quick selection, which is particularly useful for performing bulk operations such as copying, deleting, or applying specific actions to multiple rows at once.
 

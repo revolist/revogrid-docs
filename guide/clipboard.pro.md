@@ -1,4 +1,4 @@
-# Advanced Clipboard Operations with JSON in RevoGrid Pro
+# Advanced Clipboard Operations with JSON
 
 RevoGrid Pro supports advanced clipboard operations over copy-paste methods, including support for JSON objects. This allows for more complex data manipulations and integrations, making it ideal for applications that require precise data handling.
 

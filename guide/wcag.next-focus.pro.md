@@ -1,6 +1,6 @@
-# Auto-Focus on Next Line Pro
+# Auto-Focus on Next Line in Data Grids
 
-The Auto-Focus on Next Line Pro plugin is designed to streamline user interaction within the grid by automatically moving the focus to the next row when the user reaches the last cell of the current row. This feature significantly improves the efficiency of data entry and editing tasks by reducing the need for manual navigation between rows.
+The Auto-Focus on Next Line [Pro Version](../pro) plugin is designed to streamline user interaction within the grid by automatically moving the focus to the next row when the user reaches the last cell of the current row. This feature significantly improves the efficiency of data entry and editing tasks by reducing the need for manual navigation between rows.
 
 ## Key Features
 

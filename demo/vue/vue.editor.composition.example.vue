@@ -1,4 +1,4 @@
-// App.vue
+// vue.editor.composition.example.vue
 <template>
     <RevoGrid
         hide-attribution

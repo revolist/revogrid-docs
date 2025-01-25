@@ -1,6 +1,6 @@
-# Data Synchronization
+# Data Synchronization in Data Grids
 
-## Prerequisites
+In this guide, we will explore different approaches for working with data in a data grids.
 
 We assume that you have already set up the basic version of RevoGrid and are familiar with configuring the `source` and `columns`. It is crucial to always mutate the data you pass to the grid, as this ensures optimal performance.
 
@@ -23,7 +23,7 @@ RevoGrid offers several popular approaches for working with data:
 
 ### Pagination and Dynamic Data Loading: 
    - These two features are two sides of the same coin:
-        - Pagination allows you to break your data source into manageable parts and load data from a server or cache for each page. For more information, check out Pro version's the [**PaginationPlugin** and its documentation](./pagination).
+        - Pagination allows you to break your data source into manageable parts and load data from a server or cache for each page. For more information, check out Pro version's the [**PaginationPlugin** and its documentation](./pagination.pro).
         - Dynamic data loading is an advanced version of pagination that loads data in chunks based on user interactions, such as scrolling, without displaying a page panel.
    
    With this approach, you can combine the two methods mentioned above to work with a complete or partial grid dataset, updating the data and passing it to the grid as needed.

@@ -10,9 +10,6 @@ head:
       content: React Data Grid, RevoGrid, data grid, React integration, virtual grid, virtual rows, virtual columns, React grid example, grid performance, large data sets, customizable grid, RevoGrid React components, React Table
 ---
 
-Show case of React Data Grid implemented in RevoGrid
-
-
 <ClientOnly>
   <div class="tile">
     <iframe src="https://codesandbox.io/embed/29fm5z?view=preview&module=%2Fsrc%2Findex.tsx&hidenavigation=1"

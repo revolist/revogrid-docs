@@ -1,4 +1,4 @@
-// Editor.vue
+// vue.editor.composition.example-editor.vue
 <template>
     <button @click="onBtn">Finish edit</button>
 </template>

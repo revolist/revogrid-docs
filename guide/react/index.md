@@ -20,17 +20,15 @@ This page covers the key concepts of RevoGrid - a high-performance, customizable
 </div>
 
 
-To start, just import [react-datagrid](https://github.com/revolist/react-datagrid). Just import it to your project and it can be used as part of react system.
+To start, just import [react-datagrid](https://github.com/revolist/react-datagrid) to your project and it can be used as part of react system.
+
+<!--@include: ../../demo/react/react-datagrid.md-->
 
 <!--@include: ./_install.md-->
 
 ## Basic Setup
 
 RevoGrid is designed to be highly performant, even with large datasets, by leveraging virtualization for both rows and columns. It allows you to render only the visible portion of the grid, significantly improving performance when dealing with large datasets.
-
-### Example
-
-<!--@include: ../../demo/react/react-datagrid.md-->
 
 ### Code
 

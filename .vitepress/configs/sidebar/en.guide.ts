@@ -1,4 +1,15 @@
 import type { DefaultTheme } from 'vitepress'
+
+    // {
+    //     text: 'Pro',
+    //     items: [
+    //         {
+    //             text: `Column Spanning ${PRO_BADGE}`,
+    //             link: '/guide/column/span',
+    //         },
+    //     ],
+    // },
+
 export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
     {
         text: 'Essentials',
@@ -276,69 +287,6 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
             },
         ],
     },
-    // {
-    //     text: 'Pro',
-    //     items: [
-    //         {
-    //             text: `Advanced Stretch ${PRO_BADGE}`,
-    //             link: '/guide/column/stretch.pro',
-    //         },
-    //         {
-    //             text: `Column Spanning ${PRO_BADGE}`,
-    //             link: '/guide/column/span',
-    //         },
-    //         {
-    //             text: `Column Selection ${PRO_BADGE}`,
-    //             link: '/guide/column/selection',
-    //         },
-    //         {
-    //             text: `Cell Merge ${PRO_BADGE}`,
-    //             link: '/guide/cell/merge',
-    //         },
-    //         {
-    //             text: `Multi Row Ordering ${PRO_BADGE}`,
-    //             link: '/guide/row/order.pro',
-    //         },
-    //         {
-    //             text: `Row Auto-Focus ${PRO_BADGE}`,
-    //             link: '/guide/row/next.focus',
-    //         },
-    //         {
-    //             text: `Row Selection ${PRO_BADGE}`,
-    //             link: '/guide/row/selection',
-    //         },
-    //         {
-    //             text: `Row Odd ${PRO_BADGE}`,
-    //             link: '/guide/row/odd',
-    //         },
-    //         {
-    //             text: `Row Spanning ${PRO_BADGE}`,
-    //             link: '/guide/row/span',
-    //         },
-    //         {
-    //             text: `Formula ${PRO_BADGE}`,
-    //             link: '/guide/formula',
-    //         },
-    //         {
-    //             text: `Pagination ${PRO_BADGE}`,
-    //             link: '/guide/pagination',
-    //         },
-    //         {
-    //             text: 'Copy and Paste',
-    //             link: '/guide/clipboard',
-    //             items: [
-    //                 {
-    //                     text: `JSON ${PRO_BADGE}`,
-    //                     link: '/guide/clipboard.pro',
-    //                 },
-    //             ],
-    //         },
-    //         {
-    //             text: `Excel ${PRO_BADGE}`,
-    //             link: '/guide/export.excel',
-    //         },
-    //     ],
-    // },
     {
         text: 'Remove Attribution',
         link: '/guide/attribution',

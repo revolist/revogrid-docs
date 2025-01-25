@@ -1,9 +1,9 @@
 ---
-title: Native Editor component (Composition API) - Vue 3 Data Grid
+title: Vue 3 Data Grid Cell Editor component (Composition API)
 ---
 
 
-# Vue 3 - Native Cell component (Composition API)
+# Vue 3 Data Grid Cell Editor component (Composition API)
 
 <br />
 

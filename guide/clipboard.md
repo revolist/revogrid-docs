@@ -1,6 +1,15 @@
-# Copy and Paste
+---
+title: Clipboard Operations in Data Grid
+description: Use Clipboard Operations in Data Grid to copy and paste data within the grid.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid, data grid, vue data grid, clipboard operations, copy, paste, grid performance, large data sets, customizable grid, change data, data copy, data paste
+---
 
-RevoGrid provides clipboard functionality, allowing users to easily copy and paste data within the grid. This feature is essential for enhancing productivity, particularly in environments where data manipulation is frequent. Whether you're copying data to another application or pasting data into RevoGrid, the grid's event-driven approach allows for a high degree of customization and control.
+# Clipboard Operations in Data Grid
+
+Our Data Grid provides clipboard functionality, allowing users to easily copy and paste data within the grid. This feature is essential for enhancing productivity, particularly in environments where data manipulation is frequent. The data table's event-driven approach allows for a high degree of customization and control. For JSON support, see the [Advanced Clipboard Operations with JSON](./clipboard.pro.md) guide.
 
 ## Clipboard Copy
 

@@ -1,4 +1,4 @@
-# Rows and Data
+# Data & Rows in Data Grids
 
 <!--@include: ../parts/_row.md-->
 
@@ -8,9 +8,11 @@ RevoGrid offers extensive capabilities for managing rows and the data they conta
 
 Row class binding allows you to dynamically apply CSS classes to individual rows based on the data they contain. This feature is useful for visually distinguishing rows that meet certain criteria, such as highlighting rows with specific statuses or applying alternate row colors.
 
-### How to Use Row Class Binding
+### Using Row Class Binding
 
-To bind a CSS class to rows, you first need to define a property in your data source that will determine the row's class. You then use the `rowClass` attribute to tell RevoGrid which property to use for this purpose.
+To bind a CSS class to rows, you first need to define a property in your data source that will determine the row's class.
+
+You then use the `rowClass` attribute to tell RevoGrid which property to use for this purpose.
 
 ### Example: Applying Row Classes
 
@@ -58,8 +60,6 @@ With these styles applied, rows with `myRowClass: 'blue'` will have a light blue
 
 RevoGrid can handle complex data structures, allowing you to manage rows that contain nested data, custom templates, or dynamic content. This flexibility is essential for creating grids that need to display diverse data types or require custom rendering logic.
 
-### Example: Complex Data Structures
-
 If your data contains nested objects or arrays, you can still bind this data to your grid's rows. Here’s an example:
 
 ```tsx
@@ -91,8 +91,6 @@ In this example:
 ## Managing Row Visibility
 
 You may also want to manage the visibility of certain rows based on specific conditions. RevoGrid allows you to easily show or hide rows programmatically.
-
-### Example: Toggling Row Visibility
 
 ```tsx
 const grid = document.querySelector('revo-grid');
@@ -130,6 +128,10 @@ grid.trimmedRows = trimmedRows;
 **Explanation:**
 - **`trimmedRows`**: A record where each key represents the index of a row to hide (`true` indicates the row is hidden).
 - **Dynamic Visibility**: Adjust which rows are visible by updating the `trimmedRows` record as needed.
+
+## Odd Row Highlighting
+
+The [`RowOddPlugin`](./odd.pro.md) allows you to automatically highlight odd-numbered rows in your data grid, enhancing the visual clarity and readability of your data.
 
 **Benefits:**
 

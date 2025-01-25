@@ -56,6 +56,8 @@
                                 :style="{
                                     paddingLeft: `${feature.nesting ? 20 * feature.nesting : 20}px`,
                                 }"
+                                class="feature-card"
+                                :id="feature.name.replace(' ', '-')"
                             >
                                 <template v-if="feature.link">
                                     <a :href="feature.link" target="_blank">{{ feature.name }}</a>

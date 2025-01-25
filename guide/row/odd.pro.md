@@ -1,12 +1,14 @@
-# Highlighting Odd Rows in RevoGrid Pro
+# Highlighting Odd Rows in Data Grids
 
-Styling odd rows differently from even rows is a common practice in data grids to improve readability and visual clarity. RevoGrid Pro offers a convenient way to achieve this through the `RowOddPlugin`, which allows you to automatically apply custom styles to odd-numbered rows in your grid.
+Styling odd rows differently from even rows is a common practice in data grids to improve readability and visual clarity.
+
+[Pro Version](../../pro) offers a convenient way to achieve this through the `RowOddPlugin`, which allows you to automatically apply custom styles to odd-numbered rows in your grid.
 
 ## Enabling Odd Row Highlighting
 
 To enable the highlighting of odd rows in your grid, you can use the `RowOddPlugin`. This plugin makes it easy to apply distinct styles to odd rows without having to manually manage row classes or custom styles.
 
-### Example Setup
+### Example
 
 Here’s how you can set up and enable odd row highlighting in your grid:
 
@@ -77,4 +79,6 @@ You can customize the appearance of odd rows by modifying the styles associated 
 
 ## Conclusion
 
-The `RowOddPlugin` in RevoGrid Pro offers a simple yet effective way to enhance the visual clarity of your data grids by automatically highlighting odd rows. By enabling this feature, you can improve the readability of your grid and provide a better user experience. Whether you're dealing with large datasets or simply want to add a touch of polish to your grid, odd row highlighting is a valuable tool in your RevoGrid toolkit.
+The `RowOddPlugin` in [Pro Version](../../pro) offers a simple yet effective way to enhance the visual clarity of your data grids by automatically highlighting odd rows.
+
+By enabling this feature, you can improve the readability of your grid and provide a better user experience. Whether you're dealing with large datasets or simply want to add a touch of polish to your grid, odd row highlighting is a valuable tool in your RevoGrid toolkit.

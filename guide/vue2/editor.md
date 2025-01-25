@@ -79,3 +79,5 @@ export default {
 
 
 <!--@include: ../../demo/vue/vue2.editor.md-->
+
+<!--@include: ./_examples.md-->

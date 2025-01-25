@@ -1,6 +1,6 @@
 # Licensing
 
-RevoGrid is an open-core, MIT-licensed library. Purchase a [commercial license](/pro) for advanced features and support.
+RevoGrid is an open-core, MIT-licensed Data Grid library. Purchase a [commercial license](/pro) for advanced features and support.
 
 
 ## MIT vs. Commercial licenses

@@ -1,10 +1,12 @@
-# Accessibility
+# Accessibility in Data Grids
 
-RevoGrid is committed to making data grids accessible to everyone, following international accessibility standards and best practices. This includes implementing keyboard navigation, support for screen readers, and ensuring that all interactive elements are easy to use for people with disabilities.
+RevoGrid is committed to making data grids accessible to everyone, following international accessibility standards and best practices for Data Tables.
+
+This includes implementing keyboard navigation, support for screen readers, and ensuring that all interactive elements are easy to use for people with disabilities.
 
 ## Accessibility Guidelines
 
-RevoGrid adheres to globally accepted accessibility standards such as WCAG (Web Content Accessibility Guidelines) and other regional regulations like ADA (Americans with Disabilities Act) and Section 508 in the US, as well as the European Accessibility Act (EAA). The aim is to support WCAG 2.1 Level AA, which is the most common target for organizations seeking to ensure their web applications are accessible.
+Our Data Grid adheres to globally accepted accessibility standards such as WCAG (Web Content Accessibility Guidelines) and other regional regulations like ADA (Americans with Disabilities Act) and Section 508 in the US, as well as the European Accessibility Act (EAA). The aim is to support WCAG 2.1 Level AA, which is the most common target for organizations seeking to ensure their web applications are accessible.
 
 ### Key Guidelines Followed:
 
@@ -25,7 +27,9 @@ Comprehensive keyboard navigation ensures that all users, including those who re
 
 ## Customizing Accessibility Features
 
-Grid events allow developers to customize and enhance the accessibility features to better suit their application’s needs.
+Grid events allow developers to customize and enhance the accessibility features to better suit their application’s needs. This can be done by intercepting the events and modifying the behavior as needed.
+
+- [Auto-Focus on Next Line](./wcag.next-focus.pro): This feature automatically moves the focus to the next row when the user reaches the last cell of the current row, making it easier for users to navigate through the grid.
 
 ## Density and Accessibility
 

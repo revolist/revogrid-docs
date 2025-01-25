@@ -1,11 +1,16 @@
-# Pin/Freeze (Fixed rows)
+---
+title: Pin or Freeze Rows in Data Grid
+description: Use Pin or Freeze Rows in Data Grid to keep specific rows always visible at the top or bottom of the grid, even when the user scrolls through the rest of the data.
 
+---
+
+# Pin or Freeze Rows in Data Grid
 
 <!--@include: ../parts/pin.warning.md-->
 
-Pinning or freezing rows in a data grid is a feature that allows you to keep specific rows always visible at the top or bottom of the grid, even when the user scrolls through the rest of the data. This is particularly useful for displaying headers, totals, or other key information that should remain accessible at all times.
+Pinning (or freezing) rows in a Data Grid is a feature that allows you to keep specific rows always visible at the top or bottom of the grid, even when the user scrolls through the rest of the data. This is particularly useful for displaying headers, totals, or other key information that should remain accessible at all times.
 
-## What Are Pinned Rows?
+## What are Pinned Rows?
 
 Pinned rows are rows that are fixed in place, separate from the main scrollable data set. You can pin rows to the top or bottom of your grid. These pinned rows are managed through separate data sources, which gives you full control over what is displayed in these fixed positions.
 

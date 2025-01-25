@@ -74,3 +74,8 @@ export default {
 
 
 <!--@include: ../../demo/vue/vue2.cell.md-->
+
+
+<!--@include: ../parts/_renderer.why.md-->
+
+<!--@include: ./_examples.md-->

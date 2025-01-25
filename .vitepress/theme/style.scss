@@ -317,6 +317,11 @@ header.VPFeatures {
         padding: 0 6px;
         font-size: 10px;
     }
+
+    h2, h3, h4, h5, h6 {
+        display: flex;
+        gap: 5px;
+    }
 }
 @media (min-width: 1240px) {
     .demo-page-wrapper .demo-container {

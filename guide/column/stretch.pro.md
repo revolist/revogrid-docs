@@ -1,6 +1,6 @@
 # Advanced Column Stretching in RevoGrid Pro
 
-Efficiently managing column widths in a data grid is crucial for creating a polished and user-friendly interface. The advanced column stretching feature in RevoGrid Pro, powered by the `ColumnStretchPlugin`, provides flexible options to ensure your grid fully utilizes the available space, adapting to various data presentation needs.
+Efficiently managing column widths in a data grid is crucial for creating a polished and user-friendly interface. The advanced column stretching feature in [Pro Version](../../pro), powered by the `ColumnStretchPlugin`, provides flexible options to ensure your grid fully utilizes the available space, adapting to various data presentation needs.
 
 ## What is Column Stretching?
 
@@ -19,50 +19,16 @@ RevoGrid Pro offers several stretch configurations through the `StretchConfig` t
 
 Let's walk through an example where we set up a grid with three columns and use the `ColumnStretchPlugin` to stretch all columns to fit the grid's width.
 
-### Step 1: Import Necessary Modules
+```typescript
 
-Begin by importing the required modules, including the `ColumnStretchPlugin` and `defineCustomElement` from RevoGrid:
+<!--@include: ../../demo/js/stretch.pro.ts-->
 
-```javascript
-import { defineCustomElement } from '@revolist/revogrid/standalone';
-import { ColumnStretchPlugin } from '../plugins/column-stretch';
-defineCustomElement();
 ```
 
-### Step 2: Generate Random Data
-
-Use a composable to generate random data for the grid:
-
-```javascript
-import { useRandomData } from '../composables/useRandomData';
-const { createRandomData } = useRandomData();
-```
-
-### Step 3: Define Columns
-
-Next, define the columns for your grid:
-
-```javascript
-const columns = [
-  { name: '🆔 ID', prop: 'id' },
-  { name: '🍎 Fruit', prop: 'name' },
-  { name: '💰 Price', prop: 'price' },
-];
-```
-
-### Step 4: Configure the Grid and Apply Column Stretching
-
-Finally, configure the grid, set the data source, and apply the `ColumnStretchPlugin` to stretch the columns:
-
-```javascript
-const grid = document.querySelector('revo-grid');
-if (grid) {
-  grid.source = createRandomData(100);
-  grid.columns = columns;
-  grid.additionalData = { stretch: 'all' }; // Stretch all columns
-  grid.plugins = [ColumnStretchPlugin];
-}
-```
+- Begin by importing the required modules, including the `ColumnStretchPlugin` and `defineCustomElements` from `revo-grid` and `revo-grid-pro`.
+- Generate Random Data.
+- Define the columns for your grid.
+- Finally, configure the grid, set the data source, and apply the `ColumnStretchPlugin` to stretch the columns.
 
 ### Stretching Options
 

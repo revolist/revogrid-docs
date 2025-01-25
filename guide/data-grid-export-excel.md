@@ -1,6 +1,15 @@
-# Exporting Data to Excel with RevoGrid Pro
+---
+title: Data Grid Export Excel
+description: Export Data from your Data Grid to Excel.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid, data grid, virtual grid, virtual rows, virtual columns,angular data grid, grid performance, large data sets, customizable grid, data grid export, data grid export excel
+---
 
-Exporting your grid data to Excel is an essential feature for many applications, allowing users to share, analyze, or archive their data efficiently. RevoGrid Pro makes this process seamless with its `ExportExcelPlugin`
+# Export Data from your Data Grid to Excel
+
+Feature in [Pro Version](../pro/index.md) that allows users to export data to Excel directly within their data grids. Exporting your grid data to Excel is an essential feature for many applications, allowing users to share, analyze, or archive their data efficiently. RevoGrid Pro makes this process seamless with its `ExportExcelPlugin`
 
 
 ## Writing Options

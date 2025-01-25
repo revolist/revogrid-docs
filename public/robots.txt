@@ -26,6 +26,7 @@ User-agent: *
 Disallow: /*.pdf$
 Disallow: /*.zip$
 Disallow: /*.doc$
+Disallow: /*.html$
 
 # Block any URLs with query parameters
 User-agent: *

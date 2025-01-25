@@ -1,4 +1,4 @@
-# Column Selection in RevoGrid Pro
+# Column Selection in your Data Grid
 
 Column selection is a powerful feature that enhances user interaction by allowing them to select entire columns with a single click on the column header. This is especially useful for performing bulk operations on entire columns, such as formatting, copying, or analyzing data. In RevoGrid Pro, this functionality can be easily enabled using the `ColumnSelectionPlugin`.
 

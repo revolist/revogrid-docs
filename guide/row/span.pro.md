@@ -1,4 +1,4 @@
-# Row Span
+# Row Span in Data Grid
 
 The **Row Span** feature in RevoGrid Pro allows you to combine adjacent cells vertically into a single, larger cell, similar to the merge functionality found in Excel. This feature is exclusive to the Pro version of RevoGrid and is not available in the main grid code.
 

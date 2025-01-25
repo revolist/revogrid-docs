@@ -1,20 +1,29 @@
-# Cell Merge in RevoGrid Pro
+---
+title: Data Grid Cell Merge
+description: Merge cells in Data Grid.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid, data grid, virtual grid, virtual rows, virtual columns,angular data grid, grid performance, large data sets, customizable grid, cell properties, row span, column span, cell merge, data grid cell
+---
 
-The Cell Merge feature in RevoGrid Pro allows you to combine adjacent cells into a single, larger cell, much like Excel's merge functionality. This feature is particularly useful for creating headers that span multiple columns or rows and for visually grouping related data within your grid. 
+# Merge cells in Data Grid
 
-### Why Use Cell Merge?
+The Cell Merge feature in [Pro Version](../../pro/index.md) allows you to combine adjacent cells into a single, larger cell, much like Excel's merge functionality. This feature is particularly useful for creating headers that span multiple columns or rows and for visually grouping related data within your grid. 
+
+### What is Cell Merge?
 
 Cell Merge is a powerful tool that can help you:
 
 - **Create Merged Headers**: Design headers that span across several columns or rows, making it easier to categorize and organize related data.
 - **Group Data Visually**: Highlight or group related data by merging cells, which improves the readability and interpretability of your grid.
 
-### Example Use Cases
+### Use Cases
 
 - **Merged Headers**: Combine cells to create a single header that covers multiple columns. This is ideal for providing overarching categories or labels for grouped columns.
 - **Data Grouping**: Use cell merging to visually segment related data or to emphasize specific sections of your grid.
 
-### How It Works
+### How does it work
 
 The Cell Merge feature enables you to specify which cells should be merged into a larger cell. This larger cell will span across multiple columns and/or rows. The content of the merged cell will be centrally displayed, enhancing the layout of your grid.
 
@@ -24,44 +33,12 @@ Since this is a Pro feature, ensure that you have access to the Pro version of R
 
 To implement the Cell Merge feature, you'll need to configure it through your grid’s column or row definitions. Below is a step-by-step guide to setting up cell merging.
 
-#### Example Configuration
+#### Example
 
-```javascript
-// Define the columns for your grid
-const columns = [
-  { name: 'ID', prop: 'id' },
-  { name: 'Category', prop: 'category' },
-  { name: 'Item', prop: 'item' },
-  { name: 'Price', prop: 'price' }
-];
+```typescript
 
-// Initialize RevoGrid with Pro features enabled
-const grid = document.querySelector('revo-grid');
-if (grid) {
-  grid.columns = columns;
-  grid.source = [
-    { id: 1, category: 'Fruits', item: 'Apple', price: 1.2 },
-    { id: 2, category: 'Fruits', item: 'Banana', price: 0.5 },
-    { id: 3, category: 'Vegetables', item: 'Carrot', price: 0.7 }
-  ];
+<!--@include: ../../demo/js/merge.pro.ts-->
 
-  // Define the cell merge configuration
-  const cellMerge = [
-    {
-      row: 0,        // Starting row of the merged cell
-      column: 0,     // Starting column of the merged cell
-      rowSpan: 2,    // Number of rows the cell spans
-      colSpan: 2,    // Number of columns the cell spans
-      rowType: 'rgRow',
-      colType: 'rgCol',
-    },
-  ];
-
-  // Apply cell merge settings to the grid
-  grid.additionalData = {
-    cellMerge,
-  };
-}
 ```
 
 In this example, the `cellMerge` configuration merges cells starting from row 0, column 0, spanning 2 rows and 2 columns. Adjust these parameters to fit your specific grid layout requirements.

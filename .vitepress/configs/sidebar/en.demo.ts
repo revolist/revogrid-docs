@@ -82,6 +82,10 @@ export const sidebarVue3En: DefaultTheme.SidebarItem[] = [
         link: '/demo/vue/vue.select',
     },
     {
+        text: 'Tree view',
+        link: '/demo/vue/vue.tree',
+    },
+    {
         text: 'Grouping',
         link: '/demo/vue/vue.grouping',
     },
@@ -136,7 +140,7 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         link: '/demo/jsx/jsx.tree',
     },
     {
-        text: 'JS,JSX',
+        text: '<img src="/js.svg" alt="JS logo" width="15" height="15"/> JS,JSX',
         collapsed: true,
         items: [
             {
@@ -163,27 +167,27 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         ],
     },
     {
-        text: 'Vue 3',
+        text: '<img src="/vuejs.svg" alt="Vue 3 logo" width="15" height="15"/> Vue 3',
         collapsed: true,
         items: sidebarVue3En,
     },
     {
-        text: 'Vue 2',
+        text: '<img src="/vuejs.svg" alt="Vue 2 logo" width="15" height="15"/> Vue 2',
         collapsed: true,
         items: sidebarVue2En,
     },
     {
-        text: 'React',
+        text: '<img src="/react.svg" alt="React logo" width="15" height="15"/> React',
         collapsed: true,
         items: sidebarReactEn,
     },
     {
-        text: 'Angular',
+        text: '<img src="/angular.svg" alt="Angular logo" width="15" height="15"/> Angular',
         collapsed: true,
         items: sidebarAngularEn,
     },
     {
-        text: 'Svelte',
+        text: '<img src="/svelte.svg" alt="Svelte logo" width="15" height="15"/> Svelte',
         collapsed: true,
         items: [
             {
@@ -193,7 +197,7 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         ],
     },
     {
-        text: 'StencilJs',
+        text: '<img src="/stenciljs.svg" alt="StencilJs logo" width="15" height="15"/> StencilJs',
         collapsed: true,
         items: [
             {

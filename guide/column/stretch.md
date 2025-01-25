@@ -1,6 +1,6 @@
-# Column Stretching
+# Column Stretching in Data Grid
 
-The Column Stretch feature allows you to automatically expand the last column to fill any remaining space in your grid. This ensures that your grid fully utilizes the available width, providing a more polished and professional appearance.
+The Column Stretch feature allows you to automatically expand the last column ([or any, or all columns](./stretch.pro.md)) to fill any remaining space in your grid. This ensures that your grid fully utilizes the available width, providing a more polished and professional appearance.
 
 ## Enabling Column Stretch
 
@@ -26,6 +26,7 @@ With the `stretch` attribute enabled:
 - **Improved Aesthetics**: The grid appears fully utilized, eliminating any unnecessary white space.
 - **Responsive Design**: Automatically adapts to different screen sizes or container widths, making your grid more flexible.
 - **Simple Implementation**: Easily enable this feature with a single attribute, requiring no complex configuration.
+
 
 ## Conclusion
 

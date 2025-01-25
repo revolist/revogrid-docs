@@ -1,13 +1,13 @@
 ---
-title: Data Grid - Column Options
-description: Column Options for Data Grid. Browse all Column Properties used to configure Columns and Column Groups. Lists properties, types and defaults. Download RevoGrid today - The best JavaScript Table & JavaScript Data Grid in the world.
+title: Data Grid Column Configuration
+description: Setup Column Options for your Data Grid. Browse all Column Properties used to configure Columns and Column Groups. Lists properties, types and defaults. Download RevoGrid today - The best JavaScript Table & JavaScript Data Grid in the world.
 head:
   - - meta
     - name: keywords
       content: RevoGrid, column, column options, column properties, column types, column defaults, column size, column width, column min size, column max size
 ---
 
-# Column Options
+# Column Configuration in Data Grid
 [<Badge type="tip">Interface: ColumnRegular</Badge>](../types/Interface.ColumnRegular)
 
 <!--@include: ../parts/column.md-->
@@ -45,25 +45,10 @@ const columns = [
 
 Here’s a full example of how you might set up your columns in a RevoGrid with specific sizes:
 
-```javascript
-import { defineCustomElement } from '@revolist/revogrid/standalone';
-defineCustomElement();
+```typescript
 
-const columns = [
-  { prop: 'id', name: 'ID', size: 100 },
-  { prop: 'name', name: 'Name', size: 150 },
-  { prop: 'age', name: 'Age', size: 80 },
-];
+<!--@include: ../../demo/js/js.column.size.ts-->
 
-const grid = document.querySelector('revo-grid');
-if (grid) {
-  grid.columns = columns;
-  grid.source = [
-    { id: 1, name: 'Alice', age: 30 },
-    { id: 2, name: 'Bob', age: 25 },
-    { id: 3, name: 'Charlie', age: 35 },
-  ];
-}
 ```
 
 In this example:
@@ -72,3 +57,5 @@ In this example:
 - The `Name` column has a base width of 150px.
 - The `Age` column has a base width of 80px.
 
+
+<!--@include: ./_column.pro.md-->

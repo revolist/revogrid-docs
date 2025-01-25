@@ -7,6 +7,10 @@ head:
       content: RevoGrid, Vue 3, native cell rendering, custom cell rendering, Vue components in grid, data grid rendering, Vue 3 grid integration, RevoGrid Vue 3 cells, grid component render, Vue 3 custom cells
 ---
 
+<script lang="ts">
+import Examples from './examples.vue'
+</script>
+
 # Vue Data Grid Cell Template
 <!--@include: ../parts/_renderer.header.md-->
 
@@ -27,4 +31,5 @@ head:
 
 <!--@include: ../parts/_renderer.why.md-->
 
-<!--@include: ./_examples.md-->
+
+<Examples />
