@@ -1,8 +1,6 @@
-# Sorting
+# Data Grid Sorting
 
-## Sorting in RevoGrid
-
-Adding sorting to your grid is quite straightforward:
+Adding sorting to your data grid is quite straightforward:
 
 - **Add `sortable` property to the column**: Enables sorting to be triggered on header click.
 - **Add `order` property to the column**: Specifies the default sorting order, either `asc` (ascending) or `desc` (descending).

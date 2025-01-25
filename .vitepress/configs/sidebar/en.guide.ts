@@ -168,6 +168,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                         text: 'Row Ordering',
                         link: '/guide/row/order',
                     },
+                    {
+                        text: 'Row Grouping',
+                        link: '/guide/row/grouping',
+                    },
                 ],
             },
         ],

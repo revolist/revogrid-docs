@@ -1,4 +1,5 @@
-# Grouping (Stacked Columns)
+# Grouping (Stacked Columns) in Data Grid
+
 [<Badge type="tip">Type: ColumnGrouping</Badge>](../types/TypeAlias.ColumnGrouping)
 
 

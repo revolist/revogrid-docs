@@ -1,10 +1,9 @@
-# Filtering
+# Filtering in your Data Grid
 
-## Quick start
+Filtering is a useful feature that allows you to narrow down the data displayed in your grid based on certain criteria. Our data grid supports multiple types of filters and multi-column filters.
 
-From version `2.0` `revo-grid` supports Filtering Plugin.
-<br>To enable Filtering just setup property `filter` to `true`.
-<br>By default there are sevaral types available:
+To enable Filtering just setup property `filter` to `true`.
+<br>By default there are several types available:
 
 - <b>string</b> 
   - `notEmpty`
