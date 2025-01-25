@@ -8,7 +8,18 @@ head:
 ---
 
 
+
+
+<div style="text-align: center">
+
+
 # Stencil Data Grid
+
+This page covers the key concepts of RevoGrid - a high-performance, customizable StencilJS Table and StencilJS Data Grid for managing large datasets.
+
+<img src="/stenciljs.svg" alt="StencilJs logo" width="300" height="300" style="margin: 20px auto;" />
+
+</div>
 
 
 ## What is StencilJS?
