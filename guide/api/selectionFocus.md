@@ -40,7 +40,7 @@ Focus component. Shows focus layer around the cell that is currently in focus.
 
 ### Used by
 
- - [revo-grid](./revoGrid)
+ - [revo-grid](../revoGrid)
 
 ### Graph
 ```mermaid

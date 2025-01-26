@@ -13,7 +13,7 @@ and managing the lifecycle of the editor instance.
 | Property         | Attribute         | Description                                                            | Type                                                                                                                                                                                                     | Default     |
 | ---------------- | ----------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | `additionalData` | `additional-data` | Additional data to pass to renderer                                    | `any`                                                                                                                                                                                                    | `undefined` |
-| `column`         | --                | Column data for editor.                                                | `null \| { prop: ColumnProp; model: DataType<any>; column: ColumnRegular; rowIndex: number; colIndex: number; colType: DimensionCols; type: DimensionRows; data: DataType<any>[]; value?: any; }`        | `undefined` |
+| `column`         | --                | Column data for editor.                                                | `ColumnDataSchemaModel \| null`                                                                                                                                                                          | `undefined` |
 | `editCell`       | --                | Cell to edit data.                                                     | `EditCellStore & BeforeSaveDataDetails`                                                                                                                                                                  | `undefined` |
 | `editor`         | --                | Custom editors register                                                | `((column: ColumnDataSchemaModel, save: (value?: any, preventFocus?: boolean \| undefined) => void, close: (focusNext?: boolean \| undefined) => void) => EditorBase) \| EditorCtrConstructible \| null` | `undefined` |
 | `saveOnClose`    | `save-on-close`   | Save on editor close. Defines if data should be saved on editor close. | `boolean`                                                                                                                                                                                                | `false`     |
@@ -55,7 +55,7 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [revogr-overlay-selection](./overlay)
+ - [revogr-overlay-selection](../overlay)
 
 ### Graph
 ```mermaid

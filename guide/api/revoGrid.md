@@ -464,15 +464,15 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [revogr-row-headers](./rowHeaders)
-- [revogr-header](./header)
-- [revogr-overlay-selection](./overlay)
-- [revogr-data](./data)
-- [revogr-temp-range](./selectionTempRange)
-- [revogr-focus](./selectionFocus)
-- [revogr-viewport-scroll](./scroll)
+- [revogr-row-headers](../rowHeaders)
+- [revogr-header](../header)
+- [revogr-overlay-selection](../overlay)
+- [revogr-data](../data)
+- [revogr-temp-range](../selectionTempRange)
+- [revogr-focus](../selectionFocus)
+- [revogr-viewport-scroll](../scroll)
 - revogr-attribution
-- [revogr-scroll-virtual](./scrollable)
+- [revogr-scroll-virtual](../scrollable)
 - revogr-extra
 
 ### Graph

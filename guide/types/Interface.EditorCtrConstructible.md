@@ -19,7 +19,7 @@ new EditorCtrConstructible(
 
 | Parameter | Type |
 | ------ | ------ |
-| `column` | [`ColumnDataSchemaModel`](TypeAlias.ColumnDataSchemaModel.md) |
+| `column` | [`ColumnDataSchemaModel`](Interface.ColumnDataSchemaModel.md) |
 | `save` | (`value`: `any`, `preventFocus`?: `boolean`) => `void` |
 | `close` | (`focusNext`?: `boolean`) => `void` |
 
@@ -29,4 +29,4 @@ new EditorCtrConstructible(
 
 #### Defined in
 
-[src/types/selection.ts:170](https://github.com/revolist/revogrid/blob/4a2e1c34e7e1a3d80ec42c0347cc2f82d785aa84/src/types/selection.ts#L170)
+[src/types/selection.ts:170](https://github.com/revolist/revogrid/blob/763c92aaba8e74029a3eccde1c674251aae1a42c/src/types/selection.ts#L170)
