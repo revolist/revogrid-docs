@@ -7,6 +7,8 @@ head:
       content: RevoGrid, Vue 2, native cell rendering, custom cell rendering, Vue components in grid, data grid rendering, Vue 2 grid integration, RevoGrid Vue 2 cells, grid component render, Vue grid custom cells
 ---
 
+# Vue 2 Data Grid Cell Template
+
 <!--@include: ../parts/_renderer.header.md-->
 
 Create component which you would like to be presented as cell.
