@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.11.16](README.md) / FilterLocalization
+[RevoGrid Documentation v4.11.17](README.md) / FilterLocalization
 
 # Type Alias: FilterLocalization
 
@@ -13,9 +13,9 @@ type FilterLocalization: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `captions` | [`FilterCaptions`](TypeAlias.FilterCaptions.md) | [src/plugins/filter/filter.types.ts:69](https://github.com/revolist/revogrid/blob/763c92aaba8e74029a3eccde1c674251aae1a42c/src/plugins/filter/filter.types.ts#L69) |
-| `filterNames` | `Record`\<[`FilterType`](TypeAlias.FilterType.md), `string`\> | [src/plugins/filter/filter.types.ts:70](https://github.com/revolist/revogrid/blob/763c92aaba8e74029a3eccde1c674251aae1a42c/src/plugins/filter/filter.types.ts#L70) |
+| `captions` | [`FilterCaptions`](TypeAlias.FilterCaptions.md) | [src/plugins/filter/filter.types.ts:69](https://github.com/revolist/revogrid/blob/0844b37dbe4827c0b3ffa78b88f276b83e0fed00/src/plugins/filter/filter.types.ts#L69) |
+| `filterNames` | `Record`\<[`FilterType`](TypeAlias.FilterType.md), `string`\> | [src/plugins/filter/filter.types.ts:70](https://github.com/revolist/revogrid/blob/0844b37dbe4827c0b3ffa78b88f276b83e0fed00/src/plugins/filter/filter.types.ts#L70) |
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:68](https://github.com/revolist/revogrid/blob/763c92aaba8e74029a3eccde1c674251aae1a42c/src/plugins/filter/filter.types.ts#L68)
+[src/plugins/filter/filter.types.ts:68](https://github.com/revolist/revogrid/blob/0844b37dbe4827c0b3ffa78b88f276b83e0fed00/src/plugins/filter/filter.types.ts#L68)
