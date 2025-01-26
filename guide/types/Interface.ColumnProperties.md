@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.11.17](README.md) / ColumnProperties
+[RevoGrid Documentation v4.11.18](README.md) / ColumnProperties
 
 # Interface: ColumnProperties
 
@@ -13,5 +13,5 @@ Configuration for header inner template properties
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `columnProperties?` | [`ColPropertiesFunc`](TypeAlias.ColPropertiesFunc.md) | Header Cell properties Custom function/component to render header properties | [src/types/interfaces.ts:120](https://github.com/revolist/revogrid/blob/0844b37dbe4827c0b3ffa78b88f276b83e0fed00/src/types/interfaces.ts#L120) |
-| `columnTemplate?` | [`ColumnTemplateFunc`](TypeAlias.ColumnTemplateFunc.md) | Header inner template Function/component to render custom header content | [src/types/interfaces.ts:115](https://github.com/revolist/revogrid/blob/0844b37dbe4827c0b3ffa78b88f276b83e0fed00/src/types/interfaces.ts#L115) |
+| `columnProperties?` | [`ColPropertiesFunc`](TypeAlias.ColPropertiesFunc.md) | Header Cell properties Custom function/component to render header properties | [src/types/interfaces.ts:120](https://github.com/revolist/revogrid/blob/1653ad6831cb8c4a18b49e381a14df0c317a2084/src/types/interfaces.ts#L120) |
+| `columnTemplate?` | [`ColumnTemplateFunc`](TypeAlias.ColumnTemplateFunc.md) | Header inner template Function/component to render custom header content | [src/types/interfaces.ts:115](https://github.com/revolist/revogrid/blob/1653ad6831cb8c4a18b49e381a14df0c317a2084/src/types/interfaces.ts#L115) |

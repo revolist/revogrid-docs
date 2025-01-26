@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.11.17](README.md) / AfterRendererEvent
+[RevoGrid Documentation v4.11.18](README.md) / AfterRendererEvent
 
 # Type Alias: AfterRendererEvent
 
@@ -15,8 +15,8 @@ It includes information about the dimension type.
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `type` | [`DimensionType`](TypeAlias.DimensionType.md) | Represents the type of dimension being rendered. | [src/types/interfaces.ts:741](https://github.com/revolist/revogrid/blob/0844b37dbe4827c0b3ffa78b88f276b83e0fed00/src/types/interfaces.ts#L741) |
+| `type` | [`DimensionType`](TypeAlias.DimensionType.md) | Represents the type of dimension being rendered. | [src/types/interfaces.ts:741](https://github.com/revolist/revogrid/blob/1653ad6831cb8c4a18b49e381a14df0c317a2084/src/types/interfaces.ts#L741) |
 
 ## Defined in
 
-[src/types/interfaces.ts:737](https://github.com/revolist/revogrid/blob/0844b37dbe4827c0b3ffa78b88f276b83e0fed00/src/types/interfaces.ts#L737)
+[src/types/interfaces.ts:737](https://github.com/revolist/revogrid/blob/1653ad6831cb8c4a18b49e381a14df0c317a2084/src/types/interfaces.ts#L737)
