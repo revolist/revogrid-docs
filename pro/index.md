@@ -106,7 +106,7 @@ const features = [
     features: [
       { name: 'Row Spanning', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/cell-merge',
         video: '/video/merge.mp4', },
-      { name: 'Row Grouping', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
+      { name: 'Row Grouping', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/row/grouping' },
       { name: 'Row Grouping with drag to panel', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://pro.rv-grid.com/demo/ecommerce' },
       { name: 'Row Odd Style', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/row-odd', video: '/video/row-odd.mp4', },
       { name: 'Row Transpose', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/row-transpose', video: '/video/row-transpose.mp4', },
