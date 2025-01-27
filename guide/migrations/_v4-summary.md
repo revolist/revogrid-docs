@@ -19,4 +19,4 @@
     -   Redesigned the documentation.
     -   Fixed major issues and significantly improved overall performance, making the grid multiple time faster.
     -   Enhanced plugin support - now with full access to grid providers.
-    -   Provided full framework support and native render for [Angular](./angular/), [React](./react/), and [Vue](./vue3/), with partial support for Ember and [Svelte](./svelte/).
+    -   Provided full framework support and native render for [Angular](/guide/angular/), [React](/guide/react/), [Svelte](/guide/svelte/), and [Vue](/guide/vue3/), with partial support for Ember.

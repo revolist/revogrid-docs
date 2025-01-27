@@ -7,7 +7,7 @@
 Revogrid - High-performance, customizable grid library for managing large datasets.
 ### Events guide
 
-For a comprehensive events guide, check the [Events API Page](./events.md).
+For a comprehensive events guide, check the [Events API Page](./events).
 All events propagate to the root level of the grid. [Dependency tree](#Dependencies).
 
 ### Type definitions
