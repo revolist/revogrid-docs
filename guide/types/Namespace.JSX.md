@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.11.18](README.md) / JSX
+[RevoGrid Documentation v4.11.20](README.md) / JSX
 
 # JSX
 
@@ -9,7 +9,7 @@
 | Interface | Description |
 | ------ | ------ |
 | [IntrinsicElements](JSX.Interface.IntrinsicElements.md) | - |
-| [RevoGrid](JSX.Interface.RevoGrid.md) | Revogrid - High-performance, customizable grid library for managing large datasets. ### Events guide For a comprehensive events guide, check the [Events API Page](./events.md). All events propagate to the root level of the grid. [Dependency tree](#Dependencies). ### Type definitions Read [type definition file](https://github.com/revolist/revogrid/blob/master/src/interfaces.d.ts) for the full interface information. All complex property types such as `ColumnRegular`, `ColumnProp`, `ColumnDataSchemaModel` can be found there. ### HTMLRevoGridElement |
+| [RevoGrid](JSX.Interface.RevoGrid.md) | Revogrid - High-performance, customizable grid library for managing large datasets. ### Events guide For a comprehensive events guide, check the [Events API Page](/guide/api/events). All events propagate to the root level of the grid. [Dependency tree](#Dependencies). ### Type definitions Read [type definition file](https://github.com/revolist/revogrid/blob/master/src/interfaces.d.ts) for the full interface information. All complex property types such as `ColumnRegular`, `ColumnProp`, `ColumnDataSchemaModel` can be found there. ### HTMLRevoGridElement |
 | [RevogrAttribution](JSX.Interface.RevogrAttribution.md) | - |
 | [RevogrClipboard](JSX.Interface.RevogrClipboard.md) | This Clipboard provides functionality for handling clipboard events in a web application. |
 | [RevogrData](JSX.Interface.RevogrData.md) | This component is responsible for rendering data Rows, columns, groups and cells |
