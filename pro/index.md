@@ -22,7 +22,7 @@ const plans = [
   {
     name: 'Free',
 
-    link: '/Guide',
+    link: '/guide/',
     buttonText: 'Get Started',
     buttonTheme: 'sponsor'
   },
