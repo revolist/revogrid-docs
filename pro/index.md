@@ -211,14 +211,14 @@ Switch to a commercial plan to access advanced features & technical support.
 
 <br />
 
----
-<br />
 
+### Useful links
 
-[Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms) | [License](./policies/license) | <a href="#contact" @click="showForm = true">Contact us</a>
+[Watch our videos](./videos) | [Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms) | [License](./policies/license) | <a href="#contact" @click="showForm = true">Contact us</a>
 
 <ContactForm :isVisible="showForm" @close="showForm = false"/>
 
 
+<br />
 
 <!--@include: ./_frequent-questions.md -->
