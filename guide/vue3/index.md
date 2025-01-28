@@ -22,15 +22,16 @@ import Examples from './examples.vue'
 }
 </style>
 
-<div style="text-align: center">
 
 
 # Vue 3 Data Grid
 
 This page covers the key concepts of RevoGrid - a high-performance, customizable Vue Table and Vue Data Grid for managing large datasets.
 
-<img src="/vuejs.svg" alt="Vue logo" width="300" height="300" style="margin: 20px auto;" />
+<!--@include: ../parts/_why.md-->
 
+<div class="example">
+<Grid />
 </div>
 
 ::: info
@@ -38,13 +39,6 @@ This tutorial assumes that an Vue project has already been set up.
 If not, please refer to the official documentation [Vue Installation](https://vuejs.org/guide/quick-start)
 :::
 
-
-
-To start, just import [vue-datagrid](https://github.com/revolist/vue3-datagrid) to your project and it can be used as part of vue system.
-
-<div class="example">
-<Grid />
-</div>
 
 
 <!--@include: ./_install.md-->

@@ -1,6 +1,6 @@
 ## Install your Angular Data Grid
 
-Install RevoGrid for Angular using the following command:
+Install [RevoGrid for Angular](https://github.com/revolist/angular-datagrid) using the following command:
 
 ::: code-group
 

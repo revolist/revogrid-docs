@@ -8,18 +8,10 @@ head:
 ---
 
 
-<div style="text-align: center">
-
-
 # Vue 2 Data Grid
 
-<img src="/vuejs.svg" alt="Vue logo" width="300" height="300" style="margin: 20px auto;" />
-
-</div>
-
-
-
-To start, just import [vue2-datagrid](https://www.npmjs.com/package/@revolist/vue-datagrid) to your project and it can be used as part of vue 2 system.
+This page covers the key concepts of RevoGrid - a high-performance, customizable Vue 2 Table and Vue 2 Data Grid for managing large datasets.
+<!--@include: ../../demo/vue/vue2-datagrid.md-->
 
 <!--@include: ./_install.md-->
 

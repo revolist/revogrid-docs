@@ -2,8 +2,8 @@
 
 RevoGrid is a high-performance data grid library, customizable Data Table and Data Grid for managing large datasets in JavaScript, Vue, React, Angular, Svelte and other JS frameworks.
 
-Now, let's say you've got a ton of data to display on your web app. It's all about letting you throw in loads of data and manipulate it any way you fancy—without breaking a sweat. Read more about how and why you should use it in our [Overview section](./overview).
 
+<!--@include: ./parts/_why.md-->
 
 ### Find guides for your framework
 

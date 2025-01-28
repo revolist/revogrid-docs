@@ -8,25 +8,18 @@ head:
 ---
 
 
-<div style="text-align: center">
-
-
 # Angular Data Grid
 
 
 This page covers the key concepts of RevoGrid - a high-performance, customizable Angular Table and Angular Data Grid for managing large datasets.
 
-<img src="/angular.svg" alt="Angular logo" width="300" height="300" style="margin: 20px auto;" />
 
-To start, just import [angular-datagrid](https://github.com/revolist/angular-datagrid) to your project and it can be used as part of angular system.
-
-</div>
+<!--@include: ../../demo/angular/angular-datagrid.md-->
 
 ::: info
 This tutorial assumes that an Angular project has already been set up.
 If not, please refer to the official documentation [Angular Installation](https://angular.dev/installation)
 :::
-
 
 
 <!--@include: ./_install.md-->
