@@ -11,9 +11,9 @@ head:
       content: AI Table, Virtual Data Grid, Performance Grid, Excel-like Grid, Responsive Grid, Customizable Grid, Enterprise Data Grid, Lightweight Grid, React Data Grid, Vue3 Data Grid, Angular Grid, Svelte Grid, Virtual Scrolling, Editable Grid, Treeview Grid, Conditional Formatting, Merge Cells, Master-Detail Rows, Data Filtering, Data Sorting, Grouping, Pagination, Large Dataset Handling, Data Visualization, Interactive Data Grid, Drag & Drop, Grid Plugins, Scalable Grid, RevoGrid Features
 
 hero:
-  name: Accelerate.
-  text: Fine-tune. Propel.
-  tagline: RevoGrid is a Data Grid library designed to boost the rendering of any data volume. 60fps, 3x less memory. Now with <a href="/pro/ai" class="VPBadge danger">AI support</a>
+  name: Hello,
+  text: I am RevoGrid. You data's new best friend.
+  tagline: I am here to make your tables faster and smarter. 60fps, 3x less memory. Now with <a href="/pro/ai" class="VPBadge danger">AI support</a>
   license:
     text: RevoGrid is a [MIT-licensed](/guide/licensing) open source library
     # details: Unlock advanced features by subscribing to
