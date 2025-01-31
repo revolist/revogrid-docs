@@ -56,8 +56,9 @@ const features = [
       { name: 'Formula', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/formula-excel',
         video: '/video/formula.mp4', },
       { name: 'Pagination', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/pagination-remote', video: '/video/pagination.mp4', },
-      // { name: 'Aggregation', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
+      { name: 'Audit Trail History', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/features/history', video: '/video/history.mp4', },
       // { name: 'Pivoting', supported: ['Pro Advanced'], nesting: 1 },
+      // { name: 'Aggregation', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
     ],
   },
   // {
@@ -69,21 +70,92 @@ const features = [
   //   ],
   // },
   {
-    name: 'Charting Features',
+    name: 'Dynamic Cell Formats',
     expanded: true,
     features: [
-      { name: 'Integrated Charts', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/charts',
-        video: '/video/renders.mp4', },
-      { name: 'Sparklines', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/charts',
-        video: '/video/renders.mp4', },
+      { name: 'Text Format', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#String' },
+      { name: 'Checkbox Format', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/editor-checkbox' },
+      { name: 'Large Text Format', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/editor-textarea' },
+      { name: 'Number Format', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#Number' },
+      { name: 'Date Format', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#Date' },
+      { name: 'Selection Format', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#Select-Dropdown' },
+
       { name: 'Heat & Cool Maps', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/heatmap',
         "video": "/video/heatmap.mp4", },
-    ],
+        
+      { name: 'Chart Format', video: '/video/renders.mp4', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/charts' },
+      { 
+        "name": "Progress Line", 
+        "supported": ["Pro Lite", "Pro Advanced"], 
+        "nesting": 2,
+      },
+      { 
+        "name": "Progress Line with Value", 
+        "supported": ["Pro Lite", "Pro Advanced"], 
+        "nesting": 2,
+      },
+      { 
+        "name": "Sparkline", 
+        "supported": ["Pro Lite", "Pro Advanced"], 
+        "nesting": 2,
+      },
+      { 
+        "name": "Bar Chart", 
+        "supported": ["Pro Lite", "Pro Advanced"], 
+        "nesting": 2,
+      },
+      { 
+        "name": "Timeline", 
+        "supported": ["Pro Lite", "Pro Advanced"], 
+        "nesting": 2,
+      },
+      { 
+        "name": "Rating Star", 
+        "supported": ["Pro Lite", "Pro Advanced"], 
+        "nesting": 2,
+      },
+      { 
+        "name": "Badge", 
+        "supported": ["Pro Lite", "Pro Advanced"], 
+        "nesting": 2,
+      },
+      { 
+        "name": "Change", 
+        "supported": ["Pro Lite", "Pro Advanced"], 
+        "nesting": 2,
+      },
+      { 
+        "name": "Thumbs", 
+        "supported": ["Pro Lite", "Pro Advanced"], 
+        "nesting": 2,
+      },
+      { 
+        "name": "Pie Chart", 
+        "supported": ["Pro Lite", "Pro Advanced"], 
+        "nesting": 2,
+      },
+      
+      // { name: 'Link Format', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#Link' },
+      // { name: 'Email Format', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/editor-email' }
+      // { name: 'Time Format', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#Time' },
+      // { name: 'Percentage Format', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#Percentage' },
+      // { name: 'Currency Format', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#Currency' },
+      // { name: 'Image Format', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#Image' },
+      // { name: 'Color Format', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#Color' },
+    ]
   },
+  // {
+  //   name: 'Charting Features',
+  //   expanded: true,
+  //   features: [
+  //   ],
+  // },
   {
     name: 'Column Features',
     expanded: true,
     features: [
+      // { name: 'Column Menu', supported: ['Pro Advanced'], nesting: 1 },
+      // { name: 'Columns Tool Panel', supported: ['Pro Advanced'], nesting: 1 },
       { name: 'Column Spanning', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/cell-merge',
         video: '/video/merge.mp4', },
       { name: 'Column Selection', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/column-selection', video: '/video/column-selection.mp4', },
@@ -91,8 +163,6 @@ const features = [
       { name: 'Column Header Summary', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/demo/ecommerce' },
       { name: 'Column Stretching', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/column-stretch', video: '/video/column-stretch.mp4', },
       { name: 'Last Column Stretch', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/stretch' },
-      // { name: 'Column Menu', supported: ['Pro Advanced'], nesting: 1 },
-      // { name: 'Columns Tool Panel', supported: ['Pro Advanced'], nesting: 1 },
       { name: 'Column Groups', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/grouping' },
       { name: 'Column Resizing', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/resize' },
       { name: 'Column Autosizing', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/autosize' },
@@ -141,18 +211,11 @@ const features = [
     name: 'Editing Features',
     expanded: true,
     features: [
-      { name: 'Undo / Redo', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/features/history', video: '/video/history.mp4', },
       { name: 'Row Editing', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/editor-row' },
-      { name: 'Checkbox Editor', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/editor-checkbox' },
-      { name: 'Large Text Editor', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/editor-textarea' },
       { name: 'Validation', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/validate-basic', video: '/video/data-validation-input.mp4', },
       { name: 'Cell Tooltips', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/validate-basic', video: '/video/data-validation.mp4', },
       { name: 'Flashing Cells', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/cell-flash', video: '/video/cell-flash.mp4', },
       { name: 'Cell Editing', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/editing' },
-      { name: 'Text Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#String' },
-      { name: 'Number Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#Number' },
-      { name: 'Date Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#Date' },
-      { name: 'Select Editor', supported: ['Free', 'Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/guide/column/types#Select-Dropdown' },
     ],
   },
   {
@@ -204,20 +267,19 @@ const features = [
 
 Switch to a commercial plan to access advanced features & technical support.
 
+[Watch our videos](./videos)
+
 </div>
 
 <Table  :plans="plans" :features="features" />
 
-
 <br />
-
 
 ### Useful links
 
-[Watch our videos](./videos) | [Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms) | [License](./policies/license) | <a href="#contact" @click="showForm = true">Contact us</a>
+[Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms) | [License](./policies/license) | <a href="#contact" @click="showForm = true">Contact us</a>
 
 <ContactForm :isVisible="showForm" @close="showForm = false"/>
-
 
 <br />
 

@@ -59,12 +59,12 @@
                                 class="feature-card"
                                 :id="feature.name.replace(' ', '-')"
                             >
-                                <template v-if="feature.link">
+                                <!-- <template v-if="feature.link">
                                     <a :href="feature.link" target="_blank">{{ feature.name }}</a>
                                 </template>
-                                <template v-else>
-                                    {{ feature.name }}
-                                </template>
+                                <template v-else> -->
+                                {{ feature.name }}
+                                <!-- </template> -->
 
                                 <button class="video-preview" v-if="feature.video" @click="openPreview(feature.video)">
                                    <VPImage style="width: 18px;" :image="{ src: 'video.svg' }" />
