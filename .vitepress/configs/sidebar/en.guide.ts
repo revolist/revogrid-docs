@@ -292,6 +292,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
         ],
     },
     {
+        text: 'Licensing',
+        link: '/guide/licensing',
+    },
+    {
         text: 'Remove Attribution',
         link: '/guide/attribution',
     },
@@ -309,7 +313,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
             },
         ],
     },
-
+    {
+        text: 'Pro',
+        link: '/pro/',
+    },
     {
         text: 'Data Grid explained',
         link: '/blog/datagrid',

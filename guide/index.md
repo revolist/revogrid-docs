@@ -1,6 +1,6 @@
-# What's JavaScript Data Grid is all about?
+# JavaScript Data Grid
 
-RevoGrid is a high-performance data grid library, customizable Data Table and Data Grid for managing large datasets in JavaScript, Vue, React, Angular, Svelte and other JS frameworks.
+RevoGrid is a high-performance  [MIT-licensed](/guide/licensing) JavaScript Data Grid [also known as JavaScript Data Table](/blog/datagrid) for managing large datasets in JavaScript, Vue, React, Angular, Svelte and other JS frameworks.
 
 
 <!--@include: ./parts/_why.md-->
@@ -37,11 +37,25 @@ Embed the library using a script tag in the `<head>` section of your `index.html
 ```
 
 
-Once you've integrated JavaScript Data Grid into your `html`, the next step is to breathe life into it. It's as simple as defining your grid's structure and feeding it the data it's meant to display:
+Once you've integrated JavaScript Data Grid into your `html`, the next step is to breathe life into it. 
+
+### Simple setup
+
+It's as simple as **defining your grid's structure** and **feeding it the data it's meant to display**:
+
+```typescript
+<!--@include: ../demo/js/basic-quick.ts-->
+```
+
+### Colorful setup
+
+Try cell template:
 
 ```typescript
 <!--@include: ../demo/js/basic-setup.code.ts-->
 ```
+
+### Example
 
 [![Edit RevoGrid - Quick Start](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/revogrid-60s-tlxgwn)
 

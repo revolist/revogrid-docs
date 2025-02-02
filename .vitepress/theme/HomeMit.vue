@@ -1,12 +1,11 @@
 <template>
     <div class="mit-section vp-doc">
         <span v-html="md.renderInline(value.text ?? '')"></span>
-            <!-- <br />
-            <strong style="display: inline-block; padding-top: 10px">
-                {{ value.details }}
-                <a v-if="value.action" href="/pro/">{{ value.action }}</a
-                ></strong
-            > -->
+        <strong style="display: inline-block; padding-top: 10px">
+            {{ value.details }}
+            <a v-if="value.action" href="/pro/">{{ value.action }}</a
+            ></strong
+            >
     </div>
 </template>
 <script lang="ts" setup>
@@ -21,7 +20,6 @@ const value = computed(() => {
 </script>
 <style lang="scss" scoped>
 .mit-section {
-    display: flex;
     align-items: center;
     gap: 2rem;
     font-size: 0.875rem;

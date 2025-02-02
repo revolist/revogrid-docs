@@ -1,7 +1,7 @@
 <template>
+
     <div class="VPFeatures VPHomeFeatures">
         <div class="container">
-            <hr />
             <h2 class="rv-overline-1">{{ value.title }}</h2>
             <div class="rv-heading-2">{{ value.details }}</div>
         </div>

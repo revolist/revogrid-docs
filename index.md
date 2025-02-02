@@ -15,9 +15,9 @@ hero:
   text: Your Data Grid.
   tagline: RevoGrid is a high-performance JavaScript Data Grid built for massive datasets. 60fps, 3x less memory. Now with <a href="/pro/ai" class="VPBadge danger">AI support</a>
   license:
-    text: RevoGrid is a [MIT-licensed](/guide/licensing) open source data grid.
-    # details: Unlock advanced features by subscribing to
-    # action: RevoGrid Pro
+    text: RevoGrid is a MIT-licensed open source data grid.
+    details: Unlock advanced features by subscribing to
+    action: RevoGrid Pro
   banner:
     text: RevoGrid 4 is here
     action: Read what’s new →
@@ -50,7 +50,7 @@ recommended:
 
 featuresHeader:
   title: Features
-  details: The magical, reusable Datagrid.
+  details: The magical, reusable Data Grid.
 
 features:
   - title: Go Native

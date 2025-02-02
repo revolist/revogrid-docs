@@ -342,7 +342,14 @@ header.VPFeatures {
 
     .main .mit-section.vp-doc {
         justify-content: left;
-    }    
+    }
+    .VPContent .VPHomeHero .tagline {
+        justify-content: start;
+    }
+
+    .VPFeatures {
+        padding-bottom: 3rem !important;
+    }
 }
 .demo-container > revo-grid {
     border-radius: 10px;
