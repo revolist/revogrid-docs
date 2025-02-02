@@ -209,8 +209,8 @@
         .name,
         .text {
             font-weight: 800;
-            font-size: clamp(3.5rem, 14vw, 5rem);
-            line-height: 100%;
+            font-size: clamp(3.5rem, 14vw, 4.5rem);
+            line-height: 1.1;
         }
 
         .topPill {

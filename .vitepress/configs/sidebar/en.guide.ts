@@ -309,4 +309,9 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
             },
         ],
     },
+
+    {
+        text: 'Data Grid explained',
+        link: '/blog/datagrid',
+    },
 ]

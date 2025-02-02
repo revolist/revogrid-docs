@@ -1,5 +1,5 @@
 ---
-title: RevoGrid Overview
+title: JavaScript Data Grid Overview
 ---
 
 <script setup>
