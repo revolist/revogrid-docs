@@ -265,8 +265,6 @@ const features = [
 
 # Build next level apps as a Pro
 
-Switch to a commercial plan to access advanced features & technical support.
-
 [Watch our videos](./videos)
 
 </div>

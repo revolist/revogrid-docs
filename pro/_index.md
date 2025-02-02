@@ -39,8 +39,6 @@ const onSwitchChange = (value: boolean) => {
 
 # Build next level apps as a Pro
 
-Switch to a 💎 commercial plan to access advanced features & technical support.
-
   <!-- Toggle Switch for Perpetual / Annual -->
 <!-- <el-tooltip
           :content="!isAnnual ? 'One-time purchase to use the current released versions forever. 12 months of updates included.' : 'Upon expiration, your permission to use the Software in development ends. The license is perpetual in production.'"
