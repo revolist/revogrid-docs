@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.11.20](README.md) / DragStartEvent
+[RevoGrid Documentation v4.11.21](README.md) / DragStartEvent
 
 # Interface: DragStartEvent
 
@@ -8,5 +8,5 @@ Represents the event object that is emitted when the drag operation starts.
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `model` | [`ColumnDataSchemaModel`](Interface.ColumnDataSchemaModel.md) | Represents the model of the column being dragged. | [src/types/interfaces.ts:688](https://github.com/revolist/revogrid/blob/4b7a998aefffde7f50261e3e7336253a89c4c269/src/types/interfaces.ts#L688) |
-| `originalEvent` | `MouseEvent` | Represents the original mouse event that triggered the drag operation. | [src/types/interfaces.ts:683](https://github.com/revolist/revogrid/blob/4b7a998aefffde7f50261e3e7336253a89c4c269/src/types/interfaces.ts#L683) |
+| `model` | [`ColumnDataSchemaModel`](Interface.ColumnDataSchemaModel.md) | Represents the model of the column being dragged. | [src/types/interfaces.ts:688](https://github.com/revolist/revogrid/blob/a0e7ff1e32285a85a0644789b55a183ad196d0cf/src/types/interfaces.ts#L688) |
+| `originalEvent` | `MouseEvent` | Represents the original mouse event that triggered the drag operation. | [src/types/interfaces.ts:683](https://github.com/revolist/revogrid/blob/a0e7ff1e32285a85a0644789b55a183ad196d0cf/src/types/interfaces.ts#L683) |
