@@ -136,10 +136,6 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         link: '/demo/js/js.overview',
     },
     {
-        text: 'Demo: Tree',
-        link: '/demo/jsx/jsx.tree',
-    },
-    {
         text: '<img src="/js.svg" alt="JS logo" width="15" height="15"/> JS,JSX',
         collapsed: true,
         items: [
@@ -159,7 +155,10 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
                 text: 'Clear Filtering',
                 link: '/demo/js/js.filtering',
             },
-
+            {
+                text: 'Hierarchical Tree',
+                link: '/demo/jsx/jsx.tree',
+            },
             {
                 text: 'JSX Template',
                 link: '/demo/jsx/jsx.template',
