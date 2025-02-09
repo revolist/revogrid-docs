@@ -46,7 +46,7 @@ const plans = [
 
 const features = [
   {
-    name: 'Group & Pivot',
+    name: 'Data Management & Pivot',
     expanded: true,
     features: [
       { name: 'Tree Data', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/tree', video: '/video/tree-data.mp4' },
@@ -57,18 +57,10 @@ const features = [
         video: '/video/formula.mp4', },
       { name: 'Pagination', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/guides/pagination-remote', video: '/video/pagination.mp4', },
       { name: 'Audit Trail History', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, link: 'https://pro.rv-grid.com/features/history', video: '/video/history.mp4', },
-      // { name: 'Pivoting', supported: ['Pro Advanced'], nesting: 1 },
-      // { name: 'Aggregation', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
+      { name: 'Pivoting', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
+      { name: 'Aggregation', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
     ],
   },
-  // {
-  //   name: 'Accessories',
-  //   expanded: false,
-  //   features: [
-  //     // { name: 'Filters Tools', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-  //     // { name: 'Status Bar', supported: ['Pro Advanced'], nesting: 1 },
-  //   ],
-  // },
   {
     name: 'Dynamic Cell Formats',
     expanded: true,
