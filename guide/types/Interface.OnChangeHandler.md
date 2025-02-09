@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.0](README.md) / OnChangeHandler
+[RevoGrid Documentation v4.12.1](README.md) / OnChangeHandler
 
 # Interface: OnChangeHandler()\<StoreType\>
 
@@ -35,4 +35,4 @@ interface OnChangeHandler<Key>(propName: Key, cb: (newValue: StoreType[Key]) => 
 
 ## Defined in
 
-[src/utils/store.types.ts:18](https://github.com/revolist/revogrid/blob/282605c6faa8e6a115a4a8c5b8668e14fed605a0/src/utils/store.types.ts#L18)
+[src/utils/store.types.ts:18](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/utils/store.types.ts#L18)
