@@ -258,7 +258,7 @@ const features = [
 
 # Build next level apps as a Pro
 
-[Watch our videos](./videos)
+[Check our features](/pro)
 
 </div>
 
