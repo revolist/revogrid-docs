@@ -7,7 +7,7 @@ editLink: false
 footer: true
 prev: false
 next: false
-pageClass: proPage
+pageClass: pro-table
 layout: custom
 breadcrumbs: false
 ---
@@ -35,9 +35,6 @@ import 'element-plus/theme-chalk/dark/css-vars.css'
 let showForm = ref(false) // isVisible
 
 const isAnnual = ref(true)
-const onSwitchChange = (value: boolean) => {
-    console.log('License type changed:', value ? 'Annual' : 'Perpetual')
-}
 </script>
 
 <div class="description">
@@ -45,19 +42,6 @@ const onSwitchChange = (value: boolean) => {
 
 # Build next level apps as a Pro
 
-  <!-- Toggle Switch for Perpetual / Annual -->
-<!-- <el-tooltip
-          :content="!isAnnual ? 'One-time purchase to use the current released versions forever. 12 months of updates included.' : 'Upon expiration, your permission to use the Software in development ends. The license is perpetual in production.'"
-          placement="top"
-      >
-  <el-switch
-    v-model="isAnnual"
-    active-text="Annual"
-    inactive-text="Perpetual"
-    style="--el-switch-on-color: var(--vp-input-switch-bg-color); --el-switch-off-color: var(--vp-input-switch-bg-color); --el-color-primary: var(--vp-c-brand-1)"
-    @change="onSwitchChange"
-  />
-</el-tooltip> -->
 </div>
 
 <div class="vp-card plans">
@@ -73,7 +57,7 @@ const onSwitchChange = (value: boolean) => {
         `Access to all <a href='#What-s-included-'>Pro Examples</a>.`,
         `Plugins and Documentation.`,
         ]"
-        href="https://buy.stripe.com/dR6cPS98V8Xn90IaEI"
+        :href="PRICES.light.link"
       />
       <Plan
         title="Pro Advanced"
@@ -90,7 +74,7 @@ const onSwitchChange = (value: boolean) => {
           `Prioritized Feature Requests, Github Issues and Pull Requests.`,
           `Introduction call with one of the creators.`
         ]"
-        href="https://buy.stripe.com/aEUcPS0Cpb5v3Go149"
+        :href="PRICES.advanced.link"
         />
     </div>
 </div>
@@ -108,7 +92,7 @@ const onSwitchChange = (value: boolean) => {
 
 ## What's included?
 
-Click on the features below to see video previews or [compare our plans](./compare).
+Click on the features below to see video previews
 
 </div>
 <br/>

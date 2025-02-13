@@ -132,13 +132,17 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         link: '/demo/vue/ai-prompts',
     },
     {
-        text: 'Demo: Getting Started',
-        link: '/demo/js/js.overview',
+        text: 'Demo: Pivot',
+        link: '/demo/pivot',
     },
     {
         text: '<img src="/js.svg" alt="JS logo" width="15" height="15"/> JS,JSX',
         collapsed: true,
         items: [
+            {
+                text: 'Getting Started',
+                link: '/demo/js/js.overview',
+            },
             {
                 text: 'Grouping rows',
                 link: '/demo/js/js.grouping',

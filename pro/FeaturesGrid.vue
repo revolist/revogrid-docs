@@ -34,7 +34,10 @@ const toggleFlip = (id: string) => {
             v-for="feature in features"
             :key="feature.title"
             class="feature-card"
-            :class="{ flipped: flippedCardId === feature.title, disabled: !feature.videoUrl }"
+            :class="{
+                flipped: flippedCardId === feature.title,
+                disabled: !feature.videoUrl,
+            }"
             :id="feature.title.replace(' ', '-')"
             @click="feature.videoUrl && toggleFlip(feature.title)"
         >
@@ -42,18 +45,27 @@ const toggleFlip = (id: string) => {
                 <div class="card-front">
                     <figure>
                         <img
-                        :src="feature.thumbnail"
-                        :alt="feature.title"
-                        class="thumbnail"
-                    />
+                            :src="feature.thumbnail"
+                            :alt="feature.title"
+                            class="thumbnail"
+                        />
                     </figure>
                     <h3 class="title">{{ feature.title }}</h3>
                     <p class="description">{{ feature.description }}</p>
                 </div>
                 <div v-if="feature.videoUrl" class="card-back">
-                    <video class="video" :src="feature.videoUrl" loop muted playsinline autoplay></video>
+                    <video
+                        class="video"
+                        :src="feature.videoUrl"
+                        loop
+                        muted
+                        playsinline
+                        autoplay
+                    ></video>
                 </div>
-                <span class="plus-icon" v-if="feature.videoUrl"><VPImage :image="'plus.svg'"/></span>
+                <span class="plus-icon" v-if="feature.videoUrl"
+                    ><VPImage :image="'plus.svg'"
+                /></span>
             </div>
         </div>
     </div>
@@ -71,7 +83,6 @@ const toggleFlip = (id: string) => {
     border-radius: 50%;
     color: var(--vp-c-bg);
     transition: transform ease-in-out 0.3s;
-
 }
 .features-grid {
     display: grid;
@@ -79,7 +90,6 @@ const toggleFlip = (id: string) => {
     /* Define the grid columns based on screen size */
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
-
 
 .feature-card {
     perspective: 1000px;
@@ -114,7 +124,6 @@ const toggleFlip = (id: string) => {
     height: 100%;
     pointer-events: none;
 }
-
 
 .card-front,
 .card-back {

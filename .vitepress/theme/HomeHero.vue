@@ -1,16 +1,32 @@
 <template>
-    <ClientOnly>
-        <VGrid
-            readonly
-            :theme="isDark ? 'darkMaterial' : 'material'"
-            :range="true"
-            :row-size="40"
-            :resize="true"
-            :source="gridData"
-            :columns="gridColumns"
-            hide-attribution
-        />
-    </ClientOnly>
+    <div class="revo-grid-wrapper">
+        <ClientOnly>
+            <VGrid
+                class="grid-demo"
+                readonly
+                :theme="isDark ? 'darkMaterial' : 'material'"
+                :range="true"
+                :row-size="40"
+                :resize="true"
+                :source="gridData"
+                :columns="gridColumns"
+                hide-attribution
+            />
+        </ClientOnly>
+        <div class="revo-grid-badge">
+            Trusted by thousands of developers
+            <a
+                class="badge"
+                href="https://www.jsdelivr.com/package/npm/@revolist/revogrid"
+                title="jsDelivr monthly hits"
+            >
+                <img
+                    alt="jsDelivr monthly hits badge"
+                    src="https://data.jsdelivr.com/v1/package/npm/@revolist/revogrid/badge"
+                />
+            </a>
+        </div>
+    </div>
 </template>
 <script lang="ts" setup>
 import { onMounted, onBeforeUnmount, ref } from 'vue'
@@ -22,7 +38,7 @@ const { isDark } = useData()
 const gridColumns = ref<ColumnRegular[]>([])
 const gridData = ref<any>([])
 
-let interval;
+let interval
 
 onMounted(() => {
     gridData.value = stocks
@@ -103,3 +119,24 @@ onBeforeUnmount(() => {
     clearInterval(interval)
 })
 </script>
+<style lang="scss" scoped>
+.revo-grid-badge {
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: end;
+}
+.revo-grid-wrapper {
+    flex-grow: 1;
+    align-self: stretch;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+.grid-demo {
+    border-radius: 10px;
+    border: 1px solid var(--vp-c-gutter);
+    overflow: hidden;
+}
+</style>

@@ -7,18 +7,27 @@
                     <th></th>
                     <th v-for="plan in plans" :key="plan.name">
                         <div class="plan-title">
-                            {{ plan.name }} 
-                            <a v-if="plan.ai" href='/pro/ai' class='VPBadge danger'>AI</a> 
+                            {{ plan.name }}
+                            <a
+                                v-if="plan.ai"
+                                href="/pro/ai"
+                                class="VPBadge danger"
+                                >AI</a
+                            >
                         </div>
                         <div class="plan-price" v-if="plan.price">
-                            <div><span class="price-value">{{ plan.price }} €</span> / month / dev</div>
-                            <div class="summary">Billed annually at {{ plan.price * 12 }}€ / dev</div>
+                            <div>
+                                <span class="price-value"
+                                    >{{ plan.price }} $</span
+                                >
+                                / month / dev
+                            </div>
+                            <div class="summary">
+                                Billed annually at {{ plan.price * 12 }}$ / dev
+                            </div>
                         </div>
                         <ul class="plan-details" v-if="plan.details">
-                            <li
-                                v-for="detail in plan.details"
-                                :key="detail"
-                            >
+                            <li v-for="detail in plan.details" :key="detail">
                                 {{ detail }}
                             </li>
                         </ul>
@@ -41,8 +50,13 @@
                 >
                     <tr class="group-header" @click="toggleGroup(groupIndex)">
                         <td>
-                            <span class="expand-icon" v-if="expandedGroups[groupIndex]">▼</span>
-                            <span class="expand-icon" v-else>▶</span> {{ group.name }}
+                            <span
+                                class="expand-icon"
+                                v-if="expandedGroups[groupIndex]"
+                                >▼</span
+                            >
+                            <span class="expand-icon" v-else>▶</span>
+                            {{ group.name }}
                         </td>
                         <td v-for="plan in plans"></td>
                     </tr>
@@ -66,15 +80,25 @@
                                 {{ feature.name }}
                                 <!-- </template> -->
 
-                                <button class="video-preview" v-if="feature.video" @click="openPreview(feature.video)">
-                                   <VPImage style="width: 18px;" :image="{ src: 'video.svg' }" />
+                                <button
+                                    class="video-preview"
+                                    v-if="feature.video"
+                                    @click="openPreview(feature.video)"
+                                >
+                                    <VPImage
+                                        style="width: 18px"
+                                        :image="{ src: 'video.svg' }"
+                                    />
                                 </button>
                             </td>
                             <td
                                 v-for="(plan, planIndex) in plans"
                                 :key="planIndex"
                             >
-                            <VPImage v-if="feature.supported.includes(plan.name)" :image="{ src: 'check.svg' }" />
+                                <VPImage
+                                    v-if="feature.supported.includes(plan.name)"
+                                    :image="{ src: 'check.svg' }"
+                                />
                             </td>
                         </tr>
                     </template>
@@ -82,10 +106,15 @@
             </tbody>
         </table>
     </div>
-    <ElDialog
-        v-model="dialogVisible"
-        width="600">
-        <video class="video" :src="videoUrl" loop muted playsinline autoplay></video>    
+    <ElDialog v-model="dialogVisible" width="600">
+        <video
+            class="video"
+            :src="videoUrl"
+            loop
+            muted
+            playsinline
+            autoplay
+        ></video>
     </ElDialog>
 </template>
 
@@ -162,8 +191,9 @@ const openPreview = (video: string) => {
 
 .pricing-table {
     width: 100%;
-    border-collapse:collapse;
+    border-collapse: collapse;
     border: none;
+    display: table;
 
     a {
         text-decoration: none;
@@ -210,7 +240,7 @@ const openPreview = (video: string) => {
         border-bottom: 0;
         &:first-child {
             border-left-width: 0;
-            width: 30%;
+            width: 40%;
             min-width: 250px;
         }
         &:last-child {
@@ -218,6 +248,7 @@ const openPreview = (video: string) => {
         }
         &:not(:first-child) {
             min-width: 200px;
+            max-width: 200px;
         }
 
         &:nth-of-type(3) {
@@ -229,7 +260,7 @@ const openPreview = (video: string) => {
     td:not(:first-child) {
         text-align: center;
 
-        :deep(svg)  {
+        :deep(svg) {
             margin: 0 auto;
             width: 15px;
         }
@@ -256,7 +287,6 @@ const openPreview = (video: string) => {
             }
             box-shadow: 0 0 0 1px var(--vp-c-gray-3) inset;
             border: 0;
-
 
             &:nth-of-type(3) {
                 background-color: var(--vp-c-success-soft);

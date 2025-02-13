@@ -8,8 +8,23 @@ footer: true
 prev: false
 next: false
 layout: custom
+pageClass: pro-table
 breadcrumbs: false
 ---
+<style lang="scss">
+  .pro-table {
+    @media (min-width: 960px) {
+      .Layout {
+          max-width: 1300px !important;
+      }
+      .VPDoc:not(.has-sidebar) {
+        .content, .container {
+          max-width: 1300px !important;
+        }
+      }
+    }
+  }
+</style>
 
 <script lang="ts" setup>
 
@@ -32,11 +47,11 @@ const plans = [
     price: PRICES.light.month,
     pricePeriod: 'month',
     buttonText: 'Buy Now',
-    link: 'https://buy.stripe.com/dR6cPS98V8Xn90IaEI',
+    link: PRICES.light.link,
   },
   {
     name: 'Pro Advanced',
-    link: 'https://buy.stripe.com/aEUcPS0Cpb5v3Go149',
+    link: PRICES.advanced.link,
     price:  PRICES.advanced.month,
     pricePeriod: 'month',
     buttonText: 'Buy Now',

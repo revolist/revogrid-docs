@@ -15,16 +15,16 @@
             />
             <span class="plan-price-box" v-if="props.pricePeriod === 'month'">
                 <span
-                    ><span class="plan-price-value">{{ props.price }}€</span> /
+                    ><span class="plan-price-value">{{ props.price }}$</span> /
                     month / dev</span
                 >
                 <span class="plan-price-period"
-                    >Billed annually at {{ props.price * 12 }}€ / dev</span
+                    >Billed annually at {{ props.price * 12 }}$ / dev</span
                 >
             </span>
             <span class="plan-price-box" v-else>
                 <span
-                    ><span class="plan-price-value">{{ props.price }}€</span> / dev</span
+                    ><span class="plan-price-value">{{ props.price }}$</span> / dev</span
                 >
             </span>
         </div>

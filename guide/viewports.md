@@ -153,8 +153,8 @@ export type MultiDimensionType = DimensionCols | DimensionRows;
 
 These types help in managing the various dimensions and their respective states within the grid, ensuring that your code can effectively handle both pinned and unpinned rows and columns.
 
-## Conclusion
-
 Understanding the viewport system in RevoGrid Pro is vital for developers looking to implement advanced features and plugins. By familiarizing yourself with the virtual indexes and the corresponding dimension types, you can ensure that your implementation remains robust and effective. 
 
 As you develop your applications, keep these concepts in mind to harness the full potential of RevoGrid's capabilities.
+
+Read more about render in proxy items [here](./proxy-items.md)

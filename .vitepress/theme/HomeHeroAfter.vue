@@ -1,4 +1,5 @@
 <template>
+    <hr />
 
     <div class="VPFeatures VPHomeFeatures">
         <div class="container">
@@ -29,11 +30,10 @@ const features = computed(() => {
 .VPFeatures {
     background-color: transparent;
     padding-bottom: 5px;
-    hr {
-        margin: 16px 0;
-        border: none;
-        border-top: 1px solid var(--vp-c-divider);
-    }
+}
+hr {
+    border: none;
+    border-top: 1px solid var(--vp-c-divider);
 }
 
 :deep(.VPFeature) {
