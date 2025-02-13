@@ -1,3 +1,3 @@
-[RevoGrid Documentation v4.11.21](README.md) / [JSX](Namespace.JSX.md) / RevogrAttribution
+[RevoGrid Documentation v4.12.1](README.md) / [JSX](Namespace.JSX.md) / RevogrAttribution
 
 # Interface: RevogrAttribution

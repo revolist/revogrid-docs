@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.11.21](README.md) / RangeArea
+[RevoGrid Documentation v4.12.1](README.md) / RangeArea
 
 # Type Alias: RangeArea
 
@@ -15,11 +15,11 @@ type RangeArea: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `x` | [`ColIndex`](TypeAlias.ColIndex.md) | [src/types/selection.ts:48](https://github.com/revolist/revogrid/blob/a0e7ff1e32285a85a0644789b55a183ad196d0cf/src/types/selection.ts#L48) |
-| `x1` | [`ColIndex`](TypeAlias.ColIndex.md) | [src/types/selection.ts:50](https://github.com/revolist/revogrid/blob/a0e7ff1e32285a85a0644789b55a183ad196d0cf/src/types/selection.ts#L50) |
-| `y` | [`RowIndex`](TypeAlias.RowIndex.md) | [src/types/selection.ts:49](https://github.com/revolist/revogrid/blob/a0e7ff1e32285a85a0644789b55a183ad196d0cf/src/types/selection.ts#L49) |
-| `y1` | [`RowIndex`](TypeAlias.RowIndex.md) | [src/types/selection.ts:51](https://github.com/revolist/revogrid/blob/a0e7ff1e32285a85a0644789b55a183ad196d0cf/src/types/selection.ts#L51) |
+| `x` | [`ColIndex`](TypeAlias.ColIndex.md) | [src/types/selection.ts:48](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/types/selection.ts#L48) |
+| `x1` | [`ColIndex`](TypeAlias.ColIndex.md) | [src/types/selection.ts:50](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/types/selection.ts#L50) |
+| `y` | [`RowIndex`](TypeAlias.RowIndex.md) | [src/types/selection.ts:49](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/types/selection.ts#L49) |
+| `y1` | [`RowIndex`](TypeAlias.RowIndex.md) | [src/types/selection.ts:51](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/types/selection.ts#L51) |
 
 ## Defined in
 
-[src/types/selection.ts:47](https://github.com/revolist/revogrid/blob/a0e7ff1e32285a85a0644789b55a183ad196d0cf/src/types/selection.ts#L47)
+[src/types/selection.ts:47](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/types/selection.ts#L47)
