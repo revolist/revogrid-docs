@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.1](README.md) / EditorBase
+[RevoGrid Documentation v4.12.2](README.md) / EditorBase
 
 # Interface: EditorBase
 
@@ -8,8 +8,8 @@ Editor interface
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `editCell?` | [`EditCell`](TypeAlias.EditCell.md) | [src/types/selection.ts:182](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/types/selection.ts#L182) |
-| `element?` | `null` \| `Element` | [src/types/selection.ts:181](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/types/selection.ts#L181) |
+| `editCell?` | [`EditCell`](TypeAlias.EditCell.md) | [src/types/selection.ts:182](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/selection.ts#L182) |
+| `element?` | `null` \| `Element` | [src/types/selection.ts:181](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/selection.ts#L181) |
 
 ## Methods
 
@@ -34,7 +34,7 @@ Prevents Editor save. Manual save usage required.
 
 #### Defined in
 
-[src/types/selection.ts:191](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/types/selection.ts#L191)
+[src/types/selection.ts:191](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/selection.ts#L191)
 
 ***
 
@@ -53,7 +53,7 @@ Can be triggered multiple times before actual disconnect.
 
 #### Defined in
 
-[src/types/selection.ts:197](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/types/selection.ts#L197)
+[src/types/selection.ts:197](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/selection.ts#L197)
 
 ***
 
@@ -69,7 +69,7 @@ optional beforeUpdate(): void
 
 #### Defined in
 
-[src/types/selection.ts:192](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/types/selection.ts#L192)
+[src/types/selection.ts:192](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/selection.ts#L192)
 
 ***
 
@@ -85,7 +85,7 @@ optional componentDidRender(): void
 
 #### Defined in
 
-[src/types/selection.ts:198](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/types/selection.ts#L198)
+[src/types/selection.ts:198](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/selection.ts#L198)
 
 ***
 
@@ -101,7 +101,7 @@ optional disconnectedCallback(): void
 
 #### Defined in
 
-[src/types/selection.ts:199](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/types/selection.ts#L199)
+[src/types/selection.ts:199](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/selection.ts#L199)
 
 ***
 
@@ -119,7 +119,7 @@ Autosave usage when you want to return value for models.
 
 #### Defined in
 
-[src/types/selection.ts:186](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/types/selection.ts#L186)
+[src/types/selection.ts:186](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/selection.ts#L186)
 
 ***
 
@@ -142,4 +142,4 @@ render(createElement: HyperFunc<VNode>, additionalData?: any): string | void | V
 
 #### Defined in
 
-[src/types/selection.ts:200](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/types/selection.ts#L200)
+[src/types/selection.ts:200](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/selection.ts#L200)

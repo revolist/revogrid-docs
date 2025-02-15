@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.1](README.md) / SortingConfig
+[RevoGrid Documentation v4.12.2](README.md) / SortingConfig
 
 # Type Alias: SortingConfig
 
@@ -16,8 +16,8 @@ type SortingConfig: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `columns` | \{ `cellCompare`: [`CellCompareFunc`](TypeAlias.CellCompareFunc.md); `order`: [`Order`](TypeAlias.Order.md); `prop`: [`ColumnProp`](TypeAlias.ColumnProp.md); \}[] | [src/plugins/sorting/sorting.types.ts:13](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/plugins/sorting/sorting.types.ts#L13) |
+| `columns` | \{ `cellCompare`: [`CellCompareFunc`](TypeAlias.CellCompareFunc.md); `order`: [`Order`](TypeAlias.Order.md); `prop`: [`ColumnProp`](TypeAlias.ColumnProp.md); \}[] | [src/plugins/sorting/sorting.types.ts:13](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/plugins/sorting/sorting.types.ts#L13) |
 
 ## Defined in
 
-[src/plugins/sorting/sorting.types.ts:12](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/plugins/sorting/sorting.types.ts#L12)
+[src/plugins/sorting/sorting.types.ts:12](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/plugins/sorting/sorting.types.ts#L12)
