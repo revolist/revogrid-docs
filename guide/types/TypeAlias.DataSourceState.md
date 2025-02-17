@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.2](README.md) / DataSourceState
+[RevoGrid Documentation v4.12.3](README.md) / DataSourceState
 
 # Type Alias: DataSourceState\<T, ST\>
 
@@ -25,14 +25,14 @@ type DataSourceState<T, ST>: {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `groupingDepth` | `number` | Grouping information | [src/types/interfaces.ts:585](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/interfaces.ts#L585) |
-| `groups` | `Record`\<`any`, `any`\> | - | [src/types/interfaces.ts:586](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/interfaces.ts#L586) |
-| `items` | `number`[] | List of indices for visible items in the grid | [src/types/interfaces.ts:572](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/interfaces.ts#L572) |
-| `proxyItems` | `number`[] | List of indices for visible items in the grid, even if they are trimmed Update this collection if you want to change items order | [src/types/interfaces.ts:577](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/interfaces.ts#L577) |
-| `source` | `T`[] | Actual data array | [src/types/interfaces.ts:581](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/interfaces.ts#L581) |
-| `trimmed` | `Record`\<`any`, `any`\> | Info for trimming or filtering the data, to hide entities from visible data source | [src/types/interfaces.ts:594](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/interfaces.ts#L594) |
-| `type` | `ST` | Dimension type, can be rows or columns depending on context | [src/types/interfaces.ts:590](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/interfaces.ts#L590) |
+| `groupingDepth` | `number` | Grouping information | [src/types/interfaces.ts:585](https://github.com/revolist/revogrid/blob/d8faaf908685ef9767dc3ea8ccad1628e41fbf76/src/types/interfaces.ts#L585) |
+| `groups` | `Record`\<`any`, `any`\> | - | [src/types/interfaces.ts:586](https://github.com/revolist/revogrid/blob/d8faaf908685ef9767dc3ea8ccad1628e41fbf76/src/types/interfaces.ts#L586) |
+| `items` | `number`[] | List of indices for visible items in the grid | [src/types/interfaces.ts:572](https://github.com/revolist/revogrid/blob/d8faaf908685ef9767dc3ea8ccad1628e41fbf76/src/types/interfaces.ts#L572) |
+| `proxyItems` | `number`[] | List of indices for visible items in the grid, even if they are trimmed Update this collection if you want to change items order | [src/types/interfaces.ts:577](https://github.com/revolist/revogrid/blob/d8faaf908685ef9767dc3ea8ccad1628e41fbf76/src/types/interfaces.ts#L577) |
+| `source` | `T`[] | Actual data array | [src/types/interfaces.ts:581](https://github.com/revolist/revogrid/blob/d8faaf908685ef9767dc3ea8ccad1628e41fbf76/src/types/interfaces.ts#L581) |
+| `trimmed` | `Record`\<`any`, `any`\> | Info for trimming or filtering the data, to hide entities from visible data source | [src/types/interfaces.ts:594](https://github.com/revolist/revogrid/blob/d8faaf908685ef9767dc3ea8ccad1628e41fbf76/src/types/interfaces.ts#L594) |
+| `type` | `ST` | Dimension type, can be rows or columns depending on context | [src/types/interfaces.ts:590](https://github.com/revolist/revogrid/blob/d8faaf908685ef9767dc3ea8ccad1628e41fbf76/src/types/interfaces.ts#L590) |
 
 ## Defined in
 
-[src/types/interfaces.ts:565](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/interfaces.ts#L565)
+[src/types/interfaces.ts:565](https://github.com/revolist/revogrid/blob/d8faaf908685ef9767dc3ea8ccad1628e41fbf76/src/types/interfaces.ts#L565)

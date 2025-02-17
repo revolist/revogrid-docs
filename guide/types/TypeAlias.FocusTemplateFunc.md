@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.2](README.md) / FocusTemplateFunc
+[RevoGrid Documentation v4.12.3](README.md) / FocusTemplateFunc
 
 # Type Alias: FocusTemplateFunc()
 
@@ -23,4 +23,4 @@ context where JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:392](https://github.com/revolist/revogrid/blob/e582d99bf63e98e148b1cd4edfa5db75a0a4d1b7/src/types/interfaces.ts#L392)
+[src/types/interfaces.ts:392](https://github.com/revolist/revogrid/blob/d8faaf908685ef9767dc3ea8ccad1628e41fbf76/src/types/interfaces.ts#L392)
