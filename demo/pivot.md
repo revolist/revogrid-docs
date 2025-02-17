@@ -1,6 +1,6 @@
 ---
 title: Demo Pivot Table
-pageClass: demo-page-class
+pageClass: demo-page-class no-right-padding
 layout: doc
 aside: false
 ---
@@ -12,7 +12,7 @@ const { isDark } = useData()
 
 <ClientOnly>
 <iframe :src="`https://pro.rv-grid.com/demo/pivot?view=preview&theme=${isDark ? 'dark' : 'light'}`"
-     style="width:100%; height: 700px; border:0; border-radius: 4px; overflow:hidden;"
+     style="width:100%; height: calc(100vh); border:0; border-radius: 4px; overflow:hidden;"
      title="Pivot Table"
    ></iframe>
 </ClientOnly>
