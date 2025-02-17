@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.1](README.md) / DataType
+[RevoGrid Documentation v4.12.3](README.md) / DataType
 
 # Type Alias: DataType\<D\>
 
@@ -14,4 +14,4 @@ type DataType<D>: { [T in ColumnProp]: DataFormat<D> };
 
 ## Defined in
 
-[src/types/interfaces.ts:421](https://github.com/revolist/revogrid/blob/d509c0063a76a472726c991b21f1c163442771b4/src/types/interfaces.ts#L421)
+[src/types/interfaces.ts:421](https://github.com/revolist/revogrid/blob/d8faaf908685ef9767dc3ea8ccad1628e41fbf76/src/types/interfaces.ts#L421)
