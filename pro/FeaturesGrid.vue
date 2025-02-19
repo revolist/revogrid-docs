@@ -96,9 +96,16 @@ const toggleFlip = (id: string) => {
 .feature-card {
     perspective: 1000px;
     height: 100%;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    transition: border ease-in-out 0.3s;
 
     &:not(.disabled) {
         cursor: pointer;
+
+        &:hover {
+            border-color: rgba(27, 71, 193, 0.395);
+        }
     }
 
     &.fill {

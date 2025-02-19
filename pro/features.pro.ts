@@ -1,7 +1,7 @@
 export const featuresPro = [
     { 
         title: 'Pivot Table',
-        thumbnail: '/autofill.svg',
+        thumbnail: '/pivot.svg',
         videoUrl: '/video/pivot.mp4',
         fullWidth: true,
         description: `
