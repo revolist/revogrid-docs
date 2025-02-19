@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.3](README.md) / ColumnItems
+[RevoGrid Documentation v4.12.4](README.md) / ColumnItems
 
 # Type Alias: ColumnItems
 
@@ -8,4 +8,4 @@ type ColumnItems: Record<DimensionCols, ColumnRegular[]>;
 
 ## Defined in
 
-[src/utils/column.utils.ts:16](https://github.com/revolist/revogrid/blob/d8faaf908685ef9767dc3ea8ccad1628e41fbf76/src/utils/column.utils.ts#L16)
+[src/utils/column.utils.ts:16](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/utils/column.utils.ts#L16)

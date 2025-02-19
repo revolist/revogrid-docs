@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.3](README.md) / Groups
+[RevoGrid Documentation v4.12.4](README.md) / Groups
 
 # Type Alias: Groups
 
@@ -8,4 +8,4 @@ type Groups: Record<any, any>;
 
 ## Defined in
 
-[src/store/dataSource/data.store.ts:26](https://github.com/revolist/revogrid/blob/d8faaf908685ef9767dc3ea8ccad1628e41fbf76/src/store/dataSource/data.store.ts#L26)
+[src/store/dataSource/data.store.ts:26](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/store/dataSource/data.store.ts#L26)

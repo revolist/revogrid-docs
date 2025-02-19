@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.3](README.md) / MultiFilterItem
+[RevoGrid Documentation v4.12.4](README.md) / MultiFilterItem
 
 # Type Alias: MultiFilterItem
 
@@ -12,4 +12,4 @@ type MultiFilterItem: {};
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:141](https://github.com/revolist/revogrid/blob/d8faaf908685ef9767dc3ea8ccad1628e41fbf76/src/plugins/filter/filter.types.ts#L141)
+[src/plugins/filter/filter.types.ts:142](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/plugins/filter/filter.types.ts#L142)
