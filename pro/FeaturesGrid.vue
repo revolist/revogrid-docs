@@ -8,6 +8,7 @@ interface Feature {
     description: string
     videoUrl: string
     thumbnail: string
+    fullWidth?: boolean
 }
 
 defineProps<{
@@ -15,7 +16,7 @@ defineProps<{
 }>()
 
 // State to track which card is currently flipped
-const flippedCardId = ref<string | null>('Smart Auto Fill')
+const flippedCardId = ref<string | null>('Pivot Table')
 
 const toggleFlip = (id: string) => {
     if (flippedCardId.value === id) {
@@ -37,6 +38,7 @@ const toggleFlip = (id: string) => {
             :class="{
                 flipped: flippedCardId === feature.title,
                 disabled: !feature.videoUrl,
+                ['fill']: feature.fullWidth,
             }"
             :id="feature.title.replace(' ', '-')"
             @click="feature.videoUrl && toggleFlip(feature.title)"
@@ -51,7 +53,7 @@ const toggleFlip = (id: string) => {
                         />
                     </figure>
                     <h3 class="title">{{ feature.title }}</h3>
-                    <p class="description">{{ feature.description }}</p>
+                    <p class="description" v-html="feature.description"/>
                 </div>
                 <div v-if="feature.videoUrl" class="card-back">
                     <video
@@ -97,6 +99,15 @@ const toggleFlip = (id: string) => {
 
     &:not(.disabled) {
         cursor: pointer;
+    }
+
+    &.fill {
+        grid-column: 1 / -1;
+
+        .description {
+            max-width: 600px;
+            text-align: justify;
+        }
     }
 
     &.flipped {

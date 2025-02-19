@@ -1,4 +1,26 @@
 export const featuresPro = [
+    { 
+        title: 'Pivot Table',
+        thumbnail: '/autofill.svg',
+        videoUrl: '/video/pivot.mp4',
+        fullWidth: true,
+        description: `
+        Transform multidimensional data into insightful visualizations.
+        <ul>
+        <li>
+        <strong>Dynamic Pivoting</strong>: Seamlessly switch between a standard grid and pivot mode to analyze your data from different angles.
+        </li>
+        <li>
+        <strong>Custom Aggregation</strong>: Apply built-in or custom aggregation functions to summarize your data effectively and gain deeper insights.
+        </li>
+        <li>
+        <strong>Interactive Field Management</strong>: Drag and drop dimensions, rows, columns, and values with our intuitive configurator to customize your pivot table.
+        </li>
+        </ul>
+        
+        <strong>Perfect for</strong>: Applications requiring complex data analysis, where flexibility and control are crucial. Pivot Table feature ensures high performance, even with large datasets, making it an ideal solution for data-intensive applications.
+        `,
+    },
     {
         title: 'Smart Auto Fill',
         thumbnail: '/autofill.svg',
