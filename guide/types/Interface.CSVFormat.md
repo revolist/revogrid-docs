@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.4](README.md) / CSVFormat
+[RevoGrid Documentation v4.12.5](README.md) / CSVFormat
 
 # Interface: CSVFormat
 
@@ -10,10 +10,10 @@
 
 | Property | Type | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ |
-| `bom` | `boolean` | - | [src/plugins/export/types.ts:23](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/plugins/export/types.ts#L23) |
-| `columnDelimiter` | `string` | - | [src/plugins/export/types.ts:24](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/plugins/export/types.ts#L24) |
-| `encoding` | `string` | [`FormatterOptions`](Interface.FormatterOptions.md).`encoding` | [src/plugins/export/types.ts:13](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/plugins/export/types.ts#L13) |
-| `fileKind` | `"csv"` | - | [src/plugins/export/types.ts:22](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/plugins/export/types.ts#L22) |
-| `filename?` | `string` | - | [src/plugins/export/types.ts:26](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/plugins/export/types.ts#L26) |
-| `mime` | `string` | [`FormatterOptions`](Interface.FormatterOptions.md).`mime` | [src/plugins/export/types.ts:12](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/plugins/export/types.ts#L12) |
-| `rowDelimiter` | `string` | - | [src/plugins/export/types.ts:25](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/plugins/export/types.ts#L25) |
+| `bom` | `boolean` | - | [src/plugins/export/types.ts:23](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/plugins/export/types.ts#L23) |
+| `columnDelimiter` | `string` | - | [src/plugins/export/types.ts:24](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/plugins/export/types.ts#L24) |
+| `encoding` | `string` | [`FormatterOptions`](Interface.FormatterOptions.md).`encoding` | [src/plugins/export/types.ts:13](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/plugins/export/types.ts#L13) |
+| `fileKind` | `"csv"` | - | [src/plugins/export/types.ts:22](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/plugins/export/types.ts#L22) |
+| `filename?` | `string` | - | [src/plugins/export/types.ts:26](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/plugins/export/types.ts#L26) |
+| `mime` | `string` | [`FormatterOptions`](Interface.FormatterOptions.md).`mime` | [src/plugins/export/types.ts:12](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/plugins/export/types.ts#L12) |
+| `rowDelimiter` | `string` | - | [src/plugins/export/types.ts:25](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/plugins/export/types.ts#L25) |

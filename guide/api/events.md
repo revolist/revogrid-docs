@@ -62,7 +62,7 @@ aside: false
 | dragstartcell | `DragStartEvent` | revogr-data | Event emitted on cell drag start |
 | celledit | `{ rgRow: number; rgCol: number; type: DimensionRows; prop: ColumnProp; val: any; preventFocus?: boolean \| undefined; }` | revogr-edit | Cell edit event |
 | closeedit | `boolean \| undefined` | revogr-edit | Close editor event pass true if requires focus next |
-| filterChange | `{ [prop: string]: FilterData[]; }` | revogr-filter-panel |  |
+| filterChange | `MultiFilterItem` | revogr-filter-panel |  |
 | resetChange | `number \| string` | revogr-filter-panel |  |
 | beforefocusrender | `FocusRenderEvent` | revogr-focus | Before focus render event. Can be prevented by event.preventDefault(). If preventDefault used slot will be rendered. |
 | beforescrollintoview | `{ el: HTMLElement; }` | revogr-focus | Before focus changed verify if it's in view and scroll viewport into this view Can be prevented by event.preventDefault() |
@@ -99,8 +99,8 @@ aside: false
 | selectionchangeinit | `{ type: DimensionRows; colType: DimensionCols; newRange: RangeArea; oldRange: RangeArea; mapping: OldNewRangeMapping; newData: { [newRowIndex: number]: DataType; }; }` | revogr-overlay-selection | Autofill data in range. First step in applyRangeWithData |
 | beforerangecopyapply | `{ type: DimensionRows; colType: DimensionCols; newRange: RangeArea; oldRange: RangeArea; mapping: OldNewRangeMapping; newData: { [newRowIndex: number]: DataType; }; }` | revogr-overlay-selection | Before range copy. |
 | rangeeditapply | `{ data: DataLookup; models: Partial<DataLookup>; type: DimensionRows; newRange: RangeArea \| null; oldRange: RangeArea \| null; }` | revogr-overlay-selection | Range data apply. Triggers datasource edit on the root level. |
-| clipboardrangecopy | `{ data: any[][]; range: RangeArea; mapping: OldNewRangeMapping; } & AllDimensionType` | revogr-overlay-selection | Range copy. |
-| clipboardrangepaste | `{ data: DataLookup<any>; models: Partial<DataLookup<any>>; range: RangeArea \| null; } & AllDimensionType` | revogr-overlay-selection | Range paste event. |
+| clipboardrangecopy | `RangeClipboardCopyEventProps<any>` | revogr-overlay-selection | Range copy. |
+| clipboardrangepaste | `RangeClipboardPasteEvent` | revogr-overlay-selection | Range paste event. |
 | beforekeydown | `{ original: KeyboardEvent; } & EventData` | revogr-overlay-selection | Before key up event proxy, used to prevent key up trigger. If you have some custom behaviour event, use this event to check if it wasn't processed by internal logic. Call preventDefault(). |
 | beforekeyup | `{ original: KeyboardEvent; } & EventData` | revogr-overlay-selection | Before key down event proxy, used to prevent key down trigger. If you have some custom behaviour event, use this event to check if it wasn't processed by internal logic. Call preventDefault(). |
 | beforecellsave | `any` | revogr-overlay-selection | Runs before cell save. Can be used to override or cancel original save. |

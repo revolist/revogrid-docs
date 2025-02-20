@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.4](README.md) / AllDimensionType
+[RevoGrid Documentation v4.12.5](README.md) / AllDimensionType
 
 # Interface: AllDimensionType
 
@@ -11,10 +11,12 @@ Represents the mapping of dimension types to their corresponding dimension types
 - [`ApplyFocusEvent`](Interface.ApplyFocusEvent.md)
 - [`FocusRenderEvent`](Interface.FocusRenderEvent.md)
 - [`FocusAfterRenderEvent`](Interface.FocusAfterRenderEvent.md)
+- [`RangeClipboardPasteEvent`](Interface.RangeClipboardPasteEvent.md)
+- [`RangeClipboardCopyEventProps`](Interface.RangeClipboardCopyEventProps.md)
 
 ## Properties
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | Represents the dimension type for columns. | [src/types/interfaces.ts:769](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/types/interfaces.ts#L769) |
-| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | Represents the dimension type for rows. | [src/types/interfaces.ts:764](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/types/interfaces.ts#L764) |
+| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | Represents the dimension type for columns. | [src/types/interfaces.ts:769](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/types/interfaces.ts#L769) |
+| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | Represents the dimension type for rows. | [src/types/interfaces.ts:764](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/types/interfaces.ts#L764) |

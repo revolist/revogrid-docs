@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.4](README.md) / DimensionRowPin
+[RevoGrid Documentation v4.12.5](README.md) / DimensionRowPin
 
 # Type Alias: DimensionRowPin
 
@@ -8,4 +8,4 @@ type DimensionRowPin: "rowPinStart" | "rowPinEnd";
 
 ## Defined in
 
-[src/types/dimension.ts:4](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/types/dimension.ts#L4)
+[src/types/dimension.ts:4](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/types/dimension.ts#L4)

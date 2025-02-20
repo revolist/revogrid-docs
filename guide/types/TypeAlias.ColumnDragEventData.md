@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.4](README.md) / ColumnDragEventData
+[RevoGrid Documentation v4.12.5](README.md) / ColumnDragEventData
 
 # Type Alias: ColumnDragEventData
 
@@ -15,11 +15,11 @@ type ColumnDragEventData: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `elRect` | `DOMRect` | [src/plugins/moveColumn/column.drag.plugin.ts:43](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/plugins/moveColumn/column.drag.plugin.ts#L43) |
-| `gridRect` | `DOMRect` | [src/plugins/moveColumn/column.drag.plugin.ts:44](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/plugins/moveColumn/column.drag.plugin.ts#L44) |
-| `scrollOffset` | `number` | [src/plugins/moveColumn/column.drag.plugin.ts:45](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/plugins/moveColumn/column.drag.plugin.ts#L45) |
-| `type` | [`DimensionCols`](TypeAlias.DimensionCols.md) | [src/plugins/moveColumn/column.drag.plugin.ts:46](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/plugins/moveColumn/column.drag.plugin.ts#L46) |
+| `elRect` | `DOMRect` | [src/plugins/moveColumn/column.drag.plugin.ts:43](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/plugins/moveColumn/column.drag.plugin.ts#L43) |
+| `gridRect` | `DOMRect` | [src/plugins/moveColumn/column.drag.plugin.ts:44](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/plugins/moveColumn/column.drag.plugin.ts#L44) |
+| `scrollOffset` | `number` | [src/plugins/moveColumn/column.drag.plugin.ts:45](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/plugins/moveColumn/column.drag.plugin.ts#L45) |
+| `type` | [`DimensionCols`](TypeAlias.DimensionCols.md) | [src/plugins/moveColumn/column.drag.plugin.ts:46](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/plugins/moveColumn/column.drag.plugin.ts#L46) |
 
 ## Defined in
 
-[src/plugins/moveColumn/column.drag.plugin.ts:42](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/plugins/moveColumn/column.drag.plugin.ts#L42)
+[src/plugins/moveColumn/column.drag.plugin.ts:42](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/plugins/moveColumn/column.drag.plugin.ts#L42)

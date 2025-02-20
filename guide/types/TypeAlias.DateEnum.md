@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.4](README.md) / DateEnum
+[RevoGrid Documentation v4.12.5](README.md) / DateEnum
 
 # Type Alias: DateEnum
 
@@ -20,4 +20,4 @@ type DateEnum:
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:6](https://github.com/revolist/revogrid/blob/648f56ecfc5430eb0184373ea33dd565a6a33bb9/src/plugins/filter/filter.types.ts#L6)
+[src/plugins/filter/filter.types.ts:6](https://github.com/revolist/revogrid/blob/c0c7fff7e44e26499aba20df7b49da7b6c71eb68/src/plugins/filter/filter.types.ts#L6)
