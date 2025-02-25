@@ -205,13 +205,13 @@ Type: `Promise<PluginBaseComponent[]>`
 
 
 
-### `getSelectedRange() => Promise<RangeArea | null>`
+### `getSelectedRange() => Promise<(RangeArea & AllDimensionType) | null>`
 
 Get the currently selected Range.
 
 #### Returns
 
-Type: `Promise<RangeArea | null>`
+Type: `Promise<(RangeArea & AllDimensionType) | null>`
 
 
 
