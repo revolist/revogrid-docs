@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.7](README.md) / Components
+[RevoGrid Documentation v4.12.8](README.md) / Components
 
 # Components
 
