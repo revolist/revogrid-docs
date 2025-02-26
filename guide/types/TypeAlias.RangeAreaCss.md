@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.6](README.md) / RangeAreaCss
+[RevoGrid Documentation v4.12.7](README.md) / RangeAreaCss
 
 # Type Alias: RangeAreaCss
 
@@ -15,11 +15,11 @@ type RangeAreaCss: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `height` | `string` | [src/types/selection.ts:92](https://github.com/revolist/revogrid/blob/293c9e1b6198b802a0690dc2e0b9faebd722e77f/src/types/selection.ts#L92) |
-| `left` | `string` | [src/types/selection.ts:89](https://github.com/revolist/revogrid/blob/293c9e1b6198b802a0690dc2e0b9faebd722e77f/src/types/selection.ts#L89) |
-| `top` | `string` | [src/types/selection.ts:90](https://github.com/revolist/revogrid/blob/293c9e1b6198b802a0690dc2e0b9faebd722e77f/src/types/selection.ts#L90) |
-| `width` | `string` | [src/types/selection.ts:91](https://github.com/revolist/revogrid/blob/293c9e1b6198b802a0690dc2e0b9faebd722e77f/src/types/selection.ts#L91) |
+| `height` | `string` | [src/types/selection.ts:92](https://github.com/revolist/revogrid/blob/435ff99a088c5c293d22eb08cc3e448f60f4eb56/src/types/selection.ts#L92) |
+| `left` | `string` | [src/types/selection.ts:89](https://github.com/revolist/revogrid/blob/435ff99a088c5c293d22eb08cc3e448f60f4eb56/src/types/selection.ts#L89) |
+| `top` | `string` | [src/types/selection.ts:90](https://github.com/revolist/revogrid/blob/435ff99a088c5c293d22eb08cc3e448f60f4eb56/src/types/selection.ts#L90) |
+| `width` | `string` | [src/types/selection.ts:91](https://github.com/revolist/revogrid/blob/435ff99a088c5c293d22eb08cc3e448f60f4eb56/src/types/selection.ts#L91) |
 
 ## Defined in
 
-[src/types/selection.ts:88](https://github.com/revolist/revogrid/blob/293c9e1b6198b802a0690dc2e0b9faebd722e77f/src/types/selection.ts#L88)
+[src/types/selection.ts:88](https://github.com/revolist/revogrid/blob/435ff99a088c5c293d22eb08cc3e448f60f4eb56/src/types/selection.ts#L88)
