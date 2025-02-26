@@ -22,7 +22,9 @@ import Plan from './Plan.vue'
 import ContactForm from './ContactForm.vue'
 
 import type { DefaultTheme } from 'vitepress/theme'
+import { VPButton } from 'vitepress/theme'
 import VPTeamMembers from 'vitepress/dist/client/theme-default/components/VPTeamMembers.vue'
+
 import { features, proWhy } from './features'
 import { featuresPro } from './features.pro'
 import FeaturesGrid from './FeaturesGrid.vue'
@@ -102,5 +104,18 @@ Click on the features below to see video previews
 <br />
 <br />
 <br />
+
+
+<div class="description">
+
+## Let's Connect!
+
+Have questions about features? 🤔  
+Need a trial period to evaluate Pro features, want to discuss enterprise pricing, or just have questions - our team is ready to assist you.
+
+<VPButton text="Contact Our Team →"  @click="showForm = true" />
+</div>
+
+
 
 <!--@include: ./_frequent-questions.md -->

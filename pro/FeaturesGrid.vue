@@ -173,7 +173,7 @@ const toggleFlip = (id: string) => {
     font-size: 14px;
     text-align: center;
     line-height: 20px;
-    max-width: 200px;
+    max-width: 300px;
 }
 
 .card-back {

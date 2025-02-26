@@ -409,3 +409,19 @@ header.VPFeatures {
         gap: 0.7rem;
     }
 }
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.grow {
+    flex-grow: 1;
+}

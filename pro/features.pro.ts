@@ -75,10 +75,10 @@ export const featuresPro = [
         thumbnail: '/formula.svg',
         videoUrl: '/video/formula.mp4',
         description:
-            'Complex formulas similar to Excel. Provides dynamic calculations & data manipulation.',
+            'Excel-like formula engine with over 100+ functions, dynamic calculations, cell references, and real-time data manipulation. Build complex financial models, data analysis, and automated workflows with ease.',
     },
     {
-        title: 'History',
+        title: 'Trail History',
         thumbnail: '/history.svg',
         videoUrl: '/video/history.mp4',
         description: 'Track your history of changes. Undo and redo operations.',
@@ -93,7 +93,7 @@ export const featuresPro = [
     {
         title: 'Merge Cells',
         thumbnail: '/merge.svg',
-        description: 'Combine adjacent cells into a single cell.',
+        description: 'Merge multiple cells, columns and rows into a single unified cell. Often used for creating headers, organizing data hierarchically, or emphasizing important information across columns.',
         videoUrl: '/video/merge.mp4',
     },
     {
@@ -104,10 +104,10 @@ export const featuresPro = [
         videoUrl: '/video/reference-data.mp4',
     },
     {
-        title: 'Tree Data View',
+        title: 'Hierarchical Data View',
         thumbnail: '/tree-data.svg',
         description:
-            'Display hierarchical data in a tree-like structure, enabling navigation and organization.',
+            'Data tree structures visualization with advanced filtering, sorting, inline editing, intuitive drag-and-drop functionality. <br/> Perfect for managing organizational charts, file systems, or any nested data.',
         videoUrl: '/video/tree-data.mp4',
     },
     {
@@ -115,7 +115,7 @@ export const featuresPro = [
         thumbnail: '/master-detail.svg',
         videoUrl: '/video/master-detail.mp4',
         description:
-            'Expand rows to  reveal detailed child information. Display additional data or build customizable subtables within the grid.',
+            'Advanced master-detail grid implementation that spans across pinned columns, showcasing complex data relationships. Create nested grids with independent sorting, filtering, and editing capabilities. <br /><br />Perfect for displaying hierarchical data structures, related records, or detailed breakdowns.',
     },
     {
         title: 'Row Grouping Drag and Drop',
@@ -128,14 +128,14 @@ export const featuresPro = [
         thumbnail: '/row-transpose.svg',
         title: 'Row Transpose',
         description:
-            'Modify the grid by transposing its data: columns become rows and vice versa.',
+            'Transform your grid to view data from a different angle by turning columns into rows and vice versa.',
         videoUrl: '/video/row-transpose.mp4',
     },
     {
         title: 'Row Odd Styling',
         thumbnail: '/odd-rows.svg',
         description:
-            'Apply distinct styles to odd rows for improved readability and data distinction.',
+            'Distinct styles to odd rows for improved readability and better data separation.',
         videoUrl: '/video/row-odd.mp4',
     },
     {
@@ -149,13 +149,13 @@ export const featuresPro = [
         title: 'Row Advanced Drag and Drop',
         thumbnail: '/drag-and-drop.svg',
         description:
-            "Sophisticated drag-and-drop functionality with custom behavior and interactions, enhancing the grid's interactivity and usability.",
+            'Customizable drag-and-drop for multiple items with advanced behaviors like custom drop zones, drag handles, and item reordering.',
         videoUrl: '/video/drag-and-drop.mp4',
     },
     {
         title: 'Row Checkbox Selection',
         thumbnail: '/row-selection.svg',
-        description: 'Performance pluging for row selection using checkboxes.',
+        description: 'Next generation plugin for row selection using checkboxes, with keyboard interactions for bulk selection and extra events for enhanced control.',
         videoUrl: '/video/row-selection.mp4',
     },
     {
@@ -225,14 +225,14 @@ export const featuresPro = [
         title: 'Advanced Slider Filtering',
         thumbnail: '/filtering.svg',
         description:
-            'Advanced slider filter, defining a range of values for filtering.',
+            'Slider filter, defining a range of values for filtering.',
         videoUrl: '/video/filter-advance-slider.mp4',
     },
     {
         title: 'Header Input Filtering',
         thumbnail: '/filtering.svg',
         description:
-            'Header input filter, filtering data based on user input in the first row.',
+            'Header input filtering data based on user input in the first row. Perfect for filtering data based on user input.',
         videoUrl: '/video/filter-header.mp4',
     },
     {
@@ -247,4 +247,20 @@ export const featuresPro = [
         description:
             'Push and pop layers on top of the grid to enhance the user experience.',
     },
+    {
+        title: 'Grouping Aggregation',
+        thumbnail: '/aggregation.svg',
+        description: 'Apply summary functions like sum, average, and more to grouped data.',
+    },
+    {
+        title: 'Row Editing',
+        thumbnail: '/row-editing.svg',
+        description: 'Edit entire row in the grid with a simple API. Use when you need to edit multiple columns in a single row at once.',
+    },
+    {
+        title: 'Cell Checkbox Editors',
+        thumbnail: '/row-selection.svg',
+        description: 'Special cell type that combines editor and renderer into a single checkbox component.',
+    },
+    
 ]

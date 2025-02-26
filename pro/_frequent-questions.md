@@ -25,8 +25,11 @@ layout: custom
     }
 </style>
 
-### Frequently asked questions
+<div class="description">
 
+## Frequently asked questions
+
+</div>
 
 <div class="grid">
 
