@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.8](README.md) / ColumnTypes
+[RevoGrid Documentation v4.12.9](README.md) / ColumnTypes
 
 # Type Alias: ColumnTypes
 
@@ -15,4 +15,4 @@ The keys are the names of the column types and the values are the corresponding 
 
 ## Defined in
 
-[src/types/interfaces.ts:126](https://github.com/revolist/revogrid/blob/c3ca1940d3bbc95c0549378ff25b8d267352be31/src/types/interfaces.ts#L126)
+[src/types/interfaces.ts:126](https://github.com/revolist/revogrid/blob/5b626b1ece93ea60f82047d059b8a2635455feb4/src/types/interfaces.ts#L126)

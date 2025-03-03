@@ -1,3 +1,3 @@
-[RevoGrid Documentation v4.12.8](README.md) / [Components](Namespace.Components.md) / RevogrAttribution
+[RevoGrid Documentation v4.12.9](README.md) / [Components](Namespace.Components.md) / RevogrAttribution
 
 # Interface: RevogrAttribution

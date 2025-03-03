@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.8](README.md) / GetEventHandler
+[RevoGrid Documentation v4.12.9](README.md) / GetEventHandler
 
 # Type Alias: GetEventHandler()\<StoreType\>
 
@@ -24,4 +24,4 @@ type GetEventHandler<StoreType>: (key: keyof StoreType) => void;
 
 ## Defined in
 
-[src/utils/store.types.ts:8](https://github.com/revolist/revogrid/blob/c3ca1940d3bbc95c0549378ff25b8d267352be31/src/utils/store.types.ts#L8)
+[src/utils/store.types.ts:8](https://github.com/revolist/revogrid/blob/5b626b1ece93ea60f82047d059b8a2635455feb4/src/utils/store.types.ts#L8)

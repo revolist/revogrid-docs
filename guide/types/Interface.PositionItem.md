@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.8](README.md) / PositionItem
+[RevoGrid Documentation v4.12.9](README.md) / PositionItem
 
 # Interface: PositionItem
 
@@ -10,6 +10,6 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `end` | `number` | [src/types/interfaces.ts:599](https://github.com/revolist/revogrid/blob/c3ca1940d3bbc95c0549378ff25b8d267352be31/src/types/interfaces.ts#L599) |
-| `itemIndex` | `number` | [src/types/interfaces.ts:597](https://github.com/revolist/revogrid/blob/c3ca1940d3bbc95c0549378ff25b8d267352be31/src/types/interfaces.ts#L597) |
-| `start` | `number` | [src/types/interfaces.ts:598](https://github.com/revolist/revogrid/blob/c3ca1940d3bbc95c0549378ff25b8d267352be31/src/types/interfaces.ts#L598) |
+| `end` | `number` | [src/types/interfaces.ts:599](https://github.com/revolist/revogrid/blob/5b626b1ece93ea60f82047d059b8a2635455feb4/src/types/interfaces.ts#L599) |
+| `itemIndex` | `number` | [src/types/interfaces.ts:597](https://github.com/revolist/revogrid/blob/5b626b1ece93ea60f82047d059b8a2635455feb4/src/types/interfaces.ts#L597) |
+| `start` | `number` | [src/types/interfaces.ts:598](https://github.com/revolist/revogrid/blob/5b626b1ece93ea60f82047d059b8a2635455feb4/src/types/interfaces.ts#L598) |
