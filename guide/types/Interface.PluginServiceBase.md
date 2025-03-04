@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.9](README.md) / PluginServiceBase
+[RevoGrid Documentation v4.12.11](README.md) / PluginServiceBase
 
 # Interface: PluginServiceBase
 
@@ -22,7 +22,7 @@ add(plugin: PluginBaseComponent): void
 
 #### Defined in
 
-[src/types/plugin.types.ts:10](https://github.com/revolist/revogrid/blob/5b626b1ece93ea60f82047d059b8a2635455feb4/src/types/plugin.types.ts#L10)
+[src/types/plugin.types.ts:10](https://github.com/revolist/revogrid/blob/6f8df4eb606fcbd6f32b575f3753800c08ad78f6/src/types/plugin.types.ts#L10)
 
 ***
 
@@ -38,7 +38,7 @@ get(): PluginBaseComponent[]
 
 #### Defined in
 
-[src/types/plugin.types.ts:9](https://github.com/revolist/revogrid/blob/5b626b1ece93ea60f82047d059b8a2635455feb4/src/types/plugin.types.ts#L9)
+[src/types/plugin.types.ts:9](https://github.com/revolist/revogrid/blob/6f8df4eb606fcbd6f32b575f3753800c08ad78f6/src/types/plugin.types.ts#L9)
 
 ***
 
@@ -66,7 +66,7 @@ getByClass<T>(pluginClass: (...args: any[]) => T): undefined | T
 
 #### Defined in
 
-[src/types/plugin.types.ts:12](https://github.com/revolist/revogrid/blob/5b626b1ece93ea60f82047d059b8a2635455feb4/src/types/plugin.types.ts#L12)
+[src/types/plugin.types.ts:12](https://github.com/revolist/revogrid/blob/6f8df4eb606fcbd6f32b575f3753800c08ad78f6/src/types/plugin.types.ts#L12)
 
 ***
 
@@ -88,4 +88,4 @@ remove(plugin: PluginBaseComponent): void
 
 #### Defined in
 
-[src/types/plugin.types.ts:11](https://github.com/revolist/revogrid/blob/5b626b1ece93ea60f82047d059b8a2635455feb4/src/types/plugin.types.ts#L11)
+[src/types/plugin.types.ts:11](https://github.com/revolist/revogrid/blob/6f8df4eb606fcbd6f32b575f3753800c08ad78f6/src/types/plugin.types.ts#L11)

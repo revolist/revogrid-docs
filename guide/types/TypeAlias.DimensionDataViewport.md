@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.9](README.md) / DimensionDataViewport
+[RevoGrid Documentation v4.12.11](README.md) / DimensionDataViewport
 
 # Type Alias: DimensionDataViewport
 
@@ -14,4 +14,4 @@ type DimensionDataViewport: Pick<DimensionSettingsState,
 
 ## Defined in
 
-[src/store/vp/viewport.helpers.ts:12](https://github.com/revolist/revogrid/blob/5b626b1ece93ea60f82047d059b8a2635455feb4/src/store/vp/viewport.helpers.ts#L12)
+[src/store/vp/viewport.helpers.ts:12](https://github.com/revolist/revogrid/blob/6f8df4eb606fcbd6f32b575f3753800c08ad78f6/src/store/vp/viewport.helpers.ts#L12)

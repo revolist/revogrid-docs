@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.9](README.md) / ColumnSetEvent
+[RevoGrid Documentation v4.12.11](README.md) / ColumnSetEvent
 
 # Type Alias: ColumnSetEvent
 
@@ -12,8 +12,8 @@ type ColumnSetEvent: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `order` | [`SortingOrder`](TypeAlias.SortingOrder.md) | [src/plugins/sorting/sorting.types.ts:9](https://github.com/revolist/revogrid/blob/5b626b1ece93ea60f82047d059b8a2635455feb4/src/plugins/sorting/sorting.types.ts#L9) |
+| `order` | [`SortingOrder`](TypeAlias.SortingOrder.md) | [src/plugins/sorting/sorting.types.ts:9](https://github.com/revolist/revogrid/blob/6f8df4eb606fcbd6f32b575f3753800c08ad78f6/src/plugins/sorting/sorting.types.ts#L9) |
 
 ## Defined in
 
-[src/plugins/sorting/sorting.types.ts:8](https://github.com/revolist/revogrid/blob/5b626b1ece93ea60f82047d059b8a2635455feb4/src/plugins/sorting/sorting.types.ts#L8)
+[src/plugins/sorting/sorting.types.ts:8](https://github.com/revolist/revogrid/blob/6f8df4eb606fcbd6f32b575f3753800c08ad78f6/src/plugins/sorting/sorting.types.ts#L8)

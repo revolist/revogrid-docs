@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.9](README.md) / Formatter
+[RevoGrid Documentation v4.12.11](README.md) / Formatter
 
 # Interface: Formatter
 
@@ -6,7 +6,7 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `options` | [`FormatterOptions`](Interface.FormatterOptions.md) | [src/plugins/export/types.ts:17](https://github.com/revolist/revogrid/blob/5b626b1ece93ea60f82047d059b8a2635455feb4/src/plugins/export/types.ts#L17) |
+| `options` | [`FormatterOptions`](Interface.FormatterOptions.md) | [src/plugins/export/types.ts:17](https://github.com/revolist/revogrid/blob/6f8df4eb606fcbd6f32b575f3753800c08ad78f6/src/plugins/export/types.ts#L17) |
 
 ## Methods
 
@@ -28,4 +28,4 @@ doExport(data: DataInput): string
 
 #### Defined in
 
-[src/plugins/export/types.ts:18](https://github.com/revolist/revogrid/blob/5b626b1ece93ea60f82047d059b8a2635455feb4/src/plugins/export/types.ts#L18)
+[src/plugins/export/types.ts:18](https://github.com/revolist/revogrid/blob/6f8df4eb606fcbd6f32b575f3753800c08ad78f6/src/plugins/export/types.ts#L18)
