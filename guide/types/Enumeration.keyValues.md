@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.11](README.md) / keyValues
+[RevoGrid Documentation v4.12.12](README.md) / keyValues
 
 # Enumeration: keyValues
 
@@ -6,5 +6,5 @@
 
 | Enumeration Member | Value | Defined in |
 | ------ | ------ | ------ |
-| `ENTER` | `"Enter"` | [src/utils/key.codes.ts:72](https://github.com/revolist/revogrid/blob/6f8df4eb606fcbd6f32b575f3753800c08ad78f6/src/utils/key.codes.ts#L72) |
-| `TAB` | `"Tab"` | [src/utils/key.codes.ts:73](https://github.com/revolist/revogrid/blob/6f8df4eb606fcbd6f32b575f3753800c08ad78f6/src/utils/key.codes.ts#L73) |
+| `ENTER` | `"Enter"` | [src/utils/key.codes.ts:72](https://github.com/revolist/revogrid/blob/ecd92bead8bd3117a71a9fcab227f9b0f91c2edf/src/utils/key.codes.ts#L72) |
+| `TAB` | `"Tab"` | [src/utils/key.codes.ts:73](https://github.com/revolist/revogrid/blob/ecd92bead8bd3117a71a9fcab227f9b0f91c2edf/src/utils/key.codes.ts#L73) |

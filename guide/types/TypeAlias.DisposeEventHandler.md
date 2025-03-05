@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.11](README.md) / DisposeEventHandler
+[RevoGrid Documentation v4.12.12](README.md) / DisposeEventHandler
 
 # Type Alias: DisposeEventHandler()
 
@@ -12,4 +12,4 @@ type DisposeEventHandler: () => void;
 
 ## Defined in
 
-[src/utils/store.types.ts:10](https://github.com/revolist/revogrid/blob/6f8df4eb606fcbd6f32b575f3753800c08ad78f6/src/utils/store.types.ts#L10)
+[src/utils/store.types.ts:10](https://github.com/revolist/revogrid/blob/ecd92bead8bd3117a71a9fcab227f9b0f91c2edf/src/utils/store.types.ts#L10)

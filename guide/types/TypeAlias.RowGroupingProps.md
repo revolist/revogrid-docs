@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.11](README.md) / RowGroupingProps
+[RevoGrid Documentation v4.12.12](README.md) / RowGroupingProps
 
 # Type Alias: RowGroupingProps
 
@@ -8,4 +8,4 @@ type RowGroupingProps: GroupRowPros & PositionItem;
 
 ## Defined in
 
-[src/plugins/groupingRow/grouping.row.renderer.tsx:18](https://github.com/revolist/revogrid/blob/6f8df4eb606fcbd6f32b575f3753800c08ad78f6/src/plugins/groupingRow/grouping.row.renderer.tsx#L18)
+[src/plugins/groupingRow/grouping.row.renderer.tsx:18](https://github.com/revolist/revogrid/blob/ecd92bead8bd3117a71a9fcab227f9b0f91c2edf/src/plugins/groupingRow/grouping.row.renderer.tsx#L18)
