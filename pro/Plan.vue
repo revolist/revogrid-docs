@@ -15,11 +15,12 @@
             />
             <span class="plan-price-box" v-if="props.pricePeriod === 'month'">
                 <span
-                    ><span class="plan-price-value">{{ props.price }}$</span> /
+                    ><span class="plan-price-value"><span class="line-through">{{ props.price * 2 }}</span> {{ props.price }}$</span>
+                     /
                     month / dev</span
                 >
                 <span class="plan-price-period"
-                    >Billed annually at {{ props.price * 12 }}$ / dev</span
+                    >Billed annually at <span class="line-through">{{ props.price * 24 }}</span> {{ props.price * 12 }}$ / dev</span
                 >
             </span>
             <span class="plan-price-box" v-else>
@@ -109,6 +110,11 @@ const props = defineProps<PlanProps>()
     font-size: 1.5em;
     font-weight: bold;
     color: var(--vp-c-brand-dark);
+}
+
+.line-through {
+    text-decoration: line-through;
+    opacity: 0.5;
 }
 
 .plan-price-period {

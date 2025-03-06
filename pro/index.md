@@ -44,6 +44,10 @@ const isAnnual = ref(true)
 
 # Build next level apps as a Pro
 
+<span class="VPBadge danger">Early Bird Special Offer</span> Get **50%** off on all plans!  
+Early adopters get our premium features at half the regular price. Don't miss out on this special launch pricing - secure your discount today!
+
+
 </div>
 
 <div class="vp-card plans">

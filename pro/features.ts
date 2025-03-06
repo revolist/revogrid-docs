@@ -22,6 +22,13 @@ export const features = [
         actionText,
     },
     {
+        name: 'Auto Merge',
+        avatar: '/merge.svg',
+        desc: 'Automatically merges cells with identical values in a column. Hides duplicate values and borders while maintaining data integrity.',
+        sponsor: '/guide/cell/auto-merge',
+        actionText,
+    },
+    {
         avatar: '/row-transpose.svg',
         name: 'Row Transpose',
         desc: 'Modify the grid by transposing its data: columns become rows and vice versa.',

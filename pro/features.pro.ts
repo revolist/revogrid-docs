@@ -97,6 +97,12 @@ export const featuresPro = [
         videoUrl: '/video/merge.mp4',
     },
     {
+        title: 'Auto Merge',
+        thumbnail: '/merge.svg',
+        description: 'Automatically merges cells with identical values in a column. Hides duplicate values and borders while maintaining data integrity.',
+        videoUrl: '/video/auto-merge.mp4',
+    },
+    {
         title: 'Reference Data',
         thumbnail: '/reference-data.svg',
         description:
