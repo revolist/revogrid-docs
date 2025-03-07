@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.13.1](README.md) / ColSource
+[RevoGrid Documentation v4.13.2](README.md) / ColSource
 
 # Type Alias: ColSource
 
@@ -13,9 +13,9 @@ type ColSource: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `headers` | `string`[][] | [src/plugins/export/types.ts:4](https://github.com/revolist/revogrid/blob/4ebc7221c475d12b7f731e54908af9eefb855c73/src/plugins/export/types.ts#L4) |
-| `props` | `any`[] | [src/plugins/export/types.ts:5](https://github.com/revolist/revogrid/blob/4ebc7221c475d12b7f731e54908af9eefb855c73/src/plugins/export/types.ts#L5) |
+| `headers` | `string`[][] | [src/plugins/export/types.ts:4](https://github.com/revolist/revogrid/blob/4615a8613a8ac5464daeb17d7062361e3e3aa5d1/src/plugins/export/types.ts#L4) |
+| `props` | `any`[] | [src/plugins/export/types.ts:5](https://github.com/revolist/revogrid/blob/4615a8613a8ac5464daeb17d7062361e3e3aa5d1/src/plugins/export/types.ts#L5) |
 
 ## Defined in
 
-[src/plugins/export/types.ts:3](https://github.com/revolist/revogrid/blob/4ebc7221c475d12b7f731e54908af9eefb855c73/src/plugins/export/types.ts#L3)
+[src/plugins/export/types.ts:3](https://github.com/revolist/revogrid/blob/4615a8613a8ac5464daeb17d7062361e3e3aa5d1/src/plugins/export/types.ts#L3)

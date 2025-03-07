@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.13.1](README.md) / ThemeConfig
+[RevoGrid Documentation v4.13.2](README.md) / ThemeConfig
 
 # Type Alias: ThemeConfig
 
@@ -12,8 +12,8 @@ type ThemeConfig: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `rowSize` | `number` | [src/types/theme.ts:6](https://github.com/revolist/revogrid/blob/4ebc7221c475d12b7f731e54908af9eefb855c73/src/types/theme.ts#L6) |
+| `rowSize` | `number` | [src/types/theme.ts:6](https://github.com/revolist/revogrid/blob/4615a8613a8ac5464daeb17d7062361e3e3aa5d1/src/types/theme.ts#L6) |
 
 ## Defined in
 
-[src/types/theme.ts:5](https://github.com/revolist/revogrid/blob/4ebc7221c475d12b7f731e54908af9eefb855c73/src/types/theme.ts#L5)
+[src/types/theme.ts:5](https://github.com/revolist/revogrid/blob/4615a8613a8ac5464daeb17d7062361e3e3aa5d1/src/types/theme.ts#L5)
