@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.12.12](README.md) / EditorCtrCallable
+[RevoGrid Documentation v4.13.1](README.md) / EditorCtrCallable
 
 # Type Alias: EditorCtrCallable()
 
@@ -22,4 +22,4 @@ Editor component callable function
 
 ## Defined in
 
-[src/types/selection.ts:159](https://github.com/revolist/revogrid/blob/ecd92bead8bd3117a71a9fcab227f9b0f91c2edf/src/types/selection.ts#L159)
+[src/types/selection.ts:159](https://github.com/revolist/revogrid/blob/4ebc7221c475d12b7f731e54908af9eefb855c73/src/types/selection.ts#L159)
