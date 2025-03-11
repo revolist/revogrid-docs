@@ -71,6 +71,13 @@ export const featuresPro = [
         videoUrl: '/video/pagination.mp4',
     },
     {
+        title: 'Infinite Scroll',
+        thumbnail: '/pagination.svg',
+        description:
+            'Load large datasets with dynamic server-side data loading as users scroll. Maintaining optimal performance through intelligent data chunking and cleanup. Choose between total-based or dynamic scrolling patterns to best fit your use case.',
+        videoUrl: '/video/infinite-scroll.mp4',
+    },
+    {
         title: 'Formula',
         thumbnail: '/formula.svg',
         videoUrl: '/video/formula.mp4',
@@ -196,8 +203,8 @@ export const featuresPro = [
         title: 'Context Menu',
         thumbnail: '/menu.svg',
         description:
-            'Customize context menu options. Add custom actions to the grid.',
-        videoUrl: '/video/row-heading.mp4',
+            'Build context menus for any grid element - from cells to headers. Cut, copy, paste, add rows, modify columns, and more. Fully customizable with your own actions and behaviors.',
+        videoUrl: '/video/row-context.mp4',
     },
     {
         title: 'Excel Export',
@@ -262,11 +269,12 @@ export const featuresPro = [
         title: 'Row Editing',
         thumbnail: '/row-editing.svg',
         description: 'Edit entire row in the grid with a simple API. Use when you need to edit multiple columns in a single row at once.',
+        videoUrl: '/video/row-editing.mp4',
     },
     {
         title: 'Cell Checkbox Editors',
         thumbnail: '/row-selection.svg',
         description: 'Special cell type that combines editor and renderer into a single checkbox component.',
-    },
-    
+        videoUrl: '/video/checkbox-editor.mp4',
+    },  
 ]
