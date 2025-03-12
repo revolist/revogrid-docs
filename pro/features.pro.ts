@@ -29,6 +29,13 @@ export const featuresPro = [
             'Automatically populating cells with a series, pattern based on the initial input. Perfect for repetitive tasks, saving users time.',
     },
     {
+        title: 'Row Auto Size',
+        thumbnail: '/row-autosize.svg',
+        videoUrl: '/video/row-autosize.mp4',
+        description:
+            'Automatically adjust row heights based on cell content. This advanced feature dynamically sizes rows to perfectly fit multi-line text, rich content, and complex cell renders, ensuring optimal content visibility without manual resizing.',
+    },
+    {
         title: 'Dynamic Cell Formats',
         thumbnail: '/renders.svg',
         videoUrl: '/video/renders.mp4',
