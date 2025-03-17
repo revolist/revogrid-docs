@@ -54,9 +54,57 @@ class TextEditor {
     render(createComponent: HyperFunc<VNode>) {
         return createComponent('input');
     }
+
+    /**
+     * Optional method to get the current value from the editor
+     * Called during auto-save process
+     */
+    getValue() {
+        // Return the current value from your editor
+        return this.element?.value;
+    }
+
+    /**
+     * Optional method called before auto-save is performed
+     * Return false to prevent the auto-save
+     * @param value The current value to be saved
+     */
+    beforeAutoSave(value: any): boolean {
+        // Return false to prevent save, true to allow
+        return true;
+    }
+
+    /**
+     * Optional method called before the editor is disconnected
+     * Use this to cleanup any resources
+     */
+    beforeDisconnect() {
+        // Cleanup any resources before editor is destroyed
+    }
 }
 ```
 
+## Editor Lifecycle and Save Behavior
+
+The editor component includes several important methods for handling save operations and lifecycle events:
+
+### Auto-Save Process
+
+When auto-save is triggered (either through `saveOnClose` or programmatically):
+
+1. The editor calls `getValue()` to retrieve the current value
+2. If `beforeAutoSave()` is defined, it's called with the value:
+   - Return `false` to prevent the save
+   - Return `true` (or undefined) to allow the save
+3. If save is allowed, the value is saved and the editor closes
+
+### Save Options
+
+You can control save behavior through:
+
+- `saveOnClose` property - When true, editor attempts to save on close
+- Manual save - Call save callback directly from your editor
+- Cancel changes - Prevent save on close by calling `cancelChanges()`
 
 ## Use editor in the grid
 ```js
