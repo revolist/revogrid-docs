@@ -279,6 +279,12 @@ export const featuresPro = [
         videoUrl: '/video/row-editing.mp4',
     },
     {
+        title: 'Nested Grid',
+        thumbnail: '/overlay.svg',
+        description: 'Build a grid inside a grid, showcasing advanced editing options and user interactions for a more dynamic data presentation.',
+        videoUrl: '/video/nested-grid.mp4',
+    },
+    {
         title: 'Cell Checkbox Editors',
         thumbnail: '/row-selection.svg',
         description: 'Special cell type that combines editor and renderer into a single checkbox component.',
