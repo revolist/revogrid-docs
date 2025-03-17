@@ -279,6 +279,12 @@ export const featuresPro = [
         videoUrl: '/video/row-editing.mp4',
     },
     {
+        title: 'Row Form Editing',
+        thumbnail: '/row-editing.svg',
+        description: 'Edit a row by clicking on it, which opens a form at the bottom with all desired fields, including custom fields and markdown support for enhanced data entry.',
+        videoUrl: '/video/row-form.mp4',
+    },
+    {
         title: 'Nested Grid',
         thumbnail: '/overlay.svg',
         description: 'Build a grid inside a grid, showcasing advanced editing options and user interactions for a more dynamic data presentation.',
