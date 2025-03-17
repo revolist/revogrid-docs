@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.13.3](README.md) / RevogridEvents
+[RevoGrid Documentation v4.13.4](README.md) / RevogridEvents
 
 # Type Alias: RevogridEvents
 
@@ -70,6 +70,7 @@ type RevogridEvents:
   | "beforeheaderresize"
   | "headerdblclick"
   | "beforeheaderrender"
+  | "beforegroupheaderrender"
   | "afterheaderrender"
   | "rowdragstartinit"
   | "rowdragendinit"
@@ -114,4 +115,4 @@ type RevogridEvents:
 
 ## Defined in
 
-[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/827fce61250cb005ab132b3ed11b8ae836712e7b/src/types/events.ts#L2)
+[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/325e86c31155d90566dec588c08b121b0ae7657a/src/types/events.ts#L2)

@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.13.3](README.md) / DimensionIndexInput
+[RevoGrid Documentation v4.13.4](README.md) / DimensionIndexInput
 
 # Type Alias: DimensionIndexInput
 
@@ -8,4 +8,4 @@ type DimensionIndexInput: Pick<DimensionSettingsState, "indexes" | "originItemSi
 
 ## Defined in
 
-[src/store/dimension/dimension.helpers.ts:13](https://github.com/revolist/revogrid/blob/827fce61250cb005ab132b3ed11b8ae836712e7b/src/store/dimension/dimension.helpers.ts#L13)
+[src/store/dimension/dimension.helpers.ts:13](https://github.com/revolist/revogrid/blob/325e86c31155d90566dec588c08b121b0ae7657a/src/store/dimension/dimension.helpers.ts#L13)
