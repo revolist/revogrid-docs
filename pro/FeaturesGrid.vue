@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import VPImage from '../.vitepress/theme/VPImage.vue'
 
 // Define the interface for a feature card
@@ -9,9 +9,10 @@ interface Feature {
     videoUrl: string
     thumbnail: string
     fullWidth?: boolean
+    group?: string
 }
 
-defineProps<{
+const props = defineProps<{
     features: Feature[]
 }>()
 
@@ -27,47 +28,65 @@ const toggleFlip = (id: string) => {
         flippedCardId.value = id
     }
 }
+
+// Group features by their group field
+const groupedFeatures = computed(() => {
+    const groups = props.features.reduce((acc: Record<string, Feature[]>, feature: Feature) => {
+        const group = feature.group || 'Other'
+        if (!acc[group]) {
+            acc[group] = []
+        }
+        acc[group].push(feature)
+        return acc
+    }, {})
+    return groups
+})
 </script>
 
 <template>
-    <div class="features-grid">
-        <div
-            v-for="feature in features"
-            :key="feature.title"
-            class="feature-card"
-            :class="{
-                flipped: flippedCardId === feature.title,
-                disabled: !feature.videoUrl,
-                ['fill']: feature.fullWidth,
-            }"
-            :id="feature.title.replace(' ', '-')"
-            @click="feature.videoUrl && toggleFlip(feature.title)"
-        >
-            <div class="card-inner">
-                <div class="card-front">
-                    <figure>
-                        <img
-                            :src="feature.thumbnail"
-                            :alt="feature.title"
-                            class="thumbnail"
-                        />
-                    </figure>
-                    <h3 class="title">{{ feature.title }}</h3>
-                    <p class="description" v-html="feature.description"/>
+    <div class="features-container">
+        <div v-for="(groupFeatures, groupName) in groupedFeatures" :key="groupName" class="feature-group">
+            <h2 v-if="groupName !== 'Other'" class="group-title">{{ groupName }}</h2>
+            <div class="features-grid">
+                <div
+                    v-for="feature in groupFeatures"
+                    :key="feature.title"
+                    class="feature-card"
+                    :class="{
+                        flipped: flippedCardId === feature.title,
+                        disabled: !feature.videoUrl,
+                        ['fill']: feature.fullWidth,
+                    }"
+                    :id="feature.title.replace(' ', '-')"
+                    @click="feature.videoUrl && toggleFlip(feature.title)"
+                >
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <figure>
+                                <img
+                                    :src="feature.thumbnail"
+                                    :alt="feature.title"
+                                    class="thumbnail"
+                                />
+                            </figure>
+                            <h3 class="title">{{ feature.title }}</h3>
+                            <p class="description" v-html="feature.description"/>
+                        </div>
+                        <div v-if="feature.videoUrl" class="card-back">
+                            <video
+                                class="video"
+                                :src="feature.videoUrl"
+                                loop
+                                muted
+                                playsinline
+                                autoplay
+                            ></video>
+                        </div>
+                        <span class="plus-icon" v-if="feature.videoUrl"
+                            ><VPImage :image="'plus.svg'"
+                        /></span>
+                    </div>
                 </div>
-                <div v-if="feature.videoUrl" class="card-back">
-                    <video
-                        class="video"
-                        :src="feature.videoUrl"
-                        loop
-                        muted
-                        playsinline
-                        autoplay
-                    ></video>
-                </div>
-                <span class="plus-icon" v-if="feature.videoUrl"
-                    ><VPImage :image="'plus.svg'"
-                /></span>
             </div>
         </div>
     </div>
@@ -219,5 +238,24 @@ figure {
         max-height: 60%;
         border-radius: 0;
     }
+}
+
+.features-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.feature-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.group-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--vp-c-text-1);
+    margin-bottom: 0.5rem;
 }
 </style>
