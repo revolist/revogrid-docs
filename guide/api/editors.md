@@ -21,10 +21,10 @@ and managing the lifecycle of the editor instance.
 
 ## Events
 
-| Event       | Description                                         | Type                                                                                                                                   |
-| ----------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `celledit`  | Cell edit event                                     | `CustomEvent<{ rgRow: number; rgCol: number; type: DimensionRows; prop: ColumnProp; val: any; preventFocus?: boolean \| undefined; }>` |
-| `closeedit` | Close editor event pass true if requires focus next | `CustomEvent<boolean \| undefined>`                                                                                                    |
+| Event          | Description                                                  | Type                                                                                                                                   |
+| -------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `celleditinit` | Cell edit event initiator, first in the cellEdit event chain | `CustomEvent<{ rgRow: number; rgCol: number; type: DimensionRows; prop: ColumnProp; val: any; preventFocus?: boolean \| undefined; }>` |
+| `closeedit`    | Close editor event pass true if requires focus next          | `CustomEvent<boolean \| undefined>`                                                                                                    |
 
 
 ## Methods

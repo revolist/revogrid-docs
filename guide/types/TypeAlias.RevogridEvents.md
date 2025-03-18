@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.13.5](README.md) / RevogridEvents
+[RevoGrid Documentation v4.14.0](README.md) / RevogridEvents
 
 # Type Alias: RevogridEvents
 
@@ -58,7 +58,7 @@ type RevogridEvents:
   | "beforecellrender"
   | "beforedatarender"
   | "dragstartcell"
-  | "celledit"
+  | "celleditinit"
   | "closeedit"
   | "filterChange"
   | "resetChange"
@@ -103,6 +103,7 @@ type RevogridEvents:
   | "beforekeydown"
   | "beforekeyup"
   | "beforecellsave"
+  | "celledit"
   | "scrollview"
   | "ref"
   | "scrollvirtual"
@@ -115,4 +116,4 @@ type RevogridEvents:
 
 ## Defined in
 
-[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/f32590b4b251a55e7610f26e48cd67947bdd6441/src/types/events.ts#L2)
+[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/2b1eda543a592a83efe8431f6a1b419eb9a6f193/src/types/events.ts#L2)
