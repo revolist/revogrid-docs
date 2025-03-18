@@ -60,7 +60,7 @@ aside: false
 | beforecellrender | `BeforeCellRenderEvent<CellTemplateProp>` | revogr-data | Before each cell render function. Allows to override cell properties |
 | beforedatarender | `AllDimensionType` | revogr-data | Before data render |
 | dragstartcell | `DragStartEvent` | revogr-data | Event emitted on cell drag start |
-| celledit | `{ rgRow: number; rgCol: number; type: DimensionRows; prop: ColumnProp; val: any; preventFocus?: boolean \| undefined; }` | revogr-edit | Cell edit event |
+| celleditinit | `{ rgRow: number; rgCol: number; type: DimensionRows; prop: ColumnProp; val: any; preventFocus?: boolean \| undefined; }` | revogr-edit | Cell edit event initiator, first in the cellEdit event chain |
 | closeedit | `boolean \| undefined` | revogr-edit | Close editor event pass true if requires focus next |
 | filterChange | `MultiFilterItem` | revogr-filter-panel |  |
 | resetChange | `number \| string` | revogr-filter-panel |  |
@@ -105,6 +105,7 @@ aside: false
 | beforekeydown | `{ original: KeyboardEvent; } & EventData` | revogr-overlay-selection | Before key up event proxy, used to prevent key up trigger. If you have some custom behaviour event, use this event to check if it wasn't processed by internal logic. Call preventDefault(). |
 | beforekeyup | `{ original: KeyboardEvent; } & EventData` | revogr-overlay-selection | Before key down event proxy, used to prevent key down trigger. If you have some custom behaviour event, use this event to check if it wasn't processed by internal logic. Call preventDefault(). |
 | beforecellsave | `any` | revogr-overlay-selection | Runs before cell save. Can be used to override or cancel original save. |
+| celledit | `{ rgRow: number; rgCol: number; type: DimensionRows; prop: ColumnProp; val: any; preventFocus?: boolean \| undefined; }` | revogr-overlay-selection | Runs when edit finished save started, first in chain event |
 | scrollview | `{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }` | revogr-row-headers | Scroll viewport |
 | ref | `ElementScroll` | revogr-row-headers | Register element to scroll |
 | scrollvirtual | `{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }` | revogr-scroll-virtual | Scroll event |

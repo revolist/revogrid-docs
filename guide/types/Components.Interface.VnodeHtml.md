@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.13.3](README.md) / [Components](Namespace.Components.md) / VnodeHtml
+[RevoGrid Documentation v4.14.0](README.md) / [Components](Namespace.Components.md) / VnodeHtml
 
 # Interface: VnodeHtml
 
@@ -6,4 +6,4 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `redraw` | `undefined` \| `null` \| () => [`VNode`](Interface.VNode.md)[] | [src/components.d.ts:732](https://github.com/revolist/revogrid/blob/827fce61250cb005ab132b3ed11b8ae836712e7b/src/components.d.ts#L732) |
+| `redraw` | `undefined` \| `null` \| () => [`VNode`](Interface.VNode.md)[] | [src/components.d.ts:734](https://github.com/revolist/revogrid/blob/2b1eda543a592a83efe8431f6a1b419eb9a6f193/src/components.d.ts#L734) |
