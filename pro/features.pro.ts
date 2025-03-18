@@ -179,6 +179,13 @@ export const featuresPro = [
         videoUrl: '/video/row-selection.mp4',
     },
     {
+        title: 'Column Collapse & Expand (Drill Down)',
+        thumbnail: '/column-selection.svg',
+        description:
+            'Collapse/expand grouped columns, trimm away unnecessary data. Perfect for focusing on the information that matters most, while keeping your workspace clean and efficient.',
+        videoUrl: '/video/column-collapse.mp4',
+    },
+    {
         title: 'Column Stretch',
         thumbnail: '/column-stretch.svg',
         description:
@@ -279,9 +286,9 @@ export const featuresPro = [
         videoUrl: '/video/row-editing.mp4',
     },
     {
-        title: 'Row Form Editing',
+        title: 'Dynamic Form Editing',
         thumbnail: '/row-editing.svg',
-        description: 'Edit a row by clicking on it, which opens a form at the bottom with all desired fields, including custom fields and markdown support for enhanced data entry.',
+        description: 'Form editing directly within the grid, featuring all necessary fields, including custom options and markdown support for a fast and enhanced data entry experience.',
         videoUrl: '/video/row-form.mp4',
     },
     {
