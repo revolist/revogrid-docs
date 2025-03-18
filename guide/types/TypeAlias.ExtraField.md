@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.13.4](README.md) / ExtraField
+[RevoGrid Documentation v4.13.5](README.md) / ExtraField
 
 # Type Alias: ExtraField
 
@@ -8,4 +8,4 @@ type ExtraField: "input" | "select" | "multi" | "datepicker";
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:20](https://github.com/revolist/revogrid/blob/325e86c31155d90566dec588c08b121b0ae7657a/src/plugins/filter/filter.types.ts#L20)
+[src/plugins/filter/filter.types.ts:20](https://github.com/revolist/revogrid/blob/f32590b4b251a55e7610f26e48cd67947bdd6441/src/plugins/filter/filter.types.ts#L20)
