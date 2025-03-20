@@ -27,7 +27,7 @@ aside: false
 | afteranysource | `{ type: DimensionRows; source: DataType[]; }` | revo-grid | Emitted after each source update, whether from the pinned or main viewport. Useful for tracking all changes originating from sources in both the pinned and main viewports. |
 | beforecolumnsset | `{ columns: Record<DimensionCols, ColumnRegular[]>; columnByProp: Record<ColumnProp, ColumnRegular[]>; columnGrouping: ColumnGroupingCollection; maxLevel: number; sort: Record<ColumnProp, ColumnRegular>; }` | revo-grid | Emitted before a column update is applied. Listeners can use this event to perform any necessary actions or modifications before the column update is finalized. |
 | beforecolumnapplied | `{ columns: Record<DimensionCols, ColumnRegular[]>; columnByProp: Record<ColumnProp, ColumnRegular[]>; columnGrouping: ColumnGroupingCollection; maxLevel: number; sort: Record<ColumnProp, ColumnRegular>; }` | revo-grid | Emitted before a column update is applied, after the column set is gathered and the viewport is updated. Useful for performing actions or modifications before the final application of the column update. |
-| aftercolumnsset | `{ columns: ColumnCollection; order: Record<ColumnProp, "desc" \| "asc" \| undefined>; }` | revo-grid | Column updated |
+| aftercolumnsset | `{ columns: ColumnCollection; order: SortingOrder; }` | revo-grid | Column updated |
 | beforefilterapply | `{ collection: Record<ColumnProp, FilterCollectionItem>; }` | revo-grid | Emitted before applying a filter to the data source. Use e.preventDefault() to prevent cell focus change. Modify if you need to change filters. |
 | beforefiltertrimmed | `{ collection: Record<ColumnProp, FilterCollectionItem>; itemsToFilter: Record<number, boolean>; }` | revo-grid | Emitted before applying a filter to the data source. Use e.preventDefault() to prevent the default behavior of trimming values and applying the filter. Modify the `collection` property if you want to change the filters. Modify the `itemsToFilter` property if you want to filter the indexes for trimming. |
 | beforetrimmed | `{ trimmed: Record<number, boolean>; trimmedType: string; type: string; }` | revo-grid | Emitted before trimming values. Use e.preventDefault() to prevent the default behavior of trimming values. Modify the `trimmed` property if you want to filter the indexes for trimming. |
@@ -38,7 +38,7 @@ aside: false
 | aftercolumnresize | `{ [index: number]: ColumnRegular; }` | revo-grid | Emitted after column resizing. Useful for retrieving the resized columns. |
 | beforerowdefinition | `{ vals: any; oldVals: any; }` | revo-grid | Emitted before the row definition is applied. Useful for modifying or preventing the default row definition behavior. |
 | filterconfigchanged | `any` | revo-grid | Emitted when the filter configuration is changed |
-| sortingconfigchanged | `{ columns?: { prop: ColumnProp; order: Order; cellCompare?: CellCompareFunc \| undefined; }[] \| undefined; }` | revo-grid | Emitted when the sorting configuration is changed |
+| sortingconfigchanged | `{ columns?: { prop: ColumnProp; order: Order; cellCompare?: CellCompareFunc \| undefined; }[] \| undefined; additive?: boolean \| undefined; }` | revo-grid | Emitted when the sorting configuration is changed |
 | rowheaderschanged | `any` | revo-grid | Emmited when the row headers are changed. |
 | beforegridrender | `any` | revo-grid | Emmited before the grid is rendered. |
 | aftergridrender | `any` | revo-grid | Emmited after the grid is rendered. |
