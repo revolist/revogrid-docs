@@ -73,12 +73,7 @@
                                 class="feature-card"
                                 :id="feature.name.replace(' ', '-')"
                             >
-                                <!-- <template v-if="feature.link">
-                                    <a :href="feature.link" target="_blank">{{ feature.name }}</a>
-                                </template>
-                                <template v-else> -->
                                 {{ feature.name }}
-                                <!-- </template> -->
 
                                 <button
                                     class="video-preview"
@@ -102,6 +97,10 @@
                             </td>
                         </tr>
                     </template>
+                    <!-- Add separator row after group -->
+                    <tr class="separator-row">
+                        <td v-for="(_, index) in [0, ...plans]" :key="index"></td>
+                    </tr>
                 </template>
             </tbody>
         </table>
@@ -195,6 +194,20 @@ const openPreview = (video: string) => {
     border: none;
     display: table;
 
+    .separator-row {
+        height: 20px;
+        border: none;
+        box-shadow: 0 2px 1px rgba(0, 0, 0, 0.02) inset, 0 5px 1px rgba(0, 0, 0, 0.01) inset,
+            0 1px 0 rgba(0, 0, 0, 0.02) inset;
+        td {
+            border: none;
+            background: transparent !important;
+        }
+        &:hover {
+            background-color: transparent !important;
+        }
+    }
+
     a {
         text-decoration: none;
     }
@@ -207,7 +220,7 @@ const openPreview = (video: string) => {
             border: 0;
 
             th {
-                border-top-color: transparent;
+                border-color: transparent;
             }
         }
     }
@@ -285,7 +298,6 @@ const openPreview = (video: string) => {
             &:last-child {
                 border-radius: 0 8px 8px 0;
             }
-            box-shadow: 0 0 0 1px var(--vp-c-gray-3) inset;
             border: 0;
 
             &:nth-of-type(3) {

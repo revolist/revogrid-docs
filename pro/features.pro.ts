@@ -347,3 +347,20 @@ export const featuresPro = [
         videoUrl: '/video/checkbox-editor.mp4',
     },  
 ]
+export const proWhy = [
+    {
+        avatar: '/flash-circle.svg',
+        name: 'Accelerate Time-to-Market',
+        desc: 'Leverage our comprehensive toolset to rapidly implement complex functionality.',
+    },
+    {
+        avatar: '/flash-circle.svg',
+        name: 'Pro-Level Plugins for Extensibility',
+        desc: 'Real-world examples that demonstrate how to implement complex features effectively.',
+    },
+    {
+        avatar: '/flash-circle.svg',
+        name: 'Gain Insights and Support',
+        desc: 'Benefit from access to exclusive expert support that helps you troubleshoot complex issues quickly.',
+    },
+]

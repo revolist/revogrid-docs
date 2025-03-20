@@ -25,8 +25,8 @@ import type { DefaultTheme } from 'vitepress/theme'
 import { VPButton } from 'vitepress/theme'
 import VPTeamMembers from 'vitepress/dist/client/theme-default/components/VPTeamMembers.vue'
 
-import { features, proWhy } from './features'
-import { featuresPro } from './features.pro'
+
+import { featuresPro, proWhy } from './features.pro'
 import FeaturesGrid from './FeaturesGrid.vue'
 
 import { ElSwitch, ElTooltip } from 'element-plus'
