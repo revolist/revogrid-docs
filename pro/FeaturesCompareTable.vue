@@ -56,7 +56,7 @@
                                 >▼</span
                             >
                             <span class="expand-icon" v-else>▶</span>
-                            {{ group.name }}
+                            <h5>{{ group.name }}</h5>
                         </td>
                         <td v-for="plan in plans"></td>
                     </tr>
@@ -94,6 +94,7 @@
                                     v-if="feature.supported.includes(plan.name)"
                                     :image="{ src: 'check.svg' }"
                                 />
+                                <span v-else>-</span>
                             </td>
                         </tr>
                     </template>
@@ -280,7 +281,8 @@ const openPreview = (video: string) => {
     }
 
     .expand-icon {
-        font-size: 11px;
+        font-size: 10px;
+        opacity: 0.8;
     }
 
     .group-header {
@@ -290,13 +292,22 @@ const openPreview = (video: string) => {
         color: var(--vp-c-text-1);
         border: 1px solid transparent;
 
+        h5 {
+            font-size: inherit;
+            font-weight: inherit;
+            margin: 0;
+            padding: 0;
+            padding-left: 5px;
+            display: inline-block;
+        }
+
         > td {
             background-color: var(--vp-c-bg-alt);
             &:first-child {
-                border-radius: 8px 0 0 8px;
+                border-radius: 8px 0 0 0;
             }
             &:last-child {
-                border-radius: 0 8px 8px 0;
+                border-radius: 0 8px 0 0;
             }
             border: 0;
 

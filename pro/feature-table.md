@@ -22,6 +22,9 @@ import { featuresPro } from './features.pro'
 let showForm = ref(false) // isVisible
 const plans = [
   {
+    name: 'Basic',
+  },
+  {
     name: 'Pro Lite',
     price: PRICES.light.month,
     pricePeriod: 'month',
@@ -81,48 +84,44 @@ if (dataVisualizationGroup) {
 
 // Add basic column features
 features.push({
-  name: 'Basic Features',
+  name: 'Core Features',
   expanded: true,
   features: [
-
     // Add basic cell formats
-
-    { name: 'Basic Cell Formats', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-    
-    { name: 'Text Format', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/types#String' },
-    { name: 'Number Format', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/types#Number' },
-    { name: 'Date Format', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/types#Date' },
-    { name: 'Selection Format', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/types#Select-Dropdown' },
+    { name: 'Basic Cell Formats', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
+    { name: 'Text Format', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/types#String' },
+    { name: 'Number Format', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/types#Number' },
+    { name: 'Date Format', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/types#Date' },
+    { name: 'Selection Format', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/types#Select-Dropdown' },
 
     // Column features
-    { name: 'Column Features', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-    { name: 'Last Column Stretch', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/stretch' },
-    { name: 'Column Groups', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/grouping' },
-    { name: 'Column Resizing', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/resize' },
-    { name: 'Column Autosizing', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/autosize' },
-    { name: 'Column Ordering', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/order' },
-    { name: 'Column Pinning', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/pin' },
-
+    { name: 'Column Features', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
+    { name: 'Last Column Stretch', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/stretch' },
+    { name: 'Column Groups', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/grouping' },
+    { name: 'Column Resizing', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/resize' },
+    { name: 'Column Autosizing', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/autosize' },
+    { name: 'Column Ordering', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/order' },
+    { name: 'Column Pinning', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/pin' },
 
     // Add selection features
-    { name: 'Selection Features', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-    { name: 'Cell Range Selection', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2 },
-    { name: 'Fill Handle', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2 },
+    { name: 'Selection Features', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
+    { name: 'Cell Range Selection', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2 },
+    { name: 'Fill Handle', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2 },
 
-// Add core features
-    { name: 'Core Features', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1 },
-     { name: 'Column Virtualization', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/viewports' },
-    { name: 'Row Virtualization', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/viewports' },
-     { name: 'Keyboard Support', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/defs#Keyboard' },
-    { name: 'Intelligent Virtual DOM', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/overview#VNode-Reactive-DOM' },
-    { name: 'Basic Sorting', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/sorting' },
-    { name: 'Theme Support', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/theme' },
-    { name: 'Plugin System', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/plugin/' },
-    { name: 'Trimmed Rows', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/row/#Trimmed-Rows' },
-    { name: 'Custom Header Templates', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/header.template' },
-    { name: 'Custom Cell Properties', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/cell/' },
-    { name: 'Accessibility', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2 },
-    { name: 'Localization', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2 },
+    // Add core features
+    { name: 'Core Features', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
+    { name: 'Column Virtualization', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/viewports' },
+    { name: 'Row Virtualization', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/viewports' },
+    { name: 'Keyboard Support', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/defs#Keyboard' },
+    { name: 'Intelligent Virtual DOM', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/overview#VNode-Reactive-DOM' },
+    { name: 'Basic Sorting', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/sorting' },
+    { name: 'Theme Support', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/theme' },
+    { name: 'Plugin System', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/plugin/' },
+    { name: 'Trimmed Rows', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/row/#Trimmed-Rows' },
+    { name: 'Custom Header Templates', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/header.template' },
+    { name: 'Custom Cell Properties', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/cell/' },
+    { name: 'Accessibility', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2 },
+    { name: 'Localization', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2 },
   ]
 });
 
