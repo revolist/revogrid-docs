@@ -14,9 +14,9 @@ aside: false
 | beforerange | `{ type: DimensionRows; colType: DimensionCols; newRange: RangeArea; oldRange: RangeArea; mapping: OldNewRangeMapping; newData: { [newRowIndex: number]: DataType; }; }` | revo-grid | Before autofill is applied. Runs before beforeautofill event. Use e.preventDefault() to prevent range. |
 | afterfocus | `FocusAfterRenderEvent` | revo-grid | After focus render finished. Can be used to access a focus element through `event.target`. This is just a duplicate of `afterfocus` from `revogr-focus.tsx`. |
 | roworderchanged | `{ from: number; to: number; }` | revo-grid | Before the order of `rgRow` is applied. To prevent the default behavior of changing the order of `rgRow`, you can call `e.preventDefault()`. |
-| beforesorting | `{ column: ColumnRegular; order: "desc" \| "asc"; additive: boolean; }` | revo-grid | By `sorting.plugin.ts` <br>Triggered immediately after header click. <br>First in sorting event sequence. Ff this event stops no other event called. <br>Use `e.preventDefault()` to prevent sorting. |
-| beforesourcesortingapply | `{ type: DimensionRows; sorting?: SortingOrder \| undefined; }` | revo-grid | By `sorting.plugin.ts` <br>Same as `beforesorting` but triggered after `beforeanysource` (when source is changed). <br>Use `e.preventDefault()` to prevent sorting data change. |
-| beforesortingapply | `{ column: ColumnRegular; order: "desc" \| "asc"; additive: boolean; }` | revo-grid | By `sorting.plugin.ts` <br> After `beforesorting` <br>Triggered after column data updated with new sorting order. <br>Use `e.preventDefault()` to prevent sorting data change. |
+| beforesorting | `{ column: ColumnRegular; order: "asc" \| "desc"; additive: boolean; }` | revo-grid | By `SortingPlugin` <br>Triggered immediately after header click. <br>First in sorting event sequence. Ff this event stops no other event called. <br>Use `e.preventDefault()` to prevent sorting. |
+| beforesourcesortingapply | `{ type: DimensionRows; sorting?: SortingOrder \| undefined; }` | revo-grid | By `SortingPlugin` <br>Same as `beforesorting` but triggered after `beforeanysource` (when source is changed). <br>Use `e.preventDefault()` to prevent sorting data change. |
+| beforesortingapply | `{ column: ColumnRegular; order: "asc" \| "desc"; additive: boolean; }` | revo-grid | By `SortingPlugin` <br> After `beforesorting` <br>Triggered after column data updated with new sorting order. <br>Use `e.preventDefault()` to prevent sorting data change. |
 | rowdragstart | `{ cell: Cell; text: string; pos: PositionItem; event: MouseEvent; rowType: DimensionRows; model: any; }` | revo-grid | This event is triggered when the row order change is started. To prevent the default behavior of changing the row order, you can call `e.preventDefault()`. To change the item name at the start of the row order change, you can set `e.text` to the desired new name. |
 | headerclick | `ColumnRegular` | revo-grid | On header click. |
 | beforecellfocus | `BeforeSaveDataDetails` | revo-grid | Before the cell focus is changed. To prevent the default behavior of changing the cell focus, you can call `e.preventDefault()`. |
@@ -38,7 +38,7 @@ aside: false
 | aftercolumnresize | `{ [index: number]: ColumnRegular; }` | revo-grid | Emitted after column resizing. Useful for retrieving the resized columns. |
 | beforerowdefinition | `{ vals: any; oldVals: any; }` | revo-grid | Emitted before the row definition is applied. Useful for modifying or preventing the default row definition behavior. |
 | filterconfigchanged | `any` | revo-grid | Emitted when the filter configuration is changed |
-| sortingconfigchanged | `{ columns?: { prop: ColumnProp; order: Order; cellCompare?: CellCompareFunc \| undefined; }[] \| undefined; additive?: boolean \| undefined; }` | revo-grid | Emitted when the sorting configuration is changed |
+| sortingconfigchanged | `{ columns?: { prop: ColumnProp; order: Order; cellCompare?: CellCompareFunc \| undefined; }[] \| undefined; additive?: boolean \| undefined; }` | revo-grid | Emitted when the sorting configuration is changed SortingPlugin subsribed to this event |
 | rowheaderschanged | `any` | revo-grid | Emmited when the row headers are changed. |
 | beforegridrender | `any` | revo-grid | Emmited before the grid is rendered. |
 | aftergridrender | `any` | revo-grid | Emmited after the grid is rendered. |
