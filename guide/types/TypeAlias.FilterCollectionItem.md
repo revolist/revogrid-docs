@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.14.2](README.md) / FilterCollectionItem
+[RevoGrid Documentation v4.14.3](README.md) / FilterCollectionItem
 
 # Type Alias: FilterCollectionItem
 
@@ -13,9 +13,9 @@ type FilterCollectionItem: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `type` | [`FilterType`](TypeAlias.FilterType.md) | [src/plugins/filter/filter.types.ts:108](https://github.com/revolist/revogrid/blob/29f379095274a66a187c28b49fe0e1fb4170d3ea/src/plugins/filter/filter.types.ts#L108) |
-| `value` | `any` | [src/plugins/filter/filter.types.ts:109](https://github.com/revolist/revogrid/blob/29f379095274a66a187c28b49fe0e1fb4170d3ea/src/plugins/filter/filter.types.ts#L109) |
+| `type` | [`FilterType`](TypeAlias.FilterType.md) | [src/plugins/filter/filter.types.ts:108](https://github.com/revolist/revogrid/blob/4d3feb8340f534dd1ff6941b4d5b83d4d4e2474c/src/plugins/filter/filter.types.ts#L108) |
+| `value` | `any` | [src/plugins/filter/filter.types.ts:109](https://github.com/revolist/revogrid/blob/4d3feb8340f534dd1ff6941b4d5b83d4d4e2474c/src/plugins/filter/filter.types.ts#L109) |
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:107](https://github.com/revolist/revogrid/blob/29f379095274a66a187c28b49fe0e1fb4170d3ea/src/plugins/filter/filter.types.ts#L107)
+[src/plugins/filter/filter.types.ts:107](https://github.com/revolist/revogrid/blob/4d3feb8340f534dd1ff6941b4d5b83d4d4e2474c/src/plugins/filter/filter.types.ts#L107)

@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.14.2](README.md) / GDataType
+[RevoGrid Documentation v4.14.3](README.md) / GDataType
 
 # Type Alias: GDataType
 
@@ -8,4 +8,4 @@ type GDataType: DataType | ColumnRegular;
 
 ## Defined in
 
-[src/store/dataSource/data.store.ts:27](https://github.com/revolist/revogrid/blob/29f379095274a66a187c28b49fe0e1fb4170d3ea/src/store/dataSource/data.store.ts#L27)
+[src/store/dataSource/data.store.ts:27](https://github.com/revolist/revogrid/blob/4d3feb8340f534dd1ff6941b4d5b83d4d4e2474c/src/store/dataSource/data.store.ts#L27)

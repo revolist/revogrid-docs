@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.14.2](README.md) / SourceGather
+[RevoGrid Documentation v4.14.3](README.md) / SourceGather
 
 # Type Alias: SourceGather
 
@@ -14,10 +14,10 @@ type SourceGather: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `oldNewIndexes` | `Record`\<`number`, `number`\> | [src/plugins/groupingRow/grouping.row.types.ts:67](https://github.com/revolist/revogrid/blob/29f379095274a66a187c28b49fe0e1fb4170d3ea/src/plugins/groupingRow/grouping.row.types.ts#L67) |
-| `prevExpanded` | `Record`\<`string`, `boolean`\> | [src/plugins/groupingRow/grouping.row.types.ts:66](https://github.com/revolist/revogrid/blob/29f379095274a66a187c28b49fe0e1fb4170d3ea/src/plugins/groupingRow/grouping.row.types.ts#L66) |
-| `source` | [`DataType`](TypeAlias.DataType.md)[] | [src/plugins/groupingRow/grouping.row.types.ts:65](https://github.com/revolist/revogrid/blob/29f379095274a66a187c28b49fe0e1fb4170d3ea/src/plugins/groupingRow/grouping.row.types.ts#L65) |
+| `oldNewIndexes` | `Record`\<`number`, `number`\> | [src/plugins/groupingRow/grouping.row.types.ts:67](https://github.com/revolist/revogrid/blob/4d3feb8340f534dd1ff6941b4d5b83d4d4e2474c/src/plugins/groupingRow/grouping.row.types.ts#L67) |
+| `prevExpanded` | `Record`\<`string`, `boolean`\> | [src/plugins/groupingRow/grouping.row.types.ts:66](https://github.com/revolist/revogrid/blob/4d3feb8340f534dd1ff6941b4d5b83d4d4e2474c/src/plugins/groupingRow/grouping.row.types.ts#L66) |
+| `source` | [`DataType`](TypeAlias.DataType.md)[] | [src/plugins/groupingRow/grouping.row.types.ts:65](https://github.com/revolist/revogrid/blob/4d3feb8340f534dd1ff6941b4d5b83d4d4e2474c/src/plugins/groupingRow/grouping.row.types.ts#L65) |
 
 ## Defined in
 
-[src/plugins/groupingRow/grouping.row.types.ts:64](https://github.com/revolist/revogrid/blob/29f379095274a66a187c28b49fe0e1fb4170d3ea/src/plugins/groupingRow/grouping.row.types.ts#L64)
+[src/plugins/groupingRow/grouping.row.types.ts:64](https://github.com/revolist/revogrid/blob/4d3feb8340f534dd1ff6941b4d5b83d4d4e2474c/src/plugins/groupingRow/grouping.row.types.ts#L64)
