@@ -158,3 +158,96 @@ Understanding the viewport system in RevoGrid Pro is vital for developers lookin
 As you develop your applications, keep these concepts in mind to harness the full potential of RevoGrid's capabilities.
 
 Read more about render in proxy items [here](./proxy-items.md)
+
+
+
+## Index Types Explained
+
+1. **Physical Indexes**: The actual position of items in the source data array
+2. **Virtual Indexes**: The visible position of items in the viewport/UI
+
+### Physical Indexes
+- These are the actual positions in the source data array (`source[]`)
+- They remain constant as long as the data source isn't modified
+- Used for direct data access and modifications
+- Stored in the `source` array of the data store
+
+### Virtual Indexes
+- These represent the visible positions in the UI
+- Managed through the `items[]` array which maps virtual indexes to physical ones
+- Change dynamically based on scrolling, filtering, and grouping
+- Used for viewport rendering and user interactions
+
+## Key Conversion Functions
+
+### Physical to Virtual Index Conversion
+```typescript
+// Returns the virtual index for a given physical index
+function getSourceItemVirtualIndexByProp(store, prop) {
+    const items = store.get('items');
+    const source = store.get('source');
+    const physicalIndex = findIndex(source, { prop });
+    return items.indexOf(physicalIndex);
+}
+```
+
+### Virtual to Physical Index Conversion
+```typescript
+// Returns the physical index for a given virtual index
+function getPhysical(store, virtualIndex) {
+    const items = store.get('items');
+    return items[virtualIndex];
+}
+```
+
+## Data Access Methods
+
+### Getting Source Items
+1. **By Virtual Index**:
+```typescript
+function getSourceItem(store, virtualIndex) {
+    const source = store.get('source');
+    return source[getPhysical(store, virtualIndex)];
+}
+```
+
+2. **All Visible Items**:
+```typescript
+function getVisibleSourceItem(store) {
+    const source = store.get('source');
+    return store.get('items').map(v => source[v]);
+}
+```
+
+## Data Modification
+
+### Updating Source Data
+1. **By Virtual Index**:
+```typescript
+function setSourceByVirtualIndex(store, modelByIndex, mutate = true)
+```
+- Updates data using virtual indexes as reference
+- `modelByIndex`: Object with virtual indexes as keys and new values
+- `mutate`: If true, triggers a re-render
+
+2. **By Physical Index**:
+```typescript
+function setSourceByPhysicalIndex(store, modelByIndex, mutate = true)
+```
+- Updates data using physical indexes directly
+- `modelByIndex`: Object with physical indexes as keys and new values
+- `mutate`: If true, triggers a re-render
+
+## Use Cases
+
+1. **Scrolling**: Virtual indexes change while physical indexes remain constant
+2. **Data Updates**: Physical indexes are used for data modifications
+3. **Rendering**: Virtual indexes determine what's visible in the viewport
+4. **Sorting/Filtering**: Modifies the mapping between virtual and physical indexes
+
+## Best Practices
+
+1. Use virtual indexes when dealing with UI interactions
+2. Use physical indexes when modifying the underlying data
+3. Always use the appropriate conversion functions when switching between index types
+4. Be aware that virtual indexes can change during operations like sorting or filtering 
