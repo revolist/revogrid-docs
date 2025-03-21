@@ -139,6 +139,12 @@ export const featuresPro = [
         videoUrl: '/video/filter-header.mp4',
     },
     {
+        title: 'Date Filter',
+        thumbnail: '/filtering.svg',
+        group: 'Data Filtering & Search',
+        description: `Filter data based on date ranges. Perfect for applications requiring precise temporal data filtering and analysis.`,
+    },
+    {
         title: 'Multi-Filtering',
         thumbnail: '/filtering.svg',
         group: 'Data Filtering & Search',
