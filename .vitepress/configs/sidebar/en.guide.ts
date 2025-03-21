@@ -24,10 +24,6 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 link: '/guide/jsx.template',
             },
             {
-                text: 'Lifecycle Hooks',
-                link: '/guide/lifecycle',
-            },
-            {
                 text: 'Features and Definitions',
                 link: '/guide/defs',
             },
@@ -38,6 +34,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
             {
                 text: 'API',
                 link: '/guide/api/revoGrid',
+            },
+            {
+                text: 'Hooks and Events',
+                link: '/guide/api/events',
             },
             { text: 'Typings', link: '/guide/types/README' },
             {

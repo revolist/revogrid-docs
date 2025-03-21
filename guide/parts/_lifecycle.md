@@ -1,4 +1,4 @@
-# Lifecycle Hooks
+## Lifecycle Hooks
 
 For detailed interactions and operations, RevoGrid provides a variety of [events](./api/revoGrid.md#Events) that function similarly to lifecycle hooks, allowing developers to listen and respond to different stages and actions within the grid's lifecycle.
 

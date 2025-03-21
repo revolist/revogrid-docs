@@ -2,6 +2,8 @@
 
 This document is intended to help both new and experienced developers familiarize themselves with the terminologies associated with RevoGrid.
 
+<!--@include: ./parts/_lifecycle.md-->
+
 ## API (Application Programming Interface)
 Defines a set of rules and protocols for building and interacting with software applications. RevoGrid's API allows for programmatic interaction with the grid, including methods for data manipulation, event handling, and customization.
 
