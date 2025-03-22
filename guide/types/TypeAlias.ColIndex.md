@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.14.4](README.md) / ColIndex
+[RevoGrid Documentation v4.14.5](README.md) / ColIndex
 
 # Type Alias: ColIndex
 
@@ -8,4 +8,4 @@ type ColIndex: number;
 
 ## Defined in
 
-[src/types/selection.ts:15](https://github.com/revolist/revogrid/blob/a32d3a869ff2d770043cd2738815e885c8f5d1a9/src/types/selection.ts#L15)
+[src/types/selection.ts:15](https://github.com/revolist/revogrid/blob/395fb64310e6654557393205ff295dbb2f4142c5/src/types/selection.ts#L15)
