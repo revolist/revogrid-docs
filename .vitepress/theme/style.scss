@@ -324,6 +324,12 @@ header.VPFeatures {
 .no-right-padding .VPContent {
     padding-right: 0 !important;
 }
+.no-top-padding .VPContent {
+    padding-top: 17px !important;
+}
+.no-bottom-padding .content {
+    padding-bottom: 0 !important;
+}
 @media (min-width: 1240px) {
     .demo-page-wrapper .demo-container {
         max-width: 1240px;
