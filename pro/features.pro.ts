@@ -352,7 +352,19 @@ export const featuresPro = [
         group: 'Data Entry & Automation',
         description: 'Special cell type that combines editor and renderer into a single checkbox component.',
         videoUrl: '/video/checkbox-editor.mp4',
-    },  
+    },
+    {
+        title: 'Cell Slider Editor',
+        thumbnail: '/flash-circle.svg',
+        group: 'Data Entry & Automation',
+        description: 'Interactive slider component for intuitive numeric value editing directly within grid cells, featuring customizable ranges and real-time visual feedback. Perfect for applications requiring precise numeric input control or when dealing with bounded numeric ranges.',
+    },
+    {
+        title: 'Cell Counter Editor',
+        thumbnail: '/flash-circle.svg',
+        group: 'Data Entry & Automation',
+        description: 'Elegant plus/minus counter interface for precise numeric value adjustments within grid cells, offering configurable step sizes and range limits. Ideal for applications requiring quick incremental changes or when dealing with bounded numeric values that need frequent small adjustments.',
+    },
 ]
 export const proWhy = [
     {
