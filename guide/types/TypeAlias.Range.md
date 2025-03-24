@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.14.5](README.md) / Range
+[RevoGrid Documentation v4.14.6](README.md) / Range
 
 # Type Alias: Range
 
@@ -15,9 +15,9 @@ type Range: {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `end` | `number` | The end of the range. | [src/types/interfaces.ts:515](https://github.com/revolist/revogrid/blob/395fb64310e6654557393205ff295dbb2f4142c5/src/types/interfaces.ts#L515) |
-| `start` | `number` | The start of the range. | [src/types/interfaces.ts:511](https://github.com/revolist/revogrid/blob/395fb64310e6654557393205ff295dbb2f4142c5/src/types/interfaces.ts#L511) |
+| `end` | `number` | The end of the range. | [src/types/interfaces.ts:515](https://github.com/revolist/revogrid/blob/62db573a68fb44a3482895267c8cda1c54f2f4d4/src/types/interfaces.ts#L515) |
+| `start` | `number` | The start of the range. | [src/types/interfaces.ts:511](https://github.com/revolist/revogrid/blob/62db573a68fb44a3482895267c8cda1c54f2f4d4/src/types/interfaces.ts#L511) |
 
 ## Defined in
 
-[src/types/interfaces.ts:507](https://github.com/revolist/revogrid/blob/395fb64310e6654557393205ff295dbb2f4142c5/src/types/interfaces.ts#L507)
+[src/types/interfaces.ts:507](https://github.com/revolist/revogrid/blob/62db573a68fb44a3482895267c8cda1c54f2f4d4/src/types/interfaces.ts#L507)
