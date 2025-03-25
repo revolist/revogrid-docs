@@ -471,8 +471,8 @@ Type: `Promise<void>`
 - [revogr-temp-range](../selectionTempRange)
 - [revogr-focus](../selectionFocus)
 - [revogr-viewport-scroll](../scroll)
-- revogr-attribution
 - [revogr-scroll-virtual](../scrollable)
+- revogr-attribution
 - revogr-extra
 
 ### Graph
@@ -485,8 +485,8 @@ graph TD;
   revo-grid --> revogr-temp-range
   revo-grid --> revogr-focus
   revo-grid --> revogr-viewport-scroll
-  revo-grid --> revogr-attribution
   revo-grid --> revogr-scroll-virtual
+  revo-grid --> revogr-attribution
   revo-grid --> revogr-extra
   revogr-row-headers --> revogr-data
   revogr-row-headers --> revogr-viewport-scroll

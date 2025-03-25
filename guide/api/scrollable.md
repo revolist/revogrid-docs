@@ -8,11 +8,12 @@ Virtual scroll component
 
 ## Properties
 
-| Property                      | Attribute   | Description                                       | Type                                    | Default     |
-| ----------------------------- | ----------- | ------------------------------------------------- | --------------------------------------- | ----------- |
-| `dimension`                   | `dimension` | Scroll dimension (`X` - `rgCol` or `Y` - `rgRow`) | `"rgCol" \| "rgRow"`                    | `'rgRow'`   |
-| `dimensionStore` _(required)_ | --          | Dimensions                                        | `ObservableMap<DimensionSettingsState>` | `undefined` |
-| `viewportStore` _(required)_  | --          | Viewport                                          | `ObservableMap<ViewportState>`          | `undefined` |
+| Property                   | Attribute      | Description                                       | Type                 | Default     |
+| -------------------------- | -------------- | ------------------------------------------------- | -------------------- | ----------- |
+| `clientSize` _(required)_  | `client-size`  | Client size                                       | `number`             | `undefined` |
+| `dimension`                | `dimension`    | Scroll dimension (`X` - `rgCol` or `Y` - `rgRow`) | `"rgCol" \| "rgRow"` | `'rgRow'`   |
+| `realSize` _(required)_    | `real-size`    | Dimensions                                        | `number`             | `undefined` |
+| `virtualSize` _(required)_ | `virtual-size` | Virtual size                                      | `number`             | `undefined` |
 
 
 ## Events
