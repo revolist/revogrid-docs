@@ -367,6 +367,13 @@ export const featuresPro = [
         description: 'Elegant plus/minus counter interface for precise numeric value adjustments within grid cells, offering configurable step sizes and range limits. Ideal for applications requiring quick incremental changes or when dealing with bounded numeric values that need frequent small adjustments.',
         videoUrl: '/video/counter-editor.mp4',
     },
+    {
+        title: 'Timeline Editor',
+        thumbnail: '/flash-circle.svg',
+        group: 'Data Entry & Automation',
+        description: 'Visual timeline editor featuring an intuitive progress bar and native date pickers for seamless date range selection within grid cells. Perfect for project management, scheduling, and any application requiring visual time tracking or date range manipulation.',
+        videoUrl: '/video/timeline-editor.mp4',
+    },
 ]
 export const proWhy = [
     {
