@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.14.8](README.md) / PropertiesFunc
+[RevoGrid Documentation v4.14.9](README.md) / PropertiesFunc
 
 # Type Alias: PropertiesFunc()
 
@@ -18,4 +18,4 @@ type PropertiesFunc: (props: CellTemplateProp) => CellProps | void | undefined;
 
 ## Defined in
 
-[src/types/interfaces.ts:416](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/types/interfaces.ts#L416)
+[src/types/interfaces.ts:416](https://github.com/revolist/revogrid/blob/6c3c52a081bcade371a3f5576e4e5805c6bbce5c/src/types/interfaces.ts#L416)

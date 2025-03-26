@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.14.8](README.md) / FilterCaptions
+[RevoGrid Documentation v4.14.9](README.md) / FilterCaptions
 
 # Interface: FilterCaptions
 
@@ -6,12 +6,12 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `add` | `string` | [src/plugins/filter/filter.types.ts:71](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/filter/filter.types.ts#L71) |
-| `and` | `string` | [src/plugins/filter/filter.types.ts:73](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/filter/filter.types.ts#L73) |
-| `cancel` | `string` | [src/plugins/filter/filter.types.ts:70](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/filter/filter.types.ts#L70) |
-| `ok` | `string` | [src/plugins/filter/filter.types.ts:69](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/filter/filter.types.ts#L69) |
-| `or` | `string` | [src/plugins/filter/filter.types.ts:74](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/filter/filter.types.ts#L74) |
-| `placeholder` | `string` | [src/plugins/filter/filter.types.ts:72](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/filter/filter.types.ts#L72) |
-| `reset` | `string` | [src/plugins/filter/filter.types.ts:68](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/filter/filter.types.ts#L68) |
-| `save` | `string` | [src/plugins/filter/filter.types.ts:67](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/filter/filter.types.ts#L67) |
-| `title` | `string` | [src/plugins/filter/filter.types.ts:66](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/filter/filter.types.ts#L66) |
+| `add` | `string` | [src/plugins/filter/filter.types.ts:71](https://github.com/revolist/revogrid/blob/6c3c52a081bcade371a3f5576e4e5805c6bbce5c/src/plugins/filter/filter.types.ts#L71) |
+| `and` | `string` | [src/plugins/filter/filter.types.ts:73](https://github.com/revolist/revogrid/blob/6c3c52a081bcade371a3f5576e4e5805c6bbce5c/src/plugins/filter/filter.types.ts#L73) |
+| `cancel` | `string` | [src/plugins/filter/filter.types.ts:70](https://github.com/revolist/revogrid/blob/6c3c52a081bcade371a3f5576e4e5805c6bbce5c/src/plugins/filter/filter.types.ts#L70) |
+| `ok` | `string` | [src/plugins/filter/filter.types.ts:69](https://github.com/revolist/revogrid/blob/6c3c52a081bcade371a3f5576e4e5805c6bbce5c/src/plugins/filter/filter.types.ts#L69) |
+| `or` | `string` | [src/plugins/filter/filter.types.ts:74](https://github.com/revolist/revogrid/blob/6c3c52a081bcade371a3f5576e4e5805c6bbce5c/src/plugins/filter/filter.types.ts#L74) |
+| `placeholder` | `string` | [src/plugins/filter/filter.types.ts:72](https://github.com/revolist/revogrid/blob/6c3c52a081bcade371a3f5576e4e5805c6bbce5c/src/plugins/filter/filter.types.ts#L72) |
+| `reset` | `string` | [src/plugins/filter/filter.types.ts:68](https://github.com/revolist/revogrid/blob/6c3c52a081bcade371a3f5576e4e5805c6bbce5c/src/plugins/filter/filter.types.ts#L68) |
+| `save` | `string` | [src/plugins/filter/filter.types.ts:67](https://github.com/revolist/revogrid/blob/6c3c52a081bcade371a3f5576e4e5805c6bbce5c/src/plugins/filter/filter.types.ts#L67) |
+| `title` | `string` | [src/plugins/filter/filter.types.ts:66](https://github.com/revolist/revogrid/blob/6c3c52a081bcade371a3f5576e4e5805c6bbce5c/src/plugins/filter/filter.types.ts#L66) |
