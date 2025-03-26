@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.14.7](README.md) / FilterItem
+[RevoGrid Documentation v4.14.8](README.md) / FilterItem
 
 # Interface: FilterItem
 
@@ -10,6 +10,6 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `prop?` | [`ColumnProp`](TypeAlias.ColumnProp.md) | [src/plugins/filter/filter.types.ts:129](https://github.com/revolist/revogrid/blob/1dd2182aeba2c7ed876161836e4edd5b0fccb479/src/plugins/filter/filter.types.ts#L129) |
-| `type?` | \| `"none"` \| `"empty"` \| `"notEmpty"` \| `"eq"` \| `"notEq"` \| `"begins"` \| `"contains"` \| `"notContains"` \| `"eqN"` \| `"neqN"` \| `"gt"` \| `"gte"` \| `"lt"` \| `"lte"` | [src/plugins/filter/filter.types.ts:131](https://github.com/revolist/revogrid/blob/1dd2182aeba2c7ed876161836e4edd5b0fccb479/src/plugins/filter/filter.types.ts#L131) |
-| `value?` | `any` | [src/plugins/filter/filter.types.ts:133](https://github.com/revolist/revogrid/blob/1dd2182aeba2c7ed876161836e4edd5b0fccb479/src/plugins/filter/filter.types.ts#L133) |
+| `prop?` | [`ColumnProp`](TypeAlias.ColumnProp.md) | [src/plugins/filter/filter.types.ts:129](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/filter/filter.types.ts#L129) |
+| `type?` | \| `"none"` \| `"empty"` \| `"notEmpty"` \| `"eq"` \| `"notEq"` \| `"begins"` \| `"contains"` \| `"notContains"` \| `"eqN"` \| `"neqN"` \| `"gt"` \| `"gte"` \| `"lt"` \| `"lte"` | [src/plugins/filter/filter.types.ts:131](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/filter/filter.types.ts#L131) |
+| `value?` | `any` | [src/plugins/filter/filter.types.ts:133](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/filter/filter.types.ts#L133) |

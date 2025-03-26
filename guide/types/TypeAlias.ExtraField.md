@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.14.7](README.md) / ExtraField
+[RevoGrid Documentation v4.14.8](README.md) / ExtraField
 
 # Type Alias: ExtraField
 
@@ -16,4 +16,4 @@ type ExtraField: "input" | "datepicker" | (h: HyperFunc<VNode>, config: {
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:21](https://github.com/revolist/revogrid/blob/1dd2182aeba2c7ed876161836e4edd5b0fccb479/src/plugins/filter/filter.types.ts#L21)
+[src/plugins/filter/filter.types.ts:21](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/filter/filter.types.ts#L21)
