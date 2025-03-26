@@ -2004,7 +2004,7 @@ new GroupingRowPlugin(revogrid: HTMLRevoGridElement, providers: PluginProviders)
 
 ##### Defined in
 
-[src/plugins/groupingRow/grouping.row.plugin.ts:62](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.row.plugin.ts#L62)
+[src/plugins/groupingRow/grouping.row.plugin.ts:61](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.row.plugin.ts#L61)
 
 ### Properties
 
@@ -2062,7 +2062,7 @@ clearGrouping(): void
 
 ##### Defined in
 
-[src/plugins/groupingRow/grouping.row.plugin.ts:322](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.row.plugin.ts#L322)
+[src/plugins/groupingRow/grouping.row.plugin.ts:321](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.row.plugin.ts#L321)
 
 ***
 
@@ -2164,7 +2164,7 @@ getStore(type: DimensionRows): Observable<DSourceState<DataType, DimensionRows>>
 
 ##### Defined in
 
-[src/plugins/groupingRow/grouping.row.plugin.ts:56](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.row.plugin.ts#L56)
+[src/plugins/groupingRow/grouping.row.plugin.ts:55](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.row.plugin.ts#L55)
 
 ***
 
@@ -2216,7 +2216,7 @@ External call to apply grouping. Called by revogrid when prop changed.
 
 ##### Defined in
 
-[src/plugins/groupingRow/grouping.row.plugin.ts:243](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.row.plugin.ts#L243)
+[src/plugins/groupingRow/grouping.row.plugin.ts:242](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.row.plugin.ts#L242)
 
 ***
 
@@ -4709,14 +4709,14 @@ Gather data for grouping
 
 | Name | Type | Default value | Defined in |
 | ------ | ------ | ------ | ------ |
-| `depth` | `number` | groupingDepth | [src/plugins/groupingRow/grouping.service.ts:189](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L189) |
-| `oldNewIndexMap` | `Record`\<`number`, `number`\> | - | [src/plugins/groupingRow/grouping.service.ts:191](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L191) |
-| `sourceWithGroups` | [`DataType`](TypeAlias.DataType.md)[] | - | [src/plugins/groupingRow/grouping.service.ts:188](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L188) |
-| `trimmed` | `Record`\<`number`, `boolean`\> | - | [src/plugins/groupingRow/grouping.service.ts:190](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L190) |
+| `depth` | `number` | groupingDepth | [src/plugins/groupingRow/grouping.service.ts:194](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L194) |
+| `oldNewIndexMap` | `Record`\<`number`, `number`\> | - | [src/plugins/groupingRow/grouping.service.ts:196](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L196) |
+| `sourceWithGroups` | [`DataType`](TypeAlias.DataType.md)[] | - | [src/plugins/groupingRow/grouping.service.ts:193](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L193) |
+| `trimmed` | `Record`\<`number`, `boolean`\> | - | [src/plugins/groupingRow/grouping.service.ts:195](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L195) |
 
 ### Defined in
 
-[src/plugins/groupingRow/grouping.service.ts:143](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L143)
+[src/plugins/groupingRow/grouping.service.ts:148](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L148)
 
 ***
 
@@ -4949,7 +4949,7 @@ function getExpanded(model: DataType): any
 
 ### Defined in
 
-[src/plugins/groupingRow/grouping.service.ts:54](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L54)
+[src/plugins/groupingRow/grouping.service.ts:59](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L59)
 
 ***
 
@@ -4993,7 +4993,7 @@ function getGroupingName(rgRow?: DataType): any
 
 ### Defined in
 
-[src/plugins/groupingRow/grouping.service.ts:195](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L195)
+[src/plugins/groupingRow/grouping.service.ts:200](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L200)
 
 ***
 
@@ -5173,7 +5173,7 @@ function getParsedGroup(id: string): null | any[]
 
 ### Defined in
 
-[src/plugins/groupingRow/grouping.service.ts:226](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L226)
+[src/plugins/groupingRow/grouping.service.ts:231](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L231)
 
 ***
 
@@ -5268,11 +5268,11 @@ withoutGrouping: boolean): Required<SourceGather>
 
 ### Returns
 
-`Required`\<[`SourceGather`](TypeAlias.SourceGather.md)\>
+`Required`\<`SourceGather`\>
 
 ### Defined in
 
-[src/plugins/groupingRow/grouping.service.ts:21](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L21)
+[src/plugins/groupingRow/grouping.service.ts:26](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L26)
 
 ***
 
@@ -5890,7 +5890,7 @@ function isGrouping(rgRow?: DataType): rgRow is GroupingItem
 
 ### Defined in
 
-[src/plugins/groupingRow/grouping.service.ts:207](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L207)
+[src/plugins/groupingRow/grouping.service.ts:212](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L212)
 
 ***
 
@@ -5912,7 +5912,7 @@ function isGroupingColumn(column?: ColumnRegular): boolean
 
 ### Defined in
 
-[src/plugins/groupingRow/grouping.service.ts:211](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L211)
+[src/plugins/groupingRow/grouping.service.ts:216](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L216)
 
 ***
 
@@ -6049,7 +6049,7 @@ function isSameGroup(
 
 ### Defined in
 
-[src/plugins/groupingRow/grouping.service.ts:236](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L236)
+[src/plugins/groupingRow/grouping.service.ts:241](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L241)
 
 ***
 
@@ -6146,7 +6146,7 @@ function measureEqualDepth<T>(groupA: T[], groupB: T[]): number
 
 ### Defined in
 
-[src/plugins/groupingRow/grouping.service.ts:215](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L215)
+[src/plugins/groupingRow/grouping.service.ts:220](https://github.com/revolist/revogrid/blob/e548e2f67dd1ccbf7f1e03dfbe23431ad8065184/src/plugins/groupingRow/grouping.service.ts#L220)
 
 ***
 
@@ -6810,7 +6810,6 @@ function updateMissingAndRange(
 | [SortingConfig](TypeAlias.SortingConfig.md) | - |
 | [SortingOrder](TypeAlias.SortingOrder.md) | - |
 | [SortingOrderFunction](TypeAlias.SortingOrderFunction.md) | - |
-| [SourceGather](TypeAlias.SourceGather.md) | - |
 | [TempRange](TypeAlias.TempRange.md) | - |
 | [Theme](TypeAlias.Theme.md) | - |
 | [ThemeConfig](TypeAlias.ThemeConfig.md) | - |

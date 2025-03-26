@@ -122,3 +122,30 @@ figure.avatar {
 .whyPro .profile {
     background-color: var(--vp-c-brand-soft);
 }
+.grid {
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    details {
+        &, &.custom-block {
+            margin: 0;
+        }
+    }
+
+    .VPButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+    }
+}
+
+
+details[dashed] {
+    &, &.custom-block {
+        background-color: transparent;
+        border: 1px dashed var(--vp-c-success-3);
+    }
+}

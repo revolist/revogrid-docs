@@ -17,7 +17,7 @@ const props = defineProps<{
 }>()
 
 // State to track which card is currently flipped
-const flippedCardId = ref<string | null>('Pivot Table')
+const flippedCardId = ref<string | null>()
 
 const toggleFlip = (id: string) => {
     if (flippedCardId.value === id) {
@@ -46,7 +46,7 @@ const groupedFeatures = computed(() => {
 <template>
     <div class="features-container">
         <div v-for="(groupFeatures, groupName) in groupedFeatures" :key="groupName" class="feature-group">
-            <h2 v-if="groupName !== 'Other'" class="group-title">{{ groupName }}</h2>
+            <h3 v-if="groupName !== 'Other'" class="group-title">{{ groupName }}</h3>
             <div class="features-grid">
                 <div
                     v-for="feature in groupFeatures"

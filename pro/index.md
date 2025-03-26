@@ -1,5 +1,5 @@
 ---
-title: Pricing
+title: RevoGrid Pro
 description: Start using RevoGrid for free! Switch to a commercial plan to access advanced features & technical support.
 sidebar: false
 aside: false
@@ -13,113 +13,110 @@ breadcrumbs: false
 ---
 
 <style lang="scss" src="./pro.styles.scss"></style>
-
+<style lang="scss" scoped>
+  /* :deep(h3):first-child {
+    margin-top: 0;
+  } */
+  @media (min-width: 768px) {
+    h1 {
+      margin-top: 30px;
+      font-size: 70px;
+      line-height: 60px;
+      font-weight: bold;
+      max-width: 500px;
+    }
+  }
+</style>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { PRICES } from './prices'
-import Plan from './Plan.vue'
 import ContactForm from './ContactForm.vue'
-
 import type { DefaultTheme } from 'vitepress/theme'
 import { VPButton } from 'vitepress/theme'
-import VPTeamMembers from 'vitepress/dist/client/theme-default/components/VPTeamMembers.vue'
-
-
 import { featuresPro, proWhy } from './features.pro'
 import FeaturesGrid from './FeaturesGrid.vue'
 
-import { ElSwitch, ElTooltip } from 'element-plus'
-import 'element-plus/es/components/switch/style/css'
-import 'element-plus/es/components/tooltip/style/css'
-import 'element-plus/theme-chalk/dark/css-vars.css'
-
 let showForm = ref(false) // isVisible
-
-const isAnnual = ref(true)
 </script>
 
-<div class="description">
-<Badge type="tip" text="Pricing" />
-
-# Build next level apps as a Pro
-
-<span class="VPBadge danger">Early Bird Special Offer</span> Get **50%** off on all plans!  
-Early adopters get our premium features at half the regular price. Don't miss out on this special launch pricing - secure your discount today!
-
-
-</div>
-
-<div class="vp-card plans">
-    <div class="plans-container">
-      <Plan
-        title="Pro Light"
-        class="pro highlight"
-        description="Best for start-ups and businesses who build commercial products with RevoGrid."
-        buttonText="Buy now"
-        :price="isAnnual ? PRICES.light.month : PRICES.light.perpetual"
-        :pricePeriod="isAnnual ? 'month' : 'year'"
-        :features="[
-        `Access to all <a href='#What-s-included-'>Pro Examples</a>.`,
-        `Plugins and Documentation.`,
-        ]"
-        :href="PRICES.light.link"
-      />
-      <Plan
-        title="Pro Advanced"
-        class="pro"
-        buttonTheme="alt"
-        description="Best for companies and individuals that want a direct wire to the RevoGrid team experience."
-        buttonText="Buy Now"
-        :price="isAnnual ? PRICES.advanced.month : PRICES.advanced.perpetual"
-        :pricePeriod="isAnnual ? 'month' : 'year'"
-        :features="[
-          `<a href='/pro/ai' class='VPBadge danger'>AI Agent</a> for plugin code generation`,
-          `Access to all <a href='#What-s-included-'>Pro Examples</a>, Plugins and Documentation.`,
-          `Up to 1 hour of individual support via email per month.`,
-          `Prioritized Feature Requests, Github Issues and Pull Requests.`,
-          `Introduction call with one of the creators.`
-        ]"
-        :href="PRICES.advanced.link"
-        />
-    </div>
-</div>
-
-<div style="text-align: center;">
-
-[Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms) | [License](./policies/license) | <a @click="showForm = true">Contact us</a>
-
-</div>
-<ContactForm :isVisible="showForm" @close="showForm = false"/>
+<ContactForm :isVisible="showForm" @close="showForm = false" />
 
 
 
-<div class="description">
+# Build next level Apps as a Pro
 
-## What's included?
+Features for faster implementation,  
+reducing overall project timelines and price.
 
-Click on the features below to see video previews
+<VPButton size="big" text="Subscribe now!" href="/pro/prices" />
 
-</div>
 <br/>
+<br/>
+
+<div style="border-radius: 12px; overflow: hidden; text-align: center; border: 2px solid black; box-shadow: 10px 8px 0 rgba(0, 0, 0, 0.8)">
+<video class="video" src="/video/pivot.mp4" loop playsinline autoplay style='margin: -3px'></video>
+</div>
+
+<br/>
+
+Watch our video previews or [compare our plans](./feature-table)
+
+---
 
 <FeaturesGrid :features="featuresPro" />
 
-<br />
-<br />
-<br />
-
 
 <div class="description">
+<br />
+Can't find the feature you're looking for? <a @click="showForm = true">Ask us!</a>
 
-## Let's Connect!
+<br />
 
-Have questions about features? 🤔  
-Need a trial period to evaluate Pro features, want to discuss enterprise pricing, or just have questions - our team is ready to assist you.
+<br />
 
-<VPButton text="Contact Our Team →"  @click="showForm = true" />
+
+## Save time and money with our features!
+Get cool features out of the box to build the best products and elevate your development experience!
+
+
+<div class="grid">
+
+
+::: details Reduced Development Time {open dashed}
+
+Streamlined features allow for faster implementation, reducing overall project timelines.
+
+:::
+
+::: details Cost-Effective Plans {open dashed}
+
+Flexible pricing options cater to different needs, ensuring you only pay for what you use.
+
+:::
+
+::: details Built-in Features {open dashed}
+
+Access to a wide range of built-in features eliminates the need for costly third-party plugins.
+
+:::
+
+
+::: details Scalability {open dashed}
+
+Easily scale your applications without incurring significant additional costs.
+
+:::
+
+
+::: details Support and Resources {open dashed}
+
+Comprehensive support and documentation reduce the need for external consulting services. 
+
+:::
+
+
+<VPButton size="medium" text="Subscribe now!" href="/pro/prices" />
 </div>
 
+</div>
 
-
-<!--@include: ./_frequent-questions.md -->

@@ -72,6 +72,10 @@ const { hasSidebar } = useSidebar()
     border-top: 1px solid var(--vp-c-gutter);
     padding: 20px 24px 32px 24px;
     background-color: var(--vp-c-bg);
+
+    .container {
+        padding-bottom: 10px;
+    }
 }
 
 .VPFooter.has-sidebar {
@@ -91,7 +95,6 @@ const { hasSidebar } = useSidebar()
 @media (min-width: 768px) {
     .VPFooter {
         padding: 32px;
-        padding-top: 20px;
     }
 }
 
@@ -160,11 +163,12 @@ a:not(:hover) {
     font-size: 12px;
     padding: 5px 0;
     color: var(--vp-c-text-2);
+    display: inherit;
 }
 hr {
     background-color: transparent;
     border: 0;
     border-top: 1px solid var(--vp-c-gutter);
-    margin-bottom: 10px;
+    margin: 0 -40px 10px -40px;
 }
 </style>

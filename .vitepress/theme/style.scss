@@ -431,3 +431,9 @@ header.VPFeatures {
 .grow {
     flex-grow: 1;
 }
+
+.vp-doc {
+    a.VPButton {
+        text-decoration: none;
+    }
+}

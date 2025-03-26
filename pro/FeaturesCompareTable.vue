@@ -261,8 +261,8 @@ const openPreview = (video: string) => {
             border-right-width: 0;
         }
         &:not(:first-child) {
-            min-width: 200px;
-            max-width: 200px;
+            min-width: 220px;
+            max-width: 220px;
         }
 
         &:nth-of-type(3) {

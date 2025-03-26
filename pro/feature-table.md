@@ -143,7 +143,7 @@ features.push({
 
 # Build next level apps as a Pro
 
-[Watch our videos](./videos)
+[Watch our videos](/pro)
 
 </div>
 

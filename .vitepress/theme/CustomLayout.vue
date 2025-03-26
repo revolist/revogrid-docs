@@ -4,6 +4,7 @@
         class="Layout"
         :class="{ [frontmatter.pageClass || 'no-class']: true}"
     >
+        
         <VPPage>
             <template #doc-top v-if="frontmatter.breadcrumbs !== false"> <Breadcrumbs /></template>
         </VPPage>

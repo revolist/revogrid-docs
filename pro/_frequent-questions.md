@@ -18,18 +18,10 @@ layout: custom
             margin: 0;
         }
     }
-
-    details[dashed] {
-        background-color: transparent;
-        border: 1px dashed var(--vp-c-success-3);
-    }
 </style>
 
-<div class="description">
 
-## Frequently asked questions
-
-</div>
+### Frequently asked questions
 
 <div class="grid">
 
