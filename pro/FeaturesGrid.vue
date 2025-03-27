@@ -62,13 +62,13 @@ const groupedFeatures = computed(() => {
                 >
                     <div class="card-inner">
                         <div class="card-front">
-                            <figure>
+                            <div class="thumbnail-container">
                                 <img
                                     :src="feature.thumbnail"
                                     :alt="feature.title"
                                     class="thumbnail"
                                 />
-                            </figure>
+                            </div>
                             <h3 class="title">{{ feature.title }}</h3>
                             <p class="description" v-html="feature.description"/>
                         </div>
@@ -107,7 +107,7 @@ const groupedFeatures = computed(() => {
 }
 .features-grid {
     display: grid;
-    gap: 10px;
+    gap: 30px;
     /* Define the grid columns based on screen size */
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
@@ -115,7 +115,7 @@ const groupedFeatures = computed(() => {
 .feature-card {
     perspective: 1000px;
     height: 100%;
-    border: 2px solid transparent;
+    border: 1px solid var(--vp-c-gray-2);
     border-radius: 12px;
     transition: border ease-in-out 0.3s;
 
@@ -159,7 +159,7 @@ const groupedFeatures = computed(() => {
     transition: transform ease-in-out 0.3s;
     transform-style: preserve-3d;
     height: 100%;
-    pointer-events: none;
+    // pointer-events: none;
 }
 
 .card-front,
@@ -175,8 +175,7 @@ const groupedFeatures = computed(() => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 20px;
+    justify-content: space-between;
 }
 
 .title {
@@ -218,25 +217,23 @@ const groupedFeatures = computed(() => {
     border: none;
     border-radius: 12px;
 }
-figure {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
+.thumbnail-container {
+    flex-grow: 1;
+    overflow: hidden;
+    align-self: stretch;
     position: relative;
-    flex-shrink: 0;
-    margin: 0 auto;
-    border-radius: 50%;
-    box-shadow: var(--vp-shadow-3);
-    width: 64px;
-    height: 64px;
+    height: 220px;
+    max-height: 220px;
+    border-bottom: 1px solid var(--vp-c-gray-2);
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
 
     img {
-        position: initial;
-        object-fit: initial;
-        max-width: 60%;
-        max-height: 60%;
-        border-radius: 0;
+        background-position: 0 0;
+        object-fit: cover;
+        object-position: top left;
+        height: 100%;
+        width: 100%;
     }
 }
 
