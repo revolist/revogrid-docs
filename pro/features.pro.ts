@@ -1,34 +1,23 @@
 export const featuresPro = [
     {
         title: 'Pivot Table',
-        thumbnail: '/pivot.svg',
+        thumbnail: '/img/pivot.png',
         videoUrl: '/video/pivot.mp4',
         group: 'Advanced Data Structures',
         description: `
-        Transform multidimensional data into insightful visualizations.
-        <ul style="text-align: left;">
-            <li>
-                <strong>Dynamic Pivoting</strong>: Standard grid and pivot mode to analyze your data from different angles.
-            </li>
-            <li>
-                <strong>Custom Aggregation</strong>: Apply built-in or custom aggregation functions to summarize your data effectively and gain deeper insights.
-            </li>
-            <li>
-                <strong>Configuration Management</strong>: Drag and drop dimensions, rows, columns, and values to customize your pivot table.
-            </li>
-        </ul>
+        Transform multidimensional data into insightful visualizations. Perfect for applications requiring complex data analysis, where flexibility and control are crucial.
         `,
     },
     {
         title: 'Hierarchical Data View',
-        thumbnail: '/tree-data.svg',
+        thumbnail: '/img/tree.png',
         group: 'Advanced Data Structures',
         description:
             'Data tree structures visualization with advanced filtering, sorting, inline editing, intuitive drag-and-drop functionality. <br/> Perfect for managing organizational charts, file systems, or any nested data.',
         videoUrl: '/video/tree-data.mp4',
     },
     {
-        thumbnail: '/row-transpose.svg',
+        thumbnail: '/img/transpose.png',
         title: 'Row Transpose',
         group: 'Advanced Data Structures',
         description:
@@ -37,22 +26,22 @@ export const featuresPro = [
     },
     {
         title: 'Nested Grid',
-        thumbnail: '/overlay.svg',
+        thumbnail: '/img/nester-grid.png',
         group: 'Advanced Data Structures',
         description: 'Build a grid inside a grid, showcasing advanced editing options and user interactions for a more dynamic data presentation.',
         videoUrl: '/video/nested-grid.mp4',
     },
     {
         title: 'Master Detail',
-        thumbnail: '/master-detail.svg',
+        thumbnail: '/img/master-detail.png',
         videoUrl: '/video/master-detail.mp4',
         group: 'Advanced Data Structures',
         description:
-            'Advanced master-detail grid implementation that spans across pinned columns, showcasing complex data relationships. Create nested grids with independent sorting, filtering, and editing capabilities. <br /><br />Perfect for displaying hierarchical data structures, related records, or detailed breakdowns.',
+            'Advanced master-detail grid implementation that spans across pinned columns, showcasing complex data relationships.',
     },
     {
         title: 'Smart Auto Fill',
-        thumbnail: '/autofill.svg',
+        thumbnail: '/img/autofill.png',
         videoUrl: '/video/autofill.mp4',
         group: 'Data Entry & Automation',
         description:
@@ -60,21 +49,21 @@ export const featuresPro = [
     },
     {
         title: 'Merge Cells',
-        thumbnail: '/merge.svg',
+        thumbnail: '/img/merge.png',
         group: 'Layout & Styling',
         description: 'Merge multiple cells, columns and rows into a single unified cell. Often used for creating headers, organizing data hierarchically, or emphasizing important information across columns.',
         videoUrl: '/video/merge.mp4',
     },
     {
         title: 'Auto Merge',
-        thumbnail: '/merge.svg',
+        thumbnail: '/img/merge-auto.png',
         group: 'Layout & Styling',
         description: 'Automatically merges cells with identical values in a column. Hides duplicate values and borders while maintaining data integrity.',
         videoUrl: '/video/auto-merge.mp4',
     },
     {
         title: 'Column Collapse & Expand (Drill Down)',
-        thumbnail: '/column-selection.svg',
+        thumbnail: '/img/column-drill.png',
         group: 'Layout & Styling',
         description:
             'Collapse/expand grouped columns, trimm away unnecessary data. Perfect for focusing on the information that matters most, while keeping your workspace clean and efficient.',
@@ -82,7 +71,7 @@ export const featuresPro = [
     },
     {
         title: 'Column Stretch',
-        thumbnail: '/column-stretch.svg',
+        thumbnail: '/img/column-stretch.png',
         group: 'Layout & Styling',
         description:
             'Automatically adjusts column widths to fit the grid layout efficiently.',
@@ -90,7 +79,7 @@ export const featuresPro = [
     },
     {
         title: 'Dynamic Cell Formats',
-        thumbnail: '/renders.svg',
+        thumbnail: '/img/cell-charts.png',
         videoUrl: '/video/renders.mp4',
         group: 'Data Visualization',
         description:
@@ -98,7 +87,7 @@ export const featuresPro = [
     },
     {
         title: 'Heat&Cold Maps',
-        thumbnail: '/heatmap.svg',
+        thumbnail: '/img/heatmap.png',
         videoUrl: '/video/heatmap.mp4',
         group: 'Data Visualization',
         description:
@@ -106,7 +95,7 @@ export const featuresPro = [
     },
     {
         title: 'Conditional Formatting',
-        thumbnail: '/conditional-formatting.svg',
+        thumbnail: '/img/condition.png',
         group: 'Data Visualization',
         description:
             'Customize cell styles based on specific conditions. Highlight important data, create visual cues, and improve the readability.',
@@ -114,14 +103,14 @@ export const featuresPro = [
     },
     {
         title: 'Advanced Selection Filtering',
-        thumbnail: '/filtering.svg',
+        thumbnail: '/img/filter-select.png',
         group: 'Data Filtering & Search',
         description: 'Advanced multi-condition filters based on selection.',
         videoUrl: '/video/filter-advance.mp4',
     },
     {
         title: 'Advanced Slider Filtering',
-        thumbnail: '/filtering.svg',
+        thumbnail: '/img/filter-slider.png',
         group: 'Data Filtering & Search',
         description:
             'Slider filter, defining a range of values for filtering.',
@@ -129,7 +118,7 @@ export const featuresPro = [
     },
     {
         title: 'Header Input Filtering',
-        thumbnail: '/filtering.svg',
+        thumbnail: '/img/filter-header.png',
         group: 'Data Filtering & Search',
         description:
             'Header input filtering data based on user input in the first row. Perfect for filtering data based on user input.',
@@ -137,14 +126,14 @@ export const featuresPro = [
     },
     {
         title: 'Date Filter',
-        thumbnail: '/filtering.svg',
+        thumbnail: '/img/filter-date.png',
         group: 'Data Filtering & Search',
         description: `Filter data based on date ranges. Perfect for applications requiring precise temporal data filtering and analysis.`,
         videoUrl: '/video/filter-date.mp4',
     },
     {
         title: 'Multi-Filtering',
-        thumbnail: '/filtering.svg',
+        thumbnail: '/img/filter-multi.png',
         group: 'Data Filtering & Search',
         description:
             'Multi-condition filters logic example to refine and display your data more effectively.',
@@ -160,7 +149,7 @@ export const featuresPro = [
     },
     {
         title: 'Input Validation',
-        thumbnail: '/data-validation-input.svg',
+        thumbnail: '/img/validate-input.png',
         group: 'Data Quality & Validation',
         description:
             'Advanced validation with plugin support to prevent invalid edits and highlight erroneous cells, ensuring data accuracy.',
@@ -168,7 +157,7 @@ export const featuresPro = [
     },
     {
         title: 'Pagination',
-        thumbnail: '/pagination.svg',
+        thumbnail: '/img/pagination.png',
         group: 'Performance & Data Loading',
         description:
             'Break larger datasets into smaller pages, enhancing both performance and user experience.',
@@ -176,7 +165,7 @@ export const featuresPro = [
     },
     {
         title: 'Infinite Scroll',
-        thumbnail: '/pagination.svg',
+        thumbnail: '/img/pagination-infinity.png',
         group: 'Performance & Data Loading',
         description:
             'Load large datasets with dynamic server-side data loading as users scroll. Maintaining optimal performance through intelligent data chunking and cleanup. Choose between total-based or dynamic scrolling patterns to best fit your use case.',
@@ -184,7 +173,7 @@ export const featuresPro = [
     },
     {
         title: 'Formula',
-        thumbnail: '/formula.svg',
+        thumbnail: '/img/formula.png',
         videoUrl: '/video/formula.mp4',
         group: 'Advanced Calculations',
         description:
@@ -192,14 +181,14 @@ export const featuresPro = [
     },
     {
         title: 'Trail History',
-        thumbnail: '/history.svg',
+        thumbnail: '/img/history.png',
         videoUrl: '/video/history.mp4',
         group: 'Data Management',
         description: 'Track your history of changes. Undo and redo operations.',
     },
     {
         title: 'Cell Flash',
-        thumbnail: '/cell-flash.svg',
+        thumbnail: '/img/cell-flash.png',
         group: 'Data Visualization',
         description:
             'Enable flashing cells to highlight updates, making it easy for users to spot changes in values.',
@@ -331,7 +320,7 @@ export const featuresPro = [
     },
     {
         title: 'Dynamic Form Editing',
-        thumbnail: '/row-editing.svg',
+        thumbnail: '/img/form-edit.png',
         group: 'Data Entry & Automation',
         description: 'Form editing directly within the grid, featuring all necessary fields, including custom options and markdown support for a fast and enhanced data entry experience.',
         videoUrl: '/video/row-form.mp4',
