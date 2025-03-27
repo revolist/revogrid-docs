@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.14.9](README.md) / GDimension
+[RevoGrid Documentation v4.14.10](README.md) / GDimension
 
 # Type Alias: GDimension
 
@@ -8,4 +8,4 @@ type GDimension: DimensionRows | DimensionCols;
 
 ## Defined in
 
-[src/store/dataSource/data.store.ts:28](https://github.com/revolist/revogrid/blob/6c3c52a081bcade371a3f5576e4e5805c6bbce5c/src/store/dataSource/data.store.ts#L28)
+[src/store/dataSource/data.store.ts:28](https://github.com/revolist/revogrid/blob/f8d663f4e4ad146b94baf570f65efe48aaaeae09/src/store/dataSource/data.store.ts#L28)
