@@ -54,7 +54,9 @@ reducing overall project timelines and price.
 <br/>
 
 <div style="border-radius: 12px; overflow: hidden; text-align: center; border: 2px solid black; box-shadow: 10px 8px 0 rgba(0, 0, 0, 0.8)">
-<video class="video" src="/video/pivot.mp4" loop playsinline autoplay style='margin: -3px'></video>
+<video class="video" loop playsinline autoplay poster="/img/pivot-preview.jpg" style='margin: -3px'>
+<source src="/video/pivot.mp4" type="video/mp4">
+</video>
 </div>
 
 <br/>
