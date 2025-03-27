@@ -38,7 +38,7 @@ const isAnnual = ref(true)
 <div class="description">
 
 <span class="VPBadge danger">Early Bird Special Offer</span> Get **50%** off on all plans!  
-Early adopters get our premium features at half the regular price. Don't miss out on this special launch pricing - secure your discount today!
+Early adopters get our premium features at half the regular price.
 
 
 </div>
@@ -63,7 +63,7 @@ Early adopters get our premium features at half the regular price. Don't miss ou
         class="pro"
         buttonTheme="alt"
         description="Best for companies and individuals that want a direct wire to the RevoGrid team experience."
-        buttonText="Buy Now"
+        buttonText="Buy now"
         :price="isAnnual ? PRICES.advanced.month : PRICES.advanced.perpetual"
         :pricePeriod="isAnnual ? 'month' : 'year'"
         :features="[

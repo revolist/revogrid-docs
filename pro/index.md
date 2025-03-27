@@ -48,7 +48,7 @@ let showForm = ref(false) // isVisible
 Features for faster implementation,  
 reducing overall project timelines and price.
 
-<VPButton size="big" text="Subscribe now!" href="/pro/prices" />
+<VPButton size="big" text="Purchase" theme="alt" href="/pro/prices" />
 
 <br/>
 <br/>
@@ -77,6 +77,10 @@ Can't find the feature you're looking for? <a @click="showForm = true">Ask us!</
 
 ## Save time and money with our features!
 Get cool features out of the box to build the best products and elevate your development experience!
+
+
+
+<VPButton size="medium" text="Purchase now!" href="/pro/prices" />
 
 
 <div class="grid">
@@ -114,9 +118,8 @@ Comprehensive support and documentation reduce the need for external consulting 
 
 :::
 
-
-<VPButton size="medium" text="Subscribe now!" href="/pro/prices" />
 </div>
 
+<br>
 </div>
 
