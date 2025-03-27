@@ -107,7 +107,7 @@ const groupedFeatures = computed(() => {
 }
 .features-grid {
     display: grid;
-    gap: 10px;
+    gap: 30px;
     /* Define the grid columns based on screen size */
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
@@ -115,7 +115,7 @@ const groupedFeatures = computed(() => {
 .feature-card {
     perspective: 1000px;
     height: 100%;
-    border: 2px solid transparent;
+    border: 1px solid var(--vp-c-gray-2);
     border-radius: 12px;
     transition: border ease-in-out 0.3s;
 
@@ -224,9 +224,7 @@ const groupedFeatures = computed(() => {
     position: relative;
     height: 220px;
     max-height: 220px;
-    border-width: 1px 1px 0 1px;
-    border-style: solid;
-    border-color: grey;
+    border-bottom: 1px solid var(--vp-c-gray-2);
     overflow: hidden;
     border-radius: 12px 12px 0 0;
 

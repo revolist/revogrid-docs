@@ -141,7 +141,7 @@ export const featuresPro = [
     },
     {
         title: 'Cell Validation',
-        thumbnail: '/data-validation.svg',
+        thumbnail: '/img/data-validation.png',
         group: 'Data Quality & Validation',
         description:
             'Built-in data validation to ensure data integrity. Define customizable validation rules and error handling to maintain high-quality data.',
@@ -196,7 +196,7 @@ export const featuresPro = [
     },
     {
         title: 'Reference Data',
-        thumbnail: '/reference-data.svg',
+        thumbnail: '/img/reference-data.png',
         group: 'Data Management',
         description:
             'Manage static key/value pairs for displaying meaningful labels alongside coded values.',
@@ -204,7 +204,7 @@ export const featuresPro = [
     },
     {
         title: 'Context Menu',
-        thumbnail: '/menu.svg',
+        thumbnail: '/img/context-menu.png',
         group: 'User Interaction',
         description:
             'Build context menus for any grid element - from cells to headers. Cut, copy, paste, add rows, modify columns, and more. Fully customizable with your own actions and behaviors.',
@@ -212,7 +212,7 @@ export const featuresPro = [
     },
     {
         title: 'Row Grouping Drag and Drop',
-        thumbnail: '/grouping.svg',
+        thumbnail: '/img/grouping.png',
         group: 'User Interaction',
         description:
             'Drag columns to the top panel to create grouped rows, improving data organization and visibility.',
@@ -220,7 +220,7 @@ export const featuresPro = [
     },
     {
         title: 'Row Auto Size',
-        thumbnail: '/row-autosize.svg',
+        thumbnail: '/img/row-autosize.png',
         videoUrl: '/video/row-autosize.mp4',
         group: 'Layout & Styling',
         description:
@@ -228,7 +228,7 @@ export const featuresPro = [
     },
     {
         title: 'Row Odd Styling',
-        thumbnail: '/odd-rows.svg',
+        thumbnail: '/img/row-odd.png',
         group: 'Layout & Styling',
         description:
             'Distinct styles to odd rows for improved readability and better data separation.',
@@ -236,7 +236,7 @@ export const featuresPro = [
     },
     {
         title: 'Row Custom Heading',
-        thumbnail: '/row-heading.svg',
+        thumbnail: '/img/row-heading.png',
         group: 'Layout & Styling',
         description:
             'Add custom heading to rows for improved readability and data distinction.',
@@ -244,7 +244,7 @@ export const featuresPro = [
     },
     {
         title: 'Row Advanced Drag and Drop',
-        thumbnail: '/drag-and-drop.svg',
+        thumbnail: '/img/drag-and-drop.png',
         group: 'User Interaction',
         description:
             'Customizable drag-and-drop for multiple items with advanced behaviors like custom drop zones, drag handles, and item reordering.',
@@ -252,14 +252,14 @@ export const featuresPro = [
     },
     {
         title: 'Row Checkbox Selection',
-        thumbnail: '/row-selection.svg',
+        thumbnail: '/img/row-selection.png',
         group: 'User Interaction',
         description: 'Next generation plugin for row selection using checkboxes, with keyboard interactions for bulk selection and extra events for enhanced control.',
         videoUrl: '/video/row-selection.mp4',
     },
     {
         title: 'Column Selection',
-        thumbnail: '/column-selection.svg',
+        thumbnail: '/img/column-selection.png',
         group: 'User Interaction',
         description:
             'Enable easy selection of entire columns for enhanced data manipulation.',
@@ -267,7 +267,7 @@ export const featuresPro = [
     },
     {
         title: 'Next Line Focus (WCAG)',
-        thumbnail: '/auto-focus.svg',
+        thumbnail: '/img/auto-focus.png',
         group: 'User Interaction',
         description:
             'Automatically move focus to the next row for streamlined data entry and editing.',
@@ -275,15 +275,15 @@ export const featuresPro = [
     },
     {
         title: 'Clipboard with JSON and Advanced Objects',
-        thumbnail: '/clipboard.svg',
+        thumbnail: '/img/clipboard.png',
         group: 'Data Management',
         description:
             'Support for JSON and other objects. Copy and paste complex data structures explained.',
         videoUrl: '/video/clipboard.mp4',
     },
     {
-        title: 'Excel Export',
-        thumbnail: '/export.svg',
+        title: 'Excel Export/Import',
+        thumbnail: '/img/excel.png',
         group: 'Data Management',
         description:
             'Export data to Excel format. Supported types include `xlsx`, `xlsm`, `xlsb`, `xls`, and more.',
@@ -291,7 +291,7 @@ export const featuresPro = [
     },
     {
         title: 'Event Manager',
-        thumbnail: '/event-manager.svg',
+        thumbnail: '/img/event-manager.png',
         group: 'Development & Integration',
         description:
             'Handles, customizes, and optimizes events. Use one event to process multiple actions.',
@@ -299,22 +299,15 @@ export const featuresPro = [
         videoUrl: '/video/event-manager.mp4',
     },
     {
-        title: 'Data Processing',
-        thumbnail: '/data-sync.svg',
-        group: 'Development & Integration',
-        description: 'Example of how to process data from/to external sources.',
-        sponsor: '/guide/data-sync',
-    },
-    {
         title: 'Overlay layers',
-        thumbnail: '/overlay.svg',
+        thumbnail: '/img/overlay.png',
         group: 'Layout & Styling',
         description:
             'Push and pop layers on top of the grid to enhance the user experience.',
     },
     {
         title: 'Grouping Aggregation',
-        thumbnail: '/aggregation.svg',
+        thumbnail: '/img/aggregation.png',
         group: 'Advanced Calculations',
         description: 'Apply summary functions like sum, average, and more to grouped data.',
     },
@@ -326,36 +319,36 @@ export const featuresPro = [
         videoUrl: '/video/row-form.mp4',
     },
     {
-        title: 'Row Editing',
-        thumbnail: '/row-editing.svg',
+        title: 'Full Row Editing',
+        thumbnail: '/img/row-edit.png',
         group: 'Data Entry & Automation',
         description: 'Edit entire row in the grid with a simple API. Use when you need to edit multiple columns in a single row at once.',
         videoUrl: '/video/row-editing.mp4',
     },
     {
         title: 'Cell Checkbox Editors',
-        thumbnail: '/row-selection.svg',
+        thumbnail: '/img/checkbox-edit.png',
         group: 'Data Entry & Automation',
         description: 'Special cell type that combines editor and renderer into a single checkbox component.',
         videoUrl: '/video/checkbox-editor.mp4',
     },
     {
         title: 'Cell Slider Editor',
-        thumbnail: '/flash-circle.svg',
+        thumbnail: '/img/slider-edit.png',
         group: 'Data Entry & Automation',
         description: 'Interactive slider component for intuitive numeric value editing directly within grid cells, featuring customizable ranges and real-time visual feedback. Perfect for applications requiring precise numeric input control or when dealing with bounded numeric ranges.',
         videoUrl: '/video/slider-editor.mp4',
     },
     {
         title: 'Cell Counter Editor',
-        thumbnail: '/flash-circle.svg',
+        thumbnail: '/img/counter-edit.png',
         group: 'Data Entry & Automation',
         description: 'Elegant plus/minus counter interface for precise numeric value adjustments within grid cells, offering configurable step sizes and range limits. Ideal for applications requiring quick incremental changes or when dealing with bounded numeric values that need frequent small adjustments.',
         videoUrl: '/video/counter-editor.mp4',
     },
     {
         title: 'Timeline Editor',
-        thumbnail: '/flash-circle.svg',
+        thumbnail: '/img/timeline-edit.png',
         group: 'Data Entry & Automation',
         description: 'Visual timeline editor featuring an intuitive progress bar and native date pickers for seamless date range selection within grid cells. Perfect for project management, scheduling, and any application requiring visual time tracking or date range manipulation.',
         videoUrl: '/video/timeline-editor.mp4',
