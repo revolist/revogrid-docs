@@ -144,7 +144,7 @@ export const featuresPro = [
         thumbnail: '/img/data-validation.png',
         group: 'Data Quality & Validation',
         description:
-            'Built-in data validation to ensure data integrity. Define customizable validation rules and error handling to maintain high-quality data.',
+            'Highlight erroneous cells and prevent invalid edits to ensure data integrity. Customizable validation rules and error handling to maintain high-quality data.',
         videoUrl: '/video/data-validation.mp4',
     },
     {
@@ -152,7 +152,7 @@ export const featuresPro = [
         thumbnail: '/img/validate-input.png',
         group: 'Data Quality & Validation',
         description:
-            'Advanced validation with plugin support to prevent invalid edits and highlight erroneous cells, ensuring data accuracy.',
+            'Add validation to prevent invalid edits and highlight erroneous cells, ensuring data accuracy.',
         videoUrl: '/video/data-validation-input.mp4',
     },
     {

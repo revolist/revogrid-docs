@@ -114,7 +114,6 @@ const groupedFeatures = computed(() => {
 
 .feature-card {
     perspective: 1000px;
-    height: 100%;
     border: 1px solid var(--vp-c-gray-2);
     border-radius: 12px;
     transition: border ease-in-out 0.3s;
@@ -219,7 +218,6 @@ const groupedFeatures = computed(() => {
 }
 .thumbnail-container {
     flex-grow: 1;
-    overflow: hidden;
     align-self: stretch;
     position: relative;
     height: 220px;
