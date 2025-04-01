@@ -67,13 +67,13 @@ aside: false
 | beforefocusrender | `FocusRenderEvent` | revogr-focus | Before focus render event. Can be prevented by event.preventDefault(). If preventDefault used slot will be rendered. |
 | beforescrollintoview | `{ el: HTMLElement; }` | revogr-focus | Before focus changed verify if it's in view and scroll viewport into this view Can be prevented by event.preventDefault() |
 | afterfocus | `FocusAfterRenderEvent` | revogr-focus | Used to setup properties after focus was rendered |
-| beforeheaderclick | `{ index: number; originalEvent: MouseEvent; column: ColumnRegular; providers: Providers<DimensionCols \| "rowHeaders">; }` | revogr-header | On initial header click |
+| beforeheaderclick | `{ index: number; originalEvent: MouseEvent; column: ColumnRegular; providers: ProvidersColumns<DimensionCols \| "rowHeaders">; }` | revogr-header | On initial header click |
 | headerresize | `{ [x: string]: number; }` | revogr-header | On header resize |
 | beforeheaderresize | `ColumnRegular[]` | revogr-header | On before header resize |
-| headerdblclick | `{ index: number; originalEvent: MouseEvent; column: ColumnRegular; providers: Providers<DimensionCols \| "rowHeaders">; }` | revogr-header | On header double click |
+| headerdblclick | `{ index: number; originalEvent: MouseEvent; column: ColumnRegular; providers: ProvidersColumns<DimensionCols \| "rowHeaders">; }` | revogr-header | On header double click |
 | beforeheaderrender | `{ column: VirtualPositionItem; additionalData: any; data: ColumnTemplateProp; range?: RangeArea \| null \| undefined; canResize?: boolean \| undefined; canFilter?: boolean \| undefined; onResize?(e: ResizeEvent): void; onClick?(data: InitialHeaderClick): void; onDblClick?(data: InitialHeaderClick): void; } & Partial<Pick<ResizeProps, "active">>` | revogr-header | Before each header cell render function. Allows to override cell properties |
-| beforegroupheaderrender | `{ start: number; end: number; group: Group; providers: Providers<DimensionCols \| "rowHeaders">; additionalData: any; canResize?: boolean \| undefined; onResize?(e: ResizeEvent): void; } & Partial<Pick<ResizeProps, "active">>` | revogr-header | Before each group header cell render function. Allows to override group header cell properties |
-| afterheaderrender | `{ type: DimensionCols \| "rowHeaders"; readonly: boolean; data: ColumnRegular[] \| Observable<DataSourceState<any, any>>; viewport: Observable<ViewportState>; dimension: Observable<DimensionSettingsState>; selection: Observable<SelectionStoreState>; }` | revogr-header | After all header cells rendered. Finalizes cell rendering. |
+| beforegroupheaderrender | `{ start: number; end: number; group: Group; providers: ProvidersColumns<DimensionCols \| "rowHeaders">; additionalData: any; canResize?: boolean \| undefined; onResize?(e: ResizeEvent): void; } & Partial<Pick<ResizeProps, "active">>` | revogr-header | Before each group header cell render function. Allows to override group header cell properties |
+| afterheaderrender | `ProvidersColumns<DimensionCols \| "rowHeaders">` | revogr-header | After all header cells rendered. Finalizes cell rendering. |
 | rowdragstartinit | `{ cell: Cell; text: string; pos: PositionItem; event: MouseEvent; rowType: DimensionRows; model: any; }` | revogr-order-editor | Row drag started |
 | rowdragendinit | `{ rowType: DimensionRows; }` | revogr-order-editor | Row drag ended started |
 | rowdragmoveinit | `PositionItem & { rowType: DimensionRows; }` | revogr-order-editor | Row move started |
