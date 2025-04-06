@@ -70,6 +70,13 @@ export const featuresPro = [
         videoUrl: '/video/column-collapse.mp4',
     },
     {
+        title: 'Column Hide',
+        thumbnail: '/img/column-hide.png',
+        group: 'Layout & Styling',
+        description: 'Column hiding is a feature that allows you to hide specific columns in your grid, making them invisible to users. This is useful for focusing on specific data points, reducing visual clutter, creating different views of the same dataset, and implementing column visibility toggles.',
+        videoUrl: '/video/column-hide.mp4',
+    },
+    {
         title: 'Column Stretch',
         thumbnail: '/img/column-stretch.png',
         group: 'Layout & Styling',
