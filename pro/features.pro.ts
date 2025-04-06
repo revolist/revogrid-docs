@@ -74,7 +74,6 @@ export const featuresPro = [
         thumbnail: '/img/column-hide.png',
         group: 'Layout & Styling',
         description: 'Column hiding is a feature that allows you to hide specific columns in your grid, making them invisible to users. This is useful for focusing on specific data points, reducing visual clutter, creating different views of the same dataset, and implementing column visibility toggles.',
-        videoUrl: '/video/column-hide.mp4',
     },
     {
         title: 'Column Stretch',
@@ -202,6 +201,13 @@ export const featuresPro = [
         videoUrl: '/video/cell-flash.mp4',
     },
     {
+        title: 'Connected Fields',
+        thumbnail: '/img/connected-fields.png',
+        group: 'Data Management',
+        description:
+            'Connect any fields together through progress, enabling advanced data connections for impressive visualizations. Interconnect data, enhance insights and drive better decision-making.',
+    },
+    {
         title: 'Reference Data',
         thumbnail: '/img/reference-data.png',
         group: 'Data Management',
@@ -216,6 +222,13 @@ export const featuresPro = [
         description:
             'Build context menus for any grid element - from cells to headers. Cut, copy, paste, add rows, modify columns, and more. Fully customizable with your own actions and behaviors.',
         videoUrl: '/video/row-context.mp4',
+    },
+    {
+        title: 'Tooltip',
+        thumbnail: '/img/tooltip.png',
+        group: 'User Interaction',
+        description:
+            'Provides tooltips in the grid cells for extra information by displaying additional context on hover.',
     },
     {
         title: 'Row Grouping Drag and Drop',
