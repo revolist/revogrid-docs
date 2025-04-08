@@ -92,6 +92,13 @@ export const featuresPro = [
             'Empower your data grid with visually rich, interactive, and context-driven cells. From ratings to timelines, our custom cell renders elevate data visualization to the next level.',
     },
     {
+        title: 'Multi-Cell Formatting',
+        thumbnail: '/img/multi-cell-format.png',
+        group: 'Data Visualization',
+        description:
+            'Apply different renderers and editors to cells within the same column based on user-defined conditions. Perfect for creating dynamic, context-aware data displays where each cell can have its own unique presentation and interaction model.',
+    },
+    {
         title: 'Heat&Cold Maps',
         thumbnail: '/img/heatmap.png',
         videoUrl: '/video/heatmap.mp4',
