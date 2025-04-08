@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.14.14](README.md) / ViewSettingSizeProp
+[RevoGrid Documentation v4.15.0](README.md) / ViewSettingSizeProp
 
 # Type Alias: ViewSettingSizeProp
 
@@ -11,4 +11,4 @@ corresponding sizes.
 
 ## Defined in
 
-[src/types/interfaces.ts:572](https://github.com/revolist/revogrid/blob/fdfe81f10fb07db00151f14190ac038aded766a8/src/types/interfaces.ts#L572)
+[src/types/interfaces.ts:572](https://github.com/revolist/revogrid/blob/f57e3b1afae49404a5b6670c54899cb5770f47c4/src/types/interfaces.ts#L572)
