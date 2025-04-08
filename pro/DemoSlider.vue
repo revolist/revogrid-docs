@@ -42,12 +42,12 @@ let timer: number | null = null
 
 const videos = ref([
     {
-        src: '/video/demo-color.mp4',
-        poster: '/img/demo-color-preview.jpg',
-    },
-    {
         src: '/video/pivot.mp4',
         poster: '/img/pivot-preview.jpg',
+    },
+    {
+        src: '/video/demo-color.mp4',
+        poster: '/img/demo-color-preview.jpg',
     },
 ])
 
