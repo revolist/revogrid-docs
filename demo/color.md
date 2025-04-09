@@ -1,6 +1,6 @@
 ---
 title: Demo Color Table
-pageClass: demo-page-class no-right-padding no-top-padding no-bottom-padding
+pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false
 footer: false
