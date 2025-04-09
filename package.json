@@ -51,7 +51,6 @@
     "sass": "^1.72.0",
     "svg-parser": "^2.0.4",
     "terser": "^5.31.6",
-    "vite-plugin-obfuscator": "^1.0.5",
     "vite-svg-loader": "^5.1.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitepress": "^1.6.2",

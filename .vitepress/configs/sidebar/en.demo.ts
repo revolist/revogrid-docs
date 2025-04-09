@@ -128,12 +128,16 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         link: '/demo/',
     },
     {
-        text: 'Demo: Prompts',
-        link: '/demo/vue/ai-prompts',
-    },
-    {
         text: 'Demo: Pivot',
         link: '/demo/pivot',
+    },
+    {
+        text: 'Demo: Color',
+        link: '/demo/color',
+    },
+    {
+        text: 'Demo: Prompts',
+        link: '/demo/vue/ai-prompts',
     },
     {
         text: '<img src="/js.svg" alt="JS logo" width="15" height="15"/> JS,JSX',

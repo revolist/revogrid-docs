@@ -4,7 +4,6 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 import svgLoader from 'vite-svg-loader'
 import { navbarEn } from './configs/navbar'
 import { sidebarEn } from './configs/sidebar'
-import { viteObfuscateFile } from 'vite-plugin-obfuscator'
 import dotenv from 'dotenv'
 import path from 'node:path'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
@@ -167,15 +166,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 resolvers: [ElementPlusResolver()],
             }),
             svgLoader(),
-            viteObfuscateFile({
-                // Obfuscation options, for example:
-                compact: true,
-                controlFlowFlattening: true,
-                deadCodeInjection: true,
-                debugProtection: true,
-                disableConsoleOutput: true,
-                renameProperties: true,
-            }),
         ],
         ssr: {
             noExternal: ['element-plus'],
