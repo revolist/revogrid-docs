@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.15.1](README.md) / DimensionPosition
+[RevoGrid Documentation v4.15.2](README.md) / DimensionPosition
 
 # Type Alias: DimensionPosition
 
@@ -8,4 +8,4 @@ type DimensionPosition: Pick<DimensionSettingsState, "indexes" | "positionIndexe
 
 ## Defined in
 
-[src/store/dimension/dimension.helpers.ts:9](https://github.com/revolist/revogrid/blob/9d06c9d1de184a8cd977144efe5186ec5a7312cb/src/store/dimension/dimension.helpers.ts#L9)
+[src/store/dimension/dimension.helpers.ts:9](https://github.com/revolist/revogrid/blob/30cfedca97f5b42c948bd2668fa87c350d2411bd/src/store/dimension/dimension.helpers.ts#L9)

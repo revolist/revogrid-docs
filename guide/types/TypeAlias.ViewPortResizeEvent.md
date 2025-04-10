@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.15.1](README.md) / ViewPortResizeEvent
+[RevoGrid Documentation v4.15.2](README.md) / ViewPortResizeEvent
 
 # Type Alias: ViewPortResizeEvent
 
@@ -17,10 +17,10 @@ event in the viewport.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `dimension` | [`DimensionType`](TypeAlias.DimensionType.md) | [src/types/interfaces.ts:472](https://github.com/revolist/revogrid/blob/9d06c9d1de184a8cd977144efe5186ec5a7312cb/src/types/interfaces.ts#L472) |
-| `rowHeader` | `boolean` | [src/types/interfaces.ts:476](https://github.com/revolist/revogrid/blob/9d06c9d1de184a8cd977144efe5186ec5a7312cb/src/types/interfaces.ts#L476) |
-| `size` | `number` | [src/types/interfaces.ts:474](https://github.com/revolist/revogrid/blob/9d06c9d1de184a8cd977144efe5186ec5a7312cb/src/types/interfaces.ts#L474) |
+| `dimension` | [`DimensionType`](TypeAlias.DimensionType.md) | [src/types/interfaces.ts:472](https://github.com/revolist/revogrid/blob/30cfedca97f5b42c948bd2668fa87c350d2411bd/src/types/interfaces.ts#L472) |
+| `rowHeader` | `boolean` | [src/types/interfaces.ts:476](https://github.com/revolist/revogrid/blob/30cfedca97f5b42c948bd2668fa87c350d2411bd/src/types/interfaces.ts#L476) |
+| `size` | `number` | [src/types/interfaces.ts:474](https://github.com/revolist/revogrid/blob/30cfedca97f5b42c948bd2668fa87c350d2411bd/src/types/interfaces.ts#L474) |
 
 ## Defined in
 
-[src/types/interfaces.ts:470](https://github.com/revolist/revogrid/blob/9d06c9d1de184a8cd977144efe5186ec5a7312cb/src/types/interfaces.ts#L470)
+[src/types/interfaces.ts:470](https://github.com/revolist/revogrid/blob/30cfedca97f5b42c948bd2668fa87c350d2411bd/src/types/interfaces.ts#L470)

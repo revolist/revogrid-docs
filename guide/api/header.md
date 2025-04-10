@@ -8,16 +8,16 @@
 | ------------------- | ----------------- | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ----------- |
 | `additionalData`    | `additional-data` | Extra properties to pass into header renderer, such as vue or react components to handle parent | `any`                                                          | `{}`        |
 | `canResize`         | `can-resize`      | If columns can be resized                                                                       | `boolean`                                                      | `undefined` |
-| `colData`           | --                | Columns - defines an array of grid columns.                                                     | `ColumnRegular[]`                                              | `undefined` |
+| `colData`           | `col-data`        | Columns - defines an array of grid columns.                                                     | `ColumnRegular[]`                                              | `undefined` |
 | `columnFilter`      | `column-filter`   | Column filter                                                                                   | `boolean`                                                      | `undefined` |
-| `dimensionCol`      | --                | Dimension settings X                                                                            | `ObservableMap<DimensionSettingsState>`                        | `undefined` |
+| `dimensionCol`      | `dimension-col`   | Dimension settings X                                                                            | `ObservableMap<DimensionSettingsState>`                        | `undefined` |
 | `groupingDepth`     | `grouping-depth`  | Grouping depth, how many levels of grouping                                                     | `number`                                                       | `0`         |
-| `groups`            | --                | Column groups                                                                                   | `{ [x: number]: Group[]; }`                                    | `undefined` |
+| `groups`            | `groups`          | Column groups                                                                                   | `{ [x: number]: Group[]; }`                                    | `undefined` |
 | `readonly`          | `readonly`        | Readonly mode                                                                                   | `boolean`                                                      | `undefined` |
-| `resizeHandler`     | --                | Defines resize position                                                                         | `("r" \| "b" \| "rt" \| "lt" \| "rb" \| "lb" \| "l" \| "t")[]` | `undefined` |
-| `selectionStore`    | --                | Selection, range, focus                                                                         | `ObservableMap<SelectionStoreState>`                           | `undefined` |
+| `resizeHandler`     | `resize-handler`  | Defines resize position                                                                         | `("r" \| "b" \| "rt" \| "lt" \| "rb" \| "lb" \| "l" \| "t")[]` | `undefined` |
+| `selectionStore`    | `selection-store` | Selection, range, focus                                                                         | `ObservableMap<SelectionStoreState>`                           | `undefined` |
 | `type` _(required)_ | `type`            | Column type                                                                                     | `"colPinEnd" \| "colPinStart" \| "rgCol" \| "rowHeaders"`      | `undefined` |
-| `viewportCol`       | --                | Viewport X                                                                                      | `ObservableMap<ViewportState>`                                 | `undefined` |
+| `viewportCol`       | `viewport-col`    | Viewport X                                                                                      | `ObservableMap<ViewportState>`                                 | `undefined` |
 
 
 ## Events
