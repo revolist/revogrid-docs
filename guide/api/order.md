@@ -8,13 +8,13 @@ Component for handling row order editor.
 
 ## Properties
 
-| Property       | Attribute  | Description                                                     | Type                                                   | Default     |
-| -------------- | ---------- | --------------------------------------------------------------- | ------------------------------------------------------ | ----------- |
-| `dataStore`    | --         | Static stores, not expected to change during component lifetime | `ObservableMap<DSourceState<DataType, DimensionRows>>` | `undefined` |
-| `dimensionCol` | --         | Dimension settings X                                            | `ObservableMap<DimensionSettingsState>`                | `undefined` |
-| `dimensionRow` | --         | Dimension settings Y                                            | `ObservableMap<DimensionSettingsState>`                | `undefined` |
-| `parent`       | --         | Parent element                                                  | `HTMLElement`                                          | `undefined` |
-| `rowType`      | `row-type` |                                                                 | `"rgRow" \| "rowPinEnd" \| "rowPinStart"`              | `undefined` |
+| Property       | Attribute       | Description                                                     | Type                                                   | Default     |
+| -------------- | --------------- | --------------------------------------------------------------- | ------------------------------------------------------ | ----------- |
+| `dataStore`    | `data-store`    | Static stores, not expected to change during component lifetime | `ObservableMap<DSourceState<DataType, DimensionRows>>` | `undefined` |
+| `dimensionCol` | `dimension-col` | Dimension settings X                                            | `ObservableMap<DimensionSettingsState>`                | `undefined` |
+| `dimensionRow` | `dimension-row` | Dimension settings Y                                            | `ObservableMap<DimensionSettingsState>`                | `undefined` |
+| `parent`       | `parent`        | Parent element                                                  | `HTMLElement`                                          | `undefined` |
+| `rowType`      | `row-type`      |                                                                 | `"rgRow" \| "rowPinEnd" \| "rowPinStart"`              | `undefined` |
 
 
 ## Events

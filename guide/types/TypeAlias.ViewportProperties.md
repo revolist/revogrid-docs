@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.15.1](README.md) / ViewportProperties
+[RevoGrid Documentation v4.15.2](README.md) / ViewportProperties
 
 # Type Alias: ViewportProperties
 
@@ -8,4 +8,4 @@ type ViewportProperties: RevogrViewportScroll & JSXBase.HTMLAttributes<HTMLRevog
 
 ## Defined in
 
-[src/types/viewport.interfaces.ts:32](https://github.com/revolist/revogrid/blob/9d06c9d1de184a8cd977144efe5186ec5a7312cb/src/types/viewport.interfaces.ts#L32)
+[src/types/viewport.interfaces.ts:32](https://github.com/revolist/revogrid/blob/30cfedca97f5b42c948bd2668fa87c350d2411bd/src/types/viewport.interfaces.ts#L32)
