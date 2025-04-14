@@ -31,6 +31,7 @@
                     resize
                     row-headers
                     hide-attribution
+                    can-move-columns
                     :row-size="36"
                 />
             </div>
