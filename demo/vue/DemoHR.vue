@@ -172,6 +172,7 @@ const options: OptionType[] = [
     { value: 2, label: '10,000 rows, 100 columns 🏎️' },
     { value: 3, label: '100,000 rows, 100 columns 🚀' },
     { value: 4, label: '200,000 rows, 100 columns 💥' },
+    { value: 5, label: '400,000 rows, 100 columns 💥' },
 ]
 
 const gridColumnTypes = ref<{ [name: string]: any }>({})

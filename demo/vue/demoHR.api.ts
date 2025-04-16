@@ -11,6 +11,8 @@ export async function getHRData(mode: number) {
         count = 100000
     } else if (mode === 4) {
         count = 200000
+    } else if (mode === 5) {
+        count = 400000
     }
     try {
         return new Promise((resolve, reject) => {
