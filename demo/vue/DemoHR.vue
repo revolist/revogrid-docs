@@ -430,5 +430,6 @@ const setData = async (mode: number) => {
     min-height: initial;
     height: calc(100vh - 250px);
     max-height: 800px;
+    gap: 0;
 }
 </style>

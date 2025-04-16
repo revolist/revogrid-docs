@@ -64,6 +64,7 @@ aside: false
 | closeedit | `boolean \| undefined` | revogr-edit | Close editor event pass true if requires focus next |
 | filterChange | `MultiFilterItem` | revogr-filter-panel |  |
 | resetChange | `number \| string` | revogr-filter-panel |  |
+| close | `void` | revogr-filter-popup |  |
 | beforefocusrender | `FocusRenderEvent` | revogr-focus | Before focus render event. Can be prevented by event.preventDefault(). If preventDefault used slot will be rendered. |
 | beforescrollintoview | `{ el: HTMLElement; }` | revogr-focus | Before focus changed verify if it's in view and scroll viewport into this view Can be prevented by event.preventDefault() |
 | afterfocus | `FocusAfterRenderEvent` | revogr-focus | Used to setup properties after focus was rendered |
