@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.15.3](README.md) / GroupRowPros
+[RevoGrid Documentation v4.15.4](README.md) / GroupRowPros
 
 # Interface: GroupRowPros
 
@@ -27,17 +27,17 @@
 | `contextMenu?` | `string` | `RowProps.contextMenu` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1222 |
 | `contextmenu?` | `string` | `RowProps.contextmenu` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1223 |
 | `datatype?` | `string` | `RowProps.datatype` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1247 |
-| `depth?` | `number` | `RowProps.depth` | [src/components/data/row-renderer.tsx:10](https://github.com/revolist/revogrid/blob/0f25b4576d7b148a35319cded1f6d62c5f4ebd98/src/components/data/row-renderer.tsx#L10) |
+| `depth?` | `number` | `RowProps.depth` | [src/components/data/row-renderer.tsx:10](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/components/data/row-renderer.tsx#L10) |
 | `dir?` | `string` | `RowProps.dir` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1224 |
 | `draggable?` | `boolean` | `RowProps.draggable` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1225 |
 | `enterKeyHint?` | `string` | `RowProps.enterKeyHint` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1240 |
 | `enterkeyhint?` | `string` | `RowProps.enterkeyhint` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1241 |
 | `exportparts?` | `string` | `RowProps.exportparts` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1539 |
-| `groupingCustomRenderer?` | `null` \| [`GroupLabelTemplateFunc`](TypeAlias.GroupLabelTemplateFunc.md) | - | [src/plugins/groupingRow/grouping.row.types.ts:60](https://github.com/revolist/revogrid/blob/0f25b4576d7b148a35319cded1f6d62c5f4ebd98/src/plugins/groupingRow/grouping.row.types.ts#L60) |
-| `hasExpand` | `boolean` | - | [src/plugins/groupingRow/grouping.row.types.ts:58](https://github.com/revolist/revogrid/blob/0f25b4576d7b148a35319cded1f6d62c5f4ebd98/src/plugins/groupingRow/grouping.row.types.ts#L58) |
+| `groupingCustomRenderer?` | `null` \| [`GroupLabelTemplateFunc`](TypeAlias.GroupLabelTemplateFunc.md) | - | [src/plugins/groupingRow/grouping.row.types.ts:60](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/plugins/groupingRow/grouping.row.types.ts#L60) |
+| `hasExpand` | `boolean` | - | [src/plugins/groupingRow/grouping.row.types.ts:58](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/plugins/groupingRow/grouping.row.types.ts#L58) |
 | `hidden?` | `boolean` | `RowProps.hidden` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1226 |
 | `id?` | `string` | `RowProps.id` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1227 |
-| `index` | `number` | `RowProps.index` | [src/components/data/row-renderer.tsx:8](https://github.com/revolist/revogrid/blob/0f25b4576d7b148a35319cded1f6d62c5f4ebd98/src/components/data/row-renderer.tsx#L8) |
+| `index` | `number` | `RowProps.index` | [src/components/data/row-renderer.tsx:8](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/components/data/row-renderer.tsx#L8) |
 | `inert?` | `boolean` | `RowProps.inert` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1228 |
 | `inlist?` | `any` | `RowProps.inlist` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1248 |
 | `innerHTML?` | `string` | `RowProps.innerHTML` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1213 |
@@ -56,7 +56,7 @@
 | `itemtype?` | `string` | `RowProps.itemtype` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1266 |
 | `key?` | `string` \| `number` | `RowProps.key` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1670 |
 | `lang?` | `string` | `RowProps.lang` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1229 |
-| `model` | [`DataType`](TypeAlias.DataType.md) | - | [src/plugins/groupingRow/grouping.row.types.ts:57](https://github.com/revolist/revogrid/blob/0f25b4576d7b148a35319cded1f6d62c5f4ebd98/src/plugins/groupingRow/grouping.row.types.ts#L57) |
+| `model` | [`DataType`](TypeAlias.DataType.md) | - | [src/plugins/groupingRow/grouping.row.types.ts:57](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/plugins/groupingRow/grouping.row.types.ts#L57) |
 | `onAnimationEnd?` | (`event`: `AnimationEvent`) => `void` | `RowProps.onAnimationEnd` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1653 |
 | `onAnimationEndCapture?` | (`event`: `AnimationEvent`) => `void` | `RowProps.onAnimationEndCapture` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1654 |
 | `onAnimationIteration?` | (`event`: `AnimationEvent`) => `void` | `RowProps.onAnimationIteration` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1655 |
@@ -186,19 +186,19 @@
 | `popover?` | `null` \| `string` | `RowProps.popover` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1237 |
 | `prefix?` | `string` | `RowProps.prefix` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1249 |
 | `property?` | `string` | `RowProps.property` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1250 |
-| `providers` | [`Providers`](Interface.Providers.md)\<[`DimensionRows`](TypeAlias.DimensionRows.md)\> | - | [src/plugins/groupingRow/grouping.row.types.ts:59](https://github.com/revolist/revogrid/blob/0f25b4576d7b148a35319cded1f6d62c5f4ebd98/src/plugins/groupingRow/grouping.row.types.ts#L59) |
+| `providers` | [`Providers`](Interface.Providers.md)\<[`DimensionRows`](TypeAlias.DimensionRows.md)\> | - | [src/plugins/groupingRow/grouping.row.types.ts:59](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/plugins/groupingRow/grouping.row.types.ts#L59) |
 | `radioGroup?` | `string` | `RowProps.radioGroup` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1243 |
 | `radiogroup?` | `string` | `RowProps.radiogroup` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1244 |
 | `ref?` | (`elm`?: `HTMLElement`) => `void` | `RowProps.ref` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1671 |
 | `resource?` | `string` | `RowProps.resource` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1251 |
 | `results?` | `number` | `RowProps.results` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1271 |
 | `role?` | `string` | `RowProps.role` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1245 |
-| `rowClass?` | `string` | `RowProps.rowClass` | [src/components/data/row-renderer.tsx:9](https://github.com/revolist/revogrid/blob/0f25b4576d7b148a35319cded1f6d62c5f4ebd98/src/components/data/row-renderer.tsx#L9) |
+| `rowClass?` | `string` | `RowProps.rowClass` | [src/components/data/row-renderer.tsx:9](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/components/data/row-renderer.tsx#L9) |
 | `security?` | `string` | `RowProps.security` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1272 |
-| `size` | `number` | `RowProps.size` | [src/components/data/row-renderer.tsx:6](https://github.com/revolist/revogrid/blob/0f25b4576d7b148a35319cded1f6d62c5f4ebd98/src/components/data/row-renderer.tsx#L6) |
+| `size` | `number` | `RowProps.size` | [src/components/data/row-renderer.tsx:6](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/components/data/row-renderer.tsx#L6) |
 | `slot?` | `string` | `RowProps.slot` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1537 |
 | `spellcheck?` | `any` | `RowProps.spellcheck` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1230 |
-| `start` | `number` | `RowProps.start` | [src/components/data/row-renderer.tsx:7](https://github.com/revolist/revogrid/blob/0f25b4576d7b148a35319cded1f6d62c5f4ebd98/src/components/data/row-renderer.tsx#L7) |
+| `start` | `number` | `RowProps.start` | [src/components/data/row-renderer.tsx:7](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/components/data/row-renderer.tsx#L7) |
 | `style?` | \{\} | `RowProps.style` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1231 |
 | `tabIndex?` | `number` | `RowProps.tabIndex` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1234 |
 | `tabindex?` | `string` \| `number` | `RowProps.tabindex` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:1235 |
