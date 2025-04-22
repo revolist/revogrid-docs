@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.15.4](README.md) / ViewportStateItems
+[RevoGrid Documentation v4.15.5](README.md) / ViewportStateItems
 
 # Type Alias: ViewportStateItems
 
@@ -15,8 +15,8 @@ along with their corresponding range.
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `items` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md)[] | The items in the viewport. | [src/types/interfaces.ts:544](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/types/interfaces.ts#L544) |
+| `items` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md)[] | The items in the viewport. | [src/types/interfaces.ts:544](https://github.com/revolist/revogrid/blob/e4de5901d3a858ae9e9a420f27ffcd2a33073a79/src/types/interfaces.ts#L544) |
 
 ## Defined in
 
-[src/types/interfaces.ts:540](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/types/interfaces.ts#L540)
+[src/types/interfaces.ts:540](https://github.com/revolist/revogrid/blob/e4de5901d3a858ae9e9a420f27ffcd2a33073a79/src/types/interfaces.ts#L540)

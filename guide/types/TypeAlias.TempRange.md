@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.15.4](README.md) / TempRange
+[RevoGrid Documentation v4.15.5](README.md) / TempRange
 
 # Type Alias: TempRange
 
@@ -13,9 +13,9 @@ type TempRange: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `area` | [`RangeArea`](TypeAlias.RangeArea.md) | [src/types/selection.ts:59](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/types/selection.ts#L59) |
-| `type` | `string` | [src/types/selection.ts:58](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/types/selection.ts#L58) |
+| `area` | [`RangeArea`](TypeAlias.RangeArea.md) | [src/types/selection.ts:59](https://github.com/revolist/revogrid/blob/e4de5901d3a858ae9e9a420f27ffcd2a33073a79/src/types/selection.ts#L59) |
+| `type` | `string` | [src/types/selection.ts:58](https://github.com/revolist/revogrid/blob/e4de5901d3a858ae9e9a420f27ffcd2a33073a79/src/types/selection.ts#L58) |
 
 ## Defined in
 
-[src/types/selection.ts:57](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/types/selection.ts#L57)
+[src/types/selection.ts:57](https://github.com/revolist/revogrid/blob/e4de5901d3a858ae9e9a420f27ffcd2a33073a79/src/types/selection.ts#L57)

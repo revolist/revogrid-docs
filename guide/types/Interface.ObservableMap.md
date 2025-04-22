@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.15.4](README.md) / ObservableMap
+[RevoGrid Documentation v4.15.5](README.md) / ObservableMap
 
 # Interface: ObservableMap\<T\>
 
@@ -12,11 +12,11 @@
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `get` | [`Getter`](Interface.Getter.md)\<`T`\> | Only useful if you need to support IE11. **Example** `const { state, get } = createStore({ hola: 'hello', adios: 'goodbye' }); console.log(state.hola); // If you don't need to support IE11, use this way. console.log(get('hola')); // If you need to support IE11, use this other way.` | [src/utils/store.types.ts:53](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/utils/store.types.ts#L53) |
-| `on` | [`OnHandler`](Interface.OnHandler.md)\<`T`\> | Register a event listener, you can listen to `set`, `get` and `reset` events. **Example** `store.on('set', (prop, value) => { console.log(`Prop ${prop} changed to: ${value}`); });` | [src/utils/store.types.ts:71](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/utils/store.types.ts#L71) |
-| `onChange` | [`OnChangeHandler`](Interface.OnChangeHandler.md)\<`T`\> | Easily listen for value changes of the specified key. | [src/utils/store.types.ts:75](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/utils/store.types.ts#L75) |
-| `set` | [`Setter`](Interface.Setter.md)\<`T`\> | Only useful if you need to support IE11. **Example** `const { state, get } = createStore({ hola: 'hello', adios: 'goodbye' }); state.hola = 'ola'; // If you don't need to support IE11, use this way. set('hola', 'ola')); // If you need to support IE11, use this other way.` | [src/utils/store.types.ts:62](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/utils/store.types.ts#L62) |
-| `state` | `T` | Proxied object that will detect dependencies and call the subscriptions and computed properties. If available, it will detect from which Stencil Component it was called and rerender it when the property changes. Note: Proxy objects are not supported by IE11 (not even with a polyfill) so you need to use the store.get and store.set methods of the API if you wish to support IE11. | [src/utils/store.types.ts:44](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/utils/store.types.ts#L44) |
+| `get` | [`Getter`](Interface.Getter.md)\<`T`\> | Only useful if you need to support IE11. **Example** `const { state, get } = createStore({ hola: 'hello', adios: 'goodbye' }); console.log(state.hola); // If you don't need to support IE11, use this way. console.log(get('hola')); // If you need to support IE11, use this other way.` | [src/utils/store.types.ts:53](https://github.com/revolist/revogrid/blob/e4de5901d3a858ae9e9a420f27ffcd2a33073a79/src/utils/store.types.ts#L53) |
+| `on` | [`OnHandler`](Interface.OnHandler.md)\<`T`\> | Register a event listener, you can listen to `set`, `get` and `reset` events. **Example** `store.on('set', (prop, value) => { console.log(`Prop ${prop} changed to: ${value}`); });` | [src/utils/store.types.ts:71](https://github.com/revolist/revogrid/blob/e4de5901d3a858ae9e9a420f27ffcd2a33073a79/src/utils/store.types.ts#L71) |
+| `onChange` | [`OnChangeHandler`](Interface.OnChangeHandler.md)\<`T`\> | Easily listen for value changes of the specified key. | [src/utils/store.types.ts:75](https://github.com/revolist/revogrid/blob/e4de5901d3a858ae9e9a420f27ffcd2a33073a79/src/utils/store.types.ts#L75) |
+| `set` | [`Setter`](Interface.Setter.md)\<`T`\> | Only useful if you need to support IE11. **Example** `const { state, get } = createStore({ hola: 'hello', adios: 'goodbye' }); state.hola = 'ola'; // If you don't need to support IE11, use this way. set('hola', 'ola')); // If you need to support IE11, use this other way.` | [src/utils/store.types.ts:62](https://github.com/revolist/revogrid/blob/e4de5901d3a858ae9e9a420f27ffcd2a33073a79/src/utils/store.types.ts#L62) |
+| `state` | `T` | Proxied object that will detect dependencies and call the subscriptions and computed properties. If available, it will detect from which Stencil Component it was called and rerender it when the property changes. Note: Proxy objects are not supported by IE11 (not even with a polyfill) so you need to use the store.get and store.set methods of the API if you wish to support IE11. | [src/utils/store.types.ts:44](https://github.com/revolist/revogrid/blob/e4de5901d3a858ae9e9a420f27ffcd2a33073a79/src/utils/store.types.ts#L44) |
 
 ## Methods
 
@@ -38,7 +38,7 @@ all their internal state between tests.
 
 #### Defined in
 
-[src/utils/store.types.ts:83](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/utils/store.types.ts#L83)
+[src/utils/store.types.ts:83](https://github.com/revolist/revogrid/blob/e4de5901d3a858ae9e9a420f27ffcd2a33073a79/src/utils/store.types.ts#L83)
 
 ***
 
@@ -62,7 +62,7 @@ Force a rerender of the specified key, just like the value changed.
 
 #### Defined in
 
-[src/utils/store.types.ts:96](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/utils/store.types.ts#L96)
+[src/utils/store.types.ts:96](https://github.com/revolist/revogrid/blob/e4de5901d3a858ae9e9a420f27ffcd2a33073a79/src/utils/store.types.ts#L96)
 
 ***
 
@@ -80,7 +80,7 @@ Resets the state to its original state.
 
 #### Defined in
 
-[src/utils/store.types.ts:87](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/utils/store.types.ts#L87)
+[src/utils/store.types.ts:87](https://github.com/revolist/revogrid/blob/e4de5901d3a858ae9e9a420f27ffcd2a33073a79/src/utils/store.types.ts#L87)
 
 ***
 
@@ -109,4 +109,4 @@ resets a value.
 
 #### Defined in
 
-[src/utils/store.types.ts:92](https://github.com/revolist/revogrid/blob/1645225511bdf49c1a62fd26a91ac5b7e1558fd9/src/utils/store.types.ts#L92)
+[src/utils/store.types.ts:92](https://github.com/revolist/revogrid/blob/e4de5901d3a858ae9e9a420f27ffcd2a33073a79/src/utils/store.types.ts#L92)
