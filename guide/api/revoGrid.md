@@ -205,6 +205,17 @@ Type: `Promise<PluginBaseComponent[]>`
 
 
 
+### `getProviders() => Promise<PluginProviders | undefined>`
+
+Get all providers for grid
+Useful for external grid integration
+
+#### Returns
+
+Type: `Promise<PluginProviders | undefined>`
+
+
+
 ### `getSelectedRange() => Promise<(RangeArea & AllDimensionType) | null>`
 
 Get the currently selected Range.
