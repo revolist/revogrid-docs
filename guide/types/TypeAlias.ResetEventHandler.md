@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.15.7](README.md) / ResetEventHandler
+[RevoGrid Documentation v4.15.8](README.md) / ResetEventHandler
 
 # Type Alias: ResetEventHandler()
 
@@ -12,4 +12,4 @@ type ResetEventHandler: () => void;
 
 ## Defined in
 
-[src/utils/store.types.ts:9](https://github.com/revolist/revogrid/blob/4b66617ba213e84ecc08d523780ce49415de163a/src/utils/store.types.ts#L9)
+[src/utils/store.types.ts:9](https://github.com/revolist/revogrid/blob/2ac43d2713c9d394ff33675f959c6432bf5aa023/src/utils/store.types.ts#L9)

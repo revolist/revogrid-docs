@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.15.7](README.md) / SortingOrderFunction
+[RevoGrid Documentation v4.15.8](README.md) / SortingOrderFunction
 
 # Type Alias: SortingOrderFunction
 
@@ -8,4 +8,4 @@ type SortingOrderFunction: Record<ColumnProp, CellCompareFunc | undefined>;
 
 ## Defined in
 
-[src/plugins/sorting/sorting.types.ts:4](https://github.com/revolist/revogrid/blob/4b66617ba213e84ecc08d523780ce49415de163a/src/plugins/sorting/sorting.types.ts#L4)
+[src/plugins/sorting/sorting.types.ts:4](https://github.com/revolist/revogrid/blob/2ac43d2713c9d394ff33675f959c6432bf5aa023/src/plugins/sorting/sorting.types.ts#L4)

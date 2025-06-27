@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.15.7](README.md) / h
+[RevoGrid Documentation v4.15.8](README.md) / h
 
 # h
 
@@ -33,7 +33,7 @@ function h(sel: any): VNode
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:539
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:558
 
 ### h(sel, data)
 
@@ -54,7 +54,7 @@ function h(sel: Node, data: null | VNodeData): VNode
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:540
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:559
 
 ### h(sel, data)
 
@@ -75,7 +75,7 @@ function h(sel: any, data: null | VNodeData): VNode
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:541
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:560
 
 ### h(sel, text)
 
@@ -96,7 +96,7 @@ function h(sel: any, text: string): VNode
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:542
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:561
 
 ### h(sel, children)
 
@@ -117,7 +117,7 @@ function h(sel: any, children: (undefined | null | VNode)[]): VNode
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:543
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:562
 
 ### h(sel, data, text)
 
@@ -142,7 +142,7 @@ function h(
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:544
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:563
 
 ### h(sel, data, children)
 
@@ -167,7 +167,7 @@ function h(
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:545
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:564
 
 ### h(sel, data, children)
 
@@ -192,4 +192,4 @@ function h(
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:546
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:565
