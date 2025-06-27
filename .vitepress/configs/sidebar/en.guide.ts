@@ -184,7 +184,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 text: 'Accessibility',
                 link: '/guide/wcag',
             },
-
+            {
+                text: 'RTL Support',
+                link: '/guide/rtl',
+            },
             {
                 text: 'Editing',
                 link: '/guide/editing',
