@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.15.7](README.md) / FunctionalComponent
+[RevoGrid Documentation v4.15.8](README.md) / FunctionalComponent
 
 # Interface: FunctionalComponent()\<T\>
 
@@ -29,4 +29,4 @@ interface FunctionalComponent(
 
 ## Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:505
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:524

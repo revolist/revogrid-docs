@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.15.7](README.md) / VNode
+[RevoGrid Documentation v4.15.8](README.md) / VNode
 
 # Interface: VNode
 
@@ -8,11 +8,11 @@ A virtual DOM node
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `$attrs$?` | `any` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:570 |
-| `$children$` | [`VNode`](Interface.VNode.md)[] | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:569 |
-| `$elm$` | `any` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:567 |
-| `$flags$` | `number` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:565 |
-| `$key$?` | `string` \| `number` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:572 |
-| `$name$?` | `string` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:571 |
-| `$tag$` | `string` \| `number` \| `Function` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:566 |
-| `$text$` | `string` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:568 |
+| `$attrs$?` | `any` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:589 |
+| `$children$` | [`VNode`](Interface.VNode.md)[] | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:588 |
+| `$elm$` | `any` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:586 |
+| `$flags$` | `number` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:584 |
+| `$key$?` | `string` \| `number` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:591 |
+| `$name$?` | `string` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:590 |
+| `$tag$` | `string` \| `number` \| `Function` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:585 |
+| `$text$` | `string` | node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:587 |
