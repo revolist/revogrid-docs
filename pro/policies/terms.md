@@ -125,6 +125,8 @@ We recommend that you print a copy of these Legal Terms for your records.
 
 5. The User agrees to electronic invoicing.
 
+6. **Trial and Evaluation**: Revolist provides a trial version of RevoGrid Pro for evaluation purposes. Trial access is granted upon request and requires direct contact with Revolist. By purchasing RevoGrid Pro, the User acknowledges they have had the opportunity to evaluate the service through the trial platform and understand the service capabilities before purchase. To request trial access, contact Revolist at [contact@revolist.eu](mailto:contact@revolist.eu).
+
 ### 9. Availability of the Platform
 
 1. The availability of the Platform is determined as follows:
@@ -190,10 +192,8 @@ The User may only offset Revolist’s claims against the User with undisputed cl
    b) Revolist is neither willing nor obliged to participate in a dispute resolution procedure before a consumer conciliation body pursuant to the Estonian Consumer Dispute Resolution Act (or its equivalent).
    c) Revolist has not submitted to any codes of conduct.
    d) Revolist shall be available for questions regarding its services offered hereunder as well as regarding the concluded agreement by email at [contact@revolist.eu](mailto:contact@revolist.eu) and shall always respond to customer inquiries in a timely manner.
-   e) Consumers can find information on their right of Withdrawal:
-   3. You have the right to revoke this Service Agreement within fourteen days without giving reasons.
-      The withdrawal period is fourteen days from the date of conclusion of the Service Agreement.
-      In order to exercise your right of withdrawal, you must inform us  by email at [contact@revolist.eu]((mailto:contact@revolist.eu))
+   e) **Trial Evaluation**: Consumers are encouraged to evaluate RevoGrid Pro through our trial platform before purchase. Trial access requires direct contact with Revolist at [contact@revolist.eu](mailto:contact@revolist.eu). Withdrawal rights may be limited due to immediate digital delivery and prior evaluation opportunity.
+
 
 3. The User shall be sent the contractual provisions, including these Terms of Use and—if the User is a consumer—the cancellation policy with the confirmation email specified in § 4 of these Terms of Use. The User may download these documents to their computer and/or print them out and keep them. Revolist will not store the contractual provisions for the User.
 

@@ -106,9 +106,34 @@ Licensee is allowed to perpetually use any versions of the Software released bef
 
 5. **Electronic Invoicing**: The User agrees to electronic invoicing.
 
+## 6. Refund Policy
+
+1. **General Policy**: All payments for RevoGrid Pro licenses are **non-refundable** except in specific circumstances outlined below.
+
+2. **Trial Evaluation Requirement**: Revolist provides a comprehensive trial version of RevoGrid Pro for evaluation purposes. Trial access is granted upon request and requires direct contact with Revolist. By purchasing RevoGrid Pro, the User acknowledges they have had the opportunity to evaluate the service capabilities and compatibility with their needs before purchase. To request trial access, contact Revolist at [contact@revolist.eu](mailto:contact@revolist.eu).
+
+3. **Consumer Rights and Trial**: Due to the immediate digital delivery nature of RevoGrid Pro services and the availability of trial evaluation upon request, consumer withdrawal rights under EU law may be limited. The trial platform provides consumers with the opportunity to test the service before purchase, which may affect their right to withdraw from the purchase agreement.
+
+4. **Edge Cases for Refunds**: Refunds may be considered only in the following exceptional circumstances:
+   - **Technical Issues**: If Revolist is unable to provide access to the RevoGrid Pro repository or services due to technical failures on Revolist's part that cannot be resolved.
+   - **Service Unavailability**: If Revolist discontinues the RevoGrid Pro service entirely within 30 days of purchase.
+   - **Billing Errors**: In cases of duplicate charges or billing errors made by Revolist.
+
+5. **No Refunds For**: The following circumstances do not qualify for refunds:
+   - Change of mind or project cancellation
+   - Incompatibility with the User's technical requirements (should be identified during trial)
+   - Failure to meet the User's expectations (should be evaluated during trial)
+   - Termination of the Service Agreement by the User
+   - Non-usage of the service after purchase
+   - Consumer withdrawal requests (due to trial evaluation opportunity and immediate delivery)
+
+6. **Refund Process**: If a refund is approved, it will be processed within 30 days of approval and returned to the original payment method used for the purchase.
+
+7. **Contact**: For refund inquiries, contact Revolist at [contact@revolist.eu](mailto:contact@revolist.eu) with detailed information about the circumstances.
 
 
-## 6. Support and Maintenance
+
+## 7. Support and Maintenance
 
 1. **Pro Advanced Support**: Users subscribed to the Pro Advanced plan are entitled to premium support services. This includes priority email support for reported issues.
 
@@ -118,7 +143,7 @@ Licensee is allowed to perpetually use any versions of the Software released bef
 
 
 
-## 7. Term and Termination
+## 8. Term and Termination
 
 1. **Term**: The Service Agreement is concluded for the term that corresponds with the billing period specified in the description of the respective RevoGrid Pro Plan, which is subject to the Service Agreement. The Agreement will remain in force as long as the subscription is active and the User complies with the terms and conditions herein.
 
@@ -136,7 +161,7 @@ Licensee is allowed to perpetually use any versions of the Software released bef
 
 
 
-## 8. Confidentiality
+## 9. Confidentiality
 
 1. **Confidential Information**: The User acknowledges that RevoGrid Pro, the repository, and any related documentation or materials provided by Revolist contain confidential and proprietary information, including but not limited to source code, business processes, technical specifications, and other trade secrets. The User agrees to maintain the confidentiality of such information and not to disclose it to any third party without the prior written consent of Revolist.
 
@@ -146,7 +171,7 @@ Licensee is allowed to perpetually use any versions of the Software released bef
 
 
 
-## 9. Warranty Disclaimer
+## 10. Warranty Disclaimer
 
 1. **No Warranty**: RevoGrid Pro is provided on an "as is" and "as available" basis. Revolist makes no warranties, whether express or implied, regarding the Software’s performance, reliability, availability, or fitness for a particular purpose. The User assumes all risks associated with the use of RevoGrid Pro.
 
@@ -154,7 +179,7 @@ Licensee is allowed to perpetually use any versions of the Software released bef
 
 
 
-## 10. Limitation of Liability
+## 11. Limitation of Liability
 
 1. **General Limitation of Liability**: Revolist shall be liable exclusively according to the following regulations, regardless of the legal basis. Revolist shall only be liable for intent and gross negligence. In cases of slight negligence, liability will apply only in the case of a breach of a material contractual obligation whose fulfillment is essential to the Agreement and on which the User may rely (cardinal obligation). Revolist shall be liable only for foreseeable damage whose occurrence must typically be expected, including lost profit and unrealized savings.
 
