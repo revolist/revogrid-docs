@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.17.0](README.md) / VNode
+[RevoGrid Documentation v4.17.2](README.md) / VNode
 
 # Interface: VNode
 
