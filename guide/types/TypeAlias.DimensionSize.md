@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.17.2](README.md) / DimensionSize
+[RevoGrid Documentation v4.17.3](README.md) / DimensionSize
 
 # Type Alias: DimensionSize
 
@@ -14,4 +14,4 @@ type DimensionSize: Pick<DimensionSettingsState,
 
 ## Defined in
 
-[src/store/dimension/dimension.helpers.ts:17](https://github.com/revolist/revogrid/blob/ce71b2a267b00cca0f999dcb05c4c4637765259a/src/store/dimension/dimension.helpers.ts#L17)
+[src/store/dimension/dimension.helpers.ts:17](https://github.com/revolist/revogrid/blob/3aa06b5b2b2375c31a2a8275a0aefcbc04de60c5/src/store/dimension/dimension.helpers.ts#L17)

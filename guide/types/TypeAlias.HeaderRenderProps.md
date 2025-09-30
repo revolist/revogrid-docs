@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.17.2](README.md) / HeaderRenderProps
+[RevoGrid Documentation v4.17.3](README.md) / HeaderRenderProps
 
 # Type Alias: HeaderRenderProps
 
@@ -20,16 +20,16 @@ type HeaderRenderProps: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `additionalData` | `any` | [src/components/header/header-renderer.tsx:24](https://github.com/revolist/revogrid/blob/ce71b2a267b00cca0f999dcb05c4c4637765259a/src/components/header/header-renderer.tsx#L24) |
-| `canFilter` | `boolean` | [src/components/header/header-renderer.tsx:28](https://github.com/revolist/revogrid/blob/ce71b2a267b00cca0f999dcb05c4c4637765259a/src/components/header/header-renderer.tsx#L28) |
-| `canResize` | `boolean` | [src/components/header/header-renderer.tsx:27](https://github.com/revolist/revogrid/blob/ce71b2a267b00cca0f999dcb05c4c4637765259a/src/components/header/header-renderer.tsx#L27) |
-| `column` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md) | [src/components/header/header-renderer.tsx:23](https://github.com/revolist/revogrid/blob/ce71b2a267b00cca0f999dcb05c4c4637765259a/src/components/header/header-renderer.tsx#L23) |
-| `data` | [`ColumnTemplateProp`](Interface.ColumnTemplateProp.md) | [src/components/header/header-renderer.tsx:25](https://github.com/revolist/revogrid/blob/ce71b2a267b00cca0f999dcb05c4c4637765259a/src/components/header/header-renderer.tsx#L25) |
-| `range` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/components/header/header-renderer.tsx:26](https://github.com/revolist/revogrid/blob/ce71b2a267b00cca0f999dcb05c4c4637765259a/src/components/header/header-renderer.tsx#L26) |
-| `onClick` | `void` | [src/components/header/header-renderer.tsx:30](https://github.com/revolist/revogrid/blob/ce71b2a267b00cca0f999dcb05c4c4637765259a/src/components/header/header-renderer.tsx#L30) |
-| `onDblClick` | `void` | [src/components/header/header-renderer.tsx:31](https://github.com/revolist/revogrid/blob/ce71b2a267b00cca0f999dcb05c4c4637765259a/src/components/header/header-renderer.tsx#L31) |
-| `onResize` | `void` | [src/components/header/header-renderer.tsx:29](https://github.com/revolist/revogrid/blob/ce71b2a267b00cca0f999dcb05c4c4637765259a/src/components/header/header-renderer.tsx#L29) |
+| `additionalData` | `any` | [src/components/header/header-renderer.tsx:24](https://github.com/revolist/revogrid/blob/3aa06b5b2b2375c31a2a8275a0aefcbc04de60c5/src/components/header/header-renderer.tsx#L24) |
+| `canFilter` | `boolean` | [src/components/header/header-renderer.tsx:28](https://github.com/revolist/revogrid/blob/3aa06b5b2b2375c31a2a8275a0aefcbc04de60c5/src/components/header/header-renderer.tsx#L28) |
+| `canResize` | `boolean` | [src/components/header/header-renderer.tsx:27](https://github.com/revolist/revogrid/blob/3aa06b5b2b2375c31a2a8275a0aefcbc04de60c5/src/components/header/header-renderer.tsx#L27) |
+| `column` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md) | [src/components/header/header-renderer.tsx:23](https://github.com/revolist/revogrid/blob/3aa06b5b2b2375c31a2a8275a0aefcbc04de60c5/src/components/header/header-renderer.tsx#L23) |
+| `data` | [`ColumnTemplateProp`](Interface.ColumnTemplateProp.md) | [src/components/header/header-renderer.tsx:25](https://github.com/revolist/revogrid/blob/3aa06b5b2b2375c31a2a8275a0aefcbc04de60c5/src/components/header/header-renderer.tsx#L25) |
+| `range` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/components/header/header-renderer.tsx:26](https://github.com/revolist/revogrid/blob/3aa06b5b2b2375c31a2a8275a0aefcbc04de60c5/src/components/header/header-renderer.tsx#L26) |
+| `onClick` | `void` | [src/components/header/header-renderer.tsx:30](https://github.com/revolist/revogrid/blob/3aa06b5b2b2375c31a2a8275a0aefcbc04de60c5/src/components/header/header-renderer.tsx#L30) |
+| `onDblClick` | `void` | [src/components/header/header-renderer.tsx:31](https://github.com/revolist/revogrid/blob/3aa06b5b2b2375c31a2a8275a0aefcbc04de60c5/src/components/header/header-renderer.tsx#L31) |
+| `onResize` | `void` | [src/components/header/header-renderer.tsx:29](https://github.com/revolist/revogrid/blob/3aa06b5b2b2375c31a2a8275a0aefcbc04de60c5/src/components/header/header-renderer.tsx#L29) |
 
 ## Defined in
 
-[src/components/header/header-renderer.tsx:22](https://github.com/revolist/revogrid/blob/ce71b2a267b00cca0f999dcb05c4c4637765259a/src/components/header/header-renderer.tsx#L22)
+[src/components/header/header-renderer.tsx:22](https://github.com/revolist/revogrid/blob/3aa06b5b2b2375c31a2a8275a0aefcbc04de60c5/src/components/header/header-renderer.tsx#L22)
