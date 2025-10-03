@@ -15,11 +15,11 @@ type RangeAreaCss: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `height` | `string` | [src/types/selection.ts:97](https://github.com/revolist/revogrid/blob/c9f40461b2daa14fb3a2e5f76080a8e7b65ce7ef/src/types/selection.ts#L97) |
-| `left` | `string` | [src/types/selection.ts:94](https://github.com/revolist/revogrid/blob/c9f40461b2daa14fb3a2e5f76080a8e7b65ce7ef/src/types/selection.ts#L94) |
-| `top` | `string` | [src/types/selection.ts:95](https://github.com/revolist/revogrid/blob/c9f40461b2daa14fb3a2e5f76080a8e7b65ce7ef/src/types/selection.ts#L95) |
-| `width` | `string` | [src/types/selection.ts:96](https://github.com/revolist/revogrid/blob/c9f40461b2daa14fb3a2e5f76080a8e7b65ce7ef/src/types/selection.ts#L96) |
+| `height` | `string` | [src/types/selection.ts:97](https://github.com/revolist/revogrid/blob/2ad9a56a428342a01bbb7a115a581a401dbe3fef/src/types/selection.ts#L97) |
+| `left` | `string` | [src/types/selection.ts:94](https://github.com/revolist/revogrid/blob/2ad9a56a428342a01bbb7a115a581a401dbe3fef/src/types/selection.ts#L94) |
+| `top` | `string` | [src/types/selection.ts:95](https://github.com/revolist/revogrid/blob/2ad9a56a428342a01bbb7a115a581a401dbe3fef/src/types/selection.ts#L95) |
+| `width` | `string` | [src/types/selection.ts:96](https://github.com/revolist/revogrid/blob/2ad9a56a428342a01bbb7a115a581a401dbe3fef/src/types/selection.ts#L96) |
 
 ## Defined in
 
-[src/types/selection.ts:93](https://github.com/revolist/revogrid/blob/c9f40461b2daa14fb3a2e5f76080a8e7b65ce7ef/src/types/selection.ts#L93)
+[src/types/selection.ts:93](https://github.com/revolist/revogrid/blob/2ad9a56a428342a01bbb7a115a581a401dbe3fef/src/types/selection.ts#L93)
