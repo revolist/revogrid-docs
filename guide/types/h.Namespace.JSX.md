@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.19.1](README.md) / [h](Namespace.h.md) / JSX
+[RevoGrid Documentation v4.19.2](README.md) / [h](Namespace.h.md) / JSX
 
 # JSX
 

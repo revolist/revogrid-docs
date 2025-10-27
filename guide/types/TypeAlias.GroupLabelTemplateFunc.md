@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.19.1](README.md) / GroupLabelTemplateFunc
+[RevoGrid Documentation v4.19.2](README.md) / GroupLabelTemplateFunc
 
 # Type Alias: GroupLabelTemplateFunc()
 
@@ -20,4 +20,4 @@ type GroupLabelTemplateFunc: (createElement: HyperFunc<VNode>, props: GroupTempl
 
 ## Defined in
 
-[src/plugins/groupingRow/grouping.row.types.ts:63](https://github.com/revolist/revogrid/blob/eb2680918127e77fe450de6030c740504b9b25f8/src/plugins/groupingRow/grouping.row.types.ts#L63)
+[src/plugins/groupingRow/grouping.row.types.ts:63](https://github.com/revolist/revogrid/blob/7388e547230456f2843749ba32fcb5583ae0fea2/src/plugins/groupingRow/grouping.row.types.ts#L63)

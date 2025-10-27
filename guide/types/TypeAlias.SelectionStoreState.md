@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.19.1](README.md) / SelectionStoreState
+[RevoGrid Documentation v4.19.2](README.md) / SelectionStoreState
 
 # Type Alias: SelectionStoreState
 
@@ -22,14 +22,14 @@ focused cell, editing cell, last focused cell, and next cell to focus.
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `edit` | [`EditCellStore`](Interface.EditCellStore.md) \| `null` | Editing cell store | [src/types/selection.ts:39](https://github.com/revolist/revogrid/blob/eb2680918127e77fe450de6030c740504b9b25f8/src/types/selection.ts#L39) |
-| `focus` | [`Cell`](Interface.Cell.md) \| `null` | Focused cell coordinate | [src/types/selection.ts:35](https://github.com/revolist/revogrid/blob/eb2680918127e77fe450de6030c740504b9b25f8/src/types/selection.ts#L35) |
-| `lastCell` | [`Cell`](Interface.Cell.md) \| `null` | Last cell which was focused The last real coordinate + 1 | [src/types/selection.ts:44](https://github.com/revolist/revogrid/blob/eb2680918127e77fe450de6030c740504b9b25f8/src/types/selection.ts#L44) |
-| `nextFocus` | [`Cell`](Interface.Cell.md) \| `null` | Next cell to focus | [src/types/selection.ts:48](https://github.com/revolist/revogrid/blob/eb2680918127e77fe450de6030c740504b9b25f8/src/types/selection.ts#L48) |
-| `range` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | - | [src/types/selection.ts:23](https://github.com/revolist/revogrid/blob/eb2680918127e77fe450de6030c740504b9b25f8/src/types/selection.ts#L23) |
-| `tempRange` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | Temporary range selection area | [src/types/selection.ts:27](https://github.com/revolist/revogrid/blob/eb2680918127e77fe450de6030c740504b9b25f8/src/types/selection.ts#L27) |
-| `tempRangeType` | `string` \| `null` | Type of the temporary range selection | [src/types/selection.ts:31](https://github.com/revolist/revogrid/blob/eb2680918127e77fe450de6030c740504b9b25f8/src/types/selection.ts#L31) |
+| `edit` | [`EditCellStore`](Interface.EditCellStore.md) \| `null` | Editing cell store | [src/types/selection.ts:39](https://github.com/revolist/revogrid/blob/7388e547230456f2843749ba32fcb5583ae0fea2/src/types/selection.ts#L39) |
+| `focus` | [`Cell`](Interface.Cell.md) \| `null` | Focused cell coordinate | [src/types/selection.ts:35](https://github.com/revolist/revogrid/blob/7388e547230456f2843749ba32fcb5583ae0fea2/src/types/selection.ts#L35) |
+| `lastCell` | [`Cell`](Interface.Cell.md) \| `null` | Last cell which was focused The last real coordinate + 1 | [src/types/selection.ts:44](https://github.com/revolist/revogrid/blob/7388e547230456f2843749ba32fcb5583ae0fea2/src/types/selection.ts#L44) |
+| `nextFocus` | [`Cell`](Interface.Cell.md) \| `null` | Next cell to focus | [src/types/selection.ts:48](https://github.com/revolist/revogrid/blob/7388e547230456f2843749ba32fcb5583ae0fea2/src/types/selection.ts#L48) |
+| `range` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | - | [src/types/selection.ts:23](https://github.com/revolist/revogrid/blob/7388e547230456f2843749ba32fcb5583ae0fea2/src/types/selection.ts#L23) |
+| `tempRange` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | Temporary range selection area | [src/types/selection.ts:27](https://github.com/revolist/revogrid/blob/7388e547230456f2843749ba32fcb5583ae0fea2/src/types/selection.ts#L27) |
+| `tempRangeType` | `string` \| `null` | Type of the temporary range selection | [src/types/selection.ts:31](https://github.com/revolist/revogrid/blob/7388e547230456f2843749ba32fcb5583ae0fea2/src/types/selection.ts#L31) |
 
 ## Defined in
 
-[src/types/selection.ts:22](https://github.com/revolist/revogrid/blob/eb2680918127e77fe450de6030c740504b9b25f8/src/types/selection.ts#L22)
+[src/types/selection.ts:22](https://github.com/revolist/revogrid/blob/7388e547230456f2843749ba32fcb5583ae0fea2/src/types/selection.ts#L22)
