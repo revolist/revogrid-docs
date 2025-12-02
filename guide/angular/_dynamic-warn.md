@@ -11,6 +11,7 @@ When using RevoGrid with Angular 19+, there are known issues with dynamically lo
 **Helpful Resources:**
 - [Angular Component Communication](https://angular.dev/guide/components/inputs-outputs)
 - [Angular Standalone Components](https://angular.dev/guide/components/importing)
+- [Angular Router Outlet](https://angular.dev/api/router/RouterOutlet)
 
 
 If you encounter issues with dynamic component usage, please report them on [GitHub Issues](https://github.com/revolist/revogrid/issues) with details about your Angular version and setup.
