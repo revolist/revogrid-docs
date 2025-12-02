@@ -28,8 +28,6 @@ If not, please refer to the official documentation [Angular Installation](https:
 <!--@include: ./_install.md-->
 
 
-<!--@include: ./_dynamic-warn.md-->
-
 ## Standalone Components
 
 Now you can import and reference your components in your consuming application in the same way you would with any other standalone Angular components:
@@ -78,6 +76,8 @@ export class AppComponent {
 
 <!--@include: ../../demo/angular/angular-datagrid.md-->
 
+
+<!--@include: ./_dynamic-warn.md-->
 
 ## Modules
 
