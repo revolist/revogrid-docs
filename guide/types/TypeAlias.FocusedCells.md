@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.19.3](README.md) / FocusedCells
+[RevoGrid Documentation v4.20.0](README.md) / FocusedCells
 
 # Type Alias: FocusedCells
 
@@ -13,9 +13,9 @@ type FocusedCells: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `end` | [`Cell`](Interface.Cell.md) | [src/types/selection.ts:91](https://github.com/revolist/revogrid/blob/6cc471b0ae5ca1f2f8457c9845bb21718b430cdf/src/types/selection.ts#L91) |
-| `focus` | [`Cell`](Interface.Cell.md) | [src/types/selection.ts:90](https://github.com/revolist/revogrid/blob/6cc471b0ae5ca1f2f8457c9845bb21718b430cdf/src/types/selection.ts#L90) |
+| `end` | [`Cell`](Interface.Cell.md) | [src/types/selection.ts:91](https://github.com/revolist/revogrid/blob/7faf5f2ab39719d64ef2a8ff607d5deafda02379/src/types/selection.ts#L91) |
+| `focus` | [`Cell`](Interface.Cell.md) | [src/types/selection.ts:90](https://github.com/revolist/revogrid/blob/7faf5f2ab39719d64ef2a8ff607d5deafda02379/src/types/selection.ts#L90) |
 
 ## Defined in
 
-[src/types/selection.ts:89](https://github.com/revolist/revogrid/blob/6cc471b0ae5ca1f2f8457c9845bb21718b430cdf/src/types/selection.ts#L89)
+[src/types/selection.ts:89](https://github.com/revolist/revogrid/blob/7faf5f2ab39719d64ef2a8ff607d5deafda02379/src/types/selection.ts#L89)
