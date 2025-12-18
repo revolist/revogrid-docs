@@ -1,21 +1,21 @@
-## Install your Stencil Data Grid
+## Install your Svelte Data Grid
 
-Install RevoGrid for Stencil using the following command:
+Install RevoGrid for Svelte using the following command:
 
 ::: code-group
 
 ```npm
-npm install @revolist/revogrid @stencil/store @types/lodash lodash
+npm install @revolist/svelte-datagrid
 ```
 
 ```pnpm
-pnpm add @revolist/revogrid @stencil/store @types/lodash lodash
+pnpm add @revolist/svelte-datagrid
 ```
 
 ```yarn
-yarn add @revolist/revogrid @stencil/store @types/lodash lodash
+yarn add @revolist/svelte-datagrid
 ```
 
 ```bun
-bun add @revolist/revogrid @stencil/store @types/lodash lodash
+bun add @revolist/svelte-datagrid
 ```
