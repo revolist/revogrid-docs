@@ -24,6 +24,11 @@ These patterns help create an interface that is intuitive, responsive, and effic
 -   **Pattern**: Create custom renderers for complex cell content, such as images, buttons, or interactive elements.
 -   **Best Practice**: Keep custom cell renderers lightweight to avoid performance bottlenecks. Optimize expensive operations that are repeated across many cells. Use cache mechanisms to improve performance.
 
+## VNode Keys
+
+-   **Pattern**: Use unique keys when rendering lists, arrays, or dynamic content in templates to help the virtual DOM efficiently track and update nodes.
+-   **Best Practice**: Always provide stable, unique keys when rendering multiple elements. Use IDs from your data model rather than array indices when possible. Combine row and column identifiers for cell templates. Keys are essential for VNode reconciliation - they allow the virtual DOM to identify which node corresponds to which data item, enabling efficient updates and preserving component state when items are reordered or filtered.
+
 ## Responsive Design
 
 -   **Pattern**: Adapt grid layouts to varying screen sizes and resolutions.

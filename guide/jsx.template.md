@@ -63,5 +63,10 @@ const columns = [{
 
 Quite simple, right?
 
+## Using Keys in JSX Templates
+
+<!--@include: ./cell/_key.warning.md-->
+
+<!--@include: ./cell/_key.md-->
 
 <!--@include: ../demo/jsx/jsx.simple.example.md -->

@@ -36,3 +36,10 @@ const columns: ColumnRegular[] = [
     },
 ]
 ```
+
+## Using Keys in Header Templates
+
+
+<!--@include: ../cell/_key.warning.md-->
+
+<!--@include: ./_key.md-->

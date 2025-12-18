@@ -36,3 +36,9 @@ const columns: ColumnRegular[] = [
     },
 ]
 ```
+
+## Using Keys in Cell Templates
+
+
+<!--@include: ./_key.warning.md-->
+<!--@include: ./_key.render.md-->
