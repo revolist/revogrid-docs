@@ -44,7 +44,6 @@
     </div>
 </template>
 <script setup lang="ts">
-import { defineProps, ref } from 'vue'
 // @ts-ignore
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue'
 

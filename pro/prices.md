@@ -69,9 +69,8 @@ Early adopters get our premium features at half the regular price.
         :features="[
           `<a href='/pro/ai' class='VPBadge danger'>AI Agent</a> for plugin code generation`,
           `Access to all <a href='/pro'>Pro Examples</a>, Plugins and Documentation.`,
-          `Up to 1 hour of individual support via email per month.`,
-          `Prioritized Feature Requests, Github Issues and Pull Requests.`,
-          `Introduction call with one of the creators.`
+          `Up to 1hr of individual support via email.`,
+          `Prioritized Feature Requests, Github Issues and Pull Requests.`
         ]"
         :href="PRICES.advanced.link"
         />

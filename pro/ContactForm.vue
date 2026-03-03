@@ -85,7 +85,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, defineEmits, computed } from 'vue'
+import { ref, computed } from 'vue'
 // @ts-ignore
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue'
 
