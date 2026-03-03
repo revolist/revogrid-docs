@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.20.0](README.md) / OnHandler
+[RevoGrid Documentation v4.20.1](README.md) / OnHandler
 
 # Interface: OnHandler()\<StoreType\>
 
@@ -29,7 +29,7 @@ interface OnHandler(eventName: "set", callback: SetEventHandler<StoreType>): () 
 
 ## Defined in
 
-[src/utils/store.types.ts:12](https://github.com/revolist/revogrid/blob/7faf5f2ab39719d64ef2a8ff607d5deafda02379/src/utils/store.types.ts#L12)
+[src/utils/store.types.ts:12](https://github.com/revolist/revogrid/blob/886bccdbb56a18366fb1471c77380cf8944f7722/src/utils/store.types.ts#L12)
 
 ```ts
 interface OnHandler(eventName: "get", callback: GetEventHandler<StoreType>): () => void
@@ -52,7 +52,7 @@ interface OnHandler(eventName: "get", callback: GetEventHandler<StoreType>): () 
 
 ## Defined in
 
-[src/utils/store.types.ts:13](https://github.com/revolist/revogrid/blob/7faf5f2ab39719d64ef2a8ff607d5deafda02379/src/utils/store.types.ts#L13)
+[src/utils/store.types.ts:13](https://github.com/revolist/revogrid/blob/886bccdbb56a18366fb1471c77380cf8944f7722/src/utils/store.types.ts#L13)
 
 ```ts
 interface OnHandler(eventName: "dispose", callback: DisposeEventHandler): () => void
@@ -75,7 +75,7 @@ interface OnHandler(eventName: "dispose", callback: DisposeEventHandler): () => 
 
 ## Defined in
 
-[src/utils/store.types.ts:14](https://github.com/revolist/revogrid/blob/7faf5f2ab39719d64ef2a8ff607d5deafda02379/src/utils/store.types.ts#L14)
+[src/utils/store.types.ts:14](https://github.com/revolist/revogrid/blob/886bccdbb56a18366fb1471c77380cf8944f7722/src/utils/store.types.ts#L14)
 
 ```ts
 interface OnHandler(eventName: "reset", callback: ResetEventHandler): () => void
@@ -98,4 +98,4 @@ interface OnHandler(eventName: "reset", callback: ResetEventHandler): () => void
 
 ## Defined in
 
-[src/utils/store.types.ts:15](https://github.com/revolist/revogrid/blob/7faf5f2ab39719d64ef2a8ff607d5deafda02379/src/utils/store.types.ts#L15)
+[src/utils/store.types.ts:15](https://github.com/revolist/revogrid/blob/886bccdbb56a18366fb1471c77380cf8944f7722/src/utils/store.types.ts#L15)
