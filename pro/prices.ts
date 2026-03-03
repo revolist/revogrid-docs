@@ -1,12 +1,44 @@
-export const PRICES = {
+export type Currency = 'EUR' | 'USD';
+
+interface PeriodPrices {
+  EUR: number;
+  USD: number;
+}
+
+interface PlanPrice {
+  month: PeriodPrices;
+  year: PeriodPrices;
+  link: string;
+}
+
+const lightYearPrices = {
+  EUR: 150,
+  USD: 170,
+};
+
+const advancedYearPrices = {
+  EUR: 360,
+  USD: 400,
+};
+
+export const PRICES: Record<'light' | 'advanced', PlanPrice> = {
   light: {
-    month: 12.5,
-    perpetual: 300,
-    link: 'https://buy.stripe.com/eVacPS4SF1uV4Ks3cj'
+    month: {
+      EUR: Math.round((lightYearPrices.EUR / 12)),
+      USD: Math.round((lightYearPrices.USD / 12)),
+    },
+    year: lightYearPrices,
+    link: 'https://buy.stripe.com/7sYaEYaVhfja09A0TQew80c',
   },
   advanced: {
-    month: 30,
-    perpetual: 700,
-    link: 'https://buy.stripe.com/00gbLO2KxddDfp6bIQ'
+    month: {
+      EUR: Math.round((advancedYearPrices.EUR / 12)),
+      USD: Math.round((advancedYearPrices.USD / 12)),
+    },
+    year: {
+      EUR: advancedYearPrices.EUR,
+      USD: advancedYearPrices.USD,
+    },
+    link: 'https://buy.stripe.com/28E14od3pdb2bSi1XUew80b',
   },
 };

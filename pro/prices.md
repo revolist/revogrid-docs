@@ -15,8 +15,8 @@ breadcrumbs: true
 
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { PRICES } from './prices'
+import { computed, onMounted, ref } from 'vue'
+import { PRICES, type Currency } from './prices'
 import Plan from './Plan.vue'
 import ContactForm from './ContactForm.vue'
 
@@ -32,14 +32,35 @@ import 'element-plus/theme-chalk/dark/css-vars.css'
 
 let showForm = ref(false) // isVisible
 
-const isAnnual = ref(true)
+const currency = ref<Currency>('EUR')
+
+const isUsd = computed({
+  get: () => currency.value === 'USD',
+  set: (val: boolean) => {
+    currency.value = val ? 'USD' : 'EUR'
+  },
+})
+
+const formatPrice = (plan: keyof typeof PRICES, period: 'month' | 'year', multiplier = 1) => {
+  const value = PRICES[plan][period][currency.value] * multiplier
+  const symbol = currency.value === 'EUR' ? '€' : '$'
+  return `${value}${symbol}`
+}
 </script>
 
 <div class="description">
 
-<span class="VPBadge danger">Early Bird Special Offer</span> Get **50%** off on all plans!  
+
+<span class="VPBadge warning">Ending Soon</span> <span class="VPBadge danger">Early Bird</span> Get **50%** off on all plans!  
 Early adopters get our premium features at half the regular price.
 
+<div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+  <ElSwitch
+    v-model="isUsd"
+    :active-text="'USD $'"
+    :inactive-text="'EUR €'"
+  />
+</div>
 
 </div>
 
@@ -50,8 +71,10 @@ Early adopters get our premium features at half the regular price.
         class="pro highlight"
         description="Best for start-ups and businesses who build commercial products with RevoGrid."
         buttonText="Buy now"
-        :price="isAnnual ? PRICES.light.month : PRICES.light.perpetual"
-        :pricePeriod="isAnnual ? 'month' : 'year'"
+        :monthlyPrice="formatPrice('light', 'month')"
+        :monthlyPriceOriginal="formatPrice('light', 'month', 2)"
+        :yearlyPrice="formatPrice('light', 'year')"
+        :yearlyPriceOriginal="formatPrice('light', 'year', 2)"
         :features="[
         `Access to all <a href='/pro'>Pro Examples</a>.`,
         `Plugins and Documentation.`,
@@ -64,8 +87,10 @@ Early adopters get our premium features at half the regular price.
         buttonTheme="alt"
         description="Best for companies and individuals that want a direct wire to the RevoGrid team experience."
         buttonText="Buy now"
-        :price="isAnnual ? PRICES.advanced.month : PRICES.advanced.perpetual"
-        :pricePeriod="isAnnual ? 'month' : 'year'"
+        :monthlyPrice="formatPrice('advanced', 'month')"
+        :monthlyPriceOriginal="formatPrice('advanced', 'month', 2)"
+        :yearlyPrice="formatPrice('advanced', 'year')"
+        :yearlyPriceOriginal="formatPrice('advanced', 'year', 2)"
         :features="[
           `<a href='/pro/ai' class='VPBadge danger'>AI Agent</a> for plugin code generation`,
           `Access to all <a href='/pro'>Pro Examples</a>, Plugins and Documentation.`,

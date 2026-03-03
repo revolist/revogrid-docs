@@ -6,27 +6,28 @@
             <p>{{ props.description }}</p>
         </div>
 
-        <div class="plan-price" v-if="props.price">
+        <div class="plan-price" v-if="props.monthlyPrice">
             <VPButton
                 size="medium"
                 :text="props.buttonText"
                 :theme="props.buttonTheme"
                 :href="props.href"
             />
-            <span class="plan-price-box" v-if="props.pricePeriod === 'month'">
-                <span
-                    ><span class="plan-price-value"><span class="line-through">{{ props.price * 2 }}</span> {{ props.price }}$</span>
-                     /
-                    month / dev</span
-                >
-                <span class="plan-price-period"
-                    >Billed annually at <span class="line-through">{{ props.price * 24 }}</span> {{ props.price * 12 }}$ / dev</span
-                >
-            </span>
-            <span class="plan-price-box" v-else>
-                <span
-                    ><span class="plan-price-value">{{ props.price }}$</span> / dev</span
-                >
+            <span class="plan-price-box">
+                <span>
+                    <span class="plan-price-value">
+                        <span class="line-through" v-if="props.monthlyPriceOriginal">{{ props.monthlyPriceOriginal }}</span>
+                        {{ props.monthlyPrice }}
+                    </span>
+                    /
+                    month / dev
+                </span>
+                <span class="plan-price-period" v-if="props.yearlyPrice">
+                    Billed annually at
+                    <span class="line-through" v-if="props.yearlyPriceOriginal">{{ props.yearlyPriceOriginal }}</span>
+                    {{ props.yearlyPrice }}
+                    / dev
+                </span>
             </span>
         </div>
         <div class="body">
@@ -52,8 +53,10 @@ import VPImage from '../.vitepress/theme/VPImage.vue'
 interface PlanProps {
     title: string
     description: string
-    price?: number
-    pricePeriod?: 'month' | 'year'
+    monthlyPrice?: string
+    yearlyPrice?: string
+    monthlyPriceOriginal?: string
+    yearlyPriceOriginal?: string
     buttonText: string
     href?: string
     features: string[]
