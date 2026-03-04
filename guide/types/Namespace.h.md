@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.20.4](README.md) / h
+[RevoGrid Documentation v4.20.5](README.md) / h
 
 # h
 
@@ -33,7 +33,7 @@ function h(sel: any): VNode
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:558
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:674
 
 ### h(sel, data)
 
@@ -54,7 +54,7 @@ function h(sel: Node, data: null | VNodeData): VNode
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:559
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:675
 
 ### h(sel, data)
 
@@ -75,7 +75,7 @@ function h(sel: any, data: null | VNodeData): VNode
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:560
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:676
 
 ### h(sel, text)
 
@@ -96,7 +96,7 @@ function h(sel: any, text: string): VNode
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:561
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:677
 
 ### h(sel, children)
 
@@ -117,7 +117,7 @@ function h(sel: any, children: (undefined | null | VNode)[]): VNode
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:562
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:678
 
 ### h(sel, data, text)
 
@@ -142,7 +142,7 @@ function h(
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:563
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:679
 
 ### h(sel, data, children)
 
@@ -167,7 +167,7 @@ function h(
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:564
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:680
 
 ### h(sel, data, children)
 
@@ -192,4 +192,29 @@ function h(
 
 #### Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:565
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:681
+
+### h(sel, data, children)
+
+```ts
+function h(
+   sel: any, 
+   data: null | VNodeData, ...
+   children: (string | number | VNode)[]): VNode
+```
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `sel` | `any` |
+| `data` | `null` \| `VNodeData` |
+| ...`children` | (`string` \| `number` \| [`VNode`](Interface.VNode.md))[] |
+
+#### Returns
+
+[`VNode`](Interface.VNode.md)
+
+#### Defined in
+
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:682

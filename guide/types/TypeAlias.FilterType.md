@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.20.4](README.md) / FilterType
+[RevoGrid Documentation v4.20.5](README.md) / FilterType
 
 # Type Alias: FilterType
 
@@ -8,4 +8,4 @@ type FilterType: keyof typeof filterNames;
 
 ## Defined in
 
-[src/plugins/filter/filter.indexed.ts:56](https://github.com/revolist/revogrid/blob/cfeb4fc76813e849e961384dd1448ab9e5490d6a/src/plugins/filter/filter.indexed.ts#L56)
+[src/plugins/filter/filter.indexed.ts:56](https://github.com/revolist/revogrid/blob/8120d9893575f89cd4dfd00f326239b7bf524871/src/plugins/filter/filter.indexed.ts#L56)

@@ -92,7 +92,7 @@ aside: false
 | beforeeditrender | `FocusRenderEvent` | revogr-overlay-selection | Before editor render. |
 | selectall | `any` | revogr-overlay-selection | Select all cells from keyboard. |
 | canceledit | `any` | revogr-overlay-selection | Cancel edit. Used for editors support when editor close requested. |
-| settemprange | `null \| { type: string \| null; area: RangeArea \| null; }` | revogr-overlay-selection | Set temp range area during autofill. |
+| settemprange | `null \| { type: string; area: RangeArea; }` | revogr-overlay-selection | Set temp range area during autofill. |
 | beforesettemprange | `{ tempRange: Nullable<TempRange> \| null; } & EventData & AllDimensionType` | revogr-overlay-selection | Before set temp range area during autofill. |
 | applyfocus | `FocusRenderEvent` | revogr-overlay-selection | Before cell get focused. To prevent the default behavior of applying the edit data, you can call `e.preventDefault()`. |
 | focuscell | `ApplyFocusEvent & FocusRenderEvent` | revogr-overlay-selection | Cell get focused. To prevent the default behavior of applying the edit data, you can call `e.preventDefault()`. |

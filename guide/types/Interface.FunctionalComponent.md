@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.20.4](README.md) / FunctionalComponent
+[RevoGrid Documentation v4.20.5](README.md) / FunctionalComponent
 
 # Interface: FunctionalComponent()\<T\>
 
@@ -12,7 +12,7 @@
 interface FunctionalComponent(
    props: T, 
    children: VNode[], 
-   utils: FunctionalUtilities): VNode | VNode[]
+   utils: FunctionalUtilities): null | VNode | VNode[]
 ```
 
 ## Parameters
@@ -25,8 +25,8 @@ interface FunctionalComponent(
 
 ## Returns
 
-[`VNode`](Interface.VNode.md) \| [`VNode`](Interface.VNode.md)[]
+`null` \| [`VNode`](Interface.VNode.md) \| [`VNode`](Interface.VNode.md)[]
 
 ## Defined in
 
-node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:524
+node\_modules/@stencil/core/internal/stencil-public-runtime.d.ts:640
