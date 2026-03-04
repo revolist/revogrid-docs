@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.20.2](README.md) / SetEventHandler
+[RevoGrid Documentation v4.20.3](README.md) / SetEventHandler
 
 # Type Alias: SetEventHandler()\<StoreType\>
 
@@ -26,4 +26,4 @@ type SetEventHandler<StoreType>: (key: keyof StoreType, newValue: any, oldValue:
 
 ## Defined in
 
-[src/utils/store.types.ts:7](https://github.com/revolist/revogrid/blob/71bd96b7ce813d8a294c3ab036825488de27ea6c/src/utils/store.types.ts#L7)
+[src/utils/store.types.ts:7](https://github.com/revolist/revogrid/blob/c281135a629da7a661f828d459397e240320cd3a/src/utils/store.types.ts#L7)

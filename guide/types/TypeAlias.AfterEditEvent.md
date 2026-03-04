@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.20.2](README.md) / AfterEditEvent
+[RevoGrid Documentation v4.20.3](README.md) / AfterEditEvent
 
 # Type Alias: AfterEditEvent
 
@@ -8,4 +8,4 @@ type AfterEditEvent: BeforeRangeSaveDataDetails | BeforeSaveDataDetails;
 
 ## Defined in
 
-[src/types/selection.ts:135](https://github.com/revolist/revogrid/blob/71bd96b7ce813d8a294c3ab036825488de27ea6c/src/types/selection.ts#L135)
+[src/types/selection.ts:135](https://github.com/revolist/revogrid/blob/c281135a629da7a661f828d459397e240320cd3a/src/types/selection.ts#L135)

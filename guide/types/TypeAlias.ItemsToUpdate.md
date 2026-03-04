@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.20.2](README.md) / ItemsToUpdate
+[RevoGrid Documentation v4.20.3](README.md) / ItemsToUpdate
 
 # Type Alias: ItemsToUpdate
 
@@ -8,4 +8,4 @@ type ItemsToUpdate: Pick<ViewportStateItems, "items" | "start" | "end">;
 
 ## Defined in
 
-[src/store/vp/viewport.helpers.ts:22](https://github.com/revolist/revogrid/blob/71bd96b7ce813d8a294c3ab036825488de27ea6c/src/store/vp/viewport.helpers.ts#L22)
+[src/store/vp/viewport.helpers.ts:22](https://github.com/revolist/revogrid/blob/c281135a629da7a661f828d459397e240320cd3a/src/store/vp/viewport.helpers.ts#L22)
