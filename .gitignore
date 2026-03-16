@@ -6,3 +6,4 @@ cache
 dist
 .DS_Store
 .env
+package-lock.json
