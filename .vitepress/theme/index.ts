@@ -2,6 +2,7 @@
 import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import { ID_INJECTION_KEY, ZINDEX_INJECTION_KEY } from 'element-plus'
 import './style.scss'
 import HomeHero from './HomeHero.vue'
 import HomeFeaturesBeforeVue from './HomeFeaturesBefore.vue'
@@ -26,6 +27,8 @@ export default {
         })
     },
     enhanceApp({ app, router, siteData }) {
+        app.provide(ZINDEX_INJECTION_KEY, { current: 0 })
+        app.provide(ID_INJECTION_KEY, { prefix: 1024, current: 0 })
         enhanceAppWithTabs(app)
         app.component('custom', CustomLayout)
     },
