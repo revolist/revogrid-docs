@@ -3,10 +3,10 @@
     <button @click="onBtn">Finish edit</button>
 </template>
 <script lang="ts" setup>
-import { defineProps } from 'vue'
 import { type EditorType, dispatchByEvent } from '@revolist/vue3-datagrid'
-interface MyType extends EditorType {
-    close(): void
+
+type MyType = EditorType & {
+    close: () => void
 }
 const props = defineProps<MyType>()
 
