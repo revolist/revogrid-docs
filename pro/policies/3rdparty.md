@@ -4,6 +4,7 @@ footer: true
 ---
 
 # Third-Party Tools and Libraries
+> Last updated: March 16, 2026
 
 RevoGrid Pro incorporates a variety of third-party tools and libraries within its samples, plugins, and examples. We make every effort to ensure that these tools are licensed under permissive licenses such as the MIT License, GPL License, Apache 2.0, or similar, which generally allow for commercial usage. However, it remains the responsibility of the customer to verify that these third-party tools are compatible with their specific needs and legal requirements.
 

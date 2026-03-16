@@ -4,6 +4,7 @@ footer: true
 ---
 
 # Privacy Policy
+> Last updated: March 16, 2026
 
 We at **Revolist OÜ** take your privacy seriously. To better protect your privacy, we provide this privacy policy notice explaining the way your personal information is collected and used.
 

@@ -4,6 +4,7 @@ footer: true
 ---
 
 # Agreement to Our Legal Terms
+> Last updated: March 16, 2026
 
 We are **REVOLIST OÜ** ("Company," "we," "us," "our"), a company registered in Estonia at Ruunaoja tn 3, Tallinn, Harju maakond 11415. Our VAT number is **EE101070492**.
 

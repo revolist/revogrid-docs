@@ -4,6 +4,7 @@ footer: true
 ---
 
 # RevoGrid Pro License Agreement
+> Last updated: March 16, 2026
 
 ## 1. Preamble
 
