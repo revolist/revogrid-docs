@@ -146,6 +146,8 @@ In the interest of all Users, Revolist endeavors to continuously improve the Pla
 
 Revolist strictly complies with the regulations of applicable data protection legislation. Please find Revolist’s Privacy Policy at [Privacy Policy](./privacy).
 
+Unless the User opts out in writing via [contact@revolist.eu](mailto:contact@revolist.eu), the User grants Revolist a non-exclusive, worldwide, royalty-free right to identify the User's business name and publicly available logo as a RevoGrid customer in Revolist's website and marketing materials. Revolist will not publish confidential information, personal contact data, or non-public project details under this clause.
+
 ### 12. General Limitation of Liability
 
 Revolist shall be liable exclusively according to the following regulations, no matter what the legal basis may be.

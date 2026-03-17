@@ -107,6 +107,8 @@ Licensee is allowed to perpetually use any versions of the Software released bef
 
 5. **Electronic Invoicing**: The User agrees to electronic invoicing.
 
+6. **Customer Reference Permission**: Unless the User opts out in writing via [contact@revolist.eu](mailto:contact@revolist.eu), the User grants Revolist a non-exclusive, worldwide, royalty-free right to identify the User's business name and publicly available logo as a RevoGrid customer in Revolist's website and marketing materials. Revolist will not publish confidential information, personal contact data, or non-public project details under this clause.
+
 ## 6. Refund Policy
 
 1. **General Policy**: All payments for RevoGrid Pro licenses are **non-refundable** except in specific circumstances outlined below.

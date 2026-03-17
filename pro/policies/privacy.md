@@ -24,6 +24,10 @@ Advertising partners and other third parties may use cookies, scripts, and/or we
 
 We have included links on this website for your use and reference. We are not responsible for the privacy policies on these websites. You should be aware that the privacy policies of these websites may differ from our own.
 
+## Customer References
+
+For business customers, we may process limited business identification data (such as company name and publicly available logo) to indicate that RevoGrid is being used by that customer on our website and in marketing materials. We do not publish personal contact data, confidential pricing, or non-public project details for this purpose. Customers may opt out at any time by contacting [contact@revolist.eu](mailto:contact@revolist.eu).
+
 ## Security
 
 The security of your personal information is important to us, but remember that no method of transmission over the Internet, or method of electronic storage, is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.
