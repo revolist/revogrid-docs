@@ -51,7 +51,7 @@ const formatPrice = (plan: keyof typeof PRICES, period: 'month' | 'year', multip
 <div class="description">
 
 
-<span class="VPBadge warning">Ending Soon</span> <span class="VPBadge danger">Early Bird</span> Get **50%** off on all plans!  
+<span class="VPBadge warning">Ending Soon</span> <span class="VPBadge tip">No deployment fee</span> <span class="VPBadge danger">Early Bird</span>  Get **50%** off on all plans.  
 Early adopters get our premium features at half the regular price.
 
 <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.75rem;">

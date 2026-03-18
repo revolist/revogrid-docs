@@ -127,6 +127,8 @@ We recommend that you print a copy of these Legal Terms for your records.
 
 6. **Trial and Evaluation**: Revolist provides a trial version of RevoGrid Pro for evaluation purposes. Trial access is granted upon request and requires direct contact with Revolist. By purchasing RevoGrid Pro, the User acknowledges they have had the opportunity to evaluate the service through the trial platform and understand the service capabilities before purchase. To request trial access, contact Revolist at [contact@revolist.eu](mailto:contact@revolist.eu).
 
+7. **Perpetual License Request**: Perpetual licensing is not included by default and must be requested separately by the User and confirmed by Revolist.
+
 ### 9. Availability of the Platform
 
 1. The availability of the Platform is determined as follows:

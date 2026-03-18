@@ -71,7 +71,7 @@ The User must create an account to access the Repository and Services. The User 
 ### 3.7. License model
 
 - **Choice of license model**
-Licensee can decide between two different license models when it enters the agreement: Annual license or Perpetual license. Licensee can later change its license model by paying a transfer fee if necessary. Unless mentioned explicitly during payment, the license model used is the Annual as the Perpetual comes with a higher fee.
+Licensee can decide between two different license models when it enters the agreement: Annual license or Perpetual license. Licensee can later change its license model by paying a transfer fee if necessary. Unless mentioned explicitly during payment, the license model used is the Annual as the Perpetual comes with a higher fee. Perpetual licensing must be requested separately by the Licensee and confirmed by Licensor.
 
 - **Annual license**
    - **Non-perpetual outside of production.** All the developers contributing changes to the front-end code of a project that includes the Software need an active license. A license is active as long as it hasn't reached the end of the License Term. Licensee doesn't need to renew its license if no developers work with the API and source code of the Software in any capacity (indirectly or directly).
