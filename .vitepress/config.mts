@@ -151,7 +151,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         },
 
         search: {
-            provider: 'local',
+            provider: 'algolia',
+            options: {
+              appId: 'A7AL1RN49F',
+              apiKey: '32c3895410dbd2626a07c065d0e88bec',
+              indexName: 'RevoGrid'
+            }
         },
         nav: navbarEn,
 
