@@ -65,7 +65,7 @@ features:
       src: wcag.svg
     details: Designed to ensure accessibility and WCAG compliance.
     link: ./guide/wcag
-    linkText: Read mode
+    linkText: Read more
   
   - title: Row Operations
     icon: 
@@ -79,112 +79,119 @@ features:
       src: column.svg
     details: Comprehensive column customization, including resizing, reordering, grouping and defining data types.
     link: ./guide/column/
-    linkText: Read mode
+    linkText: Read more
 
   - title: Enhanced Customization Toolkit
     icon: 
       src: template.svg
     details: Template every element - cells, rows, columns, headers. Customize nearly every action keeping performance with internal VNode support.
     link: ./guide/cell/renderer
-    linkText: Read mode
+    linkText: Read more
 
   - title: Pinning/Freezing
     icon: 
       src: pin.svg
     details: Pin any row or column, to the any edge of the screen, ensure that specific elements remain visible while scrolling.
     link: ./guide/column/pin
-    linkText: Read mode
+    linkText: Read more
 
   - title: Cell and Range Selection
     icon: 
       src: range.svg
     details: Allows users to select and manipulate a range of cells efficiently.
-    link: ./guide/defs.md#Focus
-    linkText: Read mode
+    link: ./guide/defs#Range
+    linkText: Read more
 
   - title: Filtering
     icon: 
       src: filter.svg
     details: Transparent system filters and the ability to define custom filter operations for refining data.
     link: ./guide/filters
-    linkText: Read mode
+    linkText: Read more
 
   - title: Sorting
     icon: 
       src: sort.svg
     details: Powerful sorting functionality for organizing data based on various criteria.
     link: ./guide/sorting
-    linkText: Read mode
+    linkText: Read more
 
   - title: Cell Editing
     icon: 
       src: edit.svg
     details: Enables users to edit cell contents directly within the grid. Customize editors using provided templates to suit specific needs.
     link: ./guide/cell/editor
-    linkText: Read mode
+    linkText: Read more
 
   - title: Clipboard Support
     icon: 
       src: clipboard.svg
     details: Facilitates copy-paste operations for seamless data transfer.
     link: ./guide/defs#Clipboard
-    linkText: Read mode
+    linkText: Read more
 
   - title: Export to Excel/CSV
     icon: 
       src: export.svg
     details: Provides options to export grid data to Excel or CSV formats.
     link: ./guide/export.plugin
-    linkText: Read mode
+    linkText: Read more
 
   - title: Grouping Data
     icon: 
       src: tree.svg
     details: Support for hierarchical data representation and management.
-    link: ./guide/defs#Row-Grouping
-    linkText: Read mode
+    link: ./guide/row/grouping
+    linkText: Read more
 
   - title: Keyboard Support
     icon: 
       src: keyboard.svg
     details: Handle all popular keyboard events, and unleash your creativity by extending functionality according to your unique requirements.
-    link: ./guide/defs#Keyboard
-    linkText: Read mode
+    link: ./guide/defs#Keyboard-support
+    linkText: Read more
 
   - title: Plugin Support
     icon: 
       src: menu.svg
     details: Extend grid functionality with micro applications, allowing for limitless customization and enhancements.
     link: ./guide/plugin
-    linkText: Read mode
+    linkText: Read more
 
   - title: TypeScript support
     icon: 
       src: ts.svg
     details: RevoGrid uses TypeScript, providing your components with type safety as your system scales.
     link: ./guide/ts/
-    linkText: Read mode
+    linkText: Read more
+
+  - title: AI Agents and MCP
+    icon:
+      src: mcp.svg
+    details: Connect Codex, Cursor, Claude Code, and VS Code to version-aware RevoGrid docs, examples, migrations, and typed API context.
+    link: ./guide/mcp
+    linkText: Read more
     
   - title: JSX support
     icon: 
       src: jsx.svg
     details: Leverage a widely recognized templating syntax to describe your custom content, ensuring a fast and reactive DOM while utilizing the full range of JavaScript's features.
     link: ./guide/jsx.template
-    linkText: Read mode
+    linkText: Read more
 
-  # - title: Reactivity upon the deep
-  #   icon: 
-  #     src: reactivity.svg
-  #   details: The grid core is built upon an advanced reactive approach. By incorporating smart recombination, it handles substantial data loads and intricate operations.
-  #   link: ./guide/overview.md#Magic-behind-the-scene
-  #   linkText: Read mode
+  - title: Reactivity upon the deep
+    icon: 
+      src: reactivity.svg
+    details: The grid core is built upon an advanced reactive approach. By incorporating smart recombination, it handles substantial data loads and intricate operations.
+    link: ./guide/overview.md#Magic-behind-the-scene
+    linkText: Read more
   
-  # - title: Transparent Codebase
-  #   icon:
-  #     src: code.svg
-  #   details: 'The code you truly own: understand, build, and extend with minimal effort.'
-  #   link: ./guide/overview#Magic-behind-the-scene
-  #   linkText: Read more
+  - title: Transparent Codebase
+    icon:
+      src: code.svg
+    details: 'The code you truly own: understand, build, and extend with minimal effort.'
+    link: ./guide/overview#Magic-behind-the-scene
+    linkText: Read more
 
 integrations:
 - title: Vue
@@ -210,7 +217,6 @@ integrations:
 - title: JavaScript
   alt: JavaScript Data Grid
   icon: js.svg
-  details: JavaScript Data Grid to speed up your JavaScript code base.
+  details: JavaScript data grid for fast setup and framework-free integrations.
   path: /guide/
 ---
-

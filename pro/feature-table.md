@@ -1,6 +1,6 @@
 ---
-title: Pricing
-description: Start using RevoGrid for free! Switch to a commercial plan to access advanced features & technical support.
+title: RevoGrid Pro Pricing and Feature Comparison
+description: Compare RevoGrid Community, Pro Lite, and Pro Advanced plans, including advanced grid features, support options, and upgrade paths.
 sidebar: false
 aside: false
 editLink: false
@@ -141,13 +141,23 @@ features.push({
 
 <Badge type="tip" text="Pricing" />
 
-# Build next level apps as a Pro
+# RevoGrid Pro pricing and feature comparison
 
-[Watch our videos](/pro)
+[Watch the feature overview](/pro)
 
 </div>
 
 <Table  :plans="plans" :features="features" />
+
+<br />
+
+Choose this page when you need a quick answer to:
+
+- which advanced features are included in each plan
+- whether a feature is part of Community or Pro
+- which plan includes advanced support
+
+For a higher-level overview, go back to [RevoGrid Pro](/pro/).
 
 <br />
 

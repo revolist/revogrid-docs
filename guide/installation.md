@@ -1,17 +1,32 @@
-# Installation
+---
+title: RevoGrid Installation
+description: Install RevoGrid with npm, pnpm, yarn, bun, or a CDN, then register the Web Components loader for JavaScript or TypeScript projects.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid installation, npm data grid, JavaScript web component grid, TypeScript grid install, CDN data grid
+---
+
+# RevoGrid Installation
+
+You can use RevoGrid in three common ways:
+
+- package manager installation for app projects
+- direct CDN usage for prototypes or no-build pages
+- framework wrappers for React, Angular, Vue, and Svelte
+
+If you are not sure where to start, use the package-manager flow and register the custom elements loader once in your application entrypoint.
 
 <!--@include: ./parts/_framework.md-->
 
+## Install from a package manager
 
-## Package Manager Installation
-
-First, install `revo-grid` using your preferred package manager.
+Install the core package:
 
 ::: code-group
 
 ```npm
 npm i @revolist/revogrid
-
 ```
 
 ```pnpm
@@ -27,49 +42,71 @@ bun add @revolist/revogrid
 ```
 :::
 
-After installation, you can import `RevoGrid` into your module. 
+## Register the Web Components loader
 
-Using lazy loading:
+RevoGrid ships as Web Components. Register them once before rendering any grid:
 
-```js
-import { defineCustomElements } from "@revolist/revogrid/loader";
-// defineCustomElements function can be used to quickly define all RevoGrid components in a project on the custom elements registry.
+```ts
+import { defineCustomElements } from '@revolist/revogrid/loader';
+
 defineCustomElements();
 ```
 
-If you're using ES Modules in your project, [here’s how you can import it](./standalone).
+This is the standard entrypoint for JavaScript and TypeScript applications. If you are using a framework wrapper, its own installation guide will show the package to install and the wrapper-specific setup.
 
+## Minimal JavaScript or TypeScript setup
 
+Once the loader is registered, render the grid and assign data:
 
-This import statement brings the RevoGrid component into your project, allowing you to utilize it within your JavaScript or TypeScript files. From here, you can proceed to instantiate and configure your grid according to your project's requirements.
+```ts
+const grid = document.querySelector('revo-grid');
 
+grid.columns = [
+  { prop: 'name', name: 'Name' },
+  { prop: 'email', name: 'Email' },
+];
 
-## No-Build Integration
+grid.source = [
+  { name: 'Ada Lovelace', email: 'ada@example.com' },
+  { name: 'Grace Hopper', email: 'grace@example.com' },
+];
+```
 
-Integrating components into a project doesn't have to be complicated, especially when not working within a JavaScript framework. If you're crafting a site with simple HTML, adding `RevoGrid` is as easy as inserting a script tag.
+## No-build integration
 
+For a quick proof of concept, load the grid directly from a CDN.
 
-### CDN
+### Script tag
 
-To quickly include `RevoGrid` in your project, you can use a `CDN` like unpkg. Here’s how you can do it:
-
-```js
+```html
 <script src="https://unpkg.com/@revolist/revogrid@latest/dist/revo-grid/revo-grid.js"></script>
 ```
 
+### ES modules
 
-### ES Module Import
-
-
-For a more modern approach that leverages ES Modules, you can import `RevoGrid` components directly. This method is particularly beneficial if you're aiming to maintain a modular project structure.
-
-```js
+```html
 <script type="module">
-    import { applyPolyfills, defineCustomElements } from "https://unpkg.com/@revolist/revogrid@latest/loader";
-    applyPolyfills().then(() => {
-        defineCustomElements();
-    });
+  import { applyPolyfills, defineCustomElements } from 'https://unpkg.com/@revolist/revogrid@latest/loader';
+
+  applyPolyfills().then(() => {
+    defineCustomElements();
+  });
 </script>
 ```
 
-This import statement not only loads RevoGrid but also ensures that any necessary polyfills are applied, making your project compatible with a broader range of browsers.
+Use the module version when you want a more explicit initialization flow or need compatibility support through `applyPolyfills`.
+
+## Which package should you install?
+
+- Core JavaScript/TypeScript: `@revolist/revogrid`
+- React wrapper: start at [React Data Grid](/guide/react/)
+- Angular wrapper: start at [Angular Data Grid](/guide/angular/)
+- Vue 3 wrapper: start at [Vue 3 Data Grid](/guide/vue3/)
+- Svelte wrapper: start at [Svelte Data Grid](/guide/svelte/)
+
+## Common next steps
+
+- [Quick Start](/guide/): first grid in plain JavaScript.
+- [TypeScript Data Grid](/guide/ts/): typed columns and data models.
+- [Standalone and ES Modules](/guide/standalone): framework-free module usage.
+- [SSR](/guide/ssr): when the browser-only runtime affects your app shell.

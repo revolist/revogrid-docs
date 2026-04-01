@@ -125,3 +125,9 @@ When to Use These Options?
 - Client-Side Rendering (CSR) for RevoGrid: Use this if you need other parts of the page to be server-rendered but still want to use RevoGrid in the browser.
 
 With these methods, you can successfully integrate RevoGrid into your SvelteKit project while handling its lack of SSR compatibility.
+
+## Related guides
+
+- [Programmatic Grid Control](/guide/programmatic-control)
+- [Grid Performance and Virtualization](/guide/performance)
+- [Event Patterns and Lifecycles](/guide/events-guide)

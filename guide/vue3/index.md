@@ -1,10 +1,10 @@
 ---
 title: Vue 3 Data Grid
-description: Learn how to use Vue 3 Data Grid to build fast, scalable data applications with support for virtual rows and columns.
+description: Learn how to use RevoGrid in Vue 3 with Composition API or Options API, pass columns and source data, access instance methods, and build custom renderers.
 head:
   - - meta
     - name: keywords
-      content: RevoGrid, data grid, vue 3 table, vue 3 data grid, virtual grid, virtual rows, virtual columns, reactive data grid, Vue 3 grid example, grid performance, large data sets, customizable grid
+      content: Vue 3 data grid, RevoGrid Vue 3, Vue grid instance methods, Vue editable data grid, Vue virtual grid
 ---
 <script lang="ts">
 import Grid from '@/demo/vue/DemoHR.vue'
@@ -13,7 +13,7 @@ import Examples from './examples.vue'
 
 <style lang="scss" scoped>
 .example {
-    max-width: 100%;    
+    max-width: 100%;
 }
 :deep() {
     .demo-page-wrapper .demo-container {
@@ -22,59 +22,85 @@ import Examples from './examples.vue'
 }
 </style>
 
-
-
 # Vue 3 Data Grid
 
-This page covers the key concepts of RevoGrid - a high-performance, customizable Vue Table and Vue Data Grid for managing large datasets.
-
-<!--@include: ../parts/_why.md-->
+RevoGrid fits naturally into Vue 3 applications when you need a fast grid with native component integrations. You can use it from either the Composition API or the Options API, and still rely on the same core RevoGrid methods and events.
 
 <div class="example">
-<Grid />
+  <Grid />
 </div>
 
 ::: info
-This tutorial assumes that an Vue project has already been set up.
-If not, please refer to the official documentation [Vue Installation](https://vuejs.org/guide/quick-start)
+This guide assumes your Vue project already exists. If not, start with the official [Vue quick start](https://vuejs.org/guide/quick-start).
 :::
-
-
 
 <!--@include: ./_install.md-->
 
-## Vue Data Grid Usage
+## Composition API setup
 
-### Composition Api
 ```vue
-
 <!--@include: ../../demo/vue/vue3-datagrid.composition.getstarted.vue-->
 ```
- 
 
+## Options API setup
 
-### Options Api
 ```vue
 <!--@include: ../../demo/vue/vue3-datagrid.options.getstarted.vue-->
 ```
 
-##  Getting Started with Options API
+## Passing `columns` and `source`
+
+The most common Vue pattern is:
+
+- keep `columns` in component state
+- pass `source` as reactive data
+- use grid methods when you need imperative actions like scrolling, focusing, or opening an editor
+
 
 <!--@include: ../../demo/vue/vue.sample.options.md-->
 
+## Accessing grid instance methods
 
-
-### Method on Vue Data Grid instance is not a function
-
-In order to access a method on a data grid component in Vue, you will need to access the underlying Web Component instance first:
+To call a method on the underlying grid, use the wrapped Web Component instance:
 
 ```js
-// ✅ This is correct
+// ✅ Correct
 myComponentRef.value.$el.someMethod();
 
-// ❌ This is incorrect and will result in an error.
+// ❌ Incorrect
 myComponentRef.value.someMethod();
 ```
 
+This matters for methods like `setCellEdit`, `scrollToRow`, `setCellsFocus`, and `getVisibleSource`.
+
+## Custom renderers and editors
+
+Use these guides for framework-native customization:
+
+- [Vue 3 Cell Template](/guide/vue3/renderer)
+- [Vue 3 Cell Editor](/guide/vue3/editor)
+
+## Event handling
+
+For application workflows, the most useful events are:
+
+- `beforeedit`
+- `afteredit`
+- `beforefilterapply`
+- `beforecellfocus`
+
+## SSR and client-only behavior
+
+Like the core Web Component, RevoGrid depends on browser APIs. If you use Vue in an SSR setup, render the grid on the client side or guard the component load accordingly.
+
+## Related guides
+
+- [Programmatic Grid Control](/guide/programmatic-control)
+- [Advanced Configuration](/guide/advanced-configuration)
+- [Grid Performance and Virtualization](/guide/performance)
+
+## More Vue examples
+
+<!--@include: ../../demo/vue/vue.sample.options.md-->
 
 <Examples />

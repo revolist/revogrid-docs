@@ -141,3 +141,13 @@ The [`MasterRowsPlugin`](./master.pro.md) enables expandable rows within the gri
 
 - **Performance Optimization**: Reduces the amount of visible data, which can enhance grid performance.
 - **Improved Usability**: Allows for better management of large datasets by hiding irrelevant or unneeded rows.
+
+## Related guides
+
+- [Advanced Configuration](/guide/advanced-configuration)
+- [Programmatic Grid Control](/guide/programmatic-control)
+- [Understanding Viewports](/guide/viewports)
+
+## Related Pro features
+
+Need more row-focused workflows such as row select, row autosize, row order, transpose, or master-detail patterns? Continue with [RevoGrid Pro](/pro/) and [Feature Comparison](/pro/feature-table).

@@ -1,3 +1,8 @@
+---
+title: RevoGrid Cell Renderer
+description: Use RevoGrid cell templates to render custom cell content safely and efficiently across JavaScript and framework integrations.
+---
+
 # Cell renderer [<Badge type="tip">Interface: CellTemplate</Badge>](../types/Interface.CellTemplate) [<Badge type="tip">Interface: CellTemplateProp</Badge>](../types/Interface.CellTemplateProp)
 
 This article explains how to use a [custom cell function](../types/Interface.CellTemplate) to display HTML content in a cell.
@@ -42,3 +47,7 @@ const columns: ColumnRegular[] = [
 
 <!--@include: ./_key.warning.md-->
 <!--@include: ./_key.render.md-->
+
+## Related Pro features
+
+If you need richer visual cells such as charts, conditional formatting, heatmaps, or multi-renderer patterns, continue with [RevoGrid Pro](/pro/) and [Feature Comparison](/pro/feature-table).

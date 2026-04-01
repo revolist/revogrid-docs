@@ -39,3 +39,13 @@ grid.grouping = { props: ['newGroupingProperty'] };
 ```
 
 For more details, check the [GroupingOptions interface](../types/TypeAlias.GroupingOptions).
+
+## Related guides
+
+- [Advanced Configuration](/guide/advanced-configuration)
+- [Programmatic Grid Control](/guide/programmatic-control)
+- [Understanding Viewports](/guide/viewports)
+
+## Related Pro features
+
+If your grouping workflow grows into summaries, pivoting, or deeper analytical views, continue with [RevoGrid Pro](/pro/) and [Feature Comparison](/pro/feature-table).

@@ -16,8 +16,40 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
         collapsed: true,
         items: [
             {
+                text: 'Quick Start',
+                link: '/guide/',
+            },
+            {
+                text: 'Overview',
+                link: '/guide/overview',
+            },
+            {
+                text: 'Installation',
+                link: '/guide/installation',
+            },
+            {
                 text: 'Best Practices',
                 link: '/guide/patterns',
+            },
+            {
+                text: 'Performance',
+                link: '/guide/performance',
+            },
+            {
+                text: 'Programmatic Control',
+                link: '/guide/programmatic-control',
+            },
+            {
+                text: 'AI Agents and MCP',
+                link: '/guide/mcp',
+            },
+            {
+                text: 'Advanced Configuration',
+                link: '/guide/advanced-configuration',
+            },
+            {
+                text: 'Event Patterns',
+                link: '/guide/events-guide',
             },
             {
                 text: 'JSX/TSX Template',
@@ -50,18 +82,6 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
         text: 'Getting Started',
         collapsed: true,
         items: [
-            {
-                text: 'Overview',
-                link: '/guide/overview',
-            },
-            {
-                text: 'Quick Start',
-                link: '/guide/',
-            },
-            {
-                text: 'Installation',
-                link: '/guide/installation',
-            },
             {
                 text: 'Data Synchronization',
                 link: '/guide/data-sync',
@@ -268,6 +288,13 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 collapsed: true,
                 items: [
                     { text: 'Getting Started', link: '/guide/svelte/' },
+                ],
+            },
+            {
+                text: 'TypeScript',
+                collapsed: true,
+                items: [
+                    { text: 'Getting Started', link: '/guide/ts/' },
                 ],
             },
             {

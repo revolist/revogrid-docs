@@ -1,6 +1,6 @@
 ---
 title: RevoGrid Pro
-description: Start using RevoGrid for free! Switch to a commercial plan to access advanced features & technical support.
+description: Compare RevoGrid Pro plans and explore advanced grid features such as pivoting, advanced filters, validation, editors, export workflows, and enterprise support.
 sidebar: false
 aside: false
 editLink: false
@@ -44,10 +44,9 @@ let showForm = ref(false) // isVisible
 
 
 
-# Build next level Apps as a Pro
+# Build next level apps with RevoGrid Pro
 
-Features for faster implementation,  
-reducing overall project timelines and price.
+RevoGrid Pro adds advanced features on top of the open-source grid so teams can ship complex data experiences faster without changing the core RevoGrid integration.
 
 <VPButton size="big" text="Purchase" theme="alt" href="/pro/prices" />
 
@@ -58,7 +57,7 @@ reducing overall project timelines and price.
 
 <br/>
 
-Watch our video previews or [compare our plans](./feature-table)
+Watch the feature previews below or [compare the plans](./feature-table).
 
 ---
 
@@ -74,8 +73,9 @@ Can't find the feature you're looking for? <a @click="showForm = true">Ask us!</
 <br />
 
 
-## Save time and money with our features!
-Get cool features out of the box to build the best products and elevate your development experience!
+## Advanced features, same core grid
+
+Keep the same RevoGrid foundation and add capabilities such as advanced filtering, richer editors, validation, data visualization, row automation, and advanced data-management patterns.
 
 
 
@@ -113,7 +113,7 @@ Easily scale your applications without incurring significant additional costs.
 
 ::: details Support and Resources {open dashed}
 
-Comprehensive support and documentation reduce the need for external consulting services. 
+Comprehensive support and documentation reduce the need for external consulting services.
 
 :::
 
@@ -121,4 +121,3 @@ Comprehensive support and documentation reduce the need for external consulting 
 
 <br>
 </div>
-

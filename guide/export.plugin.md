@@ -1,6 +1,6 @@
 ---
 title: Data Grid Export
-description: Export Data from your Data Grid to excel or csv.
+description: Export data from RevoGrid to CSV in the core package and learn when to use RevoGrid Pro for richer Excel export workflows.
 head:
   - - meta
     - name: keywords
@@ -67,3 +67,7 @@ type FormatterOptions = {
 :::tip
 For the latest information it's recommended to read [export-plugin](https://github.com/revolist/revogrid/blob/master/src/plugins/export/export.plugin.ts) file for better understanding of parameters and options.
 :::
+
+## Related Pro features
+
+Need richer spreadsheet export workflows? RevoGrid Pro extends export capabilities for Excel-oriented use cases. Start with [RevoGrid Pro](/pro/) or compare plans on [Feature Comparison](/pro/feature-table).
