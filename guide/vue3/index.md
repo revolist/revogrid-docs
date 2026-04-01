@@ -99,8 +99,5 @@ Like the core Web Component, RevoGrid depends on browser APIs. If you use Vue in
 - [Advanced Configuration](/guide/advanced-configuration)
 - [Grid Performance and Virtualization](/guide/performance)
 
-## More Vue examples
-
-<!--@include: ../../demo/vue/vue.sample.options.md-->
 
 <Examples />
