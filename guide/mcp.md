@@ -55,8 +55,6 @@ Use the hosted RevoGrid MCP endpoint:
 https://mcp.rv-grid.com
 ```
 
-This is the primary endpoint for RevoGrid docs, examples, migrations, feature availability, and typed API retrieval. The legacy `/mcp` path remains compatible, but new client setup should prefer the root URL.
-
 ### Claude Code
 
 ```bash
