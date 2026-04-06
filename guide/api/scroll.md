@@ -8,12 +8,13 @@ Viewport scroll component for RevoGrid
 
 ## Properties
 
-| Property               | Attribute        | Description             | Type                                                      | Default     |
-| ---------------------- | ---------------- | ----------------------- | --------------------------------------------------------- | ----------- |
-| `colType` _(required)_ | `col-type`       |                         | `"colPinEnd" \| "colPinStart" \| "rgCol" \| "rowHeaders"` | `undefined` |
-| `contentHeight`        | `content-height` | Height of inner content | `number`                                                  | `0`         |
-| `contentWidth`         | `content-width`  | Width of inner content  | `number`                                                  | `0`         |
-| `rowHeader`            | `row-header`     | Enable row header       | `boolean`                                                 | `undefined` |
+| Property                     | Attribute                       | Description             | Type                                                      | Default     |
+| ---------------------------- | ------------------------------- | ----------------------- | --------------------------------------------------------- | ----------- |
+| `colType` _(required)_       | `col-type`                      |                         | `"colPinEnd" \| "colPinStart" \| "rgCol" \| "rowHeaders"` | `undefined` |
+| `contentHeight`              | `content-height`                | Height of inner content | `number`                                                  | `0`         |
+| `contentWidth`               | `content-width`                 | Width of inner content  | `number`                                                  | `0`         |
+| `noHorizontalScrollTransfer` | `no-horizontal-scroll-transfer` |                         | `boolean`                                                 | `false`     |
+| `rowHeader`                  | `row-header`                    | Enable row header       | `boolean`                                                 | `undefined` |
 
 
 ## Events

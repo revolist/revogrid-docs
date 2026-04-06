@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.1](README.md) / [JSX](Namespace.JSX.md) / RevoGridAttributes
+[RevoGrid Documentation v4.21.2](README.md) / [JSX](Namespace.JSX.md) / RevoGridAttributes
 
 # Interface: RevoGridAttributes
 
@@ -6,26 +6,27 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `accessible` | `boolean` | [src/components.d.ts:2481](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2481) |
-| `applyOnClose` | `boolean` | [src/components.d.ts:2470](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2470) |
-| `autoSizeColumn` | `boolean` \| [`AutoSizeColumnConfig`](TypeAlias.AutoSizeColumnConfig.md) | [src/components.d.ts:2473](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2473) |
-| `canDrag` | `boolean` | [src/components.d.ts:2483](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2483) |
-| `canFocus` | `boolean` | [src/components.d.ts:2468](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2468) |
-| `canMoveColumns` | `boolean` | [src/components.d.ts:2475](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2475) |
-| `colSize` | `number` | [src/components.d.ts:2464](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2464) |
-| `disableVirtualX` | `boolean` | [src/components.d.ts:2478](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2478) |
-| `disableVirtualY` | `boolean` | [src/components.d.ts:2479](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2479) |
-| `exporting` | `boolean` | [src/components.d.ts:2476](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2476) |
-| `filter` | `boolean` \| [`ColumnFilterConfig`](Interface.ColumnFilterConfig.md) | [src/components.d.ts:2474](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2474) |
-| `frameSize` | `number` | [src/components.d.ts:2462](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2462) |
-| `hideAttribution` | `boolean` | [src/components.d.ts:2480](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2480) |
-| `range` | `boolean` | [src/components.d.ts:2465](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2465) |
-| `readonly` | `boolean` | [src/components.d.ts:2466](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2466) |
-| `resize` | `boolean` | [src/components.d.ts:2467](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2467) |
-| `rowClass` | `string` | [src/components.d.ts:2472](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2472) |
-| `rowHeaders` | `boolean` \| [`RowHeaders`](Interface.RowHeaders.md) | [src/components.d.ts:2461](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2461) |
-| `rowSize` | `number` | [src/components.d.ts:2463](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2463) |
-| `rtl` | `boolean` | [src/components.d.ts:2482](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2482) |
-| `stretch` | `string` | [src/components.d.ts:2477](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2477) |
-| `theme` | `string` | [src/components.d.ts:2471](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2471) |
-| `useClipboard` | `boolean` | [src/components.d.ts:2469](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/components.d.ts#L2469) |
+| `accessible` | `boolean` | [src/components.d.ts:2513](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2513) |
+| `applyOnClose` | `boolean` | [src/components.d.ts:2502](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2502) |
+| `autoSizeColumn` | `boolean` \| [`AutoSizeColumnConfig`](TypeAlias.AutoSizeColumnConfig.md) | [src/components.d.ts:2505](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2505) |
+| `canDrag` | `boolean` | [src/components.d.ts:2515](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2515) |
+| `canFocus` | `boolean` | [src/components.d.ts:2500](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2500) |
+| `canMoveColumns` | `boolean` | [src/components.d.ts:2507](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2507) |
+| `colSize` | `number` | [src/components.d.ts:2495](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2495) |
+| `disableVirtualX` | `boolean` | [src/components.d.ts:2510](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2510) |
+| `disableVirtualY` | `boolean` | [src/components.d.ts:2511](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2511) |
+| `exporting` | `boolean` | [src/components.d.ts:2508](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2508) |
+| `filter` | `boolean` \| [`ColumnFilterConfig`](Interface.ColumnFilterConfig.md) | [src/components.d.ts:2506](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2506) |
+| `frameSize` | `number` | [src/components.d.ts:2493](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2493) |
+| `hideAttribution` | `boolean` | [src/components.d.ts:2512](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2512) |
+| `noHorizontalScrollTransfer` | `boolean` | [src/components.d.ts:2499](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2499) |
+| `range` | `boolean` | [src/components.d.ts:2496](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2496) |
+| `readonly` | `boolean` | [src/components.d.ts:2497](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2497) |
+| `resize` | `boolean` | [src/components.d.ts:2498](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2498) |
+| `rowClass` | `string` | [src/components.d.ts:2504](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2504) |
+| `rowHeaders` | `boolean` \| [`RowHeaders`](Interface.RowHeaders.md) | [src/components.d.ts:2492](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2492) |
+| `rowSize` | `number` | [src/components.d.ts:2494](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2494) |
+| `rtl` | `boolean` | [src/components.d.ts:2514](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2514) |
+| `stretch` | `string` | [src/components.d.ts:2509](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2509) |
+| `theme` | `string` | [src/components.d.ts:2503](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2503) |
+| `useClipboard` | `boolean` | [src/components.d.ts:2501](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L2501) |

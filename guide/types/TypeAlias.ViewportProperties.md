@@ -1,11 +1,19 @@
-[RevoGrid Documentation v4.21.1](README.md) / ViewportProperties
+[RevoGrid Documentation v4.21.2](README.md) / ViewportProperties
 
 # Type Alias: ViewportProperties
 
 ```ts
-type ViewportProperties: RevogrViewportScroll & JSXBase.HTMLAttributes<HTMLRevogrViewportScrollElement>;
+type ViewportProperties: RevogrViewportScroll & {
+  noHorizontalScrollTransfer: boolean;
+} & JSXBase.HTMLAttributes<HTMLRevogrViewportScrollElement>;
 ```
+
+## Type declaration
+
+| Name | Type | Defined in |
+| ------ | ------ | ------ |
+| `noHorizontalScrollTransfer` | `boolean` | [src/types/viewport.interfaces.ts:35](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/types/viewport.interfaces.ts#L35) |
 
 ## Defined in
 
-[src/types/viewport.interfaces.ts:32](https://github.com/revolist/revogrid/blob/96ed9346553c6c7183fca30c7e8c7f1c5025e6da/src/types/viewport.interfaces.ts#L32)
+[src/types/viewport.interfaces.ts:33](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/types/viewport.interfaces.ts#L33)
