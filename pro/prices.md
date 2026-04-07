@@ -56,13 +56,20 @@ const formatPrice = (plan: keyof typeof PRICES, period: 'month' | 'year', multip
 
 <div class="description">
 
-<div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+<div>
+  <span class="VPBadge danger">Price Protection</span>
+  <p>Existing customer teams keep their current pricing when extending seats.</p>
+</div>
+
+
+<div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.75rem; margin-top: 2rem">
   <ElSwitch
     v-model="isUsd"
     :active-text="'USD $'"
     :inactive-text="'EUR €'"
   />
 </div>
+
 
 </div>
 
