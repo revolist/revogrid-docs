@@ -18,9 +18,9 @@ Virtual scroll component
 
 ## Events
 
-| Event           | Description  | Type                                                                                                                          |
-| --------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| `scrollvirtual` | Scroll event | `CustomEvent<{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }>` |
+| Event           | Description  | Type             |
+| --------------- | ------------ | ---------------- |
+| `scrollvirtual` | Scroll event | `CustomEvent<D>` |
 
 
 ## Methods

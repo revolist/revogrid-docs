@@ -19,12 +19,12 @@ Viewport scroll component for RevoGrid
 
 ## Events
 
-| Event                  | Description                                                                         | Type                                                                                                                          |
-| ---------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `resizeviewport`       | Viewport resize                                                                     | `CustomEvent<{ dimension: DimensionType; size: number; rowHeader?: boolean \| undefined; }>`                                  |
-| `scrollchange`         | Triggered on scroll change, can be used to get information about scroll visibility  | `CustomEvent<{ type: DimensionType; hasScroll: boolean; }>`                                                                   |
-| `scrollviewport`       | Before scroll event                                                                 | `CustomEvent<{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }>` |
-| `scrollviewportsilent` | Silently scroll to coordinate Made to align negative coordinates for mobile devices | `CustomEvent<{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }>` |
+| Event                  | Description                                                                         | Type                                                                                         |
+| ---------------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `resizeviewport`       | Viewport resize                                                                     | `CustomEvent<{ dimension: DimensionType; size: number; rowHeader?: boolean \| undefined; }>` |
+| `scrollchange`         | Triggered on scroll change, can be used to get information about scroll visibility  | `CustomEvent<{ type: DimensionType; hasScroll: boolean; }>`                                  |
+| `scrollviewport`       | Before scroll event                                                                 | `CustomEvent<D>`                                                                             |
+| `scrollviewportsilent` | Silently scroll to coordinate Made to align negative coordinates for mobile devices | `CustomEvent<D>`                                                                             |
 
 
 ## Methods

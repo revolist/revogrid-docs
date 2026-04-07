@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.2](README.md) / CellTemplate
+[RevoGrid Documentation v4.21.3](README.md) / CellTemplate
 
 # Interface: CellTemplate()
 
@@ -27,4 +27,4 @@ Interface for custom cell renderer.
 
 ## Defined in
 
-[src/types/interfaces.ts:140](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/types/interfaces.ts#L140)
+[src/types/interfaces.ts:140](https://github.com/revolist/revogrid/blob/304684a5d02f0b3704e5d01464221cd793f499b5/src/types/interfaces.ts#L140)

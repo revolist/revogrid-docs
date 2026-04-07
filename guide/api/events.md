@@ -33,7 +33,7 @@ aside: false
 | beforefiltertrimmed | `{ collection: Record<ColumnProp, FilterCollectionItem>; itemsToFilter: Record<number, boolean>; }` | revo-grid | Emitted before applying a filter to the data source. Use e.preventDefault() to prevent the default behavior of trimming values and applying the filter. Modify the `collection` property if you want to change the filters. Modify the `itemsToFilter` property if you want to filter the indexes for trimming. |
 | beforetrimmed | `{ trimmed: Record<number, boolean>; trimmedType: string; type: string; }` | revo-grid | Emitted before trimming values. Use e.preventDefault() to prevent the default behavior of trimming values. Modify the `trimmed` property if you want to filter the indexes for trimming. |
 | aftertrimmed | `any` | revo-grid | Emitted after trimmed values have been applied. Useful for notifying when trimming of values has taken place. |
-| viewportscroll | `{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }` | revo-grid | Emitted when the viewport is scrolled. Useful for tracking viewport scrolling events. |
+| viewportscroll | `D` | revo-grid | Emitted when the viewport is scrolled. Useful for tracking viewport scrolling events. |
 | beforeexport | `{ data: DataType[]; } & ColSource` | revo-grid | Before export Use e.preventDefault() to prevent export Replace data in Event in case you want to modify it in export |
 | beforeeditstart | `BeforeSaveDataDetails` | revo-grid | Emitted before editing starts. Use e.preventDefault() to prevent the default edit behavior. |
 | aftercolumnresize | `{ [index: number]: ColumnRegular; }` | revo-grid | Emitted after column resizing. Useful for retrieving the resized columns. |
@@ -107,13 +107,13 @@ aside: false
 | beforekeyup | `{ original: KeyboardEvent; } & EventData` | revogr-overlay-selection | Before key down event proxy, used to prevent key down trigger. If you have some custom behaviour event, use this event to check if it wasn't processed by internal logic. Call preventDefault(). |
 | beforecellsave | `any` | revogr-overlay-selection | Runs before cell save. Can be used to override or cancel original save. |
 | celledit | `{ rgRow: number; rgCol: number; type: DimensionRows; prop: ColumnProp; val: any; preventFocus?: boolean \| undefined; }` | revogr-overlay-selection | Runs when edit finished save started, first in chain event |
-| scrollview | `{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }` | revogr-row-headers | Scroll viewport |
+| scrollview | `D` | revogr-row-headers | Scroll viewport |
 | ref | `ElementScroll` | revogr-row-headers | Register element to scroll |
-| scrollvirtual | `{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }` | revogr-scroll-virtual | Scroll event |
-| scrollviewport | `{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }` | revogr-viewport-scroll | Before scroll event |
+| scrollvirtual | `D` | revogr-scroll-virtual | Scroll event |
+| scrollviewport | `D` | revogr-viewport-scroll | Before scroll event |
 | resizeviewport | `{ dimension: DimensionType; size: number; rowHeader?: boolean \| undefined; }` | revogr-viewport-scroll | Viewport resize |
 | scrollchange | `{ type: DimensionType; hasScroll: boolean; }` | revogr-viewport-scroll | Triggered on scroll change, can be used to get information about scroll visibility |
-| scrollviewportsilent | `{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }` | revogr-viewport-scroll | Silently scroll to coordinate Made to align negative coordinates for mobile devices |
+| scrollviewportsilent | `D` | revogr-viewport-scroll | Silently scroll to coordinate Made to align negative coordinates for mobile devices |
 | html | `{ html: string; vnodes: VNode[] \| null; }` | vnode-html |  |
 
 
