@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.2](README.md) / [JSX](Namespace.JSX.md) / RevogrExtra
+[RevoGrid Documentation v4.21.3](README.md) / [JSX](Namespace.JSX.md) / RevogrExtra
 
 # Interface: RevogrExtra
 
@@ -24,4 +24,4 @@ revogrid.registerVNode = [
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `nodes?` | ([`VNode`](Interface.VNode.md) \| (`c`: [`ExtraNodeFuncConfig`](Interface.ExtraNodeFuncConfig.md)) => [`VNode`](Interface.VNode.md))[] | Nodes to render **Default** `[]` | [src/components.d.ts:1971](https://github.com/revolist/revogrid/blob/3af08818f9f1fedaed7deba00c15404a09ccf4a6/src/components.d.ts#L1971) |
+| `nodes?` | ([`VNode`](Interface.VNode.md) \| (`c`: [`ExtraNodeFuncConfig`](Interface.ExtraNodeFuncConfig.md)) => [`VNode`](Interface.VNode.md))[] | Nodes to render **Default** `[]` | [src/components.d.ts:1971](https://github.com/revolist/revogrid/blob/304684a5d02f0b3704e5d01464221cd793f499b5/src/components.d.ts#L1971) |
