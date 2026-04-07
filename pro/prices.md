@@ -13,6 +13,12 @@ breadcrumbs: true
 ---
 <style lang="scss" src="./pro.styles.scss"></style>
 
+<style lang="scss">
+.vp-card.plans {
+  margin: 0 -30px;
+} 
+</style>
+
 
 <script lang="ts" setup>
 import { computed, onMounted, ref } from 'vue'
@@ -32,7 +38,7 @@ import 'element-plus/theme-chalk/dark/css-vars.css'
 
 let showForm = ref(false) // isVisible
 
-const currency = ref<Currency>('EUR')
+const currency = ref<Currency>('USD')
 
 const isUsd = computed({
   get: () => currency.value === 'USD',
@@ -50,10 +56,6 @@ const formatPrice = (plan: keyof typeof PRICES, period: 'month' | 'year', multip
 
 <div class="description">
 
-
-<span class="VPBadge warning">Ending Soon</span> <span class="VPBadge danger">Early Bird</span> Get **50%** off on all plans!  
-Early adopters get our premium features at half the regular price.
-
 <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.75rem;">
   <ElSwitch
     v-model="isUsd"
@@ -68,36 +70,49 @@ Early adopters get our premium features at half the regular price.
     <div class="plans-container">
       <Plan
         title="Pro Light"
-        class="pro highlight"
+        class="pro"
+        buttonTheme="alt"
         description="Best for start-ups and businesses who build commercial products with RevoGrid."
         buttonText="Buy now"
         :monthlyPrice="formatPrice('light', 'month')"
-        :monthlyPriceOriginal="formatPrice('light', 'month', 2)"
         :yearlyPrice="formatPrice('light', 'year')"
-        :yearlyPriceOriginal="formatPrice('light', 'year', 2)"
         :features="[
-        `Access to all <a href='/pro'>Pro Examples</a>.`,
-        `Plugins and Documentation.`,
+          'One product / app',
+          { text: 'Unlimited deployments', tooltip: 'Unlimited deployments for the licensed product or application.' },
+          'Commercial use',
+          `Access to all <a href='/pro'>Pro Examples</a>.`,
+          `Plugins and Documentation.`,
         ]"
         :href="PRICES.light.link"
       />
       <Plan
         title="Pro Advanced"
-        class="pro"
-        buttonTheme="alt"
+        class="pro highlight"
+        buttonTheme="brand"
         description="Best for companies and individuals that want a direct wire to the RevoGrid team experience."
         buttonText="Buy now"
         :monthlyPrice="formatPrice('advanced', 'month')"
-        :monthlyPriceOriginal="formatPrice('advanced', 'month', 2)"
         :yearlyPrice="formatPrice('advanced', 'year')"
-        :yearlyPriceOriginal="formatPrice('advanced', 'year', 2)"
         :features="[
-          `<a href='/pro/ai' class='VPBadge danger'>AI Agent</a> for plugin code generation`,
-          `Access to all <a href='/pro'>Pro Examples</a>, Plugins and Documentation.`,
-          `Up to 1hr of individual support via email.`,
-          `Prioritized Feature Requests, Github Issues and Pull Requests.`
+          'All in Light +',
+          { text: 'Access to typed source code', tooltip: 'Train your agents to build features faster.' },
+          { text: 'Broader commercial use', tooltip: 'Suitable for customer-facing SaaS products and embedded commercial software. No app limit.' },
+          { text: 'Priority support', tooltip: 'Faster response target than the standard support tier.' },
+          'Team discounts 3+ seats',
         ]"
         :href="PRICES.advanced.link"
+        />
+      <Plan
+        title="Enterprise"
+        class="pro"
+        buttonTheme="alt"
+        description="Structured for larger teams, departments, or broader company use."
+        buttonText="Contact Us"
+        :features="[
+          { text: 'SLA / priority handling', tooltip: 'Higher support expectations and formal response handling can be included.' },
+          'Legal / security support',
+        ]"
+        @buttonClick="showForm = true"
         />
     </div>
 </div>

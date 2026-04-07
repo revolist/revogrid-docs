@@ -25,6 +25,7 @@ aside: false
 | beforeanysource | `{ type: DimensionRows; source: DataType[]; }` | revo-grid | Before data apply on any source type. Can be source from pinned and main viewport. You can override data source here |
 | aftersourceset | `{ type: DimensionRows; source: DataType[]; }` | revo-grid | After main source/rows updated |
 | afteranysource | `{ type: DimensionRows; source: DataType[]; }` | revo-grid | Emitted after each source update, whether from the pinned or main viewport. Useful for tracking all changes originating from sources in both the pinned and main viewports. |
+| beforecolumnsgather | `{ columns: (ColumnRegular \| ColumnGrouping<any>)[]; }` | revo-grid | Emitted before user column definitions are gathered into the internal column collection. Listeners can replace `detail.columns` to rewrite the raw column set before RevoGrid normalizes it. |
 | beforecolumnsset | `{ columns: Record<DimensionCols, ColumnRegular[]>; columnByProp: Record<ColumnProp, ColumnRegular[]>; columnGrouping: ColumnGroupingCollection; maxLevel: number; sort: Record<ColumnProp, ColumnRegular>; }` | revo-grid | Emitted before a column update is applied. Listeners can use this event to perform any necessary actions or modifications before the column update is finalized. |
 | beforecolumnapplied | `{ columns: Record<DimensionCols, ColumnRegular[]>; columnByProp: Record<ColumnProp, ColumnRegular[]>; columnGrouping: ColumnGroupingCollection; maxLevel: number; sort: Record<ColumnProp, ColumnRegular>; }` | revo-grid | Emitted before a column update is applied, after the column set is gathered and the viewport is updated. Useful for performing actions or modifications before the final application of the column update. |
 | aftercolumnsset | `{ columns: ColumnCollection; order: SortingOrder; }` | revo-grid | Column updated |
@@ -47,9 +48,9 @@ aside: false
 | afterthemechanged | `string` | revo-grid | Emmited after the theme is changed |
 | created | `any` | revo-grid | Emmited after grid created |
 | beforepaste | `{ raw: string; isHTML: boolean; event: ClipboardEvent; dataText: string; }` | revogr-clipboard | Paste 1. Fired before paste applied to the grid defaultPrevented - if true, paste will be canceled |
-| beforepasteapply | `{ raw: string; parsed: string[][]; event: ClipboardEvent; }` | revogr-clipboard | Paste 2. Fired before paste applied to the grid and after data parsed |
+| beforepasteapply | `{ raw: string; parsed: string[][]; dataText: string; event: ClipboardEvent; }` | revogr-clipboard | Paste 2. Fired before paste applied to the grid and after data parsed |
 | pasteregion | `string[][]` | revogr-clipboard | Paste 3. Internal method. When data region is ready pass it to the top. |
-| afterpasteapply | `{ raw: string; parsed: string[][]; event: ClipboardEvent; }` | revogr-clipboard | Paste 4. Fired after paste applied to the grid defaultPrevented - if true, paste will be canceled |
+| afterpasteapply | `{ raw: string; parsed: string[][]; dataText: string; event: ClipboardEvent; }` | revogr-clipboard | Paste 4. Fired after paste applied to the grid defaultPrevented - if true, paste will be canceled |
 | beforecut | `{ event: ClipboardEvent; }` | revogr-clipboard | Cut 1. Fired before cut triggered defaultPrevented - if true, cut will be canceled |
 | clearregion | `DataTransfer` | revogr-clipboard | Cut 2. Clears region when cut is done |
 | beforecopy | `{ event: ClipboardEvent; }` | revogr-clipboard | Copy 1. Fired before copy triggered defaultPrevented - if true, copy will be canceled |
@@ -92,7 +93,7 @@ aside: false
 | beforeeditrender | `FocusRenderEvent` | revogr-overlay-selection | Before editor render. |
 | selectall | `any` | revogr-overlay-selection | Select all cells from keyboard. |
 | canceledit | `any` | revogr-overlay-selection | Cancel edit. Used for editors support when editor close requested. |
-| settemprange | `null \| { type: string \| null; area: RangeArea \| null; }` | revogr-overlay-selection | Set temp range area during autofill. |
+| settemprange | `null \| { type: string; area: RangeArea; }` | revogr-overlay-selection | Set temp range area during autofill. |
 | beforesettemprange | `{ tempRange: Nullable<TempRange> \| null; } & EventData & AllDimensionType` | revogr-overlay-selection | Before set temp range area during autofill. |
 | applyfocus | `FocusRenderEvent` | revogr-overlay-selection | Before cell get focused. To prevent the default behavior of applying the edit data, you can call `e.preventDefault()`. |
 | focuscell | `ApplyFocusEvent & FocusRenderEvent` | revogr-overlay-selection | Cell get focused. To prevent the default behavior of applying the edit data, you can call `e.preventDefault()`. |
