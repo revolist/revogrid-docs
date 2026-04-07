@@ -64,11 +64,11 @@
 .plans-container {
     flex-direction: column;
     display: flex;
-    gap: 2em;
+    gap: 1em;
     justify-content: space-around;
 
     .plan {
-        padding: 1em 3em;
+        padding: 1em 2em;
         text-align: left;
     }
 
@@ -84,12 +84,8 @@
 @media (min-width: 960px) {
     .plans-container {
         flex-direction: row;
-    }
-
-    .vp-card {
-        &.free {
-            max-width: 350px;
-        }
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 .description {

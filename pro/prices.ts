@@ -12,13 +12,13 @@ interface PlanPrice {
 }
 
 const lightYearPrices = {
-  EUR: 150,
-  USD: 170,
+  EUR: 170,
+  USD: 199,
 };
 
 const advancedYearPrices = {
-  EUR: 360,
-  USD: 400,
+  EUR: 430,
+  USD: 499,
 };
 
 export const PRICES: Record<'light' | 'advanced', PlanPrice> = {
@@ -28,7 +28,7 @@ export const PRICES: Record<'light' | 'advanced', PlanPrice> = {
       USD: Math.round((lightYearPrices.USD / 12)),
     },
     year: lightYearPrices,
-    link: 'https://buy.stripe.com/7sYaEYaVhfja09A0TQew80c',
+    link: 'https://buy.stripe.com/3cIcN62oL6MEcWm8miew80e',
   },
   advanced: {
     month: {
@@ -39,6 +39,6 @@ export const PRICES: Record<'light' | 'advanced', PlanPrice> = {
       EUR: advancedYearPrices.EUR,
       USD: advancedYearPrices.USD,
     },
-    link: 'https://buy.stripe.com/28E14od3pdb2bSi1XUew80b',
+    link: 'https://buy.stripe.com/dRm14ofbxfja5tU6eaew80f',
   },
 };

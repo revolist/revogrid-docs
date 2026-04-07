@@ -14,9 +14,6 @@ breadcrumbs: false
 
 <style lang="scss" src="./pro.styles.scss"></style>
 <style lang="scss" scoped>
-  /* :deep(h3):first-child {
-    margin-top: 0;
-  } */
   @media (min-width: 768px) {
     h1 {
       margin-top: 30px;

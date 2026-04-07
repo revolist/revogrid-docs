@@ -6,12 +6,22 @@
             <p>{{ props.description }}</p>
         </div>
 
+        <div class="plan-price plan-price-contact" v-if="!props.monthlyPrice && props.buttonText">
+            <VPButton
+                size="medium"
+                :text="props.buttonText"
+                :theme="props.buttonTheme"
+                :href="props.href"
+                @click="emit('buttonClick')"
+            />
+        </div>
         <div class="plan-price" v-if="props.monthlyPrice">
             <VPButton
                 size="medium"
                 :text="props.buttonText"
                 :theme="props.buttonTheme"
                 :href="props.href"
+                @click="emit('buttonClick')"
             />
             <span class="plan-price-box">
                 <span>
@@ -33,9 +43,15 @@
         <div class="body">
             <hr />
             <ul class="plan-features">
-                <li v-for="feature in props.features" :key="feature">
+                <li v-for="feature in props.features" :key="typeof feature === 'string' ? feature : feature.text">
                     <span class="icon"><VPImage :image="{ src: 'check.svg' }" /></span>
-                    <span v-html="feature"></span>
+                    <span v-if="typeof feature === 'string'" v-html="feature"></span>
+                    <span v-else>
+                        {{ feature.text }}
+                        <ElTooltip :content="feature.tooltip" placement="top">
+                            <sup class="tooltip-marker">?</sup>
+                        </ElTooltip>
+                    </span>
                 </li>
             </ul>
             <br />
@@ -47,8 +63,11 @@
 <script setup lang="ts">
 // @ts-ignore
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue'
-
 import VPImage from '../.vitepress/theme/VPImage.vue'
+import { ElTooltip } from 'element-plus'
+import 'element-plus/es/components/tooltip/style/css'
+
+type Feature = string | { text: string; tooltip: string }
 
 interface PlanProps {
     title: string
@@ -59,12 +78,13 @@ interface PlanProps {
     yearlyPriceOriginal?: string
     buttonText: string
     href?: string
-    features: string[]
+    features: Feature[]
     icon?: string
     buttonTheme?: 'brand' | 'alt' | 'sponsor'
 }
 
 const props = defineProps<PlanProps>()
+const emit = defineEmits<{ buttonClick: [] }>()
 </script>
 
 <style scoped lang="scss">
@@ -97,9 +117,9 @@ const props = defineProps<PlanProps>()
 .plan-price {
     display: flex;
     align-items: start;
-    align-items: start;
     gap: 0.8em;
     text-align: left;
+    padding-top: 15px;
 }
 
 .plan-price-box {
@@ -122,6 +142,12 @@ const props = defineProps<PlanProps>()
 .plan-price-period {
     font-size: 0.8em;
     color: var(--vp-c-text);
+}
+
+.tooltip-marker {
+    cursor: help;
+    opacity: 0.5;
+    font-size: 0.75em;
 }
 
 :deep(.icon) {
