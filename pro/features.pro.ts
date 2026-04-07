@@ -3,10 +3,17 @@ export const featuresPro = [
         title: 'Pivot Table',
         thumbnail: '/img/pivot.png',
         videoUrl: '/video/pivot.mp4',
-        group: 'Advanced Data Structures',
+        group: 'Enterprise Tools',
         description: `
         Transform multidimensional data into insightful visualizations. Perfect for applications requiring complex data analysis, where flexibility and control are crucial.
         `,
+    },
+    {
+        title: 'Gantt & Scheduling',
+        thumbnail: '/img/gantt.png',
+        group: 'Enterprise Tools',
+        beta: true,
+        description: 'Interactive Gantt chart and scheduling view for project and resource management.',
     },
     {
         title: 'Hierarchical Data View',

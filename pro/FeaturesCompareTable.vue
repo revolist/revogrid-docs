@@ -23,7 +23,7 @@
                                 / month / dev
                             </div>
                             <div class="summary">
-                                Billed annually at {{ plan.price * 12 }}$ / dev
+                                Billed annually at {{ plan.priceYear ?? plan.price * 12 }}$ / dev
                             </div>
                         </div>
                         <ul class="plan-details" v-if="plan.details">
@@ -74,6 +74,7 @@
                                 :id="feature.name.replace(' ', '-')"
                             >
                                 {{ feature.name }}
+                                <span v-if="feature.beta" class="VPBadge warning" style="font-size:0.7em;vertical-align:middle;margin-left:4px">Beta</span>
 
                                 <button
                                     class="video-preview"
@@ -133,6 +134,7 @@ const videoUrl = ref('')
 interface Plan {
     name: string
     price: number
+    priceYear?: number
     details: string[]
     buttonText: string
     link?: string
@@ -147,6 +149,7 @@ interface Feature {
     children?: Feature[]
     link?: string
     video?: string
+    beta?: boolean
 }
 
 interface FeatureGroup {

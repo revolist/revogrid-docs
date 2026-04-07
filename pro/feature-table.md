@@ -26,15 +26,17 @@ const plans = [
   },
   {
     name: 'Pro Lite',
-    price: PRICES.light.month,
+    price: PRICES.light.month.USD,
+    priceYear: PRICES.light.year.USD,
     pricePeriod: 'month',
     buttonText: 'Buy Now',
-    link: 'https://buy.stripe.com/dR6cPS98V8Xn90IaEI',
+    link: PRICES.light.link,
   },
   {
     name: 'Pro Advanced',
-    link: 'https://buy.stripe.com/aEUcPS0Cpb5v3Go149',
-    price:  PRICES.advanced.month,
+    link: PRICES.advanced.link,
+    price: PRICES.advanced.month.USD,
+    priceYear: PRICES.advanced.year.USD,
     pricePeriod: 'month',
     buttonText: 'Buy Now',
     buttonTheme: 'alt',
@@ -52,16 +54,22 @@ const features = Object.entries(
         features: []
       };
     }
+    const isEnterpriseTools = feature.group === 'Enterprise Tools';
     acc[feature.group].features.push({
       name: feature.title,
-      supported: ['Pro Lite', 'Pro Advanced'],
+      supported: isEnterpriseTools ? ['Pro Advanced'] : ['Pro Lite', 'Pro Advanced'],
       nesting: 1,
       link: feature.link,
-      video: feature.videoUrl
+      video: feature.videoUrl,
+      beta: feature.beta,
     });
     return acc;
   }, {})
 ).map(([_, value]) => value);
+
+// Move Enterprise Tools section to the top
+const enterpriseIdx = features.findIndex(g => g.name === 'Enterprise Tools');
+if (enterpriseIdx > 0) features.unshift(features.splice(enterpriseIdx, 1)[0]);
 
 
 // Add chart components
@@ -131,6 +139,7 @@ features.push({
   expanded: true,
   features: [
     { name: 'AI Agent Support', supported: ['Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/pro/ai' },
+    { name: 'RevoGrid MCP — AI-Native Grid Intelligence', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, beta: true },
     { name: 'Support via GitHub', supported: ['Pro Advanced'], nesting: 1 },
     { name: 'Support via Email', supported: ['Pro Advanced'], nesting: 1 },
   ]
