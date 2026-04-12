@@ -4,7 +4,7 @@ footer: true
 ---
 
 # RevoGrid Pro License Agreement
-> Last updated: March 16, 2026
+> Last updated: April 12, 2026
 
 ## 1. Preamble
 
@@ -14,20 +14,20 @@ We operate the websites [https://rv-grid.com](https://rv-grid.com) and [https://
 
 For inquiries, you may contact us at [contact@revolist.eu](mailto:contact@revolist.eu).
 
-By clicking "I accept" or otherwise accepting these Terms, You are entering into the Agreement. Unless expressly agreed otherwise by You and Licensor (collectively, the "Parties"), installation, copying, or other use of Deliverables force on the date You have indicated Your acceptance of these Terms ("Effective Date"). Your use of Deliverables is subject to full acceptance of, and strict adherence to, the terms and conditions of the Agreement.
+By clicking "I accept" or otherwise accepting this Agreement, You are entering into the Agreement. Unless expressly agreed otherwise by You and Licensor (collectively, the "Parties"), installation, copying, or other use of the Software constitutes acceptance of this Agreement as of the Effective Date. Your use of the Software is subject to full acceptance of, and strict adherence to, the terms and conditions of this Agreement.
 
 
 
 ## 2. Definitions
 
 1. **Revolist**: Revolist OÜ, a company established under Estonian law, located at Ruunaoja tn 3, Tallinn, Harju maakond 11415, Estonia (registered under Registry Code 11273741).
-2. **User**: The person or entity who enters into a Service Agreement with Revolist.
+2. **User**: The person or entity who enters into this Agreement or otherwise acquires a license to use RevoGrid Pro.
 3. **Service Agreement**: The legally binding agreement concluded between Revolist and the User for the use of RevoGrid Pro.
 4. **Software**: RevoGrid Pro software, including its plugins, examples, source code, and accompanying documentation.
 5. **RevoGrid**: A software library provided by Revolist, accessible via various platforms, and licensed under the MIT license.
 6. **RevoGrid Pro**: A premium offering of RevoGrid, consisting of a bundle of usage rights, services, and advanced features.
 7. **Repository**: The online code repository containing RevoGrid Pro examples, plugins, and other resources.
-8. **Services**: The rights and services provided by Revolist to Users as part of the RevoGrid Pro plan.
+8. **Services**: Support, repository access, and related services provided by Revolist as part of the RevoGrid Pro plan.
 9. **Platform**: The internet platform called "RevoGrid Pro," including all functionalities provided via such platform.
 10. **User Account**: The password-protected area of the Platform individually accessible to the User following registration.
 11. **Attribution mark**: A small notice embedded in the RevoGrid interface, stating that RevoGrid is developed by Revolist OÜ. It is visible to users of the software and serves to give credit to the original creator. Paid users and non-commercial users are allowed to remove this attribution.
@@ -40,14 +40,20 @@ By clicking "I accept" or otherwise accepting these Terms, You are entering into
 Subject to the terms of this Agreement, Revolist grants the User a non-exclusive, non-transferable license to use, copy, integrate, and distribute RevoGrid Pro as part of the User's Product. The license permits the use of RevoGrid Pro for internal development, modification, and integration within commercial products.
 
 ### 3.2. Modification and Commercial Use
-The User is permitted to modify RevoGrid Pro examples, integrate them with their own projects, and use them for commercial purposes. The User is responsible for ensuring compliance with third-party licenses when modifying and integrating RevoGrid Pro. The modifications may be distributed only as part of larger projects or products, not as standalone components.
+The User is permitted to modify the Software, including its examples, integrate it with their own projects, and use it for commercial purposes. The User is responsible for ensuring compliance with third-party licenses when modifying and integrating the Software. Modifications may be distributed only as part of the User's Product and not as standalone components.
 
 ### 3.3. Pro Lite vs. Pro Advanced
    - **Pro Lite**: The User has access to Pro examples and the repository for development purposes.
    - **Pro Advanced**: In addition to the features of Pro Lite, the User has access to premium support services, including priority handling of reported issues.
 
 ### 3.4. Usage Limitations
-The license granted does not permit the User to resell, redistribute, sublicense, or make RevoGrid Pro available as a standalone product. Any modifications of RevoGrid Pro must only be used in conjunction with broader software projects. Except as expressly set forth herein, Revolist grants and the User receives no other rights or licenses to the Software, derivative works, or any intellectual property rights related to the Software, whether by implication, estoppel, or otherwise.
+The license granted does not permit the User to resell, redistribute, sublicense, or make the Software available as a standalone product.
+
+Distribution of the Software is permitted only as part of the User's Product.
+
+Any modifications of the Software must only be used in conjunction with the User's Product.
+
+Except as expressly set forth herein, Revolist grants and the User receives no other rights or licenses to the Software, derivative works, or any intellectual property rights related to the Software, whether by implication, estoppel, or otherwise.
 
 #### 3.4.1. Required quantity of licenses
 The number of developers licensed must correspond to the maximum number of concurrent developers (in any continuous 24-hour period) contributing changes to the front-end code of the projects that use the Software.
@@ -68,18 +74,23 @@ Subject to the chosen plan, the User may access the RevoGrid Pro repository via 
 ### 3.6. User Account
 The User must create an account to access the Repository and Services. The User Account is personal, and sharing credentials or allowing unauthorized third-party access is strictly prohibited.
 
-### 3.7. License model
+### 3.7. License Model
 
-- **Choice of license model**
-Licensee can decide between two different license models when it enters the agreement: Annual license or Perpetual license. Licensee can later change its license model by paying a transfer fee if necessary. Unless mentioned explicitly during payment, the license model used is the Annual as the Perpetual comes with a higher fee. Perpetual licensing must be requested separately by the Licensee and confirmed by Licensor.
+The Licensee is granted an annual license to use the Software during the License Term.
 
-- **Annual license**
-   - **Non-perpetual outside of production.** All the developers contributing changes to the front-end code of a project that includes the Software need an active license. A license is active as long as it hasn't reached the end of the License Term. Licensee doesn't need to renew its license if no developers work with the API and source code of the Software in any capacity (indirectly or directly).
+All Developers contributing to the development, modification, or integration of the Software must hold active licenses.
 
-   - **Perpetual in production.** Licensee is allowed to perpetually use in a production environment any versions of the Software released before the end of the License Term.
+A license is considered active as long as it has not reached the end of the License Term.
 
-- **Perpetual license**
-Licensee is allowed to perpetually use any versions of the Software released before the end of the License Term, in any environment (staging, development, production, etc.).
+## 3.8 Post-Term Usage
+
+Upon expiration of the License Term:
+
+(a) The Software may continue to be used as part of the User's Product in production and distribution;
+
+(b) No development, modification, or integration of the Software is permitted without active licenses for all Developers involved;
+
+(c) End users may use the Software only as embedded within the User's Product and are not granted any independent rights to the Software.
 
 ## 4. License Restrictions
 
@@ -158,7 +169,10 @@ Licensee is allowed to perpetually use any versions of the Software released bef
    - c) The User has registered on the Platform in violation of section 4 or has submitted incorrect or falsified information during registration.
    - d) As a Professional User, the User is found to violate any ethical standards set forth by Revolist after being given 30 days to comply.
 
-4. **Effect of Termination**: Upon termination of the Service Agreement, the User Account will be irrevocably closed, and all content, data, and settings that the User might have implemented, created, or uploaded will be deleted, except for data for which Revolist is subject to a retention obligation. The User must also cease using RevoGrid Pro and remove all instances of the Software from their systems. Access to the repository and premium support will also be terminated.
+4. **Effect of Termination**: Upon termination or expiration of the License Term:
+   - The User Account will be irrevocably closed, and access to the Repository, updates, and support services will be terminated;
+   - The User shall cease any development, modification, or integration of the Software unless sufficient active licenses are maintained;
+   - The User may continue to use versions of the Software released before such termination as part of the User's Product in production and distribution.
 
 5. **Termination Notification**: Termination can be declared via email to [contact@revolist.eu](mailto:contact@revolist.eu).
 
