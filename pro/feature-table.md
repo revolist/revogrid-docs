@@ -172,7 +172,7 @@ For a higher-level overview, go back to [RevoGrid Pro](/pro/).
 
 ### Useful links
 
-[Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms) | [License](./policies/license) | <a href="#contact" @click="showForm = true">Contact us</a>
+[Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms) | [License](./policies/license) | [Security Policy](./policies/security) | <a href="#contact" @click="showForm = true">Contact us</a>
 
 <ContactForm :isVisible="showForm" @close="showForm = false"/>
 

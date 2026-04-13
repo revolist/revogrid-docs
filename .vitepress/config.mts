@@ -129,6 +129,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         text: 'Terms of Service',
                     },
                     {
+                        link: '/pro/policies/security',
+                        text: 'Security Policy',
+                    },
+                    {
                         link: '/guide/',
                         text: 'Quick Start',
                     },

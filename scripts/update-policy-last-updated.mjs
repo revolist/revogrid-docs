@@ -6,6 +6,7 @@ const policyFiles = [
   'pro/policies/privacy.md',
   'pro/policies/license.md',
   'pro/policies/3rdparty.md',
+  'pro/policies/security.md',
 ];
 
 function runGit(command) {

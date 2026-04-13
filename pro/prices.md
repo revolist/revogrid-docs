@@ -126,7 +126,7 @@ const formatPrice = (plan: keyof typeof PRICES, period: 'month' | 'year', multip
 
 <div style="text-align: center;">
 
-[Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms) | [License](./policies/license) | <a @click="showForm = true">Contact us</a>
+[Privacy Policy](./policies/privacy) | [Terms of Service](./policies/terms) | [License](./policies/license) | [Security Policy](./policies/security) | <a @click="showForm = true">Contact us</a>
 
 </div>
 <ContactForm :isVisible="showForm" @close="showForm = false"/>
