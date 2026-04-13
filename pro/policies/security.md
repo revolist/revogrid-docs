@@ -21,7 +21,7 @@ This document is intended for enterprise customers and procurement teams perform
 This policy applies to:
 
 - **RevoGrid** — the open-source core data grid library (MIT-licensed, [revolist/revogrid](https://github.com/revolist/revogrid))
-- **RevoGrid Pro** — the commercial plugin and example library built on top of RevoGrid
+- **RevoGrid Pro** — the enterprise suite extending RevoGrid core with advanced functionality, production-ready plugins, and commercial-grade capabilities
 
 ---
 
