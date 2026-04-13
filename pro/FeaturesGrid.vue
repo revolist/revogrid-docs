@@ -10,6 +10,7 @@ interface Feature {
     thumbnail: string
     fullWidth?: boolean
     group?: string
+    beta?: boolean
 }
 
 const props = defineProps<{
@@ -69,7 +70,7 @@ const groupedFeatures = computed(() => {
                                     class="thumbnail"
                                 />
                             </div>
-                            <h3 class="title">{{ feature.title }}</h3>
+                            <h3 class="title">{{ feature.title }} <Badge v-if="feature.beta" type="warning" text="BETA" /></h3>
                             <p class="description" v-html="feature.description"/>
                         </div>
                         <div v-if="feature.videoUrl" class="card-back">
@@ -181,7 +182,7 @@ const groupedFeatures = computed(() => {
     font-size: 16px;
     text-align: center;
     font-weight: 600;
-    max-width: 200px;
+    max-width: 300px;
     margin-top: 15px;
 }
 
