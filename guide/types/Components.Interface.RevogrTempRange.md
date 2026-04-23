@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.3](README.md) / [Components](Namespace.Components.md) / RevogrTempRange
+[RevoGrid Documentation v4.21.4](README.md) / [Components](Namespace.Components.md) / RevogrTempRange
 
 # Interface: RevogrTempRange
 
@@ -8,6 +8,6 @@ Temporary range selection component. Shows temporary range selection.
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `dimensionCol` | [`Observable`](TypeAlias.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | Dimension column store | [src/components.d.ts:765](https://github.com/revolist/revogrid/blob/304684a5d02f0b3704e5d01464221cd793f499b5/src/components.d.ts#L765) |
-| `dimensionRow` | [`Observable`](TypeAlias.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | Dimension row store | [src/components.d.ts:769](https://github.com/revolist/revogrid/blob/304684a5d02f0b3704e5d01464221cd793f499b5/src/components.d.ts#L769) |
-| `selectionStore` | [`Observable`](TypeAlias.Observable.md)\<[`SelectionStoreState`](TypeAlias.SelectionStoreState.md)\> | Selection store, shows current selection and focus | [src/components.d.ts:773](https://github.com/revolist/revogrid/blob/304684a5d02f0b3704e5d01464221cd793f499b5/src/components.d.ts#L773) |
+| `dimensionCol` | [`Observable`](TypeAlias.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | Dimension column store | [src/components.d.ts:765](https://github.com/revolist/revogrid/blob/61d11b4be1c8426731b4a2f79964d078c5954e18/src/components.d.ts#L765) |
+| `dimensionRow` | [`Observable`](TypeAlias.Observable.md)\<[`DimensionSettingsState`](Interface.DimensionSettingsState.md)\> | Dimension row store | [src/components.d.ts:769](https://github.com/revolist/revogrid/blob/61d11b4be1c8426731b4a2f79964d078c5954e18/src/components.d.ts#L769) |
+| `selectionStore` | [`Observable`](TypeAlias.Observable.md)\<[`SelectionStoreState`](TypeAlias.SelectionStoreState.md)\> | Selection store, shows current selection and focus | [src/components.d.ts:773](https://github.com/revolist/revogrid/blob/61d11b4be1c8426731b4a2f79964d078c5954e18/src/components.d.ts#L773) |

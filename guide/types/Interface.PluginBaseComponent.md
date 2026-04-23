@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.3](README.md) / PluginBaseComponent
+[RevoGrid Documentation v4.21.4](README.md) / PluginBaseComponent
 
 # Interface: PluginBaseComponent
 
@@ -20,4 +20,4 @@ Cleans up plugin's resources
 
 #### Defined in
 
-[src/types/plugin.ts:8](https://github.com/revolist/revogrid/blob/304684a5d02f0b3704e5d01464221cd793f499b5/src/types/plugin.ts#L8)
+[src/types/plugin.ts:8](https://github.com/revolist/revogrid/blob/61d11b4be1c8426731b4a2f79964d078c5954e18/src/types/plugin.ts#L8)

@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.3](README.md) / CustomFilter
+[RevoGrid Documentation v4.21.4](README.md) / CustomFilter
 
 # Interface: CustomFilter\<T1, T2\>
 
@@ -13,6 +13,6 @@
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `columnFilterType` | `string` | Property defined in column { filter: string/number/abstract/enum...etc } | [src/plugins/filter/filter.types.ts:54](https://github.com/revolist/revogrid/blob/304684a5d02f0b3704e5d01464221cd793f499b5/src/plugins/filter/filter.types.ts#L54) |
-| `func` | [`LogicFunction`](Interface.LogicFunction.md)\<`T1`, `T2`\> | Function to apply the filter | [src/plugins/filter/filter.types.ts:62](https://github.com/revolist/revogrid/blob/304684a5d02f0b3704e5d01464221cd793f499b5/src/plugins/filter/filter.types.ts#L62) |
-| `name` | `string` | Filter name | [src/plugins/filter/filter.types.ts:58](https://github.com/revolist/revogrid/blob/304684a5d02f0b3704e5d01464221cd793f499b5/src/plugins/filter/filter.types.ts#L58) |
+| `columnFilterType` | `string` | Property defined in column { filter: string/number/abstract/enum...etc } | [src/plugins/filter/filter.types.ts:54](https://github.com/revolist/revogrid/blob/61d11b4be1c8426731b4a2f79964d078c5954e18/src/plugins/filter/filter.types.ts#L54) |
+| `func` | [`LogicFunction`](Interface.LogicFunction.md)\<`T1`, `T2`\> | Function to apply the filter | [src/plugins/filter/filter.types.ts:62](https://github.com/revolist/revogrid/blob/61d11b4be1c8426731b4a2f79964d078c5954e18/src/plugins/filter/filter.types.ts#L62) |
+| `name` | `string` | Filter name | [src/plugins/filter/filter.types.ts:58](https://github.com/revolist/revogrid/blob/61d11b4be1c8426731b4a2f79964d078c5954e18/src/plugins/filter/filter.types.ts#L58) |
