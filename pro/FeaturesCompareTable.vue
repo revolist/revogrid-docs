@@ -73,19 +73,45 @@
                                 class="feature-card"
                                 :id="feature.name.replace(' ', '-')"
                             >
-                                {{ feature.name }}
+                                <a
+                                    v-if="feature.link"
+                                    :href="feature.link"
+                                    class="feature-link"
+                                >
+                                    {{ feature.name }}
+                                </a>
+                                <template v-else>{{ feature.name }}</template>
                                 <span v-if="feature.beta" class="VPBadge warning" style="font-size:0.7em;vertical-align:middle;margin-left:4px">Beta</span>
 
-                                <button
-                                    class="video-preview"
-                                    v-if="feature.video"
-                                    @click="openPreview(feature.video)"
-                                >
-                                    <VPImage
-                                        style="width: 18px"
-                                        :image="{ src: 'video.svg' }"
-                                    />
-                                </button>
+                                <span class="feature-actions">
+                                    <a
+                                        v-if="feature.demoUrl"
+                                        class="demo-preview action-outline-btn"
+                                        :href="feature.demoUrl"
+                                        target="_blank"
+                                        rel="noopener"
+                                        title="Interactive demo"
+                                    >
+                                        Demo
+                                    </a>
+                                    <button
+                                        class="video-preview"
+                                        :class="{
+                                            'video-placeholder': !feature.video,
+                                        }"
+                                        type="button"
+                                        :title="feature.video ? 'Video preview' : undefined"
+                                        :disabled="!feature.video"
+                                        :tabindex="feature.video ? 0 : -1"
+                                        @click.stop="feature.video && openPreview(feature.video)"
+                                    >
+                                        <VPImage
+                                            v-if="feature.video"
+                                            style="width: 18px"
+                                            :image="{ src: 'video.svg' }"
+                                        />
+                                    </button>
+                                </span>
                             </td>
                             <td
                                 v-for="(plan, planIndex) in plans"
@@ -148,6 +174,7 @@ interface Feature {
     nesting: number
     children?: Feature[]
     link?: string
+    demoUrl?: string
     video?: string
     beta?: boolean
 }
@@ -188,8 +215,68 @@ const openPreview = (video: string) => {
     margin-top: 20px;
 }
 
-.video-preview {
+.feature-actions {
     float: right;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-outline-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    min-width: 24px;
+    padding: 0 8px;
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--vp-c-text-2);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+
+    &:hover {
+        border-color: var(--vp-c-brand-1);
+        color: var(--vp-c-brand-1);
+        background: var(--vp-c-bg-soft);
+    }
+}
+
+.video-preview {
+    width: 32px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+
+    &:focus,
+    &:focus-visible {
+        outline: none;
+        box-shadow: none;
+    }
+
+    &:disabled {
+        cursor: default;
+    }
+}
+
+.video-placeholder {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.demo-preview {
+    text-decoration: none;
+}
+
+.feature-link {
+    color: inherit;
+    font-weight: inherit;
 }
 
 .pricing-table {

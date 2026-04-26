@@ -102,6 +102,7 @@ const formatPrice = (plan: keyof typeof PRICES, period: 'month' | 'year', multip
         :yearlyPrice="formatPrice('advanced', 'year')"
         :features="[
           'All in Light +',
+          { text: 'Enterprise Pivot grid', tooltip: 'Production-ready Pivot analytics with totals, drill-down, field panels, and server-side engine contracts.' },
           { text: 'Access to typed source code', tooltip: 'Train your agents to build features faster.' },
           { text: 'Broader commercial use', tooltip: 'Suitable for customer-facing SaaS products and embedded commercial software. No app limit.' },
           { text: 'Priority support', tooltip: 'Faster response target than the standard support tier.' },

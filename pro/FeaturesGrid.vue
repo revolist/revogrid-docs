@@ -6,7 +6,8 @@ import VPImage from '../.vitepress/theme/VPImage.vue'
 interface Feature {
     title: string
     description: string
-    videoUrl: string
+    videoUrl?: string
+    demoUrl?: string
     thumbnail: string
     fullWidth?: boolean
     group?: string
@@ -40,6 +41,13 @@ const groupedFeatures = computed(() => {
         acc[group].push(feature)
         return acc
     }, {})
+
+    if (groups['Enterprise Tools']) {
+        const enterpriseTools = groups['Enterprise Tools']
+        delete groups['Enterprise Tools']
+        groups['Enterprise Tools'] = enterpriseTools
+    }
+
     return groups
 })
 </script>
@@ -72,6 +80,16 @@ const groupedFeatures = computed(() => {
                             </div>
                             <h3 class="title">{{ feature.title }} <Badge v-if="feature.beta" type="warning" text="BETA" /></h3>
                             <p class="description" v-html="feature.description"/>
+                            <a
+                                v-if="feature.demoUrl"
+                                class="demo-link"
+                                :href="feature.demoUrl"
+                                target="_blank"
+                                rel="noopener"
+                                @click.stop
+                            >
+                                Demo
+                            </a>
                         </div>
                         <div v-if="feature.videoUrl" class="card-back">
                             <video
@@ -82,6 +100,16 @@ const groupedFeatures = computed(() => {
                                 playsinline
                                 autoplay
                             ></video>
+                            <a
+                                v-if="feature.demoUrl"
+                                class="demo-link demo-link-back"
+                                :href="feature.demoUrl"
+                                target="_blank"
+                                rel="noopener"
+                                @click.stop
+                            >
+                                Demo
+                            </a>
                         </div>
                         <span class="plus-icon" v-if="feature.videoUrl"
                             ><VPImage :image="'plus.svg'"
@@ -194,6 +222,27 @@ const groupedFeatures = computed(() => {
     max-width: 300px;
 }
 
+.demo-link {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 14px 14px;
+    padding: 0 8px;
+    border: 0;
+    border-radius: 8px;
+    background-color: var(--vp-c-brand-1);
+    color: var(--vp-c-bg);
+    font-size: 11px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: var(--vp-c-brand-2);
+        color: var(--vp-c-bg);
+    }
+}
+
 .card-back {
     background-color: white;
     // transform: rotateY(180deg);
@@ -209,6 +258,13 @@ const groupedFeatures = computed(() => {
     //     width: 100%;
     //     height: 100%;
     // }
+}
+
+.demo-link-back {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    margin: 0;
 }
 
 .video {

@@ -1,19 +1,130 @@
-export const featuresPro = [
+const DEMO_PORTAL = 'https://demo.rv-grid.com'
+
+const demoCatalogUrl = (query: string) =>
+    `${DEMO_PORTAL}/?framework=all&q=${encodeURIComponent(query)}`
+
+const featureDemoQueries: Record<string, string> = {
+    'Pivot Table': 'Pivot',
+    'Gantt & Scheduling': 'Gantt',
+    'Hierarchical Data View': 'Tree',
+    'Row Transpose': 'Row Transpose',
+    'Nested Grid': 'Nested Grid',
+    'Master Detail': 'Master-Detail',
+    'Smart Auto Fill': 'Autofill',
+    'Merge Cells': 'Merge Cells',
+    'Auto Merge': 'Auto Merge',
+    'Column Collapse & Expand (Drill Down)': 'Column Collapse',
+    'Column Hide': 'Column Hide',
+    'Column Stretch': 'Column Stretch',
+    'Dynamic Cell Formats': 'Charts',
+    'Multi-Cell Formatting': 'Visualization',
+    'Heat&Cold Maps': 'Visualization',
+    'Conditional Formatting': 'Visualization',
+    'Advanced Selection Filtering': 'Selection Filter',
+    'Advanced Slider Filtering': 'Slider Filter',
+    'Header Input Filtering': 'Header Filter',
+    'Date Filter': 'Date Filter',
+    'Multi-Filtering': 'Multi-Filter',
+    'Cell Validation': 'Basic Validation',
+    'Input Validation': 'Input Validation',
+    'Pagination': 'Pagination',
+    'Infinite Scroll': 'Infinity Scroll',
+    'Formula': 'Formula',
+    'Trail History': 'History',
+    'Cell Flash': 'Cell Flash',
+    'Connected Fields': 'Charts',
+    'Reference Data': 'Reference Data',
+    'Context Menu': 'Context Menu',
+    'Tooltip': 'Tooltip',
+    'Row Grouping Drag and Drop': 'Grouping Rows',
+    'Row Auto Size': 'Row Auto Size',
+    'Row Odd Styling': 'Odd Row Styling',
+    'Row Custom Heading': 'Row Headers',
+    'Row Advanced Drag and Drop': 'Row Order',
+    'Row Checkbox Selection': 'Selection',
+    'Column Selection': 'Selection',
+    'Next Line Focus (WCAG)': 'UX',
+    'Clipboard with JSON': 'Clipboard JSON',
+    'Excel Export/Import': 'Data',
+    'Event Manager': 'Event Manager',
+    'Overlay layers': 'Overlay',
+    'Grouping Aggregation': 'Grouping',
+    'Dynamic Form Editing': 'Form Edit',
+    'Full Row Editing': 'Form Edit',
+    'Cell Checkbox Editors': 'Checkbox Editor',
+    'Cell Slider Editor': 'Slider Editor',
+    'Cell Counter Editor': 'Counter Editor',
+    'Timeline Editor': 'Timeline Editor',
+}
+
+const featuresProBase = [
     {
         title: 'Pivot Table',
         thumbnail: '/img/pivot.png',
         videoUrl: '/video/pivot.mp4',
         group: 'Enterprise Tools',
+        link: 'https://pro.rv-grid.com/guides/pivot/',
         description: `
-        Transform multidimensional data into insightful visualizations. Perfect for applications requiring complex data analysis, where flexibility and control are crucial.
+        Production-ready Pivot grid for multidimensional analytics, reporting, and OLAP-style workflows. Includes client-side and server-side engines, interactive configuration, drill-down, totals, and advanced layout control.
         `,
+        subFeatures: [
+            { title: 'Dynamic row, column, and value dimensions' },
+            { title: 'Built-in aggregations: sum, count, avg, min, max' },
+            { title: 'Custom aggregators per dimension' },
+            { title: 'Hierarchical Pivot rows and generated column groups' },
+            { title: 'Flat header mode' },
+            { title: 'Grand totals and subtotals' },
+            { title: 'Custom total labels and duplicate-total suppression' },
+            { title: 'Values-on-rows layout' },
+            { title: 'Advanced rowTree and $values placement' },
+            { title: 'Row drill-down expand/collapse with persisted state' },
+            { title: 'Group-row aggregate values' },
+            { title: 'Column drill-down/collapse with persisted state' },
+            { title: 'Collapsed-column placeholder and aggregator overrides' },
+            { title: 'Full drag-and-drop Pivot configurator' },
+            { title: 'Compact in-grid Pivot field panel' },
+            { title: 'Filter fields in configurator and field panel' },
+            { title: 'Server-side Pivot engine/store contract' },
+            { title: 'Remote row and column axis windowing' },
+            { title: 'Remote sorting and filtering integration' },
+            { title: 'Drilldown request/response contract for fact rows' },
+            { title: 'Field registry validation for selectors, summaries, and intervals' },
+            { title: 'Deterministic remote cache keys and serializable Pivot errors' },
+            { title: 'Pivot state save/load contract' },
+        ],
     },
     {
         title: 'Gantt & Scheduling',
         thumbnail: '/img/gantt.png',
         group: 'Enterprise Tools',
+        link: 'https://pro.rv-grid.com/guides/gantt/',
         beta: true,
-        description: 'Interactive Gantt chart and scheduling view for project and resource management.',
+        description: 'Production-ready Gantt chart and scheduling view for project planning, dependency management, resource allocation, and timeline analysis.',
+        subFeatures: [
+            { title: 'Project, task, dependency, calendar, resource, assignment, and baseline data model' },
+            { title: 'Summary tasks, regular tasks, and milestones' },
+            { title: 'Tree hierarchy with WBS task structure' },
+            { title: 'Automatic scheduling engine' },
+            { title: 'Calendar-aware duration with working days and holidays' },
+            { title: 'Manual, inactive, constrained, and deadline-aware task scheduling' },
+            { title: 'Dependency graph validation and cycle detection' },
+            { title: 'FS, SS, FF, and SF dependencies with lead/lag' },
+            { title: 'Dependency arrows with hover, selection, keyboard delete, and drag-to-connect' },
+            { title: 'Predecessor and successor field editing' },
+            { title: 'Critical path and slack calculation' },
+            { title: 'Baseline overlays and baseline selection' },
+            { title: 'Resource and assignment modeling' },
+            { title: 'Resource filtering and assignee field editing' },
+            { title: 'Interactive task create, move, and resize controls' },
+            { title: 'Progress drag/edit controls' },
+            { title: 'Task indent and outdent actions' },
+            { title: 'Cancelable before-change events for tasks, dependencies, and assignments' },
+            { title: 'Built-in timeline zoom levels from day/week to multi-year' },
+            { title: 'Wheel zoom, zoom anchors, locale formatting, and custom header formatting' },
+            { title: 'Resizable task table and timeline panels' },
+            { title: 'Today line, project line, milestone lines, and highlighted time ranges' },
+            { title: 'Non-working time shading, task labels, and custom task markers' },
+        ],
     },
     {
         title: 'Hierarchical Data View',
@@ -308,7 +419,7 @@ export const featuresPro = [
         videoUrl: '/video/auto-focus.mp4',
     },
     {
-        title: 'Clipboard with JSON and Advanced Objects',
+        title: 'Clipboard with JSON',
         thumbnail: '/img/clipboard.png',
         group: 'Data Management',
         description:
@@ -388,6 +499,13 @@ export const featuresPro = [
         videoUrl: '/video/timeline-editor.mp4',
     },
 ]
+
+export const featuresPro = featuresProBase.map((feature) => ({
+    ...feature,
+    demoUrl: featureDemoQueries[feature.title]
+        ? demoCatalogUrl(featureDemoQueries[feature.title])
+        : undefined,
+}))
 export const proWhy = [
     {
         avatar: '/flash-circle.svg',

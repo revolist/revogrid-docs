@@ -124,20 +124,16 @@ export const sidebarVue2En: DefaultTheme.SidebarItem[] = [
 
 export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
     {
-        text: 'Demo',
+        text: 'Grid at Scale',
         link: '/demo/',
     },
     {
-        text: 'Demo: Pivot',
+        text: 'Pivot Analytics Workspace',
         link: '/demo/pivot',
     },
     {
-        text: 'Demo: Color',
+        text: 'Project Tracker',
         link: '/demo/color',
-    },
-    {
-        text: 'Demo: Prompts',
-        link: '/demo/vue/ai-prompts',
     },
     {
         text: '<img src="/js.svg" alt="JS logo" width="15" height="15"/> JS,JSX',

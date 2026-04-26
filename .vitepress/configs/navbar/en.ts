@@ -7,14 +7,22 @@ export const navbarEn: DefaultTheme.NavItem[] = [
     activeMatch: '^/guide/',
   },
   {
-    text: 'Demo',
+    text: 'Use Cases',
     link: '/demo/',
     activeMatch: '^/demo/',
   },
   {
+    text: 'Interactive Demos',
+    link: 'https://demo.rv-grid.com/?framework=all',
+  },
+  {
+    text: 'Pricing',
+    link: '/pro/prices',
+  },
+  {
     text: 'RevoGrid Pro',
     link: '/pro/',
-    activeMatch: '^/(pro|pro-docs)/',
+    activeMatch: '^/(pro/(?!prices(?:/|$))|pro-docs/)',
   }, {
     text: 'v4.x',
     items: [{ text: 'v3.x', link: 'https://v3.rv-grid.com' }],

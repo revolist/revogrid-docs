@@ -30,7 +30,7 @@ import FeaturesGrid from './FeaturesGrid.vue'
 
 # What's included in Pro?
 
-Click on the features below to see video previews or [compare our plans](/pro).
+Click on the features below to see video previews, jump into [interactive demos](https://demo.rv-grid.com/?framework=all), or [compare our plans](/pro).
 
 </div>
 <br/>

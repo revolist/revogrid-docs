@@ -55,22 +55,27 @@ const features = Object.entries(
       };
     }
     const isEnterpriseTools = feature.group === 'Enterprise Tools';
+    const supported = isEnterpriseTools ? ['Pro Advanced'] : ['Pro Lite', 'Pro Advanced'];
     acc[feature.group].features.push({
       name: feature.title,
-      supported: isEnterpriseTools ? ['Pro Advanced'] : ['Pro Lite', 'Pro Advanced'],
+      supported,
       nesting: 1,
       link: feature.link,
+      demoUrl: feature.demoUrl,
       video: feature.videoUrl,
       beta: feature.beta,
+    });
+    feature.subFeatures?.forEach((subFeature) => {
+      acc[feature.group].features.push({
+        name: subFeature.title,
+        supported,
+        nesting: 2,
+        link: subFeature.link,
+      });
     });
     return acc;
   }, {})
 ).map(([_, value]) => value);
-
-// Move Enterprise Tools section to the top
-const enterpriseIdx = features.findIndex(g => g.name === 'Enterprise Tools');
-if (enterpriseIdx > 0) features.unshift(features.splice(enterpriseIdx, 1)[0]);
-
 
 // Add chart components
 const dataVisualizationGroup = features.find(g => g.name === 'Data Visualization');
@@ -144,6 +149,10 @@ features.push({
     { name: 'Support via Email', supported: ['Pro Advanced'], nesting: 1 },
   ]
 });
+
+// Move Enterprise Tools section to the bottom
+const enterpriseIdx = features.findIndex(g => g.name === 'Enterprise Tools');
+if (enterpriseIdx >= 0) features.push(features.splice(enterpriseIdx, 1)[0]);
 </script>
 
 <div style="text-align: center">

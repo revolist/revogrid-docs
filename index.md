@@ -26,7 +26,7 @@ hero:
       text: Get started
       link: /guide/
     - theme: sponsor
-      text: Demo
+      text: Use Cases
       link: /demo/
 
 recommended:

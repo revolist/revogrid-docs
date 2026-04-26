@@ -1,5 +1,5 @@
 ---
-title: Demo Color Table
+title: Project Tracker
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false
@@ -17,6 +17,6 @@ const { isDark } = useData()
 <ClientOnly>
 <iframe :src="`https://pro.rv-grid.com/demo/color?view=preview&theme=${isDark ? 'dark' : 'light'}`"
      style="width:100%; height: calc(100vh - 80px); border:0; border-radius: 4px; overflow:hidden;"
-     title="Color Table"
+     title="Project Tracker"
    ></iframe>
 </ClientOnly>
