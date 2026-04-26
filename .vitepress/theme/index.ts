@@ -5,13 +5,17 @@ import DefaultTheme from 'vitepress/theme'
 import { ID_INJECTION_KEY, ZINDEX_INJECTION_KEY } from 'element-plus'
 import './style.scss'
 import HomeHero from './HomeHero.vue'
-import HomeFeaturesBeforeVue from './HomeFeaturesBefore.vue'
+import HomeHeroActions from './HomeHeroActions.vue'
 import HomeHeroInfoAfter from './HomeHeroInfoAfter.vue'
 import HomeHeroInfoBefore from './HomeHeroInfoBefore.vue'
 import HomeMit from './HomeMit.vue'
-import HomeHeroAfter from './HomeHeroAfter.vue'
 import CustomLayout from './CustomLayout.vue'
 import Mermaid from './Mermaid.vue'
+import HomeSocialProof from './HomeSocialProof.vue'
+import HomeUseCases from './HomeUseCases.vue'
+import HomeLicensing from './HomeLicensing.vue'
+import HomeFeatureStats from './HomeFeatureStats.vue'
+import HomeCtaBanner from './HomeCtaBanner.vue'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 
 export default {
@@ -19,12 +23,17 @@ export default {
     Layout: () => {
         return h(DefaultTheme.Layout, null, {
             // https://vitepress.dev/guide/extending-default-theme#layout-slots
-            'home-hero-after': () => h(HomeHeroAfter),
             'home-hero-image': () => h(HomeHero),
+            'home-hero-actions-before-actions': () => h(HomeHeroActions),
             'home-hero-info-before': () => h(HomeHeroInfoBefore),
-            'home-hero-info-after': () => h(HomeHeroInfoAfter),
-            'home-features-before': () => h(HomeFeaturesBeforeVue),
-            'home-hero-actions-after': () => h(HomeMit),
+            'home-hero-actions-after': () => h(HomeHeroInfoAfter),
+            'home-hero-after': () => [
+                h(HomeSocialProof),
+                h(HomeUseCases),
+                h(HomeLicensing),
+                h(HomeFeatureStats),
+                h(HomeCtaBanner),
+            ],
         })
     },
     enhanceApp({ app, router, siteData }) {

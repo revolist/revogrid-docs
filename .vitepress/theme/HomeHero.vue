@@ -1,31 +1,31 @@
 <template>
     <div class="revo-grid-wrapper">
-        <ClientOnly>
-            <VGrid
-                class="grid-demo"
-                readonly
-                :theme="isDark ? 'darkMaterial' : 'material'"
-                :range="true"
-                :row-size="40"
-                :resize="true"
-                :source="gridData"
-                :columns="gridColumns"
-                hide-attribution
-                :stretch="true"
-            />
-        </ClientOnly>
-        <div class="revo-grid-badge">
-            Trusted by thousands of developers
-            <a
-                class="badge"
-                href="https://www.jsdelivr.com/package/npm/@revolist/revogrid"
-                title="jsDelivr monthly hits"
-            >
-                <img
-                    alt="jsDelivr monthly hits badge"
-                    src="https://data.jsdelivr.com/v1/package/npm/@revolist/revogrid/badge"
-                />
-            </a>
+        <div class="mock-panel">
+            <div class="mock-header">
+                <span class="mock-dot" style="background:#ff5f57"></span>
+                <span class="mock-dot" style="background:#febc2e"></span>
+                <span class="mock-dot" style="background:#28c840"></span>
+                <span class="mock-title">Market Data · RevoGrid</span>
+                <div class="mock-options">
+                    <span class="mock-option active">Live</span>
+                </div>
+            </div>
+            <div class="mock-body">
+                <ClientOnly>
+                    <VGrid
+                        class="grid-demo"
+                        readonly
+                        :theme="isDark ? 'darkMaterial' : 'material'"
+                        :range="true"
+                        :row-size="40"
+                        :resize="true"
+                        :source="gridData"
+                        :columns="gridColumns"
+                        hide-attribution
+                        :stretch="true"
+                    />
+                </ClientOnly>
+            </div>
         </div>
     </div>
 </template>
@@ -139,13 +139,6 @@ onBeforeUnmount(() => {
 })
 </script>
 <style lang="scss" scoped>
-.revo-grid-badge {
-    display: flex;
-    font-size: 12px;
-    align-items: center;
-    gap: 0.5rem;
-    justify-content: end;
-}
 .revo-grid-wrapper {
     flex-grow: 1;
     align-self: stretch;
@@ -154,10 +147,85 @@ onBeforeUnmount(() => {
     flex-direction: column;
     max-width: 100%;
 }
-.grid-demo {
-    border-radius: 10px;
-    border: 1px solid var(--vp-c-border);
+.mock-panel {
+    background: var(--vp-c-bg-elv);
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    margin: 40px 40px 0;
+    margin-top: 40px;
+
+    &::before {
+        content: '';
+        display: block;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--vp-c-brand-1), transparent);
+    }
+}
+.mock-header {
+    background: var(--vp-c-bg-soft);
+    padding: 9px 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 1px solid var(--vp-c-divider);
+}
+.mock-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    flex: 0 0 auto;
+}
+.mock-title {
+    font-size: 11px;
+    font-family: var(--vp-font-family-mono);
+    color: var(--vp-c-text-3);
+    margin-left: 6px;
+    white-space: nowrap;
+}
+.mock-options {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+}
+.mock-option {
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 999px;
+    color: var(--vp-c-text-3);
+    background: var(--vp-c-bg);
+    font-family: var(--vp-font-family-mono);
+    font-size: 10px;
+    line-height: 1;
+    padding: 5px 8px;
+
+    &.active {
+        border-color: var(--vp-c-brand-2);
+        color: var(--vp-c-brand-1);
+        background: var(--vp-c-brand-soft);
+    }
+}
+.mock-body {
+    padding: 0;
+}
+.grid-demo {
+    display: block;
+    height: min(490px, calc(58vh + 40px));
+    min-height: 340px;
+    border: 0;
+    overflow: hidden;
+}
+@media (max-width: 640px) {
+    .mock-options {
+        display: none;
+    }
+
+    .grid-demo {
+        height: 380px;
+        min-height: 380px;
+    }
 }
 :deep(.badge) {
     padding: 0.25rem 0.5rem;
