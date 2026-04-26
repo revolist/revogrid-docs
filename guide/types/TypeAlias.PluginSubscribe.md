@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.4](README.md) / PluginSubscribe
+[RevoGrid Documentation v4.21.5](README.md) / PluginSubscribe
 
 # Type Alias: PluginSubscribe\<T\>
 
@@ -14,4 +14,4 @@ type PluginSubscribe<T>: Subscription<T>;
 
 ## Defined in
 
-[src/utils/store.utils.ts:5](https://github.com/revolist/revogrid/blob/61d11b4be1c8426731b4a2f79964d078c5954e18/src/utils/store.utils.ts#L5)
+[src/utils/store.utils.ts:5](https://github.com/revolist/revogrid/blob/99195a6cfd53147e252a186750e43ef2e04c1929/src/utils/store.utils.ts#L5)

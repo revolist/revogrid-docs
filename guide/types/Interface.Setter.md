@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.4](README.md) / Setter
+[RevoGrid Documentation v4.21.5](README.md) / Setter
 
 # Interface: Setter()\<T\>
 
@@ -31,4 +31,4 @@ interface Setter<P>(propName: P & string, value: T[P]): void
 
 ## Defined in
 
-[src/utils/store.types.ts:30](https://github.com/revolist/revogrid/blob/61d11b4be1c8426731b4a2f79964d078c5954e18/src/utils/store.types.ts#L30)
+[src/utils/store.types.ts:30](https://github.com/revolist/revogrid/blob/99195a6cfd53147e252a186750e43ef2e04c1929/src/utils/store.types.ts#L30)

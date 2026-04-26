@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.4](README.md) / LogicFunction
+[RevoGrid Documentation v4.21.5](README.md) / LogicFunction
 
 # Interface: LogicFunction()\<T1, T2\>
 
@@ -26,10 +26,10 @@ interface LogicFunction(value: T1, extra?: T2): boolean
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:46](https://github.com/revolist/revogrid/blob/61d11b4be1c8426731b4a2f79964d078c5954e18/src/plugins/filter/filter.types.ts#L46)
+[src/plugins/filter/filter.types.ts:46](https://github.com/revolist/revogrid/blob/99195a6cfd53147e252a186750e43ef2e04c1929/src/plugins/filter/filter.types.ts#L46)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `extra?` | [`ExtraField`](TypeAlias.ExtraField.md) | [src/plugins/filter/filter.types.ts:47](https://github.com/revolist/revogrid/blob/61d11b4be1c8426731b4a2f79964d078c5954e18/src/plugins/filter/filter.types.ts#L47) |
+| `extra?` | [`ExtraField`](TypeAlias.ExtraField.md) | [src/plugins/filter/filter.types.ts:47](https://github.com/revolist/revogrid/blob/99195a6cfd53147e252a186750e43ef2e04c1929/src/plugins/filter/filter.types.ts#L47) |

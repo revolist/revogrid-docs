@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.4](README.md) / ColumnProp
+[RevoGrid Documentation v4.21.5](README.md) / ColumnProp
 
 # Type Alias: ColumnProp
 
@@ -8,4 +8,4 @@ type ColumnProp: string | number;
 
 ## Defined in
 
-[src/types/interfaces.ts:270](https://github.com/revolist/revogrid/blob/61d11b4be1c8426731b4a2f79964d078c5954e18/src/types/interfaces.ts#L270)
+[src/types/interfaces.ts:270](https://github.com/revolist/revogrid/blob/99195a6cfd53147e252a186750e43ef2e04c1929/src/types/interfaces.ts#L270)

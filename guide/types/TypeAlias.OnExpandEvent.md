@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.4](README.md) / OnExpandEvent
+[RevoGrid Documentation v4.21.5](README.md) / OnExpandEvent
 
 # Type Alias: OnExpandEvent
 
@@ -13,9 +13,9 @@ type OnExpandEvent: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `model` | [`DataType`](TypeAlias.DataType.md) | [src/plugins/groupingRow/grouping.row.types.ts:92](https://github.com/revolist/revogrid/blob/61d11b4be1c8426731b4a2f79964d078c5954e18/src/plugins/groupingRow/grouping.row.types.ts#L92) |
-| `virtualIndex` | `number` | [src/plugins/groupingRow/grouping.row.types.ts:93](https://github.com/revolist/revogrid/blob/61d11b4be1c8426731b4a2f79964d078c5954e18/src/plugins/groupingRow/grouping.row.types.ts#L93) |
+| `model` | [`DataType`](TypeAlias.DataType.md) | [src/plugins/groupingRow/grouping.row.types.ts:92](https://github.com/revolist/revogrid/blob/99195a6cfd53147e252a186750e43ef2e04c1929/src/plugins/groupingRow/grouping.row.types.ts#L92) |
+| `virtualIndex` | `number` | [src/plugins/groupingRow/grouping.row.types.ts:93](https://github.com/revolist/revogrid/blob/99195a6cfd53147e252a186750e43ef2e04c1929/src/plugins/groupingRow/grouping.row.types.ts#L93) |
 
 ## Defined in
 
-[src/plugins/groupingRow/grouping.row.types.ts:91](https://github.com/revolist/revogrid/blob/61d11b4be1c8426731b4a2f79964d078c5954e18/src/plugins/groupingRow/grouping.row.types.ts#L91)
+[src/plugins/groupingRow/grouping.row.types.ts:91](https://github.com/revolist/revogrid/blob/99195a6cfd53147e252a186750e43ef2e04c1929/src/plugins/groupingRow/grouping.row.types.ts#L91)
