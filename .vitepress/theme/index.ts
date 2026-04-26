@@ -11,6 +11,7 @@ import HomeHeroInfoBefore from './HomeHeroInfoBefore.vue'
 import HomeMit from './HomeMit.vue'
 import HomeHeroAfter from './HomeHeroAfter.vue'
 import CustomLayout from './CustomLayout.vue'
+import Mermaid from './Mermaid.vue'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 
 export default {
@@ -31,5 +32,6 @@ export default {
         app.provide(ID_INJECTION_KEY, { prefix: 1024, current: 0 })
         enhanceAppWithTabs(app)
         app.component('custom', CustomLayout)
+        app.component('Mermaid', Mermaid)
     },
 } satisfies Theme

@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
-import { useSidebar } from 'vitepress/theme'
+import { useLayout } from 'vitepress/dist/client/theme-default/composables/layout.js'
 import VPImage from './VPImage.vue'
 import { ref } from 'vue'
 import ContactForm from '../../pro/ContactForm.vue'
 
 let showForm = ref(false) // isVisible
 const { site, theme, frontmatter } = useData()
-const { hasSidebar } = useSidebar()
+const { hasSidebar } = useLayout()
 </script>
 
 <template>
