@@ -123,26 +123,82 @@
             <tbody>
               <template v-for="section in COMP_SECTIONS" :key="section.label">
                 <tr class="category-row">
-                  <td colspan="4">{{ section.label }}</td>
-                </tr>
-                <tr v-for="row in section.rows" :key="row.feature">
-                  <td>{{ row.feature }}</td>
-                  <td class="center-col">
-                    <span v-if="row.free === true" class="check-yes">✓</span>
-                    <span v-else-if="row.free === false" class="check-no">—</span>
-                    <span v-else class="check-partial">{{ row.free }}</span>
-                  </td>
-                  <td class="center-col highlight-col">
-                    <span v-if="row.light === true" class="check-yes">✓</span>
-                    <span v-else-if="row.light === false" class="check-no">—</span>
-                    <span v-else class="check-partial">{{ row.light }}</span>
-                  </td>
-                  <td class="center-col">
-                    <span v-if="row.adv === true" class="check-yes">✓</span>
-                    <span v-else-if="row.adv === false" class="check-no">—</span>
-                    <span v-else class="check-partial">{{ row.adv }}</span>
+                  <td colspan="4">
+                    <button
+                      class="category-toggle"
+                      type="button"
+                      :aria-expanded="expandedSections[section.label]"
+                      @click="toggleSection(section.label)"
+                    >
+                      <span class="expand-icon" aria-hidden="true">
+                        {{ expandedSections[section.label] ? '▼' : '▶' }}
+                      </span>
+                      <span>{{ section.label }}</span>
+                    </button>
                   </td>
                 </tr>
+                <template v-if="expandedSections[section.label]">
+                  <tr
+                    v-for="row in visibleRows(section)"
+                    :key="`${section.label}-${row.name}`"
+                    :class="{ 'collapsible-feature': row.collapsible }"
+                  >
+                    <td :class="['feature-name', `nesting-${row.nesting}`]">
+                      <button
+                        v-if="row.collapsible"
+                        class="feature-expand"
+                        type="button"
+                        :aria-expanded="isFeatureExpanded(section.label, row.name)"
+                        @click="toggleFeature(section.label, row.name)"
+                      >
+                        {{ isFeatureExpanded(section.label, row.name) ? '▼' : '▶' }}
+                      </button>
+                      <a v-if="row.link" :href="row.link">{{ row.name }}</a>
+                      <template v-else>{{ row.name }}</template>
+                      <span v-if="row.beta" class="beta-badge">Beta</span>
+
+                      <span v-if="row.demoUrl || row.video" class="feature-actions">
+                        <a
+                          v-if="row.demoUrl"
+                          class="demo-preview action-outline-btn"
+                          :href="row.demoUrl"
+                          target="_blank"
+                          rel="noopener"
+                          title="Interactive demo"
+                        >
+                          Demo
+                        </a>
+                        <button
+                          class="video-preview"
+                          :class="{ 'video-placeholder': !row.video }"
+                          type="button"
+                          :title="row.video ? 'Video preview' : undefined"
+                          :disabled="!row.video"
+                          :tabindex="row.video ? 0 : -1"
+                          @click="row.video && openPreview(row.video)"
+                        >
+                          <VPImage
+                            v-if="row.video"
+                            style="width: 18px"
+                            :image="{ src: 'video.svg' }"
+                          />
+                        </button>
+                      </span>
+                    </td>
+                    <td class="center-col">
+                      <span v-if="row.supported.includes('Basic')" class="check-yes">✓</span>
+                      <span v-else class="check-no">—</span>
+                    </td>
+                    <td class="center-col highlight-col">
+                      <span v-if="row.supported.includes('Pro Lite')" class="check-yes">✓</span>
+                      <span v-else class="check-no">—</span>
+                    </td>
+                    <td class="center-col">
+                      <span v-if="row.supported.includes('Pro Advanced')" class="check-yes">✓</span>
+                      <span v-else class="check-no">—</span>
+                    </td>
+                  </tr>
+                </template>
               </template>
             </tbody>
           </table>
@@ -188,10 +244,26 @@
       </div>
     </section>
   </div>
+  <ElDialog v-model="dialogVisible" width="600">
+    <video
+      class="video"
+      :src="videoUrl"
+      loop
+      muted
+      playsinline
+      autoplay
+    ></video>
+  </ElDialog>
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
+import { ElDialog } from 'element-plus'
+import 'element-plus/es/components/dialog/style/css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
+import VPImage from '../.vitepress/theme/VPImage.vue'
 import { PRICES } from './prices'
+import { featureTableGroups } from './featureTableData'
 
 const lightUsdYr = PRICES.light.year.USD
 const advUsdYr = PRICES.advanced.year.USD
@@ -278,55 +350,52 @@ const FAQS = [
   },
 ]
 
-const COMP_SECTIONS = [
-  {
-    label: 'Core',
-    rows: [
-      { feature: 'Virtual scroll (unlimited rows)', free: true, light: true, adv: true },
-      { feature: 'Base column types', free: true, light: true, adv: true },
-      { feature: 'Multi-framework support', free: true, light: true, adv: true },
-      { feature: 'Basic sorting & filtering', free: true, light: true, adv: true },
-      { feature: 'Community support (GitHub)', free: true, light: true, adv: true },
-    ],
-  },
-  {
-    label: 'Pro Features',
-    rows: [
-      { feature: 'Advanced column types', free: false, light: true, adv: true },
-      { feature: 'Column grouping & aggregation', free: false, light: true, adv: true },
-      { feature: 'Row drag & drop reorder', free: false, light: true, adv: true },
-      { feature: 'Excel / CSV export', free: false, light: true, adv: true },
-      { feature: 'Plugin API', free: false, light: false, adv: true },
-      { feature: 'Enterprise Pivot grid', free: false, light: false, adv: true },
-      { feature: 'Custom column type SDK', free: false, light: false, adv: true },
-      { feature: 'Gantt / timeline renderer', free: false, light: false, adv: true },
-      { feature: 'AI cell assist (beta)', free: false, light: false, adv: true },
-      { feature: 'Typed source code access', free: false, light: false, adv: true },
-    ],
-  },
-  {
-    label: 'Licensing',
-    rows: [
-      { feature: 'Commercial use', free: true, light: true, adv: true },
-      { feature: 'No deployment fee', free: true, light: true, adv: true },
-      { feature: 'SaaS / hosted apps', free: true, light: true, adv: true },
-      { feature: 'Royalty-free distribution', free: true, light: true, adv: true },
-      { feature: 'One product / app', free: false, light: true, adv: false },
-      { feature: 'Unlimited apps (no app limit)', free: false, light: false, adv: true },
-    ],
-  },
-  {
-    label: 'Support',
-    rows: [
-      { feature: 'Community (GitHub)', free: true, light: true, adv: true },
-      { feature: 'Email support', free: false, light: true, adv: true },
-      { feature: 'Priority bug fixes', free: false, light: true, adv: true },
-      { feature: 'Direct engineering support', free: false, light: false, adv: true },
-      { feature: 'Team discounts (3+ seats)', free: false, light: false, adv: true },
-      { feature: 'Roadmap influence', free: false, light: false, adv: true },
-    ],
-  },
-]
+const COMP_SECTIONS = featureTableGroups.map((group) => ({
+  label: group.name,
+  rows: group.features,
+}))
+
+const expandedSections = ref<Record<string, boolean>>(
+  Object.fromEntries(featureTableGroups.map((group) => [group.name, group.expanded])),
+)
+const getFeatureKey = (groupName: string, featureName: string) => `${groupName}::${featureName}`
+
+const expandedFeatures = ref<Record<string, boolean>>(
+  Object.fromEntries(
+    featureTableGroups.flatMap((group) =>
+      group.features
+        .filter((feature) => feature.collapsible)
+        .map((feature) => [getFeatureKey(group.name, feature.name), Boolean(feature.expanded)]),
+    ),
+  ),
+)
+const dialogVisible = ref(false)
+const videoUrl = ref('')
+
+const toggleSection = (label: string) => {
+  expandedSections.value[label] = !expandedSections.value[label]
+}
+
+const isFeatureExpanded = (groupName: string, featureName: string) => {
+  return expandedFeatures.value[getFeatureKey(groupName, featureName)] ?? true
+}
+
+const toggleFeature = (groupName: string, featureName: string) => {
+  const key = getFeatureKey(groupName, featureName)
+  expandedFeatures.value[key] = !isFeatureExpanded(groupName, featureName)
+}
+
+const visibleRows = (section: (typeof COMP_SECTIONS)[number]) => {
+  return section.rows.filter((row) => {
+    if (!row.parent) return true
+    return isFeatureExpanded(section.label, row.parent)
+  })
+}
+
+const openPreview = (video: string) => {
+  videoUrl.value = video
+  dialogVisible.value = true
+}
 
 </script>
 
@@ -824,15 +893,142 @@ const COMP_SECTIONS = [
   }
 
   .category-row td {
-    padding: 20px 20px 8px;
+    padding: 14px 20px;
+    border-bottom: none;
+    background: color-mix(in srgb, var(--vp-c-bg-alt) 80%, transparent) !important;
+
+    &:first-child {
+      border-radius: 8px 0 0 8px;
+    }
+
+    &:last-child {
+      border-radius: 0 8px 8px 0;
+    }
+  }
+
+  .category-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--vp-c-text-3);
+    cursor: pointer;
+    font-family: var(--vp-font-family-base);
     font-size: 11px;
     font-weight: 700;
-    color: var(--vp-c-text-3);
-    text-transform: uppercase;
     letter-spacing: 0.1em;
-    border-bottom: none;
-    background: none !important;
+    line-height: 1.4;
+    text-align: left;
+    text-transform: uppercase;
+
+    &:hover {
+      color: var(--vp-c-text-1);
+    }
   }
+
+  .expand-icon {
+    width: 10px;
+    font-size: 10px;
+    line-height: 1;
+    opacity: 0.8;
+  }
+
+  .feature-name {
+    color: var(--vp-c-text-2);
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--vp-c-brand-1);
+      }
+    }
+
+    &.nesting-2 {
+      padding-left: 40px;
+    }
+  }
+}
+
+.feature-expand {
+  width: 16px;
+  border: 0;
+  padding: 0;
+  margin-right: 4px;
+  background: transparent;
+  color: var(--vp-c-text-3);
+  cursor: pointer;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.feature-actions {
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 12px;
+}
+
+.action-outline-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  min-width: 24px;
+  padding: 0 8px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--vp-c-text-2);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    border-color: var(--vp-c-brand-1);
+    color: var(--vp-c-brand-1);
+    background: var(--vp-c-bg-soft);
+  }
+}
+
+.video-preview {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 24px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.video-placeholder {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.video {
+  width: 100%;
+  display: block;
 }
 
 .check-yes {
@@ -851,6 +1047,20 @@ const COMP_SECTIONS = [
   color: var(--vp-c-brand-1);
   font-size: 12px;
   font-family: var(--vp-font-family-mono);
+}
+
+.beta-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 6px;
+  padding: 1px 5px;
+  border-radius: 999px;
+  background: var(--vp-c-warning-soft);
+  color: var(--vp-c-warning-1);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-transform: uppercase;
 }
 
 /* ─── FAQ ───────────────────────────────────────────────── */
