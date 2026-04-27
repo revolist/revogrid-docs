@@ -157,7 +157,17 @@
                       <template v-else>{{ row.name }}</template>
                       <span v-if="row.beta" class="beta-badge">Beta</span>
 
-                      <span v-if="row.demoUrl || row.video" class="feature-actions">
+                      <span v-if="hasFeatureActions(row)" class="feature-actions">
+                        <a
+                          v-if="row.link"
+                          class="docs-preview action-outline-btn"
+                          :href="row.link"
+                          :target="isExternalHref(row.link) ? '_blank' : undefined"
+                          :rel="isExternalHref(row.link) ? 'noopener' : undefined"
+                          title="Documentation"
+                        >
+                          Docs
+                        </a>
                         <a
                           v-if="row.demoUrl"
                           class="demo-preview action-outline-btn"
@@ -391,6 +401,12 @@ const visibleRows = (section: (typeof COMP_SECTIONS)[number]) => {
     return isFeatureExpanded(section.label, row.parent)
   })
 }
+
+const hasFeatureActions = (row: (typeof COMP_SECTIONS)[number]['rows'][number]) => {
+  return Boolean(row.link || row.demoUrl || row.video)
+}
+
+const isExternalHref = (href: string) => /^https?:\/\//.test(href)
 
 const openPreview = (video: string) => {
   videoUrl.value = video

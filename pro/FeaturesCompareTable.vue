@@ -95,7 +95,17 @@
                                 <template v-else>{{ feature.name }}</template>
                                 <span v-if="feature.beta" class="VPBadge warning" style="font-size:0.7em;vertical-align:middle;margin-left:4px">Beta</span>
 
-                                <span class="feature-actions">
+                                <span v-if="hasFeatureActions(feature)" class="feature-actions">
+                                    <a
+                                        v-if="feature.link"
+                                        class="docs-preview action-outline-btn"
+                                        :href="feature.link"
+                                        :target="isExternalHref(feature.link) ? '_blank' : undefined"
+                                        :rel="isExternalHref(feature.link) ? 'noopener' : undefined"
+                                        title="Documentation"
+                                    >
+                                        Docs
+                                    </a>
                                     <a
                                         v-if="feature.demoUrl"
                                         class="demo-preview action-outline-btn"
@@ -242,6 +252,10 @@ const visibleFeatures = (group: FeatureGroup) => {
     })
 }
 
+const hasFeatureActions = (feature: Feature) => Boolean(feature.link || feature.demoUrl || feature.video)
+
+const isExternalHref = (href: string) => /^https?:\/\//.test(href)
+
 const openPreview = (video: string) => {
     videoUrl.value = video
     dialogVisible.value = true
@@ -309,6 +323,7 @@ const openPreview = (video: string) => {
     pointer-events: none;
 }
 
+.docs-preview,
 .demo-preview {
     text-decoration: none;
 }
