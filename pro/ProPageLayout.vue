@@ -76,7 +76,7 @@
         </div>
 
         <div class="features-link-row">
-          <a href="/pro/feature-table" class="features-link">
+          <a href="/pro/prices#feature-comparison" class="features-link">
             View full feature table
             <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
               <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -158,6 +158,17 @@
         <a href="/guide/" class="btn-ghost">Read the docs</a>
       </div>
       <div class="cta-note">Royalty-free · No deployment fee · Cancel anytime</div>
+      <div class="footer-links-row">
+        <a href="/pro/policies/privacy">Privacy Policy</a>
+        <span class="sep">|</span>
+        <a href="/pro/policies/terms">Terms of Service</a>
+        <span class="sep">|</span>
+        <a href="/pro/policies/license">License</a>
+        <span class="sep">|</span>
+        <a href="/pro/policies/security">Security Policy</a>
+        <span class="sep">|</span>
+        <a href="mailto:contact@revolist.eu">Contact us</a>
+      </div>
     </section>
 
   </div>
@@ -877,5 +888,31 @@ const PRO_ADV_FEATURES = [
   font-family: var(--vp-font-family-mono);
   margin-top: 20px;
   position: relative;
+}
+
+.footer-links-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  position: relative;
+
+  a {
+    font-size: 13px;
+    color: var(--vp-c-text-3);
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--vp-c-text-2);
+    }
+  }
+
+  .sep {
+    color: var(--vp-c-divider);
+    font-size: 13px;
+  }
 }
 </style>

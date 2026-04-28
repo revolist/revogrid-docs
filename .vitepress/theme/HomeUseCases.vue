@@ -43,7 +43,7 @@
                         </ul>
                         <div class="uc-ctas">
                             <a href="/demo/" class="btn-primary">See live demo</a>
-                            <a href="/guide/" class="btn-secondary">Read docs</a>
+                            <a href="/guide/performance" class="btn-secondary">Read docs</a>
                         </div>
                     </div>
                     <div class="uc-visual">
@@ -123,7 +123,7 @@
                         </ul>
                         <div class="uc-ctas">
                             <a href="/demo/" class="btn-primary">See live demo</a>
-                            <a href="/guide/" class="btn-secondary">Read docs</a>
+                            <a href="https://pro.rv-grid.com/guides/data-manage/tree/" class="btn-secondary">Read docs</a>
                         </div>
                     </div>
                     <div class="uc-visual">
@@ -215,7 +215,7 @@
                         </ul>
                         <div class="uc-ctas">
                             <a href="/demo/" class="btn-primary">See live demo</a>
-                            <a href="/guide/" class="btn-secondary">Read docs</a>
+                            <a href="https://pro.rv-grid.com/guides/pivot" class="btn-secondary">Read docs</a>
                         </div>
                     </div>
                     <div class="uc-visual">
@@ -304,7 +304,7 @@
                         </ul>
                         <div class="uc-ctas">
                             <a href="/demo/" class="btn-primary">See live demo</a>
-                            <a href="/guide/" class="btn-secondary">Read docs</a>
+                            <a href="https://pro.rv-grid.com/guides/gantt/" class="btn-secondary">Read docs</a>
                         </div>
                     </div>
                     <div class="uc-visual">

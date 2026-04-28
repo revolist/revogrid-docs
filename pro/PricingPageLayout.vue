@@ -107,7 +107,7 @@
     </section>
 
     <!-- Feature comparison table -->
-    <section class="comparison-section">
+    <section id="feature-comparison" class="comparison-section">
       <div class="container">
         <h2 class="section-heading">Full feature comparison</h2>
         <div class="table-wrap">
@@ -250,7 +250,9 @@
         <span class="sep">|</span>
         <a href="/pro/policies/license">License</a>
         <span class="sep">|</span>
-        <a href="mailto:contact@revolist.eu">Contact Us</a>
+        <a href="/pro/policies/security">Security Policy</a>
+        <span class="sep">|</span>
+        <a href="mailto:contact@revolist.eu">Contact us</a>
       </div>
     </section>
   </div>
@@ -327,36 +329,44 @@ const ENTERPRISE_FEATURES = [
 
 const FAQS = [
   {
-    q: "What counts as a 'developer seat'?",
-    a: "A developer seat is any person who directly uses the RevoGrid Pro source code or builds with it. End users of your product do not need a seat — you can ship to unlimited users.",
+    q: 'How many developer licenses do I need?',
+    a: "The number of licenses must match the maximum number of concurrent developers contributing to the front-end code. Back-end developers do not count unless they work with the RevoGrid Pro front-end code. See the <a href='/pro/policies/license#_3-4-1-Required-quantity-of-licenses'>EULA</a> for examples.",
   },
   {
-    q: "Can I use Pro in a SaaS app or hosted product?",
-    a: "Yes. RevoGrid Pro includes royalty-free commercial use for hosted, SaaS, and on-premise deployments. No deployment fee. No per-instance charge.",
+    q: 'Am I allowed to use the product after the update entitlement expires?',
+    a: "Yes, you can continue using the product in production after the update entitlement expires. However, continued development, updates, new features, and technical support require an active subscription.",
+  },
+  {
+    q: 'Do developers have to be named?',
+    a: 'No. Licenses are transferable between developers when team members join or leave projects, as long as the number of licensed developers is not exceeded.',
+  },
+  {
+    q: 'What is the policy on redistributing the software?',
+    a: "RevoGrid Pro licenses are royalty-free for internal company solutions, hosted applications, and commercial solutions deployed to end users. If sublicensing is needed, it must be part of a larger work and follow the <a href='/pro/policies/license'>EULA</a> terms.",
+  },
+  {
+    q: 'Why must we license developers not using the software directly?',
+    a: 'All developers contributing to a project using RevoGrid Pro must be licensed, even if they use it indirectly through a wrapper library. This keeps licensing clear for shared front-end codebases.',
+  },
+  {
+    q: 'Do you offer discounts to educational and non-profit organizations?',
+    a: "Yes. We offer a 50% discount for students, instructors, non-profits, and charities. To qualify, provide proof of affiliation and <a href='mailto:contact@revolist.eu'>contact sales</a>.",
+  },
+  {
+    q: 'Is there a deployment fee?',
+    a: "No. RevoGrid Pro does not currently charge a deployment fee. Your license costs are based on the selected plan and required number of developer licenses, not how many times you deploy.",
   },
   {
     q: "What's the difference between Pro Light and Pro Advanced?",
-    a: "<strong>Pro Light</strong> gives you advanced column types, enhanced sorting, export, and priority bug fixes — great for production apps on one product. <strong>Pro Advanced</strong> adds the full plugin API, pivot tables, typed source access, AI-assist, and direct engineering support with no app limit.",
+    a: '<strong>Pro Light</strong> gives you advanced column types, enhanced sorting, export, and priority bug fixes for one product. <strong>Pro Advanced</strong> adds the full plugin API, pivot tables, typed source access, AI assist, direct engineering support, and broader commercial use.',
   },
   {
-    q: "Is the open-source version truly free?",
-    a: "Yes. The MIT core is free forever, including for commercial use. There are no hidden restrictions — build with it, ship with it, fork it. Pro adds features on top.",
+    q: 'Is the open-source version truly free?',
+    a: "Yes. The MIT core is free forever, including for commercial use, subject to the attribution requirements described in the <a href='/guide/attribution'>attribution guide</a>. Pro adds features on top of the open-source build.",
   },
   {
-    q: "How many developer licenses do I need?",
-    a: "Licenses must match the maximum number of developers contributing to the front-end code that uses RevoGrid Pro. Back-end developers or end users don't count. See the <a href='/pro/policies/license'>EULA</a> for examples.",
-  },
-  {
-    q: "Do you offer team discounts or annual contracts?",
-    a: "Yes — Pro Advanced includes team discounts starting at 3 seats. For larger teams, contact us for custom pricing and a single invoice.",
-  },
-  {
-    q: "What happens when my license expires?",
-    a: "Your existing builds continue to work — there's no kill switch. You just won't receive updates or support until you renew. We never lock you out of code you've already shipped.",
-  },
-  {
-    q: "Is there a deployment fee?",
-    a: "No. RevoGrid Pro does not charge a deployment fee. Your costs are based on the plan and number of developer seats, not how many times you deploy.",
+    q: 'Need help?',
+    a: "For sales-related inquiries, <a href='mailto:contact@revolist.eu'>contact sales</a>. For product issues, <a href='https://github.com/revolist/revogrid/issues' target='_blank' rel='noopener'>open a GitHub issue</a>.",
   },
 ]
 
