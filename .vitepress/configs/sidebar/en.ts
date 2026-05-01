@@ -1,5 +1,4 @@
 import type { DefaultTheme } from 'vitepress'
-import { sidebarDemonEn } from './en.demo'
 import { sidebarGuideEn } from './en.guide'
 import dotenv from 'dotenv'
 dotenv.config()
@@ -9,7 +8,6 @@ dotenv.config()
 export const sidebarEn: DefaultTheme.Sidebar = {
     '/guide/': sidebarGuideEn,
 
-    '/demo/': sidebarDemonEn,
     '/pro/': [
         {
             text: 'RevoGrid Pro',

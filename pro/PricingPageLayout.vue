@@ -21,68 +21,7 @@
     <!-- Pricing cards -->
     <section class="cards-section">
       <div class="container">
-        <div class="pricing-grid">
-          <!-- Pro Light -->
-          <div class="price-card">
-            <div class="card-label subtle">Pro Light</div>
-            <div class="card-name">Pro Light</div>
-            <div class="card-tagline">For teams building production data apps that need advanced column types and export.</div>
-            <div class="card-price-row">
-              <span class="price-currency">$</span>
-              <span class="price-num">{{ lightUsdYr }}</span>
-              <span class="price-period">/dev/yr</span>
-            </div>
-            <div class="price-note">Billed annually · ~${{ Math.round(lightUsdYr / 12) }}/mo</div>
-            <a :href="PRICES.light.link" class="card-cta ghost">Start Pro Light</a>
-            <div class="card-divider"></div>
-            <ul class="card-features">
-              <li v-for="f in PRO_LIGHT_FEATURES" :key="f" class="card-feature">
-                <span class="feat-icon check">✓</span>
-                <span>{{ f }}</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Pro Advanced -->
-          <div class="price-card featured">
-            <div class="card-label accent">Most Popular</div>
-            <div class="card-name">Pro Advanced</div>
-            <div class="card-tagline">For teams building complex, plugin-driven data platforms at scale.</div>
-            <div class="card-price-row">
-              <span class="price-currency">$</span>
-              <span class="price-num">{{ advUsdYr }}</span>
-              <span class="price-period">/dev/yr</span>
-            </div>
-            <div class="price-note">Billed annually · ~${{ Math.round(advUsdYr / 12) }}/mo</div>
-            <a :href="PRICES.advanced.link" class="card-cta primary">Start Pro Advanced</a>
-            <div class="card-divider"></div>
-            <ul class="card-features">
-              <li v-for="f in PRO_ADV_FEATURES" :key="f" class="card-feature">
-                <span class="feat-icon check">✓</span>
-                <span>{{ f }}</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Enterprise -->
-          <div class="price-card enterprise-tile">
-            <div class="card-label purple">Enterprise</div>
-            <div class="card-name">Enterprise</div>
-            <div class="card-tagline">For large teams that need custom contracts, SLA support, and dedicated engineering.</div>
-            <div class="card-price-row">
-              <span class="price-num">&nbsp;</span>
-            </div>
-            <div class="price-note">&nbsp;</div>
-            <a href="mailto:contact@revolist.eu" class="card-cta ghost-purple">Contact Sales</a>
-            <div class="card-divider"></div>
-            <ul class="card-features">
-              <li v-for="f in ENTERPRISE_FEATURES" :key="f" class="card-feature">
-                <span class="feat-icon ent">✓</span>
-                <span>{{ f }}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <ProPricingCards include-enterprise variant="pricing" />
 
         <!-- Open Source horizontal card -->
         <div class="oss-card">
@@ -274,58 +213,9 @@ import { ElDialog } from 'element-plus'
 import 'element-plus/es/components/dialog/style/css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 import VPImage from '../.vitepress/theme/VPImage.vue'
-import { PRICES } from './prices'
+import ProPricingCards from './ProPricingCards.vue'
 import { featureTableGroups } from './featureTableData'
-
-const lightUsdYr = PRICES.light.year.USD
-const advUsdYr = PRICES.advanced.year.USD
-
-const FREE_FEATURES = [
-  'MIT open-source license',
-  'Virtual scroll (unlimited rows)',
-  'All base column types',
-  'React, Vue, Angular, Svelte, JS',
-  'Community support (GitHub)',
-  'Basic sorting & filtering',
-]
-
-const PRO_LIGHT_FEATURES = [
-  'Everything in Free',
-  'Advanced column types (date, richtext, rating)',
-  'Enhanced multi-column sort',
-  'Column grouping & aggregation',
-  'Excel & CSV export',
-  'Row drag & drop reorder',
-  'One product / app',
-  'Unlimited deployments',
-  'Priority bug fix queue',
-  'Email support',
-]
-
-const PRO_ADV_FEATURES = [
-  'Everything in Pro Light',
-  'Broader commercial use (no app limit)',
-  'Enterprise Pivot grid',
-  'Full plugin API',
-  'Access to typed source code',
-  'Custom column type SDK',
-  'AI-assisted cell fill (beta)',
-  'Gantt / timeline renderer',
-  'Direct engineering support',
-  'Team discounts 3+ seats',
-  'Roadmap influence',
-]
-
-const ENTERPRISE_FEATURES = [
-  'Everything in Pro Advanced',
-  'Custom contract & invoicing',
-  'Single-invoice team billing',
-  'SLA-backed support',
-  'Security review & compliance docs',
-  'Dedicated engineering contact',
-  'Roadmap co-design',
-  'On-premise deployment support',
-]
+import { FREE_FEATURES } from './proPricingPlans'
 
 const FAQS = [
   {
@@ -531,230 +421,8 @@ const openPreview = (video: string) => {
   color: var(--vp-c-text-2);
 }
 
-/* ─── Cards ─────────────────────────────────────────────── */
 .cards-section {
   padding-bottom: 80px;
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-bottom: 20px;
-
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-    max-width: 420px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-.price-card {
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 14px;
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
-  transition: border-color 0.22s, transform 0.22s;
-
-  &:hover {
-    transform: translateY(-3px);
-    border-color: var(--vp-c-brand-2);
-  }
-
-  &.featured {
-    border-color: var(--vp-c-brand-2);
-    background: linear-gradient(145deg, var(--vp-c-brand-soft), var(--vp-c-bg-soft));
-    position: relative;
-  }
-}
-
-.card-label {
-  display: inline-flex;
-  align-items: center;
-  font-size: 11px;
-  font-weight: 700;
-  font-family: var(--vp-font-family-mono);
-  padding: 3px 10px;
-  border-radius: 100px;
-  margin-bottom: 18px;
-  width: fit-content;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-
-  &.green {
-    background: var(--green);
-    color: #fff;
-  }
-
-  &.accent {
-    background: var(--vp-c-brand-3);
-    color: #fff;
-  }
-
-  &.subtle {
-    background: var(--vp-c-bg-elv);
-    border: 1px solid var(--vp-c-divider);
-    color: var(--vp-c-text-2);
-  }
-
-  &.purple {
-    background: color-mix(in srgb, var(--purple) 15%, transparent);
-    border: 1px solid color-mix(in srgb, var(--purple) 30%, transparent);
-    color: oklch(0.75 0.18 290);
-  }
-}
-
-.card-name {
-  font-size: 21px;
-  font-weight: 700;
-  color: var(--vp-c-text-1);
-  margin-bottom: 6px;
-  letter-spacing: -0.3px;
-}
-
-.card-tagline {
-  font-size: 13px;
-  color: var(--vp-c-text-2);
-  margin-bottom: 24px;
-  line-height: 1.5;
-}
-
-.card-price-row {
-  display: flex;
-  align-items: baseline;
-  gap: 2px;
-  margin-bottom: 4px;
-}
-
-.price-currency {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--vp-c-text-2);
-  align-self: flex-start;
-  margin-top: 8px;
-}
-
-.price-num {
-  font-size: 46px;
-  font-weight: 700;
-  letter-spacing: -2px;
-  color: var(--vp-c-text-1);
-  line-height: 1;
-}
-
-.price-period {
-  font-size: 13px;
-  color: var(--vp-c-text-3);
-  font-weight: 400;
-}
-
-.price-note {
-  font-size: 12px;
-  color: var(--vp-c-text-3);
-  margin-bottom: 24px;
-  font-family: var(--vp-font-family-mono);
-}
-
-.card-cta {
-  display: block;
-  width: 100%;
-  padding: 11px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: var(--vp-font-family-base);
-  transition: all 0.2s;
-  text-decoration: none;
-  text-align: center;
-  margin-bottom: 24px;
-
-  &.primary {
-    background: var(--vp-c-brand-3);
-    color: #fff;
-    border: none;
-
-    &:hover {
-      filter: brightness(1.1);
-      transform: translateY(-1px);
-    }
-  }
-
-  &.ghost {
-    background: none;
-    border: 1px solid var(--vp-c-divider);
-    color: var(--vp-c-text-1);
-
-    &:hover {
-      background: var(--vp-c-bg-elv);
-    }
-  }
-
-  &.ghost-green {
-    background: none;
-    border: 1px solid color-mix(in srgb, var(--green) 40%, transparent);
-    color: var(--green);
-
-    &:hover {
-      background: color-mix(in srgb, var(--green) 8%, transparent);
-    }
-  }
-
-  &.ghost-purple {
-    background: none;
-    border: 1px solid color-mix(in srgb, var(--purple) 40%, transparent);
-    color: oklch(0.75 0.18 290);
-
-    &:hover {
-      background: color-mix(in srgb, var(--purple) 8%, transparent);
-    }
-  }
-}
-
-.card-divider {
-  height: 1px;
-  background: var(--vp-c-divider);
-  margin-bottom: 22px;
-}
-
-.card-features {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex: 1;
-}
-
-.card-feature {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 13px;
-  color: var(--vp-c-text-2);
-}
-
-
-.feat-icon {
-  font-size: 13px;
-  flex-shrink: 0;
-  margin-top: 1px;
-
-  &.check { color: var(--green); }
-  &.ent   { color: oklch(0.75 0.18 290); }
-}
-
-/* ─── Enterprise tile (in grid) ─────────────────────────── */
-.enterprise-tile {
-  border-color: color-mix(in srgb, var(--purple) 30%, transparent);
-  background: linear-gradient(145deg, color-mix(in srgb, var(--purple) 6%, transparent), var(--vp-c-bg-soft));
-
-  &:hover {
-    border-color: color-mix(in srgb, var(--purple) 50%, transparent);
-  }
 }
 
 /* ─── Open Source horizontal card ──────────────────────── */
@@ -804,7 +472,6 @@ const openPreview = (video: string) => {
 
 .oss-desc {
   font-size: 14px;
-  color: var(--vp-c-text-2);
   line-height: 1.6;
   max-width: 320px;
 }
@@ -816,7 +483,6 @@ const openPreview = (video: string) => {
 .oss-cta-btn {
   background: none;
   border: 1px solid color-mix(in srgb, var(--green) 40%, transparent);
-  color: var(--green);
   padding: 10px 22px;
   border-radius: 7px;
   font-size: 14px;
@@ -849,7 +515,6 @@ const openPreview = (video: string) => {
   align-items: flex-start;
   gap: 8px;
   font-size: 13px;
-  color: var(--vp-c-text-2);
 }
 
 .oss-check {
@@ -939,7 +604,7 @@ const openPreview = (video: string) => {
     border: 0;
     padding: 0;
     background: transparent;
-    color: var(--vp-c-text-3);
+    color: var(--vp-c-text-1);
     cursor: pointer;
     font-family: var(--vp-font-family-base);
     font-size: 11px;
@@ -962,7 +627,7 @@ const openPreview = (video: string) => {
   }
 
   .feature-name {
-    color: var(--vp-c-text-2);
+    color: var(--vp-c-text-1);
 
     a {
       color: inherit;
@@ -1035,6 +700,7 @@ const openPreview = (video: string) => {
   cursor: pointer;
   outline: none;
   box-shadow: none;
+  color: var(--vp-c-text-2);
 
   &:focus,
   &:focus-visible {
