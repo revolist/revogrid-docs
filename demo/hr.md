@@ -1,5 +1,5 @@
 ---
-title: Pivot Analytics Workspace
+title: HR Workspace
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false

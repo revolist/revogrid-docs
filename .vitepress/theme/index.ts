@@ -16,6 +16,7 @@ import HomeUseCases from './HomeUseCases.vue'
 import HomeLicensing from './HomeLicensing.vue'
 import HomeFeatureStats from './HomeFeatureStats.vue'
 import HomeCtaBanner from './HomeCtaBanner.vue'
+import ProDemoFrame from './ProDemoFrame.vue'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 
 export default {
@@ -42,5 +43,6 @@ export default {
         enhanceAppWithTabs(app)
         app.component('custom', CustomLayout)
         app.component('Mermaid', Mermaid)
+        app.component('ProDemoFrame', ProDemoFrame)
     },
 } satisfies Theme

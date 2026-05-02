@@ -1,5 +1,5 @@
 ---
-title: Pivot Analytics Workspace
+title: Ecommerce Workspace
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false
