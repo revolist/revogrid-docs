@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
-import { useSidebar } from 'vitepress/theme'
+import { useLayout } from 'vitepress/dist/client/theme-default/composables/layout.js'
 import VPImage from './VPImage.vue'
 import { ref } from 'vue'
 import ContactForm from '../../pro/ContactForm.vue'
 
 let showForm = ref(false) // isVisible
 const { site, theme, frontmatter } = useData()
-const { hasSidebar } = useSidebar()
+const { hasSidebar } = useLayout()
 </script>
 
 <template>
@@ -72,6 +72,7 @@ const { hasSidebar } = useSidebar()
     border-top: 1px solid var(--vp-c-gutter);
     padding: 20px 24px 32px 24px;
     background-color: var(--vp-c-bg);
+    overflow: hidden;
 
     .container {
         padding-bottom: 10px;

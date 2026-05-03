@@ -2,18 +2,43 @@ import type { DefaultTheme } from 'vitepress'
 
 export const navbarEn: DefaultTheme.NavItem[] = [
   {
+    text: 'Product',
+    items: [
+      {
+        text: 'Data Grid',
+        link: '/',
+        activeMatch: '^/$',
+      },
+      {
+        text: 'Pivot Analytics',
+        link: '/pivot',
+        activeMatch: '^/pivot',
+      },
+      {
+        text: 'Gantt & Scheduler',
+        link: '/gantt',
+        activeMatch: '^/gantt',
+      },
+    ],
+  },
+  {
     text: 'Docs',
     link: '/guide/',
     activeMatch: '^/guide/',
   },
   {
-    text: 'Use Cases',
-    link: '/demo/',
-    activeMatch: '^/demo/',
-  },
-  {
-    text: 'Interactive Demos',
-    link: 'https://demo.rv-grid.com/?framework=all',
+    text: 'Demos',
+    items: [
+      {
+        text: 'Use Cases',
+        link: '/demo/',
+        activeMatch: '^/demo/',
+      },
+      {
+        text: 'Examples Portal',
+        link: 'https://demo.rv-grid.com/?framework=all',
+      },
+    ],
   },
   {
     text: 'Pricing',
@@ -23,9 +48,6 @@ export const navbarEn: DefaultTheme.NavItem[] = [
     text: 'RevoGrid Pro',
     link: '/pro/',
     activeMatch: '^/(pro/(?!prices(?:/|$))|pro-docs/)',
-  }, {
-    text: 'v4.x',
-    items: [{ text: 'v3.x', link: 'https://v3.rv-grid.com' }],
   },
   {
     text: 'Links',
@@ -37,6 +59,10 @@ export const navbarEn: DefaultTheme.NavItem[] = [
       {
         text: 'Roadmap',
         link: 'https://github.com/users/revolist/projects/3',
+      },
+      {
+        text: 'v3.x',
+        link: 'https://v3.rv-grid.com',
       },
       // {
       //   text: 'Changelog',

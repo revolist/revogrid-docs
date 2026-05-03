@@ -136,6 +136,18 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         link: '/demo/color',
     },
     {
+        text: 'Gantt Workspace',
+        link: '/demo/gantt',
+    },
+    {
+        text: 'HR Workspace',
+        link: '/demo/hr',
+    },
+    {
+        text: 'Ecommerce Workspace',
+        link: '/demo/ecommerce',
+    },
+    {
         text: '<img src="/js.svg" alt="JS logo" width="15" height="15"/> JS,JSX',
         collapsed: true,
         items: [

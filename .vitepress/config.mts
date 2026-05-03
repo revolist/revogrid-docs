@@ -1,6 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
 import { DefaultTheme, defineConfig, UserConfig } from 'vitepress'
-import { withMermaid } from 'vitepress-plugin-mermaid'
 import svgLoader from 'vite-svg-loader'
 import { navbarEn } from './configs/navbar'
 import { sidebarEn } from './configs/sidebar'
@@ -12,6 +11,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import markdownItAttrs from 'markdown-it-attrs'
+import type MarkdownIt from 'markdown-it'
 
 dotenv.config()
 
@@ -33,6 +33,55 @@ export const slugify = (str: string): string =>
         .replace(rSpecial, '-')
         // ensure it doesn't start with a number
         .replace(/^(\d)/, '_$1')
+
+const mermaidMarkdownPlugin = (md: MarkdownIt) => {
+    const fence = md.renderer.rules.fence?.bind(md.renderer.rules)
+
+    md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+        const token = tokens[idx]
+        const language = token.info.trim()
+
+        if (language === 'mermaid' || language === 'mmd') {
+            const id = `mermaid-${idx}`
+            const graph = encodeURIComponent(token.content)
+            return `<ClientOnly><Mermaid id="${id}" graph="${graph}" /></ClientOnly>`
+        }
+
+        return fence ? fence(tokens, idx, options, env, self) : self.renderToken(tokens, idx, options)
+    }
+}
+
+const useLocalProPackages = process.env.npm_lifecycle_event === 'dev' || process.argv.includes('dev')
+const localProPackageAliases = useLocalProPackages
+    ? [
+        {
+            find: '@revolist/revogrid-pro',
+            replacement: path.resolve(__dirname, '../../../packages/pro'),
+        },
+        {
+            find: '@revolist/revogrid-enterprise',
+            replacement: path.resolve(__dirname, '../../../packages/enterprise'),
+        },
+    ]
+    : []
+
+const browserOnlyPackageSsrShims = () => ({
+    name: 'browser-only-package-ssr-shims',
+    enforce: 'pre' as const,
+    resolveId(source: string, _importer: string | undefined, options: { ssr?: boolean } = {}) {
+        if (!options.ssr) return null
+
+        if (source === '@revolist/revogrid-enterprise') {
+            return path.resolve(__dirname, 'revogrid-enterprise-ssr-shim.ts')
+        }
+
+        if (source === '@revolist/revogrid-pro') {
+            return path.resolve(__dirname, 'revogrid-pro-ssr-shim.ts')
+        }
+
+        return null
+    },
+})
 
 const config: UserConfig<DefaultTheme.Config> = {
     sitemap: {
@@ -65,6 +114,7 @@ const config: UserConfig<DefaultTheme.Config> = {
             bun: 'js',
         },
         config(md) {
+            md.use(mermaidMarkdownPlugin)
             md.use(tabsMarkdownPlugin)
             md.use(containerPreview)
             md.use(markdownItAttrs, {
@@ -168,6 +218,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     },
     vite: {
         plugins: [
+            browserOnlyPackageSsrShims(),
             AutoImport({
                 resolvers: [ElementPlusResolver()],
             }),
@@ -177,13 +228,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             svgLoader(),
         ],
         ssr: {
-            noExternal: ['element-plus'],
+            noExternal: [
+                'element-plus',
+                '@revolist/revogrid-pro',
+                '@revolist/revogrid-enterprise',
+                '@revolist/revogrid-column-date',
+                '@revolist/revogrid-column-numeral',
+                '@revolist/revogrid-column-select',
+            ],
         },
         build: {
             sourcemap: false,
         },
         optimizeDeps: {
-            include: ['@revolist/revogrid-pro', 'pro-pages'], // List of node modules to include in bundling
+            include: [
+                '@revolist/revogrid-pro',
+                '@revolist/revogrid-enterprise',
+                '@braintree/sanitize-url',
+                'dayjs',
+                'debug',
+                'cytoscape-cose-bilkent',
+                'cytoscape',
+            ], // List of node modules to include in bundling
         },
         resolve: {
             extensions: [
@@ -213,9 +279,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     find: '@/',
                     replacement: path.resolve(__dirname, '/'),
                 },
+                ...localProPackageAliases,
                 {
-                    find: '@revolist/revogrid-pro',
-                    replacement: path.resolve(__dirname, '../pro-pages'),
+                    find: 'dayjs/plugin/advancedFormat.js',
+                    replacement: 'dayjs/esm/plugin/advancedFormat',
+                },
+                {
+                    find: 'dayjs/plugin/customParseFormat.js',
+                    replacement: 'dayjs/esm/plugin/customParseFormat',
+                },
+                {
+                    find: 'dayjs/plugin/isoWeek.js',
+                    replacement: 'dayjs/esm/plugin/isoWeek',
+                },
+                {
+                    find: 'cytoscape/dist/cytoscape.umd.js',
+                    replacement: 'cytoscape/dist/cytoscape.esm.mjs',
                 },
             ],
         },
@@ -227,4 +306,4 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig(withMermaid(config))
+export default defineConfig(config)

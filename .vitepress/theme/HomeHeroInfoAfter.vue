@@ -1,53 +1,93 @@
 <template>
-    <div class="tagline vp-doc">
-        <a
-            v-for="(item, i) in integrations"
-            :key="i"
-            :href="item.path"
-            :title="item.details"
-        >
-            <img width="24" :src="`/${item.icon}`" :alt="item.alt" />
-            <abbr>{{ item.title }}</abbr>
-        </a>
+    <div class="framework-badges">
+        <span class="framework-label">Works with</span>
+        <div class="fw-badges">
+            <a
+                v-for="(item, i) in integrations"
+                :key="i"
+                :href="item.path"
+                :title="item.details"
+                class="fw-badge"
+            >
+                <span class="fw-dot" :style="{ background: item.color }"></span>
+                {{ item.title }}
+            </a>
+        </div>
     </div>
 </template>
+
 <script lang="ts" setup>
 import { useData } from 'vitepress'
 import { computed } from 'vue'
+
+const FW_COLORS: Record<string, string> = {
+    Vue: '#4fc08d',
+    React: '#61dafb',
+    Angular: '#dd1b16',
+    Svelte: '#ff3e00',
+    JavaScript: '#f7df1e',
+}
+
 const { frontmatter } = useData()
-const integrations = computed(() => {
-    if (frontmatter.value.integrations?.length) {
-        return frontmatter.value.integrations
-    }
-    return []
-})
+const integrations = computed(() =>
+    (frontmatter.value.integrations ?? []).map((item: any) => ({
+        ...item,
+        color: FW_COLORS[item.title] ?? 'var(--vp-c-brand-1)',
+    }))
+)
 </script>
+
 <style lang="scss" scoped>
-.tagline {
-    padding-top: 20px;
+.framework-badges {
     display: flex;
-    flex-direction: row;
+    align-items: center;
     flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 20px;
     justify-content: center;
+}
 
-    a {
-        display: flex;
-        align-items: center;
-        flex-wrap: nowrap;
-        gap: 0.2rem;
+.framework-label {
+    font-size: 12px;
+    color: var(--vp-c-text-3);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+
+.fw-badges {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.fw-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--vp-c-bg-soft);
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 5px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--vp-c-text-2);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+
+    &:hover {
+        border-color: var(--vp-c-brand-2);
         color: var(--vp-c-text-1);
-        text-decoration: none;
-        text-underline-offset: 0;
-
-        padding: 2px 5px;
-        border-radius: 8px;
-        overflow: hidden;
-        margin: 0.1rem 0;
-        transition: background-color 0.2s ease-in-out;
-
-        &:hover {
-            background-color: var(--vp-c-bg-soft);
-        }
+        background: var(--vp-c-bg-elv);
     }
+}
+
+.fw-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 </style>

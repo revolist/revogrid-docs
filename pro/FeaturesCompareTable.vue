@@ -62,9 +62,12 @@
                     </tr>
                     <template v-if="expandedGroups[groupIndex]">
                         <tr
-                            v-for="(feature, featureIndex) in group.features"
-                            :key="`${groupIndex}-${featureIndex}`"
-                            :class="{ 'nested-feature': feature.nesting > 0 }"
+                            v-for="feature in visibleFeatures(group)"
+                            :key="`${groupIndex}-${feature.name}`"
+                            :class="{
+                                'nested-feature': feature.nesting > 0,
+                                'collapsible-feature': feature.collapsible,
+                            }"
                         >
                             <td
                                 :style="{
@@ -73,6 +76,15 @@
                                 class="feature-card"
                                 :id="feature.name.replace(' ', '-')"
                             >
+                                <button
+                                    v-if="feature.collapsible"
+                                    class="feature-expand"
+                                    type="button"
+                                    :aria-expanded="isFeatureExpanded(group.name, feature.name)"
+                                    @click.stop="toggleFeature(group.name, feature.name)"
+                                >
+                                    {{ isFeatureExpanded(group.name, feature.name) ? '▼' : '▶' }}
+                                </button>
                                 <a
                                     v-if="feature.link"
                                     :href="feature.link"
@@ -83,7 +95,17 @@
                                 <template v-else>{{ feature.name }}</template>
                                 <span v-if="feature.beta" class="VPBadge warning" style="font-size:0.7em;vertical-align:middle;margin-left:4px">Beta</span>
 
-                                <span class="feature-actions">
+                                <span v-if="hasFeatureActions(feature)" class="feature-actions">
+                                    <a
+                                        v-if="feature.link"
+                                        class="docs-preview action-outline-btn"
+                                        :href="feature.link"
+                                        :target="isExternalHref(feature.link) ? '_blank' : undefined"
+                                        :rel="isExternalHref(feature.link) ? 'noopener' : undefined"
+                                        title="Documentation"
+                                    >
+                                        Docs
+                                    </a>
                                     <a
                                         v-if="feature.demoUrl"
                                         class="demo-preview action-outline-btn"
@@ -159,10 +181,10 @@ const videoUrl = ref('')
 // Props
 interface Plan {
     name: string
-    price: number
+    price?: number
     priceYear?: number
-    details: string[]
-    buttonText: string
+    details?: string[]
+    buttonText?: string
     link?: string
     ai?: boolean
     buttonTheme?: 'alt'
@@ -172,6 +194,9 @@ interface Feature {
     name: string
     supported: string[]
     nesting: number
+    parent?: string
+    collapsible?: boolean
+    expanded?: boolean
     children?: Feature[]
     link?: string
     demoUrl?: string
@@ -192,16 +217,44 @@ const props = defineProps<{
 
 // State
 const expandedGroups = ref<{ [key: number]: boolean }>({})
+const expandedFeatures = ref<Record<string, boolean>>({})
+
+const getFeatureKey = (groupName: string, featureName: string) => `${groupName}::${featureName}`
 
 // Initialize expanded state based on props
 props.features.forEach((group, index) => {
     expandedGroups.value[index] = group.expanded
+    group.features.forEach((feature) => {
+        if (feature.collapsible) {
+            expandedFeatures.value[getFeatureKey(group.name, feature.name)] = Boolean(feature.expanded)
+        }
+    })
 })
 
 // Methods
 const toggleGroup = (index: number) => {
     expandedGroups.value[index] = !expandedGroups.value[index]
 }
+
+const isFeatureExpanded = (groupName: string, featureName: string) => {
+    return expandedFeatures.value[getFeatureKey(groupName, featureName)] ?? true
+}
+
+const toggleFeature = (groupName: string, featureName: string) => {
+    const key = getFeatureKey(groupName, featureName)
+    expandedFeatures.value[key] = !isFeatureExpanded(groupName, featureName)
+}
+
+const visibleFeatures = (group: FeatureGroup) => {
+    return group.features.filter((feature) => {
+        if (!feature.parent) return true
+        return isFeatureExpanded(group.name, feature.parent)
+    })
+}
+
+const hasFeatureActions = (feature: Feature) => Boolean(feature.link || feature.demoUrl || feature.video)
+
+const isExternalHref = (href: string) => /^https?:\/\//.test(href)
 
 const openPreview = (video: string) => {
     videoUrl.value = video
@@ -270,6 +323,7 @@ const openPreview = (video: string) => {
     pointer-events: none;
 }
 
+.docs-preview,
 .demo-preview {
     text-decoration: none;
 }
@@ -277,6 +331,18 @@ const openPreview = (video: string) => {
 .feature-link {
     color: inherit;
     font-weight: inherit;
+}
+
+.feature-expand {
+    width: 16px;
+    border: 0;
+    padding: 0;
+    margin-right: 4px;
+    background: transparent;
+    color: var(--vp-c-text-3);
+    cursor: pointer;
+    font-size: 10px;
+    line-height: 1;
 }
 
 .pricing-table {
