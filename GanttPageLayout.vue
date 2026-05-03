@@ -101,8 +101,8 @@
 
 <script lang="ts" setup>
 import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
+import { useData } from 'vitepress'
 import RevoGrid from '@revolist/vue3-datagrid'
-import '../../packages/enterprise/dist/revogrid-enterprise.css'
 import {
   GanttPlugin,
   createDefaultTaskTableColumn,
@@ -112,12 +112,12 @@ import {
   type ResourceEntity,
   type TaskEntity,
 } from '@revolist/revogrid-enterprise'
-import { currentThemeVue } from '../../packages/portal/src/components/composables/useRandomData'
 import ProAdvancedCallout from './pro/ProAdvancedCallout.vue'
 import ProCtaBanner from './pro/ProCtaBanner.vue'
 import ProDocButton from './pro/ProDocButton.vue'
 import ProFeatureGrid from './pro/ProFeatureGrid.vue'
 import ProStatsBar from './pro/ProStatsBar.vue'
+import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
 
 const HERO_BADGES = [
   'Drag to reschedule',
@@ -494,11 +494,10 @@ const columns = [
   taskColumn('name', 230, { name: 'Task' }),
 ]
 
-const { isDark } = currentThemeVue()
+const { isDark } = useData()
 const plugins = ref([GanttPlugin])
 const gridRef = ref<(InstanceType<typeof RevoGrid> & { $el?: HTMLRevoGridElement }) | HTMLRevoGridElement | null>(null)
 let applyFrame = 0
-let themeObserver: MutationObserver | null = null
 
 function getGridEl(): HTMLRevoGridElement | null {
   const refValue = gridRef.value
@@ -517,26 +516,13 @@ function applyGanttProperties() {
   grid.gantt = ganttConfig
 }
 
-function syncDocsTheme() {
-  isDark.value = document.documentElement.classList.contains('dark')
-    || document.documentElement.getAttribute('data-theme') === 'dark'
-}
-
 onMounted(async () => {
-  syncDocsTheme()
-  themeObserver = new MutationObserver(syncDocsTheme)
-  themeObserver.observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ['class', 'data-theme'],
-  })
   await nextTick()
   applyFrame = requestAnimationFrame(applyGanttProperties)
 })
 
 onBeforeUnmount(() => {
   cancelAnimationFrame(applyFrame)
-  themeObserver?.disconnect()
-  themeObserver = null
 })
 </script>
 

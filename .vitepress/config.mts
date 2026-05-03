@@ -65,6 +65,24 @@ const localProPackageAliases = useLocalProPackages
     ]
     : []
 
+const browserOnlyPackageSsrShims = () => ({
+    name: 'browser-only-package-ssr-shims',
+    enforce: 'pre' as const,
+    resolveId(source: string, _importer: string | undefined, options: { ssr?: boolean } = {}) {
+        if (!options.ssr) return null
+
+        if (source === '@revolist/revogrid-enterprise') {
+            return path.resolve(__dirname, 'revogrid-enterprise-ssr-shim.ts')
+        }
+
+        if (source === '@revolist/revogrid-pro') {
+            return path.resolve(__dirname, 'revogrid-pro-ssr-shim.ts')
+        }
+
+        return null
+    },
+})
+
 const config: UserConfig<DefaultTheme.Config> = {
     sitemap: {
         hostname: 'https://rv-grid.com',
@@ -200,6 +218,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     },
     vite: {
         plugins: [
+            browserOnlyPackageSsrShims(),
             AutoImport({
                 resolvers: [ElementPlusResolver()],
             }),
@@ -211,6 +230,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ssr: {
             noExternal: [
                 'element-plus',
+                '@revolist/revogrid-pro',
+                '@revolist/revogrid-enterprise',
                 '@revolist/revogrid-column-date',
                 '@revolist/revogrid-column-numeral',
                 '@revolist/revogrid-column-select',
