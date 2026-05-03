@@ -1,247 +1,26 @@
 <template>
     <div id="usecases" class="use-cases">
-        <section class="usecases-hero">
-            <div class="container">
-                <div class="eyebrow"><span class="eyebrow-dot"></span>Use Cases</div>
-                <h2 class="section-title">Built for the hardest<br>data problems.</h2>
-                <p class="section-sub">Every case below has been shipped by teams using RevoGrid in production. Not prototypes. Real products.</p>
+        <HomeUseCasesHero />
 
-                <div class="uc-tiles">
-                    <article class="uc-tile">
-                        <div class="uc-tile-icon">📋</div>
-                        <h3 class="uc-tile-title">Project Tracker (ERP)</h3>
-                        <p class="uc-tile-desc">Task management with priorities, progress bars, timelines, and grouped rows for ops teams.</p>
-                    </article>
-                    <article class="uc-tile">
-                        <div class="uc-tile-icon">👥</div>
-                        <h3 class="uc-tile-title">Customer Analytics</h3>
-                        <p class="uc-tile-desc">Inline star ratings, avatar cells, segmentation filters, and column groups across 350+ rows.</p>
-                    </article>
-                    <article class="uc-tile">
-                        <div class="uc-tile-icon">📊</div>
-                        <h3 class="uc-tile-title">Analytics Platforms</h3>
-                        <p class="uc-tile-desc">Pivot-ready, aggregation-first grids that scale to millions of rows.</p>
-                    </article>
-                    <article class="uc-tile">
-                        <div class="uc-tile-icon">🗓️</div>
-                        <h3 class="uc-tile-title">Operations Planning</h3>
-                        <p class="uc-tile-desc">Gantt-style scheduling, resource allocation, and interactive timelines.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
+        <HomeUseCaseProjectTracker />
 
-        <section class="uc-detail" id="uc-project-tracker">
-            <div class="container">
-                <div class="uc-detail-inner">
-                    <div>
-                        <div class="uc-detail-tag">Project Tracker · ERP</div>
-                        <h2 class="uc-detail-title">ERP-grade task tracking, built on the grid.</h2>
-                        <p class="uc-detail-desc">Real teams need more than a task list. RevoGrid powers ERP-style trackers with inline priority editing, progress visualization, groupable sections, and budget columns — all inside a live, virtualized grid.</p>
-                        <div class="uc-features">
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Row grouping</strong> — collapse and expand sections like "This Week" / "Next Week" with aggregated stats</span></div>
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Inline cell editors</strong> — priority dropdowns, status selects, progress sliders — all native to the grid</span></div>
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Progress column type</strong> — render bar + number inside a single cell without a custom component</span></div>
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Timeline badges</strong> — date range rendering with conditional coloring based on deadline status</span></div>
-                        </div>
-                        <div class="uc-ctas">
-                            <a href="/demo/" class="btn-primary-lg">See live demo</a>
-                            <a href="/demo/" class="btn-secondary-lg">Read docs</a>
-                        </div>
-                    </div>
+        <HomeUseCaseCustomerAnalytics />
 
-                    <div class="mock-panel">
-                        <div class="mock-header">
-                            <span class="mock-dot red"></span>
-                            <span class="mock-dot yellow"></span>
-                            <span class="mock-dot green"></span>
-                            <span class="mock-title">Project Tracker · ERP-style</span>
-                        </div>
-                        <div class="pt-toolbar">
-                            <div class="pt-search">Search task...</div>
-                            <div class="pt-filter-pill"><strong>Owner</strong> All ▾</div>
-                            <div class="pt-filter-pill"><strong>Priority</strong> All ▾</div>
-                            <div class="pt-filter-pill"><strong>Status</strong> All ▾</div>
-                            <div class="pt-add-btn">+ Add task</div>
-                        </div>
-                        <div class="pt-col-hdr">
-                            <span>TASK</span><span>OWNER</span><span>PRIORITY</span><span>STATUS</span><span>PROGRESS</span><span>TIMELINE</span><span>BUDGET</span>
-                        </div>
-                        <div class="pt-group-hdr">
-                            <span>▾ This Week</span><span class="pt-group-count">5 tasks</span>
-                            <div class="pt-group-stats"><span>4 in progress</span><span>1 complete</span></div>
-                        </div>
-                        <div class="pt-row">
-                            <div class="pt-task-cell">Convince AI to write better code</div><div class="center"><span class="pt-owner-av purple">JM</span></div><div><span class="pt-prio prio-high">High</span></div><div><span class="pt-status st-ip">● In Progress</span></div><div class="pt-prog"><span class="pt-prog-track"><span class="pt-prog-fill w20"></span></span><span class="pt-prog-num">20</span></div><div><span class="pt-tl tl-red">Mar 20-27</span></div><div class="pt-budget">$15,000</div>
-                        </div>
-                        <div class="pt-row">
-                            <div class="pt-task-cell">Convert office plants to React components</div><div class="center"><span class="pt-owner-av pink">SP</span></div><div><span class="pt-prio prio-medium">Medium</span></div><div><span class="pt-status st-complete">● Complete</span></div><div class="pt-prog"><span class="pt-prog-track"><span class="pt-prog-fill w50"></span></span><span class="pt-prog-num">50</span></div><div><span class="pt-tl tl-yellow">Mar 20-27</span></div><div class="pt-budget">$15,000</div>
-                        </div>
-                        <div class="pt-row">
-                            <div class="pt-task-cell">Humans: 1, Code: 0!</div><div class="center"><span class="pt-owner-av teal">LV</span></div><div><span class="pt-prio prio-low">Low</span></div><div><span class="pt-status st-ip">● In Progress</span></div><div class="pt-prog"><span class="pt-prog-track"><span class="pt-prog-fill w100"></span></span><span class="pt-prog-num">100</span></div><div><span class="pt-tl tl-green">Mar 20-27</span></div><div class="pt-budget">$15,000</div>
-                        </div>
-                        <div class="pt-row">
-                            <div class="pt-task-cell">Redesign the company website</div><div class="center"><span class="pt-owner-av amber">YL</span></div><div><span class="pt-prio prio-high">High</span></div><div><span class="pt-status st-ip">● In Progress</span></div><div class="pt-prog"><span class="pt-prog-track"><span class="pt-prog-fill w40"></span></span><span class="pt-prog-num">40</span></div><div><span class="pt-tl tl-red">Apr 13-</span></div><div class="pt-budget">$12,000</div>
-                        </div>
-                        <div class="pt-row">
-                            <div class="pt-task-cell">Migrate to cloud infrastructure</div><div class="center"><span class="pt-owner-av violet">MA</span></div><div><span class="pt-prio prio-high">High</span></div><div><span class="pt-status st-complete">● Complete</span></div><div class="pt-prog"><span class="pt-prog-track"><span class="pt-prog-fill w100"></span></span><span class="pt-prog-num">100</span></div><div><span class="pt-tl tl-green">May 7-14</span></div><div class="pt-budget">$15,000</div>
-                        </div>
-                        <div class="pt-group-hdr orange">
-                            <span>▾ Next Week</span><span class="pt-group-count">3 tasks</span>
-                            <div class="pt-group-stats"><span>1 in progress</span><span>2 complete</span></div>
-                        </div>
-                        <div class="pt-row">
-                            <div class="pt-task-cell">Teach rubber duck to debug code</div><div class="center"><span class="pt-owner-av rose">RK</span></div><div><span class="pt-prio prio-medium">Medium</span></div><div><span class="pt-status st-ns">● Not Started</span></div><div class="pt-prog"><span class="pt-prog-track"><span class="pt-prog-fill w50"></span></span><span class="pt-prog-num">50</span></div><div><span class="pt-tl tl-yellow">Mar 28-Apr 4</span></div><div class="pt-budget">$8,000</div>
-                        </div>
-                        <div class="pt-row">
-                            <div class="pt-task-cell">Develop new API endpoints</div><div class="center"><span class="pt-owner-av lime">CW</span></div><div><span class="pt-prio prio-medium">Medium</span></div><div><span class="pt-status st-complete">● Complete</span></div><div class="pt-prog"><span class="pt-prog-track"><span class="pt-prog-fill w100"></span></span><span class="pt-prog-num">100</span></div><div><span class="pt-tl tl-green">Apr 21-28</span></div><div class="pt-budget">$7,000</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <HomeUseCaseAnalytics />
 
-        <section class="uc-detail" id="uc-customer-analytics">
-            <div class="container">
-                <div class="uc-detail-inner reverse">
-                    <div>
-                        <div class="uc-detail-tag">Customer Analytics</div>
-                        <h2 class="uc-detail-title">Inline visualizations across real customer data.</h2>
-                        <p class="uc-detail-desc">Customer-facing analytics grids need more than just numbers. RevoGrid renders avatar cells, star rating columns, segmentation pills, and column groups — all with performant re-rendering as filters update.</p>
-                        <div class="uc-features">
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Avatar &amp; name column</strong> — custom cell renderer combining image + text in one column</span></div>
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Star rating renderer</strong> — interactive or display-only star columns — no third-party dependency</span></div>
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Column groups</strong> — visually group related columns (PERSONAL, SPENDING) with a shared header row</span></div>
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Inline filter toolbar</strong> — per-column filter expressions with live row count and spend aggregation</span></div>
-                        </div>
-                        <div class="uc-ctas">
-                            <a href="/demo/" class="btn-primary-lg">See live demo</a>
-                            <a href="/demo/" class="btn-secondary-lg">Read docs</a>
-                        </div>
-                    </div>
-
-                    <div class="mock-panel wide-mock">
-                        <div class="mock-header">
-                            <span class="mock-dot red"></span>
-                            <span class="mock-dot yellow"></span>
-                            <span class="mock-dot green"></span>
-                            <span class="mock-title">Customer Analytics · 350 rows · 11 cols</span>
-                        </div>
-                        <div class="ca-toolbar">
-                            <div class="ca-search"><span>Gender eq "Female"...</span></div>
-                            <div class="ca-tb-btn">Reset</div>
-                            <div class="ca-tb-btn">Columns ▾</div>
-                            <div class="ca-stat-chip">Rows <strong>350/350</strong></div>
-                            <div class="ca-stat-chip">Spend <strong>$295.9K</strong></div>
-                            <div class="ca-export-btn">Export</div>
-                        </div>
-                        <div class="ca-hint">↕ Drag columns here to group by row.</div>
-                        <div class="ca-col-group">
-                            <div class="ca-cg-cell span-2"></div>
-                            <div class="ca-cg-span span-5">PERSONAL</div>
-                            <div class="ca-cg-span span-2 blue-group">SPENDING</div>
-                        </div>
-                        <div class="ca-col-hdr">
-                            <span>☐</span><span>ID</span><span>CUSTOMER</span><span>GENDER</span><span>CITY</span><span>AGE</span><span>MEMBERSHIP</span><span>LTV</span><span>AVG RATING</span>
-                        </div>
-                        <div class="ca-rows">
-                            <div class="ca-row"><div class="ca-cell">☐</div><div class="ca-cell ca-id">101</div><div class="ca-cell ca-name-cell"><span class="ca-avatar purple">FN</span><span>F. Newman</span></div><div class="ca-cell"><span class="ca-gpill ca-female">● Female</span></div><div class="ca-cell ca-city">New York</div><div class="ca-cell ca-age">29</div><div class="ca-cell"><span class="ca-mpill ca-gold">● Gold</span></div><div class="ca-cell ca-ltv">$1,680</div><div class="ca-cell"><span class="ca-stars"><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star e">★</span><span class="ca-rnum">4.6</span></span></div></div>
-                            <div class="ca-row"><div class="ca-cell">☐</div><div class="ca-cell ca-id">102</div><div class="ca-cell ca-name-cell"><span class="ca-avatar teal">ML</span><span>M. Lee</span></div><div class="ca-cell"><span class="ca-gpill ca-male">● Male</span></div><div class="ca-cell ca-city">Los Angeles</div><div class="ca-cell ca-age">34</div><div class="ca-cell"><span class="ca-mpill ca-silver">● Silver</span></div><div class="ca-cell ca-ltv">$937</div><div class="ca-cell"><span class="ca-stars"><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star e">★</span><span class="ca-rnum">4.1</span></span></div></div>
-                            <div class="ca-row"><div class="ca-cell">☐</div><div class="ca-cell ca-id">103</div><div class="ca-cell ca-name-cell"><span class="ca-avatar pink">FC</span><span>F. Chen</span></div><div class="ca-cell"><span class="ca-gpill ca-female">● Female</span></div><div class="ca-cell ca-city">Chicago</div><div class="ca-cell ca-age">43</div><div class="ca-cell"><span class="ca-mpill ca-bronze">● Bronze</span></div><div class="ca-cell ca-ltv">$511</div><div class="ca-cell"><span class="ca-stars"><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star e">★</span><span class="ca-star e">★</span><span class="ca-rnum">3.4</span></span></div></div>
-                            <div class="ca-row"><div class="ca-cell">☐</div><div class="ca-cell ca-id">104</div><div class="ca-cell ca-name-cell"><span class="ca-avatar violet">MS</span><span>M. Smith</span></div><div class="ca-cell"><span class="ca-gpill ca-male">● Male</span></div><div class="ca-cell ca-city">San Francisco</div><div class="ca-cell ca-age">30</div><div class="ca-cell"><span class="ca-mpill ca-gold">● Gold</span></div><div class="ca-cell ca-ltv">$2,220</div><div class="ca-cell"><span class="ca-stars"><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star e">★</span><span class="ca-rnum">4.7</span></span></div></div>
-                            <div class="ca-row"><div class="ca-cell">☐</div><div class="ca-cell ca-id">105</div><div class="ca-cell ca-name-cell"><span class="ca-avatar amber">MM</span><span>M. Muller</span></div><div class="ca-cell"><span class="ca-gpill ca-male">● Male</span></div><div class="ca-cell ca-city">Miami</div><div class="ca-cell ca-age">27</div><div class="ca-cell"><span class="ca-mpill ca-silver">● Silver</span></div><div class="ca-cell ca-ltv">$864</div><div class="ca-cell"><span class="ca-stars"><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star e">★</span><span class="ca-rnum">4.0</span></span></div></div>
-                            <div class="ca-row"><div class="ca-cell">☐</div><div class="ca-cell ca-id">106</div><div class="ca-cell ca-name-cell"><span class="ca-avatar rose">FH</span><span>F. Hayes</span></div><div class="ca-cell"><span class="ca-gpill ca-female">● Female</span></div><div class="ca-cell ca-city">Houston</div><div class="ca-cell ca-age">37</div><div class="ca-cell"><span class="ca-mpill ca-bronze">● Bronze</span></div><div class="ca-cell ca-ltv">$441</div><div class="ca-cell"><span class="ca-stars"><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star f">★</span><span class="ca-star e">★</span><span class="ca-star e">★</span><span class="ca-rnum">3.1</span></span></div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="uc-detail" id="uc-analytics">
-            <div class="container">
-                <div class="uc-detail-inner">
-                    <div>
-                        <div class="uc-detail-tag">Analytics Platforms</div>
-                        <h2 class="uc-detail-title">Pivot-ready, aggregation-first.</h2>
-                        <p class="uc-detail-desc">Analytics tools need more than a table — they need grouping, aggregation, sorting across millions of records, and on-the-fly pivoting. RevoGrid handles all of it without a server round-trip.</p>
-                        <div class="uc-features">
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Column grouping &amp; pivoting</strong> — drag-and-drop column groupings with auto-aggregation</span></div>
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Custom aggregation functions</strong> — sum, avg, min/max, or bring your own</span></div>
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Inline spark charts</strong> — render mini bar, line, or area charts in any cell</span></div>
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Export to CSV / Excel</strong> — one-line API for full-data exports including filtered views</span></div>
-                        </div>
-                        <div class="uc-ctas">
-                            <a href="/demo/pivot" class="btn-primary-lg">See live demo</a>
-                            <a href="https://pro.rv-grid.com/guides/pivot" class="btn-secondary-lg">Read docs</a>
-                        </div>
-                    </div>
-
-                    <div class="mock-panel">
-                        <div class="mock-header">
-                            <span class="mock-dot red"></span>
-                            <span class="mock-dot yellow"></span>
-                            <span class="mock-dot green"></span>
-                            <span class="mock-title">Revenue Analytics · Q1</span>
-                        </div>
-                        <div class="analytics-row header"><div>SEGMENT</div><div>REVENUE</div><div>GROWTH</div><div>SHARE</div></div>
-                        <div class="analytics-row"><div class="bar-cell"><span>Enterprise</span><span class="bar-track"><span class="bar-fill w82"></span></span></div><div class="num-cell">$4.2M</div><div class="num-cell up">+18%</div><div class="num-cell">42%</div></div>
-                        <div class="analytics-row"><div class="bar-cell"><span>Mid-Market</span><span class="bar-track"><span class="bar-fill w55"></span></span></div><div class="num-cell">$2.8M</div><div class="num-cell up">+24%</div><div class="num-cell">28%</div></div>
-                        <div class="analytics-row"><div class="bar-cell"><span>SMB</span><span class="bar-track"><span class="bar-fill w29"></span></span></div><div class="num-cell">$1.5M</div><div class="num-cell down">-3%</div><div class="num-cell">15%</div></div>
-                        <div class="analytics-row"><div class="bar-cell"><span>Self-serve</span><span class="bar-track"><span class="bar-fill w15"></span></span></div><div class="num-cell">$0.8M</div><div class="num-cell up">+41%</div><div class="num-cell">8%</div></div>
-                        <div class="analytics-row"><div class="bar-cell"><span>Partner</span><span class="bar-track"><span class="bar-fill w7"></span></span></div><div class="num-cell">$0.4M</div><div class="num-cell up">+12%</div><div class="num-cell">4%</div></div>
-                        <div class="analytics-row total"><div class="bar-cell"><strong>Total</strong></div><div class="num-cell strong">$9.7M</div><div class="num-cell up strong">+19%</div><div class="num-cell strong">100%</div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="uc-detail" id="uc-ops">
-            <div class="container">
-                <div class="uc-detail-inner reverse">
-                    <div>
-                        <div class="uc-detail-tag">Operations Planning</div>
-                        <h2 class="uc-detail-title">Scheduling and resource planning, reimagined.</h2>
-                        <p class="uc-detail-desc">Operations teams need Gantt-style timelines, capacity views, and drag-to-schedule interactions. Build it on RevoGrid with custom column types and drag-and-drop plugins.</p>
-                        <div class="uc-features">
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Custom cell renderers</strong> — build Gantt bars, timelines, and capacity meters as components</span></div>
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Drag &amp; drop rows</strong> — reorder tasks and resources with native row dragging</span></div>
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Frozen columns</strong> — keep resource labels visible while scrolling the timeline</span></div>
-                            <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Column resize &amp; reorder</strong> — users can adapt the view to their workflow</span></div>
-                        </div>
-                        <div class="uc-ctas">
-                            <a href="/demo/gantt" class="btn-primary-lg">See live demo</a>
-                            <a href="https://pro.rv-grid.com/guides/gantt/" class="btn-secondary-lg">Read docs</a>
-                        </div>
-                    </div>
-
-                    <div class="mock-panel">
-                        <div class="mock-header">
-                            <span class="mock-dot red"></span>
-                            <span class="mock-dot yellow"></span>
-                            <span class="mock-dot green"></span>
-                            <span class="mock-title">Sprint Planner · Q2 2025</span>
-                        </div>
-                        <div class="gantt-row header">
-                            <div class="gantt-label">RESOURCE</div>
-                            <div class="gantt-months"><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span></div>
-                        </div>
-                        <div class="gantt-row"><div class="gantt-label">Backend Team</div><div class="gantt-track"><span class="gantt-bar bar-blue gantt-1"></span></div></div>
-                        <div class="gantt-row"><div class="gantt-label">Frontend Team</div><div class="gantt-track"><span class="gantt-bar bar-green gantt-2"></span></div></div>
-                        <div class="gantt-row"><div class="gantt-label">Design</div><div class="gantt-track"><span class="gantt-bar bar-purple gantt-3"></span></div></div>
-                        <div class="gantt-row"><div class="gantt-label">QA</div><div class="gantt-track"><span class="gantt-bar bar-orange gantt-4"></span></div></div>
-                        <div class="gantt-row"><div class="gantt-label">DevOps</div><div class="gantt-track"><span class="gantt-bar bar-blue gantt-5"></span></div></div>
-                        <div class="gantt-row"><div class="gantt-label">Data Eng.</div><div class="gantt-track"><span class="gantt-bar bar-green gantt-6"></span></div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <HomeUseCaseOperations />
     </div>
 </template>
 
 <script lang="ts" setup>
+import HomeUseCasesHero from './use-cases/HomeUseCasesHero.vue'
+import HomeUseCaseProjectTracker from './use-cases/HomeUseCaseProjectTracker.vue'
+import HomeUseCaseCustomerAnalytics from './use-cases/HomeUseCaseCustomerAnalytics.vue'
+import HomeUseCaseAnalytics from './use-cases/HomeUseCaseAnalytics.vue'
+import HomeUseCaseOperations from './use-cases/HomeUseCaseOperations.vue'
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .use-cases {
     --uc-bg: var(--vp-c-bg);
     --uc-bg2: var(--vp-c-bg-soft);
@@ -265,6 +44,8 @@
     border-top: 1px solid var(--uc-border);
     background: var(--uc-bg);
 }
+
+.use-cases {
 
 .container {
     max-width: 1200px;
@@ -351,12 +132,21 @@
 }
 
 .uc-tile {
+    display: block;
     background: var(--uc-bg);
     padding: 32px 26px;
+    color: inherit;
+    text-decoration: none;
     transition: background 0.18s;
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
         background: var(--uc-bg2);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--uc-teal);
+        outline-offset: -2px;
     }
 }
 
@@ -390,6 +180,7 @@
 .uc-detail {
     padding: 92px 0;
     border-top: 1px solid var(--uc-border);
+    scroll-margin-top: 80px;
 
     &:nth-child(even) {
         background: var(--uc-bg2);
@@ -1177,4 +968,6 @@
         min-width: 420px;
     }
 }
+}
+
 </style>

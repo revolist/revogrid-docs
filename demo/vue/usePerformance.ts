@@ -10,6 +10,15 @@ export function usePerformance() {
   } | null>(null);
 
   let observer: PerformanceObserver | null = null;
+  const cleanupCallbacks: Array<() => void> = [];
+
+  const addCleanup = (callback: () => void) => {
+    cleanupCallbacks.push(callback);
+  };
+
+  onUnmounted(() => {
+    cleanupCallbacks.splice(0).forEach((callback) => callback());
+  });
 
 
 const fps = ref<number | null>(0);
@@ -57,12 +66,16 @@ const measureScrollFPS = (elementSelector: string) =>{
     }, 200); // Assume scrolling stops if no events for 200ms
   };
 
-  element.addEventListener('aftergridrender', () => {
-    element.querySelector('revogr-viewport-scroll.rgCol .vertical-inner')?.addEventListener('scroll', onScroll);
-  });
+  const attachScrollListener = () => {
+    const scrollElement = element.querySelector('revogr-viewport-scroll.rgCol .vertical-inner');
+    scrollElement?.addEventListener('scroll', onScroll);
+  };
 
-  onUnmounted(() => {
-    element.removeEventListener('scroll', onScroll);
+  element.addEventListener('aftergridrender', attachScrollListener);
+
+  addCleanup(() => {
+    element.removeEventListener('aftergridrender', attachScrollListener);
+    element.querySelector('revogr-viewport-scroll.rgCol .vertical-inner')?.removeEventListener('scroll', onScroll);
     clearTimeout((element as any)._scrollTimeout);
   });
 }
@@ -106,7 +119,7 @@ const measureScrollFPS = (elementSelector: string) =>{
     const intervalId = setInterval(() => measureMemoryUsage(), interval);
 
     // Cleanup on unmount
-    onUnmounted(() => {
+    addCleanup(() => {
       clearInterval(intervalId);
     });
   };
@@ -121,7 +134,7 @@ const measureScrollFPS = (elementSelector: string) =>{
     observer.observe({ entryTypes: ['measure', 'mark', 'paint'] });
 
     // Cleanup on unmount
-    onUnmounted(() => {
+    addCleanup(() => {
       observer?.disconnect();
     });
   };

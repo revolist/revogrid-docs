@@ -26,8 +26,8 @@ hero:
       text: Explore use cases
       link: /demo/
     - theme: alt
-      text: Open live demo
-      link: /demo/
+      text: Read docs
+      link: /guide/
 
 integrations:
 - title: Vue

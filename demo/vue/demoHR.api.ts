@@ -26,6 +26,13 @@ export async function getHRData(mode: number) {
 
             worker.onerror = (error) => {
                 console.error('Worker error:', error)
+                worker.terminate()
+                reject(error)
+            }
+
+            worker.onmessageerror = (error) => {
+                console.error('Worker message error:', error)
+                worker.terminate()
                 reject(error)
             }
 

@@ -4,7 +4,7 @@
             <p class="eyebrow">Why RevoGrid</p>
             <h2 class="section-title">Everything a production<br />data grid needs.</h2>
             <div class="cols">
-                <div class="col" v-for="f in FEATURES" :key="f.title">
+                <a class="col" v-for="f in FEATURES" :key="f.title" :href="f.href">
                     <div class="col-icon">{{ f.icon }}</div>
                     <div class="stat-row">
                         <span class="stat-num">{{ f.stat }}</span>
@@ -15,7 +15,7 @@
                     <div class="tags">
                         <span class="tag" v-for="t in f.tags" :key="t">{{ t }}</span>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -26,6 +26,7 @@ const FEATURES = [
     {
         icon: '⚡',
         title: 'Performance at Scale',
+        href: '/guide/performance',
         desc: 'Virtual DOM rendering, row virtualization, and lazy column loading keep the UI fluid — even with half a million rows.',
         stat: '500K',
         statLabel: 'rows at 60fps',
@@ -34,6 +35,7 @@ const FEATURES = [
     {
         icon: '🧩',
         title: 'Plugin Ecosystem',
+        href: '/pro/',
         desc: 'Add ready-made plugins, column types, editors, and renderers to shape complex data workflows without rebuilding grid behavior.',
         stat: '50+',
         statLabel: 'extensions',
@@ -42,6 +44,7 @@ const FEATURES = [
     {
         icon: '🔌',
         title: 'Framework Flexibility',
+        href: '/guide/installation',
         desc: 'One grid component. Native bindings for React, Vue, Angular, Svelte, and vanilla JS — with identical APIs across all.',
         stat: '5',
         statLabel: 'framework targets',
@@ -95,12 +98,20 @@ const FEATURES = [
     background: var(--vp-c-bg);
     border: 1px solid var(--vp-c-divider);
     border-radius: 12px;
+    color: inherit;
+    display: block;
     padding: 36px 28px;
+    text-decoration: none;
     transition: border-color 0.25s, transform 0.25s;
 
     &:hover {
         border-color: var(--vp-c-brand-2);
         transform: translateY(-4px);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--vp-c-brand-1);
+        outline-offset: 3px;
     }
 }
 
