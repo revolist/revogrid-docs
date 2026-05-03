@@ -51,6 +51,20 @@ const mermaidMarkdownPlugin = (md: MarkdownIt) => {
     }
 }
 
+const useLocalProPackages = process.env.npm_lifecycle_event === 'dev' || process.argv.includes('dev')
+const localProPackageAliases = useLocalProPackages
+    ? [
+        {
+            find: '@revolist/revogrid-pro',
+            replacement: path.resolve(__dirname, '../../../packages/pro'),
+        },
+        {
+            find: '@revolist/revogrid-enterprise',
+            replacement: path.resolve(__dirname, '../../../packages/enterprise'),
+        },
+    ]
+    : []
+
 const config: UserConfig<DefaultTheme.Config> = {
     sitemap: {
         hostname: 'https://rv-grid.com',
@@ -244,14 +258,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     find: '@/',
                     replacement: path.resolve(__dirname, '/'),
                 },
-                {
-                    find: '@revolist/revogrid-pro',
-                    replacement: path.resolve(__dirname, '../../../packages/pro'),
-                },
-                {
-                    find: '@revolist/revogrid-enterprise',
-                    replacement: path.resolve(__dirname, '../../../packages/enterprise'),
-                },
+                ...localProPackageAliases,
                 {
                     find: 'dayjs/plugin/advancedFormat.js',
                     replacement: 'dayjs/esm/plugin/advancedFormat',
