@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.5](README.md) / SlotType
+[RevoGrid Documentation v4.21.6](README.md) / SlotType
 
 # Type Alias: SlotType
 
@@ -8,4 +8,4 @@ type SlotType: "content" | "header" | "footer";
 
 ## Defined in
 
-[src/types/viewport.interfaces.ts:19](https://github.com/revolist/revogrid/blob/99195a6cfd53147e252a186750e43ef2e04c1929/src/types/viewport.interfaces.ts#L19)
+[src/types/viewport.interfaces.ts:19](https://github.com/revolist/revogrid/blob/a9ac74f43362117ea08122e5784fe4959d58ecdd/src/types/viewport.interfaces.ts#L19)
