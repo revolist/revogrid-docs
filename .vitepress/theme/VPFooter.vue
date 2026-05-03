@@ -72,6 +72,7 @@ const { hasSidebar } = useLayout()
     border-top: 1px solid var(--vp-c-gutter);
     padding: 20px 24px 32px 24px;
     background-color: var(--vp-c-bg);
+    overflow: hidden;
 
     .container {
         padding-bottom: 10px;
