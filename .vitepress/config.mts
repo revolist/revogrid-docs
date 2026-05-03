@@ -195,7 +195,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             svgLoader(),
         ],
         ssr: {
-            noExternal: ['element-plus'],
+            noExternal: [
+                'element-plus',
+                '@revolist/revogrid-column-date',
+                '@revolist/revogrid-column-numeral',
+                '@revolist/revogrid-column-select',
+            ],
         },
         build: {
             sourcemap: false,
@@ -203,7 +208,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         optimizeDeps: {
             include: [
                 '@revolist/revogrid-pro',
-                'pro-pages',
+                '@revolist/revogrid-enterprise',
                 '@braintree/sanitize-url',
                 'dayjs',
                 'debug',
@@ -241,7 +246,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 },
                 {
                     find: '@revolist/revogrid-pro',
-                    replacement: path.resolve(__dirname, '../pro-pages'),
+                    replacement: path.resolve(__dirname, '../../../packages/pro'),
+                },
+                {
+                    find: '@revolist/revogrid-enterprise',
+                    replacement: path.resolve(__dirname, '../../../packages/enterprise'),
                 },
                 {
                     find: 'dayjs/plugin/advancedFormat.js',

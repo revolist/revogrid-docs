@@ -27,7 +27,6 @@ export const PRO_ADV_FEATURES = [
   'Enterprise Pivot grid',
   'Gantt / timeline renderer',
   'Access to typed source code',
-  'AI-assisted development tools',
   'Direct engineering support',
   'Team discounts 3+ seats',
   'Roadmap influence',

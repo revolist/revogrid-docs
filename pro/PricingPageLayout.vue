@@ -248,7 +248,7 @@ const FAQS = [
   },
   {
     q: "What's the difference between Pro Light and Pro Advanced?",
-    a: '<strong>Pro Light</strong> gives you advanced column types, enhanced sorting, export, and priority bug fixes for one product. <strong>Pro Advanced</strong> adds the full plugin API, pivot tables, typed source access, AI assist, direct engineering support, and broader commercial use.',
+    a: '<strong>Pro Light</strong> gives you advanced column types, enhanced sorting, export, and priority bug fixes for one product. <strong>Pro Advanced</strong> adds the full plugin API, pivot tables, typed source access, direct engineering support, and broader commercial use.',
   },
   {
     q: 'Is the open-source version truly free?',

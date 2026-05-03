@@ -13,5 +13,9 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             text: 'RevoGrid Pro',
             link: '/pro/',
         },
+        {
+            text: 'Gantt',
+            link: '/gantt',
+        },
     ],
 }
