@@ -11,7 +11,7 @@
             <span class="hero-title-highlight">
               <span class="hero-title-part">Multi</span>
               <span class="hero-title-part">dimensional</span>
-            </span><br />
+            </span> 
             analytics, embedded.
           </h1>
           <p class="hero-sub fade-up-3">
@@ -30,38 +30,7 @@
         </div>
 
         <div class="fade-up-3">
-          <div class="pivot-demo-wrap">
-            <div class="pd-toolbar">
-              <span class="pd-traffic traffic-red"></span>
-              <span class="pd-traffic traffic-yellow"></span>
-              <span class="pd-traffic traffic-green"></span>
-              <span class="pd-title">pivot-analytics.revogrid.ts</span>
-            </div>
-
-            <div class="pivot-layout">
-              <div class="pivot-grid-wrap">
-                <ClientOnly>
-                  <RevoGrid
-                    class="pivot-grid cell-border"
-                    hide-attribution
-                    range
-                    resize
-                    filter
-                    readonly
-                    :col-size="132"
-                    :source="pivotRows"
-                    :pivot.prop="pivotConfig"
-                    :theme="isDark ? 'darkCompact' : 'compact'"
-                    :plugins="plugins"
-                    :column-types="columnTypes"
-                  />
-                  <template #fallback>
-                    <div class="pivot-grid-fallback">Loading pivot grid...</div>
-                  </template>
-                </ClientOnly>
-              </div>
-            </div>
-          </div>
+          <PivotDemo />
         </div>
       </div>
     </section>
@@ -99,22 +68,13 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
-import { useData } from 'vitepress'
-import NumberColumnType from '@revolist/revogrid-column-numeral'
-import RevoGrid, { type DataType, type GridPlugin } from '@revolist/vue3-datagrid'
-import { PivotPlugin, type PivotConfig } from './.vitepress/revogrid-enterprise-pivot-shim'
-import { AdvanceFilterPlugin, RowOddPlugin, commonAggregators } from './.vitepress/revogrid-pro-shim'
 import ProAdvancedCallout from './pro/ProAdvancedCallout.vue'
 import ProCtaBanner from './pro/ProCtaBanner.vue'
 import ProDocButton from './pro/ProDocButton.vue'
 import ProFeatureGrid from './pro/ProFeatureGrid.vue'
 import ProStatsBar from './pro/ProStatsBar.vue'
+import PivotDemo from './pro/PivotDemo.vue'
 import PivotUseCases from './pro/PivotUseCases.vue'
-import '@revolist/revogrid-pro/dist/revogrid-pro.css'
-import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
-
-const { isDark } = useData()
 
 const HERO_BADGES = [
   'Drag-and-drop dimensions',
@@ -169,84 +129,6 @@ const FEATURES = [
     tags: ['XLSX export', 'CSV export', 'Formatted values'],
   },
 ] as const
-
-const plugins: GridPlugin[] = [PivotPlugin, AdvanceFilterPlugin, RowOddPlugin]
-const columnTypes = ref({
-  currency: new NumberColumnType('$0,0.00'),
-  decimal: new NumberColumnType('0.00'),
-})
-
-const pivotRows = ref<DataType[]>([
-  { City: 'Chicago', 'Membership Type': 'Bronze', 'Discount Applied': true, 'Total Spend': 507.83, 'Average Rating': 3.5 },
-  { City: 'Houston', 'Membership Type': 'Bronze', 'Discount Applied': false, 'Total Spend': 440.7, 'Average Rating': 3.17 },
-  { City: 'Los Angeles', 'Membership Type': 'Silver', 'Discount Applied': false, 'Total Spend': 0, 'Average Rating': undefined },
-  { City: 'Miami', 'Membership Type': 'Silver', 'Discount Applied': true, 'Total Spend': 695.6, 'Average Rating': 3.8 },
-  { City: 'New York', 'Membership Type': 'Gold', 'Discount Applied': true, 'Total Spend': 1160.58, 'Average Rating': 4.42 },
-  { City: 'San Francisco', 'Membership Type': 'Gold', 'Discount Applied': false, 'Total Spend': 1457.17, 'Average Rating': 4.73 },
-])
-
-const pivotConfig = computed(() => ({
-  dimensions: [
-    { prop: 'City', sortable: true, filter: ['string', 'selection'] },
-    { prop: 'Membership Type', sortable: true, filter: ['string', 'selection'] },
-    { prop: 'Discount Applied', sortable: true, filter: ['selection'] },
-    {
-      prop: 'Total Spend',
-      columnType: 'currency',
-      sortable: true,
-      aggregators: {
-        sum: commonAggregators.sum,
-        avg: commonAggregators.avg,
-      },
-      cellProperties: ({ value }) => ({
-        class: {
-          'pivot-heat-high': Number(value) >= 1000,
-          'pivot-heat-mid': Number(value) >= 600 && Number(value) < 1000,
-          'pivot-heat-low': Number(value) > 0 && Number(value) < 600,
-        },
-      }),
-    },
-    {
-      name: 'Average Rating',
-      prop: 'Average Rating',
-      columnType: 'decimal',
-      sortable: true,
-      aggregators: {
-        avg: commonAggregators.avg,
-      },
-      cellProperties: ({ value }) => ({
-        class: {
-          'pivot-heat-high': Number(value) >= 4.2,
-          'pivot-heat-mid': Number(value) >= 3.5 && Number(value) < 4.2,
-          'pivot-heat-low': Number(value) > 0 && Number(value) < 3.5,
-        },
-      }),
-    },
-  ],
-  rows: ['City', 'Membership Type'],
-  columns: ['Discount Applied'],
-  values: [
-    { prop: 'Total Spend', aggregator: 'sum' },
-    { prop: 'Total Spend', aggregator: 'avg' },
-    { prop: 'Average Rating', aggregator: 'avg' },
-  ],
-  filters: ['Membership Type'],
-  fieldPanel: {
-    visible: false,
-    allowFieldDragging: true,
-    allowFieldRemoving: true,
-    showDataFields: true,
-    showRowFields: true,
-    showColumnFields: true,
-    showFilterFields: true,
-  },
-  totals: {
-    subtotals: false,
-    grandTotal: true,
-    subtotalLabel: 'Subtotal',
-    grandTotalLabel: 'Grand Total',
-  },
-} satisfies PivotConfig))
 </script>
 
 <style lang="scss" scoped>
@@ -387,6 +269,8 @@ const pivotConfig = computed(() => ({
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .hero-title-part {
@@ -434,234 +318,6 @@ const pivotConfig = computed(() => ({
   font-weight: 600;
 }
 
-.pivot-demo-wrap {
-  max-width: 100%;
-  min-width: 0;
-  overflow: hidden;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 14px;
-  background: var(--vp-c-bg);
-  box-shadow: var(--pro-doc-shadow-lg);
-
-  &::before {
-    content: '';
-    display: block;
-    height: 2px;
-    background: linear-gradient(90deg, transparent 0%, var(--pivot-accent) 35%, var(--pivot-accent-vivid) 65%, transparent 100%);
-  }
-}
-
-.pd-toolbar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
-  min-height: 42px;
-  padding: 9px 14px;
-  border-bottom: 1px solid var(--vp-c-divider);
-  background: var(--vp-c-bg-soft);
-}
-
-.pd-traffic {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  flex: 0 0 auto;
-}
-
-.traffic-red { background: #ff5f57; }
-.traffic-yellow { background: #febc2e; }
-.traffic-green { background: #28c840; }
-
-.pd-title {
-  flex: 1 1 auto;
-  min-width: 0;
-  margin-left: 4px;
-  overflow: hidden;
-  color: var(--vp-c-text-3);
-  font-family: var(--vp-font-family-mono);
-  font-size: 11px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.pivot-layout {
-  display: flex;
-  background: var(--vp-c-bg);
-}
-
-.pivot-field-panel {
-  padding: 12px;
-  border-right: 1px solid var(--vp-c-divider);
-
-  @media (max-width: 720px) {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    border-right: 0;
-    border-bottom: 1px solid var(--vp-c-divider);
-  }
-
-  @media (max-width: 520px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.pfp-section {
-  margin-bottom: 14px;
-
-  @media (max-width: 720px) {
-    margin-bottom: 0;
-  }
-}
-
-.pfp-label {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 7px;
-  color: var(--vp-c-text-3);
-  font-family: var(--vp-font-family-mono);
-  font-size: 10px;
-  font-weight: 750;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-
-  span {
-    padding: 1px 5px;
-    border-radius: 3px;
-    color: var(--pivot-accent);
-    background: var(--pivot-accent-soft);
-  }
-}
-
-.pfp-field,
-.slot-row {
-  display: flex;
-  align-items: center;
-  min-width: 0;
-  gap: 6px;
-  padding: 4px 7px;
-  border-radius: 5px;
-  color: var(--vp-c-text-2);
-  font-size: 12px;
-}
-
-.pfp-field.checked {
-  color: var(--vp-c-text-1);
-}
-
-.pfp-field:hover {
-  background: var(--vp-c-bg-soft);
-}
-
-.pfp-drag {
-  color: var(--vp-c-text-3);
-  font-family: var(--vp-font-family-mono);
-  font-size: 10px;
-}
-
-.pfp-check {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 12px;
-  height: 12px;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 3px;
-  color: white;
-  font-size: 9px;
-  line-height: 1;
-
-  &.on {
-    border-color: var(--pivot-accent);
-    background: var(--pivot-accent);
-  }
-}
-
-.slot-row {
-  margin-bottom: 4px;
-  border: 1px solid var(--vp-c-divider);
-  background: var(--vp-c-bg-soft);
-}
-
-.slot-chip {
-  overflow: hidden;
-  padding: 3px 7px;
-  border: 1px solid var(--pivot-accent-border);
-  border-radius: 4px;
-  color: var(--pivot-accent);
-  background: var(--pivot-accent-soft);
-  font-family: var(--vp-font-family-mono);
-  font-size: 11px;
-  font-weight: 650;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.slot-x {
-  margin-left: auto;
-  color: var(--vp-c-text-3);
-  font-size: 10px;
-}
-
-.pivot-grid-wrap {
-  overflow: auto;
-  min-width: 0;
-  height: clamp(520px, 58vh, 640px);
-  background: var(--vp-c-bg);
-}
-
-.pivot-grid {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  height: 100%;
-  --revo-grid-border-color: var(--vp-c-divider);
-}
-
-.pivot-grid-fallback {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  height: clamp(520px, 58vh, 640px);
-  color: var(--vp-c-text-3);
-  background: var(--vp-c-bg-soft);
-  font-family: var(--vp-font-family-mono);
-  font-size: 12px;
-}
-
-:global(.pivot-grid .pivot-heat-high) {
-  background: #dcfce7 !important;
-  color: #14532d !important;
-}
-
-:global(.pivot-grid .pivot-heat-mid) {
-  background: #fef9c3 !important;
-  color: #713f12 !important;
-}
-
-:global(.pivot-grid .pivot-heat-low) {
-  background: #fce7f3 !important;
-  color: #831843 !important;
-}
-
-:global(.dark .pivot-grid .pivot-heat-high) {
-  background: rgba(20, 83, 45, 0.42) !important;
-  color: #86efac !important;
-}
-
-:global(.dark .pivot-grid .pivot-heat-mid) {
-  background: rgba(113, 63, 18, 0.42) !important;
-  color: #fde68a !important;
-}
-
-:global(.dark .pivot-grid .pivot-heat-low) {
-  background: rgba(131, 24, 67, 0.42) !important;
-  color: #fbcfe8 !important;
-}
-
 .features-section {
   padding: 92px 0;
 }
@@ -692,11 +348,6 @@ const pivotConfig = computed(() => ({
 @media (max-width: 620px) {
   .pivot-hero {
     padding-top: 76px;
-  }
-
-  .pivot-grid-wrap,
-  .pivot-grid-fallback {
-    height: 480px;
   }
 }
 </style>

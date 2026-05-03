@@ -128,7 +128,7 @@ const HERO_BADGES = [
 
 const STATS = [
   { value: '10K+', label: 'tasks at 60fps' },
-  { value: '1', label: 'Vue component' },
+  { value: '1', label: 'Component' },
   { value: 'Unlimited', label: 'nested task groups' },
   { value: '5', label: 'framework targets' },
 ]
@@ -173,11 +173,11 @@ const FEATURES = [
 ] as const
 
 const INTEGRATIONS = [
-  { icon: 'JS', name: 'JavaScript', badge: 'Vanilla' },
-  { icon: 'Vue', name: 'Vue', badge: 'v3+' },
-  { icon: 'React', name: 'React', badge: 'v18+' },
-  { icon: 'Ng', name: 'Angular', badge: 'v15+' },
-  { icon: 'Sv', name: 'Svelte', badge: 'v4+' },
+  { icon: 'JS', name: 'JavaScript', badge: '' },
+  { icon: 'Vue', name: 'Vue', badge: '' },
+  { icon: 'React', name: 'React', badge: '' },
+  { icon: 'Ng', name: 'Angular', badge: '' },
+  { icon: 'Sv', name: 'Svelte', badge: '' },
 ]
 
 const GANTT_PROJECT_ID = 'launch-saas-product'
