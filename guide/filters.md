@@ -189,4 +189,9 @@ Need more advanced filtering workflows? RevoGrid Pro expands the filtering toolb
 - [Advanced selection filtering](/pro/)
 - [Advanced slider filtering](/pro/)
 
-<!--@include: ../demo/js/js.filtering.md-->
+<DemoWidgetFrame
+  demo="clear-filtering"
+  framework="ts"
+  title="RevoGrid Filtering"
+  minHeight="600"
+/>

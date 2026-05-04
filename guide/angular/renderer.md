@@ -85,7 +85,12 @@ export class AppComponent {
 ```
 
 
-<!--@include: ../../demo/angular/angular.cell.md-->
+<DemoWidgetFrame
+  demo="cell-template"
+  framework="angular"
+  title="RevoGrid Cell Template"
+/>
+
 
 <!--@include: ../parts/_renderer.why.md-->
 

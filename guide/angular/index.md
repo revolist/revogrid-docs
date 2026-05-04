@@ -12,10 +12,12 @@ head:
 RevoGrid shines in Angular when you want a high-performance grid without giving up framework-native templates and editors. The Angular wrapper keeps the grid convenient to use while still exposing the same core RevoGrid API.
 
 
+
 <DemoWidgetFrame
-  demo="getting-started"
+  demo="hr"
   framework="angular"
   title="RevoGrid getting started demo"
+  minHeight="600"
 />
 
 
@@ -107,6 +109,14 @@ Use these Angular-specific guides for deeper integration:
 
 - [Angular Cell Template](/guide/angular/renderer)
 - [Angular Cell Editor](/guide/angular/editor)
+
+
+<DemoWidgetFrame
+  demo="getting-started"
+  framework="angular"
+  title="RevoGrid getting started demo"
+/>
+
 
 ## Event handling
 

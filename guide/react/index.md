@@ -11,7 +11,13 @@ head:
 
 RevoGrid gives React applications a fast virtualized data grid without changing the core grid behavior. You pass `columns` and `source` as props, then use a ref when you need to call instance methods such as `setCellEdit`, `scrollToRow`, or `getVisibleSource`.
 
-<!--@include: ../../demo/react/react-datagrid.md-->
+<DemoWidgetFrame
+  demo="hr"
+  framework="react"
+  title="RevoGrid getting started demo"
+  minHeight="600"
+/>
+
 
 <!--@include: ./_install.md-->
 
@@ -28,6 +34,12 @@ In React, the most maintainable pattern is:
 - keep `columns` stable unless configuration really changed
 - update `source` from application state
 - use grid methods for imperative actions instead of reaching into internal DOM
+
+<DemoWidgetFrame
+  demo="getting-started"
+  framework="react"
+  title="RevoGrid getting started demo"
+/>
 
 ## Accessing grid instance methods
 

@@ -7,7 +7,11 @@ head:
       content: RevoGrid, row grouping, data grid grouping, JavaScript table grouping, TypeScript grid grouping
 ---
 
-<!--@include: ../../demo/js/js.grouping.md-->
+<DemoWidgetFrame
+  demo="grouping-rows"
+  framework="ts"
+  title="RevoGrid Row Grouping"
+/>
 
 
 ## Grouping Configuration
