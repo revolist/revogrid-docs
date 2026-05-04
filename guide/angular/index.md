@@ -11,7 +11,13 @@ head:
 
 RevoGrid shines in Angular when you want a high-performance grid without giving up framework-native templates and editors. The Angular wrapper keeps the grid convenient to use while still exposing the same core RevoGrid API.
 
-<!--@include: ../../demo/angular/angular-datagrid.md-->
+
+<DemoWidgetFrame
+  demo="getting-started"
+  framework="angular"
+  title="RevoGrid getting started demo"
+/>
+
 
 ::: info
 This tutorial assumes that an Angular project already exists. If not, start with the official [Angular installation guide](https://angular.dev/installation).

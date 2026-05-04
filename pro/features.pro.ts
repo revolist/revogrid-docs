@@ -1,7 +1,7 @@
-const DEMO_PORTAL = 'https://demo.rv-grid.com'
+import { demosPortalUrl } from '../.vitepress/configs/demoPortal'
 
 const demoCatalogUrl = (query: string) =>
-    `${DEMO_PORTAL}/?framework=all&q=${encodeURIComponent(query)}`
+    demosPortalUrl('/', { framework: 'all', q: query })
 
 const featureDemoQueries: Record<string, string> = {
     'Pivot Table': 'Pivot',
