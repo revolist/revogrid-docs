@@ -68,13 +68,13 @@
 </template>
 
 <script lang="ts" setup>
-import ProAdvancedCallout from './pro/ProAdvancedCallout.vue'
-import ProCtaBanner from './pro/ProCtaBanner.vue'
-import ProDocButton from './pro/ProDocButton.vue'
-import ProFeatureGrid from './pro/ProFeatureGrid.vue'
-import ProStatsBar from './pro/ProStatsBar.vue'
-import PivotDemo from './pro/PivotDemo.vue'
-import PivotUseCases from './pro/PivotUseCases.vue'
+import ProAdvancedCallout from '../pro/ProAdvancedCallout.vue'
+import ProCtaBanner from '../pro/ProCtaBanner.vue'
+import ProDocButton from '../pro/ProDocButton.vue'
+import ProFeatureGrid from '../pro/ProFeatureGrid.vue'
+import ProStatsBar from '../pro/ProStatsBar.vue'
+import PivotDemo from '../pro/PivotDemo.vue'
+import PivotUseCases from '../pro/PivotUseCases.vue'
 
 const HERO_BADGES = [
   'Drag-and-drop dimensions',
