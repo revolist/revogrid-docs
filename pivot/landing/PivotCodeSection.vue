@@ -10,16 +10,32 @@
         <button type="button" @click="copyCode">{{ copied ? 'Copied!' : 'Copy' }}</button>
       </div>
       <pre><code ref="codeEl">import { RevoGrid } from '@revolist/react-datagrid';
-import { PivotPlugin } from '@revolist/revogrid-pro';
+import {
+  PivotPlugin,
+  commonAggregators,
+  type PivotConfig,
+} from '@revolist/revogrid-enterprise';
 
-const pivotConfig = {
+const pivot: PivotConfig = {
+  dimensions: [
+    { prop: 'region', name: 'Region' },
+    { prop: 'product', name: 'Product' },
+    { prop: 'quarter', name: 'Quarter' },
+    {
+      prop: 'revenue',
+      name: 'Revenue',
+      aggregators: {
+        ...commonAggregators,
+      },
+    },
+  ],
   rows: ['region', 'product'],
   columns: ['quarter'],
   values: [{
-    field: 'revenue',
-    aggregation: 'sum',
+    prop: 'revenue',
+    aggregator: 'sum',
   }],
-  totals: { row: true, column: true },
+  totals: { grandTotal: true, subtotals: true },
 };
 
 export function SalesAnalytics({ data }) {
@@ -27,7 +43,7 @@ export function SalesAnalytics({ data }) {
     &lt;RevoGrid
       source={data}
       plugins={[PivotPlugin]}
-      pivotConfig={pivotConfig}
+      pivot={pivot}
       theme="default"
     /&gt;
   );

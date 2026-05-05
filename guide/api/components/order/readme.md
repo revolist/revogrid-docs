@@ -8,13 +8,13 @@ Component for handling row order editor.
 
 ## Properties
 
-| Property       | Attribute  | Description                                                     | Type                                           | Default     |
-| -------------- | ---------- | --------------------------------------------------------------- | ---------------------------------------------- | ----------- |
-| `dataStore`    | --         | Static stores, not expected to change during component lifetime | `"rgRow" \| "rowPinEnd" \| "rowPinStart" \| D` | `undefined` |
-| `dimensionCol` | --         | Dimension settings X                                            | `DimensionSettingsState`                       | `undefined` |
-| `dimensionRow` | --         | Dimension settings Y                                            | `DimensionSettingsState`                       | `undefined` |
-| `parent`       | --         | Parent element                                                  | `HTMLElement`                                  | `undefined` |
-| `rowType`      | `row-type` |                                                                 | `"rgRow" \| "rowPinEnd" \| "rowPinStart"`      | `undefined` |
+| Property       | Attribute  | Description                                                     | Type                                                | Default     |
+| -------------- | ---------- | --------------------------------------------------------------- | --------------------------------------------------- | ----------- |
+| `dataStore`    | --         | Static stores, not expected to change during component lifetime | `"rgRow" \| "rowPinEnd" \| "rowPinStart" \| D \| K` | `undefined` |
+| `dimensionCol` | --         | Dimension settings X                                            | `DimensionSettingsState`                            | `undefined` |
+| `dimensionRow` | --         | Dimension settings Y                                            | `DimensionSettingsState`                            | `undefined` |
+| `parent`       | --         | Parent element                                                  | `HTMLElement`                                       | `undefined` |
+| `rowType`      | `row-type` |                                                                 | `"rgRow" \| "rowPinEnd" \| "rowPinStart"`           | `undefined` |
 
 
 ## Events
@@ -47,9 +47,9 @@ Type: `Promise<void>`
 
 #### Parameters
 
-| Name | Type             | Description |
-| ---- | ---------------- | ----------- |
-| `e`  | `DragStartEvent` |             |
+| Name | Type                                                                   | Description |
+| ---- | ---------------------------------------------------------------------- | ----------- |
+| `e`  | `DragStartEvent<DataType<any, ColumnProp>, ColumnRegular<ColumnProp>>` |             |
 
 #### Returns
 

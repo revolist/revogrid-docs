@@ -11,86 +11,94 @@
       <span class="field-tag green">Quarter</span>
       <span class="field-tag amber">Revenue</span>
       <div class="agg-tabs mini">
-        <button class="on" type="button">SUM</button>
-        <button type="button">AVG</button>
-        <button type="button">COUNT</button>
+        <button
+          v-for="mode in AGG_MODES"
+          :key="mode"
+          type="button"
+          :class="{ on: agg === mode }"
+          @click="agg = mode"
+        >
+          {{ mode.toUpperCase() }}
+        </button>
       </div>
     </div>
     <div class="table-wrap">
-      <table class="pivot-table mock">
-        <thead>
-          <tr>
-            <th>Region / Product</th>
-            <th class="quarter">Q1</th>
-            <th class="quarter">Q2</th>
-            <th class="quarter">Q3</th>
-            <th class="quarter">Q4</th>
-            <th class="total-head">Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="group-label">EMEA</td>
-            <td class="num">$208.7K</td>
-            <td class="num">$230.1K</td>
-            <td class="num">$196.0K</td>
-            <td class="num">$260.1K</td>
-            <td class="row-total">$894.9K</td>
-          </tr>
-          <tr>
-            <td class="sub-label">Pro</td>
-            <td class="num muted">$84.2K</td>
-            <td class="num muted">$91.4K</td>
-            <td class="num muted">$76.8K</td>
-            <td class="num muted">$102.3K</td>
-            <td class="row-total muted">$354.7K</td>
-          </tr>
-          <tr>
-            <td class="sub-label">Advanced</td>
-            <td class="num muted">$124.5K</td>
-            <td class="num muted">$138.7K</td>
-            <td class="num muted">$119.2K</td>
-            <td class="num muted">$157.8K</td>
-            <td class="row-total muted">$540.2K</td>
-          </tr>
-          <tr>
-            <td class="group-label">Americas</td>
-            <td class="num">$295.0K</td>
-            <td class="num">$277.1K</td>
-            <td class="num">$330.3K</td>
-            <td class="num">$385.7K</td>
-            <td class="row-total">$1.29M</td>
-          </tr>
-          <tr>
-            <td class="sub-label">Pro</td>
-            <td class="num muted">$93.6K</td>
-            <td class="num muted">$88.2K</td>
-            <td class="num muted">$105.7K</td>
-            <td class="num muted">$118.4K</td>
-            <td class="row-total muted">$405.9K</td>
-          </tr>
-          <tr>
-            <td class="sub-label">Advanced</td>
-            <td class="num muted">$201.4K</td>
-            <td class="num muted">$188.9K</td>
-            <td class="num muted">$224.6K</td>
-            <td class="num muted">$267.3K</td>
-            <td class="row-total muted">$882.2K</td>
-          </tr>
-          <tr class="grand-row">
-            <td>Grand Total</td>
-            <td>$557.8K</td>
-            <td>$570.8K</td>
-            <td>$588.5K</td>
-            <td>$710.3K</td>
-            <td>$2.43M</td>
-          </tr>
-        </tbody>
-      </table>
+      <ClientOnly>
+        <RevoGrid
+          class="mock-grid cell-border"
+          hide-attribution
+          readonly
+          resize
+          range
+          :can-focus="false"
+          :source="RAW"
+          :pivot.prop="pivotConfig"
+          :hide-columns="['region']"
+          :plugins="plugins"
+          :column-types="columnTypes"
+          :theme="'compact'"
+        />
+        <template #fallback>
+          <div class="mock-grid-fallback">Loading pivot...</div>
+        </template>
+      </ClientOnly>
     </div>
     <div class="mock-foot">
-      <span>24 rows -> 8 pivot cells</span>
+      <span>{{ RAW.length }} rows -> {{ agg.toUpperCase() }} aggregation</span>
       <span class="powered">Powered by RevoGrid</span>
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { computed, ref } from 'vue'
+import NumberColumnType from '@revolist/revogrid-column-numeral'
+import RevoGrid, { type GridPlugin } from '@revolist/vue3-datagrid'
+import { ColumnHidePlugin } from '@revolist/revogrid-pro'
+import { AGG_MODES, RAW, REGIONS, type AggMode } from './pivotLandingData'
+import { PivotPlugin, type PivotConfig } from '../../.vitepress/revogrid-enterprise-pivot-shim'
+import { commonAggregators } from '../../.vitepress/revogrid-pro-shim'
+import '@revolist/revogrid-pro/dist/revogrid-pro.css'
+import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
+
+const agg = ref<AggMode>('sum')
+const plugins: GridPlugin[] = [PivotPlugin, ColumnHidePlugin]
+
+const columnTypes = {
+  currency: new NumberColumnType('$0,0.0a'),
+  integer: new NumberColumnType('0,0'),
+}
+
+const pivotConfig = computed(() => ({
+  dimensions: [
+    { prop: 'region', name: 'Region', sortable: true, hidden: true },
+    { prop: 'product', name: 'Product', sortable: true },
+    { prop: 'quarter', name: 'Quarter', sortable: true },
+    {
+      prop: 'rev',
+      name: 'Revenue',
+      sortable: true,
+      columnType: agg.value === 'count' ? 'integer' : 'currency',
+      aggregators: {
+        sum: commonAggregators.sum,
+        avg: commonAggregators.avg,
+        count: commonAggregators.count,
+      },
+    },
+  ],
+  rows: ['region', 'product'],
+  columns: ['quarter'],
+  values: [{ prop: 'rev', aggregator: agg.value }],
+  collapsed: true,
+  expanded: Object.fromEntries(REGIONS.map((region) => [region, true])),
+  groupAggregations: true,
+  groupLabelColumn: 'firstVisible',
+  mergeValueHeaders: true,
+  totals: {
+    subtotals: false,
+    grandTotal: true,
+    subtotalLabel: 'Subtotal',
+    grandTotalLabel: 'Grand Total',
+  },
+} satisfies PivotConfig))
+</script>

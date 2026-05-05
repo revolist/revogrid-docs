@@ -24,42 +24,26 @@
           </div>
         </div>
         <div class="table-wrap">
-          <table class="pivot-table">
-            <thead>
-              <tr>
-                <th>Region / Product</th>
-                <th v-for="quarter in QUARTERS" :key="quarter" class="quarter">{{ quarter }}</th>
-                <th class="total-head">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <template v-for="region in REGIONS" :key="region">
-                <tr>
-                  <td class="group-label">{{ region }}</td>
-                  <td v-for="quarter in QUARTERS" :key="quarter" class="num">
-                    <span class="bar-wrap">
-                      <span class="bar" :style="{ width: barWidth(regionTotal(region, quarter)) }"></span>
-                      {{ format(regionTotal(region, quarter)) }}
-                    </span>
-                  </td>
-                  <td class="row-total">{{ format(regionGrandTotal(region)) }}</td>
-                </tr>
-                <tr v-for="product in PRODUCTS" :key="`${region}-${product}`">
-                  <td class="sub-label">{{ product }}</td>
-                  <td v-for="quarter in QUARTERS" :key="quarter" class="num muted">{{ format(productValue(region, product, quarter)) }}</td>
-                  <td class="row-total muted">{{ format(productGrandTotal(region, product)) }}</td>
-                </tr>
-              </template>
-              <tr class="grand-row">
-                <td>Grand Total</td>
-                <td v-for="quarter in QUARTERS" :key="quarter">{{ format(quarterGrandTotal(quarter)) }}</td>
-                <td>{{ format(grandTotal) }}</td>
-              </tr>
-            </tbody>
-          </table>
+          <ClientOnly>
+            <RevoGrid
+              class="demo-grid cell-border"
+              hide-attribution
+              readonly
+              resize
+              range
+              :source="RAW"
+              :pivot.prop="pivotConfig"
+              :plugins="plugins"
+              :column-types="columnTypes"
+              :theme="'compact'"
+            />
+            <template #fallback>
+              <div class="demo-grid-fallback">Loading pivot...</div>
+            </template>
+          </ClientOnly>
         </div>
         <div class="demo-foot">
-          <span>Aggregating <strong>{{ RAW.length }} rows</strong> -> <strong>{{ REGIONS.length * PRODUCTS.length * QUARTERS.length }} cells</strong></span>
+          <span>Aggregating <strong>{{ RAW.length }} rows</strong> -> <strong>{{ agg.toUpperCase() }}</strong></span>
           <span class="powered">Powered by RevoGrid</span>
         </div>
       </div>
@@ -69,20 +53,52 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { AGG_MODES, PRODUCTS, QUARTERS, RAW, REGIONS, type AggMode } from './pivotLandingData'
-import { usePivotLandingDemo } from './usePivotLandingDemo'
+import { computed, ref } from 'vue'
+import NumberColumnType from '@revolist/revogrid-column-numeral'
+import RevoGrid, { type GridPlugin } from '@revolist/vue3-datagrid'
+import { AGG_MODES, RAW, REGIONS, type AggMode } from './pivotLandingData'
+import { PivotPlugin, type PivotConfig } from '../../.vitepress/revogrid-enterprise-pivot-shim'
+import { commonAggregators } from '../../.vitepress/revogrid-pro-shim'
+import '@revolist/revogrid-pro/dist/revogrid-pro.css'
+import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
 
 const agg = ref<AggMode>('sum')
+const plugins: GridPlugin[] = [PivotPlugin]
 
-const {
-  barWidth,
-  format,
-  grandTotal,
-  productGrandTotal,
-  productValue,
-  quarterGrandTotal,
-  regionGrandTotal,
-  regionTotal,
-} = usePivotLandingDemo(agg)
+const columnTypes = {
+  currency: new NumberColumnType('$0,0.0a'),
+  integer: new NumberColumnType('0,0'),
+}
+
+const pivotConfig = computed(() => ({
+  dimensions: [
+    { prop: 'region', name: 'Region', sortable: true },
+    { prop: 'product', name: 'Product', sortable: true },
+    { prop: 'quarter', name: 'Quarter', sortable: true },
+    {
+      prop: 'rev',
+      name: 'Revenue',
+      sortable: true,
+      columnType: agg.value === 'count' ? 'integer' : 'currency',
+      aggregators: {
+        sum: commonAggregators.sum,
+        avg: commonAggregators.avg,
+        count: commonAggregators.count,
+      },
+    },
+  ],
+  rows: ['region', 'product'],
+  columns: ['quarter'],
+  values: [{ prop: 'rev', aggregator: agg.value }],
+  collapsed: true,
+  expanded: Object.fromEntries(REGIONS.map((region) => [region, true])),
+  groupAggregations: true,
+  groupLabelColumn: 'firstVisible',
+  mergeValueHeaders: true,
+  totals: {
+    subtotals: false,
+    grandTotal: true,
+    grandTotalLabel: 'Grand Total',
+  },
+} satisfies PivotConfig))
 </script>
