@@ -134,6 +134,4 @@ Angular applications typically listen to the same RevoGrid lifecycle events as o
 - [Event Patterns and Lifecycles](/guide/events-guide)
 - [Grid Performance and Virtualization](/guide/performance)
 
-<!--@include: ../../demo/angular/angular.sample.module.md-->
-
 <!--@include: ./_examples.md-->

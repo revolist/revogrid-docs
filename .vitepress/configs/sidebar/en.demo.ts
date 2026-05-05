@@ -59,6 +59,10 @@ export const sidebarAngularEn: DefaultTheme.SidebarItem[] = [
         text: 'Demo: Inventory List',
         link: '/demo/angular/angular.full-demo',
     },
+    {
+        text: 'Demo: Sample module',
+        link: '/demo/angular/angular.sample.module',
+    }
 ]
 export const sidebarVue3En: DefaultTheme.SidebarItem[] = [
     {
