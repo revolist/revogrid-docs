@@ -168,9 +168,8 @@
 
   .logo-copy span {
     color: var(--tx);
-    font-family: var(--mono);
     font-size: 13.5px;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   .logo-copy small {
@@ -250,9 +249,9 @@
     grid-template-columns: 1fr 1fr;
     gap: 52px;
     align-items: center;
-    max-width: 1120px;
+    max-width: 1220px;
     margin: 0 auto;
-    padding: 80px 32px 72px;
+    padding: 80px 0 72px;
   }
 
   .eyebrow,
@@ -422,6 +421,16 @@
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 24px 64px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.06);
+  
+    revo-grid {
+      .rgCell[data-rgcol="0"] {
+        padding-left: 40px !important;
+      }
+
+      .pivot-group-cell-label {
+        padding-left: 0;
+      }
+    }
   }
 
   .mock-titlebar,
@@ -1250,19 +1259,79 @@
     font-size: 11px;
   }
 
-  .sat-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 24px 32px;
+  .pivot-site-footer {
+    margin-top: 8px;
     border-top: 1px solid var(--bd);
-    color: var(--tx3);
-    font-family: var(--mono);
-    font-size: 12px;
+    background: color-mix(in srgb, var(--bg) 92%, #06080f 8%);
+    text-align: center;
   }
 
-  .sat-footer a {
-    color: var(--accent);
+  .pivot-site-footer .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .pivot-site-footer .footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    min-height: 88px;
+    border-bottom: 1px solid var(--bd);
+    flex-wrap: wrap;
+  }
+
+  .pivot-site-footer .footer-top a {
+    color: #c2c5ce;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color .2s;
+  }
+
+  .pivot-site-footer .footer-top a:hover {
+    color: #fff;
+  }
+
+  .pivot-site-footer .brand-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 4px;
+  }
+
+  .pivot-site-footer .brand-mark {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    color: #00a67e;
+  }
+
+  .pivot-site-footer .brand-mark svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .pivot-site-footer .brand-text {
+    color: #f1f2f4;
+    font-weight: 600;
+    font-size: 22px;
+  }
+
+  .pivot-site-footer .footer-bottom {
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    color: #9ea3af;
+    font-size: 13px;
+    justify-content: center;
+  }
+
+  .pivot-site-footer .footer-bottom a {
+    color: #bfc3ce;
+    margin: 0 4px;
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 }
 
@@ -1322,10 +1391,21 @@
         gap: 40px;
       }
 
-      .sat-footer {
-        flex-direction: column;
-        gap: 8px;
-        text-align: center;
+      .pivot-site-footer .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .pivot-site-footer .footer-top {
+        min-height: 70px;
+        gap: 14px;
+        padding: 10px 0;
+      }
+
+      .pivot-site-footer .footer-bottom {
+        min-height: 62px;
+        line-height: 1.5;
+        padding: 10px 0;
       }
   }
 }

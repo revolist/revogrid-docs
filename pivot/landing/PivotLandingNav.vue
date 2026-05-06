@@ -11,7 +11,7 @@
           </svg>
         </span>
         <span class="logo-copy">
-          <span>pivotgrid.io</span>
+          <span>PivotGrid.io</span>
           <small>powered by RevoGrid</small>
         </span>
       </a>
@@ -26,13 +26,17 @@
       <button class="theme-toggle" type="button" title="Toggle theme" @click="$emit('toggle-theme')">
         <span></span>
       </button>
-      <a class="nav-cta" href="/">Use with RevoGrid -></a>
+      <a class="nav-cta" :href="useWithRevoGridUrl" target="_blank" rel="noopener">Use with RevoGrid -></a>
     </div>
   </nav>
 </template>
 
 <script lang="ts" setup>
+import { RV_GRID_BASE_URL } from './pivotLandingData'
+
 defineEmits<{
   'toggle-theme': []
 }>()
+
+const useWithRevoGridUrl = `${RV_GRID_BASE_URL}/pro/`
 </script>

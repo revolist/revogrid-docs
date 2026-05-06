@@ -9,14 +9,14 @@
         of thousands of rows.
       </p>
       <div class="hero-actions">
-        <a href="#demo" class="btn primary">
+        <a :href="liveDemoUrl" class="btn primary" target="_blank" rel="noopener">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5" />
             <path d="M5.5 4.5L9.5 7L5.5 9.5V4.5Z" fill="currentColor" />
           </svg>
           View Live Demo
         </a>
-        <a href="/" class="btn secondary">Use with RevoGrid -></a>
+        <a :href="useWithRevoGridUrl" class="btn secondary" target="_blank" rel="noopener">Use with RevoGrid -></a>
       </div>
       <div class="frameworks">
         <span class="fw-label">Works with</span>
@@ -33,10 +33,13 @@
 </template>
 
 <script lang="ts" setup>
-import { FRAMEWORKS } from './pivotLandingData'
+import { FRAMEWORKS, RV_GRID_BASE_URL } from './pivotLandingData'
 import PivotMockWindow from './PivotMockWindow.vue'
 
 defineProps<{
   theme: 'light' | 'dark'
 }>()
+
+const liveDemoUrl = `${RV_GRID_BASE_URL}/demo/pivot`
+const useWithRevoGridUrl = `${RV_GRID_BASE_URL}/pro/`
 </script>

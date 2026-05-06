@@ -48,16 +48,18 @@ export function SalesAnalytics({ data }) {
     /&gt;
   );
 }</code></pre>
-      <div class="code-note">Pivot is available via the <a href="/pro/">RevoGrid Pro plugin</a>. The MIT open-source core includes grouping, sorting, and virtual rendering.</div>
+      <div class="code-note">Pivot is available via the <a :href="revoGridProUrl" target="_blank" rel="noopener">RevoGrid Pro plugin</a>. The MIT open-source core includes grouping, sorting, and virtual rendering.</div>
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { RV_GRID_BASE_URL } from './pivotLandingData'
 
 const copied = ref(false)
 const codeEl = ref<HTMLElement>()
+const revoGridProUrl = `${RV_GRID_BASE_URL}/pro/`
 
 const copyCode = async () => {
   if (!codeEl.value) return

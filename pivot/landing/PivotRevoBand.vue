@@ -9,8 +9,8 @@
           <span v-for="item in REVO_FEATURES" :key="item">{{ item }}</span>
         </div>
         <div class="hero-actions">
-          <a href="/" class="btn primary">Explore RevoGrid -></a>
-          <a href="/guide/" class="btn secondary">Read docs</a>
+          <a :href="revoGridBaseUrl" class="btn primary" target="_blank" rel="noopener">Explore RevoGrid -></a>
+          <a :href="pivotDocsUrl" class="btn secondary" target="_blank" rel="noopener">Read docs</a>
         </div>
       </div>
       <div class="revo-stats">
@@ -24,5 +24,8 @@
 </template>
 
 <script lang="ts" setup>
-import { REVO_FEATURES } from './pivotLandingData'
+import { PIVOT_DOCS_URL, REVO_FEATURES, RV_GRID_BASE_URL } from './pivotLandingData'
+
+const revoGridBaseUrl = `${RV_GRID_BASE_URL}/`
+const pivotDocsUrl = PIVOT_DOCS_URL
 </script>

@@ -75,8 +75,8 @@ const columnTypes = {
 
 const pivotConfig = computed(() => ({
   dimensions: [
-    { prop: 'region', name: 'Region', sortable: true, hidden: true },
-    { prop: 'product', name: 'Product', sortable: true },
+    { prop: 'region', name: 'Region', sortable: true },
+    { prop: 'product', name: 'Product', sortable: true, size: 150 },
     { prop: 'quarter', name: 'Quarter', sortable: true },
     {
       prop: 'rev',

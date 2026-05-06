@@ -1,5 +1,8 @@
 export type AggMode = 'sum' | 'avg' | 'count'
 
+export const RV_GRID_BASE_URL = import.meta.env.VITE_RV_GRID_BASE_URL || 'https://rv-grid.com'
+export const RV_GRID_PRO_BASE_URL = import.meta.env.VITE_RV_GRID_PRO_BASE_URL || 'https://pro.rv-grid.com'
+
 export type PivotRawRow = {
   region: string
   product: string
@@ -11,6 +14,8 @@ export const AGG_MODES: AggMode[] = ['sum', 'avg', 'count']
 export const QUARTERS = ['Q1', 'Q2', 'Q3', 'Q4']
 export const REGIONS = ['EMEA', 'Americas', 'APAC']
 export const PRODUCTS = ['Pro', 'Advanced']
+
+export const PIVOT_DOCS_URL = `${RV_GRID_PRO_BASE_URL}/guides/pivot/`
 
 export const RAW: PivotRawRow[] = [
   { region: 'EMEA', product: 'Pro', quarter: 'Q1', rev: 84200 },
