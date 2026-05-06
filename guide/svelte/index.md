@@ -17,6 +17,7 @@ head:
 
 </div>
 
+<!--@include: ../../demo/svelte/svelte-datagrid.md-->
 
 ::: warning
 
@@ -37,7 +38,6 @@ RevoGrid provide special wrapper based on [stenciljs svelte adapter](https://www
 
 <<< @/demo/svelte/svelte.sample.svelte
 
-<!--@include: ../../demo/svelte/svelte-datagrid.md-->
 
 
 
