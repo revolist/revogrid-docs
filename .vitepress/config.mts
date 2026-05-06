@@ -65,6 +65,27 @@ const localProPackageAliases = useLocalProPackages
     ]
     : []
 
+const standaloneBuildPages: Record<string, string> = {
+    gantt: 'gantt.md',
+    scheduler: 'scheduler.md',
+    timelinegrid: 'timelinegrid.md',
+    'ops-scheduler': 'ops-scheduler.md',
+    jsscheduler: 'jsscheduler.md',
+    pivot: 'pivot/index.md',
+    pivotio: 'pivotio.md',
+    vue: 'vue.md',
+    angular: 'angular.md',
+}
+
+const standaloneBuildPage = process.env.DOCS_BUILD_PAGE
+const standaloneBuildSource = standaloneBuildPage ? standaloneBuildPages[standaloneBuildPage] : undefined
+const standaloneBuildRewrites = standaloneBuildSource
+    ? {
+        'index.md': '__home.md',
+        [standaloneBuildSource]: 'index.md',
+    }
+    : undefined
+
 const browserOnlyPackageSsrShims = () => ({
     name: 'browser-only-package-ssr-shims',
     enforce: 'pre' as const,
@@ -302,6 +323,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     srcExclude: process.env.VITE_PRO_INCLUDE
         ? ['**/_*.md']
         : ['demo/**-pro/**', 'pro-pages/**', '**/_*.md'],
+    rewrites: standaloneBuildRewrites,
     ignoreDeadLinks: true,
 }
 
