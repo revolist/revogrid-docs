@@ -1,34 +1,34 @@
 ---
 layout: home
-title: Angular Data Grid
+title: DataGridJS
 externalHomeLinks: true
 homeColors:
-  brand1: '#c3002f'
-  brand2: '#dd0031'
-  brand3: '#b8002b'
-  brandSoft: rgba(221, 0, 49, 0.13)
-  heroGradient: '-webkit-linear-gradient(120deg, #dd0031 10%, #f97316 92%)'
+  brand1: '#d97706'
+  brand2: '#f59e0b'
+  brand3: '#ca8a04'
+  brandSoft: rgba(245, 158, 11, 0.14)
+  heroGradient: '-webkit-linear-gradient(120deg, #f7df1e 8%, #2563eb 92%)'
   dark:
-    brand1: '#ff5c8a'
-    brand2: '#ff8ab0'
-    brand3: '#dd0031'
-    brandSoft: rgba(255, 92, 138, 0.18)
-    heroGradient: '-webkit-linear-gradient(120deg, #ff5c8a 12%, #f59e0b 92%)'
+    brand1: '#facc15'
+    brand2: '#fde047'
+    brand3: '#eab308'
+    brandSoft: rgba(250, 204, 21, 0.18)
+    heroGradient: '-webkit-linear-gradient(120deg, #fde047 12%, #38bdf8 92%)'
 
 head:
   - - meta
     - name: description
-      content: RevoGrid is a high-performance Angular data grid component for data-heavy applications.
+      content: DataGridJS by RevoGrid is a high-performance JavaScript data grid for framework-free, data-heavy web applications.
   - - meta
     - name: keywords
-      content: Angular Data Grid, RevoGrid Angular, Virtual Data Grid, Performance Grid, Excel-like Grid, Editable Grid, Large Dataset Handling
+      content: DataGridJS, JavaScript Data Grid, JS Data Grid, Vanilla JS Grid, RevoGrid JavaScript, Virtual Data Grid, Editable Grid, Large Dataset Handling
 
 hero:
-  eyebrow: High-performance Angular data grid
+  eyebrow: High-performance JavaScript data grid
   showFrameworkBadges: false
   name: Build data-heavy apps —
-  text: not just tables.
-  tagline: The platform for finance dashboards, ERP screens, analytics tools, and internal ops. Extensible, framework-agnostic, and priced for real teams.
+  text: with plain JavaScript.
+  tagline: DataGridJS gives teams a fast, framework-free grid for dashboards, admin panels, analytics tools, and operational UIs. Use it directly or migrate to Vue, Angular, React, or Svelte later.
   license:
     text: RevoGrid is a MIT-licensed open source data grid.
     details: Unlock advanced features by subscribing to
@@ -42,9 +42,14 @@ hero:
       link: /demo/
     - theme: alt
       text: Read docs
-      link: /guide/angular/
+      link: /guide/
 
 integrations:
+- title: JavaScript
+  alt: JavaScript Data Grid
+  icon: js.svg
+  details: JavaScript data grid for fast setup and framework-free integrations.
+  path: /guide/
 - title: Vue
   alt: Vue Data Grid
   icon: vuejs.svg
@@ -65,9 +70,4 @@ integrations:
   icon: svelte.svg
   details: Svelte Data Grid to speed up your Svelte code base.
   path: /guide/svelte/
-- title: JavaScript
-  alt: JavaScript Data Grid
-  icon: js.svg
-  details: JavaScript data grid for fast setup and framework-free integrations.
-  path: /guide/
 ---

@@ -12,6 +12,7 @@ const PAGES = {
   pivotio: 'pivotio.md',
   vue: 'vue.md',
   angular: 'angular.md',
+  datagridjs: 'datagridjs.md',
 }
 
 const target = process.argv[2] || process.env.DOCS_BUILD_PAGE

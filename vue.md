@@ -3,6 +3,18 @@ layout: home
 title: Vue Data Grid
 externalHomeLinks: true
 navbar: true
+homeColors:
+  brand1: '#10874d'
+  brand2: '#41b883'
+  brand3: '#108750'
+  brandSoft: rgba(65, 184, 131, 0.14)
+  heroGradient: '-webkit-linear-gradient(120deg, #66a6ff 10%, #10874d)'
+  dark:
+    brand1: '#4fc08d'
+    brand2: '#42d392'
+    brand3: '#108750'
+    brandSoft: rgba(79, 192, 141, 0.18)
+    heroGradient: '-webkit-linear-gradient(120deg, #42d392 18%, #66a6ff 92%)'
 
 head:
   - - meta

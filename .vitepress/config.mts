@@ -75,6 +75,7 @@ const standaloneBuildPages: Record<string, string> = {
     pivotio: 'pivotio.md',
     vue: 'vue.md',
     angular: 'angular.md',
+    datagridjs: 'datagridjs.md',
 }
 
 const standaloneBuildPage = process.env.DOCS_BUILD_PAGE

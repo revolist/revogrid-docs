@@ -16,6 +16,7 @@
     "build:pivotio": "node ./scripts/build-page.mjs pivotio",
     "build:vue": "node ./scripts/build-page.mjs vue",
     "build:angular": "node ./scripts/build-page.mjs angular",
+    "build:datagridjs": "node ./scripts/build-page.mjs datagridjs",
     "preview": "vitepress preview"
   },
   "type": "module",

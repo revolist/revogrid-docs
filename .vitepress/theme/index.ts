@@ -18,6 +18,7 @@ import HomeFeatureStats from './HomeFeatureStats.vue'
 import HomeCtaBanner from './HomeCtaBanner.vue'
 import ExternalHomeLinks from './ExternalHomeLinks.vue'
 import HeaderNavControls from './HeaderNavControls.vue'
+import HomePageColors from './HomePageColors.vue'
 import ProDemoFrame from './ProDemoFrame.vue'
 import DemoWidgetFrame from './DemoWidgetFrame.vue'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
@@ -29,6 +30,7 @@ export default {
             // https://vitepress.dev/guide/extending-default-theme#layout-slots
             'layout-top': () => [
                 h(HeaderNavControls),
+                h(HomePageColors),
                 h(ExternalHomeLinks),
             ],
             'home-hero-image': () => h(HomeHero),
