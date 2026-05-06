@@ -18,7 +18,7 @@ headerNav:
     - RevoGrid Pro
   links:
     - text: Docs
-      href: /gantt
+      href: /guides/gantt
       base: pro
 ganttLanding:
   colors:

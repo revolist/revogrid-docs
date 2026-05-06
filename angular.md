@@ -13,7 +13,7 @@ head:
 
 hero:
   eyebrow: High-performance Angular data grid
-  showFrameworkBadges: true
+  showFrameworkBadges: false
   name: Build data-heavy apps —
   text: not just tables.
   tagline: The platform for finance dashboards, ERP screens, analytics tools, and internal ops. Extensible, framework-agnostic, and priced for real teams.

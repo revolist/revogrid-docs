@@ -2,7 +2,7 @@
 layout: home
 title: Vue Data Grid
 externalHomeLinks: true
-navbar: false
+navbar: true
 
 head:
   - - meta
