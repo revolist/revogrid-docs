@@ -1,6 +1,10 @@
 ---
-title: RevoGrid PivotIO - Embedded Pivot Analytics for Web Apps
-description: PivotIO pages for product teams embedding self-service analytics, pivot exploration, and export-ready reporting into web applications.
+title: PivotIO - Embedded Pivot Analytics for SaaS and Data Apps | RevoGrid
+description: Add PivotIO to your web app for fast self-service pivot analytics, multidimensional exploration, client-side aggregation, and export-ready reports powered by RevoGrid.
+head:
+  - - meta
+    - name: keywords
+      content: PivotIO, embedded pivot analytics, self-service analytics, JavaScript pivot table, SaaS reporting, embedded BI, web pivot grid, client-side aggregation, export-ready reports, RevoGrid PivotIO
 externalHomeLinks: true
 sidebar: false
 aside: false
@@ -26,13 +30,13 @@ pivotLanding:
   hero:
     eyebrow: RevoGrid Pro / PivotIO
     titleHighlightParts: [Pivot, IO]
-    titleSuffix: for embedded analytics.
-    description: Give users a fast pivot workspace for slicing data, comparing dimensions, exporting results, and building self-service reports inside your product.
+    titleSuffix: for product analytics.
+    description: Give customers a fast embedded pivot workspace for slicing data, comparing dimensions, saving report views, and exporting decision-ready results without leaving your app.
     actions:
-      - label: Try live demo
+      - label: Explore the live demo
         href: /demo/pivot
         arrow: true
-      - label: Read docs
+      - label: Read integration docs
         href: https://pro.rv-grid.com/guides/pivot/
         variant: secondary
         target: _blank
@@ -58,25 +62,25 @@ pivotLanding:
     id: features
     kicker: Features
     title: |
-      Pivot exploration
-      for product analytics.
-    description: PivotIO uses the same RevoGrid pivot engine with copy and positioning for embedded analytics, reporting workspaces, and self-service data products.
+      Embedded pivot analytics
+      for customer-facing products.
+    description: PivotIO packages the RevoGrid pivot engine for SaaS analytics, reporting workspaces, and self-service data products where speed, export quality, and native UX matter.
     items:
       - icon: IO
-        title: Interactive Data Input
-        description: Let users bring product data into a pivot workspace and reshape it by rows, columns, values, and filters.
+        title: Interactive Data Exploration
+        description: Let users reshape product data by rows, columns, values, and filters inside a guided pivot workspace.
         tags: [Data input, Dimensions, Filters]
       - icon: OUT
         title: Export-Ready Output
-        description: Produce report-friendly pivot tables with headers, subtotals, formatted values, and spreadsheet exports.
+        description: Deliver report-friendly pivot tables with headers, subtotals, formatted values, and spreadsheet exports.
         tags: [Reports, XLSX, CSV]
       - icon: UX
         title: Embedded Analytics UX
-        description: Keep analytics native to your application instead of sending users to a separate BI iframe.
+        description: Keep analytics native to your application instead of sending customers to a disconnected BI iframe.
         tags: [Embedded BI, Native UX, SaaS]
       - icon: AGG
         title: Client-Side Aggregation
-        description: Run sum, average, count, min/max, and custom metrics locally for responsive exploration.
+        description: Run sum, average, count, min/max, and custom metrics locally for responsive, zero-round-trip exploration.
         tags: [Aggregations, Metrics, Custom logic]
       - icon: MAP
         title: Visual Insight Cells
@@ -84,7 +88,7 @@ pivotLanding:
         tags: [Heatmaps, Formatting, Renderers]
       - icon: API
         title: Product Integration API
-        description: Wire PivotIO into your product state, permissions, saved reports, and framework components.
+        description: Connect PivotIO to product state, permissions, saved reports, and framework components.
         tags: [Plugin API, Saved views, Frameworks]
   useCases:
     enabled: true
@@ -92,11 +96,11 @@ pivotLanding:
     title: PivotIO is powered by the RevoGrid Pro Pivot plugin.
   cta:
     title: |
-      Add PivotIO
+      Add embedded pivot analytics
       to your data product.
-    description: Ship embedded pivot exploration with RevoGrid rendering, editing, exports, and framework adapters.
+    description: Ship PivotIO with RevoGrid rendering, client-side aggregation, spreadsheet exports, and framework adapters.
     primaryHref: /demo/pivot
-    primaryLabel: Try live demo
+    primaryLabel: Explore live demo
     secondaryHref: /pro/prices
     secondaryLabel: View Pro pricing
 ---

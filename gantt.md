@@ -1,6 +1,10 @@
 ---
-title: RevoGrid Gantt - Interactive Scheduling for Web Apps
-description: Production-ready Gantt charts for web applications with task scheduling, dependencies, critical path analysis, and resource tracking.
+title: RevoGrid Gantt - JavaScript Gantt Chart for SaaS Apps
+description: Embed a production-ready JavaScript Gantt chart with drag-and-drop scheduling, dependencies, critical path analysis, progress tracking, and framework bindings.
+head:
+  - - meta
+    - name: keywords
+      content: JavaScript Gantt chart, Gantt component, web app scheduling, project scheduling UI, RevoGrid Gantt, React Gantt chart, Vue Gantt chart, Angular Gantt chart, drag and drop Gantt, critical path analysis
 sidebar: false
 aside: false
 editLink: false
@@ -22,13 +26,13 @@ ganttLanding:
     darkBorder: rgba(96, 165, 250, 0.28)
   hero:
     eyebrow: RevoGrid Pro / Gantt
-    title: The interactive Gantt your app deserves.
-    description: Production-ready project scheduling for SaaS, ERP, and operations platforms. Drag-to-reschedule tasks, assign owners, track progress, and embed it as a native product feature.
+    title: Build scheduling into your product.
+    description: RevoGrid Gantt brings fast, editable project timelines to SaaS, ERP, and operations platforms. Let users drag tasks, manage dependencies, assign owners, and track delivery without leaving your app.
     actions:
-      - label: Try live demo
+      - label: Explore the live Gantt
         href: /demo/gantt
         arrow: true
-      - label: Read docs
+      - label: View integration docs
         href: https://pro.rv-grid.com/guides/gantt/
         variant: secondary
         target: _blank
@@ -59,38 +63,38 @@ ganttLanding:
   features:
     id: features
     kicker: Features
-    title: Everything a production Gantt needs.
-    description: Built for applications where planning data is part of the product, not a static report.
+    title: Scheduling features built for real products.
+    description: Give customers the planning tools they expect while keeping timeline data, editing, and grid behavior inside your application.
     items:
       - icon: '01'
         title: Interactive scheduling
-        description: Drag bars to reschedule tasks, resize durations, and update rows without leaving the grid context.
+        description: Drag bars to reschedule tasks, resize durations, and update timeline rows in the same high-performance grid surface.
         tags: [Drag and drop, Resize, Touch support]
       - icon: '02'
         title: Task dependencies
-        description: Model finish-to-start, start-to-start, finish-to-finish, and start-to-finish relationships.
+        description: Connect work with finish-to-start, start-to-start, finish-to-finish, and start-to-finish relationships.
         tags: [FS / SS / FF / SF, Connectors, Auto update]
       - icon: '03'
         title: Critical path analysis
-        description: Highlight the sequence of tasks that determines the minimum delivery timeline.
+        description: Surface the task chain that controls the delivery date so teams can focus on the work that affects launch.
         tags: [Critical path, Float, Status colors]
       - icon: '04'
         title: Resource tracking
-        description: Assign multiple people per task and expose workload context directly in the schedule.
+        description: Assign people and teams to tasks, then expose ownership and workload context directly in the timeline.
         tags: [Assignees, Teams, Workload]
       - icon: '05'
         title: Cost and progress
-        description: Track cost, start dates, completion percent, and group-level progress in one synchronized view.
+        description: Track budgets, start dates, completion percentage, and group-level progress in one synchronized planning view.
         tags: [Cost columns, Progress bars, Groups]
       - icon: '06'
         title: Plugin API
-        description: Customize cells, columns, toolbar actions, and context menus with the RevoGrid Pro plugin API.
+        description: Adapt cells, columns, toolbar actions, and context menus with the same RevoGrid Pro plugin patterns used across your app.
         tags: [Custom renderers, Toolbar SDK, Column types]
   integrations:
     id: integrations
     kicker: Integrations
-    title: Works with your stack
-    description: One scheduling component with framework bindings for the RevoGrid ecosystem.
+    title: One Gantt component for every frontend stack
+    description: Ship the same scheduling experience across JavaScript, Vue, React, Angular, and Svelte projects.
     items:
       - icon: JS
         name: JavaScript
@@ -110,10 +114,10 @@ ganttLanding:
   advancedCallout:
     title: Gantt is part of the Pro Advanced bundle.
   cta:
-    title: Ship Gantt as a feature, not a project.
-    description: Embed RevoGrid Gantt in your product and keep the scheduling experience under your control.
+    title: Add Gantt scheduling without building it from scratch.
+    description: Embed RevoGrid Gantt, customize it with your product UI, and keep every scheduling interaction under your control.
     primaryHref: /demo/gantt
-    primaryLabel: Try live demo
+    primaryLabel: Try the live demo
     secondaryHref: /pro/prices
     secondaryLabel: View Pro pricing
 ---

@@ -1,6 +1,6 @@
 ---
-title: RevoGrid TimelineGrid - Timeline Planning for Web Apps
-description: TimelineGrid pages for product teams building interactive timeline planning, task sequencing, and date-driven grid experiences.
+title: TimelineGrid by RevoGrid - Interactive Timeline Planning for Web Apps
+description: Build fast, editable timeline grids for roadmaps, resource planning, campaigns, launches, and date-driven operations with RevoGrid Pro.
 externalHomeLinks: true
 sidebar: false
 aside: false
@@ -11,6 +11,31 @@ next: false
 pageClass: gantt-page-doc
 layout: custom
 breadcrumbs: false
+head:
+  - - meta
+    - name: keywords
+      content: TimelineGrid, timeline grid, JavaScript timeline grid, React timeline grid, Vue timeline grid, Angular timeline grid, project timeline component, roadmap grid, resource planning grid, scheduling grid, RevoGrid Pro TimelineGrid
+  - - meta
+    - name: robots
+      content: index, follow, max-image-preview:large
+  - - meta
+    - property: og:type
+      content: website
+  - - meta
+    - property: og:title
+      content: TimelineGrid by RevoGrid - Timeline Planning for Web Apps
+  - - meta
+    - property: og:description
+      content: Create virtualized, editable timeline planning views for roadmaps, resources, launches, and operations with RevoGrid Pro.
+  - - meta
+    - name: twitter:card
+      content: summary_large_image
+  - - meta
+    - name: twitter:title
+      content: TimelineGrid by RevoGrid - Interactive Timeline Planning
+  - - meta
+    - name: twitter:description
+      content: Ship timeline grids with virtual date columns, editable planning rows, and framework-ready RevoGrid integrations.
 headerNav:
   hiddenItems:
     - Product
@@ -32,13 +57,13 @@ ganttLanding:
     darkBorder: rgba(167, 139, 250, 0.28)
   hero:
     eyebrow: RevoGrid Pro / TimelineGrid
-    title: Timeline planning inside the grid.
-    description: Build timeline-first product views for roadmaps, delivery plans, campaigns, launches, and operations workflows without leaving the RevoGrid data model.
+    title: Build timeline planning directly into your data grid.
+    description: Create fast, editable timeline views for roadmaps, delivery plans, campaigns, launches, resources, and operations without leaving the RevoGrid data model.
     actions:
-      - label: Try live demo
+      - label: Explore the live demo
         href: /demo/gantt
         arrow: true
-      - label: Read docs
+      - label: Read implementation docs
         href: https://pro.rv-grid.com/guides/gantt/
         variant: secondary
         target: _blank
@@ -69,38 +94,38 @@ ganttLanding:
   features:
     id: features
     kicker: Features
-    title: Timeline views that behave like product UI.
-    description: TimelineGrid uses the scheduling foundation to make date-driven planning editable, virtualized, and framework-ready.
+    title: Timeline views built for real product workflows.
+    description: TimelineGrid turns date-driven planning into an editable, virtualized, framework-ready grid experience.
     items:
       - icon: '01'
         title: Date range visualization
-        description: Render work items, phases, bookings, and delivery windows across a horizontal time axis.
+        description: Render tasks, phases, bookings, milestones, and delivery windows across a clear horizontal time axis.
         tags: [Date ranges, Phases, Milestones]
       - icon: '02'
         title: Virtual timeline columns
-        description: Keep wide timelines responsive with RevoGrid row and column virtualization.
+        description: Keep wide timelines responsive with RevoGrid virtualization across rows and date columns.
         tags: [Virtual columns, Horizontal scroll, Scale]
       - icon: '03'
         title: Editable planning rows
-        description: Pair timeline bars with grid cells for status, owners, priority, cost, and progress.
+        description: Combine timeline bars with editable cells for owners, status, priority, cost, and progress.
         tags: [Inline edit, Status, Owners]
       - icon: '04'
         title: Roadmap layouts
-        description: Build product roadmaps, campaign calendars, launch plans, and delivery timelines with one component.
+        description: Build product roadmaps, campaign calendars, resource plans, launch schedules, and delivery timelines with one component.
         tags: [Roadmaps, Campaigns, Launches]
       - icon: '05'
         title: Custom visuals
-        description: Customize bar colors, labels, cell content, and timeline metadata for your product language.
+        description: Match your product language with custom bar colors, labels, cell content, and timeline metadata.
         tags: [Custom bars, Labels, Metadata]
       - icon: '06'
         title: Plugin foundation
-        description: Extend interactions and renderers using RevoGrid Pro plugin patterns.
+        description: Extend timeline interactions and renderers with established RevoGrid Pro plugin patterns.
         tags: [Plugin API, Hooks, Renderers]
   integrations:
     id: integrations
     kicker: Integrations
-    title: TimelineGrid for your stack
-    description: Use the same timeline foundation across Vue, React, Angular, Svelte, and JavaScript.
+    title: TimelineGrid for every frontend stack
+    description: Use the same planning foundation across Vue, React, Angular, Svelte, and JavaScript.
     items:
       - icon: JS
         name: JavaScript
@@ -120,10 +145,10 @@ ganttLanding:
   advancedCallout:
     title: TimelineGrid capabilities are part of the Pro Advanced bundle.
   cta:
-    title: Ship timeline views without rebuilding grid UX.
-    description: Embed interactive timeline planning into your product while keeping data, editing, and rendering unified.
+    title: Ship timeline planning without rebuilding grid UX.
+    description: Embed interactive timeline grids into your product while keeping data, editing, virtualization, and rendering unified.
     primaryHref: /demo/gantt
-    primaryLabel: Try live demo
+    primaryLabel: Explore the live demo
     secondaryHref: /pro/prices
     secondaryLabel: View Pro pricing
 ---

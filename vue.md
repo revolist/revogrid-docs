@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Vue Data Grid
+title: Vue Data Grid Component for High-Performance Apps
 externalHomeLinks: true
 navbar: true
 homeColors:
@@ -19,17 +19,17 @@ homeColors:
 head:
   - - meta
     - name: description
-      content: RevoGrid is a high-performance Vue data grid component for data-heavy applications.
+      content: Build fast, editable Vue data grids with RevoGrid. Handle large datasets, spreadsheet-like UX, virtual scrolling, and enterprise-ready workflows in Vue 3 apps.
   - - meta
     - name: keywords
-      content: Vue Data Grid, Vue 3 Data Grid, RevoGrid Vue, Virtual Data Grid, Performance Grid, Excel-like Grid, Editable Grid, Large Dataset Handling
+      content: Vue Data Grid, Vue 3 Data Grid, Vue Grid Component, RevoGrid Vue, Virtual Data Grid, Editable Data Grid, Spreadsheet Grid, Large Dataset Grid, Enterprise Vue Grid
 
 hero:
-  eyebrow: High-performance Vue data grid
+  eyebrow: Vue data grid for large datasets
   showFrameworkBadges: false
-  name: Build data-heavy apps —
-  text: not just tables.
-  tagline: VueJS platform for finance dashboards, ERP screens, analytics tools, and internal ops. Extensible, framework-agnostic, and priced for real teams.
+  name: Build fast Vue data grids —
+  text: without table limits.
+  tagline: RevoGrid gives Vue 3 teams a spreadsheet-like data grid for finance dashboards, ERP screens, analytics tools, and internal operations. Virtualized, editable, extensible, and built for production scale.
   license:
     text: RevoGrid is a MIT-licensed open source data grid.
     details: Unlock advanced features by subscribing to
@@ -39,10 +39,10 @@ hero:
     action: Read what's new →
   actions:
     - theme: brand
-      text: Explore use cases
+      text: Explore Vue demos
       link: /demo/
     - theme: alt
-      text: Read docs
+      text: Read Vue docs
       link: /guide/vue3/
 
 integrations:
@@ -51,24 +51,4 @@ integrations:
   icon: vuejs.svg
   details: Vue Data Grid to speed up your Vue code base.
   path: /guide/vue3/
-- title: Angular
-  alt: Angular Data Grid
-  icon: angular.svg
-  details: Angular Data Grid to speed up your Angular code base.
-  path: /guide/angular/
-- title: React
-  alt: React Data Grid
-  icon: react.svg
-  details: React Data Grid to speed up your React code base.
-  path: /guide/react/
-- title: Svelte
-  alt: Svelte Data Grid
-  icon: svelte.svg
-  details: Svelte Data Grid to speed up your Svelte code base.
-  path: /guide/svelte/
-- title: JavaScript
-  alt: JavaScript Data Grid
-  icon: js.svg
-  details: JavaScript data grid for fast setup and framework-free integrations.
-  path: /guide/
 ---

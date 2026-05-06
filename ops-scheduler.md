@@ -1,6 +1,6 @@
 ---
-title: RevoGrid Ops Scheduler - Operational Scheduling for Web Apps
-description: Ops Scheduler pages for teams building shift planning, dispatch boards, capacity schedules, and operational timeline views.
+title: RevoGrid Ops Scheduler - Dispatch, Shift, and Capacity Scheduling for Web Apps
+description: Build fast operational scheduling software with RevoGrid Ops Scheduler for dispatch boards, shift planning, capacity management, service windows, and resource timelines.
 externalHomeLinks: true
 sidebar: false
 aside: false
@@ -20,6 +20,10 @@ headerNav:
     - text: Docs
       href: /guides/gantt
       base: pro
+head:
+  - - meta
+    - name: keywords
+      content: Ops Scheduler, Operational Scheduling Software, Dispatch Scheduling, Shift Planning, Capacity Planning, Resource Scheduling, Service Window Scheduling, Field Operations Scheduler, RevoGrid Scheduler, JavaScript Scheduler
 ganttLanding:
   colors:
     accent: '#b45309'
@@ -32,13 +36,13 @@ ganttLanding:
     darkBorder: rgba(251, 191, 36, 0.28)
   hero:
     eyebrow: RevoGrid Pro / Ops Scheduler
-    title: Scheduling for operational teams.
-    description: Build dispatch boards, shift plans, service windows, capacity schedules, and field operations views with a virtualized grid foundation.
+    title: Build ops scheduling into your product.
+    description: Create dispatch boards, shift plans, service windows, capacity schedules, and field operations timelines on a virtualized grid foundation built for high-volume planning data.
     actions:
-      - label: Try live demo
+      - label: Explore the live scheduler
         href: /demo/gantt
         arrow: true
-      - label: Read docs
+      - label: Read implementation docs
         href: https://pro.rv-grid.com/guides/gantt/
         variant: secondary
         target: _blank
@@ -69,24 +73,24 @@ ganttLanding:
   features:
     id: features
     kicker: Features
-    title: Operational scheduling that fits your product.
-    description: Ops Scheduler focuses on resource allocation, capacity windows, and schedule editing for real-world operational workflows.
+    title: Operational scheduling that fits real workflows.
+    description: Give product teams the building blocks for resource allocation, capacity windows, dispatch timelines, and schedule editing without forcing planning data into a separate tool.
     items:
       - icon: '01'
         title: Dispatch scheduling
-        description: Represent jobs, calls, deliveries, visits, and service windows across resource rows.
+        description: Plan jobs, calls, deliveries, visits, and service windows across resource rows with grid-level performance.
         tags: [Dispatch, Jobs, Service windows]
       - icon: '02'
         title: Shift and capacity views
-        description: Track availability, planned load, and capacity context directly inside the grid.
+        description: Surface availability, planned load, utilization, and capacity context directly inside the schedule.
         tags: [Shifts, Capacity, Availability]
       - icon: '03'
         title: Resource-first rows
-        description: Model people, crews, equipment, rooms, or assets as timeline lanes.
+        description: Model people, crews, vehicles, equipment, rooms, or assets as timeline lanes.
         tags: [Crews, Equipment, Assets]
       - icon: '04'
         title: Inline schedule editing
-        description: Keep schedule data editable with RevoGrid cells, selection, and plugin hooks.
+        description: Let users update operational data with RevoGrid cells, selection, and plugin hooks.
         tags: [Inline edit, Selection, Hooks]
       - icon: '05'
         title: Status-rich rendering
@@ -100,7 +104,7 @@ ganttLanding:
     id: integrations
     kicker: Integrations
     title: Ops Scheduler for your stack
-    description: One operational scheduling foundation with framework bindings for the RevoGrid ecosystem.
+    description: Build embedded operations scheduling with the same RevoGrid foundation across JavaScript, Vue, React, Angular, and Svelte.
     items:
       - icon: JS
         name: JavaScript
@@ -120,10 +124,10 @@ ganttLanding:
   advancedCallout:
     title: Ops Scheduler capabilities are part of the Pro Advanced bundle.
   cta:
-    title: Ship operations scheduling as a native feature.
-    description: Build resource planning and dispatch workflows without separating schedule data from the grid experience.
+    title: Ship operations scheduling as a native product feature.
+    description: Embed resource planning, dispatch scheduling, and capacity workflows without separating schedule data from the grid experience.
     primaryHref: /demo/gantt
-    primaryLabel: Try live demo
+    primaryLabel: Explore live demo
     secondaryHref: /pro/prices
     secondaryLabel: View Pro pricing
 ---
