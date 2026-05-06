@@ -14,11 +14,8 @@ head:
 By integrating React components as native editors, RevoGrid gives you full control over how each cell behaves during the editing process, enabling complex and highly interactive editing scenarios.
 
 
-<DemoWidgetFrame
-  demo="cell-editor"
-  framework="react"
-  title="RevoGrid Cell Editor"
-/>
+
+<!--@include: ../../demo/react/react.editor.md-->
 
 
 <!--@include: ../parts/editor.why.md-->

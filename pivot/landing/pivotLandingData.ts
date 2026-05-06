@@ -80,7 +80,7 @@ export const REVO = [
 ]
 
 export const COMPARE = [
-  { feature: 'Client-side aggregation', revo: '✓ Web Worker', ag: '✓', generic: '✓' },
+  { feature: 'Client-side aggregation', revo: '✓ Smart Cache', ag: '✓', generic: '✓' },
   { feature: 'Virtual row + column rendering', revo: '✓ Native', ag: '✓', generic: '✕ DOM-heavy' },
   { feature: 'Custom cell renderers in pivot', revo: '✓ Full access', ag: '~ Limited', generic: '✕' },
   { feature: 'Switch pivot / flat / group at runtime', revo: '✓ Config flag', ag: '~ Separate', generic: '✕' },

@@ -16,7 +16,7 @@
         </span>
       </a>
       <div class="nav-links">
-        <a href="#demo">Demo</a>
+        <a href="#">Home</a>
         <a href="#caps">Features</a>
         <a href="#code">Code</a>
         <a href="#cmp">Compare</a>

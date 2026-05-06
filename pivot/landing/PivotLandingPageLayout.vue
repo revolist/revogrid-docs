@@ -1,9 +1,8 @@
 <template>
   <main class="pivot-landing" :data-theme="theme">
     <PivotLandingNav @toggle-theme="toggleTheme" />
-    <PivotLandingHero />
+    <PivotLandingHero :theme="theme" />
     <PivotLandingStats />
-    <PivotInteractiveDemo />
     <PivotCapabilitiesSection />
     <hr />
     <PivotDifferenceSection />

@@ -27,7 +27,7 @@
     </div>
 
     <div class="hero-visual">
-      <PivotMockWindow />
+      <PivotMockWindow :theme="theme" />
     </div>
   </section>
 </template>
@@ -35,4 +35,8 @@
 <script lang="ts" setup>
 import { FRAMEWORKS } from './pivotLandingData'
 import PivotMockWindow from './PivotMockWindow.vue'
+
+defineProps<{
+  theme: 'light' | 'dark'
+}>()
 </script>

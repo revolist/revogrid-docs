@@ -413,7 +413,7 @@
   .use-card,
   .cap-card,
   .revo-stats div {
-    border: 1px solid var(--bd2);
+    box-shadow: 0 0 0 1px var(--bd2);
     background: var(--sf);
   }
 
@@ -875,10 +875,9 @@
   .cap-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
     margin-top: 48px;
     overflow: hidden;
-    border: 1px solid var(--bd);
+    box-shadow: 0 1px 3px var(--bd), 0 0 0 1px var(--bd);
     border-radius: 14px;
     background: var(--bd);
   }

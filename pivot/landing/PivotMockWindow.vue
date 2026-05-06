@@ -36,7 +36,7 @@
           :hide-columns="['region']"
           :plugins="plugins"
           :column-types="columnTypes"
-          :theme="'compact'"
+          :theme="gridTheme"
         />
         <template #fallback>
           <div class="mock-grid-fallback">Loading pivot...</div>
@@ -63,6 +63,10 @@ import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
 
 const agg = ref<AggMode>('sum')
 const plugins: GridPlugin[] = [PivotPlugin, ColumnHidePlugin]
+const props = defineProps<{
+  theme: 'light' | 'dark'
+}>()
+const gridTheme = computed(() => (props.theme === 'dark' ? 'darkCompact' : 'compact'))
 
 const columnTypes = {
   currency: new NumberColumnType('$0,0.0a'),
