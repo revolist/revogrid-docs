@@ -13,8 +13,8 @@
                         <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Inline filter toolbar</strong> — per-column filter expressions with live row count and spend aggregation</span></div>
                     </div>
                     <div class="uc-ctas">
-                        <a href="/demo/ecommerce" class="btn-primary-lg">See live demo</a>
-                        <a href="https://pro.rv-grid.com/guides/data-manage/tree/" class="btn-secondary-lg">Read docs</a>
+                        <a :href="homeLink('/demo/ecommerce')" class="btn-primary-lg">See live demo</a>
+                        <a :href="docsUrl" class="btn-secondary-lg">Read docs</a>
                     </div>
                 </div>
 
@@ -55,3 +55,14 @@
         </div>
     </section>
 </template>
+
+<script lang="ts" setup>
+import { useHomeLink } from '../useHomeLink'
+import { useData } from 'vitepress'
+
+const { homeLink } = useHomeLink()
+const { frontmatter } = useData()
+const docsUrl = frontmatter.value.externalHomeLinks
+    ? homeLink('/pro/')
+    : 'https://pro.rv-grid.com/guides/data-manage/tree/'
+</script>

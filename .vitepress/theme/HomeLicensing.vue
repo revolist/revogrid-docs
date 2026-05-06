@@ -7,7 +7,7 @@
                     <h2 class="section-title">The fair pricing<br />your team deserves.</h2>
                     <p class="section-sub">Simple developer-based licensing for teams building serious data apps. Start with the plan you need today and scale usage without renegotiating every deployment.</p>
                     <div class="left-cta">
-                        <AppButton href="/pro/prices" variant="primary">See full pricing</AppButton>
+                        <AppButton :href="homeLink('/pro/prices')" variant="primary">See full pricing</AppButton>
                     </div>
                 </div>
                 <div class="licensing-right">
@@ -35,6 +35,9 @@
 <script lang="ts" setup>
 import AppButton from './AppButton.vue'
 import { PRICES } from '../../pro/prices'
+import { useHomeLink } from './useHomeLink'
+
+const { homeLink } = useHomeLink()
 
 const ADVANTAGES = [
     { text: '<strong>Royalty-free commercial use</strong> — ship to any number of end users, hosted or on-prem.' },

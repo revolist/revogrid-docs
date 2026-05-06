@@ -1,7 +1,7 @@
 <template>
     <div class="hero-eyebrow">
         <span class="eyebrow-dot"></span>
-        High-performance data grid
+        {{ eyebrow }}
     </div>
     <a target="_blank" rel="noopener" class="topPill" v-if="value.action">
         <span class="pill-promo">{{ value.text }}
@@ -17,6 +17,7 @@ const { frontmatter } = useData()
 const value = computed(() => {
     return frontmatter.value.hero?.banner ?? {}
 })
+const eyebrow = computed(() => frontmatter.value.hero?.eyebrow ?? 'High-performance data grid')
 </script>
 
 <style lang="scss" scoped>

@@ -1,4 +1,5 @@
 export class AdvanceFilterPlugin {}
+export class ColumnHidePlugin {}
 export class CorePlugin {}
 export class RowOddPlugin {}
 

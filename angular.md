@@ -1,17 +1,18 @@
 ---
 layout: home
-title: High-Performance Data Grid for Vue, React, Angular, Svelte, and JavaScript
+title: Angular Data Grid
+externalHomeLinks: true
 
 head:
   - - meta
     - name: description
-      content: RevoGrid is a high-performance data grid component compatible with Vue, React, Angular, Svelte, and JavaScript frameworks.
+      content: RevoGrid is a high-performance Angular data grid component for data-heavy applications.
   - - meta
     - name: keywords
-      content: AI Table, Virtual Data Grid, Performance Grid, Excel-like Grid, Responsive Grid, Customizable Grid, Enterprise Data Grid, Lightweight Grid, React Data Grid, Vue3 Data Grid, Angular Grid, Svelte Grid, Virtual Scrolling, Editable Grid, Treeview Grid, Conditional Formatting, Merge Cells, Master-Detail Rows, Data Filtering, Data Sorting, Grouping, Pagination, Large Dataset Handling, Data Visualization, Interactive Data Grid, Drag & Drop, Grid Plugins, Scalable Grid, RevoGrid Features
+      content: Angular Data Grid, RevoGrid Angular, Virtual Data Grid, Performance Grid, Excel-like Grid, Editable Grid, Large Dataset Handling
 
 hero:
-  eyebrow: High-performance data grid
+  eyebrow: High-performance Angular data grid
   showFrameworkBadges: true
   name: Build data-heavy apps —
   text: not just tables.
@@ -29,7 +30,7 @@ hero:
       link: /demo/
     - theme: alt
       text: Read docs
-      link: /guide/
+      link: /guide/angular/
 
 integrations:
 - title: Vue
