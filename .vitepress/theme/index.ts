@@ -17,6 +17,7 @@ import HomeLicensing from './HomeLicensing.vue'
 import HomeFeatureStats from './HomeFeatureStats.vue'
 import HomeCtaBanner from './HomeCtaBanner.vue'
 import ExternalHomeLinks from './ExternalHomeLinks.vue'
+import HeaderNavControls from './HeaderNavControls.vue'
 import ProDemoFrame from './ProDemoFrame.vue'
 import DemoWidgetFrame from './DemoWidgetFrame.vue'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
@@ -26,7 +27,10 @@ export default {
     Layout: () => {
         return h(DefaultTheme.Layout, null, {
             // https://vitepress.dev/guide/extending-default-theme#layout-slots
-            'layout-top': () => h(ExternalHomeLinks),
+            'layout-top': () => [
+                h(HeaderNavControls),
+                h(ExternalHomeLinks),
+            ],
             'home-hero-image': () => h(HomeHero),
             'home-hero-actions-before-actions': () => h(HomeHeroActions),
             'home-hero-info-before': () => h(HomeHeroInfoBefore),

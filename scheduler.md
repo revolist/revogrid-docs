@@ -11,6 +11,15 @@ next: false
 pageClass: gantt-page-doc
 layout: custom
 breadcrumbs: false
+headerNav:
+  hiddenItems:
+    - Product
+    - Links
+    - RevoGrid Pro
+  links:
+    - text: Docs
+      href: /gantt
+      base: pro
 ganttLanding:
   colors:
     accent: '#047857'

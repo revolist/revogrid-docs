@@ -1,73 +1,84 @@
 <template>
-  <div class="pivot-page">
+  <div class="pivot-page" :style="pageStyle">
     <section class="pivot-hero">
       <div class="container hero-inner">
         <div class="hero-copy">
           <div class="eyebrow fade-up">
             <span class="eyebrow-dot"></span>
-            RevoGrid Pro / Pivot
+            {{ page.hero.eyebrow }}
           </div>
           <h1 class="hero-title fade-up-2">
-            <span class="hero-title-highlight">
-              <span class="hero-title-part">Multi</span>
-              <span class="hero-title-part">dimensional</span>
-            </span> 
-            analytics, embedded.
+            <span v-if="page.hero.titleHighlightParts.length" class="hero-title-highlight">
+              <span v-for="part in page.hero.titleHighlightParts" :key="part" class="hero-title-part">{{ part }}</span>
+            </span>
+            {{ page.hero.titleSuffix }}
           </h1>
           <p class="hero-sub fade-up-3">
-            Drag-and-drop pivot tables for web apps. Slice any dataset by rows,
-            columns, aggregations, and filters without leaving the page.
+            {{ page.hero.description }}
           </p>
           <div class="hero-actions fade-up-4">
-            <ProDocButton href="/demo/pivot" arrow>Try live demo</ProDocButton>
-            <ProDocButton href="https://pro.rv-grid.com/guides/pivot/" variant="secondary" target="_blank" rel="noopener">
-              Read docs
+            <ProDocButton
+              v-for="action in page.hero.actions"
+              :key="action.label"
+              :href="resolvePivotLink(action.href)"
+              :variant="action.variant"
+              :target="action.target"
+              :rel="action.rel"
+              :arrow="action.arrow"
+            >
+              {{ action.label }}
             </ProDocButton>
           </div>
-          <div class="hero-badges fade-up-4">
-            <span v-for="badge in HERO_BADGES" :key="badge">{{ badge }}</span>
+          <div v-if="page.hero.badges.length" class="hero-badges fade-up-4">
+            <span v-for="badge in page.hero.badges" :key="badge">{{ badge }}</span>
           </div>
         </div>
 
-        <div class="fade-up-3">
+        <div v-if="page.preview.enabled" class="fade-up-3">
           <PivotDemo />
         </div>
       </div>
     </section>
 
-    <ProStatsBar :items="STATS" aria-label="Pivot product stats" />
+    <ProStatsBar v-if="page.stats.length" :items="page.stats" :aria-label="page.statsAriaLabel" />
 
-    <section id="features" class="features-section">
+    <section v-if="page.features.items.length" :id="page.features.id" class="features-section">
       <div class="container">
         <div class="section-head">
-          <div class="section-tag">Features</div>
-          <h2 class="section-title">Everything a production<br />pivot table needs.</h2>
+          <div class="section-tag">{{ page.features.kicker }}</div>
+          <h2 class="section-title">{{ page.features.title }}</h2>
           <p class="section-sub">
-            Not a summary view bolted on top. A full-featured pivot engine built
-            on RevoGrid's high-performance rendering core.
+            {{ page.features.description }}
           </p>
         </div>
 
-        <ProFeatureGrid :features="FEATURES" />
+        <ProFeatureGrid :features="page.features.items" />
       </div>
     </section>
 
-    <PivotUseCases />
+    <PivotUseCases v-if="page.useCases.enabled" />
 
-    <ProAdvancedCallout title="Pivot is part of the Pro Advanced bundle." />
+    <ProAdvancedCallout
+      v-if="page.advancedCallout"
+      :title="page.advancedCallout.title"
+      :section-id="page.advancedCallout.sectionId"
+    />
 
     <ProCtaBanner
-      title="Embed pivot analytics&#10;in your product."
-      description="Client-side pivot tables for React, Vue, Angular, Svelte, and vanilla JS. Included in Pro Advanced."
-      primary-href="/demo/pivot"
-      primary-label="Try live demo"
-      secondary-href="/pro/prices"
-      secondary-label="View Pro pricing"
+      v-if="page.cta"
+      :title="page.cta.title"
+      :description="page.cta.description"
+      :primary-href="resolvePivotLink(page.cta.primaryHref)"
+      :primary-label="page.cta.primaryLabel"
+      :secondary-href="resolvePivotLink(page.cta.secondaryHref)"
+      :secondary-label="page.cta.secondaryLabel"
     />
   </div>
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
+import { useData } from 'vitepress'
 import ProAdvancedCallout from '../pro/ProAdvancedCallout.vue'
 import ProCtaBanner from '../pro/ProCtaBanner.vue'
 import ProDocButton from '../pro/ProDocButton.vue'
@@ -76,59 +87,214 @@ import ProStatsBar from '../pro/ProStatsBar.vue'
 import PivotDemo from '../pro/PivotDemo.vue'
 import PivotUseCases from '../pro/PivotUseCases.vue'
 
-const HERO_BADGES = [
-  'Drag-and-drop dimensions',
-  'Multi-level aggregation',
-  'Heatmap cell rendering',
-  'Client-side on 350K+ rows',
-]
+type PivotLandingAction = {
+  label: string
+  href: string
+  variant?: 'primary' | 'secondary'
+  target?: string
+  rel?: string
+  arrow?: boolean
+}
 
-const STATS = [
-  { value: '350K+', label: 'rows client-side' },
-  { value: 'Any', label: 'dimension combination' },
-  { value: '8', label: 'aggregation types' },
-  { value: '0', label: 'server round-trips' },
-]
+type PivotLandingPage = {
+  colors: {
+    accent: string
+    accentMid: string
+    accentVivid: string
+    soft: string
+    border: string
+    darkAccent: string
+    darkAccentMid: string
+    darkAccentVivid: string
+    darkSoft: string
+    darkBorder: string
+  }
+  hero: {
+    eyebrow: string
+    titleHighlightParts: string[]
+    titleSuffix: string
+    description: string
+    actions: PivotLandingAction[]
+    badges: string[]
+  }
+  preview: {
+    enabled: boolean
+  }
+  statsAriaLabel: string
+  stats: { value: string, label: string }[]
+  features: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    items: { icon: string, title: string, description: string, tags: string[], codeExample?: string }[]
+  }
+  useCases: {
+    enabled: boolean
+  }
+  advancedCallout?: {
+    title: string
+    sectionId?: string
+  }
+  cta?: {
+    title: string
+    description: string
+    primaryHref: string
+    primaryLabel: string
+    secondaryHref: string
+    secondaryLabel: string
+  }
+}
 
-const FEATURES = [
-  {
-    icon: 'DnD',
-    title: 'Drag-and-Drop Dimensions',
-    description: 'Move fields between Rows, Columns, Data, and Filters slots at runtime. The pivot table updates instantly.',
-    tags: ['Drag fields', 'Runtime pivot', 'Zero reload'],
+const DEFAULT_PAGE: PivotLandingPage = {
+  colors: {
+    accent: '#0f766e',
+    accentMid: '#0d9488',
+    accentVivid: '#10b981',
+    soft: 'rgba(15, 118, 110, 0.09)',
+    border: 'rgba(15, 118, 110, 0.22)',
+    darkAccent: 'oklch(0.72 0.18 185)',
+    darkAccentMid: 'oklch(0.76 0.18 185)',
+    darkAccentVivid: 'oklch(0.78 0.18 175)',
+    darkSoft: 'oklch(0.72 0.18 185 / 0.14)',
+    darkBorder: 'oklch(0.72 0.18 185 / 0.28)',
   },
-  {
-    icon: 'SUM',
-    title: 'Multi-Level Aggregation',
-    description: 'Sum, average, count, min/max, median, or bring your own aggregation function. Use multiple aggregations on the same field.',
-    tags: ['SUM / AVG / CNT', 'Custom agg fn', 'Multi-agg'],
+  hero: {
+    eyebrow: 'RevoGrid Pro / Pivot',
+    titleHighlightParts: ['Multi', 'dimensional'],
+    titleSuffix: 'analytics, embedded.',
+    description: 'Drag-and-drop pivot tables for web apps. Slice any dataset by rows, columns, aggregations, and filters without leaving the page.',
+    actions: [
+      { label: 'Try live demo', href: '/demo/pivot', arrow: true },
+      { label: 'Read docs', href: 'https://pro.rv-grid.com/guides/pivot/', variant: 'secondary', target: '_blank', rel: 'noopener' },
+    ],
+    badges: [
+      'Drag-and-drop dimensions',
+      'Multi-level aggregation',
+      'Heatmap cell rendering',
+      'Client-side on 350K+ rows',
+    ],
   },
-  {
-    icon: 'MAP',
-    title: 'Heatmap Cell Rendering',
-    description: 'Built-in value-based color coding with configurable thresholds and custom color scales for fast outlier detection.',
-    tags: ['Heatmap cells', 'Color scales', 'Threshold config'],
+  preview: {
+    enabled: true,
   },
-  {
-    icon: 'ROW',
-    title: 'Row & Column Grouping',
-    description: 'Drag any dimension field to Rows or Columns. Subtotals and grand totals are computed automatically at every group level.',
-    tags: ['Subtotals', 'Grand total', 'Nested groups'],
+  statsAriaLabel: 'Pivot product stats',
+  stats: [
+    { value: '350K+', label: 'rows client-side' },
+    { value: 'Any', label: 'dimension combination' },
+    { value: '8', label: 'aggregation types' },
+    { value: '0', label: 'server round-trips' },
+  ],
+  features: {
+    id: 'features',
+    kicker: 'Features',
+    title: 'Everything a production\npivot table needs.',
+    description: 'Not a summary view bolted on top. A full-featured pivot engine built on RevoGrid\'s high-performance rendering core.',
+    items: [
+      {
+        icon: 'DnD',
+        title: 'Drag-and-Drop Dimensions',
+        description: 'Move fields between Rows, Columns, Data, and Filters slots at runtime. The pivot table updates instantly.',
+        tags: ['Drag fields', 'Runtime pivot', 'Zero reload'],
+      },
+      {
+        icon: 'SUM',
+        title: 'Multi-Level Aggregation',
+        description: 'Sum, average, count, min/max, median, or bring your own aggregation function. Use multiple aggregations on the same field.',
+        tags: ['SUM / AVG / CNT', 'Custom agg fn', 'Multi-agg'],
+      },
+      {
+        icon: 'MAP',
+        title: 'Heatmap Cell Rendering',
+        description: 'Built-in value-based color coding with configurable thresholds and custom color scales for fast outlier detection.',
+        tags: ['Heatmap cells', 'Color scales', 'Threshold config'],
+      },
+      {
+        icon: 'ROW',
+        title: 'Row & Column Grouping',
+        description: 'Drag any dimension field to Rows or Columns. Subtotals and grand totals are computed automatically at every group level.',
+        tags: ['Subtotals', 'Grand total', 'Nested groups'],
+      },
+      {
+        icon: 'CPU',
+        title: 'Client-Side at Scale',
+        description: 'No server round-trip on pivot operations. Bind the pivot config directly and run aggregations against the grid source.',
+        tags: ['350K rows', 'In-memory', 'PivotPlugin'],
+        codeExample: 'pivot',
+      },
+      {
+        icon: 'CSV',
+        title: 'Export to Excel / CSV',
+        description: 'Export pivot tables with headers, subtotals, and formatted values. Works with filtered or fully pivoted views.',
+        tags: ['XLSX export', 'CSV export', 'Formatted values'],
+      },
+    ],
   },
-  {
-    icon: 'CPU',
-    title: 'Client-Side at Scale',
-    description: 'No server round-trip on pivot operations. Bind the pivot config directly and run aggregations against the grid source.',
-    tags: ['350K rows', 'In-memory', 'PivotPlugin'],
-    codeExample: 'pivot',
+  useCases: {
+    enabled: true,
   },
-  {
-    icon: 'CSV',
-    title: 'Export to Excel / CSV',
-    description: 'Export pivot tables with headers, subtotals, and formatted values. Works with filtered or fully pivoted views.',
-    tags: ['XLSX export', 'CSV export', 'Formatted values'],
+  advancedCallout: {
+    title: 'Pivot is part of the Pro Advanced bundle.',
   },
-] as const
+  cta: {
+    title: 'Embed pivot analytics\nin your product.',
+    description: 'Client-side pivot tables for React, Vue, Angular, Svelte, and vanilla JS. Included in Pro Advanced.',
+    primaryHref: '/demo/pivot',
+    primaryLabel: 'Try live demo',
+    secondaryHref: '/pro/prices',
+    secondaryLabel: 'View Pro pricing',
+  },
+}
+
+function mergePivotPageConfig(config: Partial<PivotLandingPage> = {}): PivotLandingPage {
+  return {
+    ...DEFAULT_PAGE,
+    ...config,
+    colors: { ...DEFAULT_PAGE.colors, ...config.colors },
+    hero: { ...DEFAULT_PAGE.hero, ...config.hero },
+    preview: { ...DEFAULT_PAGE.preview, ...config.preview },
+    features: { ...DEFAULT_PAGE.features, ...config.features },
+    useCases: { ...DEFAULT_PAGE.useCases, ...config.useCases },
+    advancedCallout: config.advancedCallout === null
+      ? undefined
+      : { ...DEFAULT_PAGE.advancedCallout, ...config.advancedCallout },
+    cta: config.cta === null
+      ? undefined
+      : { ...DEFAULT_PAGE.cta, ...config.cta },
+  }
+}
+
+const { frontmatter, isDark } = useData()
+const rvGridBaseUrl = trimTrailingSlash(import.meta.env.VITE_RV_GRID_BASE_URL || 'https://rv-grid.com')
+const rvGridProBaseUrl = trimTrailingSlash(import.meta.env.VITE_RV_GRID_PRO_BASE_URL || 'https://pro.rv-grid.com')
+const page = computed(() => mergePivotPageConfig(frontmatter.value.pivotLanding ?? {}))
+const pageStyle = computed(() => ({
+  '--pivot-accent': isDark.value ? page.value.colors.darkAccent : page.value.colors.accent,
+  '--pivot-accent-mid': isDark.value ? page.value.colors.darkAccentMid : page.value.colors.accentMid,
+  '--pivot-accent-vivid': isDark.value ? page.value.colors.darkAccentVivid : page.value.colors.accentVivid,
+  '--pivot-accent-soft': isDark.value ? page.value.colors.darkSoft : page.value.colors.soft,
+  '--pivot-accent-border': isDark.value ? page.value.colors.darkBorder : page.value.colors.border,
+}))
+
+function trimTrailingSlash(value: string) {
+  return value.replace(/\/+$/, '')
+}
+
+function resolvePivotLink(href: string) {
+  if (href.startsWith('https://rv-grid.com')) {
+    return `${rvGridBaseUrl}${href.slice('https://rv-grid.com'.length)}`
+  }
+
+  if (href.startsWith('https://pro.rv-grid.com')) {
+    return `${rvGridProBaseUrl}${href.slice('https://pro.rv-grid.com'.length)}`
+  }
+
+  if (frontmatter.value.externalHomeLinks && href.startsWith('/')) {
+    return `${rvGridBaseUrl}${href}`
+  }
+
+  return href
+}
 </script>
 
 <style lang="scss" scoped>
@@ -338,6 +504,7 @@ const FEATURES = [
   font-weight: 760;
   letter-spacing: -1.4px;
   line-height: 1.08;
+  white-space: pre-line;
 }
 
 .section-sub {

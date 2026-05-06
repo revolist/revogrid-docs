@@ -1,7 +1,6 @@
 ---
 title: RevoGrid Gantt - Interactive Scheduling for Web Apps
 description: Production-ready Gantt charts for web applications with task scheduling, dependencies, critical path analysis, and resource tracking.
-externalHomeLinks: true
 sidebar: false
 aside: false
 editLink: false
