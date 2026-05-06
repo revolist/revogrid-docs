@@ -11,6 +11,13 @@ head:
 
 RevoGrid is a high-performance [MIT-licensed](/guide/licensing) JavaScript data grid built for large datasets, fast scrolling, and spreadsheet-like interactions. It works as a Web Component, so the same core grid can be used in JavaScript, TypeScript, React, Angular, Vue, Svelte, and other modern frontends.
 
+<DemoWidgetFrame
+  demo="hr"
+  framework="ts"
+  title="RevoGrid getting started demo"
+  minHeight="600"
+/>
+
 This page is the fastest way to get a grid on the screen. From here you can move into feature guides, framework-specific setup, and the full API.
 
 ## Why teams use RevoGrid
@@ -84,12 +91,3 @@ If you are integrating RevoGrid into an application framework, start with the wr
 ## Example
 
 [![Edit RevoGrid - Quick Start](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/revogrid-60s-tlxgwn)
-
-<ClientOnly>
-  <iframe src="https://codesandbox.io/embed/tlxgwn?view=Editor+%2B+Preview&module=%2Findex.html&hidenavigation=1"
-     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="DataGrid in 60s"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-</ClientOnly>

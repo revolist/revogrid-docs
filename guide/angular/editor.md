@@ -92,8 +92,11 @@ export class AppComponent {
 ```
 
 
-
-<!--@include: ../../demo/angular/angular.editor.md-->
+<DemoWidgetFrame
+  demo="cell-editor"
+  framework="angular"
+  title="RevoGrid Cell Editor"
+/>
 
 
 <!--@include: ./_examples.md-->

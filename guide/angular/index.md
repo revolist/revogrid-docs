@@ -11,7 +11,15 @@ head:
 
 RevoGrid shines in Angular when you want a high-performance grid without giving up framework-native templates and editors. The Angular wrapper keeps the grid convenient to use while still exposing the same core RevoGrid API.
 
-<!--@include: ../../demo/angular/angular-datagrid.md-->
+
+
+<DemoWidgetFrame
+  demo="hr"
+  framework="angular"
+  title="RevoGrid getting started demo"
+  minHeight="600"
+/>
+
 
 ::: info
 This tutorial assumes that an Angular project already exists. If not, start with the official [Angular installation guide](https://angular.dev/installation).
@@ -102,6 +110,14 @@ Use these Angular-specific guides for deeper integration:
 - [Angular Cell Template](/guide/angular/renderer)
 - [Angular Cell Editor](/guide/angular/editor)
 
+
+<DemoWidgetFrame
+  demo="getting-started"
+  framework="angular"
+  title="RevoGrid getting started demo"
+/>
+
+
 ## Event handling
 
 Angular applications typically listen to the same RevoGrid lifecycle events as other integrations:
@@ -117,7 +133,5 @@ Angular applications typically listen to the same RevoGrid lifecycle events as o
 - [Advanced Configuration](/guide/advanced-configuration)
 - [Event Patterns and Lifecycles](/guide/events-guide)
 - [Grid Performance and Virtualization](/guide/performance)
-
-<!--@include: ../../demo/angular/angular.sample.module.md-->
 
 <!--@include: ./_examples.md-->

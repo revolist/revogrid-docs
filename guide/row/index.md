@@ -2,6 +2,13 @@
 
 <!--@include: ../parts/_row.md-->
 
+<DemoWidgetFrame
+  demo="core-js-examples"
+  framework="ts"
+  title="RevoGrid Core Features"
+/>
+
+
 RevoGrid offers extensive capabilities for managing rows and the data they contain. From customizing row appearances with class bindings to handling complex data structures, RevoGrid provides the tools you need to create dynamic and responsive data grids.
 
 ## Row Class Binding

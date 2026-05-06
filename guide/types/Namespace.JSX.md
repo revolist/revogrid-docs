@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.5](README.md) / JSX
+[RevoGrid Documentation v4.21.6](README.md) / JSX
 
 # JSX
 

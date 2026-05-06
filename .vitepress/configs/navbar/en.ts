@@ -1,4 +1,5 @@
 import type { DefaultTheme } from 'vitepress'
+import { demosPortalUrl } from '../demoPortal'
 
 export const navbarEn: DefaultTheme.NavItem[] = [
   {
@@ -36,7 +37,7 @@ export const navbarEn: DefaultTheme.NavItem[] = [
       },
       {
         text: 'Examples Portal',
-        link: 'https://demo.rv-grid.com/?framework=all',
+        link: demosPortalUrl('/', { framework: 'all' }),
       },
     ],
   },
