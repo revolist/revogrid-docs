@@ -4,7 +4,7 @@
             <p class="eyebrow">Why RevoGrid</p>
             <h2 class="section-title">Everything a production<br />data grid needs.</h2>
             <div class="cols">
-                <a class="col" v-for="f in FEATURES" :key="f.title" :href="f.href">
+                <a class="col" v-for="f in features" :key="f.title" :href="f.href">
                     <div class="col-icon">{{ f.icon }}</div>
                     <div class="stat-row">
                         <span class="stat-num">{{ f.stat }}</span>
@@ -22,6 +22,11 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
+import { useHomeLink } from './useHomeLink'
+
+const { homeLink } = useHomeLink()
+
 const FEATURES = [
     {
         icon: '⚡',
@@ -51,6 +56,13 @@ const FEATURES = [
         tags: ['React', 'Vue', 'Angular', 'Svelte', 'Vanilla JS'],
     },
 ]
+
+const features = computed(() =>
+    FEATURES.map((feature) => ({
+        ...feature,
+        href: homeLink(feature.href),
+    }))
+)
 </script>
 
 <style lang="scss" scoped>

@@ -1,5 +1,5 @@
 <template>
-    <div class="framework-badges">
+    <div v-if="showFrameworkBadges" class="framework-badges">
         <span class="framework-label">Works with</span>
         <div class="fw-badges">
             <a
@@ -19,6 +19,7 @@
 <script lang="ts" setup>
 import { useData } from 'vitepress'
 import { computed } from 'vue'
+import { useHomeLink } from './useHomeLink'
 
 const FW_COLORS: Record<string, string> = {
     Vue: '#4fc08d',
@@ -29,9 +30,12 @@ const FW_COLORS: Record<string, string> = {
 }
 
 const { frontmatter } = useData()
+const { homeLink } = useHomeLink()
+const showFrameworkBadges = computed(() => frontmatter.value.hero?.showFrameworkBadges !== false)
 const integrations = computed(() =>
     (frontmatter.value.integrations ?? []).map((item: any) => ({
         ...item,
+        path: homeLink(item.path),
         color: FW_COLORS[item.title] ?? 'var(--vp-c-brand-1)',
     }))
 )

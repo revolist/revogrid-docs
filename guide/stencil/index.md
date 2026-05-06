@@ -15,11 +15,15 @@ head:
 
 # Stencil Data Grid
 
+<img src="/stenciljs.svg" alt="StencilJs logo" width="100" height="300" style="margin: 20px auto;" />
+
 This page covers the key concepts of RevoGrid - a high-performance, customizable StencilJS Table and StencilJS Data Grid for managing large datasets.
 
-<img src="/stenciljs.svg" alt="StencilJs logo" width="300" height="300" style="margin: 20px auto;" />
 
 </div>
+
+
+<!--@include: ../../demo/stencil/stencil.sample.md-->
 
 
 ## What is StencilJS?
@@ -53,4 +57,3 @@ Define the custom elements and configure your component as follows:
 That's it! Your StencilJS project is now set up to use RevoGrid.
 
 
-<!--@include: ../../demo/stencil/stencil.sample.md-->

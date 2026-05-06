@@ -90,4 +90,10 @@ If you are integrating RevoGrid into an application framework, start with the wr
 
 ## Example
 
+<DemoWidgetFrame
+  demo="core-60s"
+  framework="ts"
+  title="RevoGrid getting started demo"
+/>
+
 [![Edit RevoGrid - Quick Start](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/revogrid-60s-tlxgwn)

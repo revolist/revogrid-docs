@@ -16,7 +16,7 @@ export const navbarEn: DefaultTheme.NavItem[] = [
         activeMatch: '^/pivot',
       },
       {
-        text: 'Gantt & Scheduler',
+        text: 'Gantt',
         link: '/gantt',
         activeMatch: '^/gantt',
       },

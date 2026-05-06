@@ -13,8 +13,8 @@
                         <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Column resize &amp; reorder</strong> — users can adapt the view to their workflow</span></div>
                     </div>
                     <div class="uc-ctas">
-                        <a href="/demo/gantt" class="btn-primary-lg">See live demo</a>
-                        <a href="/gantt" class="btn-secondary-lg">Read docs</a>
+                        <a :href="homeLink('/demo/gantt')" class="btn-primary-lg">See live demo</a>
+                        <a :href="homeLink('/gantt')" class="btn-secondary-lg">Read docs</a>
                     </div>
                 </div>
 
@@ -40,3 +40,9 @@
         </div>
     </section>
 </template>
+
+<script lang="ts" setup>
+import { useHomeLink } from '../useHomeLink'
+
+const { homeLink } = useHomeLink()
+</script>
