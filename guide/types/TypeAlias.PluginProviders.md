@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.6](README.md) / PluginProviders
+[RevoGrid Documentation v4.21.7](README.md) / PluginProviders
 
 # Type Alias: PluginProviders
 
@@ -21,13 +21,13 @@ by the plugins.
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `column` | `ColumnDataProvider` | The column service provides access to the grid's column data. | [src/types/plugin.types.ts:38](https://github.com/revolist/revogrid/blob/a9ac74f43362117ea08122e5784fe4959d58ecdd/src/types/plugin.types.ts#L38) |
-| `data` | `DataProvider` | The data service provides access to the grid data. | [src/types/plugin.types.ts:26](https://github.com/revolist/revogrid/blob/a9ac74f43362117ea08122e5784fe4959d58ecdd/src/types/plugin.types.ts#L26) |
-| `dimension` | `DimensionProvider` | The dimension service provides access to the grid's dimensions and settings. | [src/types/plugin.types.ts:30](https://github.com/revolist/revogrid/blob/a9ac74f43362117ea08122e5784fe4959d58ecdd/src/types/plugin.types.ts#L30) |
-| `plugins` | [`PluginServiceBase`](Interface.PluginServiceBase.md) | Plugin services | [src/types/plugin.types.ts:48](https://github.com/revolist/revogrid/blob/a9ac74f43362117ea08122e5784fe4959d58ecdd/src/types/plugin.types.ts#L48) |
-| `selection` | `SelectionStoreConnector` | The selection service provides access to the grid's selection state. | [src/types/plugin.types.ts:34](https://github.com/revolist/revogrid/blob/a9ac74f43362117ea08122e5784fe4959d58ecdd/src/types/plugin.types.ts#L34) |
-| `viewport` | `ViewportProvider` | The viewport service provides access to the grid's viewport state. | [src/types/plugin.types.ts:42](https://github.com/revolist/revogrid/blob/a9ac74f43362117ea08122e5784fe4959d58ecdd/src/types/plugin.types.ts#L42) |
+| `column` | `ColumnDataProvider` | The column service provides access to the grid's column data. | [src/types/plugin.types.ts:38](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/plugin.types.ts#L38) |
+| `data` | `DataProvider` | The data service provides access to the grid data. | [src/types/plugin.types.ts:26](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/plugin.types.ts#L26) |
+| `dimension` | `DimensionProvider` | The dimension service provides access to the grid's dimensions and settings. | [src/types/plugin.types.ts:30](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/plugin.types.ts#L30) |
+| `plugins` | [`PluginServiceBase`](Interface.PluginServiceBase.md) | Plugin services | [src/types/plugin.types.ts:48](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/plugin.types.ts#L48) |
+| `selection` | `SelectionStoreConnector` | The selection service provides access to the grid's selection state. | [src/types/plugin.types.ts:34](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/plugin.types.ts#L34) |
+| `viewport` | `ViewportProvider` | The viewport service provides access to the grid's viewport state. | [src/types/plugin.types.ts:42](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/plugin.types.ts#L42) |
 
 ## Defined in
 
-[src/types/plugin.types.ts:22](https://github.com/revolist/revogrid/blob/a9ac74f43362117ea08122e5784fe4959d58ecdd/src/types/plugin.types.ts#L22)
+[src/types/plugin.types.ts:22](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/plugin.types.ts#L22)

@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.6](README.md) / ColumnData
+[RevoGrid Documentation v4.21.7](README.md) / ColumnData
 
 # Type Alias: ColumnData
 
@@ -8,4 +8,4 @@ type ColumnData: (ColumnGrouping | ColumnRegular)[];
 
 ## Defined in
 
-[src/types/interfaces.ts:252](https://github.com/revolist/revogrid/blob/a9ac74f43362117ea08122e5784fe4959d58ecdd/src/types/interfaces.ts#L252)
+[src/types/interfaces.ts:269](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/interfaces.ts#L269)

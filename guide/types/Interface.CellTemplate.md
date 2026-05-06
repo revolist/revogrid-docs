@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.6](README.md) / CellTemplate
+[RevoGrid Documentation v4.21.7](README.md) / CellTemplate
 
 # Interface: CellTemplate()
 
@@ -7,7 +7,7 @@ Interface for custom cell renderer.
 ```ts
 interface CellTemplate(
    createElement: HyperFunc<VNode>, 
-   props: CellTemplateProp, 
+   props: CellTemplateProp<DataType<any, ColumnProp>, ColumnRegular<ColumnProp>, ColumnProp>, 
    additionalData?: any): any
 ```
 
@@ -18,7 +18,7 @@ Interface for custom cell renderer.
 | Parameter | Type |
 | ------ | ------ |
 | `createElement` | [`HyperFunc`](Interface.HyperFunc.md)\<[`VNode`](Interface.VNode.md)\> |
-| `props` | [`CellTemplateProp`](Interface.CellTemplateProp.md) |
+| `props` | [`CellTemplateProp`](Interface.CellTemplateProp.md)\<[`DataType`](TypeAlias.DataType.md)\<`any`, [`ColumnProp`](TypeAlias.ColumnProp.md)\>, [`ColumnRegular`](Interface.ColumnRegular.md)\<[`ColumnProp`](TypeAlias.ColumnProp.md)\>, [`ColumnProp`](TypeAlias.ColumnProp.md)\> |
 | `additionalData`? | `any` |
 
 ## Returns
@@ -27,4 +27,4 @@ Interface for custom cell renderer.
 
 ## Defined in
 
-[src/types/interfaces.ts:140](https://github.com/revolist/revogrid/blob/a9ac74f43362117ea08122e5784fe4959d58ecdd/src/types/interfaces.ts#L140)
+[src/types/interfaces.ts:157](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/interfaces.ts#L157)

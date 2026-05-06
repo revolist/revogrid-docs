@@ -1,9 +1,9 @@
-[RevoGrid Documentation v4.21.6](README.md) / DataType
+[RevoGrid Documentation v4.21.7](README.md) / DataType
 
-# Type Alias: DataType\<D\>
+# Type Alias: DataType\<D, K\>
 
 ```ts
-type DataType<D>: { [T in ColumnProp]: DataFormat<D> };
+type DataType<D, K>: { [T in K]: DataFormat<D> };
 ```
 
 ## Type Parameters
@@ -11,7 +11,8 @@ type DataType<D>: { [T in ColumnProp]: DataFormat<D> };
 | Type Parameter | Default type |
 | ------ | ------ |
 | `D` | `any` |
+| `K` *extends* [`ColumnProp`](TypeAlias.ColumnProp.md) | [`ColumnProp`](TypeAlias.ColumnProp.md) |
 
 ## Defined in
 
-[src/types/interfaces.ts:440](https://github.com/revolist/revogrid/blob/a9ac74f43362117ea08122e5784fe4959d58ecdd/src/types/interfaces.ts#L440)
+[src/types/interfaces.ts:457](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/interfaces.ts#L457)

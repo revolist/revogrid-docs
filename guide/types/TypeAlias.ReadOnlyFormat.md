@@ -1,9 +1,9 @@
-[RevoGrid Documentation v4.21.6](README.md) / ReadOnlyFormat
+[RevoGrid Documentation v4.21.7](README.md) / ReadOnlyFormat
 
-# Type Alias: ReadOnlyFormat
+# Type Alias: ReadOnlyFormat\<TModel, TColumn\>
 
 ```ts
-type ReadOnlyFormat: boolean | (params: ColumnDataSchemaModel) => boolean;
+type ReadOnlyFormat<TModel, TColumn>: boolean | (params: ColumnDataSchemaModel<TModel, TColumn>) => boolean;
 ```
 
 The ReadOnlyFormat type is a boolean value or a function that takes ColumnDataSchemaModel
@@ -13,6 +13,13 @@ If it is a boolean value, it represents whether the cell in question is read-onl
 If it is a function, it returns whether the cell in question is read-only based on the provided
 ColumnDataSchemaModel.
 
+## Type Parameters
+
+| Type Parameter | Default type |
+| ------ | ------ |
+| `TModel` *extends* [`DataType`](TypeAlias.DataType.md) | [`DataType`](TypeAlias.DataType.md) |
+| `TColumn` *extends* [`ColumnRegular`](Interface.ColumnRegular.md) | [`ColumnRegular`](Interface.ColumnRegular.md) |
+
 ## Defined in
 
-[src/types/interfaces.ts:88](https://github.com/revolist/revogrid/blob/a9ac74f43362117ea08122e5784fe4959d58ecdd/src/types/interfaces.ts#L88)
+[src/types/interfaces.ts:101](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/interfaces.ts#L101)

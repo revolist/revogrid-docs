@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.6](README.md) / Editors
+[RevoGrid Documentation v4.21.7](README.md) / Editors
 
 # Type Alias: Editors
 
@@ -14,4 +14,4 @@ Available editors in grid
 
 ## Defined in
 
-[src/types/selection.ts:151](https://github.com/revolist/revogrid/blob/a9ac74f43362117ea08122e5784fe4959d58ecdd/src/types/selection.ts#L151)
+[src/types/selection.ts:151](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/selection.ts#L151)
