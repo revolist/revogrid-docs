@@ -16,9 +16,29 @@ export const navbarEn: DefaultTheme.NavItem[] = [
         activeMatch: '^/pivot',
       },
       {
-        text: 'Gantt & Scheduler',
+        text: 'Gantt',
         link: '/gantt',
         activeMatch: '^/gantt',
+      },
+      {
+        text: 'Scheduler',
+        link: '/scheduler',
+        activeMatch: '^/scheduler',
+      },
+      {
+        text: 'TimelineGrid',
+        link: '/timelinegrid',
+        activeMatch: '^/timelinegrid',
+      },
+      {
+        text: 'Ops Scheduler',
+        link: '/ops-scheduler',
+        activeMatch: '^/ops-scheduler',
+      },
+      {
+        text: 'JSScheduler',
+        link: '/jsscheduler',
+        activeMatch: '^/jsscheduler',
       },
     ],
   },

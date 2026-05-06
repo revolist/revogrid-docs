@@ -1,39 +1,52 @@
 <template>
-  <div class="gantt-page">
+  <div class="gantt-page" :style="pageStyle">
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-copy">
           <div class="eyebrow fade-up">
             <span class="eyebrow-dot"></span>
-            RevoGrid Pro / Gantt
+            {{ page.hero.eyebrow }}
           </div>
           <h1 class="hero-title fade-up-2">
-            The interactive Gantt your app deserves.
+            {{ page.hero.title }}
           </h1>
           <p class="hero-sub fade-up-3">
-            Production-ready project scheduling for SaaS, ERP, and operations platforms.
-            Drag-to-reschedule tasks, assign owners, track progress, and embed it as a
-            native product feature.
+            {{ page.hero.description }}
           </p>
           <div class="hero-actions fade-up-4">
-            <ProDocButton href="/demo/gantt" arrow>Try live demo</ProDocButton>
-            <ProDocButton href="https://pro.rv-grid.com/guides/gantt/" variant="secondary" target="_blank" rel="noopener">Read docs</ProDocButton>
+            <ProDocButton
+              v-for="action in page.hero.actions"
+              :key="action.label"
+              :href="resolveLandingLink(action.href)"
+              :variant="action.variant"
+              :target="action.target"
+              :rel="action.rel"
+              :arrow="action.arrow"
+            >
+              {{ action.label }}
+            </ProDocButton>
           </div>
-          <div class="hero-badges fade-up-4">
-            <span v-for="badge in HERO_BADGES" :key="badge">{{ badge }}</span>
+          <div v-if="page.hero.badges.length" class="hero-badges fade-up-4">
+            <span v-for="badge in page.hero.badges" :key="badge">{{ badge }}</span>
           </div>
         </div>
 
-        <ClientOnly>
+        <ClientOnly v-if="page.preview.enabled">
           <div class="gantt-demo-wrap fade-up-3">
             <div class="gd-toolbar">
               <span class="traffic red"></span>
               <span class="traffic yellow"></span>
               <span class="traffic green"></span>
-              <span class="gd-title">gantt-planning.revogrid.ts</span>
-              <span class="gd-pill active">Basic plan</span>
-              <span class="gd-pill">Assignees</span>
-              <span class="gd-live">Live</span>
+              <span class="gd-title">{{ page.preview.title }}</span>
+              <span
+                v-for="pill in page.preview.pills"
+                :key="pill.label"
+                class="gd-pill"
+                :class="{ active: pill.active }"
+              >
+                {{ pill.label }}
+              </span>
+              <span v-if="page.preview.liveLabel" class="gd-live">{{ page.preview.liveLabel }}</span>
             </div>
             <div class="gantt-grid-stage">
               <RevoGrid
@@ -55,29 +68,29 @@
       </div>
     </section>
 
-    <ProStatsBar :items="STATS" aria-label="Gantt product stats" />
+    <ProStatsBar v-if="page.stats.length" :items="page.stats" :aria-label="page.statsAriaLabel" />
 
-    <section id="features" class="features">
+    <section v-if="page.features.items.length" :id="page.features.id" class="features">
       <div class="container">
-        <div class="section-kicker">Features</div>
-        <h2 class="section-title">Everything a production Gantt needs.</h2>
+        <div class="section-kicker">{{ page.features.kicker }}</div>
+        <h2 class="section-title">{{ page.features.title }}</h2>
         <p class="section-sub">
-          Built for applications where planning data is part of the product, not a static report.
+          {{ page.features.description }}
         </p>
 
-        <ProFeatureGrid :features="FEATURES" />
+        <ProFeatureGrid :features="page.features.items" />
       </div>
     </section>
 
-    <section id="integrations" class="integrations">
+    <section v-if="page.integrations.items.length" :id="page.integrations.id" class="integrations">
       <div class="container">
-        <div class="section-kicker center">Integrations</div>
-        <h2 class="section-title center">Works with your stack</h2>
+        <div class="section-kicker center">{{ page.integrations.kicker }}</div>
+        <h2 class="section-title center">{{ page.integrations.title }}</h2>
         <p class="section-sub center">
-          One scheduling component with framework bindings for the RevoGrid ecosystem.
+          {{ page.integrations.description }}
         </p>
         <div class="integration-grid">
-          <div v-for="integration in INTEGRATIONS" :key="integration.name" class="integration-card">
+          <div v-for="integration in page.integrations.items" :key="integration.name" class="integration-card">
             <span class="integration-icon">{{ integration.icon }}</span>
             <strong>{{ integration.name }}</strong>
             <small>{{ integration.badge }}</small>
@@ -86,21 +99,26 @@
       </div>
     </section>
 
-    <ProAdvancedCallout title="Gantt is part of the Pro Advanced bundle." />
+    <ProAdvancedCallout
+      v-if="page.advancedCallout"
+      :title="page.advancedCallout.title"
+      :section-id="page.advancedCallout.sectionId"
+    />
 
     <ProCtaBanner
-      title="Ship Gantt as a feature, not a project."
-      description="Embed RevoGrid Gantt in your product and keep the scheduling experience under your control."
-      primary-href="/demo/gantt"
-      primary-label="Try live demo"
-      secondary-href="/pro/prices"
-      secondary-label="View Pro pricing"
+      v-if="page.cta"
+      :title="page.cta.title"
+      :description="page.cta.description"
+      :primary-href="resolveLandingLink(page.cta.primaryHref)"
+      :primary-label="page.cta.primaryLabel"
+      :secondary-href="resolveLandingLink(page.cta.secondaryHref)"
+      :secondary-label="page.cta.secondaryLabel"
     />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useData } from 'vitepress'
 import RevoGrid from '@revolist/vue3-datagrid'
 import {
@@ -119,66 +137,224 @@ import ProFeatureGrid from './pro/ProFeatureGrid.vue'
 import ProStatsBar from './pro/ProStatsBar.vue'
 import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
 
-const HERO_BADGES = [
-  'Drag to reschedule',
-  'Inline assignees',
-  'Progress bars',
-  'Milestones',
-]
+type LandingAction = {
+  label: string
+  href: string
+  variant?: 'primary' | 'secondary'
+  target?: string
+  rel?: string
+  arrow?: boolean
+}
 
-const STATS = [
-  { value: '10K+', label: 'tasks at 60fps' },
-  { value: '1', label: 'Component' },
-  { value: 'Unlimited', label: 'nested task groups' },
-  { value: '5', label: 'framework targets' },
-]
+type GanttLandingPage = {
+  colors: {
+    accent: string
+    accent2: string
+    soft: string
+    border: string
+    darkAccent: string
+    darkAccent2: string
+    darkSoft: string
+    darkBorder: string
+  }
+  hero: {
+    eyebrow: string
+    title: string
+    description: string
+    actions: LandingAction[]
+    badges: string[]
+  }
+  preview: {
+    enabled: boolean
+    title: string
+    pills: { label: string, active?: boolean }[]
+    liveLabel?: string
+  }
+  statsAriaLabel: string
+  stats: { value: string, label: string }[]
+  features: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    items: { icon: string, title: string, description: string, tags: string[] }[]
+  }
+  integrations: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    items: { icon: string, name: string, badge?: string }[]
+  }
+  advancedCallout?: {
+    title: string
+    sectionId?: string
+  }
+  cta?: {
+    title: string
+    description: string
+    primaryHref: string
+    primaryLabel: string
+    secondaryHref: string
+    secondaryLabel: string
+  }
+}
 
-const FEATURES = [
-  {
-    icon: '01',
-    title: 'Interactive scheduling',
-    description: 'Drag bars to reschedule tasks, resize durations, and update rows without leaving the grid context.',
-    tags: ['Drag and drop', 'Resize', 'Touch support'],
+const DEFAULT_PAGE: GanttLandingPage = {
+  colors: {
+    accent: '#1d4ed8',
+    accent2: '#3b82f6',
+    soft: 'rgba(29, 78, 216, 0.09)',
+    border: 'rgba(29, 78, 216, 0.22)',
+    darkAccent: '#60a5fa',
+    darkAccent2: '#93c5fd',
+    darkSoft: 'rgba(96, 165, 250, 0.14)',
+    darkBorder: 'rgba(96, 165, 250, 0.28)',
   },
-  {
-    icon: '02',
-    title: 'Task dependencies',
-    description: 'Model finish-to-start, start-to-start, finish-to-finish, and start-to-finish relationships.',
-    tags: ['FS / SS / FF / SF', 'Connectors', 'Auto update'],
+  hero: {
+    eyebrow: 'RevoGrid Pro / Gantt',
+    title: 'The interactive Gantt your app deserves.',
+    description: 'Production-ready project scheduling for SaaS, ERP, and operations platforms. Drag-to-reschedule tasks, assign owners, track progress, and embed it as a native product feature.',
+    actions: [
+      { label: 'Try live demo', href: '/demo/gantt', arrow: true },
+      { label: 'Read docs', href: 'https://pro.rv-grid.com/guides/gantt/', variant: 'secondary', target: '_blank', rel: 'noopener' },
+    ],
+    badges: ['Drag to reschedule', 'Inline assignees', 'Progress bars', 'Milestones'],
   },
-  {
-    icon: '03',
-    title: 'Critical path analysis',
-    description: 'Highlight the sequence of tasks that determines the minimum delivery timeline.',
-    tags: ['Critical path', 'Float', 'Status colors'],
+  preview: {
+    enabled: true,
+    title: 'gantt-planning.revogrid.ts',
+    pills: [
+      { label: 'Basic plan', active: true },
+      { label: 'Assignees' },
+    ],
+    liveLabel: 'Live',
   },
-  {
-    icon: '04',
-    title: 'Resource tracking',
-    description: 'Assign multiple people per task and expose workload context directly in the schedule.',
-    tags: ['Assignees', 'Teams', 'Workload'],
+  statsAriaLabel: 'Gantt product stats',
+  stats: [
+    { value: '10K+', label: 'tasks at 60fps' },
+    { value: '1', label: 'Component' },
+    { value: 'Unlimited', label: 'nested task groups' },
+    { value: '5', label: 'framework targets' },
+  ],
+  features: {
+    id: 'features',
+    kicker: 'Features',
+    title: 'Everything a production Gantt needs.',
+    description: 'Built for applications where planning data is part of the product, not a static report.',
+    items: [
+      {
+        icon: '01',
+        title: 'Interactive scheduling',
+        description: 'Drag bars to reschedule tasks, resize durations, and update rows without leaving the grid context.',
+        tags: ['Drag and drop', 'Resize', 'Touch support'],
+      },
+      {
+        icon: '02',
+        title: 'Task dependencies',
+        description: 'Model finish-to-start, start-to-start, finish-to-finish, and start-to-finish relationships.',
+        tags: ['FS / SS / FF / SF', 'Connectors', 'Auto update'],
+      },
+      {
+        icon: '03',
+        title: 'Critical path analysis',
+        description: 'Highlight the sequence of tasks that determines the minimum delivery timeline.',
+        tags: ['Critical path', 'Float', 'Status colors'],
+      },
+      {
+        icon: '04',
+        title: 'Resource tracking',
+        description: 'Assign multiple people per task and expose workload context directly in the schedule.',
+        tags: ['Assignees', 'Teams', 'Workload'],
+      },
+      {
+        icon: '05',
+        title: 'Cost and progress',
+        description: 'Track cost, start dates, completion percent, and group-level progress in one synchronized view.',
+        tags: ['Cost columns', 'Progress bars', 'Groups'],
+      },
+      {
+        icon: '06',
+        title: 'Plugin API',
+        description: 'Customize cells, columns, toolbar actions, and context menus with the RevoGrid Pro plugin API.',
+        tags: ['Custom renderers', 'Toolbar SDK', 'Column types'],
+      },
+    ],
   },
-  {
-    icon: '05',
-    title: 'Cost and progress',
-    description: 'Track cost, start dates, completion percent, and group-level progress in one synchronized view.',
-    tags: ['Cost columns', 'Progress bars', 'Groups'],
+  integrations: {
+    id: 'integrations',
+    kicker: 'Integrations',
+    title: 'Works with your stack',
+    description: 'One scheduling component with framework bindings for the RevoGrid ecosystem.',
+    items: [
+      { icon: 'JS', name: 'JavaScript', badge: '' },
+      { icon: 'Vue', name: 'Vue', badge: '' },
+      { icon: 'React', name: 'React', badge: '' },
+      { icon: 'Ng', name: 'Angular', badge: '' },
+      { icon: 'Sv', name: 'Svelte', badge: '' },
+    ],
   },
-  {
-    icon: '06',
-    title: 'Plugin API',
-    description: 'Customize cells, columns, toolbar actions, and context menus with the RevoGrid Pro plugin API.',
-    tags: ['Custom renderers', 'Toolbar SDK', 'Column types'],
+  advancedCallout: {
+    title: 'Gantt is part of the Pro Advanced bundle.',
   },
-] as const
+  cta: {
+    title: 'Ship Gantt as a feature, not a project.',
+    description: 'Embed RevoGrid Gantt in your product and keep the scheduling experience under your control.',
+    primaryHref: '/demo/gantt',
+    primaryLabel: 'Try live demo',
+    secondaryHref: '/pro/prices',
+    secondaryLabel: 'View Pro pricing',
+  },
+}
 
-const INTEGRATIONS = [
-  { icon: 'JS', name: 'JavaScript', badge: '' },
-  { icon: 'Vue', name: 'Vue', badge: '' },
-  { icon: 'React', name: 'React', badge: '' },
-  { icon: 'Ng', name: 'Angular', badge: '' },
-  { icon: 'Sv', name: 'Svelte', badge: '' },
-]
+function mergePageConfig(config: Partial<GanttLandingPage> = {}): GanttLandingPage {
+  return {
+    ...DEFAULT_PAGE,
+    ...config,
+    colors: { ...DEFAULT_PAGE.colors, ...config.colors },
+    hero: { ...DEFAULT_PAGE.hero, ...config.hero },
+    preview: { ...DEFAULT_PAGE.preview, ...config.preview },
+    features: { ...DEFAULT_PAGE.features, ...config.features },
+    integrations: { ...DEFAULT_PAGE.integrations, ...config.integrations },
+    advancedCallout: config.advancedCallout === null
+      ? undefined
+      : { ...DEFAULT_PAGE.advancedCallout, ...config.advancedCallout },
+    cta: config.cta === null
+      ? undefined
+      : { ...DEFAULT_PAGE.cta, ...config.cta },
+  }
+}
+
+const { frontmatter, isDark } = useData()
+const rvGridBaseUrl = trimTrailingSlash(import.meta.env.VITE_RV_GRID_BASE_URL || 'https://rv-grid.com')
+const rvGridProBaseUrl = trimTrailingSlash(import.meta.env.VITE_RV_GRID_PRO_BASE_URL || 'https://pro.rv-grid.com')
+const page = computed(() => mergePageConfig(frontmatter.value.ganttLanding ?? {}))
+const pageStyle = computed(() => ({
+  '--gantt-accent': isDark.value ? page.value.colors.darkAccent : page.value.colors.accent,
+  '--gantt-accent-2': isDark.value ? page.value.colors.darkAccent2 : page.value.colors.accent2,
+  '--gantt-soft': isDark.value ? page.value.colors.darkSoft : page.value.colors.soft,
+  '--gantt-accent-border': isDark.value ? page.value.colors.darkBorder : page.value.colors.border,
+}))
+
+function trimTrailingSlash(value: string) {
+  return value.replace(/\/+$/, '')
+}
+
+function resolveLandingLink(href: string) {
+  if (href.startsWith('https://rv-grid.com')) {
+    return `${rvGridBaseUrl}${href.slice('https://rv-grid.com'.length)}`
+  }
+
+  if (href.startsWith('https://pro.rv-grid.com')) {
+    return `${rvGridProBaseUrl}${href.slice('https://pro.rv-grid.com'.length)}`
+  }
+
+  if (frontmatter.value.externalHomeLinks && href.startsWith('/')) {
+    return `${rvGridBaseUrl}${href}`
+  }
+
+  return href
+}
 
 const GANTT_PROJECT_ID = 'launch-saas-product'
 const GANTT_CALENDAR_ID = 'launch-standard'
@@ -494,7 +670,6 @@ const columns = [
   taskColumn('name', 230, { name: 'Task' }),
 ]
 
-const { isDark } = useData()
 const plugins = ref([GanttPlugin])
 const gridRef = ref<(InstanceType<typeof RevoGrid> & { $el?: HTMLRevoGridElement }) | HTMLRevoGridElement | null>(null)
 let applyFrame = 0
