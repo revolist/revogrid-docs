@@ -6,6 +6,16 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "node ./scripts/update-policy-last-updated.mjs && vitepress build",
+    "build:page": "node ./scripts/build-page.mjs",
+    "build:gantt": "node ./scripts/build-page.mjs gantt",
+    "build:scheduler": "node ./scripts/build-page.mjs scheduler",
+    "build:timelinegrid": "node ./scripts/build-page.mjs timelinegrid",
+    "build:ops-scheduler": "node ./scripts/build-page.mjs ops-scheduler",
+    "build:jsscheduler": "node ./scripts/build-page.mjs jsscheduler",
+    "build:pivot": "node ./scripts/build-page.mjs pivot",
+    "build:pivotio": "node ./scripts/build-page.mjs pivotio",
+    "build:vue": "node ./scripts/build-page.mjs vue",
+    "build:angular": "node ./scripts/build-page.mjs angular",
     "preview": "vitepress preview"
   },
   "type": "module",
