@@ -134,7 +134,7 @@
 
 <script lang="ts" setup>
 import { featuresPro } from './features.pro'
-import ProPricingCards from './ProPricingCards.vue'
+import ProPricingCards from './pricing-page/ProPricingCards.vue'
 
 const HERO_STATS = [
   { label: 'MIT core', sub: 'always free' },

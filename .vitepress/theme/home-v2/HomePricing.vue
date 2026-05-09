@@ -50,3 +50,32 @@ const pricingCards = computed(() => {
   })
 })
 </script>
+
+<style lang="scss" scoped>
+.rg-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.rg-pricing-note {
+  color: var(--rg-text-2);
+  font-size: 12px;
+  line-height: 1.45;
+  text-align: center;
+  margin: 22px auto 0;
+}
+
+@media (max-width: 1040px) {
+  .rg-pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .rg-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

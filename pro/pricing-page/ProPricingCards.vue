@@ -61,8 +61,8 @@
 </template>
 
 <script lang="ts" setup>
-import { PRICES } from './prices'
-import { ENTERPRISE_FEATURES, PRO_ADV_FEATURES, PRO_LIGHT_FEATURES } from './proPricingPlans'
+import { PRICES } from '../prices'
+import { ENTERPRISE_FEATURES, PRO_ADV_FEATURES, PRO_LIGHT_FEATURES } from '../proPricingPlans'
 
 withDefaults(defineProps<{
   includeEnterprise?: boolean

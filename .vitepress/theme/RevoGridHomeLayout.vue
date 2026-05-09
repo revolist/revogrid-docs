@@ -9,7 +9,6 @@
     <HomeAdvancedModules :section="data.advanced" />
     <HomeUseCases :section="data.useCases" />
     <HomeComparison :section="data.comparison" />
-    <HomePricing :section="data.pricing" />
     <HomeFaq :section="data.faq" />
     <HomeFinalCta :section="data.finalCta" />
 
@@ -28,7 +27,6 @@ import HomeDeveloperSection from './home-v2/HomeDeveloperSection.vue'
 import HomeFaq from './home-v2/HomeFaq.vue'
 import HomeFinalCta from './home-v2/HomeFinalCta.vue'
 import HomeHeroSection from './home-v2/HomeHeroSection.vue'
-import HomePricing from './home-v2/HomePricing.vue'
 import HomeStatsTrust from './home-v2/HomeStatsTrust.vue'
 import HomeTopNav from './home-v2/HomeTopNav.vue'
 import HomeUseCases from './home-v2/HomeUseCases.vue'
@@ -41,21 +39,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 
 <style lang="scss">
 .rg-home {
-  --rg-green: #16c47f;
-  --rg-green-dim: #0f9a61;
-  --rg-green-bg: rgba(22, 196, 127, 0.08);
-  --rg-green-border: rgba(22, 196, 127, 0.24);
-  --rg-bg: #0a0a0a;
-  --rg-bg-2: #111;
-  --rg-bg-3: #181818;
-  --rg-bg-4: #202020;
-  --rg-border: rgba(255, 255, 255, 0.08);
-  --rg-border-hover: rgba(255, 255, 255, 0.15);
-  --rg-text: #f0f0f0;
-  --rg-text-2: #a0a0a0;
-  --rg-text-3: #666;
-  --rg-shadow: 0 1px 3px rgba(0,0,0,0.6), 0 20px 60px rgba(0,0,0,0.35);
-  --rg-grid-line: rgba(255,255,255,0.05);
   background: var(--rg-bg);
   color: var(--rg-text);
   min-height: 100vh;
@@ -151,20 +134,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   justify-content: center;
   cursor: pointer;
   text-decoration: none;
-}
-
-:root:not(.dark) .rg-home {
-  --rg-bg: #fff;
-  --rg-bg-2: #f8f8f6;
-  --rg-bg-3: #f0f0ee;
-  --rg-bg-4: #e8e8e6;
-  --rg-border: rgba(0, 0, 0, 0.08);
-  --rg-border-hover: rgba(0, 0, 0, 0.15);
-  --rg-text: #111;
-  --rg-text-2: #555;
-  --rg-text-3: #888;
-  --rg-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 20px 60px rgba(0,0,0,0.08);
-  --rg-grid-line: rgba(0,0,0,0.05);
 }
 
 .rg-home .rgHeaderCell,
@@ -613,69 +582,26 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   margin: 0 auto;
 }
 
-.rg-demo-grid,
 .rg-usecases-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 14px;
 }
 
-.rg-demo-card,
 .rg-cap-card,
 .rg-module-card,
-.rg-usecase-card,
-.rg-pricing-card {
+.rg-usecase-card {
   border: 1px solid var(--rg-border);
   border-radius: 16px;
   background: var(--rg-bg-2);
 }
 
-.rg-demo-card {
-  overflow: hidden;
-  color: inherit;
-  text-decoration: none;
-  transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
-}
-
-.rg-demo-card:hover,
 .rg-module-card:hover,
 .rg-usecase-card:hover,
-.rg-pricing-card:hover,
 .rg-cap-card:hover {
   border-color: var(--rg-border-hover);
 }
 
-.rg-demo-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--rg-shadow);
-}
-
-.rg-demo-card-body {
-  padding: 14px;
-
-  h3 {
-    margin: 0 0 5px;
-    color: var(--rg-text);
-    font-size: 14px;
-  }
-
-  p {
-    margin: 0;
-    color: var(--rg-text-2);
-    font-size: 12px;
-    line-height: 1.45;
-  }
-
-  span {
-    display: inline-flex;
-    margin-top: 9px;
-    color: var(--rg-green);
-    font-size: 11px;
-    font-weight: 800;
-  }
-}
-
-.rg-demo-preview,
 .rg-module-preview {
   height: 112px;
   background: var(--rg-bg-3);
@@ -683,45 +609,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   overflow: hidden;
 }
 
-.mini-grid {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.mini-row {
-  flex: 1;
-  display: flex;
-  border-bottom: 1px solid var(--rg-grid-line);
-}
-
-.mini-cell {
-  flex: 1;
-  background: var(--rg-bg);
-  border-right: 1px solid var(--rg-grid-line);
-  padding: 4px 6px;
-  color: var(--rg-text-3);
-  font-size: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  &.header {
-    background: var(--rg-bg-4);
-    color: var(--rg-text-2);
-    font-weight: 800;
-  }
-
-  &.selected {
-    color: var(--rg-green);
-    background: var(--rg-green-bg);
-    font-weight: 800;
-  }
-}
-
-.tree-mini,
-.custom-mini,
-.realtime-mini,
 .gantt-mini {
   background: var(--rg-bg);
   height: 100%;
@@ -732,62 +619,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   font-family: var(--vp-font-family-mono);
   color: var(--rg-text-2);
   font-size: 10px;
-}
-
-.tree-mini .strong {
-  color: var(--rg-text);
-  font-weight: 800;
-}
-
-.custom-mini {
-  align-items: flex-start;
-
-  .status,
-  .rating {
-    border: 1px solid var(--rg-border);
-    border-radius: 5px;
-    padding: 4px 8px;
-    color: var(--rg-green);
-    background: var(--rg-bg-4);
-  }
-
-  .progress {
-    width: 120px;
-    height: 13px;
-    border-radius: 4px;
-    background: var(--rg-bg-4);
-    overflow: hidden;
-
-    i {
-      display: block;
-      height: 100%;
-      background: var(--rg-green);
-    }
-  }
-}
-
-.realtime-mini {
-  justify-content: center;
-
-  span {
-    height: 13px;
-    border-radius: 4px;
-    background: var(--rg-bg-4);
-    overflow: hidden;
-  }
-
-  i {
-    display: block;
-    height: 100%;
-    border-radius: inherit;
-    background: var(--rg-green);
-    animation: rgPulse 1.5s ease-in-out infinite;
-  }
-}
-
-@keyframes rgPulse {
-  0%, 100% { opacity: 0.65; }
-  50% { opacity: 1; }
 }
 
 .rg-caps-grid,
@@ -830,8 +661,8 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  border: 1px solid var(--rg-green-border);
-  background: var(--rg-green-bg);
+  border: 1px solid var(--rg-border);
+  background: var(--rg-bg-2);
   color: var(--rg-green);
   display: flex;
   align-items: center;
@@ -1048,132 +879,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   }
 }
 
-.rg-pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  align-items: stretch;
-}
-
-.rg-pricing-card {
-  border-radius: 16px;
-  padding: 28px 24px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-
-  &.featured {
-    border-color: var(--rg-green);
-    background: color-mix(in srgb, var(--rg-green) 4%, var(--rg-bg-2));
-  }
-
-  h3 {
-    color: var(--rg-text);
-    margin: 0 0 5px;
-    font-size: 16px;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 24px;
-  }
-
-  li {
-    color: var(--rg-text-2);
-    font-size: 13px;
-    line-height: 1.45;
-    margin: 7px 0;
-
-    &::before {
-      content: '✓';
-      color: var(--rg-green);
-      font-weight: 800;
-      margin-right: 8px;
-    }
-
-    &.dim {
-      color: var(--rg-text-3);
-
-      &::before {
-        content: '-';
-        color: var(--rg-text-3);
-      }
-    }
-  }
-}
-
-.rg-featured-tag {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  background: var(--rg-green);
-  color: #000;
-  border-radius: 999px;
-  padding: 4px 12px;
-  font-size: 11px;
-  font-weight: 800;
-}
-
-.rg-plan-desc,
-.rg-price-sub,
-.rg-pricing-note {
-  color: var(--rg-text-2);
-  font-size: 12px;
-  line-height: 1.45;
-}
-
-.rg-price {
-  display: flex;
-  align-items: baseline;
-  gap: 5px;
-  margin-top: 18px;
-
-  span {
-    color: var(--rg-text);
-    font-size: 32px;
-    font-weight: 800;
-  }
-
-  small {
-    color: var(--rg-text-2);
-  }
-}
-
-.rg-plan-divider {
-  height: 1px;
-  background: var(--rg-border);
-  margin: 16px 0;
-}
-
-.rg-plan-btn {
-  margin-top: auto;
-  display: block;
-  border-radius: 8px;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 14px;
-
-  &.primary {
-    background: var(--rg-green);
-    color: #000;
-  }
-
-  &.secondary {
-    color: var(--rg-text);
-    border: 1px solid var(--rg-border);
-  }
-}
-
-.rg-pricing-note {
-  text-align: center;
-  margin: 22px auto 0;
-}
-
 .rg-faq-list {
   max-width: 760px;
   margin: 0 auto;
@@ -1259,12 +964,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   display: none;
 }
 
-@media (max-width: 1040px) {
-  .rg-pricing-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 900px) {
   .rg-hero-grid,
   .rg-dev-grid {
@@ -1316,10 +1015,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 
   .rg-stat-divider {
     display: none;
-  }
-
-  .rg-pricing-grid {
-    grid-template-columns: 1fr;
   }
 
   .rg-comparison {

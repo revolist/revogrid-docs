@@ -34,3 +34,124 @@ defineProps<{
 
 const { linkOf, targetOf, relOf } = useHomeV2Links()
 </script>
+
+<style lang="scss" scoped>
+.rg-pricing-card {
+  border: 1px solid var(--rg-border);
+  border-radius: 16px;
+  background: var(--rg-bg-2);
+  padding: 28px 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    border-color: var(--rg-border-hover);
+  }
+
+  &.featured {
+    border-color: var(--rg-green);
+    background: color-mix(in srgb, var(--rg-green) 4%, var(--rg-bg-2));
+  }
+
+  h3 {
+    color: var(--rg-text);
+    margin: 0 0 5px;
+    font-size: 16px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+  }
+
+  li {
+    color: var(--rg-text-2);
+    font-size: 13px;
+    line-height: 1.45;
+    margin: 7px 0;
+
+    &::before {
+      content: '✓';
+      color: var(--rg-green);
+      font-weight: 800;
+      margin-right: 8px;
+    }
+
+    &.dim {
+      color: var(--rg-text-3);
+
+      &::before {
+        content: '-';
+        color: var(--rg-text-3);
+      }
+    }
+  }
+}
+
+.rg-featured-tag {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: var(--rg-green);
+  color: #000;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.rg-plan-desc,
+.rg-price-sub {
+  color: var(--rg-text-2);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.rg-price {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin-top: 18px;
+
+  span {
+    color: var(--rg-text);
+    font-size: 32px;
+    font-weight: 800;
+  }
+
+  small {
+    color: var(--rg-text-2);
+  }
+}
+
+.rg-plan-divider {
+  height: 1px;
+  background: var(--rg-border);
+  margin: 16px 0;
+}
+
+.rg-plan-btn {
+  margin-top: auto;
+  display: block;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 14px;
+
+  &.primary {
+    background: var(--rg-green);
+    color: #000;
+  }
+
+  &.secondary {
+    color: var(--rg-text);
+    border: 1px solid var(--rg-border);
+  }
+}
+</style>

@@ -142,6 +142,42 @@
 }
 
 /**
+ * Component: RevoGrid Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+    --rg-green: #16c47f;
+    --rg-green-dim: #0f9a61;
+    --rg-green-bg: rgba(22, 196, 127, 0.08);
+    --rg-green-border: rgba(22, 196, 127, 0.24);
+    --rg-bg: #0a0a0a;
+    --rg-bg-2: #111;
+    --rg-bg-3: #181818;
+    --rg-bg-4: #202020;
+    --rg-border: rgba(255, 255, 255, 0.08);
+    --rg-border-hover: rgba(255, 255, 255, 0.15);
+    --rg-text: #f0f0f0;
+    --rg-text-2: #a0a0a0;
+    --rg-text-3: #666;
+    --rg-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 20px 60px rgba(0, 0, 0, 0.35);
+    --rg-grid-line: rgba(255, 255, 255, 0.05);
+}
+
+:root:not(.dark) {
+    --rg-bg: #fff;
+    --rg-bg-2: #f8f8f6;
+    --rg-bg-3: #f0f0ee;
+    --rg-bg-4: #f6f7f8;
+    --rg-border: rgba(0, 0, 0, 0.08);
+    --rg-border-hover: rgba(0, 0, 0, 0.15);
+    --rg-text: #111;
+    --rg-text-2: #555;
+    --rg-text-3: #888;
+    --rg-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 20px 60px rgba(0, 0, 0, 0.08);
+    --rg-grid-line: rgba(0, 0, 0, 0.05);
+}
+
+/**
  * Component: Algolia
  * -------------------------------------------------------------------------- */
 
