@@ -16,8 +16,8 @@
 </template>
 
 <script lang="ts" setup>
-import AppButton from './AppButton.vue'
-import { useHomeLink } from './useHomeLink'
+import AppButton from '../AppButton.vue'
+import { useHomeLink } from '../useHomeLink'
 
 const { homeLink } = useHomeLink()
 </script>

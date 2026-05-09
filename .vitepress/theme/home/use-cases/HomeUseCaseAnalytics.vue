@@ -39,7 +39,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useHomeLink } from '../useHomeLink'
+import { useHomeLink } from '../../useHomeLink'
 
 const { homeLink } = useHomeLink()
 </script>

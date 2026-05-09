@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import { computed } from 'vue'
-import Icon from './VPIcon.vue'
+import Icon from '../VPIcon.vue'
 const { frontmatter } = useData()
 const integrations = computed(() => {
     if (frontmatter.value.integrations?.length) {

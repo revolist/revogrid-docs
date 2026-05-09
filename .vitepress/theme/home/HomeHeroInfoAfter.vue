@@ -19,7 +19,7 @@
 <script lang="ts" setup>
 import { useData } from 'vitepress'
 import { computed } from 'vue'
-import { useHomeLink } from './useHomeLink'
+import { useHomeLink } from '../useHomeLink'
 
 const FW_COLORS: Record<string, string> = {
     Vue: '#4fc08d',

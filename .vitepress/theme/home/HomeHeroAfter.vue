@@ -57,11 +57,11 @@ import { VPButton } from 'vitepress/theme'
 import { useData } from 'vitepress'
 import { codeToHtml } from 'shiki'
 import { computed, ref, watch } from 'vue'
-import VueExample from '../../demo/vue/vue3-short.vue?raw'
-import AngularExample from '../../demo/angular/angular.simple-grid.ts?raw'
-import ReactExample from '../../demo/react/react.simple-grid.tsx?raw'
-import SvelteExample from '../../demo/svelte/svelte.simple-grid.svelte?raw'
-import JSExample from '../../demo/js/simple-grid.js?raw'
+import VueExample from '../../../demo/vue/vue3-short.vue?raw'
+import AngularExample from '../../../demo/angular/angular.simple-grid.ts?raw'
+import ReactExample from '../../../demo/react/react.simple-grid.tsx?raw'
+import SvelteExample from '../../../demo/svelte/svelte.simple-grid.svelte?raw'
+import JSExample from '../../../demo/js/simple-grid.js?raw'
 
 const { frontmatter } = useData()
 const value = computed(() => {

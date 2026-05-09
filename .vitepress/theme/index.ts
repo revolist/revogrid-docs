@@ -4,23 +4,24 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { ID_INJECTION_KEY, ZINDEX_INJECTION_KEY } from 'element-plus'
 import './style.scss'
-import HomeHero from './HomeHero.vue'
-import HomeHeroActions from './HomeHeroActions.vue'
-import HomeHeroInfoAfter from './HomeHeroInfoAfter.vue'
-import HomeHeroInfoBefore from './HomeHeroInfoBefore.vue'
-import HomeMit from './HomeMit.vue'
+import HomeHero from './home/HomeHero.vue'
+import HomeHeroActions from './home/HomeHeroActions.vue'
+import HomeHeroInfoAfter from './home/HomeHeroInfoAfter.vue'
+import HomeHeroInfoBefore from './home/HomeHeroInfoBefore.vue'
+import HomeMit from './home/HomeMit.vue'
 import CustomLayout from './CustomLayout.vue'
 import Mermaid from './Mermaid.vue'
-import HomeSocialProof from './HomeSocialProof.vue'
-import HomeUseCases from './HomeUseCases.vue'
-import HomeLicensing from './HomeLicensing.vue'
-import HomeFeatureStats from './HomeFeatureStats.vue'
-import HomeCtaBanner from './HomeCtaBanner.vue'
+import HomeSocialProof from './home/HomeSocialProof.vue'
+import HomeUseCases from './home/HomeUseCases.vue'
+import HomeLicensing from './home/HomeLicensing.vue'
+import HomeFeatureStats from './home/HomeFeatureStats.vue'
+import HomeCtaBanner from './home/HomeCtaBanner.vue'
 import ExternalHomeLinks from './ExternalHomeLinks.vue'
 import HeaderNavControls from './HeaderNavControls.vue'
-import HomePageColors from './HomePageColors.vue'
+import HomePageColors from './home/HomePageColors.vue'
 import ProDemoFrame from './ProDemoFrame.vue'
 import DemoWidgetFrame from './DemoWidgetFrame.vue'
+import RevoGridHomeLayout from './RevoGridHomeLayout.vue'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 
 export default {
@@ -51,6 +52,7 @@ export default {
         app.provide(ID_INJECTION_KEY, { prefix: 1024, current: 0 })
         enhanceAppWithTabs(app)
         app.component('custom', CustomLayout)
+        app.component('revogrid-home', RevoGridHomeLayout)
         app.component('Mermaid', Mermaid)
         app.component('ProDemoFrame', ProDemoFrame)
         app.component('DemoWidgetFrame', DemoWidgetFrame)

@@ -57,7 +57,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useHomeLink } from '../useHomeLink'
+import { useHomeLink } from '../../useHomeLink'
 import { useData } from 'vitepress'
 
 const { homeLink } = useHomeLink()

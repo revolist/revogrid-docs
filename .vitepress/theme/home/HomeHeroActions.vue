@@ -16,8 +16,8 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useData } from 'vitepress'
-import AppButton from './AppButton.vue'
-import { useHomeLink } from './useHomeLink'
+import AppButton from '../AppButton.vue'
+import { useHomeLink } from '../useHomeLink'
 
 type HeroAction = {
     theme?: 'brand' | 'alt'

@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { useHomeLink } from './useHomeLink'
+import { useHomeLink } from '../useHomeLink'
 
 const { homeLink } = useHomeLink()
 
