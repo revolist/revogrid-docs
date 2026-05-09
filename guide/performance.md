@@ -6,6 +6,8 @@ head:
     - name: keywords
       content: RevoGrid performance, virtual scrolling grid, frameSize, disableVirtualX, disableVirtualY, jobsBeforeRender
 ---
+<ProEnterpriseTopicLinks topic="performance" />
+
 
 # RevoGrid Performance and Virtualization
 

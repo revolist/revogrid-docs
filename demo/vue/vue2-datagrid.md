@@ -1,6 +1,11 @@
 ---
 title: Getting Started - Vue 2 Data Grid
 ---
+<DemoWidgetFrame
+  demo="core-start"
+  framework="vue"
+/>
+
 
 
 

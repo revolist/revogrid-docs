@@ -6,6 +6,8 @@ head:
     - name: keywords
       content: JavaScript data grid, TypeScript data grid, RevoGrid quick start, virtual scrolling grid, editable data grid, web component data table
 ---
+<ProEnterpriseTopicLinks topic="core" />
+
 
 # JavaScript Data Grid Quick Start
 

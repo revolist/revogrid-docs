@@ -2,6 +2,11 @@
 title: JavaScript Data Grid Tree View
 aside: false
 ---
+<DemoWidgetFrame
+  demo="core-jsx-tree"
+  framework="ts"
+/>
+
 
 # JavaScript Data Grid Tree View
 

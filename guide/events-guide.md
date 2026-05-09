@@ -6,6 +6,8 @@ head:
     - name: keywords
       content: RevoGrid events, event lifecycle, mermaid diagrams, beforeedit, afteredit, filtering events, sorting events, focus events, source update events, clipboard lifecycle
 ---
+<ProEnterpriseTopicLinks topic="api" />
+
 
 # RevoGrid Event Patterns and Lifecycles
 

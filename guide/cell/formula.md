@@ -1,3 +1,6 @@
+
+<ProEnterpriseTopicLinks topic="cell" />
+
 # Excel Formulas in Data Grid
 
 Feature in [Pro Version](../../pro/index.md) that allows users to implement and use complex Excel-like formulas directly within their data grids. The Formula Plugin enables dynamic calculations and data manipulation, providing an advanced tool for users who need to process and analyze data efficiently.

@@ -1,3 +1,6 @@
+
+<ProEnterpriseTopicLinks topic="performance" />
+
 <script lang="ts" setup>
 import VPImage from 'vitepress/dist/client/theme-default/components/VPImage.vue'
 </script>

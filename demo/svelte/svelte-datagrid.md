@@ -7,6 +7,11 @@ head:
       content: RevoGrid, Svelte, data grid, Svelte integration, virtual grid, virtual rows, virtual columns, Svelte grid example, grid performance, large data sets, customizable grid, RevoGrid Svelte components
 aside: false
 ---
+<DemoWidgetFrame
+  demo="getting-started"
+  framework="ts"
+/>
+
 
 <iframe src="https://stackblitz.com/edit/vitejs-vite-dvilmw?embed=1&file=src%2FApp.svelte&hideExplorer=1&hideNavigation=1&view=preview"
      style="width:100%; height: 300px; border:0; border-radius: 4px; overflow:hidden;"

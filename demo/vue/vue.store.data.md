@@ -1,3 +1,9 @@
+
+<DemoWidgetFrame
+  demo="core-set-data-at"
+  framework="vue"
+/>
+
 # Template data update
 
 Short guide on how to update data inside of custom templates

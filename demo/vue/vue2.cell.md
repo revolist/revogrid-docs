@@ -1,6 +1,11 @@
 ---
 title: Native Cell component - Vue 2 Data Grid
 ---
+<DemoWidgetFrame
+  demo="cell-template"
+  framework="vue"
+/>
+
 
 
 

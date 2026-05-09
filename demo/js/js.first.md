@@ -1,3 +1,9 @@
+
+<DemoWidgetFrame
+  demo="core-quick-start"
+  framework="ts"
+/>
+
 # First run with Vanilla JS
 Create custom cell content in Vanilla JS
 

@@ -1,3 +1,6 @@
+
+<ProEnterpriseTopicLinks topic="sorting" />
+
 # Data Grid Sorting
 
 Adding sorting to your data grid is quite straightforward:

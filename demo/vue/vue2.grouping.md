@@ -1,6 +1,11 @@
 ---
 title: Grouping - Vue 2 Data Grid
 ---
+<DemoWidgetFrame
+  demo="grouping-rows"
+  framework="vue"
+/>
+
 
 # Grouping
 

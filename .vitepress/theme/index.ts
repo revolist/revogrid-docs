@@ -21,6 +21,7 @@ import HeaderNavControls from './HeaderNavControls.vue'
 import HomePageColors from './HomePageColors.vue'
 import ProDemoFrame from './ProDemoFrame.vue'
 import DemoWidgetFrame from './DemoWidgetFrame.vue'
+import ProEnterpriseTopicLinks from './ProEnterpriseTopicLinks.vue'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 
 export default {
@@ -54,5 +55,6 @@ export default {
         app.component('Mermaid', Mermaid)
         app.component('ProDemoFrame', ProDemoFrame)
         app.component('DemoWidgetFrame', DemoWidgetFrame)
+        app.component('ProEnterpriseTopicLinks', ProEnterpriseTopicLinks)
     },
 } satisfies Theme

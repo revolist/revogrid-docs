@@ -1,3 +1,6 @@
+
+<ProEnterpriseTopicLinks topic="pagination" />
+
 # Pagination in Data Grids
 
 Managing large datasets in a data grid can be challenging, but with [Pro Version](../pro/index.md) Pagination Plugin, you can break down your data into smaller, more manageable pages. This not only enhances performance but also improves the user experience by making navigation through data simpler and more intuitive.

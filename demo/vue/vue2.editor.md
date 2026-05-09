@@ -1,6 +1,11 @@
 ---
 title: Native Editor component - Vue 2 Data Grid
 ---
+<DemoWidgetFrame
+  demo="cell-editor"
+  framework="vue"
+/>
+
 
 ## How to sample
 

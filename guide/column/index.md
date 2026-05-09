@@ -6,6 +6,8 @@ head:
     - name: keywords
       content: RevoGrid, column, column options, column properties, column types, column defaults, column size, column width, column min size, column max size
 ---
+<ProEnterpriseTopicLinks topic="column" />
+
 
 # Column Configuration in Data Grid
 [<Badge type="tip">Interface: ColumnRegular</Badge>](../types/Interface.ColumnRegular)

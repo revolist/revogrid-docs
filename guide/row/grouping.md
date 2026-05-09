@@ -6,6 +6,8 @@ head:
     - name: keywords
       content: RevoGrid, row grouping, data grid grouping, JavaScript table grouping, TypeScript grid grouping
 ---
+<ProEnterpriseTopicLinks topic="grouping" />
+
 
 <DemoWidgetFrame
   demo="grouping-rows"
