@@ -17,7 +17,8 @@
             {{ hero?.secondaryAction?.text }}
           </a>
           <a v-if="hero?.tertiaryAction" class="rg-btn rg-btn-ghost" :href="linkOf(hero.tertiaryAction.link)">
-            {{ hero?.tertiaryAction?.text }} <span aria-hidden="true">-&gt;</span>
+            {{ hero?.tertiaryAction?.text }}
+            <HomeChevron />
           </a>
         </div>
         <div class="rg-frameworks">
@@ -75,6 +76,7 @@
 import { computed, onBeforeUnmount, onMounted, shallowRef } from 'vue'
 import { useData } from 'vitepress'
 import VGrid, { type ColumnRegular, type VNode } from '@revolist/vue3-datagrid'
+import HomeChevron from './HomeChevron.vue'
 import { escapeHtml, type HomeV2Record, useHomeV2Links } from './homeV2Utils'
 // @ts-ignore
 import { stocks } from '@/json/stock.json'

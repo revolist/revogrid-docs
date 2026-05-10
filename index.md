@@ -1,7 +1,7 @@
 ---
 layout: revogrid-home
 title: RevoGrid - The Extensible Data Grid for Complex Web Apps
-navbar: false
+navbar: true
 sidebar: false
 aside: false
 footer: true
@@ -300,7 +300,8 @@ pricing:
       action: Buy Pro Light
       features:
         - Commercial production use
-        - Pro plugins & features
+        - text: Pro plugins & features
+          link: /pro/
         - Pro MCP (Model Context Protocol)
         - One year of updates
       dim:

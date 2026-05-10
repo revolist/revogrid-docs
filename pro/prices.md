@@ -14,7 +14,6 @@ pricingPage:
     title: Pay per developer.
     titleEmphasis: Ship to everyone.
     subtitle: No deployment fees. No runtime royalties. No per-seat charges for your end users. Simple per-developer annual pricing.
-    billingBadge: Annual billing
   featureComparison:
     heading: Full feature comparison
   faq:
@@ -91,7 +90,8 @@ pricing:
       action: Buy Pro Light
       features:
         - Commercial production use
-        - Pro plugins & features
+        - text: Pro plugins & features
+          link: /pro/
         - Pro MCP (Model Context Protocol)
         - One year of updates
       dim:

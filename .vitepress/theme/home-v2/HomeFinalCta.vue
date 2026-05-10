@@ -10,7 +10,7 @@
         :class="`rg-btn-${action.variant}`"
         :href="linkOf(action.link)"
       >
-        {{ action.text }}<span v-if="action.variant === 'ghost'" aria-hidden="true"> -&gt;</span>
+        {{ action.text }}<HomeChevron v-if="action.variant === 'ghost'" />
       </a>
     </div>
     <small>{{ section?.note }}</small>
@@ -18,6 +18,7 @@
 </template>
 
 <script lang="ts" setup>
+import HomeChevron from './HomeChevron.vue'
 import { type HomeV2Record, useHomeV2Links } from './homeV2Utils'
 
 defineProps<{

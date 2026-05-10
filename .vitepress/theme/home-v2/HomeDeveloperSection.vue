@@ -15,7 +15,7 @@
             :target="targetOf(action.link)"
             :rel="relOf(action.link)"
           >
-            {{ action.text }}<span v-if="action.text.includes('GitHub')" aria-hidden="true"> -&gt;</span>
+            {{ action.text }}<HomeChevron v-if="action.text.includes('GitHub')" />
           </a>
         </div>
       </div>
@@ -52,6 +52,7 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { codeToHtml } from 'shiki'
+import HomeChevron from './HomeChevron.vue'
 import { type HomeV2Record, useHomeV2Links } from './homeV2Utils'
 
 const props = defineProps<{

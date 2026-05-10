@@ -1,6 +1,5 @@
 <template>
   <main class="rg-home">
-    <HomeTopNav />
     <HomeHeroSection :hero="data.hero" />
     <HomeStatsTrust :stats="data.stats" :trust-text="data.trustText" :badges="data.trustBadges" />
     <HomeDemoGallery :section="data.demos" />
@@ -28,7 +27,6 @@ import HomeFaq from './home-v2/HomeFaq.vue'
 import HomeFinalCta from './home-v2/HomeFinalCta.vue'
 import HomeHeroSection from './home-v2/HomeHeroSection.vue'
 import HomeStatsTrust from './home-v2/HomeStatsTrust.vue'
-import HomeTopNav from './home-v2/HomeTopNav.vue'
 import HomeUseCases from './home-v2/HomeUseCases.vue'
 
 type AnyRecord = Record<string, any>
@@ -855,10 +853,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   th {
     color: var(--rg-text);
     font-size: 14px;
-  }
-
-  td {
-    color: var(--rg-text-2);
   }
 
   .highlight {

@@ -7,9 +7,6 @@
         {{ hero.title }}<br /><em>{{ hero.titleEmphasis }}</em>
       </h1>
       <p class="hero-sub fade-up-3">{{ hero.subtitle }}</p>
-      <div class="billing-badge-row fade-up-3">
-        <div class="billing-badge">{{ hero.billingBadge }}</div>
-      </div>
     </div>
   </section>
 </template>
@@ -89,23 +86,7 @@ defineProps<{
   font-size: 17px;
   color: var(--vp-c-text-2);
   max-width: 500px;
-  margin: 0 auto 36px;
+  margin: 0 auto;
   line-height: 1.7;
-}
-
-.billing-badge-row {
-  margin-bottom: 56px;
-}
-
-.billing-badge {
-  display: inline-flex;
-  align-items: center;
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 100px;
-  padding: 6px 20px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--vp-c-text-2);
 }
 </style>

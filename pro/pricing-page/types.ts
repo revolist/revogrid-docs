@@ -3,7 +3,6 @@ export interface PricingHeroData {
   title: string
   titleEmphasis: string
   subtitle: string
-  billingBadge: string
 }
 
 export interface PricingFaqItem {

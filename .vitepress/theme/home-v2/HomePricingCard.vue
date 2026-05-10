@@ -7,10 +7,23 @@
       <span>{{ card.price }}</span>
       <small>{{ card.period }}</small>
     </div>
-    <p class="rg-price-sub">{{ card.sub }}</p>
+    <p v-if="card.sub" class="rg-price-sub">{{ card.sub }}</p>
+    <div v-if="card.billingNote" class="rg-billing-note">
+      <span>{{ card.billingNote }}</span>
+    </div>
     <div class="rg-plan-divider"></div>
     <ul>
-      <li v-for="feature in card.features" :key="feature">{{ feature }}</li>
+      <li v-for="feature in card.features" :key="featureKey(feature)">
+        <a
+          v-if="featureHref(feature)"
+          :href="linkOf(featureHref(feature))"
+          :target="targetOf(featureHref(feature))"
+          :rel="relOf(featureHref(feature))"
+        >
+          {{ featureText(feature) }}
+        </a>
+        <template v-else>{{ featureText(feature) }}</template>
+      </li>
       <li v-for="feature in card.dim" :key="feature" class="dim">{{ feature }}</li>
     </ul>
     <a
@@ -33,6 +46,10 @@ defineProps<{
 }>()
 
 const { linkOf, targetOf, relOf } = useHomeV2Links()
+
+const featureText = (feature: string | HomeV2Record) => typeof feature === 'string' ? feature : feature.text
+const featureHref = (feature: string | HomeV2Record) => typeof feature === 'string' ? undefined : feature.link
+const featureKey = (feature: string | HomeV2Record) => `${featureText(feature)}:${featureHref(feature) ?? ''}`
 </script>
 
 <style lang="scss" scoped>
@@ -71,6 +88,17 @@ const { linkOf, targetOf, relOf } = useHomeV2Links()
     font-size: 13px;
     line-height: 1.45;
     margin: 7px 0;
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+
+      &:hover {
+        color: var(--rg-text);
+      }
+    }
 
     &::before {
       content: '✓';
@@ -125,6 +153,17 @@ const { linkOf, targetOf, relOf } = useHomeV2Links()
 
   small {
     color: var(--rg-text-2);
+  }
+}
+
+.rg-billing-note {
+  margin-top: 6px;
+
+  span {
+    color: var(--rg-text-2);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.35;
   }
 }
 

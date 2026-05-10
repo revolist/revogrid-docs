@@ -12,7 +12,8 @@
       </div>
       <div class="rg-centered-action">
         <a class="rg-btn rg-btn-secondary" :href="linkOf(section?.action?.link)">
-          {{ section?.action?.text }} -&gt;
+          {{ section?.action?.text }}
+          <HomeChevron />
         </a>
       </div>
     </div>
@@ -21,6 +22,7 @@
 
 <script lang="ts" setup>
 import HomeSectionHeader from './HomeSectionHeader.vue'
+import HomeChevron from './HomeChevron.vue'
 import ModulePreview from './ModulePreview.vue'
 import { type HomeV2Record, useHomeV2Links } from './homeV2Utils'
 

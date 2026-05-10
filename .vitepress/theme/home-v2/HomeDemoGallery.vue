@@ -13,7 +13,10 @@
           <div class="rg-demo-card-body">
             <h3>{{ demo.title }}</h3>
             <p>{{ demo.description }}</p>
-            <span>Open demo -&gt;</span>
+            <span>
+              Open demo
+              <HomeChevron />
+            </span>
           </div>
         </a>
       </div>
@@ -23,6 +26,7 @@
 
 <script lang="ts" setup>
 import DemoPreview from './DemoPreview.vue'
+import HomeChevron from './HomeChevron.vue'
 import HomeSectionHeader from './HomeSectionHeader.vue'
 import { type HomeV2Record, useHomeV2Links } from './homeV2Utils'
 
@@ -66,7 +70,7 @@ const { linkOf } = useHomeV2Links()
   h3 {
     margin: 0 0 4px;
     color: var(--rg-text);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
   }
 
@@ -74,7 +78,7 @@ const { linkOf } = useHomeV2Links()
     margin: 0;
     color: var(--rg-text-2);
     font-size: 12px;
-    line-height: 1.4;
+    line-height: 1.6;
   }
 
   span {
@@ -85,6 +89,11 @@ const { linkOf } = useHomeV2Links()
     color: var(--rg-green);
     font-size: 11px;
     font-weight: 600;
+
+    :deep(.rg-chevron) {
+      width: 8px;
+      height: 8px;
+    }
   }
 }
 </style>
