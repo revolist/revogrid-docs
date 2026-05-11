@@ -280,41 +280,11 @@ Multi-filtering lets users combine several conditions per field with clearer `an
 
 These Pro filters are valuable when users live in the grid all day: they can narrow a large dataset from several angles, combine filters without leaving the table, and keep the interaction fast because the Pro features plug into RevoGrid's existing virtualized rendering and filter events.
 
-## Pro demos
-
 Start with [RevoGrid Pro features](/pro/#features), or open the business demos that use Pro workflows:
 
-- [HR workspace demo](/demo/hr)
 - [Ecommerce and ERP demo](/demo/ecommerce)
 - [Pivot analytics demo](/pivot/)
 
-<div class="filter-pro-grid">
-  <a class="filter-pro-card" href="/pro/#features">
-    <img src="/img/filter-select.png" alt="Advanced selection filtering preview" />
-    <strong>Advanced Selection Filtering</strong>
-    <span>Selection-based filtering for repeated values.</span>
-  </a>
-  <a class="filter-pro-card" href="/pro/#features">
-    <img src="/img/filter-slider.png" alt="Advanced slider filtering preview" />
-    <strong>Advanced Slider Filtering</strong>
-    <span>Numeric range filtering with a slider control.</span>
-  </a>
-  <a class="filter-pro-card" href="/pro/#features">
-    <img src="/img/filter-header.png" alt="Header input filtering preview" />
-    <strong>Header Input Filtering</strong>
-    <span>Filter from persistent header-row inputs.</span>
-  </a>
-  <a class="filter-pro-card" href="/pro/#features">
-    <img src="/img/filter-date.png" alt="Date filtering preview" />
-    <strong>Date Filter</strong>
-    <span>Filter temporal data by exact dates and ranges.</span>
-  </a>
-  <a class="filter-pro-card" href="/pro/#features">
-    <img src="/img/filter-multi.png" alt="Multi-filtering preview" />
-    <strong>Multi-Filtering</strong>
-    <span>Combine multiple conditions per column.</span>
-  </a>
-</div>
 
 ## Related docs
 
