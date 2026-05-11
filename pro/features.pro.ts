@@ -447,6 +447,13 @@ const featuresProBase = [
         videoUrl: '/video/clipboard.mp4',
     },
     {
+        title: 'Range Apply Preview',
+        thumbnail: '/img/clipboard.png',
+        group: 'Data Management',
+        description:
+            'Preview pending range copy, paste, or fill changes before applying them to the grid. Useful for validating target cells, confirming mapped values, and preventing accidental bulk updates.',
+    },
+    {
         title: 'Excel Export/Import',
         thumbnail: '/img/excel.png',
         group: 'Data Management',
