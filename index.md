@@ -70,7 +70,7 @@ demos:
   items:
     - title: Large Dataset
       description: 100,000+ rows with smooth scrolling.
-      link: /demo/
+      link: /demo/hr
       type: dataset
     - title: Spreadsheet Editing
       description: Selection, copy/paste, keyboard navigation, and inline editors.
@@ -78,7 +78,7 @@ demos:
       type: editing
     - title: Custom Cell Types
       description: Build badges, progress bars, ratings, dropdowns, and any custom renderer.
-      link: /demo/
+      link: /guide/column/types
       type: custom
     - title: Tree Data
       description: Hierarchical rows with expandable children and nested aggregation.
@@ -365,7 +365,7 @@ finalCta:
       link: /demo/
       variant: primary
     - text: View pricing
-      link: /pro/prices
+      link: /pricing
       variant: secondary
     - text: View docs
       link: /guide/

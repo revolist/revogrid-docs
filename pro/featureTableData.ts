@@ -1,4 +1,4 @@
-import { PRICES } from './prices'
+import { PRICES } from '../pricing-page/prices'
 import { featuresPro } from './features.pro'
 
 export interface FeatureTablePlan {

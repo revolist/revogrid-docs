@@ -43,7 +43,7 @@ export const navbarEn: DefaultTheme.NavItem[] = [
   },
   {
     text: 'Pricing',
-    link: '/pro/prices',
+    link: '/pricing',
   },
   {
     text: 'RevoGrid Pro',
@@ -65,10 +65,6 @@ export const navbarEn: DefaultTheme.NavItem[] = [
         text: 'v3.x',
         link: 'https://v3.rv-grid.com',
       },
-      // {
-      //   text: 'Changelog',
-      //   link: 'https://github.com/revolist/revogrid/CHANGELOG.md',
-      // },
     ],
   },
 ]

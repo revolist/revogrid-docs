@@ -18,7 +18,7 @@
           built for teams that can't afford a slow data layer.
         </p>
         <div class="hero-ctas fade-up-4">
-          <a href="/pro/prices" class="btn-pro">
+          <a href="/pricing" class="btn-pro">
             Get Pro
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -76,27 +76,12 @@
         </div>
 
         <div class="features-link-row">
-          <a href="/pro/prices#feature-comparison" class="features-link">
+          <a href="/pricing#feature-comparison" class="features-link">
             View full feature table
             <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
               <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tier cards -->
-    <section class="tiers-section">
-      <div class="container">
-        <div class="tiers-head">
-          <div class="eyebrow">Choose your plan</div>
-          <h2 class="section-title" style="margin-bottom: 0">Upgrade to Pro</h2>
-        </div>
-        <ProPricingCards variant="tiers" />
-        <div class="tiers-enterprise">
-          Teams of 10+?
-          <a href="/pro/prices#enterprise">See enterprise options →</a>
         </div>
       </div>
     </section>
@@ -107,7 +92,7 @@
       <h2 class="cta-title">Start with the MIT core.<br />Upgrade when you're ready.</h2>
       <p class="cta-sub">No credit card required for the open-source build. Pro licenses activate instantly.</p>
       <div class="cta-btns">
-        <a href="/pro/prices" class="btn-pro">
+        <a href="/pricing" class="btn-pro">
           Get Pro
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -134,7 +119,6 @@
 
 <script lang="ts" setup>
 import { featuresPro } from './features.pro'
-import ProPricingCards from './pricing-page/ProPricingCards.vue'
 
 const HERO_STATS = [
   { label: 'MIT core', sub: 'always free' },
@@ -548,35 +532,6 @@ const PRO_FEATURE_COUNT = featuresPro.length
 
   &:hover {
     opacity: 0.75;
-  }
-}
-
-/* ── Tiers ────────────────────────────────────────────────── */
-.tiers-section {
-  padding: 80px 0;
-  background: var(--vp-c-bg-soft);
-  border-top: 1px solid var(--vp-c-divider);
-}
-
-.tiers-head {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.tiers-enterprise {
-  text-align: center;
-  margin-top: 28px;
-  font-size: 13px;
-  color: var(--vp-c-text-3);
-
-  a {
-    color: var(--vp-c-brand-1);
-    text-decoration: none;
-    font-weight: 500;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }
 

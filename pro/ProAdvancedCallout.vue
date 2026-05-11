@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts" setup>
-import { PRICES } from './prices'
+import { PRICES } from '../pricing-page/prices'
 import ProDocButton from './ProDocButton.vue'
 
 defineProps<{

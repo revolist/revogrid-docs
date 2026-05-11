@@ -129,7 +129,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                         link: '/guide/column/grouping',
                     },
                     {
-                        text: 'Custom Columns',
+                        text: 'Custom Column & Cell Formats',
                         link: '/guide/column/types',
                     },
                     {
@@ -155,6 +155,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                     {
                         text: 'Cell Template',
                         link: '/guide/cell/renderer',
+                    },
+                    {
+                        text: 'Custom Cell Formats',
+                        link: '/guide/cell/custom-formats',
                     },
                     {
                         text: 'Cell Editor',

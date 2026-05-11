@@ -8,6 +8,10 @@ footer: false
 prev: false
 next: false
 layout: page
+head:
+  - - link
+    - rel: canonical
+      href: https://rv-grid.com/pricing
 pricingPage:
   hero:
     eyebrow: Pricing
@@ -130,7 +134,7 @@ pricing:
 ---
 
 <script lang="ts" setup>
-import PricingPageLayout from './PricingPageLayout.vue'
+import PricingPageLayout from './pricing-page/PricingPageLayout.vue'
 </script>
 
 <PricingPageLayout />

@@ -128,12 +128,12 @@ ganttLanding:
     description: Embed resource planning, dispatch scheduling, and capacity workflows without separating schedule data from the grid experience.
     primaryHref: /demo/gantt
     primaryLabel: Explore live demo
-    secondaryHref: /pro/prices
+    secondaryHref: /pricing
     secondaryLabel: View Pro pricing
 ---
 
 <script lang="ts" setup>
-import GanttPageLayout from './GanttPageLayout.vue'
+import GanttPageLayout from './gantt/GanttPageLayout.vue'
 </script>
 
 <GanttPageLayout />

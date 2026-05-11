@@ -1,7 +1,6 @@
 <template>
   <div class="pricing-page">
     <PricingHero :hero="pricingPage.hero" />
-    <!-- <PricingPlansSection /> -->
     <HomePricing :section="frontmatter.pricing" />
     <PricingFeatureComparison :heading="pricingPage.featureComparison.heading" />
     <PricingFaq :faq="pricingPage.faq" />
@@ -11,13 +10,12 @@
 
 <script lang="ts" setup>
 import { useData } from 'vitepress'
-import PricingFaq from './pricing-page/PricingFaq.vue'
-import PricingFeatureComparison from './pricing-page/PricingFeatureComparison.vue'
-import PricingFinalCta from './pricing-page/PricingFinalCta.vue'
-import PricingHero from './pricing-page/PricingHero.vue'
-import HomePricing from '../.vitepress/theme/home-v2/HomePricing.vue'
-// import HomePricing from '../.vitepress/theme/home-v2/HomePricing.vue'
-import type { PricingPageData } from './pricing-page/types'
+import PricingFaq from './PricingFaq.vue'
+import PricingFeatureComparison from './PricingFeatureComparison.vue'
+import PricingFinalCta from './PricingFinalCta.vue'
+import PricingHero from './PricingHero.vue'
+import HomePricing from './home-design/HomePricing.vue'
+import type { PricingPageData } from './types'
 
 const { frontmatter } = useData()
 

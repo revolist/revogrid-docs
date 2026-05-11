@@ -14,6 +14,6 @@
 <script lang="ts" setup>
 import { PIVOT_DOCS_URL, RV_GRID_BASE_URL } from './pivotLandingData'
 
-const revoGridProPricesUrl = `${RV_GRID_BASE_URL}/pro/prices`
+const revoGridProPricesUrl = `${RV_GRID_BASE_URL}/pricing`
 const pivotDocsUrl = PIVOT_DOCS_URL
 </script>

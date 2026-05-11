@@ -118,12 +118,12 @@ ganttLanding:
     description: Embed RevoGrid Gantt, customize it with your product UI, and keep every scheduling interaction under your control.
     primaryHref: /demo/gantt
     primaryLabel: Try the live demo
-    secondaryHref: /pro/prices
+    secondaryHref: /pricing
     secondaryLabel: View Pro pricing
 ---
 
 <script lang="ts" setup>
-import GanttPageLayout from './GanttPageLayout.vue'
+import GanttPageLayout from './gantt/GanttPageLayout.vue'
 </script>
 
 <GanttPageLayout />

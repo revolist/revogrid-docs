@@ -128,12 +128,12 @@ ganttLanding:
     description: Add scheduler views to your app, keep planning data under your control, and avoid sending users to a separate scheduling tool.
     primaryHref: /demo/gantt
     primaryLabel: Try the scheduler demo
-    secondaryHref: /pro/prices
+    secondaryHref: /pricing
     secondaryLabel: View Pro pricing
 ---
 
 <script lang="ts" setup>
-import GanttPageLayout from './GanttPageLayout.vue'
+import GanttPageLayout from './gantt/GanttPageLayout.vue'
 </script>
 
 <GanttPageLayout />

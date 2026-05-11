@@ -1,7 +1,7 @@
 <template>
   <section id="pricing" class="rg-section rg-section-soft">
     <div class="rg-container">
-      <HomeSectionHeader :section="section" />
+      <PricingSectionHeader :section="section" />
       <div class="rg-pricing-grid">
         <HomePricingCard
           v-for="card in pricingCards"
@@ -16,18 +16,18 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { PRICES } from '../../../pro/prices'
+import { PRICES } from '../prices'
 import HomePricingCard from './HomePricingCard.vue'
-import HomeSectionHeader from './HomeSectionHeader.vue'
-import { type HomeV2Record } from './homeV2Utils'
+import PricingSectionHeader from './PricingSectionHeader.vue'
+import { type PricingRecord } from './pricingDesignUtils'
 
 const props = defineProps<{
-  section?: HomeV2Record
+  section?: PricingRecord
 }>()
 
 const pricingCards = computed(() => {
   const cards = props.section?.cards ?? []
-  return cards.map((card: HomeV2Record) => {
+  return cards.map((card: PricingRecord) => {
     if (card.id === 'light') {
       return {
         ...card,

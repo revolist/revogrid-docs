@@ -77,7 +77,7 @@ head:
         "offers": {
           "@type": "Offer",
           "category": "Commercial software license",
-          "url": "https://rv-grid.com/pro/prices"
+          "url": "https://rv-grid.com/pricing"
         }
       }
 ---

@@ -101,7 +101,7 @@ pivotLanding:
     description: Add a client-side pivot table component to React, Vue, Angular, Svelte, or vanilla JavaScript apps. Included in Pro Advanced.
     primaryHref: /demo/pivot
     primaryLabel: Open pivot demo
-    secondaryHref: /pro/prices
+    secondaryHref: /pricing
     secondaryLabel: View Pro pricing
 ---
 

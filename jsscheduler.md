@@ -128,12 +128,12 @@ ganttLanding:
     description: Deliver interactive resource planning with virtual timelines, editable grid data, and RevoGrid Pro customization.
     primaryHref: /demo/gantt
     primaryLabel: Explore scheduler demo
-    secondaryHref: /pro/prices
+    secondaryHref: /pricing
     secondaryLabel: View Pro pricing
 ---
 
 <script lang="ts" setup>
-import GanttPageLayout from './GanttPageLayout.vue'
+import GanttPageLayout from './gantt/GanttPageLayout.vue'
 </script>
 
 <GanttPageLayout />

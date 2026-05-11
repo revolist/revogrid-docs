@@ -27,7 +27,7 @@
 
 <script lang="ts" setup>
 import ProPricingCards from './ProPricingCards.vue'
-import { FREE_FEATURES } from '../proPricingPlans'
+import { FREE_FEATURES } from './pricingPlans'
 </script>
 
 <style lang="scss" scoped>

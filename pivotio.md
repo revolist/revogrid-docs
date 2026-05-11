@@ -101,7 +101,7 @@ pivotLanding:
     description: Ship PivotIO with RevoGrid rendering, client-side aggregation, spreadsheet exports, and framework adapters.
     primaryHref: /demo/pivot
     primaryLabel: Explore live demo
-    secondaryHref: /pro/prices
+    secondaryHref: /pricing
     secondaryLabel: View Pro pricing
 ---
 

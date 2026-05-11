@@ -125,9 +125,9 @@ import { ref } from 'vue'
 import { ElDialog } from 'element-plus'
 import 'element-plus/es/components/dialog/style/css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
-import VPImage from '../../.vitepress/theme/VPImage.vue'
-import { featureTableGroups } from '../featureTableData'
-import type { FeatureTableGroup, FeatureTableItem } from '../featureTableData'
+import VPImage from '../.vitepress/theme/VPImage.vue'
+import { featureTableGroups } from '../pro/featureTableData'
+import type { FeatureTableGroup, FeatureTableItem } from '../pro/featureTableData'
 
 defineProps<{
   heading: string

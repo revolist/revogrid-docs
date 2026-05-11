@@ -149,12 +149,12 @@ ganttLanding:
     description: Embed interactive timeline grids into your product while keeping data, editing, virtualization, and rendering unified.
     primaryHref: /demo/gantt
     primaryLabel: Explore the live demo
-    secondaryHref: /pro/prices
+    secondaryHref: /pricing
     secondaryLabel: View Pro pricing
 ---
 
 <script lang="ts" setup>
-import GanttPageLayout from './GanttPageLayout.vue'
+import GanttPageLayout from './gantt/GanttPageLayout.vue'
 </script>
 
 <GanttPageLayout />

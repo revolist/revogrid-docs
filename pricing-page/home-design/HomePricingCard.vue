@@ -39,17 +39,17 @@
 </template>
 
 <script lang="ts" setup>
-import { type HomeV2Record, useHomeV2Links } from './homeV2Utils'
+import { type PricingRecord, usePricingLinks } from './pricingDesignUtils'
 
 defineProps<{
-  card: HomeV2Record
+  card: PricingRecord
 }>()
 
-const { linkOf, targetOf, relOf } = useHomeV2Links()
+const { linkOf, targetOf, relOf } = usePricingLinks()
 
-const featureText = (feature: string | HomeV2Record) => typeof feature === 'string' ? feature : feature.text
-const featureHref = (feature: string | HomeV2Record) => typeof feature === 'string' ? undefined : feature.link
-const featureKey = (feature: string | HomeV2Record) => `${featureText(feature)}:${featureHref(feature) ?? ''}`
+const featureText = (feature: string | PricingRecord) => typeof feature === 'string' ? feature : feature.text
+const featureHref = (feature: string | PricingRecord) => typeof feature === 'string' ? undefined : feature.link
+const featureKey = (feature: string | PricingRecord) => `${featureText(feature)}:${featureHref(feature) ?? ''}`
 </script>
 
 <style lang="scss" scoped>
