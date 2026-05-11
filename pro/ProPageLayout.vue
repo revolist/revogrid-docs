@@ -53,24 +53,35 @@
               <div class="fc-label">{{ cat.label }}</div>
             </div>
             <div class="fc-features">
-              <a
+              <div
                 v-for="f in cat.features"
                 :key="f.title"
                 class="fc-feat"
-                :href="f.href"
-                :target="isExternalLink(f.href) ? '_blank' : undefined"
-                :rel="isExternalLink(f.href) ? 'noopener' : undefined"
               >
                 <span class="fc-check">✓</span>
-                <span class="fc-feat-title">{{ f.title }}</span>
+                <a
+                  class="fc-feat-title"
+                  :href="f.href"
+                  :target="isExternalLink(f.href) ? '_blank' : undefined"
+                  :rel="isExternalLink(f.href) ? 'noopener' : undefined"
+                >
+                  {{ f.title }}
+                </a>
                 <span v-if="f.beta" class="fc-beta">Beta</span>
-                <span v-if="f.videoUrl" class="fc-video" title="Video available" aria-label="Video available">
+                <button
+                  v-if="f.videoUrl"
+                  type="button"
+                  class="fc-video"
+                  title="Watch video"
+                  :aria-label="`Watch ${f.title} video`"
+                  @click="openVideo(f.videoUrl)"
+                >
                   <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                     <path d="M5.25 4.25v5.5L9.75 7 5.25 4.25Z" fill="currentColor"/>
                     <rect x="1.5" y="2.5" width="11" height="9" rx="2" stroke="currentColor" stroke-width="1.4"/>
                   </svg>
-                </span>
-              </a>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -101,23 +112,26 @@
         <a href="/guide/" class="btn-ghost">Read the docs</a>
       </div>
       <div class="cta-note">Royalty-free · No deployment fee · Cancel anytime</div>
-      <div class="footer-links-row">
-        <a href="/pro/policies/privacy">Privacy Policy</a>
-        <span class="sep">|</span>
-        <a href="/pro/policies/terms">Terms of Service</a>
-        <span class="sep">|</span>
-        <a href="/pro/policies/license">License</a>
-        <span class="sep">|</span>
-        <a href="/pro/policies/security">Security Policy</a>
-        <span class="sep">|</span>
-        <a href="mailto:contact@revolist.eu">Contact us</a>
-      </div>
     </section>
+
+    <div v-if="activeVideoUrl" class="video-modal" role="dialog" aria-modal="true" aria-label="Feature video preview" @click.self="closeVideo">
+      <div class="video-modal-panel">
+        <button type="button" class="video-modal-close" aria-label="Close video preview" @click="closeVideo">×</button>
+        <video
+          class="video-modal-player"
+          :src="activeVideoUrl"
+          controls
+          playsinline
+          autoplay
+        ></video>
+      </div>
+    </div>
 
   </div>
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
 import { featuresPro } from './features.pro'
 
 const HERO_STATS = [
@@ -185,6 +199,15 @@ const PRO_CATEGORIES = Object.values(
 )
 
 const PRO_FEATURE_COUNT = featuresPro.length
+const activeVideoUrl = ref('')
+
+function openVideo(videoUrl: string) {
+  activeVideoUrl.value = videoUrl
+}
+
+function closeVideo() {
+  activeVideoUrl.value = ''
+}
 
 </script>
 
@@ -472,13 +495,7 @@ const PRO_FEATURE_COUNT = featuresPro.length
   gap: 8px;
   font-size: 13px;
   color: var(--vp-c-text-2);
-  text-decoration: none;
   border-radius: 6px;
-  transition: color 0.2s, background 0.2s;
-
-  &:hover {
-    color: var(--vp-c-brand-1);
-  }
 }
 
 .fc-check {
@@ -491,6 +508,13 @@ const PRO_FEATURE_COUNT = featuresPro.length
 .fc-feat-title {
   min-width: 0;
   line-height: 1.45;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--vp-c-brand-1);
+  }
 }
 
 .fc-beta {
@@ -510,8 +534,64 @@ const PRO_FEATURE_COUNT = featuresPro.length
   align-items: center;
   justify-content: center;
   color: var(--vp-c-brand-1);
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
   flex-shrink: 0;
   margin-top: 2px;
+  padding: 0;
+  transition: color 0.2s, transform 0.2s;
+
+  &:hover {
+    color: var(--vp-c-brand-2);
+    transform: scale(1.08);
+  }
+}
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(8px);
+}
+
+.video-modal-panel {
+  position: relative;
+  width: min(920px, 100%);
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.58);
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.video-modal-player {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
 }
 
 .features-link-row {

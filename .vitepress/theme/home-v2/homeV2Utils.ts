@@ -25,6 +25,15 @@ export function escapeHtml(value: string) {
     .replace(/"/g, '&quot;')
 }
 
+export function linkProductMentions(value: string | undefined, linkOf: (href?: string) => string) {
+  if (!value) return ''
+
+  return escapeHtml(value).replace(/\b(Pivot Grid|Gantt Chart|Pivot|Gantt|pivot|gantt)\b/g, (label) => {
+    const href = /pivot/i.test(label) ? '/pivot' : '/gantt'
+    return `<a class="rg-product-link" href="${escapeHtml(linkOf(href))}">${label}</a>`
+  })
+}
+
 export function iconText(icon: string) {
   const map: Record<string, string> = {
     pulse: 'Hz',

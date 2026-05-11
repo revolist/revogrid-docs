@@ -8,7 +8,7 @@
             <FontAwesomeSvgIcon :name="item.icon" />
           </div>
           <h3>{{ item.title }}</h3>
-          <p>{{ item.description }}</p>
+          <p v-html="productText(item.description)"></p>
         </div>
       </div>
     </div>
@@ -18,11 +18,17 @@
 <script lang="ts" setup>
 import FontAwesomeSvgIcon from './FontAwesomeSvgIcon.vue'
 import HomeSectionHeader from './HomeSectionHeader.vue'
-import { type HomeV2Record } from './homeV2Utils'
+import { linkProductMentions, type HomeV2Record, useHomeV2Links } from './homeV2Utils'
 
 defineProps<{
   section?: HomeV2Record
 }>()
+
+const { linkOf } = useHomeV2Links()
+
+function productText(value?: string) {
+  return linkProductMentions(value, linkOf)
+}
 </script>
 
 <style lang="scss" scoped>

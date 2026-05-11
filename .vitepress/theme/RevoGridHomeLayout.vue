@@ -43,6 +43,14 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   overflow-x: hidden;
 }
 
+.rg-home .rg-product-link {
+  color: var(--rg-accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
 .rg-top-nav {
   position: sticky;
   top: 0;

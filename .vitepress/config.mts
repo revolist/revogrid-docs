@@ -299,7 +299,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 },
                 {
                     find: '@/',
-                    replacement: path.resolve(__dirname, '/'),
+                    replacement: `${path.resolve(__dirname, '../')}/`,
                 },
                 ...localProPackageAliases,
                 {

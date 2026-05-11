@@ -7,7 +7,7 @@
           {{ hero?.eyebrow }}
         </div>
         <h1 class="rg-hero-title" v-html="heroTitle"></h1>
-        <p class="rg-hero-sub">{{ hero?.tagline }}</p>
+        <p class="rg-hero-sub" v-html="heroTagline"></p>
         <div class="rg-actions">
           <a class="rg-btn rg-btn-primary" :href="linkOf(hero?.primaryAction?.link)">
             <span class="rg-play" aria-hidden="true"></span>
@@ -77,7 +77,7 @@ import { computed, onBeforeUnmount, onMounted, shallowRef } from 'vue'
 import { useData } from 'vitepress'
 import VGrid, { type ColumnRegular, type VNode } from '@revolist/vue3-datagrid'
 import HomeChevron from './HomeChevron.vue'
-import { escapeHtml, type HomeV2Record, useHomeV2Links } from './homeV2Utils'
+import { escapeHtml, linkProductMentions, type HomeV2Record, useHomeV2Links } from './homeV2Utils'
 // @ts-ignore
 import { stocks } from '@/json/stock.json'
 
@@ -94,6 +94,8 @@ const heroTitle = computed(() => {
   if (!emphasis || !title.includes(emphasis)) return escapeHtml(title)
   return escapeHtml(title).replace(escapeHtml(emphasis), `<em>${escapeHtml(emphasis)}</em>`)
 })
+
+const heroTagline = computed(() => linkProductMentions(props.hero?.tagline, linkOf))
 
 const showcaseQuotes: Record<string, { price: number; percent_change: number; volume: string }> = {
   AAP: { price: 217.4, percent_change: 2.1, volume: '1.2M' },

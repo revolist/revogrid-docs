@@ -253,12 +253,12 @@ advanced:
     - title: Pivot Grid
       tag: Pro Advanced
       type: pivot
-      link: /demo/pivot
+      link: /pivot
       description: Analyze and summarize complex datasets directly inside your application with aggregation, reordering, and drill-down.
     - title: Gantt Chart
       tag: Pro Advanced
       type: gantt
-      link: /demo/gantt
+      link: /gantt
       description: Build planning and timeline views with drag-and-resize tasks, dependencies, milestones, and resource views.
     - title: ERP Workflows
       tag: Pro Advanced
