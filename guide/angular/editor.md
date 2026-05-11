@@ -11,6 +11,8 @@ head:
 
 <!--@include: ../parts/_editor.header.md-->
 
+<!--@include: ../../demo/angular/angular.editor.md-->
+
 ## Editor as standalone component
 
 First we need to create a custom editor component.
@@ -91,10 +93,4 @@ export class AppComponent {
 }
 ```
 
-
-
-
-<!--@include: ../../demo/angular/angular.editor.md-->
-
 <!--@include: ./_examples.md-->
-

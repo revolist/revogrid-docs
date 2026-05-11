@@ -252,6 +252,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 text: 'Real-Time Updates',
                 link: '/guide/realtime-updates',
             },
+            {
+                text: 'Tree Data',
+                link: '/guide/tree-data',
+            },
         ],
     },
 
@@ -269,6 +273,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                         link: '/guide/angular/renderer',
                     },
                     { text: 'Cell Editor', link: '/guide/angular/editor' },
+                    { text: 'Tree Data', link: '/guide/angular/tree' },
                 ],
             },
             {
@@ -281,6 +286,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                         link: '/guide/react/renderer',
                     },
                     { text: 'Cell Editor', link: '/guide/react/editor' },
+                    { text: 'Tree Data', link: '/guide/react/tree' },
                 ],
             },
             {
@@ -288,6 +294,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 collapsed: true,
                 items: [
                     { text: 'Getting Started', link: '/guide/stencil/' },
+                    { text: 'Tree Data', link: '/guide/stencil/tree' },
                 ],
             },
             {
@@ -295,6 +302,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 collapsed: true,
                 items: [
                     { text: 'Getting Started', link: '/guide/svelte/' },
+                    { text: 'Tree Data', link: '/guide/svelte/tree' },
                 ],
             },
             {
@@ -302,6 +310,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 collapsed: true,
                 items: [
                     { text: 'Getting Started', link: '/guide/ts/' },
+                    { text: 'Tree Data', link: '/guide/ts/tree' },
                 ],
             },
             {
@@ -311,6 +320,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                     { text: 'Getting Started', link: '/guide/vue2/' },
                     { text: 'Cell Template', link: '/guide/vue2/renderer' },
                     { text: 'Cell Editor', link: '/guide/vue2/editor' },
+                    { text: 'Tree Data', link: '/guide/vue2/tree' },
                 ],
             },
             {
@@ -320,11 +330,16 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                     { text: 'Getting Started', link: '/guide/vue3/' },
                     { text: 'Cell Template', link: '/guide/vue3/renderer' },
                     { text: 'Cell Editor', link: '/guide/vue3/editor' },
+                    { text: 'Tree Data', link: '/guide/vue3/tree' },
                 ],
             },
             {
                 text: 'Tanstack',
-                link: '/guide/tanstack',
+                collapsed: true,
+                items: [
+                    { text: 'Getting Started', link: '/guide/tanstack' },
+                    { text: 'Tree Data', link: '/guide/tanstack/tree' },
+                ],
             },
         ],
     },

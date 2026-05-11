@@ -82,7 +82,7 @@ demos:
       type: custom
     - title: Tree Data
       description: Hierarchical rows with expandable children and nested aggregation.
-      link: /demo/
+      link: /guide/tree-data
       type: tree
     - title: Column Grouping
       description: Organize columns under multi-level group headers for complex data structures.
@@ -125,7 +125,7 @@ developer:
     - text: Read docs
       link: /guide/
     - text: View examples
-      link: /demo/
+      link: /demo/hr
   tabs:
     - id: react
       label: React
@@ -211,14 +211,17 @@ advanced:
     - title: Pivot Grid
       tag: Pro Advanced
       type: pivot
+      link: /demo/pivot
       description: Analyze and summarize complex datasets directly inside your application with aggregation, reordering, and drill-down.
     - title: Gantt Chart
       tag: Pro Advanced
       type: gantt
+      link: /demo/gantt
       description: Build planning and timeline views with drag-and-resize tasks, dependencies, milestones, and resource views.
     - title: ERP Workflows
       tag: Pro Advanced
       type: erp
+      link: /demo/ecommerce
       description: Use RevoGrid as the interface layer for inventory, finance, admin, and operations workflows.
 
 useCases:

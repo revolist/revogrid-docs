@@ -3,6 +3,13 @@
 `RevoGrid` provides a way to define your own editors. Or you can use [predefined column types](../column/types).
 In order to do so you have to define your class with render method.
 
+<DemoWidgetFrame
+  demo="cell-editor"
+  framework="ts"
+  title="RevoGrid cell editor demo"
+  minHeight="520"
+/>
+
 ## As a Function
 ```js
 

@@ -21,6 +21,7 @@ import HeaderNavControls from './HeaderNavControls.vue'
 import HomePageColors from './home/HomePageColors.vue'
 import ProDemoFrame from './ProDemoFrame.vue'
 import DemoWidgetFrame from './DemoWidgetFrame.vue'
+import TreeDataProDemo from './TreeDataProDemo.vue'
 import RevoGridHomeLayout from './RevoGridHomeLayout.vue'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 
@@ -56,5 +57,6 @@ export default {
         app.component('Mermaid', Mermaid)
         app.component('ProDemoFrame', ProDemoFrame)
         app.component('DemoWidgetFrame', DemoWidgetFrame)
+        app.component('TreeDataProDemo', TreeDataProDemo)
     },
 } satisfies Theme

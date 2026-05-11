@@ -760,11 +760,14 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 }
 
 .rg-module-card {
+  display: block;
   border: 1px solid var(--rg-border);
   border-radius: 16px;
   position: relative;
   overflow: hidden;
   background: var(--rg-bg-2);
+  color: inherit;
+  text-decoration: none;
 
   .rg-module-tag {
     display: inline-flex;

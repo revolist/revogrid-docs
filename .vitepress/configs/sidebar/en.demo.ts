@@ -62,6 +62,10 @@ export const sidebarAngularEn: DefaultTheme.SidebarItem[] = [
     {
         text: 'Demo: Sample module',
         link: '/demo/angular/angular.sample.module',
+    },
+    {
+        text: 'Tree view',
+        link: '/demo/angular/angular-tree',
     }
 ]
 export const sidebarVue3En: DefaultTheme.SidebarItem[] = [
@@ -86,12 +90,12 @@ export const sidebarVue3En: DefaultTheme.SidebarItem[] = [
         link: '/demo/vue/vue.select',
     },
     {
-        text: 'Tree view',
-        link: '/demo/vue/vue.tree',
-    },
-    {
         text: 'Grouping',
         link: '/demo/vue/vue.grouping',
+    },
+    {
+        text: 'Tree view',
+        link: '/demo/vue/vue-tree',
     },
 ]
 
@@ -176,12 +180,12 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
                 link: '/demo/js/js.filtering',
             },
             {
-                text: 'Hierarchical Tree',
-                link: '/demo/jsx/jsx.tree',
-            },
-            {
                 text: 'JSX Template',
                 link: '/demo/jsx/jsx.template',
+            },
+            {
+                text: 'Hierarchical Tree',
+                link: '/demo/jsx/jsx-tree',
             },
         ],
     },

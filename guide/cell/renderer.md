@@ -8,6 +8,13 @@ description: Use RevoGrid cell templates to render custom cell content safely an
 This article explains how to use a [custom cell function](../types/Interface.CellTemplate) to display HTML content in a cell.
 <br>Alternatively, you can use [predefined column types](../column/types.md).
 
+<DemoWidgetFrame
+  demo="cell-template"
+  framework="ts"
+  title="RevoGrid cell template demo"
+  minHeight="520"
+/>
+
 > [!WARNING]
 > Remember to escape any HTML code that could be used for XSS attacks.
 
