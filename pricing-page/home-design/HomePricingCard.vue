@@ -32,6 +32,7 @@
       :href="linkOf(card.link)"
       :target="targetOf(card.link)"
       :rel="relOf(card.link)"
+      @click="handleCtaClick"
     >
       {{ card.action }}
     </a>
@@ -41,8 +42,12 @@
 <script lang="ts" setup>
 import { type PricingRecord, usePricingLinks } from './pricingDesignUtils'
 
-defineProps<{
+const props = defineProps<{
   card: PricingRecord
+}>()
+
+const emit = defineEmits<{
+  (event: 'contact-sales'): void
 }>()
 
 const { linkOf, targetOf, relOf } = usePricingLinks()
@@ -50,6 +55,13 @@ const { linkOf, targetOf, relOf } = usePricingLinks()
 const featureText = (feature: string | PricingRecord) => typeof feature === 'string' ? feature : feature.text
 const featureHref = (feature: string | PricingRecord) => typeof feature === 'string' ? undefined : feature.link
 const featureKey = (feature: string | PricingRecord) => `${featureText(feature)}:${featureHref(feature) ?? ''}`
+
+const handleCtaClick = (event: MouseEvent) => {
+  if (props.card.id !== 'enterprise') return
+
+  event.preventDefault()
+  emit('contact-sales')
+}
 </script>
 
 <style lang="scss" scoped>

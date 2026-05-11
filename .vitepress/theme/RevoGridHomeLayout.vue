@@ -592,6 +592,8 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   border: 1px solid var(--rg-border);
   border-radius: 16px;
   background: var(--rg-bg-2);
+  color: inherit;
+  text-decoration: none;
 }
 
 .rg-module-card:hover,
@@ -692,12 +694,17 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 }
 
 .rg-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 30px;
   border: 1px solid var(--rg-border);
   border-radius: 6px;
   background: var(--rg-bg-2);
   color: var(--rg-text-2);
   cursor: pointer;
-  padding: 3px 12px;
+  padding: 4px 12px;
   font-size: 13px;
   font-weight: 500;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
@@ -707,6 +714,13 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
     color: #000;
     border-color: var(--rg-green);
   }
+}
+
+.rg-tab-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
 }
 
 .rg-code-panel {

@@ -3,13 +3,21 @@
     <div class="rg-container">
       <HomeSectionHeader :section="section" />
       <div class="rg-caps-grid">
-        <div v-for="cap in section?.items" :key="cap.title" class="rg-cap-card">
+        <a
+          v-for="cap in section?.items"
+          :key="cap.title"
+          class="rg-cap-card"
+          :href="linkOf(cap.link)"
+          :target="targetOf(cap.link)"
+          :rel="relOf(cap.link)"
+          :aria-label="`${cap.title} documentation`"
+        >
           <div class="rg-icon">
             <FontAwesomeSvgIcon :name="cap.icon" />
           </div>
           <h3>{{ cap.title }}</h3>
           <p>{{ cap.description }}</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -18,11 +26,13 @@
 <script lang="ts" setup>
 import FontAwesomeSvgIcon from './FontAwesomeSvgIcon.vue'
 import HomeSectionHeader from './HomeSectionHeader.vue'
-import { type HomeV2Record } from './homeV2Utils'
+import { type HomeV2Record, useHomeV2Links } from './homeV2Utils'
 
 defineProps<{
   section?: HomeV2Record
 }>()
+
+const { linkOf, targetOf, relOf } = useHomeV2Links()
 </script>
 
 <style lang="scss" scoped>

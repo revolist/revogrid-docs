@@ -7,6 +7,7 @@
           v-for="card in pricingCards"
           :key="card.id"
           :card="card"
+          @contact-sales="$emit('contact-sales')"
         />
       </div>
       <p class="rg-pricing-note">{{ section?.note }}</p>
@@ -23,6 +24,10 @@ import { type PricingRecord } from './pricingDesignUtils'
 
 const props = defineProps<{
   section?: PricingRecord
+}>()
+
+defineEmits<{
+  (event: 'contact-sales'): void
 }>()
 
 const pricingCards = computed(() => {

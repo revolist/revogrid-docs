@@ -31,7 +31,16 @@
             :aria-selected="activeTab === tab.id"
             @click="activeTab = tab.id"
           >
-            {{ tab.label }}
+            <img
+              v-if="tab.icon"
+              class="rg-tab-icon"
+              :src="tab.icon"
+              :alt="`${tab.label} icon`"
+              loading="lazy"
+              width="16"
+              height="16"
+            />
+            <span>{{ tab.label }}</span>
           </button>
         </div>
         <div class="rg-code-panel">
@@ -77,7 +86,7 @@ const activeTabData = computed<HomeV2Record | undefined>(() => {
 })
 
 const activeCode = computed(() => {
-  return activeTabData.value?.code ?? ''
+  return decodeCode(activeTabData.value?.code ?? '')
 })
 
 const activeLang = computed(() => {
@@ -115,5 +124,9 @@ function copyCode() {
       copied.value = false
     }, 1400)
   })
+}
+
+function decodeCode(code: string) {
+  return code.replaceAll('__LT__', '<').replaceAll('__GT__', '>')
 }
 </script>

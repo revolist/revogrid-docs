@@ -1,15 +1,18 @@
 <template>
   <div class="pricing-page">
     <PricingHero :hero="pricingPage.hero" />
-    <HomePricing :section="frontmatter.pricing" />
+    <HomePricing :section="frontmatter.pricing" @contact-sales="showContactForm = true" />
     <PricingFeatureComparison :heading="pricingPage.featureComparison.heading" />
     <PricingFaq :faq="pricingPage.faq" />
     <PricingFinalCta :cta="pricingPage.cta" />
+    <ContactForm :isVisible="showContactForm" @close="showContactForm = false" />
   </div>
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
 import { useData } from 'vitepress'
+import ContactForm from '../pro/ContactForm.vue'
 import PricingFaq from './PricingFaq.vue'
 import PricingFeatureComparison from './PricingFeatureComparison.vue'
 import PricingFinalCta from './PricingFinalCta.vue'
@@ -20,6 +23,7 @@ import type { PricingPageData } from './types'
 const { frontmatter } = useData()
 
 const pricingPage = frontmatter.value.pricingPage as PricingPageData
+const showContactForm = ref(false)
 </script>
 
 <style lang="scss" scoped>

@@ -100,21 +100,27 @@ capabilities:
   items:
     - title: Performance at scale
       icon: pulse
+      link: "/guide/performance"
       description: Virtualized rendering keeps large datasets responsive without sacrificing spreadsheet-like interaction.
     - title: Spreadsheet-grade editing
       icon: grid
+      link: "/guide/editing"
       description: Selection ranges, keyboard navigation, copy/paste, and inline editing that match the UX users expect.
     - title: Custom cells and renderers
       icon: star
+      link: "/guide/cell/renderer"
       description: Build your own cell types, editors, and validators. Any framework component can become a grid cell.
     - title: Plugin architecture
       icon: plugin
+      link: "/guide/plugin/"
       description: Extend the grid with modular plugins instead of forking a fixed component.
     - title: Framework integrations
       icon: links
+      link: "/guide/installation"
       description: First-class support for React, Angular, Vue, Svelte, and vanilla JavaScript.
     - title: Production licensing
       icon: lock
+      link: "/guide/licensing"
       description: Per-developer licensing designed for teams building real products.
 
 developer:
@@ -127,8 +133,44 @@ developer:
     - text: View examples
       link: /demo/hr
   tabs:
+    - id: angular
+      label: Angular
+      icon: /angular.svg
+      lang: ts
+      code: |
+        # Install
+        npm install @revolist/angular-datagrid
+
+        // app.component.ts
+        import { Component } from '@angular/core'
+        import { RevoGrid } from '@revolist/angular-datagrid'
+
+        @Component({
+          selector: 'app-root',
+          standalone: true,
+          imports: [RevoGrid],
+          template: `
+            <revo-grid
+              [columns]="columns"
+              [source]="rows"
+            ></revo-grid>
+          `
+        })
+        export class AppComponent {
+          columns = [
+            { prop: 'name' },
+            { prop: 'value' },
+          ]
+
+          rows = [
+            { name: 'Northwind', value: 120000 },
+            { name: 'Contoso', value: 98000 },
+          ]
+        }
     - id: react
       label: React
+      icon: /react.svg
+      lang: tsx
       code: |
         # Install
         npm install @revolist/react-datagrid
@@ -141,18 +183,26 @@ developer:
           { prop: 'revenue', name: 'Revenue' },
         ]
 
+        const rows = [
+          { name: 'Northwind', revenue: 120000 },
+          { name: 'Contoso', revenue: 98000 },
+        ]
+
         export default function App() {
-          return (
-            <RevoGrid source={rows} columns={columns} />
-          )
+          return <RevoGrid source={rows} columns={columns} />
         }
     - id: vue
       label: Vue
+      icon: /vuejs.svg
+      lang: vue
       code: |
-        # Install
-        npm install @revolist/vue3-datagrid
+        __LT__!-- npm install @revolist/vue3-datagrid --__GT__
+        __LT__!-- Grid.vue --__GT__
+        __LT__template__GT__
+          __LT__RevoGrid :source="rows" :columns="columns" /__GT__
+        __LT__/template__GT__
 
-        // Grid.vue
+        __LT__script setup__GT__
         import RevoGrid from '@revolist/vue3-datagrid'
 
         const columns = [
@@ -160,36 +210,21 @@ developer:
           { prop: 'value', name: 'Value' },
         ]
 
-        // template
-        // <RevoGrid :source="rows" :columns="columns" />
-    - id: angular
-      label: Angular
-      code: |
-        # Install
-        npm install @revolist/angular-datagrid
-
-        // app.component.ts
-        import { RevoGridModule } from '@revolist/angular-datagrid'
-
-        @Component({
-          template: `
-            <revo-grid
-              [source]="rows"
-              [columns]="columns"
-            ></revo-grid>
-          `
-        })
-        export class AppComponent {
-          columns = [
-            { prop: 'name' },
-            { prop: 'value' },
-          ]
-        }
+        const rows = [
+          { name: 'Northwind', value: 120000 },
+          { name: 'Contoso', value: 98000 },
+        ]
+        __LT__/script__GT__
     - id: js
       label: JavaScript
+      icon: /js.svg
+      lang: js
       code: |
         # Install
         npm install @revolist/revogrid
+
+        <!-- index.html -->
+        <revo-grid style="height: 220px"></revo-grid>
 
         // index.js
         import { defineCustomElements } from '@revolist/revogrid/loader'
@@ -197,7 +232,14 @@ developer:
         defineCustomElements()
 
         const grid = document.querySelector('revo-grid')
-        grid.columns = [{ prop: 'name', name: 'Name' }]
+        grid.columns = [
+          { prop: 'name', name: 'Name' },
+          { prop: 'value', name: 'Value' },
+        ]
+        const rows = [
+          { name: 'Northwind', value: 120000 },
+          { name: 'Contoso', value: 98000 },
+        ]
         grid.source = rows
 
 advanced:
