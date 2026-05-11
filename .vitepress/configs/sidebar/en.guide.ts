@@ -12,21 +12,34 @@ import type { DefaultTheme } from 'vitepress'
 
 export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
     {
-        text: 'Essentials',
-        collapsed: true,
+        text: 'Getting Started',
         items: [
             {
                 text: 'Quick Start',
                 link: '/guide/',
             },
             {
+                text: 'Installation',
+                link: '/guide/installation',
+            },
+            {
                 text: 'Overview',
                 link: '/guide/overview',
             },
             {
-                text: 'Installation',
-                link: '/guide/installation',
+                text: 'Data Synchronization',
+                link: '/guide/data-sync',
             },
+            {
+                text: 'Grid size',
+                link: '/guide/grid.size',
+            },
+        ],
+    },
+    {
+        text: 'Essentials',
+        collapsed: true,
+        items: [
             {
                 text: 'Best Practices',
                 link: '/guide/patterns',
@@ -60,10 +73,6 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 link: '/guide/defs',
             },
             {
-                text: 'Grid size',
-                link: '/guide/grid.size',
-            },
-            {
                 text: 'API',
                 link: '/guide/api/revoGrid',
             },
@@ -75,16 +84,6 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
             {
                 text: 'Viewports',
                 link: '/guide/viewports',
-            },
-        ],
-    },
-    {
-        text: 'Getting Started',
-        collapsed: true,
-        items: [
-            {
-                text: 'Data Synchronization',
-                link: '/guide/data-sync',
             },
         ],
     },
@@ -248,6 +247,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
             {
                 text: 'Theme Manager',
                 link: '/guide/theme',
+            },
+            {
+                text: 'Real-Time Updates',
+                link: '/guide/realtime-updates',
             },
         ],
     },

@@ -1,11 +1,10 @@
 ### Date
 
-Date [column type plugin](https://github.com/revolist/revogrid-column-date) based on based on [duetds-date-picker](https://github.com/duetds/date-picker) library.
+The date column type adds a calendar editor through the [revogrid-column-date](https://github.com/revolist/revogrid-column-date) package, based on [duetds-date-picker](https://github.com/duetds/date-picker).
 
-In order to improve datepicker functionality please contribute with [duetds-date-picker](https://github.com/duetds/date-picker).
-Accept data as formated string or date format.
+Use it for date strings or date values that should be edited with a date picker instead of plain text input.
 
-You can access any [duetds-date-picker](https://github.com/duetds/date-picker) properties in Column Definition:
+You can pass [duetds-date-picker](https://github.com/duetds/date-picker) properties through the column definition:
 
 ```js
 const columns = [
@@ -19,7 +18,7 @@ const columns = [
 ]
 ```
 
-<b>Installation</b>
+#### Installation
 
 ::: code-group
 
@@ -42,12 +41,12 @@ bun add @revolist/revogrid-column-date
 
 :::
 
-<b>Basic usage</b>
+#### Basic usage
 
--   Import column type;
--   Specify table data;
--   Per column specify column type;
--   Register your column type.
+1. Import the date column type.
+2. Register it in `columnTypes`.
+3. Set `columnType: 'date'` on date columns.
+4. Pass picker options on the column when needed.
 
 
 ```js
@@ -55,7 +54,7 @@ bun add @revolist/revogrid-column-date
 import Plugin from '@revolist/revogrid-column-date'
 
 const columns = [{ prop: 'birthdate', columnType: 'date' }]
-const rows = [{ name: '2020-08-24' }, { name: '2022-08-24' }]
+const rows = [{ birthdate: '2020-08-24' }, { birthdate: '2022-08-24' }]
 
 // register column type
 const columnTypes = { date: new Plugin() }
@@ -64,5 +63,6 @@ const columnTypes = { date: new Plugin() }
 <revo-grid source={rows} columns={columns} columnTypes={columnTypes} />
 ```
 
+Keep the date value format consistent across the column. If your application stores dates in a different shape than the editor displays, normalize the value before assigning `source` or handle conversion in your save workflow.
 
 <!--@include: ../../demo/js/js.date.md-->

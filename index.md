@@ -86,11 +86,11 @@ demos:
       type: tree
     - title: Column Grouping
       description: Organize columns under multi-level group headers for complex data structures.
-      link: /demo/
+      link: /guide/column/grouping
       type: grouping
     - title: Real-time Updates
       description: Streaming data updates without full re-renders. Built for live dashboards.
-      link: /demo/
+      link: /guide/realtime-updates
       type: realtime
 
 capabilities:
