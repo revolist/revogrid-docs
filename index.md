@@ -66,7 +66,7 @@ trustBadges:
 demos:
   label: Live demos
   title: Touch the product before you read about it
-  description: Every demo is interactive. Try editing cells, resizing columns, and scrolling through large datasets.
+  description: Every demo is interactive. Try editing cells, filtering data, resizing columns, and scrolling through large datasets.
   items:
     - title: Large Dataset
       description: 100,000+ rows with smooth scrolling.
@@ -74,7 +74,7 @@ demos:
       type: dataset
     - title: Spreadsheet Editing
       description: Selection, copy/paste, keyboard navigation, and inline editors.
-      link: /demo/
+      link: /demo/color
       type: editing
     - title: Custom Cell Types
       description: Build badges, progress bars, ratings, dropdowns, and any custom renderer.
@@ -375,12 +375,14 @@ pricing:
       action: Talk to sales
       link: mailto:hello@revolist.ee
       features:
-        - Volume developer seats
-        - Custom contract terms
-        - Security documentation
-        - Onboarding assistance
-        - Dedicated support channel
-        - Invoice billing
+        - Everything in Pro Advanced
+        - Custom contracts & invoicing
+        - Procurement onboarding assistance
+        - Security review support & documentation
+        - Dedicated engineering contact
+        - Flexible licensing for contractor-based development teams
+        - Enterprise integration guidance
+        - Roadmap collaboration
 
 faq:
   label: FAQ

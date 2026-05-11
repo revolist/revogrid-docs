@@ -222,7 +222,7 @@ const advUsdYr = PRICES.advanced.year.USD
 
   &.primary {
     background: var(--vp-c-brand-3);
-    color: #fff;
+    color: var(--vp-c-black);
     border: none;
 
     &:hover {

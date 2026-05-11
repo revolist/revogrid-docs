@@ -4,7 +4,7 @@
     <HomePricing :section="frontmatter.pricing" @contact-sales="showContactForm = true" />
     <PricingFeatureComparison :heading="pricingPage.featureComparison.heading" />
     <PricingFaq :faq="pricingPage.faq" />
-    <PricingFinalCta :cta="pricingPage.cta" />
+    <PricingFinalCta :cta="pricingPage.cta" @contact-sales="showContactForm = true" />
     <ContactForm :isVisible="showContactForm" @close="showContactForm = false" />
   </div>
 </template>
@@ -28,12 +28,12 @@ const showContactForm = ref(false)
 
 <style lang="scss" scoped>
 .pricing-page {
-  --green: oklch(0.72 0.18 155);
+  --green: var(--vp-c-brand-3);
   --purple: oklch(0.65 0.22 290);
 }
 
 :global(.dark) .pricing-page {
-  --green: oklch(0.72 0.18 155);
+  --green: var(--vp-c-brand-3);
 }
 
 :deep(.pricing-container) {

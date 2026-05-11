@@ -702,7 +702,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   border: 1px solid var(--rg-border);
   border-radius: 6px;
   background: var(--rg-bg-2);
-  color: var(--rg-text-2);
   cursor: pointer;
   padding: 4px 12px;
   font-size: 13px;

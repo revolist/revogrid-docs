@@ -117,6 +117,8 @@ Framework wrappers use the same data shape. Pass `columns`, `source`, and `colum
 <!--@include: ./_types.select.md-->
 <br /><br />
 <!--@include: ./_types.date.md-->
+<br /><br />
+<!--@include: ./_types.pro.md-->
 
 ## Practical tips
 

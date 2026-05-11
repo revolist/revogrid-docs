@@ -1,15 +1,17 @@
 <template>
   <div class="rg-pricing-card" :class="{ featured: card.featured }">
     <span v-if="card.badge" class="rg-featured-tag">{{ card.badge }}</span>
-    <h3>{{ card.name }}</h3>
-    <p class="rg-plan-desc">{{ card.description }}</p>
-    <div class="rg-price">
-      <span>{{ card.price }}</span>
-      <small>{{ card.period }}</small>
-    </div>
-    <p v-if="card.sub" class="rg-price-sub">{{ card.sub }}</p>
-    <div v-if="card.billingNote" class="rg-billing-note">
-      <span>{{ card.billingNote }}</span>
+    <div class="rg-plan-head">
+      <h3>{{ card.name }}</h3>
+      <p class="rg-plan-desc">{{ card.description }}</p>
+      <div class="rg-price">
+        <span>{{ card.price }}</span>
+        <small>{{ card.period }}</small>
+      </div>
+      <p v-if="card.sub" class="rg-price-sub">{{ card.sub }}</p>
+      <div v-if="card.billingNote" class="rg-billing-note">
+        <span>{{ card.billingNote }}</span>
+      </div>
     </div>
     <div class="rg-plan-divider"></div>
     <ul>
@@ -130,6 +132,16 @@ const handleCtaClick = (event: MouseEvent) => {
   }
 }
 
+.rg-plan-head {
+  min-height: 144px;
+}
+
+@media (max-width: 640px) {
+  .rg-plan-head {
+    min-height: 0;
+  }
+}
+
 .rg-featured-tag {
   position: absolute;
   top: -12px;
@@ -149,6 +161,10 @@ const handleCtaClick = (event: MouseEvent) => {
   color: var(--rg-text-2);
   font-size: 12px;
   line-height: 1.45;
+}
+
+.rg-plan-desc {
+  margin: 0;
 }
 
 .rg-price {
@@ -187,17 +203,28 @@ const handleCtaClick = (event: MouseEvent) => {
 
 .rg-plan-btn {
   margin-top: auto;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 8px;
-  padding: 10px;
+  padding: 12px 26px;
   text-align: center;
   text-decoration: none;
-  font-weight: 800;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: filter 0.25s, transform 0.25s, background 0.2s, border-color 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 
   &.primary {
     background: var(--rg-green);
-    color: #000;
+    color: var(--vp-c-black);
+
+    &:hover {
+      filter: brightness(1.1);
+    }
   }
 
   &.secondary {

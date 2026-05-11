@@ -29,7 +29,7 @@ defineProps<{
 
     &.primary {
         background: var(--vp-c-brand-3);
-        color: var(--vp-c-white);
+        color: var(--vp-c-black);
         border: 1px solid transparent;
 
         &:hover {

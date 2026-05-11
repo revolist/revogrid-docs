@@ -124,12 +124,14 @@ pricing:
       action: Talk to sales
       link: mailto:hello@revolist.ee
       features:
-        - Volume developer seats
-        - Custom contract terms
-        - Security documentation
-        - Onboarding assistance
-        - Dedicated support channel
-        - Invoice billing
+        - Everything in Pro Advanced
+        - Custom contracts & invoicing
+        - Procurement onboarding assistance
+        - Security review support & documentation
+        - Dedicated engineering contact
+        - Flexible licensing for contractor-based development teams
+        - Enterprise integration guidance
+        - Roadmap collaboration
 
 ---
 

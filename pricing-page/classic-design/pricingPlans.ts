@@ -34,11 +34,11 @@ export const PRO_ADV_FEATURES = [
 
 export const ENTERPRISE_FEATURES = [
   'Everything in Pro Advanced',
-  'Custom contract & invoicing',
-  'Single-invoice team billing',
-  'SLA-backed support',
-  'Security review & compliance docs',
+  'Custom contracts & invoicing',
+  'Procurement onboarding assistance',
+  'Security review support & documentation',
   'Dedicated engineering contact',
-  'Roadmap co-design',
-  'On-premise deployment support',
+  'Flexible licensing for contractor-based development teams',
+  'Enterprise integration guidance',
+  'Roadmap collaboration',
 ]

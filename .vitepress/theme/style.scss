@@ -49,10 +49,10 @@
     --vp-c-default-3: var(--vp-c-gray-3);
     --vp-c-default-soft: var(--vp-c-gray-soft);
 
-    --vp-c-brand-1: var(--vp-c-indigo-1);
-    --vp-c-brand-2: var(--vp-c-indigo-2);
-    --vp-c-brand-3: var(--vp-c-indigo-3);
-    --vp-c-brand-soft: var(--vp-c-indigo-soft);
+    --vp-c-brand-1: #0f9a61;
+    --vp-c-brand-2: #20d58e;
+    --vp-c-brand-3: #16c47f;
+    --vp-c-brand-soft: rgba(22, 196, 127, 0.14);
 
     --vp-c-tip-1: var(--vp-c-brand-1);
     --vp-c-tip-2: var(--vp-c-brand-2);
@@ -79,13 +79,13 @@
 
 :root {
     --vp-button-brand-border: transparent;
-    --vp-button-brand-text: var(--vp-c-white);
+    --vp-button-brand-text: var(--vp-c-black);
     --vp-button-brand-bg: var(--vp-c-brand-3);
     --vp-button-brand-hover-border: transparent;
-    --vp-button-brand-hover-text: var(--vp-c-white);
+    --vp-button-brand-hover-text: var(--vp-c-black);
     --vp-button-brand-hover-bg: var(--vp-c-brand-2);
     --vp-button-brand-active-border: transparent;
-    --vp-button-brand-active-text: var(--vp-c-white);
+    --vp-button-brand-active-text: var(--vp-c-black);
     --vp-button-brand-active-bg: var(--vp-c-brand-1);
 }
 
@@ -97,24 +97,23 @@
     --vp-home-hero-name-color: transparent;
     --vp-home-hero-name-background: -webkit-linear-gradient(
         120deg,
-        #bd34fe 30%,
-        #41d1ff
+        #20d58e 30%,
+        #16c47f
     );
 
     --vp-home-hero-image-background-image: transparent;
     --vp-home-hero-name-background: -webkit-linear-gradient(
         120deg,
-        #bd34fe 30%,
-        #41d1ff
+        #20d58e 30%,
+        #16c47f
     );
-    --vp-c-brand-3: #108750;
 }
 
 :root:not(.dark) {
     --vp-home-hero-name-background: -webkit-linear-gradient(
         120deg,
-        #66a6ff 10%,
-        #10874d
+        #20d58e 10%,
+        #16c47f
     );
     --vp-c-bg-soft: #f6f6fc;
     --vp-button-alt-border: var(--vp-c-black);
@@ -146,10 +145,10 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-    --rg-green: #16c47f;
-    --rg-green-dim: #0f9a61;
-    --rg-green-bg: rgba(22, 196, 127, 0.08);
-    --rg-green-border: rgba(22, 196, 127, 0.24);
+    --rg-green: var(--vp-c-brand-3);
+    --rg-green-dim: var(--vp-c-brand-2);
+    --rg-green-bg: color-mix(in srgb, var(--rg-green) 8%, transparent);
+    --rg-green-border: color-mix(in srgb, var(--rg-green) 24%, transparent);
     --rg-bg: #0a0a0a;
     --rg-bg-2: #111;
     --rg-bg-3: #181818;

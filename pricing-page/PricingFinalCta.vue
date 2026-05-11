@@ -9,6 +9,7 @@
         class="btn-cta-primary"
         :target="cta.primary.external ? '_blank' : undefined"
         :rel="cta.primary.external ? 'noopener' : undefined"
+        @click="handleLinkClick($event, cta.primary)"
       >
         {{ cta.primary.label }}
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -20,6 +21,7 @@
         class="btn-cta-ghost"
         :target="cta.secondary.external ? '_blank' : undefined"
         :rel="cta.secondary.external ? 'noopener' : undefined"
+        @click="handleLinkClick($event, cta.secondary)"
       >
         {{ cta.secondary.label }}
       </a>
@@ -31,6 +33,7 @@
           :href="link.href"
           :target="link.external ? '_blank' : undefined"
           :rel="link.external ? 'noopener' : undefined"
+          @click="handleLinkClick($event, link)"
         >
           {{ link.label }}
         </a>
@@ -40,11 +43,26 @@
 </template>
 
 <script lang="ts" setup>
-import type { PricingCtaData } from './types'
+import type { PricingCtaData, PricingCtaLink } from './types'
 
 defineProps<{
   cta: PricingCtaData
 }>()
+
+const emit = defineEmits<{
+  (event: 'contact-sales'): void
+}>()
+
+const isContactLink = (link: PricingCtaLink) => {
+  return link.href.startsWith('mailto:') && /contact|sales/i.test(link.label)
+}
+
+const handleLinkClick = (event: MouseEvent, link: PricingCtaLink) => {
+  if (!isContactLink(link)) return
+
+  event.preventDefault()
+  emit('contact-sales')
+}
 </script>
 
 <style lang="scss" scoped>
@@ -105,7 +123,7 @@ defineProps<{
 
 .btn-cta-primary {
   background: var(--vp-c-brand-3);
-  color: #fff;
+  color: var(--vp-c-black);
   border: none;
   padding: 12px 26px;
   border-radius: 8px;
