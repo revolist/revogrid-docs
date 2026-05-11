@@ -1,7 +1,10 @@
 ---
 title: Filter Plugin
+description: Configure RevoGrid filtering in a standalone JavaScript data grid demo with clear filter behavior.
 aside: false
 ---
+
+## Filter Plugin
 
 <DemoWidgetFrame
   demo="clear-filtering"

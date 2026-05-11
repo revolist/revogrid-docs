@@ -1,3 +1,12 @@
+---
+title: TanStack Data Grid Demo with RevoGrid
+description: Explore a TanStack Table integration demo using RevoGrid for high-performance rendering, large datasets, and Vue and React examples.
+---
+
+## TanStack Data Grid Demo with RevoGrid
+
+Use this demo to compare how TanStack Table data models can be rendered through RevoGrid in Vue and React applications.
+
 <script lang="ts" setup>
     import Example from '@/demo/vue/DemoTanstack.vue'
 </script>

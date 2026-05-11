@@ -1,5 +1,6 @@
 ---
 title: Multi Select Virtual List - Vue 3 Data Grid
+description: Build a Vue 3 multiselect virtual list with RevoGrid and Composition API source examples.
 ---
 
 <script lang="ts" setup>

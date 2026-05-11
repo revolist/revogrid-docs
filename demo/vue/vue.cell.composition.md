@@ -1,9 +1,10 @@
 ---
 title: Native Cell component (Composition API) - Vue 3 Data Grid
+description: Render native Vue 3 Composition API components inside RevoGrid cells with a custom cell template demo.
 ---
 
 
-## Vue 3 - Native Cell component (Composition API)
+## Vue 3 - Native Cell Component (Composition API)
 
 <br />
 

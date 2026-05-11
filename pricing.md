@@ -1,6 +1,6 @@
 ---
-title: Pricing
-description: Start using RevoGrid for free! Switch to a commercial plan to access advanced features & technical support.
+title: RevoGrid Pro Pricing - Data Grid Plans
+description: Compare RevoGrid Pro pricing for developer licenses, commercial data grid features, support options, and royalty-free application deployment.
 sidebar: false
 aside: false
 editLink: false
@@ -15,8 +15,8 @@ head:
 pricingPage:
   hero:
     eyebrow: Pricing
-    title: Pay per developer.
-    titleEmphasis: Ship to everyone.
+    title: RevoGrid Pro Pricing.
+    titleEmphasis: Plans for data grid teams.
     subtitle: No deployment fees. No runtime royalties. No per-seat charges for your end users. Simple per-developer annual pricing.
   featureComparison:
     heading: Full feature comparison

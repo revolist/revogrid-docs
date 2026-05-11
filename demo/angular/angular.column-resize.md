@@ -1,6 +1,8 @@
 ---
 title: Column resize - Angular Data Grid
+description: Resize Angular data grid columns with RevoGrid and combine column sizing with custom cell templates.
 ---
+
 
 <DemoWidgetFrame
   demo="table-column-resize-and-cell-template"

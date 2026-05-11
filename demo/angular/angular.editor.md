@@ -1,6 +1,9 @@
 ---
 title: Native Editor component - Angular Data Grid
+description: Build a native Angular cell editor for RevoGrid with this editable data grid demo.
 ---
+
+## Native Editor Component - Angular Data Grid
 
 <DemoWidgetFrame
   demo="cell-editor"

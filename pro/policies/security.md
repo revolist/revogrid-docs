@@ -1,4 +1,6 @@
 ---
+title: RevoGrid Security Policy
+description: Review RevoGrid and RevoGrid Pro security practices for supplier reviews, vulnerability reporting, secure development, dependency scanning, and support SLAs.
 sidebar: false
 footer: true
 ---

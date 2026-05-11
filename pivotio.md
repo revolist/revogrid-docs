@@ -1,5 +1,5 @@
 ---
-title: PivotIO - Embedded Pivot Analytics for SaaS and Data Apps | RevoGrid
+title: PivotIO - Embedded Pivot Analytics for SaaS and Data Apps
 description: Add PivotIO to your web app for fast self-service pivot analytics, multidimensional exploration, client-side aggregation, and export-ready reports powered by RevoGrid.
 head:
   - - meta

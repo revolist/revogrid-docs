@@ -1,5 +1,6 @@
 ---
 title: Row Grouping - Vue 3 Data Grid
+description: Group rows in a Vue 3 Composition API data grid with RevoGrid and a focused source example.
 ---
 
 

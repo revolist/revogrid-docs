@@ -1,6 +1,11 @@
 ---
 title: StencilJs Getting Started
+description: Start a Stencil data grid demo with RevoGrid as a Web Component, including an editable StackBlitz example.
 ---
+
+# Stencil Data Grid Demo
+
+Use this Stencil demo to add RevoGrid as a Web Component and test the setup in StackBlitz.
 
 <ClientOnly>
 <iframe src="https://stackblitz.com/edit/stencil-template-aiden-xadqm4?embed=1&file=src%2Fcomponents%2Fmy-component%2Fmy-component.tsx&view=preview"

@@ -7,27 +7,24 @@
       <div class="container">
         <div class="pro-badge fade-up">
           <span class="pro-badge-dot"></span>
-          RevoGrid Pro
+          {{ pageText.hero.badge }}
         </div>
         <h1 class="hero-title fade-up-2">
-          The grid that ships<br />
-          <span class="hero-grad">production features.</span>
+          {{ pageText.hero.title.main }}<br />
+          <span class="hero-grad">{{ pageText.hero.title.highlight }}</span>
         </h1>
-        <p class="hero-sub fade-up-3">
-          Advanced column types, plugin API, pivot tables, and direct engineering support —
-          built for teams that can't afford a slow data layer.
-        </p>
+        <p class="hero-sub fade-up-3">{{ pageText.hero.subtitle }}</p>
         <div class="hero-ctas fade-up-4">
-          <a href="/pricing" class="btn-pro">
-            Get Pro
+          <a :href="pageText.hero.actions.primary.href" class="btn-pro">
+            {{ pageText.hero.actions.primary.label }}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
-          <a href="#features" class="btn-ghost">Explore features</a>
+          <a :href="pageText.hero.actions.secondary.href" class="btn-ghost">{{ pageText.hero.actions.secondary.label }}</a>
         </div>
         <div class="hero-stats fade-up-4">
-          <div v-for="s in HERO_STATS" :key="s.label" class="hero-stat">
+          <div v-for="s in pageText.hero.stats" :key="s.label" class="hero-stat">
             <div class="hero-stat-label">{{ s.label }}</div>
             <div class="hero-stat-sub">{{ s.sub }}</div>
           </div>
@@ -36,11 +33,14 @@
     </section>
 
     <!-- Features -->
-    <section class="features-section" id="features">
+    <section class="features-section" :id="pageText.features.id">
       <div class="container">
-        <div class="eyebrow">Pro Features</div>
-        <h2 class="section-title">Everything your app needs,<br />ready to ship.</h2>
-        <p class="section-sub">{{ PRO_FEATURE_COUNT }} production-ready Pro features across {{ PRO_CATEGORIES.length }} categories — built on the same RevoGrid core, no migration required.</p>
+        <div class="eyebrow">{{ pageText.features.eyebrow }}</div>
+        <h2 class="section-title">{{ pageText.features.title.main }}<br />{{ pageText.features.title.highlight }}</h2>
+        <p class="section-sub">
+          {{ PRO_FEATURE_COUNT }} {{ pageText.features.description.prefix }}
+          {{ PRO_CATEGORIES.length }} {{ pageText.features.description.suffix }}
+        </p>
 
         <div class="feature-grid">
           <div
@@ -67,13 +67,13 @@
                 >
                   {{ f.title }}
                 </a>
-                <span v-if="f.beta" class="fc-beta">Beta</span>
+                <span v-if="f.beta" class="fc-beta">{{ pageText.features.betaLabel }}</span>
                 <button
                   v-if="f.videoUrl"
                   type="button"
                   class="fc-video"
-                  title="Watch video"
-                  :aria-label="`Watch ${f.title} video`"
+                  :title="pageText.features.videoButtonTitle"
+                  :aria-label="`${pageText.features.videoButtonAria.prefix} ${f.title} ${pageText.features.videoButtonAria.suffix}`"
                   @click="openVideo(f.videoUrl)"
                 >
                   <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -87,8 +87,8 @@
         </div>
 
         <div class="features-link-row">
-          <a href="/pricing#feature-comparison" class="features-link">
-            View full feature table
+          <a :href="pageText.features.link.href" class="features-link">
+            {{ pageText.features.link.label }}
             <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
               <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -100,23 +100,23 @@
     <!-- CTA -->
     <section class="cta-section">
       <div class="cta-glow" aria-hidden="true"></div>
-      <h2 class="cta-title">Start with the MIT core.<br />Upgrade when you're ready.</h2>
-      <p class="cta-sub">No credit card required for the open-source build. Pro licenses activate instantly.</p>
+      <h2 class="cta-title">{{ pageText.cta.title.main }}<br />{{ pageText.cta.title.highlight }}</h2>
+      <p class="cta-sub">{{ pageText.cta.subtitle }}</p>
       <div class="cta-btns">
-        <a href="/pricing" class="btn-pro">
-          Get Pro
+        <a :href="pageText.cta.actions.primary.href" class="btn-pro">
+          {{ pageText.cta.actions.primary.label }}
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a href="/guide/" class="btn-ghost">Read the docs</a>
+        <a :href="pageText.cta.actions.secondary.href" class="btn-ghost">{{ pageText.cta.actions.secondary.label }}</a>
       </div>
-      <div class="cta-note">Royalty-free · No deployment fee · Cancel anytime</div>
+      <div class="cta-note">{{ pageText.cta.note }}</div>
     </section>
 
-    <div v-if="activeVideoUrl" class="video-modal" role="dialog" aria-modal="true" aria-label="Feature video preview" @click.self="closeVideo">
+    <div v-if="activeVideoUrl" class="video-modal" role="dialog" aria-modal="true" :aria-label="pageText.modal.ariaLabel" @click.self="closeVideo">
       <div class="video-modal-panel">
-        <button type="button" class="video-modal-close" aria-label="Close video preview" @click="closeVideo">×</button>
+        <button type="button" class="video-modal-close" :aria-label="pageText.modal.closeLabel" @click="closeVideo">×</button>
         <video
           class="video-modal-player"
           :src="activeVideoUrl"
@@ -131,49 +131,31 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useData } from 'vitepress'
 import { featuresPro } from './features.pro'
-
-const HERO_STATS = [
-  { label: 'MIT core', sub: 'always free' },
-  { label: 'No deploy fee', sub: 'ship anywhere' },
-  { label: 'Royalty-free', sub: 'unlimited users' },
-  { label: '+5 frameworks', sub: 'one API' },
-]
 
 type ProFeature = (typeof featuresPro)[number]
 
-const GROUP_ICONS: Record<string, string> = {
-  'Enterprise Tools': '🏢',
-  'Advanced Data Structures': '🌲',
-  'Data Entry & Automation': '⚡',
-  'Layout & Styling': '🎨',
-  'Data Visualization': '📊',
-  'Data Filtering & Search': '🔍',
-  'Data Quality & Validation': '✅',
-  'Performance & Data Loading': '🚀',
-  'Advanced Calculations': '🧮',
-  'Data Management': '🗂️',
-  'User Interaction': '🖱️',
-  'Development & Integration': '🔌',
-}
+const { frontmatter } = useData()
+const pageText = computed(() => frontmatter.value.proPage)
 
 const featureTableAnchor = (title: string) =>
   `/pro/feature-table#${encodeURIComponent(title.replace(' ', '-'))}`
 
 const featureHref = (feature: ProFeature) =>
-  feature.link || feature.demoUrl || feature.sponsor || featureTableAnchor(feature.title)
+  feature.demoUrl || feature.link || feature.sponsor || featureTableAnchor(feature.title)
 
 const isExternalLink = (href: string) => /^https?:\/\//.test(href)
 
-const PRO_CATEGORIES = Object.values(
+const PRO_CATEGORIES = computed(() => Object.values(
   featuresPro.reduce((groups, feature) => {
-    const label = feature.group || 'Other'
+    const label = feature.group || pageText.value.features.defaultGroupLabel
 
     if (!groups[label]) {
       groups[label] = {
         label,
-        icon: GROUP_ICONS[label] || '•',
+        icon: pageText.value.features.groupIcons?.[label] || pageText.value.features.defaultGroupIcon,
         features: [],
       }
     }
@@ -196,7 +178,7 @@ const PRO_CATEGORIES = Object.values(
       beta?: boolean
     }>
   }>)
-)
+))
 
 const PRO_FEATURE_COUNT = featuresPro.length
 const activeVideoUrl = ref('')

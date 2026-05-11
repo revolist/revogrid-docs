@@ -1,5 +1,6 @@
 ---
 title: React Grouping View Data Grid Table
+description: Group rows in a React RevoGrid data grid with an interactive grouping demo and standalone source example.
 aside: false
 head:
   - - meta
@@ -10,7 +11,9 @@ head:
       content: React Data Grid, RevoGrid, data grid, React integration, virtual grid, virtual rows, virtual columns, React grid example, grid performance, large data sets, customizable grid, RevoGrid React components, React Table, React Grouping View
 ---
 
-Show case of React Grouping View Data Grid implemented in RevoGrid
+## React Row Grouping Data Grid Demo
+
+Group rows in a React data grid with RevoGrid and an interactive row grouping example.
 
 <DemoWidgetFrame
   demo="grouping-rows"

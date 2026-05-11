@@ -8,6 +8,10 @@ head:
 aside: false
 ---
 
+## Svelte Data Grid Demo
+
+Use this Svelte demo to embed RevoGrid in a Svelte application with virtual rows, virtual columns, and editable data grid behavior.
+
 <iframe src="https://stackblitz.com/edit/vitejs-vite-dvilmw?embed=1&file=src%2FApp.svelte&hideExplorer=1&hideNavigation=1&view=preview"
      style="width:100%; height: 300px; border:0; border-radius: 4px; overflow:hidden;"
      title="RG Start (Svelte)"

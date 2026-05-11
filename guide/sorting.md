@@ -1,3 +1,8 @@
+---
+title: Data Grid Sorting
+description: Configure RevoGrid sorting with sortable columns, default sort order, custom compare functions, and sorting lifecycle events.
+---
+
 # Data Grid Sorting
 
 Adding sorting to your data grid is quite straightforward:

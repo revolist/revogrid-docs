@@ -1,6 +1,9 @@
 ---
 title: JavaScript Column Pin/Freeze
+description: Pin and freeze JavaScript data grid columns with RevoGrid using standalone source code examples.
 ---
+
+## JavaScript Column Pin and Freeze
 
 :::preview #demo-overview .rv-overview :path /demo/js/js.column.pin.example
 :::

@@ -1,60 +1,56 @@
 import { demosPortalUrl } from '../.vitepress/configs/demoPortal'
 
-const demoCatalogUrl = (query: string) =>
-    demosPortalUrl('/', { framework: 'all', q: query })
+const directDemoUrl = (demo: string) =>
+    demosPortalUrl('/demo.html', { demo, framework: 'ts' })
 
-const featureDemoQueries: Record<string, string> = {
-    'Pivot Table': 'Pivot',
-    'Gantt & Scheduling': 'Gantt',
-    'Hierarchical Data View': 'Tree',
-    'Row Transpose': 'Row Transpose',
-    'Nested Grid': 'Nested Grid',
-    'Master Detail': 'Master-Detail',
-    'Smart Auto Fill': 'Autofill',
-    'Merge Cells': 'Merge Cells',
-    'Auto Merge': 'Auto Merge',
-    'Column Collapse & Expand (Drill Down)': 'Column Collapse',
-    'Column Hide': 'Column Hide',
-    'Column Stretch': 'Column Stretch',
-    'Dynamic Cell Formats': 'Charts',
-    'Multi-Cell Formatting': 'Visualization',
-    'Heat&Cold Maps': 'Visualization',
-    'Conditional Formatting': 'Visualization',
-    'Advanced Selection Filtering': 'Selection Filter',
-    'Advanced Slider Filtering': 'Slider Filter',
-    'Header Input Filtering': 'Header Filter',
-    'Date Filter': 'Date Filter',
-    'Multi-Filtering': 'Multi-Filter',
-    'Cell Validation': 'Basic Validation',
-    'Input Validation': 'Input Validation',
-    'Pagination': 'Pagination',
-    'Infinite Scroll': 'Infinity Scroll',
-    'Formula': 'Formula',
-    'Trail History': 'History',
-    'Cell Flash': 'Cell Flash',
-    'Connected Fields': 'Charts',
-    'Reference Data': 'Reference Data',
-    'Context Menu': 'Context Menu',
-    'Tooltip': 'Tooltip',
-    'Row Grouping Drag and Drop': 'Grouping Rows',
-    'Row Auto Size': 'Row Auto Size',
-    'Row Odd Styling': 'Odd Row Styling',
-    'Row Custom Heading': 'Row Headers',
-    'Row Advanced Drag and Drop': 'Row Order',
-    'Row Checkbox Selection': 'Selection',
-    'Column Selection': 'Selection',
-    'Next Line Focus (WCAG)': 'UX',
-    'Clipboard with JSON': 'Clipboard JSON',
-    'Excel Export/Import': 'Data',
-    'Event Manager': 'Event Manager',
-    'Overlay layers': 'Overlay',
-    'Grouping Aggregation': 'Grouping',
-    'Dynamic Form Editing': 'Form Edit',
-    'Full Row Editing': 'Form Edit',
-    'Cell Checkbox Editors': 'Checkbox Editor',
-    'Cell Slider Editor': 'Slider Editor',
-    'Cell Counter Editor': 'Counter Editor',
-    'Timeline Editor': 'Timeline Editor',
+const featureDemoIds: Record<string, string> = {
+    'Pivot Table': 'pivot',
+    'Gantt & Scheduling': 'gantt-showcase',
+    'Hierarchical Data View': 'tree',
+    'Row Transpose': 'row-transpose',
+    'Nested Grid': 'nested-grid',
+    'Master Detail': 'row-master',
+    'Smart Auto Fill': 'autofill',
+    'Merge Cells': 'cell-merge',
+    'Auto Merge': 'auto-merge',
+    'Column Collapse & Expand (Drill Down)': 'column-collapse',
+    'Column Hide': 'column-hide',
+    'Column Stretch': 'column-stretch',
+    'Sticky Cells and Rows': 'sticky-cells',
+    'Dynamic Cell Formats': 'charts',
+    'Advanced Selection Filtering': 'filter-selection',
+    'Selection Filter Cascade': 'filter-selection-cascade',
+    'Advanced Slider Filtering': 'filter-slider',
+    'Header Input Filtering': 'filter-header',
+    'Date Filter': 'filter-date',
+    'Multi-Filtering': 'filter-showcase',
+    'Cell Validation': 'validate-basic',
+    'Input Validation': 'validate-input',
+    'Pagination': 'pagination-local',
+    'Infinite Scroll': 'infinity-scroll',
+    'Formula': 'formula',
+    'History': 'history',
+    'Audit Trail History': 'audit-history',
+    'Cell Flash': 'cell-flash',
+    'Connected Fields': 'charts',
+    'Reference Data': 'data-ref',
+    'Context Menu': 'row-context',
+    'Tooltip': 'tooltip',
+    'Row Grouping Drag and Drop': 'grouping-rows',
+    'Row Auto Size': 'row-autosize',
+    'Row Odd Styling': 'row-odd',
+    'Row Custom Heading': 'row-header',
+    'Row Advanced Drag and Drop': 'row-order',
+    'Clipboard with JSON': 'clipboard-json',
+    'Event Manager': 'event-manager',
+    'Overlay layers': 'overlay-notes',
+    'Grouping Aggregation': 'grouping-rows',
+    'Dynamic Form Editing': 'form-edit',
+    'Full Row Editing': 'form-edit',
+    'Cell Checkbox Editors': 'editor-checkbox',
+    'Cell Slider Editor': 'editor-slider',
+    'Cell Counter Editor': 'editor-counter',
+    'Timeline Editor': 'editor-timeline',
 }
 
 const featuresProBase = [
@@ -143,21 +139,6 @@ const featuresProBase = [
         videoUrl: '/video/row-transpose.mp4',
     },
     {
-        title: 'Nested Grid',
-        thumbnail: '/img/nester-grid.png',
-        group: 'Advanced Data Structures',
-        description: 'Build a grid inside a grid, showcasing advanced editing options and user interactions for a more dynamic data presentation.',
-        videoUrl: '/video/nested-grid.mp4',
-    },
-    {
-        title: 'Master Detail',
-        thumbnail: '/img/master-detail.png',
-        videoUrl: '/video/master-detail.mp4',
-        group: 'Advanced Data Structures',
-        description:
-            'Advanced master-detail grid implementation that spans across pinned columns, showcasing complex data relationships.',
-    },
-    {
         title: 'Smart Auto Fill',
         thumbnail: '/img/autofill.png',
         videoUrl: '/video/autofill.mp4',
@@ -202,6 +183,14 @@ const featuresProBase = [
         videoUrl: '/video/column-stretch.mp4',
     },
     {
+        title: 'Sticky Cells and Rows',
+        thumbnail: '/img/overlay.png',
+        group: 'Layout & Styling',
+        description:
+            'Keep important cells and rows visible while users scroll through large datasets. Use it for totals, labels, actions, or context rows that must stay available during navigation.',
+        demoUrl: directDemoUrl('sticky-cells'),
+    },
+    {
         title: 'Dynamic Cell Formats',
         thumbnail: '/img/cell-charts.png',
         videoUrl: '/video/renders.mp4',
@@ -233,11 +222,34 @@ const featuresProBase = [
         videoUrl: '/video/conditional-formatting.mp4',
     },
     {
+        title: 'Nested Grid',
+        thumbnail: '/img/nester-grid.png',
+        group: 'Data Visualization',
+        description: 'Build a grid inside a grid, showcasing advanced editing options and user interactions for a more dynamic data presentation.',
+        videoUrl: '/video/nested-grid.mp4',
+    },
+    {
+        title: 'Master Detail',
+        thumbnail: '/img/master-detail.png',
+        videoUrl: '/video/master-detail.mp4',
+        group: 'Data Visualization',
+        description:
+            'Advanced master-detail grid implementation that spans across pinned columns, showcasing complex data relationships.',
+    },
+    {
         title: 'Advanced Selection Filtering',
         thumbnail: '/img/filter-select.png',
         group: 'Data Filtering & Search',
         description: 'Advanced multi-condition filters based on selection.',
         videoUrl: '/video/filter-advance.mp4',
+    },
+    {
+        title: 'Selection Filter Cascade',
+        thumbnail: '/img/filter-select.png',
+        group: 'Data Filtering & Search',
+        description:
+            'Cascade selection filters so each filter narrows the available options in the next one. This helps users drill into related dimensions without choosing impossible combinations.',
+        demoUrl: directDemoUrl('filter-selection-cascade'),
     },
     {
         title: 'Advanced Slider Filtering',
@@ -311,11 +323,19 @@ const featuresProBase = [
             'Excel-like formula engine with over 100+ functions, dynamic calculations, cell references, and real-time data manipulation. Build complex financial models, data analysis, and automated workflows with ease.',
     },
     {
-        title: 'Trail History',
+        title: 'History',
         thumbnail: '/img/history.png',
         videoUrl: '/video/history.mp4',
         group: 'Data Management',
         description: 'Track your history of changes. Undo and redo operations.',
+    },
+    {
+        title: 'Audit Trail History',
+        thumbnail: '/img/history.png',
+        group: 'Data Management',
+        description:
+            'Record and review detailed data-change history for audit workflows. Use it when teams need traceability for edits, user actions, or operational review.',
+        demoUrl: directDemoUrl('audit-history'),
     },
     {
         title: 'Cell Flash',
@@ -502,9 +522,9 @@ const featuresProBase = [
 
 export const featuresPro = featuresProBase.map((feature) => ({
     ...feature,
-    demoUrl: featureDemoQueries[feature.title]
-        ? demoCatalogUrl(featureDemoQueries[feature.title])
-        : undefined,
+    demoUrl: feature.demoUrl || (featureDemoIds[feature.title]
+        ? directDemoUrl(featureDemoIds[feature.title])
+        : undefined),
 }))
 export const proWhy = [
     {

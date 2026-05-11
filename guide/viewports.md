@@ -1,3 +1,8 @@
+---
+title: RevoGrid Viewports
+description: Understand RevoGrid viewport architecture for virtual rows, virtual columns, pinned rows, pinned columns, dimensions, and scrolling behavior.
+---
+
 <script lang="ts" setup>
 import VPImage from 'vitepress/dist/client/theme-default/components/VPImage.vue'
 </script>

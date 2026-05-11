@@ -1,6 +1,9 @@
 ---
 title: Date column
+description: Add a date column to a standalone RevoGrid JavaScript data grid with date editor behavior.
 ---
+
+## Date Column
 
 <DemoWidgetFrame
   demo="date-column"

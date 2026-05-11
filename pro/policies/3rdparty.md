@@ -1,4 +1,6 @@
 ---
+title: RevoGrid Pro Third-Party Tools and Libraries
+description: Review third-party tools, libraries, licenses, and customer responsibilities for RevoGrid Pro examples, plugins, and integrations.
 sidebar: false
 footer: true
 ---
@@ -37,6 +39,9 @@ RevoGrid Pro incorporates a variety of third-party tools and libraries within it
 
 - **StencilJS (Web Component Compiler):**  
   RevoGrid Pro utilizes **StencilJS**, a compiler for building fast, reusable web components, which is licensed under the MIT License.
+
+- **Font Awesome Free (Icons):**  
+  Some RevoGrid Pro examples and interface elements may use **Font Awesome Free** icons. Font Awesome Free icons are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0), and the Font Awesome Free code is licensed under the MIT License.
 
 ### Future Inclusion of Libraries
 

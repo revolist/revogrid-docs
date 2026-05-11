@@ -1,5 +1,6 @@
 ---
 title: Native Cell component - Angular Data Grid
+description: Render native Angular components inside RevoGrid cells with this Angular data grid cell template demo.
 ---
 
 <DemoWidgetFrame

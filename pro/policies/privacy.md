@@ -1,4 +1,6 @@
 ---
+title: RevoGrid Privacy Policy
+description: Review how RevoGrid handles routine website data, cookies, customer references, third-party links, security, privacy updates, and contact requests.
 sidebar: false
 footer: true
 ---

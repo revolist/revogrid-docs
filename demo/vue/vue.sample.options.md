@@ -1,7 +1,10 @@
 ---
-title:  Get Started with Vue 3 Data Grid Demo - Options API
+title: Get Started with Vue 3 Data Grid Demo - Options API
+description: Start a Vue 3 Options API data grid with RevoGrid, virtual scrolling, editable cells, and source code examples.
 aside: false
 ---
+
+# Get Started with Vue 3 Data Grid Demo - Options API
 
 <script setup lang="ts">
 import Example from '@/demo/vue/vue.sample.options.example.vue';

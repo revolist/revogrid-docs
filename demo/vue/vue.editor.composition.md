@@ -1,9 +1,10 @@
 ---
 title: Vue 3 Data Grid Cell Editor component (Composition API)
+description: Build a Vue 3 Composition API cell editor for RevoGrid with custom editor components and source code.
 ---
 
 
-# Vue 3 Data Grid Cell Editor component (Composition API)
+## Vue 3 Data Grid Cell Editor component (Composition API)
 
 <br />
 

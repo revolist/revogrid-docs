@@ -1,7 +1,10 @@
 ---
 title: Individual row sizes
+description: Configure individual RevoGrid row sizes in a standalone JavaScript data grid demo.
 aside: false
 ---
+
+## Individual Row Sizes
 
 <DemoWidgetFrame
   demo="row-sizes"

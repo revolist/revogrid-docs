@@ -7,6 +7,8 @@ head:
       content: RevoGrid, row grouping, data grid grouping, JavaScript table grouping, TypeScript grid grouping
 ---
 
+# Row Grouping in Data Grid
+
 <DemoWidgetFrame
   demo="grouping-rows"
   framework="ts"
@@ -50,6 +52,4 @@ For more details, check the [GroupingOptions interface](../types/TypeAlias.Group
 - [Programmatic Grid Control](/guide/programmatic-control)
 - [Understanding Viewports](/guide/viewports)
 
-## Related Pro features
-
-If your grouping workflow grows into summaries, pivoting, or deeper analytical views, continue with [RevoGrid Pro](/pro/) and [Feature Comparison](/pro/feature-table).
+<!--@include: ./_grouping.pro.md-->

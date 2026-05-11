@@ -1,5 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
-import { DefaultTheme, defineConfig, UserConfig } from 'vitepress'
+import { DefaultTheme, defineConfig, HeadConfig, UserConfig } from 'vitepress'
 import svgLoader from 'vite-svg-loader'
 import { navbarEn } from './configs/navbar'
 import { sidebarEn } from './configs/sidebar'
@@ -87,6 +87,51 @@ const standaloneBuildRewrites = standaloneBuildSource
     }
     : undefined
 
+const siteUrl = process.env.DOCS_SITE_URL || 'https://rv-grid.com'
+
+const cleanPagePath = (relativePath: string): string => {
+    const withoutExtension = relativePath.replace(/\.md$/, '')
+
+    if (withoutExtension === 'index') {
+        return '/'
+    }
+
+    if (withoutExtension.endsWith('/index')) {
+        return `/${withoutExtension.replace(/\/index$/, '/')}`
+    }
+
+    return `/${withoutExtension}`
+}
+
+const pageUrl = (relativePath: string): string => `${siteUrl}${cleanPagePath(relativePath)}`
+
+const normalizeTitle = (title: string): string =>
+    title.endsWith(' | RevoGrid') ? title : `${title} | RevoGrid`
+
+const hasHeadEntry = (
+    head: HeadConfig[] | undefined,
+    tag: string,
+    attrName: string,
+    attrValue: string
+): boolean =>
+    Boolean(head?.some(([headTag, attrs]) => {
+        if (headTag !== tag || !attrs) return false
+        return attrs[attrName] === attrValue
+    }))
+
+const headMetaContent = (
+    head: HeadConfig[] | undefined,
+    attrName: 'name' | 'property',
+    attrValue: string
+): string | undefined => {
+    const entry = head?.find(([tag, attrs]) => {
+        if (tag !== 'meta' || !attrs) return false
+        return attrs[attrName] === attrValue && typeof attrs.content === 'string'
+    })
+
+    return entry?.[1]?.content as string | undefined
+}
+
 const browserOnlyPackageSsrShims = () => ({
     name: 'browser-only-package-ssr-shims',
     enforce: 'pre' as const,
@@ -107,7 +152,10 @@ const browserOnlyPackageSsrShims = () => ({
 
 const config: UserConfig<DefaultTheme.Config> = {
     sitemap: {
-        hostname: 'https://rv-grid.com',
+        hostname: siteUrl,
+        transformItems(items) {
+            return items.filter((item) => !item.url.includes('pivot/landing'))
+        },
     },
     cleanUrls: true,
     title: 'RevoGrid',
@@ -150,16 +198,11 @@ const config: UserConfig<DefaultTheme.Config> = {
     head: [
         ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
         ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
-        ['meta', { property: 'og:title', content: 'RevoGrid - High-Performance Data Grid' }],
-        ['meta', { property: 'og:url', content: 'https://rv-grid.com/guide' }],
         ['meta', { property: 'og:image', content: 'https://rv-grid.com/og-image.jpg' }],
         ['meta', { property: 'og:type', content: 'website' }],
-        ['meta', { property: 'og:description', content: 'Explore RevoGrid documentation to build high-performance, customizable data grids.' }],
         ['meta', { property: 'og:site_name', content: 'RevoGrid Documentation' }],
 
         ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-        ['meta', { name: 'twitter:title', content: 'RevoGrid - High-Performance Data Grid Framework' }],
-        ['meta', { name: 'twitter:description', content: 'Explore RevoGrid documentation to build high-performance, customizable data grids.' }],
         ['meta', { name: 'twitter:image', content: 'https://rv-grid.com/og-image.jpg' }],
         ['meta', { name: 'twitter:site', content: '@RevoGrid' }],
 
@@ -173,6 +216,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T7JNJDXW');`,
         ],
     ],
+    transformHead({ pageData, siteData }) {
+        const frontmatter = pageData.frontmatter
+        const head = frontmatter.head as HeadConfig[] | undefined
+        const title = normalizeTitle(frontmatter.title || pageData.title || siteData.title)
+        const description = frontmatter.description || headMetaContent(head, 'name', 'description') || siteData.description
+        const url = pageUrl(pageData.relativePath)
+        const dynamicHead: HeadConfig[] = []
+
+        if (!hasHeadEntry(head, 'link', 'rel', 'canonical')) {
+            dynamicHead.push(['link', { rel: 'canonical', href: url }])
+        }
+
+        if (!hasHeadEntry(head, 'meta', 'property', 'og:title')) {
+            dynamicHead.push(['meta', { property: 'og:title', content: title }])
+        }
+
+        if (!hasHeadEntry(head, 'meta', 'property', 'og:description')) {
+            dynamicHead.push(['meta', { property: 'og:description', content: description }])
+        }
+
+        if (!hasHeadEntry(head, 'meta', 'property', 'og:url')) {
+            dynamicHead.push(['meta', { property: 'og:url', content: url }])
+        }
+
+        if (!hasHeadEntry(head, 'meta', 'name', 'twitter:title')) {
+            dynamicHead.push(['meta', { name: 'twitter:title', content: title }])
+        }
+
+        if (!hasHeadEntry(head, 'meta', 'name', 'twitter:description')) {
+            dynamicHead.push(['meta', { name: 'twitter:description', content: description }])
+        }
+
+        return dynamicHead
+    },
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
 
@@ -322,8 +399,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         },
     },
     srcExclude: process.env.VITE_PRO_INCLUDE
-        ? ['**/_*.md']
-        : ['demo/**-pro/**', 'pro-pages/**', '**/_*.md'],
+        ? [
+            '**/_*.md',
+            'README.md',
+            'guide/parts/*.md',
+            'guide/plugin/base.md',
+            'guide/plugin/dispatcher.md',
+            'guide/plugin/example.md',
+            'guide/column/cell.template.md',
+        ]
+        : [
+            'demo/**-pro/**',
+            'pro-pages/**',
+            '**/_*.md',
+            'README.md',
+            'guide/parts/*.md',
+            'guide/plugin/base.md',
+            'guide/plugin/dispatcher.md',
+            'guide/plugin/example.md',
+            'guide/column/cell.template.md',
+        ],
     rewrites: standaloneBuildRewrites,
     ignoreDeadLinks: true,
 }

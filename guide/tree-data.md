@@ -18,9 +18,20 @@ Tree Data is the grid pattern for hierarchical records that still need spreadshe
   minHeight="620"
 />
 
-::: info Pro tree structure
-RevoGrid Pro includes an advanced Tree Data plugin for parent-child row structures. It keeps your source data flat, computes hierarchy metadata internally, and renders the tree controls in the column marked with `tree: true`.
-:::
+
+
+## Core TypeScript tree example
+
+Tree-like rows do not require Pro when your application only needs a visual hierarchy. The existing TypeScript core tree demo flattens parent-child records into display order, adds a `level` field, and renders indentation in a normal cell template.
+
+<DemoWidgetFrame
+  demo="core-tree"
+  framework="ts"
+  title="RevoGrid TypeScript core tree demo"
+  minHeight="520"
+/>
+
+See [TypeScript Tree Data](/guide/ts/tree) for the maintained core example source and framework notes. Use this core pattern for read-only outlines, category lists, document sections, or cases where your application owns expand/collapse outside the grid. Use the Pro plugin when the tree itself needs grid-native controls and behavior.
 
 ## Why flat tree data works better
 
@@ -122,6 +133,25 @@ RevoGrid Pro Tree Data is more than indentation. It is designed for advanced dat
 | Row selection integration | Parent and descendant selection can be coordinated |
 | Sticky parent rows | Users keep branch context while scrolling long trees |
 | Virtual rendering | Large hierarchies remain practical |
+
+## Tree Data vs row grouping
+
+Tree Data and row grouping can both create expandable-looking sections, but they solve different data problems.
+
+Use Tree Data when parent-child relationships are part of the records themselves. A row has a stable `id`, a `parentId`, and a real position in a hierarchy: departments contain teams, folders contain files, projects contain tasks, bill-of-material rows contain child parts. Moving a row can change its parent. Expanding a parent shows its actual descendants.
+
+Use row grouping when the source rows are still flat records and the hierarchy is only a view created from shared values. For example, orders can be grouped by `country`, then `city`, then `status`. The group headers are generated summaries, not source rows with IDs. Changing the grouping props changes the view, but it does not change each order's parent.
+
+| Use case | Tree Data | Row Grouping |
+| --- | --- | --- |
+| Data model | Explicit parent-child records | Flat rows grouped by field values |
+| Parent rows | Real rows from your source | Generated group headers |
+| Identity | Stable `id` and `parentId` | Group keys from values such as `status` |
+| Best for | Org charts, folders, tasks, BOMs | Reports, category breakdowns, grouped lists |
+| Reordering | Can mean reparenting a row | Usually changes row order inside a grouped view |
+| Configuration | Tree column plus tree config | `grouping = { props: [...] }` |
+
+If a row belongs under one specific parent even when sorting or filtering changes, use Tree Data. If rows are being arranged temporarily by common values for analysis, use [Row Grouping](/guide/row/grouping).
 
 ## Design recommendations
 

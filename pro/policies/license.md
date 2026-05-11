@@ -1,4 +1,6 @@
 ---
+title: RevoGrid Pro License Agreement
+description: Review the RevoGrid Pro license agreement for developer seats, commercial use, redistribution limits, subscription terms, and post-term usage.
 sidebar: false
 footer: true
 ---

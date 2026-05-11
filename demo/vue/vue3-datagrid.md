@@ -1,5 +1,6 @@
 ---
 title: Get Started with Vue 3 Data Grid Demo - Composition API
+description: Start a Vue 3 Composition API data grid with RevoGrid, virtual scrolling, editable cells, and source code examples.
 ---
 
 # Get Started with Vue 3 Data Grid Demo - Composition API

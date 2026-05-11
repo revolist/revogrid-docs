@@ -1,8 +1,9 @@
 ---
 title: Native Editor component - Vue 2 Data Grid
+description: Build a native Vue 2 editor component for editable RevoGrid cells.
 ---
 
-## How to sample
+# Native Editor Component - Vue 2 Data Grid
 
 
 

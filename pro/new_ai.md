@@ -1,17 +1,18 @@
 ---
-title: RevoGrid Pro MCP & AI Agents
+title: RevoGrid Pro AI Code Generation and MCP Agents
+description: Connect AI coding tools to RevoGrid Pro MCP for Pro-only docs, examples, typed API context, migration guidance, and AI-assisted grid code generation.
 layout: doc
 sidebar: false
 head:
     - - meta
       - name: description
-        content: Connect AI coding tools to the hosted RevoGrid Pro MCP for Pro-only docs, examples, migration guidance, feature availability, and typed API context.
+        content: Connect AI coding tools to RevoGrid Pro MCP for Pro-only docs, examples, typed API context, migration guidance, and AI-assisted grid code generation.
     - - meta
       - name: keywords
         content: RevoGrid Pro MCP, AI coding assistant, Codex, Cursor, Claude Code, VS Code MCP, pivot grid, RevoGrid Pro examples, RevoGrid Pro docs
 ---
 
-# RevoGrid Pro MCP & AI Agents
+# RevoGrid Pro AI Code Generation and MCP Agents
 
 RevoGrid Pro includes hosted MCP access for AI coding tools that need more than public examples and basic docs. With the Pro MCP workflow, agents can work against richer RevoGrid knowledge: Pro-only guides, advanced examples, feature availability, migration notes, and typed plugin and API context.
 

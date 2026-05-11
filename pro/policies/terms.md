@@ -1,9 +1,11 @@
 ---
+title: RevoGrid Pro Terms of Service
+description: Review RevoGrid Pro terms for service access, accounts, payments, subscriptions, platform use, customer obligations, and legal conditions.
 sidebar: false
 footer: true
 ---
 
-# Agreement to Our Legal Terms
+# RevoGrid Pro Terms of Service
 > Last updated: March 16, 2026
 
 We are **REVOLIST OÜ** ("Company," "we," "us," "our"), a company registered in Estonia at Ruunaoja tn 3, Tallinn, Harju maakond 11415. Our VAT number is **EE101070492**.

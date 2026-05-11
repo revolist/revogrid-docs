@@ -1,8 +1,9 @@
 ---
 title: Grouping - Vue 2 Data Grid
+description: Group rows in a Vue 2 data grid with RevoGrid and a focused row grouping demo.
 ---
 
-# Grouping
+# Grouping - Vue 2 Data Grid
 
 
 

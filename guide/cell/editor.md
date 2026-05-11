@@ -1,3 +1,8 @@
+---
+title: Data Grid Cell Editors
+description: Build custom RevoGrid cell editors with render functions, save and close callbacks, editor lifecycle hooks, and TypeScript examples.
+---
+
 # Cell editor in Data Grid
 
 `RevoGrid` provides a way to define your own editors. Or you can use [predefined column types](../column/types).
