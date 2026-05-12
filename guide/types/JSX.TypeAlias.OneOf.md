@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.7](README.md) / [JSX](Namespace.JSX.md) / OneOf
+[RevoGrid Documentation v4.21.8](README.md) / [JSX](Namespace.JSX.md) / OneOf
 
 # Type Alias: OneOf\<K, PropT, AttrT\>
 
@@ -16,4 +16,4 @@ type OneOf<K, PropT, AttrT>: { [P in K]: PropT } & { [P in `attr:${K}` | `prop:$
 
 ## Defined in
 
-[src/components.d.ts:1355](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/components.d.ts#L1355)
+[src/components.d.ts:1355](https://github.com/revolist/revogrid/blob/cbcc53d7f9ef48561119d817a57d178f94244e50/src/components.d.ts#L1355)

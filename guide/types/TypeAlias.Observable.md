@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.7](README.md) / Observable
+[RevoGrid Documentation v4.21.8](README.md) / Observable
 
 # Type Alias: Observable\<T\>
 
@@ -14,4 +14,4 @@ type Observable<T>: ObservableMap<T>;
 
 ## Defined in
 
-[src/utils/store.utils.ts:4](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/utils/store.utils.ts#L4)
+[src/utils/store.utils.ts:4](https://github.com/revolist/revogrid/blob/cbcc53d7f9ef48561119d817a57d178f94244e50/src/utils/store.utils.ts#L4)

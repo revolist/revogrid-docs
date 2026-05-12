@@ -1,13 +1,19 @@
-[RevoGrid Documentation v4.21.7](README.md) / CellTemplate
+[RevoGrid Documentation v4.21.8](README.md) / CellTemplate
 
-# Interface: CellTemplate()
+# Interface: CellTemplate()\<TModel\>
 
 Interface for custom cell renderer.
+
+## Type Parameters
+
+| Type Parameter | Default type |
+| ------ | ------ |
+| `TModel` *extends* [`DataType`](TypeAlias.DataType.md) | [`DataType`](TypeAlias.DataType.md) |
 
 ```ts
 interface CellTemplate(
    createElement: HyperFunc<VNode>, 
-   props: CellTemplateProp<DataType<any, ColumnProp>, ColumnRegular<ColumnProp>, ColumnProp>, 
+   props: CellTemplateProp<TModel, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>, ColumnProp>, 
    additionalData?: any): any
 ```
 
@@ -18,7 +24,7 @@ Interface for custom cell renderer.
 | Parameter | Type |
 | ------ | ------ |
 | `createElement` | [`HyperFunc`](Interface.HyperFunc.md)\<[`VNode`](Interface.VNode.md)\> |
-| `props` | [`CellTemplateProp`](Interface.CellTemplateProp.md)\<[`DataType`](TypeAlias.DataType.md)\<`any`, [`ColumnProp`](TypeAlias.ColumnProp.md)\>, [`ColumnRegular`](Interface.ColumnRegular.md)\<[`ColumnProp`](TypeAlias.ColumnProp.md)\>, [`ColumnProp`](TypeAlias.ColumnProp.md)\> |
+| `props` | [`CellTemplateProp`](Interface.CellTemplateProp.md)\<`TModel`, [`ColumnRegular`](Interface.ColumnRegular.md)\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`DataType`](TypeAlias.DataType.md)\<`any`, [`ColumnProp`](TypeAlias.ColumnProp.md)\>\>, [`ColumnProp`](TypeAlias.ColumnProp.md)\> |
 | `additionalData`? | `any` |
 
 ## Returns
@@ -27,4 +33,4 @@ Interface for custom cell renderer.
 
 ## Defined in
 
-[src/types/interfaces.ts:157](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/interfaces.ts#L157)
+[src/types/interfaces.ts:157](https://github.com/revolist/revogrid/blob/cbcc53d7f9ef48561119d817a57d178f94244e50/src/types/interfaces.ts#L157)
