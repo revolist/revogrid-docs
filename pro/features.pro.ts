@@ -46,7 +46,7 @@ const featureDemoIds: Record<string, string> = {
     'Overlay layers': 'overlay-notes',
     'Grouping Aggregation': 'grouping-rows',
     'Dynamic Form Editing': 'form-edit',
-    'Full Row Editing': 'form-edit',
+    'Full Row Editing': 'editor-row',
     'Cell Checkbox Editors': 'editor-checkbox',
     'Cell Slider Editor': 'editor-slider',
     'Cell Counter Editor': 'editor-counter',
