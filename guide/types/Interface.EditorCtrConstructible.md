@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.7](README.md) / EditorCtrConstructible
+[RevoGrid Documentation v4.21.8](README.md) / EditorCtrConstructible
 
 # Interface: EditorCtrConstructible
 
@@ -10,7 +10,7 @@ Editor component constructible class
 
 ```ts
 new EditorCtrConstructible(
-   column: ColumnDataSchemaModel<DataType<any, ColumnProp>, ColumnRegular<ColumnProp>, ColumnProp>, 
+   column: ColumnDataSchemaModel<DataType<any, ColumnProp>, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>, ColumnProp>, 
    save: (value: any, preventFocus?: boolean) => void, 
    close: (focusNext?: boolean) => void): EditorBase
 ```
@@ -19,7 +19,7 @@ new EditorCtrConstructible(
 
 | Parameter | Type |
 | ------ | ------ |
-| `column` | [`ColumnDataSchemaModel`](Interface.ColumnDataSchemaModel.md)\<[`DataType`](TypeAlias.DataType.md)\<`any`, [`ColumnProp`](TypeAlias.ColumnProp.md)\>, [`ColumnRegular`](Interface.ColumnRegular.md)\<[`ColumnProp`](TypeAlias.ColumnProp.md)\>, [`ColumnProp`](TypeAlias.ColumnProp.md)\> |
+| `column` | [`ColumnDataSchemaModel`](Interface.ColumnDataSchemaModel.md)\<[`DataType`](TypeAlias.DataType.md)\<`any`, [`ColumnProp`](TypeAlias.ColumnProp.md)\>, [`ColumnRegular`](Interface.ColumnRegular.md)\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`DataType`](TypeAlias.DataType.md)\<`any`, [`ColumnProp`](TypeAlias.ColumnProp.md)\>\>, [`ColumnProp`](TypeAlias.ColumnProp.md)\> |
 | `save` | (`value`: `any`, `preventFocus`?: `boolean`) => `void` |
 | `close` | (`focusNext`?: `boolean`) => `void` |
 
@@ -29,4 +29,4 @@ new EditorCtrConstructible(
 
 #### Defined in
 
-[src/types/selection.ts:175](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/selection.ts#L175)
+[src/types/selection.ts:180](https://github.com/revolist/revogrid/blob/cbcc53d7f9ef48561119d817a57d178f94244e50/src/types/selection.ts#L180)

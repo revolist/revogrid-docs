@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.7](README.md) / MultiDimensionType
+[RevoGrid Documentation v4.21.8](README.md) / MultiDimensionType
 
 # Type Alias: MultiDimensionType
 
@@ -8,4 +8,4 @@ type MultiDimensionType: DimensionCols | DimensionRows;
 
 ## Defined in
 
-[src/types/dimension.ts:8](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/dimension.ts#L8)
+[src/types/dimension.ts:8](https://github.com/revolist/revogrid/blob/cbcc53d7f9ef48561119d817a57d178f94244e50/src/types/dimension.ts#L8)

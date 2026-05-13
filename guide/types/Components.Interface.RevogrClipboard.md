@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.7](README.md) / [Components](Namespace.Components.md) / RevogrClipboard
+[RevoGrid Documentation v4.21.8](README.md) / [Components](Namespace.Components.md) / RevogrClipboard
 
 # Interface: RevogrClipboard
 
@@ -8,5 +8,5 @@ This Clipboard provides functionality for handling clipboard events in a web app
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `doCopy` | (`e`: `DataTransfer`, `data`?: `any`[][]) => `Promise`\<`void`\> | - | [src/components.d.ts:358](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/components.d.ts#L358) |
-| `readonly` | `boolean` | If readonly mode - disabled Paste event | [src/components.d.ts:362](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/components.d.ts#L362) |
+| `doCopy` | (`e`: `DataTransfer`, `data`?: `any`[][]) => `Promise`\<`void`\> | - | [src/components.d.ts:358](https://github.com/revolist/revogrid/blob/cbcc53d7f9ef48561119d817a57d178f94244e50/src/components.d.ts#L358) |
+| `readonly` | `boolean` | If readonly mode - disabled Paste event | [src/components.d.ts:362](https://github.com/revolist/revogrid/blob/cbcc53d7f9ef48561119d817a57d178f94244e50/src/components.d.ts#L362) |

@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.7](README.md) / ThemePackage
+[RevoGrid Documentation v4.21.8](README.md) / ThemePackage
 
 # Interface: ThemePackage
 
@@ -6,4 +6,4 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `defaultRowSize` | `number` | [src/types/theme.ts:2](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/theme.ts#L2) |
+| `defaultRowSize` | `number` | [src/types/theme.ts:2](https://github.com/revolist/revogrid/blob/cbcc53d7f9ef48561119d817a57d178f94244e50/src/types/theme.ts#L2) |

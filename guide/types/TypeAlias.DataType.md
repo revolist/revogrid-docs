@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.7](README.md) / DataType
+[RevoGrid Documentation v4.21.8](README.md) / DataType
 
 # Type Alias: DataType\<D, K\>
 
@@ -6,13 +6,15 @@
 type DataType<D, K>: { [T in K]: DataFormat<D> };
 ```
 
+Represents a generic row data object used internally by the grid.
+
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `D` | `any` |
-| `K` *extends* [`ColumnProp`](TypeAlias.ColumnProp.md) | [`ColumnProp`](TypeAlias.ColumnProp.md) |
+| Type Parameter | Default type | Description |
+| ------ | ------ | ------ |
+| `D` | `any` | Value type for all properties (defaults to `any`). |
+| `K` *extends* [`ColumnProp`](TypeAlias.ColumnProp.md) | [`ColumnProp`](TypeAlias.ColumnProp.md) | Column property keys (defaults to `ColumnProp`). For type-safe usage, define your own row interface and pass it directly as the data source. Use `ColumnRegular` generics to bind column definitions to your row type: `type MyRow = { id: number; name: string }; const source: MyRow[] = [{ id: 1, name: 'Alice' }]; const columns: ColumnRegular<keyof MyRow, MyRow>[] = [ { prop: 'id', name: 'ID' }, { prop: 'name', name: 'Name' }, ];` |
 
 ## Defined in
 
-[src/types/interfaces.ts:457](https://github.com/revolist/revogrid/blob/905a49acb6dd170162e7afe2dc62a77b40102b21/src/types/interfaces.ts#L457)
+[src/types/interfaces.ts:475](https://github.com/revolist/revogrid/blob/cbcc53d7f9ef48561119d817a57d178f94244e50/src/types/interfaces.ts#L475)
