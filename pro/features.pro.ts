@@ -139,13 +139,6 @@ const featuresProBase = [
         videoUrl: '/video/row-transpose.mp4',
     },
     {
-        title: 'History',
-        thumbnail: '/img/history.png',
-        videoUrl: '/video/history.mp4',
-        group: 'Data Management',
-        description: 'Track your history of changes. Undo and redo operations.',
-    },
-    {
         title: 'Audit Trail History',
         thumbnail: '/img/history.png',
         group: 'Data Management',
@@ -154,9 +147,16 @@ const featuresProBase = [
         demoUrl: directDemoUrl('audit-history'),
     },
     {
+        title: 'History',
+        thumbnail: '/img/history.png',
+        videoUrl: '/video/history.mp4',
+        group: 'Data Management',
+        description: 'Track your history of changes. Undo and redo operations.',
+    },
+    {
         title: 'Connected Fields',
         thumbnail: '/img/connected-fields.png',
-        group: 'Data Management',
+        group: 'Data Entry & Automation',
         description:
             'Connect any fields together through progress, enabling advanced data connections for impressive visualizations. Interconnect data, enhance insights and drive better decision-making.',
     },
@@ -470,7 +470,7 @@ const featuresProBase = [
         title: 'Smart Auto Fill',
         thumbnail: '/img/autofill.png',
         videoUrl: '/video/autofill.mp4',
-        group: 'Data Entry & Automation',
+        group: 'Data Management',
         description:
             'Automatically populating cells with a series, pattern based on the initial input. Perfect for repetitive tasks, saving users time.',
     },
