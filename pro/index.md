@@ -52,15 +52,15 @@ proPage:
     groupIcons:
       Enterprise Tools: 🏢
       Advanced Data Structures: 🌲
-      Data Entry & Automation: ⚡
+      Data Management: 🗂️
+      Data Filtering & Search: 🔍
       Layout & Styling: 🎨
       Data Visualization: 📊
-      Data Filtering & Search: 🔍
       Data Quality & Validation: ✅
       Performance & Data Loading: 🚀
       Advanced Calculations: 🧮
-      Data Management: 🗂️
       User Interaction: 🖱️
+      Data Entry & Automation: ⚡
       Development & Integration: 🔌
     link:
       label: View full feature table

@@ -139,12 +139,103 @@ const featuresProBase = [
         videoUrl: '/video/row-transpose.mp4',
     },
     {
-        title: 'Smart Auto Fill',
-        thumbnail: '/img/autofill.png',
-        videoUrl: '/video/autofill.mp4',
-        group: 'Data Entry & Automation',
+        title: 'History',
+        thumbnail: '/img/history.png',
+        videoUrl: '/video/history.mp4',
+        group: 'Data Management',
+        description: 'Track your history of changes. Undo and redo operations.',
+    },
+    {
+        title: 'Audit Trail History',
+        thumbnail: '/img/history.png',
+        group: 'Data Management',
         description:
-            'Automatically populating cells with a series, pattern based on the initial input. Perfect for repetitive tasks, saving users time.',
+            'Record and review detailed data-change history for audit workflows. Use it when teams need traceability for edits, user actions, or operational review.',
+        demoUrl: directDemoUrl('audit-history'),
+    },
+    {
+        title: 'Connected Fields',
+        thumbnail: '/img/connected-fields.png',
+        group: 'Data Management',
+        description:
+            'Connect any fields together through progress, enabling advanced data connections for impressive visualizations. Interconnect data, enhance insights and drive better decision-making.',
+    },
+    {
+        title: 'Reference Data',
+        thumbnail: '/img/reference-data.png',
+        group: 'Data Management',
+        description:
+            'Manage static key/value pairs for displaying meaningful labels alongside coded values.',
+        videoUrl: '/video/reference-data.mp4',
+    },
+    {
+        title: 'Clipboard with JSON',
+        thumbnail: '/img/clipboard.png',
+        group: 'Data Management',
+        description:
+            'Support for JSON and other objects. Copy and paste complex data structures explained.',
+        videoUrl: '/video/clipboard.mp4',
+    },
+    {
+        title: 'Range Apply Preview',
+        thumbnail: '/img/clipboard.png',
+        group: 'Data Management',
+        description:
+            'Preview pending range copy, paste, or fill changes before applying them to the grid. Useful for validating target cells, confirming mapped values, and preventing accidental bulk updates.',
+    },
+    {
+        title: 'Excel Export/Import',
+        thumbnail: '/img/excel.png',
+        group: 'Data Management',
+        description:
+            'Export data to Excel format. Supported types include `xlsx`, `xlsm`, `xlsb`, `xls`, and more.',
+        videoUrl: '/video/excel-export.mp4',
+    },
+    {
+        title: 'Advanced Selection Filtering',
+        thumbnail: '/img/filter-select.png',
+        group: 'Data Filtering & Search',
+        description: 'Advanced multi-condition filters based on selection.',
+        videoUrl: '/video/filter-advance.mp4',
+    },
+    {
+        title: 'Selection Filter Cascade',
+        thumbnail: '/img/filter-select.png',
+        group: 'Data Filtering & Search',
+        description:
+            'Cascade selection filters so each filter narrows the available options in the next one. This helps users drill into related dimensions without choosing impossible combinations.',
+        demoUrl: directDemoUrl('filter-selection-cascade'),
+    },
+    {
+        title: 'Advanced Slider Filtering',
+        thumbnail: '/img/filter-slider.png',
+        group: 'Data Filtering & Search',
+        description:
+            'Slider filter, defining a range of values for filtering.',
+        videoUrl: '/video/filter-advance-slider.mp4',
+    },
+    {
+        title: 'Header Input Filtering',
+        thumbnail: '/img/filter-header.png',
+        group: 'Data Filtering & Search',
+        description:
+            'Header input filtering data based on user input in the first row. Perfect for filtering data based on user input.',
+        videoUrl: '/video/filter-header.mp4',
+    },
+    {
+        title: 'Date Filter',
+        thumbnail: '/img/filter-date.png',
+        group: 'Data Filtering & Search',
+        description: `Filter data based on date ranges. Perfect for applications requiring precise temporal data filtering and analysis.`,
+        videoUrl: '/video/filter-date.mp4',
+    },
+    {
+        title: 'Multi-Filtering',
+        thumbnail: '/img/filter-multi.png',
+        group: 'Data Filtering & Search',
+        description:
+            'Multi-condition filters logic example to refine and display your data more effectively.',
+        videoUrl: '/video/filter-multi.mp4',
     },
     {
         title: 'Merge Cells',
@@ -237,52 +328,6 @@ const featuresProBase = [
             'Advanced master-detail grid implementation that spans across pinned columns, showcasing complex data relationships.',
     },
     {
-        title: 'Advanced Selection Filtering',
-        thumbnail: '/img/filter-select.png',
-        group: 'Data Filtering & Search',
-        description: 'Advanced multi-condition filters based on selection.',
-        videoUrl: '/video/filter-advance.mp4',
-    },
-    {
-        title: 'Selection Filter Cascade',
-        thumbnail: '/img/filter-select.png',
-        group: 'Data Filtering & Search',
-        description:
-            'Cascade selection filters so each filter narrows the available options in the next one. This helps users drill into related dimensions without choosing impossible combinations.',
-        demoUrl: directDemoUrl('filter-selection-cascade'),
-    },
-    {
-        title: 'Advanced Slider Filtering',
-        thumbnail: '/img/filter-slider.png',
-        group: 'Data Filtering & Search',
-        description:
-            'Slider filter, defining a range of values for filtering.',
-        videoUrl: '/video/filter-advance-slider.mp4',
-    },
-    {
-        title: 'Header Input Filtering',
-        thumbnail: '/img/filter-header.png',
-        group: 'Data Filtering & Search',
-        description:
-            'Header input filtering data based on user input in the first row. Perfect for filtering data based on user input.',
-        videoUrl: '/video/filter-header.mp4',
-    },
-    {
-        title: 'Date Filter',
-        thumbnail: '/img/filter-date.png',
-        group: 'Data Filtering & Search',
-        description: `Filter data based on date ranges. Perfect for applications requiring precise temporal data filtering and analysis.`,
-        videoUrl: '/video/filter-date.mp4',
-    },
-    {
-        title: 'Multi-Filtering',
-        thumbnail: '/img/filter-multi.png',
-        group: 'Data Filtering & Search',
-        description:
-            'Multi-condition filters logic example to refine and display your data more effectively.',
-        videoUrl: '/video/filter-multi.mp4',
-    },
-    {
         title: 'Cell Validation',
         thumbnail: '/img/data-validation.png',
         group: 'Data Quality & Validation',
@@ -323,42 +368,12 @@ const featuresProBase = [
             'Excel-like formula engine with over 100+ functions, dynamic calculations, cell references, and real-time data manipulation. Build complex financial models, data analysis, and automated workflows with ease.',
     },
     {
-        title: 'History',
-        thumbnail: '/img/history.png',
-        videoUrl: '/video/history.mp4',
-        group: 'Data Management',
-        description: 'Track your history of changes. Undo and redo operations.',
-    },
-    {
-        title: 'Audit Trail History',
-        thumbnail: '/img/history.png',
-        group: 'Data Management',
-        description:
-            'Record and review detailed data-change history for audit workflows. Use it when teams need traceability for edits, user actions, or operational review.',
-        demoUrl: directDemoUrl('audit-history'),
-    },
-    {
         title: 'Cell Flash',
         thumbnail: '/img/cell-flash.png',
         group: 'Data Visualization',
         description:
             'Enable flashing cells to highlight updates, making it easy for users to spot changes in values.',
         videoUrl: '/video/cell-flash.mp4',
-    },
-    {
-        title: 'Connected Fields',
-        thumbnail: '/img/connected-fields.png',
-        group: 'Data Management',
-        description:
-            'Connect any fields together through progress, enabling advanced data connections for impressive visualizations. Interconnect data, enhance insights and drive better decision-making.',
-    },
-    {
-        title: 'Reference Data',
-        thumbnail: '/img/reference-data.png',
-        group: 'Data Management',
-        description:
-            'Manage static key/value pairs for displaying meaningful labels alongside coded values.',
-        videoUrl: '/video/reference-data.mp4',
     },
     {
         title: 'Context Menu',
@@ -439,38 +454,6 @@ const featuresProBase = [
         videoUrl: '/video/auto-focus.mp4',
     },
     {
-        title: 'Clipboard with JSON',
-        thumbnail: '/img/clipboard.png',
-        group: 'Data Management',
-        description:
-            'Support for JSON and other objects. Copy and paste complex data structures explained.',
-        videoUrl: '/video/clipboard.mp4',
-    },
-    {
-        title: 'Range Apply Preview',
-        thumbnail: '/img/clipboard.png',
-        group: 'Data Management',
-        description:
-            'Preview pending range copy, paste, or fill changes before applying them to the grid. Useful for validating target cells, confirming mapped values, and preventing accidental bulk updates.',
-    },
-    {
-        title: 'Excel Export/Import',
-        thumbnail: '/img/excel.png',
-        group: 'Data Management',
-        description:
-            'Export data to Excel format. Supported types include `xlsx`, `xlsm`, `xlsb`, `xls`, and more.',
-        videoUrl: '/video/excel-export.mp4',
-    },
-    {
-        title: 'Event Manager',
-        thumbnail: '/img/event-manager.png',
-        group: 'Development & Integration',
-        description:
-            'Handles, customizes, and optimizes events. Use one event to process multiple actions.',
-        sponsor: '/guide/event-manager',
-        videoUrl: '/video/event-manager.mp4',
-    },
-    {
         title: 'Overlay layers',
         thumbnail: '/img/overlay.png',
         group: 'Layout & Styling',
@@ -482,6 +465,14 @@ const featuresProBase = [
         thumbnail: '/img/aggregation.png',
         group: 'Advanced Calculations',
         description: 'Apply summary functions like sum, average, and more to grouped data.',
+    },
+    {
+        title: 'Smart Auto Fill',
+        thumbnail: '/img/autofill.png',
+        videoUrl: '/video/autofill.mp4',
+        group: 'Data Entry & Automation',
+        description:
+            'Automatically populating cells with a series, pattern based on the initial input. Perfect for repetitive tasks, saving users time.',
     },
     {
         title: 'Dynamic Form Editing',
@@ -524,6 +515,15 @@ const featuresProBase = [
         group: 'Data Entry & Automation',
         description: 'Visual timeline editor featuring an intuitive progress bar and native date pickers for seamless date range selection within grid cells. Perfect for project management, scheduling, and any application requiring visual time tracking or date range manipulation.',
         videoUrl: '/video/timeline-editor.mp4',
+    },
+    {
+        title: 'Event Manager',
+        thumbnail: '/img/event-manager.png',
+        group: 'Development & Integration',
+        description:
+            'Handles, customizes, and optimizes events. Use one event to process multiple actions.',
+        sponsor: '/guide/event-manager',
+        videoUrl: '/video/event-manager.mp4',
     },
 ]
 
