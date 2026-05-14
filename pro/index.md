@@ -52,6 +52,7 @@ proPage:
     groupIcons:
       Enterprise Tools: 🏢
       Advanced Data Structures: 🌲
+      Grid Structure: 🧱
       Data Management: 🗂️
       Data Filtering & Search: 🔍
       Layout & Styling: 🎨
