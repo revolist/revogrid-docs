@@ -50,19 +50,19 @@ proPage:
     defaultGroupLabel: Other
     defaultGroupIcon: •
     groupIcons:
-      Enterprise Tools: 🏢
+      Data Management: 🗂️
       Advanced Data Structures: 🌲
       Grid Structure: 🧱
-      Data Management: 🗂️
       Data Filtering & Search: 🔍
+      Data Quality & Validation: ✅
       Layout & Styling: 🎨
       Data Visualization: 📊
-      Data Quality & Validation: ✅
       Performance & Data Loading: 🚀
       Advanced Calculations: 🧮
       User Interaction: 🖱️
       Data Entry & Automation: ⚡
       Development & Integration: 🔌
+      Enterprise Tools: 🏢
     link:
       label: View full feature table
       href: /pricing#feature-comparison

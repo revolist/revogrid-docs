@@ -33,10 +33,8 @@ const featureDemoIds: Record<string, string> = {
     'Audit Trail History': 'audit-history',
     'Cell Flash': 'cell-flash',
     'Charts': 'charts',
-    'Reference Data': 'data-ref',
     'Context Menu': 'row-context',
     'Tooltip': 'tooltip',
-    'Row Grouping Drag and Drop': 'grouping-rows',
     'Row Auto Size': 'row-autosize',
     'Row Odd Styling': 'row-odd',
     'Row Custom Heading': 'row-header',
@@ -44,7 +42,6 @@ const featureDemoIds: Record<string, string> = {
     'Clipboard with JSON': 'clipboard-json',
     'Event Manager': 'event-manager',
     'Overlay layers': 'overlay-notes',
-    'Grouping Aggregation': 'grouping-rows',
     'Dynamic Form Editing': 'form-edit',
     'Full Row Editing': 'editor-row',
     'Cell Checkbox Editors': 'editor-checkbox',
@@ -131,6 +128,14 @@ const featuresProBase = [
         videoUrl: '/video/excel-export.mp4',
     },
     {
+        title: 'Infinite Scroll',
+        thumbnail: '/img/pagination-infinity.png',
+        group: 'Performance & Data Loading',
+        description:
+            'Remote-first infinite scrolling that loads server-side data as users scroll. Maintains optimal performance through intelligent data chunking and cleanup, with total-based or dynamic scrolling patterns to fit your use case.',
+        videoUrl: '/video/infinite-scroll.mp4',
+    },
+    {
         title: 'Pagination',
         thumbnail: '/img/pagination.png',
         group: 'Performance & Data Loading',
@@ -146,14 +151,6 @@ const featuresProBase = [
             'Load page-sized data from a remote source while keeping pagination controls, total counts, and grid state in sync.',
     },
     {
-        title: 'Infinite Scroll',
-        thumbnail: '/img/pagination-infinity.png',
-        group: 'Performance & Data Loading',
-        description:
-            'Remote-first infinite scrolling that loads server-side data as users scroll. Maintains optimal performance through intelligent data chunking and cleanup, with total-based or dynamic scrolling patterns to fit your use case.',
-        videoUrl: '/video/infinite-scroll.mp4',
-    },
-    {
         title: 'Formula',
         thumbnail: '/img/formula.png',
         videoUrl: '/video/formula.mp4',
@@ -164,6 +161,7 @@ const featuresProBase = [
     {
         title: 'Grouping Aggregation',
         thumbnail: '/img/aggregation.png',
+        demoUrl: directDemoUrl('grouping-aggregations'),
         group: 'Advanced Calculations',
         description: 'Apply summary functions like sum, average, and more to grouped data.',
     },
@@ -233,16 +231,9 @@ const featuresProBase = [
         title: 'Charts',
         thumbnail: '/img/cell-charts.png',
         group: 'Data Visualization',
+        videoUrl: '/video/renders.mp4',
         description:
             'Render compact visual summaries directly in cells, including progress lines, sparklines, bar charts, timelines, ratings, badges, change indicators, thumbs, and pie charts.',
-    },
-    {
-        title: 'Dynamic Cell Formats',
-        thumbnail: '/img/cell-charts.png',
-        videoUrl: '/video/renders.mp4',
-        group: 'Data Visualization',
-        description:
-            'Empower your data grid with visually rich, interactive, and context-driven cells. From ratings to timelines, our custom cell renders elevate data visualization to the next level.',
     },
     {
         title: 'Multi-Cell Formatting',
@@ -254,6 +245,7 @@ const featuresProBase = [
     {
         title: 'Heat&Cold Maps',
         thumbnail: '/img/heatmap.png',
+        demoUrl: directDemoUrl('heatmap'),
         videoUrl: '/video/heatmap.mp4',
         group: 'Data Visualization',
         description:
@@ -283,14 +275,6 @@ const featuresProBase = [
             'Advanced master-detail grid implementation that spans across pinned columns, showcasing complex data relationships.',
     },
     {
-        title: 'Clipboard with JSON',
-        thumbnail: '/img/clipboard.png',
-        group: 'Data Quality & Validation',
-        description:
-            'Support for JSON and other objects. Copy and paste complex data structures explained.',
-        videoUrl: '/video/clipboard.mp4',
-    },
-    {
         title: 'Cell Validation',
         thumbnail: '/img/data-validation.png',
         group: 'Data Quality & Validation',
@@ -307,20 +291,20 @@ const featuresProBase = [
         videoUrl: '/video/data-validation-input.mp4',
     },
     {
+        title: 'Clipboard with JSON',
+        thumbnail: '/img/clipboard.png',
+        group: 'Data Quality & Validation',
+        description:
+            'Support for JSON and other objects. Copy and paste complex data structures explained.',
+        videoUrl: '/video/clipboard.mp4',
+    },
+    {
         title: 'Cell Flash',
         thumbnail: '/img/cell-flash.png',
         group: 'Data Visualization',
         description:
             'Enable flashing cells to highlight updates, making it easy for users to spot changes in values.',
         videoUrl: '/video/cell-flash.mp4',
-    },
-    {
-        title: 'Reference Data',
-        thumbnail: '/img/reference-data.png',
-        group: 'Data Visualization',
-        description:
-            'Manage static key/value pairs for displaying meaningful labels alongside coded values.',
-        videoUrl: '/video/reference-data.mp4',
     },
     {
         title: 'Context Menu',

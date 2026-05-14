@@ -85,14 +85,7 @@
                                 >
                                     {{ isFeatureExpanded(group.name, feature.name) ? '▼' : '▶' }}
                                 </button>
-                                <a
-                                    v-if="feature.link"
-                                    :href="feature.link"
-                                    class="feature-link"
-                                >
-                                    {{ feature.name }}
-                                </a>
-                                <template v-else>{{ feature.name }}</template>
+                                <span class="feature-name-text">{{ feature.name }}</span>
                                 <span v-if="feature.beta" class="VPBadge warning" style="font-size:0.7em;vertical-align:middle;margin-left:4px">Beta</span>
 
                                 <span v-if="hasFeatureActions(feature)" class="feature-actions">

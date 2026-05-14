@@ -60,14 +60,29 @@
               >
                 <span class="fc-check">✓</span>
                 <a
-                  class="fc-feat-title"
+                  v-if="f.href"
+                  class="fc-feat-title fc-feat-title-link"
                   :href="f.href"
                   :target="isExternalLink(f.href) ? '_blank' : undefined"
                   :rel="isExternalLink(f.href) ? 'noopener' : undefined"
                 >
                   {{ f.title }}
                 </a>
+                <span v-else class="fc-feat-title fc-feat-title-static">{{ f.title }}</span>
                 <span v-if="f.beta" class="fc-beta">{{ pageText.features.betaLabel }}</span>
+                <span v-if="f.description" class="fc-info-wrap">
+                  <button
+                    type="button"
+                    class="fc-info"
+                    :aria-label="`About ${f.title}`"
+                    :aria-describedby="featureInfoId(f.title)"
+                  >
+                    ?
+                  </button>
+                  <span :id="featureInfoId(f.title)" class="fc-tooltip" role="tooltip">
+                    {{ f.description }}
+                  </span>
+                </span>
                 <button
                   v-if="f.videoUrl"
                   type="button"
@@ -140,16 +155,17 @@ type ProFeature = (typeof featuresPro)[number]
 const { frontmatter } = useData()
 const pageText = computed(() => frontmatter.value.proPage)
 
-const featureTableAnchor = (title: string) =>
-  `/pro/feature-table#${encodeURIComponent(title.replace(' ', '-'))}`
-
 const featureHref = (feature: ProFeature) =>
-  feature.demoUrl || feature.link || feature.sponsor || featureTableAnchor(feature.title)
+  feature.demoUrl
 
 const isExternalLink = (href: string) => /^https?:\/\//.test(href)
+const featureInfoId = (title: string) =>
+  `pro-feature-info-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
+const featureDescription = (description?: string) =>
+  description?.replace(/<[^>]+>/g, ' ').replace(/`/g, '').replace(/\s+/g, ' ').trim()
 
-const PRO_CATEGORIES = computed(() => Object.values(
-  featuresPro.reduce((groups, feature) => {
+const PRO_CATEGORIES = computed(() => {
+  const groups = featuresPro.reduce((groups, feature) => {
     const label = feature.group || pageText.value.features.defaultGroupLabel
 
     if (!groups[label]) {
@@ -165,6 +181,7 @@ const PRO_CATEGORIES = computed(() => Object.values(
       href: featureHref(feature),
       videoUrl: feature.videoUrl,
       beta: feature.beta,
+      description: featureDescription(feature.description),
     })
 
     return groups
@@ -173,12 +190,23 @@ const PRO_CATEGORIES = computed(() => Object.values(
     icon: string
     features: Array<{
       title: string
-      href: string
+      href?: string
       videoUrl?: string
       beta?: boolean
+      description?: string
     }>
   }>)
-))
+
+  const groupOrder = Object.keys(pageText.value.features.groupIcons || {})
+  const orderByLabel = new Map(groupOrder.map((label, index) => [label, index]))
+
+  return Object.values(groups).sort((a, b) => {
+    const aOrder = orderByLabel.get(a.label) ?? Number.MAX_SAFE_INTEGER
+    const bOrder = orderByLabel.get(b.label) ?? Number.MAX_SAFE_INTEGER
+
+    return aOrder - bOrder
+  })
+})
 
 const PRO_FEATURE_COUNT = featuresPro.length
 const activeVideoUrl = ref('')
@@ -492,6 +520,13 @@ function closeVideo() {
   line-height: 1.45;
   color: inherit;
   text-decoration: none;
+}
+
+.fc-feat-title-static {
+  color: color-mix(in srgb, var(--vp-c-text-2) 82%, var(--vp-c-text-3));
+}
+
+.fc-feat-title-link {
   transition: color 0.2s;
 
   &:hover {
@@ -509,6 +544,82 @@ function closeVideo() {
   font-weight: 700;
   line-height: 14px;
   text-transform: uppercase;
+}
+
+.fc-info-wrap {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.fc-info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  cursor: help;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0;
+  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+}
+
+.fc-info:hover,
+.fc-info:focus-visible {
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg);
+  border-color: var(--vp-c-brand-1);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.fc-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  z-index: 20;
+  width: min(300px, 70vw);
+  color: var(--vp-c-text-1);
+  background: color-mix(in srgb, var(--vp-c-bg-elv) 94%, transparent);
+  border: 1px solid color-mix(in srgb, var(--vp-c-divider) 78%, var(--vp-c-brand-1));
+  border-radius: 8px;
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.18), 0 2px 8px rgba(15, 23, 42, 0.08);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  opacity: 0;
+  padding: 10px 12px;
+  pointer-events: none;
+  transform: translate(-50%, 4px);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+  visibility: hidden;
+}
+
+.fc-tooltip::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: var(--vp-c-bg-elv);
+  border-right: 1px solid color-mix(in srgb, var(--vp-c-divider) 78%, var(--vp-c-brand-1));
+  border-bottom: 1px solid color-mix(in srgb, var(--vp-c-divider) 78%, var(--vp-c-brand-1));
+  content: "";
+  transform: translate(-50%, -5px) rotate(45deg);
+}
+
+.fc-info-wrap:hover .fc-tooltip,
+.fc-info:focus-visible + .fc-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  visibility: visible;
 }
 
 .fc-video {

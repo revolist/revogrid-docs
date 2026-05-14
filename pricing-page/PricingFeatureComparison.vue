@@ -45,8 +45,7 @@
                     >
                       {{ isFeatureExpanded(section.label, row.name) ? '▼' : '▶' }}
                     </button>
-                    <a v-if="row.link" :href="row.link">{{ row.name }}</a>
-                    <template v-else>{{ row.name }}</template>
+                    <span class="feature-name-text">{{ row.name }}</span>
                     <span v-if="row.beta" class="beta-badge">Beta</span>
 
                     <span v-if="hasFeatureActions(row)" class="feature-actions">
