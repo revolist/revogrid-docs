@@ -22,7 +22,6 @@ const featureDemoIds: Record<string, string> = {
     'Advanced Slider Filtering': 'filter-slider',
     'Header Input Filtering': 'filter-header',
     'Date Filter': 'filter-date',
-    'Multi-Filtering': 'filter-showcase',
     'Cell Validation': 'validate-basic',
     'Input Validation': 'validate-input',
     'Pagination': 'pagination-local',
@@ -202,14 +201,6 @@ const featuresProBase = [
         group: 'Data Filtering & Search',
         description: `Filter data based on date ranges. Perfect for applications requiring precise temporal data filtering and analysis.`,
         videoUrl: '/video/filter-date.mp4',
-    },
-    {
-        title: 'Multi-Filtering',
-        thumbnail: '/img/filter-multi.png',
-        group: 'Data Filtering & Search',
-        description:
-            'Multi-condition filters logic example to refine and display your data more effectively.',
-        videoUrl: '/video/filter-multi.mp4',
     },
     {
         title: 'Column Stretch',

@@ -7,27 +7,27 @@ aside: false
 | Name | Type | Component | Description |
 | ---- | ---- | --------- | ----------- |
 | contentsizechanged | `"colPinEnd" \| "colPinStart" \| "rgCol" \| "rgRow" \| "rowPinEnd" \| "rowPinStart"` | revo-grid | New content size has been applied. The size excludes the header. Currently, the event responsible for applying the new content size does not provide the actual size. To retrieve the actual content size, you can utilize the `getContentSize` function after the event has been triggered. |
-| beforeedit | `BeforeSaveDataDetails<DataType, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>>` | revo-grid | Before the data is edited. To prevent the default behavior of editing data and use your own implementation, call `e.preventDefault()`. To override the edit result with your own value, set the `e.val` property to your desired value. |
-| beforerangeedit | `TModel` | revo-grid | Before applying range data, specifically when a range selection occurs. To customize the data and prevent the default edit data from being set, you can call `e.preventDefault()`. |
-| afteredit | `BeforeSaveDataDetails<DataType, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>> \| D \| K` | revo-grid | After data applied or range changed. |
+| beforeedit | `BeforeSaveDataDetails` | revo-grid | Before the data is edited. To prevent the default behavior of editing data and use your own implementation, call `e.preventDefault()`. To override the edit result with your own value, set the `e.val` property to your desired value. |
+| beforerangeedit | `{ data: DataLookup; models: Partial<DataLookup>; type: DimensionRows; newRange: RangeArea \| null; oldRange: RangeArea \| null; }` | revo-grid | Before applying range data, specifically when a range selection occurs. To customize the data and prevent the default edit data from being set, you can call `e.preventDefault()`. |
+| afteredit | `BeforeSaveDataDetails \| { data: DataLookup; models: Partial<DataLookup>; type: DimensionRows; newRange: RangeArea \| null; oldRange: RangeArea \| null; }` | revo-grid | After data applied or range changed. |
 | beforeautofill | `{ type: DimensionRows; colType: DimensionCols; newRange: RangeArea; oldRange: RangeArea; mapping: OldNewRangeMapping; newData: { [newRowIndex: number]: DataType; }; }` | revo-grid | Before autofill is applied. To prevent the default behavior of applying the edit data, you can call `e.preventDefault()`. |
 | beforerange | `{ type: DimensionRows; colType: DimensionCols; newRange: RangeArea; oldRange: RangeArea; mapping: OldNewRangeMapping; newData: { [newRowIndex: number]: DataType; }; }` | revo-grid | Before autofill is applied. Runs before beforeautofill event. Use e.preventDefault() to prevent range. |
-| afterfocus | `FocusAfterRenderEvent<DataType<any, ColumnProp>>` | revo-grid | After focus render finished. Can be used to access a focus element through `event.target`. This is just a duplicate of `afterfocus` from `revogr-focus.tsx`. |
+| afterfocus | `FocusAfterRenderEvent` | revo-grid | After focus render finished. Can be used to access a focus element through `event.target`. This is just a duplicate of `afterfocus` from `revogr-focus.tsx`. |
 | roworderchanged | `{ from: number; to: number; }` | revo-grid | Before the order of `rgRow` is applied. To prevent the default behavior of changing the order of `rgRow`, you can call `e.preventDefault()`. |
-| beforesorting | `{ column: ColumnRegular<ColumnProp, DataType<any, ColumnProp>>; order: "asc" \| "desc"; additive: boolean; }` | revo-grid | By `SortingPlugin` <br>Triggered immediately after header click. <br>First in sorting event sequence. Ff this event stops no other event called. <br>Use `e.preventDefault()` to prevent sorting. |
+| beforesorting | `{ column: ColumnRegular<ColumnProp>; order: "asc" \| "desc"; additive: boolean; }` | revo-grid | By `SortingPlugin` <br>Triggered immediately after header click. <br>First in sorting event sequence. Ff this event stops no other event called. <br>Use `e.preventDefault()` to prevent sorting. |
 | beforesourcesortingapply | `{ type: DimensionRows; sorting?: SortingOrder \| undefined; }` | revo-grid | By `SortingPlugin` <br>Same as `beforesorting` but triggered after `beforeanysource` (when source is changed). <br>Use `e.preventDefault()` to prevent sorting data change. |
-| beforesortingapply | `{ column: ColumnRegular<ColumnProp, DataType<any, ColumnProp>>; order: "asc" \| "desc"; additive: boolean; }` | revo-grid | By `SortingPlugin` <br> After `beforesorting` <br>Triggered after column data updated with new sorting order. <br>Use `e.preventDefault()` to prevent sorting data change. |
-| rowdragstart | `TModel` | revo-grid | This event is triggered when the row order change is started. To prevent the default behavior of changing the row order, you can call `e.preventDefault()`. To change the item name at the start of the row order change, you can set `e.text` to the desired new name. |
-| headerclick | `ColumnRegular<ColumnProp, DataType<any, ColumnProp>>` | revo-grid | On header click. |
-| beforecellfocus | `BeforeSaveDataDetails<DataType, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>>` | revo-grid | Before the cell focus is changed. To prevent the default behavior of changing the cell focus, you can call `e.preventDefault()`. |
-| beforefocuslost | `null \| { model: any; cell: Cell; colType: DimensionCols; rowType: DimensionRows; column?: ColumnRegular<ColumnProp, DataType<any, ColumnProp>> \| undefined; }` | revo-grid | Before the grid focus is lost. To prevent the default behavior of changing the cell focus, you can call `e.preventDefault()`. |
+| beforesortingapply | `{ column: ColumnRegular<ColumnProp>; order: "asc" \| "desc"; additive: boolean; }` | revo-grid | By `SortingPlugin` <br> After `beforesorting` <br>Triggered after column data updated with new sorting order. <br>Use `e.preventDefault()` to prevent sorting data change. |
+| rowdragstart | `{ cell: Cell; text: string; pos: PositionItem; event: MouseEvent; rowType: DimensionRows; model: any; }` | revo-grid | This event is triggered when the row order change is started. To prevent the default behavior of changing the row order, you can call `e.preventDefault()`. To change the item name at the start of the row order change, you can set `e.text` to the desired new name. |
+| headerclick | `ColumnRegular<ColumnProp>` | revo-grid | On header click. |
+| beforecellfocus | `BeforeSaveDataDetails` | revo-grid | Before the cell focus is changed. To prevent the default behavior of changing the cell focus, you can call `e.preventDefault()`. |
+| beforefocuslost | `null \| { model: any; cell: Cell; colType: DimensionCols; rowType: DimensionRows; column?: ColumnRegular<ColumnProp> \| undefined; }` | revo-grid | Before the grid focus is lost. To prevent the default behavior of changing the cell focus, you can call `e.preventDefault()`. |
 | beforesourceset | `{ type: DimensionRows; source: DataType[]; }` | revo-grid | Before main source/rows data apply. You can override data source here |
 | beforeanysource | `{ type: DimensionRows; source: DataType[]; }` | revo-grid | Before data apply on any source type. Can be source from pinned and main viewport. You can override data source here |
 | aftersourceset | `{ type: DimensionRows; source: DataType[]; }` | revo-grid | After main source/rows updated |
 | afteranysource | `{ type: DimensionRows; source: DataType[]; }` | revo-grid | Emitted after each source update, whether from the pinned or main viewport. Useful for tracking all changes originating from sources in both the pinned and main viewports. |
-| beforecolumnsgather | `{ columns: (ColumnRegular<ColumnProp, DataType<any, ColumnProp>> \| ColumnGrouping<any>)[]; }` | revo-grid | Emitted before user column definitions are gathered into the internal column collection. Listeners can replace `detail.columns` to rewrite the raw column set before RevoGrid normalizes it. |
-| beforecolumnsset | `{ columns: Record<DimensionCols, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>[]>; columnByProp: Record<ColumnProp, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>[]>; columnGrouping: ColumnGroupingCollection; maxLevel: number; sort: Record<ColumnProp, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>>; }` | revo-grid | Emitted before a column update is applied. Listeners can use this event to perform any necessary actions or modifications before the column update is finalized. |
-| beforecolumnapplied | `{ columns: Record<DimensionCols, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>[]>; columnByProp: Record<ColumnProp, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>[]>; columnGrouping: ColumnGroupingCollection; maxLevel: number; sort: Record<ColumnProp, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>>; }` | revo-grid | Emitted before a column update is applied, after the column set is gathered and the viewport is updated. Useful for performing actions or modifications before the final application of the column update. |
+| beforecolumnsgather | `{ columns: (ColumnRegular<ColumnProp> \| ColumnGrouping<any>)[]; }` | revo-grid | Emitted before user column definitions are gathered into the internal column collection. Listeners can replace `detail.columns` to rewrite the raw column set before RevoGrid normalizes it. |
+| beforecolumnsset | `{ columns: Record<DimensionCols, ColumnRegular<ColumnProp>[]>; columnByProp: Record<ColumnProp, ColumnRegular<ColumnProp>[]>; columnGrouping: ColumnGroupingCollection; maxLevel: number; sort: Record<ColumnProp, ColumnRegular<ColumnProp>>; }` | revo-grid | Emitted before a column update is applied. Listeners can use this event to perform any necessary actions or modifications before the column update is finalized. |
+| beforecolumnapplied | `{ columns: Record<DimensionCols, ColumnRegular<ColumnProp>[]>; columnByProp: Record<ColumnProp, ColumnRegular<ColumnProp>[]>; columnGrouping: ColumnGroupingCollection; maxLevel: number; sort: Record<ColumnProp, ColumnRegular<ColumnProp>>; }` | revo-grid | Emitted before a column update is applied, after the column set is gathered and the viewport is updated. Useful for performing actions or modifications before the final application of the column update. |
 | aftercolumnsset | `{ columns: ColumnCollection; order: SortingOrder; }` | revo-grid | Column updated |
 | beforefilterapply | `{ collection: Record<ColumnProp, FilterCollectionItem>; }` | revo-grid | Emitted before applying a filter to the data source. Use e.preventDefault() to prevent cell focus change. Modify if you need to change filters. |
 | beforefiltertrimmed | `{ collection: Record<ColumnProp, FilterCollectionItem>; itemsToFilter: Record<number, boolean>; }` | revo-grid | Emitted before applying a filter to the data source. Use e.preventDefault() to prevent the default behavior of trimming values and applying the filter. Modify the `collection` property if you want to change the filters. Modify the `itemsToFilter` property if you want to filter the indexes for trimming. |
@@ -35,8 +35,8 @@ aside: false
 | aftertrimmed | `any` | revo-grid | Emitted after trimmed values have been applied. Useful for notifying when trimming of values has taken place. |
 | viewportscroll | `D` | revo-grid | Emitted when the viewport is scrolled. Useful for tracking viewport scrolling events. |
 | beforeexport | `{ data: DataType[]; } & ColSource` | revo-grid | Before export Use e.preventDefault() to prevent export Replace data in Event in case you want to modify it in export |
-| beforeeditstart | `BeforeSaveDataDetails<DataType, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>>` | revo-grid | Emitted before editing starts. Use e.preventDefault() to prevent the default edit behavior. |
-| aftercolumnresize | `{ [index: number]: ColumnRegular<ColumnProp, DataType<any, ColumnProp>>; }` | revo-grid | Emitted after column resizing. Useful for retrieving the resized columns. |
+| beforeeditstart | `BeforeSaveDataDetails` | revo-grid | Emitted before editing starts. Use e.preventDefault() to prevent the default edit behavior. |
+| aftercolumnresize | `{ [index: number]: ColumnRegular<ColumnProp>; }` | revo-grid | Emitted after column resizing. Useful for retrieving the resized columns. |
 | beforerowdefinition | `{ vals: any; oldVals: any; }` | revo-grid | Emitted before the row definition is applied. Useful for modifying or preventing the default row definition behavior. |
 | filterconfigchanged | `any` | revo-grid | Emitted when the filter configuration is changed |
 | sortingconfigchanged | `{ columns?: { prop: ColumnProp; order: Order; cellCompare?: CellCompareFunc \| undefined; }[] \| undefined; additive?: boolean \| undefined; }` | revo-grid | Emitted when the sorting configuration is changed SortingPlugin subsribed to this event |
@@ -58,24 +58,24 @@ aside: false
 | copyregion | `DataTransfer` | revogr-clipboard | Copy 2. Fired when region copied defaultPrevented - if true, copy will be canceled |
 | beforerowrender | `BeforeRowRenderEvent<any>` | revogr-data | Before each row render |
 | afterrender | `{ type: DimensionRows; }` | revogr-data | When data render finished for the designated type |
-| beforecellrender | `BeforeCellRenderEvent<CellTemplateProp<DataType<any, ColumnProp>, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>, ColumnProp>>` | revogr-data | Before each cell render function. Allows to override cell properties |
+| beforecellrender | `BeforeCellRenderEvent<CellTemplateProp<DataType<any, ColumnProp>, ColumnRegular<ColumnProp>, ColumnProp>>` | revogr-data | Before each cell render function. Allows to override cell properties |
 | beforedatarender | `AllDimensionType` | revogr-data | Before data render |
-| dragstartcell | `DragStartEvent<DataType<any, ColumnProp>, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>>` | revogr-data | Event emitted on cell drag start |
+| dragstartcell | `DragStartEvent<DataType<any, ColumnProp>, ColumnRegular<ColumnProp>>` | revogr-data | Event emitted on cell drag start |
 | celleditinit | `{ rgRow: number; rgCol: number; type: DimensionRows; prop: ColumnProp; val: any; preventFocus?: boolean \| undefined; }` | revogr-edit | Cell edit event initiator, first in the cellEdit event chain |
 | closeedit | `boolean \| undefined` | revogr-edit | Close editor event pass true if requires focus next |
 | filterChange | `MultiFilterItem` | revogr-filter-panel |  |
 | resetChange | `number \| string` | revogr-filter-panel |  |
 | beforefocusrender | `FocusRenderEvent` | revogr-focus | Before focus render event. Can be prevented by event.preventDefault(). If preventDefault used slot will be rendered. |
 | beforescrollintoview | `{ el: HTMLElement; }` | revogr-focus | Before focus changed verify if it's in view and scroll viewport into this view Can be prevented by event.preventDefault() |
-| afterfocus | `FocusAfterRenderEvent<DataType<any, ColumnProp>>` | revogr-focus | Used to setup properties after focus was rendered |
-| beforeheaderclick | `{ index: number; originalEvent: MouseEvent; column: ColumnRegular<ColumnProp, DataType<any, ColumnProp>>; providers: ProvidersColumns<DimensionCols \| "rowHeaders">; }` | revogr-header | On initial header click |
+| afterfocus | `FocusAfterRenderEvent` | revogr-focus | Used to setup properties after focus was rendered |
+| beforeheaderclick | `{ index: number; originalEvent: MouseEvent; column: ColumnRegular<ColumnProp>; providers: ProvidersColumns<DimensionCols \| "rowHeaders">; }` | revogr-header | On initial header click |
 | headerresize | `{ [x: string]: number; }` | revogr-header | On header resize |
-| beforeheaderresize | `ColumnRegular<ColumnProp, DataType<any, ColumnProp>>[]` | revogr-header | On before header resize |
-| headerdblclick | `{ index: number; originalEvent: MouseEvent; column: ColumnRegular<ColumnProp, DataType<any, ColumnProp>>; providers: ProvidersColumns<DimensionCols \| "rowHeaders">; }` | revogr-header | On header double click |
+| beforeheaderresize | `ColumnRegular<ColumnProp>[]` | revogr-header | On before header resize |
+| headerdblclick | `{ index: number; originalEvent: MouseEvent; column: ColumnRegular<ColumnProp>; providers: ProvidersColumns<DimensionCols \| "rowHeaders">; }` | revogr-header | On header double click |
 | beforeheaderrender | `{ column: VirtualPositionItem; additionalData: any; data: ColumnTemplateProp<ColumnProp>; range?: RangeArea \| null \| undefined; canResize?: boolean \| undefined; canFilter?: boolean \| undefined; onResize?(e: ResizeEvent): void; onClick?(data: InitialHeaderClick): void; onDblClick?(data: InitialHeaderClick): void; } & Partial<Pick<ResizeProps, "active">>` | revogr-header | Before each header cell render function. Allows to override cell properties |
 | beforegroupheaderrender | `{ start: number; end: number; group: Group; providers: ProvidersColumns<DimensionCols \| "rowHeaders">; additionalData: any; canResize?: boolean \| undefined; onResize?(e: ResizeEvent): void; } & Partial<Pick<ResizeProps, "active">>` | revogr-header | Before each group header cell render function. Allows to override group header cell properties |
 | afterheaderrender | `ProvidersColumns<DimensionCols \| "rowHeaders">` | revogr-header | After all header cells rendered. Finalizes cell rendering. |
-| rowdragstartinit | `TModel` | revogr-order-editor | Row drag started |
+| rowdragstartinit | `{ cell: Cell; text: string; pos: PositionItem; event: MouseEvent; rowType: DimensionRows; model: any; }` | revogr-order-editor | Row drag started |
 | rowdragendinit | `{ rowType: DimensionRows; }` | revogr-order-editor | Row drag ended started |
 | rowdragmoveinit | `PositionItem & { rowType: DimensionRows; }` | revogr-order-editor | Row move started |
 | rowdragmousemove | `Cell & { rowType: DimensionRows; }` | revogr-order-editor | Row mouse move started |
@@ -83,10 +83,10 @@ aside: false
 | roworderchange | `{ from: number; to: number; rowType: DimensionRows; }` | revogr-order-editor | Row drag ended finished. Time to apply data |
 | beforecopyregion | `any` | revogr-overlay-selection | Before clipboard copy happened. Validate data before copy. To prevent the default behavior of editing data and use your own implementation, call `e.preventDefault()`. |
 | beforepasteregion | `any` | revogr-overlay-selection | Before region paste happened. |
-| celleditapply | `BeforeSaveDataDetails<DataType, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>>` | revogr-overlay-selection | Cell edit apply to the data source. Triggers datasource edit on the root level. |
-| beforecellfocusinit | `BeforeSaveDataDetails<DataType, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>>` | revogr-overlay-selection | Before cell focus. |
+| celleditapply | `BeforeSaveDataDetails` | revogr-overlay-selection | Cell edit apply to the data source. Triggers datasource edit on the root level. |
+| beforecellfocusinit | `BeforeSaveDataDetails` | revogr-overlay-selection | Before cell focus. |
 | beforenextvpfocus | `Cell` | revogr-overlay-selection | Fired when change of viewport happens. Usually when we switch between pinned regions. |
-| setedit | `BeforeSaveDataDetails<DataType, ColumnRegular<ColumnProp, DataType<any, ColumnProp>>>` | revogr-overlay-selection | Set edit cell. |
+| setedit | `BeforeSaveDataDetails` | revogr-overlay-selection | Set edit cell. |
 | beforeapplyrange | `FocusRenderEvent` | revogr-overlay-selection | Before range applied. First step in triggerRangeEvent. |
 | beforesetrange | `any` | revogr-overlay-selection | Before range selection applied. Second step in triggerRangeEvent. |
 | setrange | `RangeArea & { type: MultiDimensionType; }` | revogr-overlay-selection | Set range. Third step in triggerRangeEvent. |
@@ -100,9 +100,9 @@ aside: false
 | beforerangedataapply | `FocusRenderEvent` | revogr-overlay-selection | Range data apply. |
 | selectionchangeinit | `{ type: DimensionRows; colType: DimensionCols; newRange: RangeArea; oldRange: RangeArea; mapping: OldNewRangeMapping; newData: { [newRowIndex: number]: DataType; }; }` | revogr-overlay-selection | Autofill data in range. First step in applyRangeWithData |
 | beforerangecopyapply | `{ type: DimensionRows; colType: DimensionCols; newRange: RangeArea; oldRange: RangeArea; mapping: OldNewRangeMapping; newData: { [newRowIndex: number]: DataType; }; }` | revogr-overlay-selection | Before range copy. |
-| rangeeditapply | `TModel` | revogr-overlay-selection | Range data apply. Triggers datasource edit on the root level. |
+| rangeeditapply | `{ data: DataLookup; models: Partial<DataLookup>; type: DimensionRows; newRange: RangeArea \| null; oldRange: RangeArea \| null; }` | revogr-overlay-selection | Range data apply. Triggers datasource edit on the root level. |
 | clipboardrangecopy | `RangeClipboardCopyEventProps<any>` | revogr-overlay-selection | Range copy. |
-| clipboardrangepaste | `RangeClipboardPasteEvent<DataType<any, ColumnProp>>` | revogr-overlay-selection | Range paste event. |
+| clipboardrangepaste | `RangeClipboardPasteEvent` | revogr-overlay-selection | Range paste event. |
 | beforekeydown | `{ original: KeyboardEvent; } & EventData` | revogr-overlay-selection | Before key up event proxy, used to prevent key up trigger. If you have some custom behaviour event, use this event to check if it wasn't processed by internal logic. Call preventDefault(). |
 | beforekeyup | `{ original: KeyboardEvent; } & EventData` | revogr-overlay-selection | Before key down event proxy, used to prevent key down trigger. If you have some custom behaviour event, use this event to check if it wasn't processed by internal logic. Call preventDefault(). |
 | beforecellsave | `any` | revogr-overlay-selection | Runs before cell save. Can be used to override or cancel original save. |
