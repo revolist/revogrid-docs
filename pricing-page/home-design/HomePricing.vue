@@ -36,20 +36,20 @@ const pricingCards = computed(() => {
     if (card.id === 'light') {
       return {
         ...card,
-        price: `$${PRICES.light.month.USD}`,
-        period: '/dev/mo',
+        price: `$${PRICES.light.year.USD}`,
+        period: '/ year',
         sub: '',
-        billingNote: `Billed annually at $${PRICES.light.year.USD} per developer`,
+        billingNote: '1 developer seat · Unlimited production usage',
         link: PRICES.light.link,
       }
     }
     if (card.id === 'advanced') {
       return {
         ...card,
-        price: `$${PRICES.advanced.month.USD}`,
-        period: '/dev/mo',
+        price: `$${PRICES.advanced.year.USD}`,
+        period: '/ year',
         sub: '',
-        billingNote: `Billed annually at $${PRICES.advanced.year.USD} per developer`,
+        billingNote: '1 developer seat · Unlimited production usage',
         link: PRICES.advanced.link,
       }
     }

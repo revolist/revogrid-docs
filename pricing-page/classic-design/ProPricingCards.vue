@@ -7,9 +7,9 @@
       <div class="card-price-row">
         <span class="price-currency">$</span>
         <span class="price-num">{{ lightUsdYr }}</span>
-        <span class="price-period">/dev/yr</span>
+        <span class="price-period">/ year</span>
       </div>
-      <div class="price-note">Billed annually · ~${{ Math.round(lightUsdYr / 12) }}/mo</div>
+      <div class="price-note">1 developer seat · Unlimited production usage</div>
       <a :href="PRICES.light.link" class="card-cta ghost">Start Pro Light</a>
       <div class="card-divider"></div>
       <ul class="card-features">
@@ -27,9 +27,9 @@
       <div class="card-price-row">
         <span class="price-currency">$</span>
         <span class="price-num">{{ advUsdYr }}</span>
-        <span class="price-period">/dev/yr</span>
+        <span class="price-period">/ year</span>
       </div>
-      <div class="price-note">Billed annually · ~${{ Math.round(advUsdYr / 12) }}/mo</div>
+      <div class="price-note">1 developer seat · Unlimited production usage</div>
       <a :href="PRICES.advanced.link" class="card-cta primary">Start Pro Advanced</a>
       <div class="card-divider"></div>
       <ul class="card-features">

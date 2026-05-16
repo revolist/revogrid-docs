@@ -18,12 +18,12 @@
                         <div class="plan-price" v-if="plan.price">
                             <div>
                                 <span class="price-value"
-                                    >{{ plan.price }} $</span
+                                    >${{ plan.priceYear ?? plan.price * 12 }}</span
                                 >
-                                / month / dev
+                                / year
                             </div>
                             <div class="summary">
-                                Billed annually at {{ plan.priceYear ?? plan.price * 12 }}$ / dev
+                                1 developer seat · Unlimited production usage
                             </div>
                         </div>
                         <ul class="plan-details" v-if="plan.details">

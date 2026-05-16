@@ -94,10 +94,10 @@ pricing:
       action: Buy Pro Light
       features:
         - Commercial production use
-        - text: Pro plugins & features
+        - text: Production-ready plugins and examples
           link: /pro/
         - Pro MCP (Model Context Protocol)
-        - One year of updates
+        - Includes one year of updates
       dim:
         - Pivot Grid module
         - Gantt Chart module
