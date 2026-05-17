@@ -1,4 +1,9 @@
 const STRIPE_CLIENT_REFERENCE_PARAM = 'client_reference_id';
+const STRIPE_CLIENT_REFERENCE_MAX_LENGTH = 200;
+
+const formatStripeClientReferenceId = (clientReferenceId: string) => clientReferenceId
+  .replace(/[^a-zA-Z0-9_-]/g, '_')
+  .slice(0, STRIPE_CLIENT_REFERENCE_MAX_LENGTH);
 
 const getGtagClientIdFromCookie = () => {
   if (typeof document === 'undefined') {
@@ -24,7 +29,7 @@ export const stripeLinkWithClientReferenceId = (link: string, clientReferenceId 
   }
 
   const url = new URL(link);
-  url.searchParams.set(STRIPE_CLIENT_REFERENCE_PARAM, clientReferenceId);
+  url.searchParams.set(STRIPE_CLIENT_REFERENCE_PARAM, formatStripeClientReferenceId(clientReferenceId));
   return url.toString();
 };
 
