@@ -71,23 +71,6 @@ pricing:
   description: Per-developer licensing. No deployment counting. No server license. Upgrade as your product grows.
   note: Simple per-developer licensing. No deployment counting. No server license. Upgrade when your product needs more advanced modules.
   cards:
-    - id: oss
-      name: Open Source
-      description: MIT-licensed core for prototypes, open-source projects, and core grid evaluation.
-      price: Free
-      period: ''
-      sub: forever
-      action: Read docs
-      link: /guide/
-      features:
-        - MIT core grid
-        - Virtual scrolling
-        - Inline editing and selection
-        - All framework wrappers
-        - Community examples
-      dim:
-        - Advanced Pro modules
-        - Priority support
     - id: light
       name: Pro Light
       description: For individual developers and small teams building production data apps.
