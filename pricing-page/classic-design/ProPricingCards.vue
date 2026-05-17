@@ -10,7 +10,7 @@
         <span class="price-period">/ year</span>
       </div>
       <div class="price-note">1 developer seat · Unlimited production usage</div>
-      <a :href="PRICES.light.link" class="card-cta ghost">Start Pro Light</a>
+      <a :href="PRICES.light.link" class="card-cta ghost" @click="handleStripeClientReferenceClick">Start Pro Light</a>
       <div class="card-divider"></div>
       <ul class="card-features">
         <li v-for="feature in PRO_LIGHT_FEATURES" :key="feature" class="card-feature">
@@ -30,7 +30,7 @@
         <span class="price-period">/ year</span>
       </div>
       <div class="price-note">1 developer seat · Unlimited production usage</div>
-      <a :href="PRICES.advanced.link" class="card-cta primary">Start Pro Advanced</a>
+      <a :href="PRICES.advanced.link" class="card-cta primary" @click="handleStripeClientReferenceClick">Start Pro Advanced</a>
       <div class="card-divider"></div>
       <ul class="card-features">
         <li v-for="feature in PRO_ADV_FEATURES" :key="feature" class="card-feature">
@@ -62,6 +62,7 @@
 
 <script lang="ts" setup>
 import { PRICES } from '../prices'
+import { handleStripeClientReferenceClick } from '../stripeClientReference'
 import { ENTERPRISE_FEATURES, PRO_ADV_FEATURES, PRO_LIGHT_FEATURES } from './pricingPlans'
 
 withDefaults(defineProps<{

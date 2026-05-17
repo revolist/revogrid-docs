@@ -1,0 +1,1 @@
+export const gTagId = 'GTM-T7JNJDXW'

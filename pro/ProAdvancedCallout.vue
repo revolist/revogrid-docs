@@ -11,7 +11,7 @@
             support. No per-feature upsell.
           </p>
           <div class="callout-actions">
-            <ProDocButton :href="proAdvancedLink">See Pro Advanced pricing</ProDocButton>
+            <ProDocButton :href="proAdvancedLink" @click="handleStripeClientReferenceClick">See Pro Advanced pricing</ProDocButton>
             <ProDocButton href="/pro/" variant="secondary">Explore Pro bundle</ProDocButton>
           </div>
         </div>
@@ -36,6 +36,7 @@
 
 <script lang="ts" setup>
 import { PRICES } from '../pricing-page/prices'
+import { handleStripeClientReferenceClick } from '../pricing-page/stripeClientReference'
 import ProDocButton from './ProDocButton.vue'
 
 defineProps<{

@@ -12,6 +12,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import markdownItAttrs from 'markdown-it-attrs'
 import type MarkdownIt from 'markdown-it'
+import { gTagId } from './consts'
 
 dotenv.config()
 
@@ -213,7 +214,7 @@ const config: UserConfig<DefaultTheme.Config> = {
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-T7JNJDXW');`,
+})(window,document,'script','dataLayer', ${gTagId});`,
         ],
     ],
     transformHead({ pageData, siteData }) {

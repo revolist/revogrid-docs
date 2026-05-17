@@ -1,3 +1,5 @@
+import { stripeLinkWithClientReferenceId } from './stripeClientReference';
+
 export type Currency = 'EUR' | 'USD';
 
 interface PeriodPrices {
@@ -28,7 +30,9 @@ export const PRICES: Record<'light' | 'advanced', PlanPrice> = {
       USD: Math.round((lightYearPrices.USD / 12)),
     },
     year: lightYearPrices,
-    link: 'https://buy.stripe.com/3cIcN62oL6MEcWm8miew80e',
+    get link() {
+      return stripeLinkWithClientReferenceId('https://buy.stripe.com/3cIcN62oL6MEcWm8miew80e');
+    },
   },
   advanced: {
     month: {
@@ -39,6 +43,8 @@ export const PRICES: Record<'light' | 'advanced', PlanPrice> = {
       EUR: advancedYearPrices.EUR,
       USD: advancedYearPrices.USD,
     },
-    link: 'https://buy.stripe.com/dRm14ofbxfja5tU6eaew80f',
+    get link() {
+      return stripeLinkWithClientReferenceId('https://buy.stripe.com/dRm14ofbxfja5tU6eaew80f');
+    },
   },
 };

@@ -37,6 +37,7 @@
                             :text="plan.buttonText"
                             :href="plan.link"
                             :theme="plan.buttonTheme"
+                            @click="handleStripeClientReferenceClick"
                         />
                     </th>
                 </tr>
@@ -163,6 +164,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import VPImage from '../.vitepress/theme/VPImage.vue'
+import { handleStripeClientReferenceClick } from '../pricing-page/stripeClientReference'
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue'
 
 import { ElDialog } from 'element-plus'

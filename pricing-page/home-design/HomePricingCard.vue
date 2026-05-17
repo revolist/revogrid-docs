@@ -34,7 +34,7 @@
       :href="linkOf(card.link)"
       :target="targetOf(card.link)"
       :rel="relOf(card.link)"
-      @click="handleCtaClick"
+      @click="handlePlanClick"
     >
       {{ card.action }}
     </a>
@@ -43,6 +43,7 @@
 
 <script lang="ts" setup>
 import { type PricingRecord, usePricingLinks } from './pricingDesignUtils'
+import { handleStripeClientReferenceClick } from '../stripeClientReference'
 
 const props = defineProps<{
   card: PricingRecord
@@ -63,6 +64,11 @@ const handleCtaClick = (event: MouseEvent) => {
 
   event.preventDefault()
   emit('contact-sales')
+}
+
+const handlePlanClick = (event: MouseEvent) => {
+  handleCtaClick(event)
+  handleStripeClientReferenceClick(event)
 }
 </script>
 
