@@ -1,22 +1,22 @@
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
-
-const GTAG_MEASUREMENT_ID = 'G-894M8FYLZF';
 const STRIPE_CLIENT_REFERENCE_PARAM = 'client_reference_id';
 
-const getGtagClientId = () => new Promise<string>(resolve => {
-  if (typeof window === 'undefined' || typeof window.gtag !== 'function') {
-    resolve('');
-    return;
+const getGtagClientIdFromCookie = () => {
+  if (typeof document === 'undefined') {
+    return '';
   }
 
-  window.gtag('get', GTAG_MEASUREMENT_ID, 'client_id', clientId => {
-    resolve(typeof clientId === 'string' ? clientId : '');
-  });
-});
+  const gaCookie = document.cookie
+    .split('; ')
+    .find(cookie => cookie.startsWith('_ga='));
+
+  if (!gaCookie) {
+    return '';
+  }
+
+  const [, , clientIdPart1, clientIdPart2] = decodeURIComponent(gaCookie.slice('_ga='.length)).split('.');
+
+  return clientIdPart1 && clientIdPart2 ? `${clientIdPart1}.${clientIdPart2}` : '';
+};
 
 export const stripeLinkWithClientReferenceId = (link: string, clientReferenceId = '') => {
   if (!clientReferenceId) {
@@ -33,6 +33,6 @@ export const handleStripeClientReferenceClick = async (event: MouseEvent) => {
 
   event.preventDefault();
 
-  const clientReferenceId = await getGtagClientId();
+  const clientReferenceId = getGtagClientIdFromCookie();
   window.location.href = stripeLinkWithClientReferenceId(link.href, clientReferenceId);
 };
