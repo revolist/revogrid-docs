@@ -26,7 +26,8 @@ hero:
   actions:
     - theme: brand
       text: Explore use cases
-      link: https://rv-grid.com/demo/
+      link: /demo/
+      target: self
     - theme: alt
       text: Read docs
       link: /guide/

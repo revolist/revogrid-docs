@@ -21,7 +21,7 @@ hero:
   tagline: Build spreadsheet-grade tables with fast rendering, custom cells, inline editing, keyboard navigation, and framework-friendly APIs. Start with the core grid. Add Pivot and Gantt when your product needs them.
   primaryAction:
     text: Try live demo
-    link: https://rv-grid.com/demo
+    link: /demo
     target: self
   secondaryAction:
     text: View docs
@@ -71,13 +71,14 @@ demos:
   items:
     - title: Large Dataset
       description: 100,000+ rows with smooth scrolling.
-      link: https://rv-grid.com/demo/hr
+      link: /demo/hr
       type: dataset
       target: self
     - title: Spreadsheet Editing
       description: Selection, copy/paste, keyboard navigation, and inline editors.
-      link: https://rv-grid.com/demo/color
+      link: /demo/color
       type: editing
+      target: self
     - title: Custom Cell Types
       description: Build badges, progress bars, ratings, dropdowns, and any custom renderer.
       target: self
@@ -134,7 +135,7 @@ developer:
     - text: Read docs
       link: /guide/
     - text: View examples
-      link: https://rv-grid.com/demo/demo/hr
+      link: /demo/demo/hr
       target: self
   tabs:
     - id: angular
@@ -267,7 +268,7 @@ advanced:
     - title: ERP Workflows
       tag: Pro Advanced
       type: erp
-      link: https://rv-grid.com/demo/ecommerce
+      link: /demo/ecommerce
       description: Use RevoGrid as the interface layer for inventory, finance, admin, and operations workflows.
       target: self
 
@@ -397,7 +398,7 @@ finalCta:
   note: Per-developer licensing. No deployment counting. Upgrade anytime.
   actions:
     - text: Try live demo
-      link: https://rv-grid.com/demo
+      link: /demo
       variant: primary
       target: self
     - text: View pricing

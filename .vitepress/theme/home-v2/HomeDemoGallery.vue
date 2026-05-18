@@ -8,6 +8,8 @@
           :key="demo.title"
           class="rg-demo-card"
           :href="linkOf(demo.link)"
+          :target="demo.target"
+          :rel="demo.rel"
         >
           <DemoPreview :type="demo.type" />
           <div class="rg-demo-card-body">
