@@ -8,7 +8,7 @@ const props = withDefaults(
         title?: string
     }>(),
     {
-        fallbackDemo: 'color',
+        fallbackDemo: 'hr',
     },
 )
 

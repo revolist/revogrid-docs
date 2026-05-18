@@ -30,7 +30,7 @@ import FeaturesGrid from './FeaturesGrid.vue'
 
 # RevoGrid Pro Feature Videos
 
-Click on the features below to see video previews, jump into [interactive demos](https://demo.rv-grid.com/?framework=all), or [compare our plans](/pro).
+Click on the features below to see video previews, explore the feature demos below, or [compare our plans](/pro).
 
 </div>
 <br/>

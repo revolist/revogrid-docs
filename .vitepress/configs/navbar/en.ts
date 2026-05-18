@@ -1,5 +1,4 @@
 import type { DefaultTheme } from 'vitepress'
-import { demosPortalUrl } from '../demoPortal'
 
 export const navbarEn: DefaultTheme.NavItem[] = [
   {
@@ -29,17 +28,8 @@ export const navbarEn: DefaultTheme.NavItem[] = [
   },
   {
     text: 'Demos',
-    items: [
-      {
-        text: 'Use Cases',
-        link: '/demo/',
-        activeMatch: '^/demo/',
-      },
-      {
-        text: 'Examples Portal',
-        link: demosPortalUrl('/', { framework: 'all' }),
-      },
-    ],
+    link: '/demo/hr',
+    activeMatch: '^/demo/',
   },
   {
     text: 'Pricing',

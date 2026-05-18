@@ -1,54 +1,3 @@
-import { demosPortalUrl } from '../.vitepress/configs/demoPortal'
-
-const directDemoUrl = (demo: string) =>
-    demosPortalUrl('/demo.html', { demo, framework: 'ts' })
-
-const featureDemoIds: Record<string, string> = {
-    'Pivot Table': 'pivot',
-    'Gantt & Scheduling': 'gantt-showcase',
-    'Hierarchical Data View': 'tree',
-    'Row Transpose': 'row-transpose',
-    'Nested Grid': 'nested-grid',
-    'Master Detail': 'row-master',
-    'Smart Auto Fill': 'autofill',
-    'Merge Cells': 'cell-merge',
-    'Auto Merge': 'auto-merge',
-    'Column Collapse & Expand (Drill Down)': 'column-collapse',
-    'Column Hide': 'column-hide',
-    'Column Stretch': 'column-stretch',
-    'Sticky Cells and Rows': 'sticky-cells',
-    'Advanced Selection Filtering': 'filter-selection',
-    'Selection Filter Cascade': 'filter-selection-cascade',
-    'Advanced Slider Filtering': 'filter-slider',
-    'Header Input Filtering': 'filter-header',
-    'Date Filter': 'filter-date',
-    'Cell Validation': 'validate-basic',
-    'Input Validation': 'validate-input',
-    'Pagination': 'pagination-local',
-    'Pagination Remote': 'pagination-remote',
-    'Infinite Scroll': 'infinity-scroll',
-    'Formula': 'formula',
-    'History': 'history',
-    'Audit Trail History': 'audit-history',
-    'Cell Flash': 'cell-flash',
-    'Charts': 'charts',
-    'Context Menu': 'row-context',
-    'Tooltip': 'tooltip',
-    'Row Auto Size': 'row-autosize',
-    'Row Odd Styling': 'row-odd',
-    'Row Custom Heading': 'row-header',
-    'Row Advanced Drag and Drop': 'row-order',
-    'Clipboard with JSON': 'clipboard-json',
-    'Event Manager': 'event-manager',
-    'Overlay layers': 'overlay-notes',
-    'Dynamic Form Editing': 'form-edit',
-    'Full Row Editing': 'editor-row',
-    'Cell Checkbox Editors': 'editor-checkbox',
-    'Cell Slider Editor': 'editor-slider',
-    'Cell Counter Editor': 'editor-counter',
-    'Timeline Editor': 'editor-timeline',
-}
-
 const featuresProBase = [
     {
         title: 'Hierarchical Data View',
@@ -100,7 +49,6 @@ const featuresProBase = [
         group: 'Data Management',
         description:
             'Record and review detailed data-change history for audit workflows. Use it when teams need traceability for edits, user actions, or operational review.',
-        demoUrl: directDemoUrl('audit-history'),
     },
     {
         title: 'History',
@@ -113,7 +61,6 @@ const featuresProBase = [
         title: 'Range Apply Preview',
         thumbnail: '/img/clipboard.png',
         group: 'Data Management',
-        demoUrl: directDemoUrl('range-copy-preview'),
         description:
             'Preview pending range copy, paste, or fill changes before applying them to the grid. Useful for validating target cells, confirming mapped values, and preventing accidental bulk updates.',
     },
@@ -121,7 +68,6 @@ const featuresProBase = [
         title: 'Excel Export/Import',
         thumbnail: '/img/excel.png',
         group: 'Data Management',
-        demoUrl: directDemoUrl('export-excel'),
         description:
             'Export data to Excel format. Supported types include `xlsx`, `xlsm`, `xlsb`, `xls`, and more.',
         videoUrl: '/video/excel-export.mp4',
@@ -160,7 +106,6 @@ const featuresProBase = [
     {
         title: 'Grouping Aggregation',
         thumbnail: '/img/aggregation.png',
-        demoUrl: directDemoUrl('grouping-aggregations'),
         group: 'Advanced Calculations',
         description: 'Apply summary functions like sum, average, and more to grouped data.',
     },
@@ -177,7 +122,6 @@ const featuresProBase = [
         group: 'Data Filtering & Search',
         description:
             'Cascade selection filters so each filter narrows the available options in the next one. This helps users drill into related dimensions without choosing impossible combinations.',
-        demoUrl: directDemoUrl('filter-selection-cascade'),
     },
     {
         title: 'Advanced Slider Filtering',
@@ -216,7 +160,6 @@ const featuresProBase = [
         group: 'Layout & Styling',
         description:
             'Keep important cells and rows visible while users scroll through large datasets. Use it for totals, labels, actions, or context rows that must stay available during navigation.',
-        demoUrl: directDemoUrl('sticky-cells'),
     },
     {
         title: 'Charts',
@@ -236,7 +179,6 @@ const featuresProBase = [
     {
         title: 'Heat&Cold Maps',
         thumbnail: '/img/heatmap.png',
-        demoUrl: directDemoUrl('heatmap'),
         videoUrl: '/video/heatmap.mp4',
         group: 'Data Visualization',
         description:
@@ -511,12 +453,7 @@ const featuresProBase = [
     },
 ]
 
-export const featuresPro = featuresProBase.map((feature) => ({
-    ...feature,
-    demoUrl: feature.demoUrl || (featureDemoIds[feature.title]
-        ? directDemoUrl(featureDemoIds[feature.title])
-        : undefined),
-}))
+export const featuresPro = featuresProBase
 export const proWhy = [
     {
         avatar: '/flash-circle.svg',
