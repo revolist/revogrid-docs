@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useData } from 'vitepress'
 import ContactForm from '../pro/ContactForm.vue'
 import PricingFaq from './PricingFaq.vue'
@@ -22,7 +22,60 @@ import type { PricingPageData } from './types'
 
 const { frontmatter } = useData()
 
-const pricingPage = frontmatter.value.pricingPage as PricingPageData
+const defaultPricingPage: PricingPageData = {
+  hero: {
+    eyebrow: 'Pricing',
+    title: 'RevoGrid Pro Pricing.',
+    titleEmphasis: 'Plans for data grid teams.',
+    subtitle: 'No deployment fees. No runtime royalties. Simple per-developer annual pricing.',
+  },
+  featureComparison: {
+    heading: 'Full feature comparison',
+  },
+  faq: {
+    heading: 'Frequently asked questions',
+    items: [],
+  },
+  cta: {
+    title: 'Start free. Upgrade when',
+    titleEmphasis: "you're ready.",
+    subtitle: 'No credit card required for the open-source build. Pro trials available on request.',
+    primary: {
+      label: 'Get started free',
+      href: 'https://github.com/revolist/revogrid',
+      external: true,
+    },
+    secondary: {
+      label: 'Explore Pro features',
+      href: '/pro/',
+    },
+    footerLinks: [],
+  },
+}
+
+const pricingPage = computed<PricingPageData>(() => {
+  const page = frontmatter.value.pricingPage as Partial<PricingPageData> | undefined
+
+  return {
+    hero: { ...defaultPricingPage.hero, ...page?.hero },
+    featureComparison: {
+      ...defaultPricingPage.featureComparison,
+      ...page?.featureComparison,
+    },
+    faq: {
+      ...defaultPricingPage.faq,
+      ...page?.faq,
+      items: page?.faq?.items ?? defaultPricingPage.faq.items,
+    },
+    cta: {
+      ...defaultPricingPage.cta,
+      ...page?.cta,
+      primary: { ...defaultPricingPage.cta.primary, ...page?.cta?.primary },
+      secondary: { ...defaultPricingPage.cta.secondary, ...page?.cta?.secondary },
+      footerLinks: page?.cta?.footerLinks ?? defaultPricingPage.cta.footerLinks,
+    },
+  }
+})
 const showContactForm = ref(false)
 </script>
 
