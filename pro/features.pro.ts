@@ -388,7 +388,6 @@ const featuresProBase = [
         thumbnail: '/img/pivot.png',
         videoUrl: '/video/pivot.mp4',
         group: 'Enterprise Tools',
-        link: 'https://pro.rv-grid.com/guides/pivot/',
         description: `
         Production-ready Pivot grid for multidimensional analytics, reporting, and OLAP-style workflows. Includes client-side and server-side engines, interactive configuration, drill-down, totals, and advanced layout control.
         `,
@@ -422,7 +421,6 @@ const featuresProBase = [
         title: 'Gantt & Scheduling',
         thumbnail: '/img/gantt.png',
         group: 'Enterprise Tools',
-        link: 'https://pro.rv-grid.com/guides/gantt/',
         beta: true,
         description: 'Production-ready Gantt chart and scheduling view for project planning, dependency management, resource allocation, and timeline analysis.',
         subFeatures: [
