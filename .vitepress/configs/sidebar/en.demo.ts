@@ -209,3 +209,29 @@ export const sidebarGuideDemosEn: DefaultTheme.SidebarItem[] = [
     },
 ]
 
+export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
+    {
+        text: 'Grid at Scale',
+        link: '/demo/',
+    },
+    {
+        text: 'HR Workspace',
+        link: '/demo/hr',
+    },
+    {
+        text: 'Pivot Analytics Workspace',
+        link: '/demo/pivot',
+    },
+    {
+        text: 'Project Tracker',
+        link: '/demo/color',
+    },
+    {
+        text: 'Gantt Workspace',
+        link: '/demo/gantt',
+    },
+    {
+        text: 'Ecommerce Workspace',
+        link: '/demo/ecommerce',
+    },
+]
