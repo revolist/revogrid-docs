@@ -153,6 +153,6 @@ Create a Core-only React RevoGrid with editable cells and custom column types. U
 
 - [Quick Start](/guide/)
 - [Overview](/guide/overview)
-- [Examples](/demo/)
+- [Examples](https://rv-grid.com/demo/)
 - [Migration](/guide/migration)
 - [Typings](/guide/types/README)

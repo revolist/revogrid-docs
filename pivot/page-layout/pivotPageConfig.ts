@@ -19,8 +19,8 @@ const DEFAULT_PAGE: PivotLandingPage = {
     titleSuffix: 'analytics, embedded.',
     description: 'Drag-and-drop pivot tables for web apps. Slice any dataset by rows, columns, aggregations, and filters without leaving the page.',
     actions: [
-      { label: 'Try live demo', href: '/demo/pivot', arrow: true },
-      { label: 'Read docs', href: 'https://pro.rv-grid.com/guides/pivot/', variant: 'secondary', target: '_blank', rel: 'noopener' },
+      { label: 'Try live demo', href: 'https://rv-grid.com/demo/pivot', arrow: true },
+      { label: 'Get Pro', href: 'https://rv-grid.com/pricing/', variant: 'secondary', target: '_blank', rel: 'noopener' },
     ],
     badges: [
       'Drag-and-drop dimensions',
@@ -93,7 +93,7 @@ const DEFAULT_PAGE: PivotLandingPage = {
   cta: {
     title: 'Embed pivot analytics\nin your product.',
     description: 'Client-side pivot tables for React, Vue, Angular, Svelte, and vanilla JS. Included in Pro Advanced.',
-    primaryHref: '/demo/pivot',
+    primaryHref: 'https://rv-grid.com/demo/pivot',
     primaryLabel: 'Try live demo',
     secondaryHref: '/pricing',
     secondaryLabel: 'View Pro pricing',

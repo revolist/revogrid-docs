@@ -77,8 +77,8 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
     title: 'The interactive Gantt your app deserves.',
     description: 'Production-ready project scheduling for SaaS, ERP, and operations platforms. Drag-to-reschedule tasks, assign owners, track progress, and embed it as a native product feature.',
     actions: [
-      { label: 'Try live demo', href: '/demo/gantt', arrow: true },
-      { label: 'Read docs', href: 'https://pro.rv-grid.com/guides/gantt/', variant: 'secondary', target: '_blank', rel: 'noopener' },
+      { label: 'Try live demo', href: 'https://rv-grid.com/demo/gantt', arrow: true },
+      { label: 'Get Pro', href: 'https://rv-grid.com/pricing/', variant: 'secondary', target: '_blank', rel: 'noopener' },
     ],
     badges: ['Drag to reschedule', 'Inline assignees', 'Progress bars', 'Milestones'],
   },
@@ -161,7 +161,7 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
   cta: {
     title: 'Ship Gantt as a feature, not a project.',
     description: 'Embed RevoGrid Gantt in your product and keep the scheduling experience under your control.',
-    primaryHref: '/demo/gantt',
+    primaryHref: 'https://rv-grid.com/demo/gantt',
     primaryLabel: 'Try live demo',
     secondaryHref: '/pricing',
     secondaryLabel: 'View Pro pricing',

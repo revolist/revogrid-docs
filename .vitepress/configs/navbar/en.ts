@@ -28,7 +28,7 @@ export const navbarEn: DefaultTheme.NavItem[] = [
   },
   {
     text: 'Demos',
-    link: '/demo/hr',
+    link: 'https://rv-grid.com/demo/hr',
     activeMatch: '^/demo/',
   },
   {

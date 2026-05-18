@@ -136,4 +136,4 @@ If a plugin editor does not open, confirm that the package is installed, importe
 
 If displayed values and filtering behave differently, add a `cellParser` to return the value that filter logic should use.
 
-Check the [live demos](/demo/) for working grid examples, or use [Column Configuration](/guide/column/) for the full list of column options.
+Check the [live demos](https://rv-grid.com/demo/) for working grid examples, or use [Column Configuration](/guide/column/) for the full list of column options.
