@@ -23,4 +23,8 @@ head:
       content: Track projects, owners, deadlines, priorities, and statuses in a color-coded RevoGrid Pro workspace with fast editable grid interactions.
 ---
 
-<ProDemoFrame />
+<script setup>
+import DocsDemoShowcase from "@/.vitepress/theme/demos/DocsDemoShowcase.vue"
+</script>
+
+<DocsDemoShowcase active="color" />

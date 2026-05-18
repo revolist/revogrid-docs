@@ -8,3 +8,7 @@ export function createDefaultTaskTableColumn(prop: string) {
     name: prop,
   }
 }
+
+export function defineGanttToolbar() {
+  return undefined
+}

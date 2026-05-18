@@ -23,4 +23,8 @@ head:
       content: Analyze complex datasets inside your application with RevoGrid Pro Pivot Grid, aggregation, grouping, drill-down, and high-performance grid rendering.
 ---
 
-<ProDemoFrame />
+<script setup>
+import DocsDemoShowcase from "@/.vitepress/theme/demos/DocsDemoShowcase.vue"
+</script>
+
+<DocsDemoShowcase active="pivot" />

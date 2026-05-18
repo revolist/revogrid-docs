@@ -16,4 +16,8 @@ head:
         content: RevoGrid Pro Demo, Data Grid, Data Table, JavaScript Grid, Vue Grid, React Grid, Angular Grid, High-Performance Grid, Excel Export, Scalable Data Grids, Customizable Grid, Data Filtering
 ---
 
-<ProDemoFrame />
+<script setup>
+import DocsDemoShowcase from "@/.vitepress/theme/demos/DocsDemoShowcase.vue"
+</script>
+
+<DocsDemoShowcase active="hr" />

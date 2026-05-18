@@ -23,4 +23,8 @@ head:
       content: Use RevoGrid Pro as the interface layer for ecommerce, inventory, finance, admin, and operations workflows with high-performance editable grids.
 ---
 
-<ProDemoFrame />
+<script setup>
+import DocsDemoShowcase from "@/.vitepress/theme/demos/DocsDemoShowcase.vue"
+</script>
+
+<DocsDemoShowcase active="ecommerce" />

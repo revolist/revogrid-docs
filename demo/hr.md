@@ -23,4 +23,8 @@ head:
       content: Use RevoGrid Pro for HR and workforce operations with editable employee records, filtering, grouping, and high-performance data grid workflows.
 ---
 
-<ProDemoFrame />
+<script setup>
+import DocsDemoShowcase from "@/.vitepress/theme/demos/DocsDemoShowcase.vue"
+</script>
+
+<DocsDemoShowcase active="hr" />

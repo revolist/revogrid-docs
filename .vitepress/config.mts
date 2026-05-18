@@ -1,4 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
+import { readFile } from 'node:fs/promises'
 import { DefaultTheme, defineConfig, HeadConfig, UserConfig } from 'vitepress'
 import svgLoader from 'vite-svg-loader'
 import { navbarEn } from './configs/navbar'
@@ -12,6 +13,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import markdownItAttrs from 'markdown-it-attrs'
 import type MarkdownIt from 'markdown-it'
+import UnoCSS from 'unocss/vite'
 
 dotenv.config()
 
@@ -52,8 +54,19 @@ const mermaidMarkdownPlugin = (md: MarkdownIt) => {
 }
 
 const useLocalProPackages = process.env.npm_lifecycle_event === 'dev' || process.argv.includes('dev')
+const localExamplesPackageRoot = path.resolve(__dirname, '../../../examples/components')
+const localExamplesSourceRoot = path.resolve(localExamplesPackageRoot, 'src')
+const localExamplesComponentsRoot = path.resolve(localExamplesSourceRoot, 'components')
 const localProPackageAliases = useLocalProPackages
     ? [
+        {
+            find: '@revolist/revogrid-pro/dist/revogrid-pro.css',
+            replacement: path.resolve(__dirname, '../../../packages/pro/dist/revogrid-pro.css'),
+        },
+        {
+            find: '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css',
+            replacement: path.resolve(__dirname, '../../../packages/enterprise/dist/revogrid-enterprise.css'),
+        },
         {
             find: '@revolist/revogrid-pro',
             replacement: path.resolve(__dirname, '../../../packages/pro'),
@@ -61,6 +74,10 @@ const localProPackageAliases = useLocalProPackages
         {
             find: '@revolist/revogrid-enterprise',
             replacement: path.resolve(__dirname, '../../../packages/enterprise'),
+        },
+        {
+            find: '@revolist/revogrid-examples',
+            replacement: localExamplesSourceRoot,
         },
     ]
     : []
@@ -144,6 +161,28 @@ const browserOnlyPackageSsrShims = () => ({
 
         if (source === '@revolist/revogrid-pro') {
             return path.resolve(__dirname, 'revogrid-pro-ssr-shim.ts')
+        }
+
+        return null
+    },
+})
+
+const exampleDataModules = () => ({
+    name: 'revogrid-example-data-modules',
+    enforce: 'pre' as const,
+    async load(id: string) {
+        if (id.includes('?raw')) {
+            return null
+        }
+
+        const cleanId = id.replace(/\?.*$/, '').replace(/\\/g, '/')
+        const localComponentsRoot = `${localExamplesComponentsRoot.replace(/\\/g, '/')}/`
+        const isExamplesComponentModule =
+            cleanId.startsWith(localComponentsRoot) ||
+            cleanId.includes('/node_modules/@revolist/revogrid-examples/src/components/')
+
+        if (isExamplesComponentModule && /\.data\.[cm]?[jt]s$/.test(cleanId)) {
+            return readFile(cleanId, 'utf-8')
         }
 
         return null
@@ -330,7 +369,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     )
                 },
             },
+            exampleDataModules(),
             browserOnlyPackageSsrShims(),
+            UnoCSS({
+                configFile: path.resolve(__dirname, './uno.config.ts'),
+            }),
             AutoImport({
                 resolvers: [ElementPlusResolver()],
             }),

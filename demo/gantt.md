@@ -23,4 +23,8 @@ head:
       content: Build planning and timeline interfaces with RevoGrid Pro Gantt Chart, task scheduling, dependencies, milestones, and resource views.
 ---
 
-<ProDemoFrame />
+<script setup>
+import DocsDemoShowcase from "@/.vitepress/theme/demos/DocsDemoShowcase.vue"
+</script>
+
+<DocsDemoShowcase active="gantt" />
