@@ -1,0 +1,661 @@
+- generic [ref=e3]:
+  - link "Skip to content" [ref=e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "RevoGrid" [ref=e6] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e7]: RevoGrid
+          - generic [ref=e8]:
+            - button "Search" [ref=e10] [cursor=pointer]:
+              - generic [ref=e12]: Search
+              - generic [ref=e13]:
+                - generic [ref=e14]: ⌘
+                - generic [ref=e15]: K
+            - navigation "Main Navigation" [ref=e16]:
+              - generic [ref=e17]: Main Navigation
+              - button "Product" [ref=e19] [cursor=pointer]:
+                - generic [ref=e21]: Product
+              - link "Docs" [ref=e23] [cursor=pointer]:
+                - /url: /guide/
+                - generic [ref=e24]: Docs
+              - button "Demos" [ref=e26] [cursor=pointer]:
+                - generic [ref=e28]: Demos
+              - link "Pricing" [ref=e30] [cursor=pointer]:
+                - /url: /pricing
+                - generic [ref=e31]: Pricing
+              - link "RevoGrid Pro" [ref=e32] [cursor=pointer]:
+                - /url: /pro/
+                - generic [ref=e33]: RevoGrid Pro
+              - button "Links" [ref=e35] [cursor=pointer]:
+                - generic [ref=e37]: Links
+            - button "extra navigation" [ref=e40] [cursor=pointer]
+  - main [ref=e47]:
+    - generic [ref=e50]:
+      - complementary "Use case navigation" [ref=e51]:
+        - generic [ref=e52]:
+          - generic [ref=e53]: Use cases
+          - generic [ref=e54]: "05"
+        - navigation [ref=e55]:
+          - link "Grid at Scale Core" [ref=e56] [cursor=pointer]:
+            - /url: /demo/hr
+            - generic [ref=e57]:
+              - generic [ref=e58]: "01"
+              - img [ref=e60]
+              - img [ref=e63]
+            - generic [ref=e79]:
+              - generic [ref=e80]: Grid at Scale
+              - generic [ref=e81]: Core
+          - link "Customer Analytics Pro" [ref=e82] [cursor=pointer]:
+            - /url: /demo/ecommerce
+            - generic [ref=e83]:
+              - generic [ref=e84]: "02"
+              - img [ref=e86]
+              - img [ref=e90]
+            - generic [ref=e102]:
+              - generic [ref=e103]: Customer Analytics
+              - generic [ref=e104]: Pro
+          - link "Project Tracker Pro" [ref=e105] [cursor=pointer]:
+            - /url: /demo/color
+            - generic [ref=e106]:
+              - generic [ref=e107]: "03"
+              - img [ref=e109]
+              - img [ref=e111]
+            - generic [ref=e122]:
+              - generic [ref=e123]: Project Tracker
+              - generic [ref=e124]: Pro
+          - link "Pivot Enterprise" [ref=e125] [cursor=pointer]:
+            - /url: /demo/pivot
+            - generic [ref=e126]:
+              - generic [ref=e127]: "04"
+              - img [ref=e129]
+              - img [ref=e132]
+            - generic [ref=e140]:
+              - generic [ref=e141]: Pivot
+              - generic [ref=e142]: Enterprise
+          - link "Gantt Enterprise" [ref=e143] [cursor=pointer]:
+            - /url: /demo/gantt
+            - generic [ref=e144]:
+              - generic [ref=e145]: "05"
+              - img [ref=e147]
+              - img [ref=e149]
+            - generic [ref=e155]:
+              - generic [ref=e156]: Gantt
+              - generic [ref=e157]: Enterprise
+      - main [ref=e158]:
+        - generic [ref=e160]:
+          - generic [ref=e163] [cursor=pointer]: Row grouping
+          - generic [ref=e166]:
+            - generic [ref=e168]:
+              - button "Reset layout" [ref=e170] [cursor=pointer]
+              - generic [ref=e171]:
+                - searchbox "Search fields" [ref=e172]
+                - list [ref=e174]:
+                  - listitem [ref=e175]:
+                    - text: "::"
+                    - checkbox [ref=e176]
+                    - generic [ref=e177]: Age
+                  - listitem [ref=e178]:
+                    - text: "::"
+                    - checkbox [checked] [ref=e179]
+                    - generic [ref=e180]: Time
+                  - listitem [ref=e181]:
+                    - text: "::"
+                    - checkbox [checked] [ref=e182]
+                    - generic [ref=e183]: City
+                  - listitem [ref=e184]:
+                    - text: "::"
+                    - checkbox [ref=e185]
+                    - generic [ref=e186]: Gender
+                  - listitem [ref=e187]:
+                    - text: "::"
+                    - checkbox [checked] [ref=e188]
+                    - generic [ref=e189]: Membership Type
+                  - listitem [ref=e190]:
+                    - text: "::"
+                    - checkbox [checked] [ref=e191]
+                    - generic [ref=e192]: Total Spend
+                  - listitem [ref=e193]:
+                    - text: "::"
+                    - checkbox [ref=e194]
+                    - generic [ref=e195]: Spend Change %
+                  - listitem [ref=e196]:
+                    - text: "::"
+                    - checkbox [checked] [ref=e197]
+                    - generic [ref=e198]: Avg Rating
+                  - listitem [ref=e199]:
+                    - text: "::"
+                    - checkbox [checked] [ref=e200]
+                    - generic [ref=e201]: Discount Applied
+              - generic [ref=e202]:
+                - generic [ref=e203]:
+                  - generic [ref=e205]:
+                    - img [ref=e207]
+                    - text: Rows
+                  - list [ref=e210]:
+                    - listitem [ref=e211]:
+                      - text: "::"
+                      - generic [ref=e212]: City
+                      - button "Remove" [ref=e213] [cursor=pointer]:
+                        - img [ref=e214]
+                    - listitem [ref=e216]:
+                      - text: "::"
+                      - generic [ref=e217]: Membership Type
+                      - button "Remove" [ref=e218] [cursor=pointer]:
+                        - img [ref=e219]
+                - generic [ref=e221]:
+                  - generic [ref=e223]:
+                    - img [ref=e225]
+                    - text: Columns
+                  - list [ref=e227]:
+                    - listitem [ref=e228]:
+                      - text: "::"
+                      - generic [ref=e229]: Time
+                      - button "Remove" [ref=e230] [cursor=pointer]:
+                        - img [ref=e231]
+                    - listitem [ref=e233]:
+                      - text: "::"
+                      - generic [ref=e234]: Discount Applied
+                      - button "Remove" [ref=e235] [cursor=pointer]:
+                        - img [ref=e236]
+                - generic [ref=e238]:
+                  - generic [ref=e240]:
+                    - img [ref=e242]
+                    - text: Data
+                  - list [ref=e245]:
+                    - listitem [ref=e246]:
+                      - text: "::"
+                      - generic [ref=e248]:
+                        - text: Total Spend
+                        - combobox [ref=e249] [cursor=pointer]:
+                          - option "sum" [selected]
+                          - option "avg"
+                          - option "min"
+                          - option "max"
+                      - button "Remove" [ref=e250] [cursor=pointer]:
+                        - img [ref=e251]
+                    - listitem [ref=e253]:
+                      - text: "::"
+                      - generic [ref=e255]:
+                        - text: Total Spend
+                        - combobox [ref=e256] [cursor=pointer]:
+                          - option "sum" [selected]
+                          - option "avg"
+                          - option "min"
+                          - option "max"
+                      - button "Remove" [ref=e257] [cursor=pointer]:
+                        - img [ref=e258]
+                    - listitem [ref=e260]:
+                      - text: "::"
+                      - generic [ref=e262]:
+                        - text: Avg Rating
+                        - combobox [ref=e263] [cursor=pointer]:
+                          - option "prg"
+                          - option "star"
+                          - option "prgvalue" [selected]
+                      - button "Remove" [ref=e264] [cursor=pointer]:
+                        - img [ref=e265]
+                - generic [ref=e267]:
+                  - generic [ref=e268]: Filters
+                  - list [ref=e269]:
+                    - listitem [ref=e270]:
+                      - text: "::"
+                      - generic [ref=e271]: Gender
+                      - button "Remove" [ref=e272] [cursor=pointer]:
+                        - img [ref=e273]
+                    - listitem [ref=e275]:
+                      - text: "::"
+                      - generic [ref=e276]: Membership Type
+                      - button "Remove" [ref=e277] [cursor=pointer]:
+                        - img [ref=e278]
+                    - listitem [ref=e280]:
+                      - text: "::"
+                      - generic [ref=e281]: Discount Applied
+                      - button "Remove" [ref=e282] [cursor=pointer]:
+                        - img [ref=e283]
+            - treegrid [ref=e285]:
+              - generic [ref=e289]:
+                - generic [ref=e291]:
+                  - generic [ref=e292]:
+                    - generic [ref=e298]:
+                      - generic [ref=e300]: 00:00
+                      - button "▼" [ref=e301] [cursor=pointer]:
+                        - generic [ref=e302]: ▼
+                    - generic [ref=e306]:
+                      - generic [ref=e308]: 01:00
+                      - button "▼" [ref=e309] [cursor=pointer]:
+                        - generic [ref=e310]: ▼
+                    - generic [ref=e314]:
+                      - generic [ref=e316]: 02:00
+                      - button "▼" [ref=e317] [cursor=pointer]:
+                        - generic [ref=e318]: ▼
+                    - generic [ref=e322]:
+                      - generic [ref=e324]: 03:00
+                      - button "▼" [ref=e325] [cursor=pointer]:
+                        - generic [ref=e326]: ▼
+                    - generic [ref=e330]:
+                      - generic [ref=e332]: 04:00
+                      - button "▼" [ref=e333] [cursor=pointer]:
+                        - generic [ref=e334]: ▼
+                    - generic [ref=e338]:
+                      - generic [ref=e340]: 05:00
+                      - button "▼" [ref=e341] [cursor=pointer]:
+                        - generic [ref=e342]: ▼
+                    - generic [ref=e346]:
+                      - generic [ref=e348]: 06:00
+                      - button "▼" [ref=e349] [cursor=pointer]:
+                        - generic [ref=e350]: ▼
+                    - generic [ref=e354]:
+                      - generic [ref=e356]: 07:00
+                      - button "▼" [ref=e357] [cursor=pointer]:
+                        - generic [ref=e358]: ▼
+                    - generic [ref=e362]:
+                      - generic [ref=e364]: 08:00
+                      - button "▼" [ref=e365] [cursor=pointer]:
+                        - generic [ref=e366]: ▼
+                    - generic [ref=e370]:
+                      - generic [ref=e372]: 09:00
+                      - button "▼" [ref=e373] [cursor=pointer]:
+                        - generic [ref=e374]: ▼
+                    - generic [ref=e378]:
+                      - generic [ref=e380]: 10:00
+                      - button "▼" [ref=e381] [cursor=pointer]:
+                        - generic [ref=e382]: ▼
+                    - generic [ref=e386]:
+                      - generic [ref=e388]: 11:00
+                      - button "▼" [ref=e389] [cursor=pointer]:
+                        - generic [ref=e390]: ▼
+                    - generic [ref=e394]:
+                      - generic [ref=e396]: 12:00
+                      - button "▼" [ref=e397] [cursor=pointer]:
+                        - generic [ref=e398]: ▼
+                    - generic [ref=e402]:
+                      - generic [ref=e404]: 13:00
+                      - button "▼" [ref=e405] [cursor=pointer]:
+                        - generic [ref=e406]: ▼
+                    - generic [ref=e410]:
+                      - generic [ref=e412]: 14:00
+                      - button "▼" [ref=e413] [cursor=pointer]:
+                        - generic [ref=e414]: ▼
+                    - generic [ref=e418]:
+                      - generic [ref=e420]: 15:00
+                      - button "▼" [ref=e421] [cursor=pointer]:
+                        - generic [ref=e422]: ▼
+                    - generic [ref=e426]:
+                      - generic [ref=e428]: 16:00
+                      - button "▼" [ref=e429] [cursor=pointer]:
+                        - generic [ref=e430]: ▼
+                    - generic [ref=e434]:
+                      - generic [ref=e436]: 17:00
+                      - button "▼" [ref=e437] [cursor=pointer]:
+                        - generic [ref=e438]: ▼
+                    - generic [ref=e442]:
+                      - generic [ref=e444]: 18:00
+                      - button "▼" [ref=e445] [cursor=pointer]:
+                        - generic [ref=e446]: ▼
+                    - generic [ref=e450]:
+                      - generic [ref=e452]: 19:00
+                      - button "▼" [ref=e453] [cursor=pointer]:
+                        - generic [ref=e454]: ▼
+                    - generic [ref=e458]:
+                      - generic [ref=e460]: 20:00
+                      - button "▼" [ref=e461] [cursor=pointer]:
+                        - generic [ref=e462]: ▼
+                    - generic [ref=e466]:
+                      - generic [ref=e468]: 21:00
+                      - button "▼" [ref=e469] [cursor=pointer]:
+                        - generic [ref=e470]: ▼
+                    - generic [ref=e474]:
+                      - generic [ref=e476]: 22:00
+                      - button "▼" [ref=e477] [cursor=pointer]:
+                        - generic [ref=e478]: ▼
+                    - generic [ref=e482]:
+                      - generic [ref=e484]: 23:00
+                      - button "▼" [ref=e485] [cursor=pointer]:
+                        - generic [ref=e486]: ▼
+                    - generic [ref=e491]:
+                      - generic [ref=e493]: "false"
+                      - button "▼" [ref=e494] [cursor=pointer]:
+                        - generic [ref=e495]: ▼
+                    - generic [ref=e499]:
+                      - generic [ref=e501]: "true"
+                      - button "▼" [ref=e502] [cursor=pointer]:
+                        - generic [ref=e503]: ▼
+                    - generic [ref=e507]:
+                      - generic [ref=e509]: "false"
+                      - button "▼" [ref=e510] [cursor=pointer]:
+                        - generic [ref=e511]: ▼
+                    - generic [ref=e515]:
+                      - generic [ref=e517]: "true"
+                      - button "▼" [ref=e518] [cursor=pointer]:
+                        - generic [ref=e519]: ▼
+                    - generic [ref=e523]:
+                      - generic [ref=e525]: "false"
+                      - button "▼" [ref=e526] [cursor=pointer]:
+                        - generic [ref=e527]: ▼
+                    - generic [ref=e531]:
+                      - generic [ref=e533]: "true"
+                      - button "▼" [ref=e534] [cursor=pointer]:
+                        - generic [ref=e535]: ▼
+                    - generic [ref=e539]:
+                      - generic [ref=e541]: "false"
+                      - button "▼" [ref=e542] [cursor=pointer]:
+                        - generic [ref=e543]: ▼
+                    - generic [ref=e547]:
+                      - generic [ref=e549]: "true"
+                      - button "▼" [ref=e550] [cursor=pointer]:
+                        - generic [ref=e551]: ▼
+                    - generic [ref=e555]:
+                      - generic [ref=e557]: "false"
+                      - button "▼" [ref=e558] [cursor=pointer]:
+                        - generic [ref=e559]: ▼
+                    - generic [ref=e563]:
+                      - generic [ref=e565]: "true"
+                      - button "▼" [ref=e566] [cursor=pointer]:
+                        - generic [ref=e567]: ▼
+                    - generic [ref=e571]:
+                      - generic [ref=e573]: "false"
+                      - button "▼" [ref=e574] [cursor=pointer]:
+                        - generic [ref=e575]: ▼
+                    - generic [ref=e579]:
+                      - generic [ref=e581]: "true"
+                      - button "▼" [ref=e582] [cursor=pointer]:
+                        - generic [ref=e583]: ▼
+                    - generic [ref=e587]:
+                      - generic [ref=e589]: "false"
+                      - button "▼" [ref=e590] [cursor=pointer]:
+                        - generic [ref=e591]: ▼
+                    - generic [ref=e595]:
+                      - generic [ref=e597]: "true"
+                      - button "▼" [ref=e598] [cursor=pointer]:
+                        - generic [ref=e599]: ▼
+                    - generic [ref=e603]:
+                      - generic [ref=e605]: "false"
+                      - button "▼" [ref=e606] [cursor=pointer]:
+                        - generic [ref=e607]: ▼
+                    - generic [ref=e611]:
+                      - generic [ref=e613]: "true"
+                      - button "▼" [ref=e614] [cursor=pointer]:
+                        - generic [ref=e615]: ▼
+                    - generic [ref=e619]:
+                      - generic [ref=e621]: "false"
+                      - button "▼" [ref=e622] [cursor=pointer]:
+                        - generic [ref=e623]: ▼
+                    - generic [ref=e627]:
+                      - generic [ref=e629]: "true"
+                      - button "▼" [ref=e630] [cursor=pointer]:
+                        - generic [ref=e631]: ▼
+                    - generic [ref=e635]:
+                      - generic [ref=e637]: "false"
+                      - button "▼" [ref=e638] [cursor=pointer]:
+                        - generic [ref=e639]: ▼
+                    - generic [ref=e643]:
+                      - generic [ref=e645]: "true"
+                      - button "▼" [ref=e646] [cursor=pointer]:
+                        - generic [ref=e647]: ▼
+                    - generic [ref=e651]:
+                      - generic [ref=e653]: "false"
+                      - button "▼" [ref=e654] [cursor=pointer]:
+                        - generic [ref=e655]: ▼
+                    - generic [ref=e659]:
+                      - generic [ref=e661]: "true"
+                      - button "▼" [ref=e662] [cursor=pointer]:
+                        - generic [ref=e663]: ▼
+                    - generic [ref=e667]:
+                      - generic [ref=e669]: "false"
+                      - button "▼" [ref=e670] [cursor=pointer]:
+                        - generic [ref=e671]: ▼
+                    - generic [ref=e675]:
+                      - generic [ref=e677]: "true"
+                      - button "▼" [ref=e678] [cursor=pointer]:
+                        - generic [ref=e679]: ▼
+                    - generic [ref=e683]:
+                      - generic [ref=e685]: "false"
+                      - button "▼" [ref=e686] [cursor=pointer]:
+                        - generic [ref=e687]: ▼
+                    - generic [ref=e691]:
+                      - generic [ref=e693]: "true"
+                      - button "▼" [ref=e694] [cursor=pointer]:
+                        - generic [ref=e695]: ▼
+                    - generic [ref=e699]:
+                      - generic [ref=e701]: "false"
+                      - button "▼" [ref=e702] [cursor=pointer]:
+                        - generic [ref=e703]: ▼
+                    - generic [ref=e707]:
+                      - generic [ref=e709]: "true"
+                      - button "▼" [ref=e710] [cursor=pointer]:
+                        - generic [ref=e711]: ▼
+                    - generic [ref=e715]:
+                      - generic [ref=e717]: "false"
+                      - button "▼" [ref=e718] [cursor=pointer]:
+                        - generic [ref=e719]: ▼
+                    - generic [ref=e723]:
+                      - generic [ref=e725]: "true"
+                      - button "▼" [ref=e726] [cursor=pointer]:
+                        - generic [ref=e727]: ▼
+                    - generic [ref=e731]:
+                      - generic [ref=e733]: "false"
+                      - button "▼" [ref=e734] [cursor=pointer]:
+                        - generic [ref=e735]: ▼
+                    - generic [ref=e739]:
+                      - generic [ref=e741]: "true"
+                      - button "▼" [ref=e742] [cursor=pointer]:
+                        - generic [ref=e743]: ▼
+                    - generic [ref=e747]:
+                      - generic [ref=e749]: "false"
+                      - button "▼" [ref=e750] [cursor=pointer]:
+                        - generic [ref=e751]: ▼
+                    - generic [ref=e755]:
+                      - generic [ref=e757]: "true"
+                      - button "▼" [ref=e758] [cursor=pointer]:
+                        - generic [ref=e759]: ▼
+                    - generic [ref=e763]:
+                      - generic [ref=e765]: "false"
+                      - button "▼" [ref=e766] [cursor=pointer]:
+                        - generic [ref=e767]: ▼
+                    - generic [ref=e771]:
+                      - generic [ref=e773]: "true"
+                      - button "▼" [ref=e774] [cursor=pointer]:
+                        - generic [ref=e775]: ▼
+                    - generic [ref=e779]:
+                      - generic [ref=e781]: "false"
+                      - button "▼" [ref=e782] [cursor=pointer]:
+                        - generic [ref=e783]: ▼
+                    - generic [ref=e787]:
+                      - generic [ref=e789]: "true"
+                      - button "▼" [ref=e790] [cursor=pointer]:
+                        - generic [ref=e791]: ▼
+                    - generic [ref=e795]:
+                      - generic [ref=e797]: "false"
+                      - button "▼" [ref=e798] [cursor=pointer]:
+                        - generic [ref=e799]: ▼
+                    - generic [ref=e803]:
+                      - generic [ref=e805]: "true"
+                      - button "▼" [ref=e806] [cursor=pointer]:
+                        - generic [ref=e807]: ▼
+                    - generic [ref=e811]:
+                      - generic [ref=e813]: "false"
+                      - button "▼" [ref=e814] [cursor=pointer]:
+                        - generic [ref=e815]: ▼
+                    - generic [ref=e819]:
+                      - generic [ref=e821]: "true"
+                      - button "▼" [ref=e822] [cursor=pointer]:
+                        - generic [ref=e823]: ▼
+                    - generic [ref=e827]:
+                      - generic [ref=e829]: "false"
+                      - button "▼" [ref=e830] [cursor=pointer]:
+                        - generic [ref=e831]: ▼
+                    - generic [ref=e835]:
+                      - generic [ref=e837]: "true"
+                      - button "▼" [ref=e838] [cursor=pointer]:
+                        - generic [ref=e839]: ▼
+                    - generic [ref=e843]:
+                      - generic [ref=e845]: "false"
+                      - button "▼" [ref=e846] [cursor=pointer]:
+                        - generic [ref=e847]: ▼
+                    - generic [ref=e851]:
+                      - generic [ref=e853]: "true"
+                      - button "▼" [ref=e854] [cursor=pointer]:
+                        - generic [ref=e855]: ▼
+                    - generic [ref=e859]:
+                      - generic [ref=e861]: "false"
+                      - button "▼" [ref=e862] [cursor=pointer]:
+                        - generic [ref=e863]: ▼
+                    - generic [ref=e867]:
+                      - generic [ref=e869]: "true"
+                      - button "▼" [ref=e870] [cursor=pointer]:
+                        - generic [ref=e871]: ▼
+                  - generic [ref=e874]:
+                    - columnheader "City All ↑" [ref=e875] [cursor=pointer]:
+                      - generic [ref=e877]:
+                        - generic [ref=e878]: City
+                        - textbox "Filter City" [disabled] [ref=e880]: All
+                      - generic [ref=e881]: ↑
+                      - button [ref=e882]:
+                        - img [ref=e883]
+                    - columnheader "Membership Type All" [ref=e887] [cursor=pointer]:
+                      - generic [ref=e889]:
+                        - generic [ref=e890]: Membership Type
+                        - textbox "Filter Membership Type" [disabled] [ref=e892]: All
+                      - button [ref=e893]:
+                        - img [ref=e894]
+                    - columnheader "Total Spend (sum)" [ref=e898] [cursor=pointer]:
+                      - generic [ref=e900]:
+                        - generic [ref=e901]: Total Spend (sum)
+                        - textbox "Total Spend?" [ref=e903]
+                      - button [ref=e904]:
+                        - img [ref=e905]
+                    - columnheader "Total Spend (avg)" [ref=e909] [cursor=pointer]:
+                      - generic [ref=e911]:
+                        - generic [ref=e912]: Total Spend (avg)
+                        - textbox "Total Spend?" [ref=e914]
+                      - button [ref=e915]:
+                        - img [ref=e916]
+                    - columnheader "Avg Rating" [ref=e920] [cursor=pointer]:
+                      - generic [ref=e922]:
+                        - generic [ref=e923]: Avg Rating
+                        - textbox "Avg Rating?" [disabled] [ref=e925]
+                      - button [ref=e926]:
+                        - img [ref=e927]
+                    - columnheader "Total Spend (sum)" [ref=e931] [cursor=pointer]:
+                      - generic [ref=e933]:
+                        - generic [ref=e934]: Total Spend (sum)
+                        - textbox "Total Spend?" [ref=e936]
+                      - button [ref=e937]:
+                        - img [ref=e938]
+                    - columnheader "Total Spend (avg)" [ref=e942] [cursor=pointer]:
+                      - generic [ref=e944]:
+                        - generic [ref=e945]: Total Spend (avg)
+                        - textbox "Total Spend?" [ref=e947]
+                      - button [ref=e948]:
+                        - img [ref=e949]
+                - generic [ref=e956]:
+                  - row "Chicago Bronze" [ref=e957]:
+                    - gridcell "Chicago" [ref=e958]
+                    - gridcell "Bronze" [ref=e959]
+                    - gridcell [ref=e960]
+                    - gridcell [ref=e961]
+                    - gridcell [ref=e962]
+                    - gridcell [ref=e963]
+                    - gridcell [ref=e964]
+                  - row "Chicago Subtotal" [ref=e965]:
+                    - gridcell "Chicago" [ref=e966]
+                    - gridcell "Subtotal" [ref=e967]
+                    - gridcell [ref=e968]
+                    - gridcell [ref=e969]
+                    - gridcell [ref=e970]
+                    - gridcell [ref=e971]
+                    - gridcell [ref=e972]
+                  - row "Houston Bronze" [ref=e973]:
+                    - gridcell "Houston" [ref=e974]
+                    - gridcell "Bronze" [ref=e975]
+                    - gridcell [ref=e976]
+                    - gridcell [ref=e977]
+                    - gridcell [ref=e978]
+                    - gridcell [ref=e979]
+                    - gridcell [ref=e980]
+                  - row "Houston Subtotal" [ref=e981]:
+                    - gridcell "Houston" [ref=e982]
+                    - gridcell "Subtotal" [ref=e983]
+                    - gridcell [ref=e984]
+                    - gridcell [ref=e985]
+                    - gridcell [ref=e986]
+                    - gridcell [ref=e987]
+                    - gridcell [ref=e988]
+                  - row "Los Angeles Silver $790.32 $790.32 4.13" [ref=e989]:
+                    - gridcell "Los Angeles" [ref=e990]
+                    - gridcell "Silver" [ref=e991]
+                    - gridcell "$790.32" [ref=e992]
+                    - gridcell "$790.32" [ref=e993]
+                    - gridcell "4.13" [ref=e994]:
+                      - generic [ref=e996]: "4.13"
+                    - gridcell [ref=e1000]
+                    - gridcell [ref=e1001]
+                  - row "Los Angeles Subtotal $790.32 $790.32 4.13" [ref=e1002]:
+                    - gridcell "Los Angeles" [ref=e1003]
+                    - gridcell "Subtotal" [ref=e1004]
+                    - gridcell "$790.32" [ref=e1005]
+                    - gridcell "$790.32" [ref=e1006]
+                    - gridcell "4.13" [ref=e1007]:
+                      - generic [ref=e1009]: "4.13"
+                    - gridcell [ref=e1013]
+                    - gridcell [ref=e1014]
+                  - row "Miami Silver" [ref=e1015]:
+                    - gridcell "Miami" [ref=e1016]
+                    - gridcell "Silver" [ref=e1017]
+                    - gridcell [ref=e1018]
+                    - gridcell [ref=e1019]
+                    - gridcell [ref=e1020]
+                    - gridcell [ref=e1021]
+                    - gridcell [ref=e1022]
+                  - row "Miami Subtotal" [ref=e1023]:
+                    - gridcell "Miami" [ref=e1024]
+                    - gridcell "Subtotal" [ref=e1025]
+                    - gridcell [ref=e1026]
+                    - gridcell [ref=e1027]
+                    - gridcell [ref=e1028]
+                    - gridcell [ref=e1029]
+                    - gridcell [ref=e1030]
+                  - row "New York Gold $1,156.11 $1,156.11" [ref=e1031]:
+                    - gridcell "New York" [ref=e1032]
+                    - gridcell "Gold" [ref=e1033]
+                    - gridcell [ref=e1034]
+                    - gridcell [ref=e1035]
+                    - gridcell [ref=e1036]
+                    - gridcell "$1,156.11" [ref=e1037]
+                    - gridcell "$1,156.11" [ref=e1038]
+                  - row "New York Subtotal $1,156.11 $1,156.11" [ref=e1039]:
+                    - gridcell "New York" [ref=e1040]
+                    - gridcell "Subtotal" [ref=e1041]
+                    - gridcell [ref=e1042]
+                    - gridcell [ref=e1043]
+                    - gridcell [ref=e1044]
+                    - gridcell "$1,156.11" [ref=e1045]
+                    - gridcell "$1,156.11" [ref=e1046]
+                  - row "San Francisco Gold" [ref=e1047]:
+                    - gridcell "San Francisco" [ref=e1048]
+                    - gridcell "Gold" [ref=e1049]
+                    - gridcell [ref=e1050]
+                    - gridcell [ref=e1051]
+                    - gridcell [ref=e1052]
+                    - gridcell [ref=e1053]
+                    - gridcell [ref=e1054]
+                  - row "San Francisco Subtotal" [ref=e1055]:
+                    - gridcell "San Francisco" [ref=e1056]
+                    - gridcell "Subtotal" [ref=e1057]
+                    - gridcell [ref=e1058]
+                    - gridcell [ref=e1059]
+                    - gridcell [ref=e1060]
+                    - gridcell [ref=e1061]
+                    - gridcell [ref=e1062]
+                - row "Grand Total $790.32 $790.32 4.13 $1,156.11 $1,156.11" [ref=e1066]:
+                  - gridcell "Grand Total" [ref=e1067]
+                  - gridcell [ref=e1068]
+                  - gridcell "$790.32" [ref=e1069]
+                  - gridcell "$790.32" [ref=e1070]
+                  - gridcell "4.13" [ref=e1071]:
+                    - generic [ref=e1073]: "4.13"
+                  - gridcell "$1,156.11" [ref=e1077]
+                  - gridcell "$1,156.11" [ref=e1078]

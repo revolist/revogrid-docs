@@ -387,6 +387,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 'element-plus',
                 '@revolist/revogrid-pro',
                 '@revolist/revogrid-enterprise',
+                '@revolist/revogrid-examples',
                 '@revolist/revogrid-column-date',
                 '@revolist/revogrid-column-numeral',
                 '@revolist/revogrid-column-select',
@@ -399,6 +400,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             include: [
                 '@revolist/revogrid-pro',
                 '@revolist/revogrid-enterprise',
+                '@revolist/revogrid-examples',
                 '@braintree/sanitize-url',
                 'dayjs',
                 'debug',

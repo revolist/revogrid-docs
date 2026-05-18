@@ -1,0 +1,6 @@
+[     366ms] [ERROR] Hydration completed but contains mismatches. @ http://localhost:4174/assets/chunks/framework.rEGz1pOB.js:3355
+[     454ms] [WARNING] Defining revo-dropdown element for select column editor. If you are using a framework, consider importing the dropdown component from @revolist/revo-dropdown to avoid this warning and reduce bundle size. @ http://localhost:4174/assets/chunks/revo-common-select.C8GjIvZe.js:2383
+[     696ms] Uncaught Error: Looks like your website URL has changed. To ensure the proper functioning of your banner, update the registered URL on your CookieYes account (navigate to the Organizations & Sites page (https://app.cookieyes.com/settings/organizations-and-sites) and click the More button associated with your site). Then, reload this page to retry. If the issue persists, please contact us at https://www.cookieyes.com/support.
+    at <anonymous> (https://cdn-cookieyes.com/client_data/77fa2aeccc90021ffe8b8f49/script.js:0:89070)
+    at <anonymous> (https://cdn-cookieyes.com/client_data/77fa2aeccc90021ffe8b8f49/script.js:0:98790)
+    at <anonymous> (https://cdn-cookieyes.com/client_data/77fa2aeccc90021ffe8b8f49/script.js:0:98793)

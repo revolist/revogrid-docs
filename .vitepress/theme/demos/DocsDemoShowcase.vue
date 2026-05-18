@@ -1,29 +1,10 @@
 <script setup lang="ts">
-import { computed, defineAsyncComponent } from 'vue'
+import { computed, defineAsyncComponent, defineComponent, h, onMounted, ref, watch, type Component } from 'vue'
 import { useRoute } from 'vitepress'
-import ecommerceCsv from '@revolist/revogrid-examples/components/sys-data/ecommerce.data.csv?raw'
-import ecommerceColumnsRaw from '@revolist/revogrid-examples/components/sys-data/ecommerce.columns.ts?raw'
-import ecommercePivotRaw from '@revolist/revogrid-examples/components/sys-data/ecommerce.pivot.ts?raw'
-import ganttProjectRaw from '@revolist/revogrid-examples/components/gantt/gantt-project-data.ts?raw'
-import colorDataRaw from '@revolist/revogrid-examples/components/showcase-color/color.data.ts?raw'
-import hrDataRaw from '@revolist/revogrid-examples/components/sys-data/hr.data.ts?raw'
-import hrColumnsRaw from '@revolist/revogrid-examples/components/sys-data/hr.columns.ts?raw'
-
-type ShowcaseSlug = 'hr' | 'ecommerce' | 'color' | 'pivot' | 'gantt'
-type ShowcaseBadge = 'Core' | 'Pro' | 'Enterprise'
-type ShowcaseIcon = 'scale' | 'users' | 'kanban' | 'table' | 'gantt'
-type ShowcasePreview = 'scale' | 'customer' | 'tracker' | 'pivot' | 'gantt'
-
-type ShowcaseEntry = {
-    slug: ShowcaseSlug
-    label: string
-    title: string
-    subtitle: string
-    meta: string
-    badge: ShowcaseBadge
-    icon: ShowcaseIcon
-    preview: ShowcasePreview
-}
+import DocsDemoShowcaseHeader from './DocsDemoShowcaseHeader.vue'
+import DocsDemoShowcaseSidebar from './DocsDemoShowcaseSidebar.vue'
+import { showcases } from './DocsDemoShowcase.showcases'
+import type { ShowcaseSlug } from './DocsDemoShowcase.types'
 
 const props = defineProps<{
     active?: ShowcaseSlug
@@ -31,89 +12,55 @@ const props = defineProps<{
 
 const route = useRoute()
 
-const ecommerceRowsCount = ecommerceCsv.trim().split(/\r?\n/).filter(Boolean).length - 1
-const ecommerceColumnCount = (ecommerceColumnsRaw.match(/prop:\s*['"`](?!_checkbox)[^'"`]+['"`]/g) ?? []).length
-const showcasePivotBlock = ecommercePivotRaw.match(/export const ECOMMERCE_SHOWCASE_PIVOT[\s\S]*?filters:/)?.[0] ?? ''
-const pivotDimensionCount = new Set(
-    (showcasePivotBlock.match(/(?:rows|columns):\s*\[([^\]]*)\]/g) ?? [])
-        .flatMap((entry) => entry.match(/['"`]([^'"`]+)['"`]/g) ?? [])
-        .map((entry) => entry.slice(1, -1)),
-).size
-const showcaseTasksBlock = ganttProjectRaw.match(/export const SHOWCASE_TASKS[\s\S]*?];/)?.[0] ?? ''
-const ganttTaskCount = (showcaseTasksBlock.match(/projectId:\s*SHOWCASE_PROJECT_ID/g) ?? []).length
-const ganttDates = (showcaseTasksBlock.match(/(?:startDate|endDate):\s*['"`]([^'"`]+)['"`]/g) ?? [])
-    .map((entry) => new Date(entry.split(/['"`]/)[1]).getTime())
-    .filter(Number.isFinite)
-const ganttWeeks = Math.max(1, Math.ceil((Math.max(...ganttDates) - Math.min(...ganttDates)) / (1000 * 60 * 60 * 24 * 7)))
-const trackerTaskCount = (colorDataRaw.match(/task:\s*['"`]/g) ?? []).length
-const trackerSectionCount = new Set(
-    (colorDataRaw.match(/week:\s*WEEK_DATES\.([a-zA-Z]+)/g) ?? []).map((entry) => entry.split('.').at(-1)),
-).size
-const hrMaxRows = Math.max(
-    ...(hrDataRaw.match(/value:\s*(\d+)/g) ?? []).map((entry) => Number(entry.match(/\d+/)?.[0] ?? 0)),
-)
-const hrColumnCount = Number(hrColumnsRaw.match(/getExtraHRColumns\((\d+)\)/)?.[1] ?? 100)
-
-const showcases: ShowcaseEntry[] = [
-    {
-        slug: 'hr',
-        label: 'Grid at Scale',
-        title: 'Grid at Scale',
-        subtitle: 'High-volume HR records with virtualized rows, many columns, and custom renderers.',
-        meta: `${new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 0 }).format(hrMaxRows)} rows · ${hrColumnCount} columns`,
-        badge: 'Core',
-        icon: 'scale',
-        preview: 'scale',
-    },
-    {
-        slug: 'ecommerce',
-        label: 'Customer Analytics',
-        title: 'Customer Analytics',
-        subtitle: 'Inline visualizations, ratings, and segmentation across customers.',
-        meta: `${ecommerceRowsCount} customers · ${ecommerceColumnCount} columns`,
-        badge: 'Pro',
-        icon: 'users',
-        preview: 'customer',
-    },
-    {
-        slug: 'color',
-        label: 'Project Tracker',
-        title: 'Project Tracker',
-        subtitle: 'ERP-style task tracking with priorities, progress, and tags.',
-        meta: `${trackerTaskCount} tasks · ${trackerSectionCount} sections`,
-        badge: 'Pro',
-        icon: 'kanban',
-        preview: 'tracker',
-    },
-    {
-        slug: 'pivot',
-        label: 'Pivot',
-        title: 'Pivot Analytics',
-        subtitle: 'Multidimensional summaries with row, column, and value fields.',
-        meta: `${ecommerceRowsCount} rows · ${pivotDimensionCount} dimensions`,
-        badge: 'Enterprise',
-        icon: 'table',
-        preview: 'pivot',
-    },
-    {
-        slug: 'gantt',
-        label: 'Gantt',
-        title: 'Gantt Planning',
-        subtitle: 'Interactive scheduling with dependencies and critical path support.',
-        meta: `${ganttTaskCount} tasks · ${ganttWeeks} weeks`,
-        badge: 'Enterprise',
-        icon: 'gantt',
-        preview: 'gantt',
-    },
-]
-
 const demoComponents = {
-    hr: defineAsyncComponent(() => import('./DemoHr.vue')),
-    ecommerce: defineAsyncComponent(() => import('./DemoEcommerce.vue')),
-    color: defineAsyncComponent(() => import('./DemoColor.vue')),
-    pivot: defineAsyncComponent(() => import('./DemoPivot.vue')),
-    gantt: defineAsyncComponent(() => import('./DemoGantt.vue')),
-} satisfies Record<ShowcaseSlug, ReturnType<typeof defineAsyncComponent>>
+    hr: defineAsyncComponent(() => import('@revolist/revogrid-examples/components/hr/HRDemo.vue')),
+    ecommerce: defineAsyncComponent(async () => {
+        const [{ default: ECommerce }, { default: ecommerceData }] = await Promise.all([
+            import('@revolist/revogrid-examples/components/showcase/ECommerce.vue'),
+            import('@revolist/revogrid-examples/components/sys-data/ecommerce.data.json'),
+            import('@revolist/revogrid-pro/dist/revogrid-pro.css'),
+        ])
+
+        return defineComponent({
+            name: 'DocsDemoShowcaseEcommerce',
+            setup: () => () => h(ECommerce, { rows: ecommerceData }),
+        })
+    }),
+    color: defineAsyncComponent(async () => {
+        const [{ default: Color }] = await Promise.all([
+            import('@revolist/revogrid-examples/components/showcase-color/Color.vue'),
+            import('@revolist/revogrid-pro/dist/revogrid-pro.css'),
+        ])
+
+        return Color
+    }),
+    pivot: defineAsyncComponent(async () => {
+        const [{ default: PivotShowcase }, { default: ecommerceData }] = await Promise.all([
+            import('@revolist/revogrid-examples/components/showcase-pivot/PivotShowcase.vue'),
+            import('@revolist/revogrid-examples/components/sys-data/ecommerce.data.json'),
+            import('@revolist/revogrid-pro/dist/revogrid-pro.css'),
+            import('@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'),
+        ])
+        const rows = (ecommerceData as Record<string, unknown>[]).map((row, index) => ({
+            ...row,
+            Time: `${String(index % 24).padStart(2, '0')}:00`,
+        }))
+
+        return defineComponent({
+            name: 'DocsDemoShowcasePivot',
+            setup: () => () => h(PivotShowcase, { rows }),
+        })
+    }),
+    gantt: defineAsyncComponent(async () => {
+        const [{ default: GanttShowcase }] = await Promise.all([
+            import('@revolist/revogrid-examples/components/gantt/GanttShowcase.vue'),
+            import('@revolist/revogrid-pro/dist/revogrid-pro.css'),
+            import('@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'),
+        ])
+
+        return GanttShowcase
+    }),
+} satisfies Record<ShowcaseSlug, Component>
 
 const activeSlug = computed<ShowcaseSlug>(() => {
     if (props.active) {
@@ -127,155 +74,55 @@ const activeSlug = computed<ShowcaseSlug>(() => {
 })
 
 const activeShowcase = computed(() => showcases.find((item) => item.slug === activeSlug.value) ?? showcases[0])
-const activeDemoComponent = computed(() => demoComponents[activeShowcase.value.slug])
+const activeDemoComponent = ref<Component | null>(null)
+
+onMounted(() => {
+    watch(
+        () => activeShowcase.value.slug,
+        (slug) => {
+            activeDemoComponent.value = demoComponents[slug]
+        },
+        { immediate: true },
+    )
+})
 
 function isShowcaseSlug(value: string | undefined): value is ShowcaseSlug {
     return value === 'hr' || value === 'ecommerce' || value === 'color' || value === 'pivot' || value === 'gantt'
-}
-
-function showcaseHref(slug: ShowcaseSlug) {
-    return slug === 'hr' ? '/demo/hr' : `/demo/${slug}`
 }
 </script>
 
 <template>
     <div class="docs-demo-showcase">
-        <aside class="docs-demo-showcase__sidebar" aria-label="Use case navigation">
-            <div class="docs-demo-showcase__sidebar-header">
-                <span class="docs-demo-showcase__eyebrow">Use cases</span>
-                <span class="docs-demo-showcase__count">{{ String(showcases.length).padStart(2, '0') }}</span>
-            </div>
-
-            <nav class="docs-demo-showcase__nav">
-                <a
-                    v-for="(item, index) in showcases"
-                    :key="item.slug"
-                    class="docs-demo-showcase__nav-card"
-                    :class="{ 'is-active': item.slug === activeShowcase.slug }"
-                    :href="showcaseHref(item.slug)"
-                    :aria-current="item.slug === activeShowcase.slug ? 'page' : undefined"
-                >
-                    <span class="docs-demo-showcase__thumb" aria-hidden="true">
-                        <span class="docs-demo-showcase__num">{{ String(index + 1).padStart(2, '0') }}</span>
-                        <span class="docs-demo-showcase__icon">
-                            <svg v-if="item.icon === 'table'" viewBox="0 0 24 24"><path d="M4 5h16v14H4z" /><path d="M4 10h16M9 5v14M15 5v14" /></svg>
-                            <svg v-else-if="item.icon === 'gantt'" viewBox="0 0 24 24"><path d="M4 7h4M4 12h8M4 17h12M16 12h4" /></svg>
-                            <svg v-else-if="item.icon === 'users'" viewBox="0 0 24 24"><path d="M16 20v-2a4 4 0 0 0-8 0v2" /><circle cx="12" cy="8" r="4" /><path d="M22 20v-2a4 4 0 0 0-3-3.87M16 4.13a4 4 0 0 1 0 7.75" /></svg>
-                            <svg v-else-if="item.icon === 'kanban'" viewBox="0 0 24 24"><path d="M6 5v14M12 5v9M18 5v6" /></svg>
-                            <svg v-else viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /><path d="M8 5v14M16 5v14" /></svg>
-                        </span>
-
-                        <svg class="docs-demo-showcase__preview" :class="`docs-demo-showcase__preview--${item.preview}`" viewBox="0 0 260 56" preserveAspectRatio="none">
-                            <line x1="0" y1="18" x2="260" y2="18" />
-                            <line x1="0" y1="36" x2="260" y2="36" />
-                            <line x1="60" y1="0" x2="60" y2="56" />
-                            <line x1="130" y1="0" x2="130" y2="56" />
-                            <line x1="200" y1="0" x2="200" y2="56" />
-
-                            <template v-if="item.preview === 'pivot'">
-                                <rect x="14" y="28" width="42" height="4" rx="2" />
-                                <rect x="72" y="28" width="42" height="4" rx="2" />
-                                <rect x="146" y="28" width="42" height="4" rx="2" />
-                                <rect x="14" y="40" width="66" height="4" rx="2" />
-                                <rect x="92" y="40" width="48" height="4" rx="2" />
-                                <rect x="154" y="40" width="48" height="4" rx="2" />
-                            </template>
-                            <template v-else-if="item.preview === 'gantt'">
-                                <rect x="14" y="18" width="58" height="5" rx="2" />
-                                <rect x="58" y="30" width="76" height="5" rx="2" />
-                                <rect x="112" y="42" width="98" height="5" rx="2" />
-                                <rect x="178" y="51" width="72" height="4" rx="2" />
-                            </template>
-                            <template v-else-if="item.preview === 'customer'">
-                                <rect x="16" y="32" width="8" height="18" rx="2" />
-                                <rect x="34" y="22" width="8" height="28" rx="2" />
-                                <rect x="52" y="28" width="8" height="22" rx="2" />
-                                <rect x="70" y="18" width="8" height="32" rx="2" />
-                                <rect x="88" y="24" width="8" height="26" rx="2" />
-                                <circle cx="158" cy="34" r="5" />
-                                <circle cx="174" cy="34" r="5" />
-                                <circle cx="190" cy="34" r="5" />
-                                <rect x="220" y="28" width="28" height="3" rx="2" />
-                                <rect x="210" y="38" width="38" height="3" rx="2" />
-                            </template>
-                            <template v-else-if="item.preview === 'tracker'">
-                                <rect x="14" y="22" width="36" height="8" rx="4" />
-                                <rect x="56" y="22" width="48" height="8" rx="4" />
-                                <rect x="110" y="22" width="42" height="8" rx="4" />
-                                <rect x="158" y="22" width="38" height="8" rx="4" />
-                                <rect x="14" y="36" width="48" height="7" rx="4" />
-                                <rect x="68" y="36" width="40" height="7" rx="4" />
-                                <rect x="114" y="36" width="44" height="7" rx="4" />
-                                <rect x="210" y="30" width="36" height="4" rx="2" />
-                                <rect x="210" y="42" width="54" height="4" rx="2" />
-                            </template>
-                            <template v-else>
-                                <rect x="14" y="18" width="34" height="5" rx="2" />
-                                <rect x="60" y="18" width="26" height="5" rx="2" />
-                                <rect x="104" y="18" width="32" height="5" rx="2" />
-                                <rect x="150" y="18" width="24" height="5" rx="2" />
-                                <rect x="194" y="18" width="36" height="5" rx="2" />
-                                <rect x="14" y="31" width="48" height="5" rx="2" />
-                                <rect x="74" y="31" width="34" height="5" rx="2" />
-                                <rect x="120" y="31" width="46" height="5" rx="2" />
-                                <rect x="178" y="31" width="28" height="5" rx="2" />
-                                <rect x="218" y="31" width="34" height="5" rx="2" />
-                                <rect x="14" y="44" width="30" height="5" rx="2" />
-                                <rect x="56" y="44" width="44" height="5" rx="2" />
-                                <rect x="112" y="44" width="30" height="5" rx="2" />
-                                <rect x="154" y="44" width="50" height="5" rx="2" />
-                            </template>
-                        </svg>
-                    </span>
-                    <span class="docs-demo-showcase__nav-card-body">
-                        <span class="docs-demo-showcase__title-row">
-                            <span class="docs-demo-showcase__nav-title">{{ item.label }}</span>
-                            <span class="docs-demo-showcase__badge" :class="`docs-demo-showcase__badge--${item.badge.toLowerCase()}`">{{ item.badge }}</span>
-                        </span>
-                        <span class="docs-demo-showcase__meta">{{ item.meta }}</span>
-                    </span>
-                </a>
-            </nav>
-        </aside>
+        <DocsDemoShowcaseSidebar :items="showcases" :active-slug="activeShowcase.slug" />
 
         <main class="docs-demo-showcase__main">
-            <header class="docs-demo-showcase__head">
-                <div>
-                    <div class="docs-demo-showcase__page-title-row">
-                        <h1>{{ activeShowcase.title }}</h1>
-                        <span class="docs-demo-showcase__badge docs-demo-showcase__tier-badge" :class="`docs-demo-showcase__badge--${activeShowcase.badge.toLowerCase()}`">
-                            {{ activeShowcase.badge }}
-                        </span>
-                    </div>
-                    <p>{{ activeShowcase.subtitle }}</p>
-                </div>
-            </header>
+            <DocsDemoShowcaseHeader :item="activeShowcase" />
 
             <section class="docs-demo-showcase__workspace">
-                <component :is="activeDemoComponent" :title="activeShowcase.title" min-height="100%" />
+                <component v-if="activeDemoComponent" :is="activeDemoComponent" />
             </section>
         </main>
     </div>
 </template>
 
-<style scoped>
-:global(.demo-page-class .VPDoc),
-:global(.demo-page-class .VPDoc .container),
-:global(.demo-page-class .VPDoc .content),
-:global(.demo-page-class .VPDoc .content-container),
-:global(.demo-page-class .VPDoc main) {
+<style>
+.demo-page-class .VPDoc,
+.demo-page-class .VPDoc .container,
+.demo-page-class .VPDoc .content,
+.demo-page-class .VPDoc .content-container,
+.demo-page-class .VPDoc main {
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;
 }
 
-:global(.demo-page-class .vp-doc) {
+.demo-page-class .vp-doc {
     width: 100%;
     max-width: none;
 }
 
-:global(body:has(.docs-demo-showcase)) {
+body:has(.docs-demo-showcase) {
     background: var(--docs-demo-bg);
     overflow: hidden;
 }
@@ -311,8 +158,8 @@ function showcaseHref(slug: ShowcaseSlug) {
     background: var(--docs-demo-bg);
 }
 
-:global(html.dark .docs-demo-showcase),
-:global([data-theme='dark'] .docs-demo-showcase) {
+html.dark .docs-demo-showcase,
+[data-theme='dark'] .docs-demo-showcase {
     --docs-demo-brand-50: rgba(99, 102, 241, 0.12);
     --docs-demo-brand-100: rgba(99, 102, 241, 0.22);
     --docs-demo-brand-500: #818cf8;
@@ -485,8 +332,8 @@ function showcaseHref(slug: ShowcaseSlug) {
     stroke-width: 1;
 }
 
-:global(html.dark .docs-demo-showcase__preview line),
-:global([data-theme='dark'] .docs-demo-showcase__preview line) {
+html.dark .docs-demo-showcase__preview line,
+[data-theme='dark'] .docs-demo-showcase__preview line {
     stroke: rgba(255, 255, 255, 0.06);
 }
 
@@ -585,32 +432,25 @@ function showcaseHref(slug: ShowcaseSlug) {
     color: #92400e;
 }
 
-:global(html.dark .docs-demo-showcase__badge--core),
-:global([data-theme='dark'] .docs-demo-showcase__badge--core) {
+html.dark .docs-demo-showcase__badge--core,
+[data-theme='dark'] .docs-demo-showcase__badge--core {
     border-color: rgba(56, 189, 248, 0.24);
     background: rgba(56, 189, 248, 0.12);
     color: #7dd3fc;
 }
 
-:global(html.dark .docs-demo-showcase__badge--pro),
-:global([data-theme='dark'] .docs-demo-showcase__badge--pro) {
+html.dark .docs-demo-showcase__badge--pro,
+[data-theme='dark'] .docs-demo-showcase__badge--pro {
     border-color: rgba(52, 211, 153, 0.24);
     background: rgba(52, 211, 153, 0.12);
     color: #6ee7b7;
 }
 
-:global(html.dark .docs-demo-showcase__badge--enterprise),
-:global([data-theme='dark'] .docs-demo-showcase__badge--enterprise) {
+html.dark .docs-demo-showcase__badge--enterprise,
+[data-theme='dark'] .docs-demo-showcase__badge--enterprise {
     border-color: rgba(251, 191, 36, 0.28);
     background: rgba(251, 191, 36, 0.12);
     color: #fcd34d;
-}
-
-.docs-demo-showcase__meta {
-    color: var(--docs-demo-text-3);
-    font-size: 11.5px;
-    font-weight: 500;
-    line-height: 1.35;
 }
 
 .docs-demo-showcase__main {
@@ -671,28 +511,30 @@ function showcaseHref(slug: ShowcaseSlug) {
     box-shadow: var(--docs-demo-shadow-sm);
 }
 
-.docs-demo-showcase__workspace :deep(.direct-ts-demo-frame) {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    min-height: 100% !important;
-    margin: 0;
-    border-radius: 0;
-}
-
-.docs-demo-showcase__workspace :deep(.direct-ts-demo-frame__mount) {
+.docs-demo-showcase__workspace .grow,
+.docs-demo-showcase__workspace .h-full {
     height: 100%;
     min-height: 0;
 }
 
-.docs-demo-showcase__workspace :deep(.grow),
-.docs-demo-showcase__workspace :deep(.h-full) {
+.docs-demo-showcase__workspace .pivot-grid-container {
+    display: flex;
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+}
+
+.docs-demo-showcase__workspace .pivot-grid-container > revo-grid {
+    display: block;
+    flex: 1 1 auto;
+    width: 100%;
     height: 100%;
     min-height: 0;
 }
 
 @media (max-width: 900px) {
-    :global(body:has(.docs-demo-showcase)) {
+    body:has(.docs-demo-showcase) {
         overflow: auto;
     }
 

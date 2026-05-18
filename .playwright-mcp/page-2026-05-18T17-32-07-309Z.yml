@@ -1,0 +1,712 @@
+- generic [ref=e3]:
+  - link "Skip to content" [ref=e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "RevoGrid" [ref=e6] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e7]: RevoGrid
+          - generic [ref=e8]:
+            - button "Search" [ref=e10] [cursor=pointer]:
+              - generic [ref=e12]: Search
+              - generic [ref=e13]:
+                - generic [ref=e14]: ⌘
+                - generic [ref=e15]: K
+            - navigation "Main Navigation" [ref=e16]:
+              - generic [ref=e17]: Main Navigation
+              - button "Product" [ref=e19] [cursor=pointer]:
+                - generic [ref=e21]: Product
+              - link "Docs" [ref=e23] [cursor=pointer]:
+                - /url: /guide/
+                - generic [ref=e24]: Docs
+              - button "Demos" [ref=e26] [cursor=pointer]:
+                - generic [ref=e28]: Demos
+              - link "Pricing" [ref=e30] [cursor=pointer]:
+                - /url: /pricing
+                - generic [ref=e31]: Pricing
+              - link "RevoGrid Pro" [ref=e32] [cursor=pointer]:
+                - /url: /pro/
+                - generic [ref=e33]: RevoGrid Pro
+              - button "Links" [ref=e35] [cursor=pointer]:
+                - generic [ref=e37]: Links
+            - button "extra navigation" [ref=e40] [cursor=pointer]
+  - main [ref=e47]:
+    - generic [ref=e50]:
+      - complementary "Use case navigation" [ref=e51]:
+        - generic [ref=e52]:
+          - generic [ref=e53]: Use cases
+          - generic [ref=e54]: "05"
+        - navigation [ref=e55]:
+          - link "Grid at Scale Core" [ref=e56] [cursor=pointer]:
+            - /url: /demo/hr
+            - generic [ref=e57]:
+              - generic [ref=e58]: "01"
+              - img [ref=e60]
+              - img [ref=e63]
+            - generic [ref=e79]:
+              - generic [ref=e80]: Grid at Scale
+              - generic [ref=e81]: Core
+          - link "Customer Analytics Pro" [ref=e82] [cursor=pointer]:
+            - /url: /demo/ecommerce
+            - generic [ref=e83]:
+              - generic [ref=e84]: "02"
+              - img [ref=e86]
+              - img [ref=e90]
+            - generic [ref=e102]:
+              - generic [ref=e103]: Customer Analytics
+              - generic [ref=e104]: Pro
+          - link "Project Tracker Pro" [ref=e105] [cursor=pointer]:
+            - /url: /demo/color
+            - generic [ref=e106]:
+              - generic [ref=e107]: "03"
+              - img [ref=e109]
+              - img [ref=e111]
+            - generic [ref=e122]:
+              - generic [ref=e123]: Project Tracker
+              - generic [ref=e124]: Pro
+          - link "Pivot Enterprise" [ref=e125] [cursor=pointer]:
+            - /url: /demo/pivot
+            - generic [ref=e126]:
+              - generic [ref=e127]: "04"
+              - img [ref=e129]
+              - img [ref=e132]
+            - generic [ref=e140]:
+              - generic [ref=e141]: Pivot
+              - generic [ref=e142]: Enterprise
+          - link "Gantt Enterprise" [ref=e143] [cursor=pointer]:
+            - /url: /demo/gantt
+            - generic [ref=e144]:
+              - generic [ref=e145]: "05"
+              - img [ref=e147]
+              - img [ref=e149]
+            - generic [ref=e155]:
+              - generic [ref=e156]: Gantt
+              - generic [ref=e157]: Enterprise
+      - main [ref=e158]:
+        - generic [ref=e160]:
+          - generic [ref=e161]:
+            - generic [ref=e162]:
+              - generic [ref=e163]:
+                - generic [ref=e164]: Rows
+                - strong [ref=e165]: 0/350
+              - generic [ref=e166]:
+                - generic [ref=e167]: ⌕
+                - textbox [ref=e168]:
+                  - /placeholder: Gender eq "Female" and City eq "Chicago"
+              - button "Reset" [ref=e169] [cursor=pointer]
+              - button "Columns" [ref=e171] [cursor=pointer]:
+                - text: Columns
+                - generic [ref=e172]: ⌄
+            - generic [ref=e173]:
+              - generic [ref=e174]:
+                - generic [ref=e175]: Spend
+                - strong [ref=e176]: $295.9K
+              - button "Export" [ref=e177] [cursor=pointer]
+          - treegrid [ref=e178]:
+            - generic [ref=e179]: ↕ Drag columns here to group by row.
+            - generic [ref=e183]:
+              - generic [ref=e185]:
+                - generic [ref=e186]:
+                  - generic [ref=e188]: Personal
+                  - generic [ref=e191]: Spending
+                - generic [ref=e194]:
+                  - columnheader [ref=e195]:
+                    - checkbox [ref=e201]
+                  - columnheader "ID" [ref=e204]:
+                    - generic [ref=e208]:
+                      - generic "ID" [ref=e209]:
+                        - img [ref=e210]
+                      - generic [ref=e214]: ID
+                  - columnheader "Customer" [ref=e217]:
+                    - generic [ref=e221]:
+                      - generic "String" [ref=e222]:
+                        - img [ref=e223]
+                      - generic [ref=e226]: Customer
+                  - columnheader "Gender" [ref=e229]:
+                    - generic [ref=e233]:
+                      - generic "String" [ref=e234]:
+                        - img [ref=e235]
+                      - generic [ref=e238]: Gender
+                    - button [ref=e242] [cursor=pointer]:
+                      - img [ref=e243]
+                  - columnheader "Lifetime Value" [ref=e247]:
+                    - generic [ref=e251]:
+                      - generic "Currency" [ref=e252]:
+                        - img [ref=e253]
+                      - generic [ref=e256]: Lifetime Value
+                    - button [ref=e309] [cursor=pointer]:
+                      - img [ref=e310]
+                  - columnheader "Age" [ref=e314]:
+                    - generic [ref=e318]:
+                      - generic "Integer" [ref=e319]:
+                        - img [ref=e320]
+                      - generic [ref=e323]: Age
+                    - button [ref=e341] [cursor=pointer]:
+                      - img [ref=e342]
+                  - columnheader "City New York (59) 17% Los Angeles (59) 17% Others (232) 66%" [ref=e346]:
+                    - generic [ref=e348]:
+                      - generic [ref=e350]:
+                        - generic "String" [ref=e351]:
+                          - img [ref=e352]
+                        - generic [ref=e355]: City
+                      - list [ref=e357]:
+                        - listitem [ref=e358]: New York (59) 17%
+                        - listitem [ref=e359]: Los Angeles (59) 17%
+                        - listitem [ref=e360]: Others (232) 66%
+                    - button [ref=e362] [cursor=pointer]:
+                      - img [ref=e363]
+                  - columnheader "Membership Type Gold (117) 33% Silver (117) 33% Others (116) 33%" [ref=e367]:
+                    - generic [ref=e369]:
+                      - generic [ref=e371]:
+                        - generic "String" [ref=e372]:
+                          - img [ref=e373]
+                        - generic [ref=e376]: Membership Type
+                      - list [ref=e378]:
+                        - listitem [ref=e379]: Gold (117) 33%
+                        - listitem [ref=e380]: Silver (117) 33%
+                        - listitem [ref=e381]: Others (116) 33%
+                    - button [ref=e383] [cursor=pointer]:
+                      - img [ref=e384]
+                  - columnheader "Average Rating" [ref=e388]:
+                    - generic [ref=e392]:
+                      - generic "Integer" [ref=e393]:
+                        - img [ref=e394]
+                      - generic [ref=e397]: Average Rating
+                    - button [ref=e421] [cursor=pointer]:
+                      - img [ref=e422]
+                  - columnheader "Discount" [ref=e426]:
+                    - generic [ref=e430]:
+                      - generic "String" [ref=e431]:
+                        - img [ref=e432]
+                      - generic [ref=e435]: Discount
+              - generic [ref=e442]:
+                - row "101 $1,680 29 New York 4.6" [ref=e443]:
+                  - gridcell [ref=e444]:
+                    - checkbox [ref=e448]
+                  - gridcell "101" [ref=e449]:
+                    - generic [ref=e451]: "101"
+                  - gridcell [ref=e452]:
+                    - combobox [ref=e457] [cursor=pointer]:
+                      - generic [ref=e458]:
+                        - generic [ref=e459]: FN
+                        - generic [ref=e460]: ▼
+                  - gridcell [ref=e461]:
+                    - combobox [ref=e466] [cursor=pointer]:
+                      - generic [ref=e467]:
+                        - text: Female
+                        - generic [ref=e468]: ▼
+                  - gridcell "$1,680" [ref=e469]:
+                    - generic [ref=e472]: $1,680
+                  - gridcell "29" [ref=e473]:
+                    - generic [ref=e475]: "29"
+                  - gridcell "New York" [ref=e476]:
+                    - generic [ref=e478]: New York
+                  - gridcell [ref=e479]:
+                    - combobox [ref=e484] [cursor=pointer]:
+                      - generic [ref=e485]:
+                        - text: Gold
+                        - generic [ref=e486]: ▼
+                  - gridcell "4.6" [ref=e487]:
+                    - generic "4.6 rating" [ref=e490]:
+                      - strong [ref=e496]: "4.6"
+                  - gridcell [ref=e497]:
+                    - combobox [ref=e502] [cursor=pointer]:
+                      - generic [ref=e503]:
+                        - text: Applied
+                        - generic [ref=e504]: ▼
+                - row "102 $937 34 Los Angeles 4.1" [ref=e505]:
+                  - gridcell [ref=e506]:
+                    - checkbox [ref=e510]
+                  - gridcell "102" [ref=e511]:
+                    - generic [ref=e513]: "102"
+                  - gridcell [ref=e514]:
+                    - combobox [ref=e519] [cursor=pointer]:
+                      - generic [ref=e520]:
+                        - generic [ref=e521]: ML
+                        - generic [ref=e522]: ▼
+                  - gridcell [ref=e523]:
+                    - combobox [ref=e528] [cursor=pointer]:
+                      - generic [ref=e529]:
+                        - text: Male
+                        - generic [ref=e530]: ▼
+                  - gridcell "$937" [ref=e531]:
+                    - generic [ref=e534]: $937
+                  - gridcell "34" [ref=e535]:
+                    - generic [ref=e537]: "34"
+                  - gridcell "Los Angeles" [ref=e538]:
+                    - generic [ref=e540]: Los Angeles
+                  - gridcell [ref=e541]:
+                    - combobox [ref=e546] [cursor=pointer]:
+                      - generic [ref=e547]:
+                        - text: Silver
+                        - generic [ref=e548]: ▼
+                  - gridcell "4.1" [ref=e549]:
+                    - generic "4.1 rating" [ref=e552]:
+                      - strong [ref=e558]: "4.1"
+                  - gridcell [ref=e559]:
+                    - combobox [ref=e564] [cursor=pointer]:
+                      - generic [ref=e565]:
+                        - text: None
+                        - generic [ref=e566]: ▼
+                - row "103 $511 43 Chicago Average rating is less than 4 (3.4) 3.4" [ref=e567]:
+                  - gridcell [ref=e568]:
+                    - checkbox [ref=e572]
+                  - gridcell "103" [ref=e573]:
+                    - generic [ref=e575]: "103"
+                  - gridcell [ref=e576]:
+                    - combobox [ref=e581] [cursor=pointer]:
+                      - generic [ref=e582]:
+                        - generic [ref=e583]: FC
+                        - generic [ref=e584]: ▼
+                  - gridcell [ref=e585]:
+                    - combobox [ref=e590] [cursor=pointer]:
+                      - generic [ref=e591]:
+                        - text: Female
+                        - generic [ref=e592]: ▼
+                  - gridcell "$511" [ref=e593]:
+                    - generic [ref=e596]: $511
+                  - gridcell "43" [ref=e597]:
+                    - generic [ref=e599]: "43"
+                  - gridcell "Chicago" [ref=e600]:
+                    - generic [ref=e602]: Chicago
+                  - gridcell [ref=e603]:
+                    - combobox [ref=e608] [cursor=pointer]:
+                      - generic [ref=e609]:
+                        - text: Bronze
+                        - generic [ref=e610]: ▼
+                  - gridcell "Average rating is less than 4 (3.4) 3.4" [ref=e611]:
+                    - generic [ref=e612]:
+                      - generic "Average rating is less than 4 (3.4)"
+                      - generic "Average rating is less than 4 (3.4)" [ref=e613]:
+                        - generic "3.4 rating" [ref=e614]:
+                          - strong [ref=e620]: "3.4"
+                  - gridcell [ref=e621]:
+                    - combobox [ref=e626] [cursor=pointer]:
+                      - generic [ref=e627]:
+                        - text: Applied
+                        - generic [ref=e628]: ▼
+                - row "104 $2,220 30 San Francisco 4.7" [ref=e629]:
+                  - gridcell [ref=e630]:
+                    - checkbox [ref=e634]
+                  - gridcell "104" [ref=e635]:
+                    - generic [ref=e637]: "104"
+                  - gridcell [ref=e638]:
+                    - combobox [ref=e643] [cursor=pointer]:
+                      - generic [ref=e644]:
+                        - generic [ref=e645]: MS
+                        - generic [ref=e646]: ▼
+                  - gridcell [ref=e647]:
+                    - combobox [ref=e652] [cursor=pointer]:
+                      - generic [ref=e653]:
+                        - text: Male
+                        - generic [ref=e654]: ▼
+                  - gridcell "$2,220" [ref=e655]:
+                    - generic [ref=e658]: $2,220
+                  - gridcell "30" [ref=e659]:
+                    - generic [ref=e661]: "30"
+                  - gridcell "San Francisco" [ref=e662]:
+                    - generic [ref=e664]: San Francisco
+                  - gridcell [ref=e665]:
+                    - combobox [ref=e670] [cursor=pointer]:
+                      - generic [ref=e671]:
+                        - text: Gold
+                        - generic [ref=e672]: ▼
+                  - gridcell "4.7" [ref=e673]:
+                    - generic "4.7 rating" [ref=e676]:
+                      - strong [ref=e682]: "4.7"
+                  - gridcell [ref=e683]:
+                    - combobox [ref=e688] [cursor=pointer]:
+                      - generic [ref=e689]:
+                        - text: None
+                        - generic [ref=e690]: ▼
+                - row "105 $864 27 Miami 4.0" [ref=e691]:
+                  - gridcell [ref=e692]:
+                    - checkbox [ref=e696]
+                  - gridcell "105" [ref=e697]:
+                    - generic [ref=e699]: "105"
+                  - gridcell [ref=e700]:
+                    - combobox [ref=e705] [cursor=pointer]:
+                      - generic [ref=e706]:
+                        - generic [ref=e707]: MM
+                        - generic [ref=e708]: ▼
+                  - gridcell [ref=e709]:
+                    - combobox [ref=e714] [cursor=pointer]:
+                      - generic [ref=e715]:
+                        - text: Male
+                        - generic [ref=e716]: ▼
+                  - gridcell "$864" [ref=e717]:
+                    - generic [ref=e720]: $864
+                  - gridcell "27" [ref=e721]:
+                    - generic [ref=e723]: "27"
+                  - gridcell "Miami" [ref=e724]:
+                    - generic [ref=e726]: Miami
+                  - gridcell [ref=e727]:
+                    - combobox [ref=e732] [cursor=pointer]:
+                      - generic [ref=e733]:
+                        - text: Silver
+                        - generic [ref=e734]: ▼
+                  - gridcell "4.0" [ref=e735]:
+                    - generic "4.0 rating" [ref=e738]:
+                      - strong [ref=e744]: "4.0"
+                  - gridcell [ref=e745]:
+                    - combobox [ref=e750] [cursor=pointer]:
+                      - generic [ref=e751]:
+                        - text: Applied
+                        - generic [ref=e752]: ▼
+                - row "106 $441 37 Houston Average rating is less than 4 (3.1) 3.1" [ref=e753]:
+                  - gridcell [ref=e754]:
+                    - checkbox [ref=e758]
+                  - gridcell "106" [ref=e759]:
+                    - generic [ref=e761]: "106"
+                  - gridcell [ref=e762]:
+                    - combobox [ref=e767] [cursor=pointer]:
+                      - generic [ref=e768]:
+                        - generic [ref=e769]: FH
+                        - generic [ref=e770]: ▼
+                  - gridcell [ref=e771]:
+                    - combobox [ref=e776] [cursor=pointer]:
+                      - generic [ref=e777]:
+                        - text: Female
+                        - generic [ref=e778]: ▼
+                  - gridcell "$441" [ref=e779]:
+                    - generic [ref=e782]: $441
+                  - gridcell "37" [ref=e783]:
+                    - generic [ref=e785]: "37"
+                  - gridcell "Houston" [ref=e786]:
+                    - generic [ref=e788]: Houston
+                  - gridcell [ref=e789]:
+                    - combobox [ref=e794] [cursor=pointer]:
+                      - generic [ref=e795]:
+                        - text: Bronze
+                        - generic [ref=e796]: ▼
+                  - gridcell "Average rating is less than 4 (3.1) 3.1" [ref=e797]:
+                    - generic [ref=e798]:
+                      - generic "Average rating is less than 4 (3.1)"
+                      - generic "Average rating is less than 4 (3.1)" [ref=e799]:
+                        - generic "3.1 rating" [ref=e800]:
+                          - strong [ref=e806]: "3.1"
+                  - gridcell [ref=e807]:
+                    - combobox [ref=e812] [cursor=pointer]:
+                      - generic [ref=e813]:
+                        - text: None
+                        - generic [ref=e814]: ▼
+                - row "107 $1,726 31 New York 4.5" [ref=e815]:
+                  - gridcell [ref=e816]:
+                    - checkbox [ref=e820]
+                  - gridcell "107" [ref=e821]:
+                    - generic [ref=e823]: "107"
+                  - gridcell [ref=e824]:
+                    - combobox [ref=e829] [cursor=pointer]:
+                      - generic [ref=e830]:
+                        - generic [ref=e831]: CR
+                        - generic [ref=e832]: ▼
+                  - gridcell [ref=e833]:
+                    - combobox [ref=e838] [cursor=pointer]:
+                      - generic [ref=e839]:
+                        - text: Female
+                        - generic [ref=e840]: ▼
+                  - gridcell "$1,726" [ref=e841]:
+                    - generic [ref=e844]: $1,726
+                  - gridcell "31" [ref=e845]:
+                    - generic [ref=e847]: "31"
+                  - gridcell "New York" [ref=e848]:
+                    - generic [ref=e850]: New York
+                  - gridcell [ref=e851]:
+                    - combobox [ref=e856] [cursor=pointer]:
+                      - generic [ref=e857]:
+                        - text: Gold
+                        - generic [ref=e858]: ▼
+                  - gridcell "4.5" [ref=e859]:
+                    - generic "4.5 rating" [ref=e862]:
+                      - strong [ref=e868]: "4.5"
+                  - gridcell [ref=e869]:
+                    - combobox [ref=e874] [cursor=pointer]:
+                      - generic [ref=e875]:
+                        - text: Applied
+                        - generic [ref=e876]: ▼
+                - row "108 $961 35 Los Angeles 4.2" [ref=e877]:
+                  - gridcell [ref=e878]:
+                    - checkbox [ref=e882]
+                  - gridcell "108" [ref=e883]:
+                    - generic [ref=e885]: "108"
+                  - gridcell [ref=e886]:
+                    - combobox [ref=e891] [cursor=pointer]:
+                      - generic [ref=e892]:
+                        - generic [ref=e893]: AN
+                        - generic [ref=e894]: ▼
+                  - gridcell [ref=e895]:
+                    - combobox [ref=e900] [cursor=pointer]:
+                      - generic [ref=e901]:
+                        - text: Male
+                        - generic [ref=e902]: ▼
+                  - gridcell "$961" [ref=e903]:
+                    - generic [ref=e906]: $961
+                  - gridcell "35" [ref=e907]:
+                    - generic [ref=e909]: "35"
+                  - gridcell "Los Angeles" [ref=e910]:
+                    - generic [ref=e912]: Los Angeles
+                  - gridcell [ref=e913]:
+                    - combobox [ref=e918] [cursor=pointer]:
+                      - generic [ref=e919]:
+                        - text: Silver
+                        - generic [ref=e920]: ▼
+                  - gridcell "4.2" [ref=e921]:
+                    - generic "4.2 rating" [ref=e924]:
+                      - strong [ref=e930]: "4.2"
+                  - gridcell [ref=e931]:
+                    - combobox [ref=e936] [cursor=pointer]:
+                      - generic [ref=e937]:
+                        - text: None
+                        - generic [ref=e938]: ▼
+                - row "109 $495 41 Chicago Average rating is less than 4 (3.6) 3.6" [ref=e939]:
+                  - gridcell [ref=e940]:
+                    - checkbox [ref=e944]
+                  - gridcell "109" [ref=e945]:
+                    - generic [ref=e947]: "109"
+                  - gridcell [ref=e948]:
+                    - combobox [ref=e953] [cursor=pointer]:
+                      - generic [ref=e954]:
+                        - generic [ref=e955]: FN
+                        - generic [ref=e956]: ▼
+                  - gridcell [ref=e957]:
+                    - combobox [ref=e962] [cursor=pointer]:
+                      - generic [ref=e963]:
+                        - text: Female
+                        - generic [ref=e964]: ▼
+                  - gridcell "$495" [ref=e965]:
+                    - generic [ref=e968]: $495
+                  - gridcell "41" [ref=e969]:
+                    - generic [ref=e971]: "41"
+                  - gridcell "Chicago" [ref=e972]:
+                    - generic [ref=e974]: Chicago
+                  - gridcell [ref=e975]:
+                    - combobox [ref=e980] [cursor=pointer]:
+                      - generic [ref=e981]:
+                        - text: Bronze
+                        - generic [ref=e982]: ▼
+                  - gridcell "Average rating is less than 4 (3.6) 3.6" [ref=e983]:
+                    - generic [ref=e984]:
+                      - generic "Average rating is less than 4 (3.6)"
+                      - generic "Average rating is less than 4 (3.6)" [ref=e985]:
+                        - generic "3.6 rating" [ref=e986]:
+                          - strong [ref=e992]: "3.6"
+                  - gridcell [ref=e993]:
+                    - combobox [ref=e998] [cursor=pointer]:
+                      - generic [ref=e999]:
+                        - text: Applied
+                        - generic [ref=e1000]: ▼
+                - row "110 $2,280 28 San Francisco 4.8" [ref=e1001]:
+                  - gridcell [ref=e1002]:
+                    - checkbox [ref=e1006]
+                  - gridcell "110" [ref=e1007]:
+                    - generic [ref=e1009]: "110"
+                  - gridcell [ref=e1010]:
+                    - combobox [ref=e1015] [cursor=pointer]:
+                      - generic [ref=e1016]:
+                        - generic [ref=e1017]: ML
+                        - generic [ref=e1018]: ▼
+                  - gridcell [ref=e1019]:
+                    - combobox [ref=e1024] [cursor=pointer]:
+                      - generic [ref=e1025]:
+                        - text: Male
+                        - generic [ref=e1026]: ▼
+                  - gridcell "$2,280" [ref=e1027]:
+                    - generic [ref=e1030]: $2,280
+                  - gridcell "28" [ref=e1031]:
+                    - generic [ref=e1033]: "28"
+                  - gridcell "San Francisco" [ref=e1034]:
+                    - generic [ref=e1036]: San Francisco
+                  - gridcell [ref=e1037]:
+                    - combobox [ref=e1042] [cursor=pointer]:
+                      - generic [ref=e1043]:
+                        - text: Gold
+                        - generic [ref=e1044]: ▼
+                  - gridcell "4.8" [ref=e1045]:
+                    - generic "4.8 rating" [ref=e1048]:
+                      - strong [ref=e1054]: "4.8"
+                  - gridcell [ref=e1055]:
+                    - combobox [ref=e1060] [cursor=pointer]:
+                      - generic [ref=e1061]:
+                        - text: None
+                        - generic [ref=e1062]: ▼
+                - row "111 $828 32 Miami Average rating is less than 4 (3.8) 3.8" [ref=e1063]:
+                  - gridcell [ref=e1064]:
+                    - checkbox [ref=e1068]
+                  - gridcell "111" [ref=e1069]:
+                    - generic [ref=e1071]: "111"
+                  - gridcell [ref=e1072]:
+                    - combobox [ref=e1077] [cursor=pointer]:
+                      - generic [ref=e1078]:
+                        - generic [ref=e1079]: FC
+                        - generic [ref=e1080]: ▼
+                  - gridcell [ref=e1081]:
+                    - combobox [ref=e1086] [cursor=pointer]:
+                      - generic [ref=e1087]:
+                        - text: Male
+                        - generic [ref=e1088]: ▼
+                  - gridcell "$828" [ref=e1089]:
+                    - generic [ref=e1092]: $828
+                  - gridcell "32" [ref=e1093]:
+                    - generic [ref=e1095]: "32"
+                  - gridcell "Miami" [ref=e1096]:
+                    - generic [ref=e1098]: Miami
+                  - gridcell [ref=e1099]:
+                    - combobox [ref=e1104] [cursor=pointer]:
+                      - generic [ref=e1105]:
+                        - text: Silver
+                        - generic [ref=e1106]: ▼
+                  - gridcell "Average rating is less than 4 (3.8) 3.8" [ref=e1107]:
+                    - generic [ref=e1108]:
+                      - generic "Average rating is less than 4 (3.8)"
+                      - generic "Average rating is less than 4 (3.8)" [ref=e1109]:
+                        - generic "3.8 rating" [ref=e1110]:
+                          - strong [ref=e1116]: "3.8"
+                  - gridcell [ref=e1117]:
+                    - combobox [ref=e1122] [cursor=pointer]:
+                      - generic [ref=e1123]:
+                        - text: Applied
+                        - generic [ref=e1124]: ▼
+                - row "112 $471 36 Houston Average rating is less than 4 (3.2) 3.2" [ref=e1125]:
+                  - gridcell [ref=e1126]:
+                    - checkbox [ref=e1130]
+                  - gridcell "112" [ref=e1131]:
+                    - generic [ref=e1133]: "112"
+                  - gridcell [ref=e1134]:
+                    - combobox [ref=e1139] [cursor=pointer]:
+                      - generic [ref=e1140]:
+                        - generic [ref=e1141]: MS
+                        - generic [ref=e1142]: ▼
+                  - gridcell [ref=e1143]:
+                    - combobox [ref=e1148] [cursor=pointer]:
+                      - generic [ref=e1149]:
+                        - text: Female
+                        - generic [ref=e1150]: ▼
+                  - gridcell "$471" [ref=e1151]:
+                    - generic [ref=e1154]: $471
+                  - gridcell "36" [ref=e1155]:
+                    - generic [ref=e1157]: "36"
+                  - gridcell "Houston" [ref=e1158]:
+                    - generic [ref=e1160]: Houston
+                  - gridcell [ref=e1161]:
+                    - combobox [ref=e1166] [cursor=pointer]:
+                      - generic [ref=e1167]:
+                        - text: Bronze
+                        - generic [ref=e1168]: ▼
+                  - gridcell "Average rating is less than 4 (3.2) 3.2" [ref=e1169]:
+                    - generic [ref=e1170]:
+                      - generic "Average rating is less than 4 (3.2)"
+                      - generic "Average rating is less than 4 (3.2)" [ref=e1171]:
+                        - generic "3.2 rating" [ref=e1172]:
+                          - strong [ref=e1178]: "3.2"
+                  - gridcell [ref=e1179]:
+                    - combobox [ref=e1184] [cursor=pointer]:
+                      - generic [ref=e1185]:
+                        - text: None
+                        - generic [ref=e1186]: ▼
+                - row "113 $1,801 30 New York 4.3" [ref=e1187]:
+                  - gridcell [ref=e1188]:
+                    - checkbox [ref=e1192]
+                  - gridcell "113" [ref=e1193]:
+                    - generic [ref=e1195]: "113"
+                  - gridcell [ref=e1196]:
+                    - combobox [ref=e1201] [cursor=pointer]:
+                      - generic [ref=e1202]:
+                        - generic [ref=e1203]: MM
+                        - generic [ref=e1204]: ▼
+                  - gridcell [ref=e1205]:
+                    - combobox [ref=e1210] [cursor=pointer]:
+                      - generic [ref=e1211]:
+                        - text: Female
+                        - generic [ref=e1212]: ▼
+                  - gridcell "$1,801" [ref=e1213]:
+                    - generic [ref=e1216]: $1,801
+                  - gridcell "30" [ref=e1217]:
+                    - generic [ref=e1219]: "30"
+                  - gridcell "New York" [ref=e1220]:
+                    - generic [ref=e1222]: New York
+                  - gridcell [ref=e1223]:
+                    - combobox [ref=e1228] [cursor=pointer]:
+                      - generic [ref=e1229]:
+                        - text: Gold
+                        - generic [ref=e1230]: ▼
+                  - gridcell "4.3" [ref=e1231]:
+                    - generic "4.3 rating" [ref=e1234]:
+                      - strong [ref=e1240]: "4.3"
+                  - gridcell [ref=e1241]:
+                    - combobox [ref=e1246] [cursor=pointer]:
+                      - generic [ref=e1247]:
+                        - text: Applied
+                        - generic [ref=e1248]: ▼
+                - row "114 $985 33 Los Angeles 4.4" [ref=e1249]:
+                  - gridcell [ref=e1250]:
+                    - checkbox [ref=e1254]
+                  - gridcell "114" [ref=e1255]:
+                    - generic [ref=e1257]: "114"
+                  - gridcell [ref=e1258]:
+                    - combobox [ref=e1263] [cursor=pointer]:
+                      - generic [ref=e1264]:
+                        - generic [ref=e1265]: FH
+                        - generic [ref=e1266]: ▼
+                  - gridcell [ref=e1267]:
+                    - combobox [ref=e1272] [cursor=pointer]:
+                      - generic [ref=e1273]:
+                        - text: Male
+                        - generic [ref=e1274]: ▼
+                  - gridcell "$985" [ref=e1275]:
+                    - generic [ref=e1278]: $985
+                  - gridcell "33" [ref=e1279]:
+                    - generic [ref=e1281]: "33"
+                  - gridcell "Los Angeles" [ref=e1282]:
+                    - generic [ref=e1284]: Los Angeles
+                  - gridcell [ref=e1285]:
+                    - combobox [ref=e1290] [cursor=pointer]:
+                      - generic [ref=e1291]:
+                        - text: Silver
+                        - generic [ref=e1292]: ▼
+                  - gridcell "4.4" [ref=e1293]:
+                    - generic "4.4 rating" [ref=e1296]:
+                      - strong [ref=e1302]: "4.4"
+                  - gridcell [ref=e1303]:
+                    - combobox [ref=e1308] [cursor=pointer]:
+                      - generic [ref=e1309]:
+                        - text: None
+                        - generic [ref=e1310]: ▼
+                - row "115 $530 42 Chicago Average rating is less than 4 (3.5) 3.5" [ref=e1311]:
+                  - gridcell [ref=e1312]:
+                    - checkbox [ref=e1316]
+                  - gridcell "115" [ref=e1317]:
+                    - generic [ref=e1319]: "115"
+                  - gridcell [ref=e1320]:
+                    - combobox [ref=e1325] [cursor=pointer]:
+                      - generic [ref=e1326]:
+                        - generic [ref=e1327]: CR
+                        - generic [ref=e1328]: ▼
+                  - gridcell [ref=e1329]:
+                    - combobox [ref=e1334] [cursor=pointer]:
+                      - generic [ref=e1335]:
+                        - text: Female
+                        - generic [ref=e1336]: ▼
+                  - gridcell "$530" [ref=e1337]:
+                    - generic [ref=e1340]: $530
+                  - gridcell "42" [ref=e1341]:
+                    - generic [ref=e1343]: "42"
+                  - gridcell "Chicago" [ref=e1344]:
+                    - generic [ref=e1346]: Chicago
+                  - gridcell [ref=e1347]:
+                    - combobox [ref=e1352] [cursor=pointer]:
+                      - generic [ref=e1353]:
+                        - text: Bronze
+                        - generic [ref=e1354]: ▼
+                  - gridcell "Average rating is less than 4 (3.5) 3.5" [ref=e1355]:
+                    - generic [ref=e1356]:
+                      - generic "Average rating is less than 4 (3.5)"
+                      - generic "Average rating is less than 4 (3.5)" [ref=e1357]:
+                        - generic "3.5 rating" [ref=e1358]:
+                          - strong [ref=e1364]: "3.5"
+                  - gridcell [ref=e1365]:
+                    - combobox [ref=e1370] [cursor=pointer]:
+                      - generic [ref=e1371]:
+                        - text: Applied
+                        - generic [ref=e1372]: ▼
