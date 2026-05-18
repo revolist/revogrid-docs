@@ -9,6 +9,7 @@
         class="rg-btn"
         :class="`rg-btn-${action.variant}`"
         :href="linkOf(action.link)"
+        :target="action.target"
       >
         {{ action.text }}<HomeChevron v-if="action.variant === 'ghost'" />
       </a>

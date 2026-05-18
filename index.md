@@ -22,6 +22,7 @@ hero:
   primaryAction:
     text: Try live demo
     link: https://rv-grid.com/demo
+    target: self
   secondaryAction:
     text: View docs
     link: /guide/
@@ -72,12 +73,14 @@ demos:
       description: 100,000+ rows with smooth scrolling.
       link: https://rv-grid.com/demo/hr
       type: dataset
+      target: self
     - title: Spreadsheet Editing
       description: Selection, copy/paste, keyboard navigation, and inline editors.
       link: https://rv-grid.com/demo/color
       type: editing
     - title: Custom Cell Types
       description: Build badges, progress bars, ratings, dropdowns, and any custom renderer.
+      target: self
       link: /guide/column/types
       type: custom
     - title: Tree Data
@@ -132,6 +135,7 @@ developer:
       link: /guide/
     - text: View examples
       link: https://rv-grid.com/demo/demo/hr
+      target: self
   tabs:
     - id: angular
       label: Angular
@@ -265,6 +269,7 @@ advanced:
       type: erp
       link: https://rv-grid.com/demo/ecommerce
       description: Use RevoGrid as the interface layer for inventory, finance, admin, and operations workflows.
+      target: self
 
 useCases:
   label: Use cases
@@ -394,6 +399,7 @@ finalCta:
     - text: Try live demo
       link: https://rv-grid.com/demo
       variant: primary
+      target: self
     - text: View pricing
       link: /pricing
       variant: secondary

@@ -9,14 +9,14 @@
         <h1 class="rg-hero-title" v-html="heroTitle"></h1>
         <p class="rg-hero-sub" v-html="heroTagline"></p>
         <div class="rg-actions">
-          <a class="rg-btn rg-btn-primary" :href="linkOf(hero?.primaryAction?.link)">
+          <a class="rg-btn rg-btn-primary" :href="linkOf(hero?.primaryAction?.link)" :target="hero?.primaryAction?.target" :rel="hero?.primaryAction?.rel" :data-router-ignore="hero?.primaryAction?.ignore">
             <span class="rg-play" aria-hidden="true"></span>
             {{ hero?.primaryAction?.text }}
           </a>
-          <a class="rg-btn rg-btn-secondary" :href="linkOf(hero?.secondaryAction?.link)">
+          <a class="rg-btn rg-btn-secondary" :href="linkOf(hero?.secondaryAction?.link)" :target="hero?.secondaryAction?.target" :rel="hero?.secondaryAction?.rel" :data-router-ignore="hero?.secondaryAction?.ignore">
             {{ hero?.secondaryAction?.text }}
           </a>
-          <a v-if="hero?.tertiaryAction" class="rg-btn rg-btn-ghost" :href="linkOf(hero.tertiaryAction.link)">
+          <a v-if="hero?.tertiaryAction" class="rg-btn rg-btn-ghost" :href="linkOf(hero.tertiaryAction.link)" :target="hero?.tertiaryAction?.target" :rel="hero?.tertiaryAction?.rel" :data-router-ignore="hero?.tertiaryAction?.ignore">
             {{ hero?.tertiaryAction?.text }}
             <HomeChevron />
           </a>
