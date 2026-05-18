@@ -23,6 +23,8 @@
           </a>
           <a :href="pageText.hero.actions.secondary.href" class="btn-ghost">{{ pageText.hero.actions.secondary.label }}</a>
         </div>
+        <DemoSlider class="fade-up-4" />
+        <br/><br/>
         <div class="hero-stats fade-up-4">
           <div v-for="s in pageText.hero.stats" :key="s.label" class="hero-stat">
             <div class="hero-stat-label">{{ s.label }}</div>
@@ -148,6 +150,7 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
 import { useData } from 'vitepress'
+import DemoSlider from './DemoSlider.vue'
 import { featuresPro } from './features.pro'
 
 type ProFeature = (typeof featuresPro)[number]
@@ -261,7 +264,6 @@ function closeVideo() {
   padding: 100px 0 80px;
   text-align: center;
   position: relative;
-  overflow: hidden;
 }
 
 .hero-glow {
