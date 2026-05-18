@@ -7,15 +7,15 @@ const route = useRoute()
 const framework = computed(() => {
     const path = route.path
 
-    if (path.includes('/guide/react/') || path.includes('/demo/react/')) {
+    if (path.includes('/guide/react/') || path.includes('/guide/demos/react/')) {
         return 'react'
     }
 
-    if (path.includes('/guide/vue') || path.includes('/demo/vue/')) {
+    if (path.includes('/guide/vue') || path.includes('/guide/demos/vue/')) {
         return 'vue'
     }
 
-    if (path.includes('/guide/angular/') || path.includes('/demo/angular/')) {
+    if (path.includes('/guide/angular/') || path.includes('/guide/demos/angular/')) {
         return 'angular'
     }
 

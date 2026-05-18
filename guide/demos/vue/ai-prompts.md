@@ -13,7 +13,7 @@ head:
 ---
 
 <script setup>
-import Grid from './DemoPrompts.vue'
+import Grid from '@/demo/vue/DemoPrompts.vue'
 </script>
 
 # AI ChatGPT Prompts Database

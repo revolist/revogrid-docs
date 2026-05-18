@@ -11,7 +11,7 @@ head:
       content: React Data Grid, RevoGrid, data grid, React integration, virtual grid, virtual rows, virtual columns, React grid example, grid performance, large data sets, customizable grid, RevoGrid React components, React Table, React Multi Select
 ---
 
-## React Multi Select Data Grid Demo
+# React Multi Select Data Grid Demo
 
 Use this React demo to render a multiselect data grid with RevoGrid and virtualized selection behavior.
 

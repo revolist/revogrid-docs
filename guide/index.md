@@ -33,7 +33,7 @@ This page is the fastest way to get a grid on the screen. From here you can move
 
 If you want to try the grid before installing anything locally, start with the live example:
 
-<!--@include: ../demo/js/js.overview.md-->
+<!--@include: ../guide/demos/js/js.overview.md-->
 
 ## Quick start in 60 seconds
 

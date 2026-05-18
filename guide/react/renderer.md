@@ -14,7 +14,7 @@ This capability, known as native cell rendering, allows developers to customize 
 
 
 
-<!--@include: ../../demo/react/react.cell.md-->
+<!--@include: ../../guide/demos/react/react.cell.md-->
 
 
 In this guide, we will explore how to implement custom cell renderers and templates within your RevoGrid in React. Whether you need to render custom React components, include dynamic data, or create interactive cell behaviors, RevoGrid’s native rendering support ensures that your cells are more than just plain text.

@@ -7,7 +7,8 @@ head:
       content: RevoGrid, React, native cell rendering, custom cell rendering, React components in grid, data grid rendering, React grid integration, RevoGrid React cells, grid component render, React custom cells, React Table
 ---
 
-## React Custom Cell Template Example
+# React Custom Cell Template Demo
+
 <DemoWidgetFrame
   demo="cell-template"
   framework="react"

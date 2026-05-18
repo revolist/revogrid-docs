@@ -4,7 +4,7 @@ description: Build a Vue 3 multiselect virtual list with RevoGrid and Compositio
 ---
 
 <script lang="ts" setup>
-    import Demo from './vue.select.vue'
+    import Demo from '@/demo/vue/vue.select.vue'
 </script>
 
 # Vue 3 - Multi Select (Composition API)

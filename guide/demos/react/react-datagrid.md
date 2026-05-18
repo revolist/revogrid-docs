@@ -11,7 +11,7 @@ head:
       content: React Data Grid, RevoGrid, data grid, React integration, virtual grid, virtual rows, virtual columns, React grid example, grid performance, large data sets, customizable grid, RevoGrid React components, React Table
 ---
 
-## React Data Grid Demo
+# React Data Grid Demo
 
 Use this React demo to start a RevoGrid table with virtualized rows and columns, editable cells, and high-performance rendering for large datasets.
 

@@ -15,7 +15,7 @@ import Examples from './examples.vue'
 
 <!--@include: ../parts/_editor.header.md-->
 
-<!--@include: ../../demo/vue/vue.editor.composition.md-->
+<!--@include: ../../guide/demos/vue/vue.editor.composition.md-->
 
 ## Data Grid App
 

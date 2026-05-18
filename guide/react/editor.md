@@ -15,7 +15,7 @@ By integrating React components as native editors, RevoGrid gives you full contr
 
 
 
-<!--@include: ../../demo/react/react.editor.md-->
+<!--@include: ../../guide/demos/react/react.editor.md-->
 
 
 <!--@include: ../parts/editor.why.md-->

@@ -4,7 +4,7 @@ description: Build a Vue 3 Composition API cell editor for RevoGrid with custom 
 ---
 
 
-## Vue 3 Data Grid Cell Editor component (Composition API)
+# Vue 3 Data Grid Cell Editor component (Composition API)
 
 <br />
 

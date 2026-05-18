@@ -17,7 +17,7 @@ head:
 
 </div>
 
-<!--@include: ../../demo/svelte/svelte-datagrid.md-->
+<!--@include: ../../guide/demos/svelte/svelte-datagrid.md-->
 
 ::: warning
 

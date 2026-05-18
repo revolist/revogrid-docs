@@ -4,7 +4,8 @@ description: Configure RevoGrid filtering in a standalone JavaScript data grid d
 aside: false
 ---
 
-## Filter Plugin
+# Filter Plugin Demo
+<br/>
 
 <DemoWidgetFrame
   demo="clear-filtering"

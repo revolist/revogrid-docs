@@ -23,7 +23,7 @@ This page covers the key concepts of RevoGrid - a high-performance, customizable
 </div>
 
 
-<!--@include: ../../demo/stencil/stencil.sample.md-->
+<!--@include: ../../guide/demos/stencil/stencil.sample.md-->
 
 
 ## What is StencilJS?

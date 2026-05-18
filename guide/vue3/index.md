@@ -54,7 +54,7 @@ The most common Vue pattern is:
 
 
 
-<!--@include: ../../demo/vue/vue.sample.options.md-->
+<!--@include: ../../guide/demos/vue/vue.sample.options.md-->
 
 ## Accessing grid instance methods
 

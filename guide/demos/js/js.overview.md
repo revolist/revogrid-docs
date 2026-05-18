@@ -4,7 +4,7 @@ description: Try a standalone JavaScript data grid demo with RevoGrid, virtual s
 aside: false
 ---
 
-## JavaScript Data Grid Demo
+# JavaScript Data Grid Demo
 
 Use this standalone JavaScript demo to see RevoGrid render editable tabular data with virtual scrolling and fast browser performance.
 

@@ -11,7 +11,7 @@ head:
 
 <!--@include: ../parts/_editor.header.md-->
 
-<!--@include: ../../demo/angular/angular.editor.md-->
+<!--@include: ../../guide/demos/angular/angular.editor.md-->
 
 ## Editor as standalone component
 

@@ -3,7 +3,7 @@ title: Row Grouping - Vue 3 Data Grid
 description: Group rows in a Vue 3 RevoGrid data grid with a Composition API demo and interactive grouping example.
 ---
 
-## Vue 3 - Row Grouping
+# Vue 3 - Row Grouping Demo
 
 <DemoWidgetFrame
   demo="grouping-rows"

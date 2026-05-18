@@ -27,7 +27,7 @@ RevoGrid gives React applications a fast virtualized data grid without changing 
 <!--@include: ../../demo/react/react-datagrid.tsx-->
 ```
 
-<!--@include: ../../demo/react/react-datagrid.md-->
+<!--@include: ../../guide/demos/react/react-datagrid.md-->
 
 ## Working with `columns` and `source`
 

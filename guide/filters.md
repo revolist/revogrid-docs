@@ -288,7 +288,7 @@ Start with [RevoGrid Pro features](/pro/#features), or open the business demos t
 
 ## Related docs
 
-- [JavaScript filtering demo](/demo/js/js.filtering)
+- [JavaScript filtering demo](/guide/demos/js/js.filtering)
 - [Column Types and Formats](/guide/column/types)
 - [Programmatic Control](/guide/programmatic-control)
 - [Event Patterns and Lifecycles](/guide/events-guide#filtering)

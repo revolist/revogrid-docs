@@ -14,7 +14,7 @@ import Examples from './examples.vue'
 # Vue Data Grid Cell Template
 <!--@include: ../parts/_renderer.header.md-->
 
-<!--@include: ../../demo/vue/vue.cell.composition.md-->
+<!--@include: ../../guide/demos/vue/vue.cell.composition.md-->
 
 ## App
 

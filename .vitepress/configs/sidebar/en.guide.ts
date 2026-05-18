@@ -1,4 +1,11 @@
 import type { DefaultTheme } from 'vitepress'
+import {
+    sidebarAngularEn,
+    sidebarJavaScriptDemosEn,
+    sidebarReactEn,
+    sidebarVue2En,
+    sidebarVue3En,
+} from './en.demo'
 
     // {
     //     text: 'Pro',
@@ -252,10 +259,6 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 text: 'Real-Time Updates',
                 link: '/guide/realtime-updates',
             },
-            {
-                text: 'Tree Data',
-                link: '/guide/tree-data',
-            },
         ],
     },
 
@@ -264,7 +267,19 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
         text: 'Frameworks',
         items: [
             {
-                text: 'Angular',
+                text: '<img src="/js.svg" alt="JS logo" width="15" height="15"/> TypeScript',
+                collapsed: true,
+                items: [
+                    { text: 'Getting Started', link: '/guide/ts/' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: sidebarJavaScriptDemosEn,
+                    },
+                ],
+            },
+            {
+                text: '<img src="/angular.svg" alt="Angular logo" width="15" height="15"/> Angular',
                 collapsed: true,
                 items: [
                     { text: 'Getting Started', link: '/guide/angular/' },
@@ -274,10 +289,15 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                     },
                     { text: 'Cell Editor', link: '/guide/angular/editor' },
                     { text: 'Tree Data', link: '/guide/angular/tree' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: sidebarAngularEn,
+                    },
                 ],
             },
             {
-                text: 'React',
+                text: '<img src="/react.svg" alt="React logo" width="15" height="15"/> React',
                 collapsed: true,
                 items: [
                     { text: 'Getting Started', link: '/guide/react/' },
@@ -286,59 +306,92 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                         link: '/guide/react/renderer',
                     },
                     { text: 'Cell Editor', link: '/guide/react/editor' },
-                    { text: 'Tree Data', link: '/guide/react/tree' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: sidebarReactEn,
+                    },
                 ],
             },
             {
-                text: 'StencilJs',
-                collapsed: true,
-                items: [
-                    { text: 'Getting Started', link: '/guide/stencil/' },
-                    { text: 'Tree Data', link: '/guide/stencil/tree' },
-                ],
-            },
-            {
-                text: 'Svelte',
-                collapsed: true,
-                items: [
-                    { text: 'Getting Started', link: '/guide/svelte/' },
-                    { text: 'Tree Data', link: '/guide/svelte/tree' },
-                ],
-            },
-            {
-                text: 'TypeScript',
-                collapsed: true,
-                items: [
-                    { text: 'Getting Started', link: '/guide/ts/' },
-                    { text: 'Tree Data', link: '/guide/ts/tree' },
-                ],
-            },
-            {
-                text: 'Vue 2',
-                collapsed: true,
-                items: [
-                    { text: 'Getting Started', link: '/guide/vue2/' },
-                    { text: 'Cell Template', link: '/guide/vue2/renderer' },
-                    { text: 'Cell Editor', link: '/guide/vue2/editor' },
-                    { text: 'Tree Data', link: '/guide/vue2/tree' },
-                ],
-            },
-            {
-                text: 'Vue 3',
+                text: '<img src="/vuejs.svg" alt="Vue 3 logo" width="15" height="15"/> Vue 3',
                 collapsed: true,
                 items: [
                     { text: 'Getting Started', link: '/guide/vue3/' },
                     { text: 'Cell Template', link: '/guide/vue3/renderer' },
                     { text: 'Cell Editor', link: '/guide/vue3/editor' },
-                    { text: 'Tree Data', link: '/guide/vue3/tree' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: sidebarVue3En,
+                    },
                 ],
             },
             {
-                text: 'Tanstack',
+                text: '<img src="/svelte.svg" alt="Svelte logo" width="15" height="15"/> Svelte',
+                collapsed: true,
+                items: [
+                    { text: 'Getting Started', link: '/guide/svelte/' },
+                    { text: 'Tree Data', link: '/guide/svelte/tree' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: [
+                            {
+                                text: 'Getting Started',
+                                link: '/guide/demos/svelte/svelte-datagrid',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                text: '<img src="/stenciljs.svg" alt="StencilJs logo" width="15" height="15"/> StencilJs',
+                collapsed: true,
+                items: [
+                    { text: 'Getting Started', link: '/guide/stencil/' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: [
+                            {
+                                text: 'Getting Started',
+                                link: '/guide/demos/stencil/stencil.sample',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                text: '<img src="/vuejs.svg" alt="Vue 2 logo" width="15" height="15"/> Vue 2',
+                collapsed: true,
+                items: [
+                    { text: 'Getting Started', link: '/guide/vue2/' },
+                    { text: 'Cell Template', link: '/guide/vue2/renderer' },
+                    { text: 'Cell Editor', link: '/guide/vue2/editor' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: sidebarVue2En,
+                    },
+                ],
+            },
+            {
+                text: '<img src="/react-query-icon.svg" alt="TanStack logo" width="15" height="15"/> Tanstack',
                 collapsed: true,
                 items: [
                     { text: 'Getting Started', link: '/guide/tanstack' },
                     { text: 'Tree Data', link: '/guide/tanstack/tree' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: [
+                            {
+                                text: 'Getting Started',
+                                link: '/guide/demos/tanstack/',
+                            },
+                        ],
+                    },
                 ],
             },
         ],

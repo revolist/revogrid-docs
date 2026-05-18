@@ -6,7 +6,7 @@ Column grouping creates stacked headers by placing related columns under a share
 
 Groups are declared directly in the `columns` array. A regular column has a `prop`; a grouped column has `children`. Grouped columns can be nested, so the header can have as many levels as your layout needs.
 
-<!--@include: ../../demo/js/js.column.group.md-->
+<!--@include: ../../guide/demos/js/js.column.group.md-->
 
 ## Basic structure
 

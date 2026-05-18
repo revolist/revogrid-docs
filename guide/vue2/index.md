@@ -11,7 +11,7 @@ head:
 # Vue 2 Data Grid
 
 This page covers the key concepts of RevoGrid - a high-performance, customizable Vue 2 Table and Vue 2 Data Grid for managing large datasets.
-<!--@include: ../../demo/vue/vue2-datagrid.md-->
+<!--@include: ../../guide/demos/vue/vue2-datagrid.md-->
 
 <!--@include: ./_install.md-->
 
@@ -23,7 +23,7 @@ This page covers the key concepts of RevoGrid - a high-performance, customizable
 
 ```
 
-<!--@include: ../../demo/vue/vue2-datagrid.md-->
+<!--@include: ../../guide/demos/vue/vue2-datagrid.md-->
 
 
 <!--@include: ./_examples.md-->

@@ -11,7 +11,7 @@ head:
 
 <!--@include: ../parts/_editor.header.md-->
 
-<!--@include: ../../demo/vue/vue2.editor.md-->
+<!--@include: ../../guide/demos/vue/vue2.editor.md-->
 
 ## App
 ```vue

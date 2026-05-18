@@ -65,4 +65,4 @@ const columnTypes = { date: new Plugin() }
 
 Keep the date value format consistent across the column. If your application stores dates in a different shape than the editor displays, normalize the value before assigning `source` or handle conversion in your save workflow.
 
-<!--@include: ../../demo/js/js.date.md-->
+<!--@include: ../../guide/demos/js/js.date.md-->

@@ -11,7 +11,7 @@ head:
       content: React Data Grid, RevoGrid, data grid, React integration, virtual grid, virtual rows, virtual columns, React grid example, grid performance, large data sets, customizable grid, RevoGrid React components, React Table, React Grouping View
 ---
 
-## React Row Grouping Data Grid Demo
+# React Row Grouping Data Grid Demo
 
 Group rows in a React data grid with RevoGrid and an interactive row grouping example.
 

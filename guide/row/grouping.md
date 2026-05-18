@@ -28,7 +28,7 @@ The grouping option takes an object with the props property, which specifies the
 ```
 
 
-<!--@include: ../../demo/vue/vue.row-grouping.md-->
+<!--@include: ../../guide/demos/vue/vue.row-grouping.md-->
 
 
 ### Example Grouping Output

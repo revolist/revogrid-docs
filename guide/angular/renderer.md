@@ -11,7 +11,7 @@ head:
 
 <!--@include: ../parts/_renderer.header.md-->
 
-<!--@include: ../../demo/angular/angular.cell.md-->
+<!--@include: ../../guide/demos/angular/angular.cell.md-->
 
 <!--@include: ../parts/_renderer.why.md-->
 
