@@ -40,7 +40,7 @@ hero:
   actions:
     - theme: brand
       text: Explore Vue demos
-      link: /demo/
+      link: https://rv-grid.com/demo/
     - theme: alt
       text: Read Vue docs
       link: /guide/vue3/

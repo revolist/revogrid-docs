@@ -39,7 +39,7 @@ hero:
   actions:
     - theme: brand
       text: Explore live demos
-      link: /demo/
+      link: https://rv-grid.com/demo/
     - theme: alt
       text: Start with docs
       link: /guide/

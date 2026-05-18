@@ -39,7 +39,7 @@ hero:
   actions:
     - theme: brand
       text: Explore Angular demos
-      link: /demo/
+      link: https://rv-grid.com/demo/
     - theme: alt
       text: Read Angular docs
       link: /guide/angular/
