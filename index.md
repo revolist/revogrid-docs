@@ -64,38 +64,38 @@ trustBadges:
   - Commercial licensing
   - No deployment counting
 
-demos:
-  label: Live demos
-  title: Touch the product before you read about it
-  description: Every demo is interactive. Try editing cells, filtering data, resizing columns, and scrolling through large datasets.
-  items:
-    - title: Large Dataset
-      description: 100,000+ rows with smooth scrolling.
-      link: /demo/hr
-      type: dataset
-      target: self
-    - title: Spreadsheet Editing
-      description: Selection, copy/paste, keyboard navigation, and inline editors.
-      link: /demo/color
-      type: editing
-      target: self
-    - title: Custom Cell Types
-      description: Build badges, progress bars, ratings, dropdowns, and any custom renderer.
-      target: self
-      link: /guide/column/types
-      type: custom
-    - title: Tree Data
-      description: Hierarchical rows with expandable children and nested aggregation.
-      link: /guide/tree-data
-      type: tree
-    - title: Column Grouping
-      description: Organize columns under multi-level group headers for complex data structures.
-      link: /guide/column/grouping
-      type: grouping
-    - title: Real-time Updates
-      description: Streaming data updates without full re-renders. Built for live dashboards.
-      link: /guide/realtime-updates
-      type: realtime
+# demos:
+#   label: Live demos
+#   title: Touch the product before you read about it
+#   description: Every demo is interactive. Try editing cells, filtering data, resizing columns, and scrolling through large datasets.
+#   items:
+#     - title: Large Dataset
+#       description: 100,000+ rows with smooth scrolling.
+#       link: /demo/hr
+#       type: dataset
+#       target: self
+#     - title: Spreadsheet Editing
+#       description: Selection, copy/paste, keyboard navigation, and inline editors.
+#       link: /demo/color
+#       type: editing
+#       target: self
+#     - title: Custom Cell Types
+#       description: Build badges, progress bars, ratings, dropdowns, and any custom renderer.
+#       target: self
+#       link: /guide/column/types
+#       type: custom
+#     - title: Tree Data
+#       description: Hierarchical rows with expandable children and nested aggregation.
+#       link: /guide/tree-data
+#       type: tree
+#     - title: Column Grouping
+#       description: Organize columns under multi-level group headers for complex data structures.
+#       link: /guide/column/grouping
+#       type: grouping
+#     - title: Real-time Updates
+#       description: Streaming data updates without full re-renders. Built for live dashboards.
+#       link: /guide/realtime-updates
+#       type: realtime
 
 capabilities:
   label: Core capabilities

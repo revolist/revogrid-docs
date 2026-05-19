@@ -2,7 +2,7 @@
   <main class="rg-home">
     <HomeHeroSection :hero="data.hero" />
     <HomeStatsTrust :stats="data.stats" :trust-text="data.trustText" :badges="data.trustBadges" />
-    <HomeDemoGallery :section="data.demos" />
+    <HomeDemoGallery v-if="data.demos" :section="data.demos" />
     <HomeCapabilities :section="data.capabilities" />
     <HomeDeveloperSection :section="data.developer" />
     <HomeAdvancedModules :section="data.advanced" />
