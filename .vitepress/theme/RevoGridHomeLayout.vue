@@ -1,7 +1,7 @@
 <template>
   <main class="rg-home">
     <HomeHeroSection :hero="data.hero" />
-    <HomeStatsTrust :stats="data.stats" :trust-text="data.trustText" :badges="data.trustBadges" />
+    <HomeStatsTrust />
     <HomeDemoGallery v-if="data.demos" :section="data.demos" />
     <HomeCapabilities :section="data.capabilities" />
     <HomeDeveloperSection :section="data.developer" />
@@ -172,7 +172,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 }
 
 .rg-hero {
-  padding: 80px 0 72px;
+  padding: 80px 0 38px;
   overflow: hidden;
 }
 
@@ -479,80 +479,73 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 .perf-up { color: var(--rg-green); }
 .perf-dn { color: #f87171; }
 
-.rg-stats,
-.rg-trust {
+.rg-proof {
   border-top: 1px solid var(--rg-border);
-  background: var(--rg-bg-2);
+  background: transparent;
+  padding: 24px 0;
 }
 
-.rg-stats {
-  padding: 32px 0;
-}
-
-.rg-stats-inner {
+.rg-proof-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  justify-content: flex-start;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
-.rg-stat {
+.rg-proof-card {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  color: inherit;
-  text-decoration: none;
+  justify-content: center;
+  min-height: 48px;
+  border: 1px solid var(--rg-border);
+  border-radius: 10px;
+  background: var(--rg-bg);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
 }
 
-.rg-stat-num {
-  color: var(--rg-text);
-  font-size: 28px;
-  font-weight: 800;
-  line-height: 1.1;
+.rg-proof-fortune {
+  flex-direction: column;
+  gap: 1px;
+  min-width: 96px;
+  min-height: 54px;
+  padding: 6px 10px;
+  background: #fff;
+  border: 0;
+  box-shadow: none;
+  color: #050505;
+  text-transform: uppercase;
+  letter-spacing: 0;
 }
 
-.rg-stat-divider {
-  width: 1px;
-  height: 40px;
-  background: var(--rg-border);
-}
-
-.rg-trust-copy {
-  flex: 1;
-  min-width: 220px;
-  color: var(--rg-text-3);
+.rg-fortune-word {
+  border: 0;
+  padding: 0;
+  color: #211d1f;
   font-size: 13px;
-  text-align: center;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: 0.16em;
+}
+
+.rg-fortune-num {
+  color: #000;
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 0.86;
+  letter-spacing: -0.04em;
+}
+
+.rg-proof-copy {
+  max-width: 520px;
+  color: var(--rg-text-2);
+  font-size: 15px;
+  line-height: 1.6;
   margin: 0;
 }
 
-.rg-trust {
-  padding: 48px 0;
-  background: var(--rg-bg);
-}
-
-.rg-badges {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.rg-trust-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 4px 12px;
-  border: 1px solid var(--rg-border);
-  border-radius: 8px;
-  background: var(--rg-bg-2);
-  font-size: 13px;
-
-  span {
-    color: var(--rg-green);
-  }
+.dark .rg-proof-copy {
+  color: rgba(245, 245, 245, 0.78);
 }
 
 .rg-section-header {
@@ -1028,12 +1021,9 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
     min-height: 360px;
   }
 
-  .rg-stats-inner {
-    justify-content: center;
-  }
-
-  .rg-stat-divider {
-    display: none;
+  .rg-proof-card {
+    width: 100%;
+    min-width: 0;
   }
 
   .rg-comparison {

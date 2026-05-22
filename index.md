@@ -43,29 +43,6 @@ hero:
       color: '#F7DF1E'
       link: /guide/
 
-stats:
-  - num: 900K+
-    label: jsDelivr downloads/mo
-    link: https://www.jsdelivr.com/package/npm/@revolist/revogrid
-  - num: 3.4K+
-    label: GitHub stars
-    link: https://github.com/revolist/revogrid
-  - num: 8K+
-    label: Developers using RevoGrid
-  - num: v4.x
-    label: Latest stable release
-    link: https://github.com/revolist/revogrid/releases
-trustText: Used by engineering teams at Fortune 500 companies in automotive, pharma, finance, and enterprise software
-trustBadges:
-  - Production-ready 🚀
-  - Virtualized rendering ⚡
-  - Framework-native 🧩
-  - Pivot analytics 📊
-  - Gantt and scheduling 🗓️
-  - Plugin architecture 🔌
-  - Commercial licensing 💼
-  - No deployment counting ∞
-
 # demos:
 #   label: Live demos
 #   title: Touch the product before you read about it
@@ -160,7 +137,10 @@ nativeCells:
       code: |
         __LT__script setup__GT__
         import Cell from './Cell.vue'
-        const columns = [{ prop: 'value', cellTemplate: VGridVueTemplate(Cell) }]
+        const columns = [{
+          prop: 'value',
+          cellTemplate: VGridVueTemplate(Cell),
+        }]
         __LT__/script__GT__
 
         __LT__template__GT__
