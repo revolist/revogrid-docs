@@ -46,10 +46,8 @@
             <div class="rg-browser-url">Market Data · RevoGrid</div>
             <div class="rg-live">Live</div>
           </div>
-          <ClientOnly>
-            <div class="rg-grid-wrap">
+          <div class="rg-grid-wrap">
               <revo-grid
-                v-if="gridReady"
                 readonly
                 range
                 hideAttribution
@@ -62,8 +60,7 @@
               <span></span>
               100k+ rows · virtualized
             </div>
-            </div>
-          </ClientOnly>
+          </div>
         </div>
       </div>
     </div>
@@ -150,7 +147,6 @@ function createTickerRows() {
 
 const gridRows = shallowRef<HomeV2Record[]>([])
 const gridElement = shallowRef<RevoGridElement>()
-const gridReady = shallowRef(false)
 let updateTimer: ReturnType<typeof window.setInterval> | undefined
 
 
@@ -163,20 +159,10 @@ function applyGridProps(rows = gridRows.value) {
   grid.source = rows
 }
 
-onMounted(async () => {
-  const { applyPolyfills, defineCustomElements } = await import('@revolist/revogrid/loader')
-  await applyPolyfills()
-  defineCustomElements()
-  await customElements.whenDefined('revo-grid')
-
+onMounted(() => {
   gridRows.value = createTickerRows()
-  gridReady.value = true
-})
-
-watch(gridElement, () => {
   applyGridProps()
 
-  if (updateTimer || !gridElement.value) return
   updateTimer = window.setInterval(() => {
     const nextRows = gridRows.value.slice()
     const rowsToUpdate = Math.min(LIVE_UPDATE_ROWS, nextRows.length)
