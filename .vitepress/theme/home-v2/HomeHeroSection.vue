@@ -48,6 +48,7 @@
           </div>
           <div class="rg-grid-wrap">
                 <revo-grid
+                  data-allow-mismatch
                   readonly
                   range
                   hideAttribution
