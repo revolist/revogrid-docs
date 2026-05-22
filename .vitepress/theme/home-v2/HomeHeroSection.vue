@@ -46,23 +46,27 @@
             <div class="rg-browser-url">Market Data · RevoGrid</div>
             <div class="rg-live">Live</div>
           </div>
-          <div class="rg-grid-wrap">
-                <revo-grid
-                  data-allow-mismatch
+          <ClientOnly>
+            <div class="rg-grid-wrap">
+                <RevoGrid
                   readonly
                   range
-                  hideAttribution
+                  hide-attribution
                   resize
                   stretch
-                  rowSize="40"
-                  ref="gridElement"
+                  :row-size="40"
+                  :columns="gridColumns"
+                  :source="gridRows"
+                  :theme="gridTheme"
                   class="rg-grid"
-                  @aftergridinit="aftergridinit"></revo-grid>
+                  @aftergridinit="aftergridinit"
+                />
             <div class="rg-perf-badge">
               <span></span>
               100k+ rows · virtualized
             </div>
-          </div>
+            </div>
+          </ClientOnly>
         </div>
       </div>
     </div>
@@ -70,8 +74,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onBeforeUnmount, onMounted, shallowRef, watch } from 'vue'
+import { computed, onBeforeUnmount, shallowRef } from 'vue'
 import { useData } from 'vitepress'
+import RevoGrid from '@revolist/vue3-datagrid'
 import HomeChevron from './HomeChevron.vue'
 import { escapeHtml, linkProductMentions, type HomeV2Record, useHomeV2Links } from './homeV2Utils'
 // @ts-ignore
@@ -108,12 +113,6 @@ const TICKER_ROW_COUNT = 100_000
 const LIVE_UPDATE_ROWS = 80
 const orderedStocks = [...(stocks as HomeV2Record[])].sort((a, b) => String(a.symbol).localeCompare(String(b.symbol)))
 
-type RevoGridElement = HTMLElement & {
-  columns?: unknown[]
-  source?: HomeV2Record[]
-  theme?: string
-}
-
 type GridCreateElement = (tag: string, props?: Record<string, unknown>, children?: unknown) => unknown
 type GridCellContext = {
   value?: unknown
@@ -148,22 +147,14 @@ function createTickerRows() {
 }
 
 const gridRows = shallowRef<HomeV2Record[]>([])
-const gridElement = shallowRef<RevoGridElement>()
 let updateTimer: ReturnType<typeof window.setInterval> | undefined
 
-
-function applyGridProps(rows = gridRows.value) {
-  const grid = gridElement.value
-  if (!grid) return
-
-  grid.theme = isDark.value ? 'darkMaterial' : 'material'
-  grid.columns = gridColumns
-  grid.source = rows
-}
+const gridTheme = computed(() => isDark.value ? 'darkMaterial' : 'material')
 
 const aftergridinit = () => {
+  if (updateTimer) return
+
   gridRows.value = createTickerRows()
-  applyGridProps()
 
   updateTimer = window.setInterval(() => {
     const nextRows = gridRows.value.slice()
@@ -184,15 +175,12 @@ const aftergridinit = () => {
     }
 
     gridRows.value = nextRows
-    applyGridProps(nextRows)
   }, 1600)
 }
 
 onBeforeUnmount(() => {
   if (updateTimer) window.clearInterval(updateTimer)
 })
-
-watch(isDark, () => applyGridProps())
 
 const gridColumns = [
   {
