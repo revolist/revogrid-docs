@@ -5,6 +5,7 @@
     <HomeDemoGallery v-if="data.demos" :section="data.demos" />
     <HomeCapabilities :section="data.capabilities" />
     <HomeDeveloperSection :section="data.developer" />
+    <HomeNativeCells :section="data.nativeCells" />
     <HomeAdvancedModules :section="data.advanced" />
     <HomeUseCases :section="data.useCases" />
     <HomeComparison :section="data.comparison" />
@@ -26,6 +27,7 @@ import HomeDeveloperSection from './home-v2/HomeDeveloperSection.vue'
 import HomeFaq from './home-v2/HomeFaq.vue'
 import HomeFinalCta from './home-v2/HomeFinalCta.vue'
 import HomeHeroSection from './home-v2/HomeHeroSection.vue'
+import HomeNativeCells from './home-v2/HomeNativeCells.vue'
 import HomeStatsTrust from './home-v2/HomeStatsTrust.vue'
 import HomeUseCases from './home-v2/HomeUseCases.vue'
 
@@ -163,8 +165,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   padding: 88px 0;
 }
 
-.rg-section-soft,
-.rg-dev-section {
+.rg-section-soft {
   background: var(--rg-bg-2);
   border-top: 1px solid var(--rg-border);
   border-bottom: 1px solid var(--rg-border);

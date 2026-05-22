@@ -57,12 +57,14 @@ stats:
     link: https://github.com/revolist/revogrid/releases
 trustText: Used by engineering teams at Fortune 500 companies in automotive, pharma, finance, and enterprise software
 trustBadges:
-  - Production-ready
-  - Virtualized rendering
-  - Custom cells and editors
-  - Framework-agnostic
-  - Commercial licensing
-  - No deployment counting
+  - Production-ready 🚀
+  - Virtualized rendering ⚡
+  - Framework-native 🧩
+  - Pivot analytics 📊
+  - Gantt and scheduling 🗓️
+  - Plugin architecture 🔌
+  - Commercial licensing 💼
+  - No deployment counting ∞
 
 # demos:
 #   label: Live demos
@@ -126,6 +128,56 @@ capabilities:
       icon: lock
       link: "/guide/licensing"
       description: Per-developer licensing designed for teams building real products.
+
+nativeCells:
+  label: No context switch
+  title: Full native framework support
+  description: RevoGrid supports React, Vue, and Angular at the core JavaScript DataGrid level, so developers can build data-heavy apps with native components, familiar framework patterns, and virtualized grid rendering.
+  links:
+    - text: React cells
+      href: /guide/react/renderer
+    - text: Vue cells
+      href: /guide/vue3/renderer
+    - text: Angular cells
+      href: /guide/angular/renderer
+  examples:
+    - framework: React
+      color: '#61DAFB'
+      lang: tsx
+      code: |
+        const Cell = ({ value }) => (
+          __LT__strong__GT__{value}__LT__/strong__GT__
+        )
+
+        const columns = [
+          { prop: 'value', cellTemplate: Template(Cell) },
+        ]
+
+        __LT__RevoGrid columns={columns} source={rows} /__GT__
+    - framework: Vue
+      color: '#4FC08D'
+      lang: vue
+      code: |
+        __LT__script setup__GT__
+        import Cell from './Cell.vue'
+        const columns = [{ prop: 'value', cellTemplate: VGridVueTemplate(Cell) }]
+        __LT__/script__GT__
+
+        __LT__template__GT__
+          __LT__RevoGrid :columns="columns" :source="rows" /__GT__
+        __LT__/template__GT__
+    - framework: Angular
+      color: '#DD0031'
+      lang: ts
+      code: |
+        @Component({
+          template: '{{ props.model.value }}',
+        })
+        class CellComponent {}
+
+        columns = [
+          { prop: 'value', cellTemplate: Template(CellComponent) },
+        ]
 
 developer:
   label: For developers
@@ -213,6 +265,21 @@ developer:
         const grid = document.querySelector('revo-grid')
         grid.columns = [{ prop: 'value', name: 'Value' }]
         grid.source = [{ value: 120000 }, { value: 98000 }]
+    - id: svelte
+      label: Svelte
+      icon: /svelte.svg
+      lang: svelte
+      code: |
+        __LT__!-- npm install @revolist/svelte-datagrid --__GT__
+        __LT__!-- App.svelte --__GT__
+        __LT__script lang="ts"__GT__
+          import { RevoGrid } from '@revolist/svelte-datagrid'
+
+          const columns = [{ prop: 'value', name: 'Value' }]
+          const source = [{ value: 120000 }, { value: 98000 }]
+        __LT__/script__GT__
+
+        __LT__RevoGrid {source} {columns} /__GT__
 
 advanced:
   label: Advanced modules
