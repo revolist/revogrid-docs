@@ -13,9 +13,6 @@ head:
   - - meta
     - name: keywords
       content: RevoGrid, JavaScript Data Grid, React Data Grid, Vue Data Grid, Angular Data Grid, Svelte Data Grid, Virtual Scrolling, Editable Grid, Data Table, Pivot Grid, Gantt Grid
-  - - script
-    - src: https://cdn.jsdelivr.net/npm/@revolist/revogrid@latest/dist/revo-grid/revo-grid.min.js
-
 hero:
   eyebrow: High-performance data grid
   title: The extensible data grid for complex web apps
