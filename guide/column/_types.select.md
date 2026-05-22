@@ -1,12 +1,12 @@
-### Select/Dropdown
+### Select Dropdown
 
-Complex [selection data type plugin](https://github.com/revolist/RevoGrid-column-select) based on [revo-dropdown](https://github.com/revolist/revodropdown) library.
+The select column type adds a dropdown editor through the [revogrid-column-select](https://github.com/revolist/RevoGrid-column-select) package, based on [revo-dropdown](https://github.com/revolist/revodropdown).
 
-In order to improve dropdown functionality please contribute with [revo-dropdown](https://github.com/revolist/revodropdown).
+Use it when users should choose from a controlled list of values, such as statuses, departments, categories, countries, or lookup table entries.
 
-Accept data in Array format. Item in array can be represented as a string[] or an object[].
+Dropdown options can be represented as strings or objects. When using objects, configure `labelKey` and `valueKey` so the editor knows what to display and what to store.
 
-<b>Installation</b>
+#### Installation
 
 ::: code-group
 
@@ -29,12 +29,12 @@ bun add @revolist/revogrid-column-select
 
 :::
 
-<b>Basic usage</b>
+#### Basic usage
 
--   Import Select Column type;
--   Specify table data;
--   Per column specify column type;
--   Register your column type.
+1. Import the select column type.
+2. Define the dropdown source.
+3. Register the type in `columnTypes`.
+4. Set `columnType: 'select'` on the column.
 
 ```js
 // do Select class import
@@ -64,3 +64,19 @@ const plugin = { select: new SelectTypePlugin() }
 // apply data to grid per your framework approach
 <revo-grid source={rows} columns={columns} columnTypes={plugin} />
 ```
+
+#### Option shape
+
+```ts
+const dropdown = {
+  labelKey: 'label',
+  valueKey: 'value',
+  source: [
+    { label: 'Draft', value: 'draft' },
+    { label: 'Approved', value: 'approved' },
+    { label: 'Archived', value: 'archived' },
+  ],
+}
+```
+
+Use the object form when the visible label and stored value should differ.

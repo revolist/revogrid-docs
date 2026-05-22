@@ -1,111 +1,143 @@
 <template>
-    <div class="slider-container">
-        <div
-            style="
-                border-radius: 12px;
-                overflow: hidden;
-                text-align: center;
-                border: 2px solid black;
-                box-shadow: 10px 8px 0 rgba(0, 0, 0, 0.8);
-            "
-        >
-            <video
-                ref="videoRef"
-                class="video"
-                loop
-                playsinline
-                autoplay
-                :poster="currentVideo.poster"
-                style="width: 100%; height: 100%; object-fit: cover; margin: 0;"
-            >
-                <source :src="currentVideo.src" type="video/mp4" />
-            </video>
-        </div>
-        <div class="dots-container">
-            <div
-                v-for="(_, index) in videos"
-                :key="index"
-                class="dot"
-                :class="{ active: currentIndex === index }"
-                @click="goToSlide(index)"
-            ></div>
-        </div>
+  <div class="demo-slider">
+    <div class="demo-slider-frame">
+      <video
+        ref="videoRef"
+        class="demo-slider-video"
+        loop
+        muted
+        playsinline
+        autoplay
+        :poster="currentVideo.poster"
+      >
+        <source :src="currentVideo.src" type="video/mp4" />
+      </video>
     </div>
+
+    <div class="demo-slider-dots" aria-label="Demo preview selector">
+      <button
+        v-for="(video, index) in videos"
+        :key="video.src"
+        type="button"
+        class="demo-slider-dot"
+        :class="{ active: currentIndex === index }"
+        :aria-label="`Show ${video.label} preview`"
+        :aria-pressed="currentIndex === index"
+        @click="goToSlide(index)"
+      ></button>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 const currentIndex = ref(0)
 const videoRef = ref<HTMLVideoElement | null>(null)
-let timer: number | null = null
+let timer: number | undefined
 
-const videos = ref([
-    {
-        src: '/video/pivot.mp4',
-        poster: '/img/pivot-preview.jpg',
-    },
-    {
-        src: '/video/demo-color.mp4',
-        poster: '/img/demo-color-preview.jpg',
-    },
-])
+const videos = [
+  {
+    label: 'Pivot analytics',
+    src: '/video/pivot.mp4',
+    poster: '/img/pivot-preview.jpg',
+  },
+  {
+    label: 'Project tracker',
+    src: '/video/demo-color.mp4',
+    poster: '/img/demo-color-preview.jpg',
+  },
+]
 
-const currentVideo = computed(() => videos.value[currentIndex.value])
+const currentVideo = computed(() => videos[currentIndex.value])
+
+const playCurrentVideo = async () => {
+  if (!videoRef.value) return
+
+  videoRef.value.load()
+  videoRef.value.currentTime = 0
+
+  try {
+    await videoRef.value.play()
+  } catch {
+    // Browser autoplay policy can still block playback in some contexts.
+  }
+}
+
 const goToSlide = async (index: number) => {
-    videoRef.value?.pause()
-    currentIndex.value = index
-    if (videoRef.value) {
-        videoRef.value?.load()
-        videoRef.value.currentTime = 0
-        await videoRef.value.play()
-    }
+  if (index === currentIndex.value) return
+
+  videoRef.value?.pause()
+  currentIndex.value = index
+  await playCurrentVideo()
 }
 
 const startTimer = () => {
-    if (timer) clearInterval(timer)
-    timer = window.setInterval(() => {
-        goToSlide((currentIndex.value + 1) % videos.value.length)
-    }, 15000)
+  window.clearInterval(timer)
+  timer = window.setInterval(() => {
+    void goToSlide((currentIndex.value + 1) % videos.length)
+  }, 15000)
 }
 
-onMounted(() => {
-    startTimer()
-})
+onMounted(startTimer)
 
 onUnmounted(() => {
-    if (timer) clearInterval(timer)
+  window.clearInterval(timer)
 })
 </script>
 
 <style scoped>
-.slider-container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
+.demo-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 56px -80px 0;
 }
 
-.video {
-    width: 100%;
+.demo-slider-frame {
+  border: 1px solid transparent;
+  border-radius: 18px;
+  box-shadow:
+    0 24px 80px rgba(15, 23, 42, 0.18),
+    0 8px 24px rgba(15, 23, 42, 0.1);
+  overflow: hidden;
+  position: relative;
 }
 
-.dots-container {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 1rem;
+.demo-slider-video {
+  display: block;
+  height: auto;
+  margin: 0;
+  object-fit: cover;
+  object-position: left;
+  width: 100%;
 }
 
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: #ccc;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.demo-slider-dots {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 
-.dot.active {
-    background-color: #000;
+.demo-slider-dot {
+  background: var(--vp-c-divider);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  height: 10px;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease, width 0.2s ease;
+  width: 10px;
+}
+
+.demo-slider-dot.active {
+  background: var(--vp-c-brand-1);
+  transform: translateY(-1px);
+  width: 28px;
+}
+
+.demo-slider-dot:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 3px;
 }
 </style>

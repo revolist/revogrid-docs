@@ -1,9 +1,12 @@
 ---
+title: RevoGrid Pro Terms of Service
+description: Review RevoGrid Pro terms for service access, accounts, payments, subscriptions, platform use, customer obligations, and legal conditions.
 sidebar: false
 footer: true
 ---
 
-# Agreement to Our Legal Terms
+# RevoGrid Pro Terms of Service
+> Last updated: March 16, 2026
 
 We are **REVOLIST OÜ** ("Company," "we," "us," "our"), a company registered in Estonia at Ruunaoja tn 3, Tallinn, Harju maakond 11415. Our VAT number is **EE101070492**.
 
@@ -126,6 +129,8 @@ We recommend that you print a copy of these Legal Terms for your records.
 
 6. **Trial and Evaluation**: Revolist provides a trial version of RevoGrid Pro for evaluation purposes. Trial access is granted upon request and requires direct contact with Revolist. By purchasing RevoGrid Pro, the User acknowledges they have had the opportunity to evaluate the service through the trial platform and understand the service capabilities before purchase. To request trial access, contact Revolist at [contact@revolist.eu](mailto:contact@revolist.eu).
 
+7. **Perpetual License Request**: Perpetual licensing is not included by default and must be requested separately by the User and confirmed by Revolist.
+
 ### 9. Availability of the Platform
 
 1. The availability of the Platform is determined as follows:
@@ -144,6 +149,8 @@ In the interest of all Users, Revolist endeavors to continuously improve the Pla
 ### 11. Data Protection
 
 Revolist strictly complies with the regulations of applicable data protection legislation. Please find Revolist’s Privacy Policy at [Privacy Policy](./privacy).
+
+Unless the User opts out in writing via [contact@revolist.eu](mailto:contact@revolist.eu), the User grants Revolist a non-exclusive, worldwide, royalty-free right to identify the User's business name and publicly available logo as a RevoGrid customer in Revolist's website and marketing materials. Revolist will not publish confidential information, personal contact data, or non-public project details under this clause.
 
 ### 12. General Limitation of Liability
 

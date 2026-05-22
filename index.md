@@ -1,216 +1,424 @@
 ---
-layout: home
-title: High-Performance Data Grid for Vue, React, Angular, Svelte, and JavaScript
+layout: revogrid-home
+title: RevoGrid - The Extensible Data Grid for Complex Web Apps
+navbar: true
+sidebar: false
+aside: false
+footer: true
 
 head:
   - - meta
     - name: description
-      content: RevoGrid is a high-performance data grid component compatible with Vue, React, Angular, Svelte, and JavaScript frameworks.
+      content: Build spreadsheet-grade data grids with RevoGrid for Vue, React, Angular, Svelte, and JavaScript apps.
   - - meta
     - name: keywords
-      content: AI Table, Virtual Data Grid, Performance Grid, Excel-like Grid, Responsive Grid, Customizable Grid, Enterprise Data Grid, Lightweight Grid, React Data Grid, Vue3 Data Grid, Angular Grid, Svelte Grid, Virtual Scrolling, Editable Grid, Treeview Grid, Conditional Formatting, Merge Cells, Master-Detail Rows, Data Filtering, Data Sorting, Grouping, Pagination, Large Dataset Handling, Data Visualization, Interactive Data Grid, Drag & Drop, Grid Plugins, Scalable Grid, RevoGrid Features
-
+      content: RevoGrid, JavaScript Data Grid, React Data Grid, Vue Data Grid, Angular Data Grid, Svelte Data Grid, Virtual Scrolling, Editable Grid, Data Table, Pivot Grid, Gantt Grid
 hero:
-  name: Supercharge
-  text: Your Data Grid.
-  tagline: RevoGrid is a high-performance JavaScript Data Grid built for massive datasets. 60fps, 3x less memory. Now with <a href="/pro/ai" class="VPBadge danger">AI support</a>
-  license:
-    text: RevoGrid is a MIT-licensed open source data grid.
-    details: Unlock advanced features by subscribing to
-    action: RevoGrid Pro
-  banner:
-    text: RevoGrid 4 is here
-    action: Read what’s new →
-  actions:
-    - theme: brand
-      text: Get started
+  eyebrow: High-performance data grid
+  title: The extensible data grid for complex web apps
+  emphasis: extensible
+  tagline: Build spreadsheet-grade tables with fast rendering, custom cells, inline editing, keyboard navigation, and framework-friendly APIs. Start with the core grid. Add Pivot and Gantt when your product needs them.
+  primaryAction:
+    text: Try live demo
+    link: /demo
+    target: _self
+  secondaryAction:
+    text: View docs
+    link: /guide/
+  frameworks:
+    - name: Vue
+      color: '#4FC08D'
+      link: /guide/vue3/
+    - name: Angular
+      color: '#DD0031'
+      link: /guide/angular/
+    - name: React
+      color: '#61DAFB'
+      link: /guide/react/
+    - name: Svelte
+      color: '#FF3E00'
+      link: /guide/svelte/
+    - name: JavaScript
+      color: '#F7DF1E'
       link: /guide/
-    - theme: sponsor
-      text: Demo
-      link: /demo/
 
-recommended:
-  title: Engineered for
-  details: Every Challenge.
-  features:
-    - title: Individuals
-      icon: 
-        src: individual.svg
-      details: Quickly build elegant and efficient data grids. Lightweight yet powerful architecture lets you easily scale as your needs grow.
+# demos:
+#   label: Live demos
+#   title: Touch the product before you read about it
+#   description: Every demo is interactive. Try editing cells, filtering data, resizing columns, and scrolling through large datasets.
+#   items:
+#     - title: Large Dataset
+#       description: 100,000+ rows with smooth scrolling.
+#       link: /demo/hr
+#       type: dataset
+#       target: _self
+#     - title: Spreadsheet Editing
+#       description: Selection, copy/paste, keyboard navigation, and inline editors.
+#       link: /demo/color
+#       type: editing
+#       target: _self
+#     - title: Custom Cell Types
+#       description: Build badges, progress bars, ratings, dropdowns, and any custom renderer.
+#       target: _self
+#       link: /guide/column/types
+#       type: custom
+#     - title: Tree Data
+#       description: Hierarchical rows with expandable children and nested aggregation.
+#       link: /guide/tree-data
+#       type: tree
+#     - title: Column Grouping
+#       description: Organize columns under multi-level group headers for complex data structures.
+#       link: /guide/column/grouping
+#       type: grouping
+#     - title: Real-time Updates
+#       description: Streaming data updates without full re-renders. Built for live dashboards.
+#       link: /guide/realtime-updates
+#       type: realtime
 
-    - title: Startups and Innovators
-      icon:
-        src: startup.svg
-      details: Rapid prototyping with intuitive and extendable codebase. Agility to build robust data-driven applications in no time.
+capabilities:
+  label: Core capabilities
+  title: A grid engine, not a fixed component
+  description: RevoGrid is built for applications that outgrow simple table libraries.
+  items:
+    - title: Performance at scale
+      icon: pulse
+      link: "/guide/performance"
+      description: Virtualized rendering keeps large datasets responsive without sacrificing spreadsheet-like interaction.
+    - title: Spreadsheet-grade editing
+      icon: grid
+      link: "/guide/editing"
+      description: Selection ranges, keyboard navigation, copy/paste, and inline editing that match the UX users expect.
+    - title: Custom cells and renderers
+      icon: star
+      link: "/guide/cell/renderer"
+      description: Build your own cell types, editors, and validators. Any framework component can become a grid cell.
+    - title: Plugin architecture
+      icon: plugin
+      link: "/guide/plugin/"
+      description: Extend the grid with modular plugins instead of forking a fixed component.
+    - title: Framework integrations
+      icon: links
+      link: "/guide/installation"
+      description: First-class support for React, Angular, Vue, Svelte, and vanilla JavaScript.
+    - title: Production licensing
+      icon: lock
+      link: "/guide/licensing"
+      description: Per-developer licensing designed for teams building real products.
 
-    - title: Enterprise Solutions
-      icon:
-        src: org.svg
-      details: For large organizations managing massive datasets. Performance and scalability to handle even the most complex data tables.
+nativeCells:
+  label: No context switch
+  title: Full native framework support
+  description: RevoGrid supports React, Vue, and Angular at the core JavaScript DataGrid level, so developers can build data-heavy apps with native components, familiar framework patterns, and virtualized grid rendering.
+  links:
+    - text: React cells
+      href: /guide/react/renderer
+    - text: Vue cells
+      href: /guide/vue3/renderer
+    - text: Angular cells
+      href: /guide/angular/renderer
+  examples:
+    - framework: React
+      color: '#61DAFB'
+      lang: tsx
+      code: |
+        const Cell = ({ value }) => (
+          __LT__strong__GT__{value}__LT__/strong__GT__
+        )
 
-featuresHeader:
-  title: Features
-  details: The magical, reusable Data Grid.
+        const columns = [
+          { prop: 'value', cellTemplate: Template(Cell) },
+        ]
 
-features:
-  - title: Go Native
-    icon:
-      src: emoji-happy.svg
-    details: Integrate Vue, React, Angular, and Svelte components. Full capabilities of your chosen framework.
-    link: ./guide/overview#Framework-Native-Support
-    linkText: Read more
+        __LT__RevoGrid columns={columns} source={rows} /__GT__
+    - framework: Vue
+      color: '#4FC08D'
+      lang: vue
+      code: |
+        __LT__script setup__GT__
+        import Cell from './Cell.vue'
+        const columns = [{
+          prop: 'value',
+          cellTemplate: VGridVueTemplate(Cell),
+        }]
+        __LT__/script__GT__
 
-  - title: Accessibility and WCAG
-    icon:
-      src: wcag.svg
-    details: Designed to ensure accessibility and WCAG compliance.
-    link: ./guide/wcag
-    linkText: Read mode
-  
-  - title: Row Operations
-    icon: 
-      src: row.svg
-    details: Advanced row customization, including dragging and dropping rows, grouping them, and applying styles.
-    link: ./guide/row/
-    linkText: Read more
+        __LT__template__GT__
+          __LT__RevoGrid :columns="columns" :source="rows" /__GT__
+        __LT__/template__GT__
+    - framework: Angular
+      color: '#DD0031'
+      lang: ts
+      code: |
+        @Component({
+          template: '{{ props.model.value }}',
+        })
+        class CellComponent {}
 
-  - title: Column Operations
-    icon:
-      src: column.svg
-    details: Comprehensive column customization, including resizing, reordering, grouping and defining data types.
-    link: ./guide/column/
-    linkText: Read mode
+        columns = [
+          { prop: 'value', cellTemplate: Template(CellComponent) },
+        ]
 
-  - title: Enhanced Customization Toolkit
-    icon: 
-      src: template.svg
-    details: Template every element - cells, rows, columns, headers. Customize nearly every action keeping performance with internal VNode support.
-    link: ./guide/cell/renderer
-    linkText: Read mode
+developer:
+  label: For developers
+  title: Start simple. Customize deeply when you need it.
+  description: RevoGrid is a single npm install away. A working grid takes a few lines of markup. Custom cells, virtual rows, column types, and row editing layer in as your application grows.
+  actions:
+    - text: Read docs
+      link: /guide/
+    - text: View examples
+      link: /demo/color
+      target: _self
+  tabs:
+    - id: angular
+      label: Angular
+      icon: /angular.svg
+      lang: ts
+      code: |
+        # Install
+        npm install @revolist/angular-datagrid
 
-  - title: Pinning/Freezing
-    icon: 
-      src: pin.svg
-    details: Pin any row or column, to the any edge of the screen, ensure that specific elements remain visible while scrolling.
-    link: ./guide/column/pin
-    linkText: Read mode
+        // app.component.ts
+        import { Component } from '@angular/core'
+        import { RevoGrid } from '@revolist/angular-datagrid'
 
-  - title: Cell and Range Selection
-    icon: 
-      src: range.svg
-    details: Allows users to select and manipulate a range of cells efficiently.
-    link: ./guide/defs.md#Focus
-    linkText: Read mode
+        @Component({
+          selector: 'app-root',
+          standalone: true,
+          imports: [RevoGrid],
+          template: `<revo-grid [columns]="columns" [source]="rows" />`
+        })
+        export class AppComponent {
+          columns = [{ prop: 'value', name: 'Value' }]
+          rows = [{ value: 120000 }, { value: 98000 }]
+        }
+    - id: react
+      label: React
+      icon: /react.svg
+      lang: tsx
+      code: |
+        # Install
+        npm install @revolist/react-datagrid
 
-  - title: Filtering
-    icon: 
-      src: filter.svg
-    details: Transparent system filters and the ability to define custom filter operations for refining data.
-    link: ./guide/filters
-    linkText: Read mode
+        // App.tsx
+        import { RevoGrid } from '@revolist/react-datagrid'
 
-  - title: Sorting
-    icon: 
-      src: sort.svg
-    details: Powerful sorting functionality for organizing data based on various criteria.
-    link: ./guide/sorting
-    linkText: Read mode
+        const columns = [{ prop: 'value', name: 'Value' }]
+        const rows = [{ value: 120000 }, { value: 98000 }]
 
-  - title: Cell Editing
-    icon: 
-      src: edit.svg
-    details: Enables users to edit cell contents directly within the grid. Customize editors using provided templates to suit specific needs.
-    link: ./guide/cell/editor
-    linkText: Read mode
+        export default function App() {
+          return <RevoGrid columns={columns} source={rows} />
+        }
+    - id: vue
+      label: Vue
+      icon: /vuejs.svg
+      lang: vue
+      code: |
+        __LT__!-- npm install @revolist/vue3-datagrid --__GT__
+        __LT__!-- Grid.vue --__GT__
+        __LT__template__GT__
+          __LT__RevoGrid :columns="columns" :source="rows" /__GT__
+        __LT__/template__GT__
 
-  - title: Clipboard Support
-    icon: 
-      src: clipboard.svg
-    details: Facilitates copy-paste operations for seamless data transfer.
-    link: ./guide/defs#Clipboard
-    linkText: Read mode
+        __LT__script setup__GT__
+        import RevoGrid from '@revolist/vue3-datagrid'
 
-  - title: Export to Excel/CSV
-    icon: 
-      src: export.svg
-    details: Provides options to export grid data to Excel or CSV formats.
-    link: ./guide/export.plugin
-    linkText: Read mode
+        const columns = [{ prop: 'value', name: 'Value' }]
+        const rows = [{ value: 120000 }, { value: 98000 }]
+        __LT__/script__GT__
+    - id: js
+      label: JavaScript
+      icon: /js.svg
+      lang: js
+      code: |
+        # Install
+        npm install @revolist/revogrid
 
-  - title: Grouping Data
-    icon: 
-      src: tree.svg
-    details: Support for hierarchical data representation and management.
-    link: ./guide/defs#Row-Grouping
-    linkText: Read mode
+        <!-- index.html -->
+        __LT__revo-grid style="height: 220px"__GT____LT__/revo-grid__GT__
 
-  - title: Keyboard Support
-    icon: 
-      src: keyboard.svg
-    details: Handle all popular keyboard events, and unleash your creativity by extending functionality according to your unique requirements.
-    link: ./guide/defs#Keyboard
-    linkText: Read mode
+        // index.js
+        import { defineCustomElements } from '@revolist/revogrid/loader'
 
-  - title: Plugin Support
-    icon: 
-      src: menu.svg
-    details: Extend grid functionality with micro applications, allowing for limitless customization and enhancements.
-    link: ./guide/plugin
-    linkText: Read mode
+        defineCustomElements()
+        const grid = document.querySelector('revo-grid')
+        grid.columns = [{ prop: 'value', name: 'Value' }]
+        grid.source = [{ value: 120000 }, { value: 98000 }]
+    - id: svelte
+      label: Svelte
+      icon: /svelte.svg
+      lang: svelte
+      code: |
+        __LT__!-- npm install @revolist/svelte-datagrid --__GT__
+        __LT__!-- App.svelte --__GT__
+        __LT__script lang="ts"__GT__
+          import { RevoGrid } from '@revolist/svelte-datagrid'
 
-  - title: TypeScript support
-    icon: 
-      src: ts.svg
-    details: RevoGrid uses TypeScript, providing your components with type safety as your system scales.
-    link: ./guide/ts/
-    linkText: Read mode
-    
-  - title: JSX support
-    icon: 
-      src: jsx.svg
-    details: Leverage a widely recognized templating syntax to describe your custom content, ensuring a fast and reactive DOM while utilizing the full range of JavaScript's features.
-    link: ./guide/jsx.template
-    linkText: Read mode
+          const columns = [{ prop: 'value', name: 'Value' }]
+          const source = [{ value: 120000 }, { value: 98000 }]
+        __LT__/script__GT__
 
-  # - title: Reactivity upon the deep
-  #   icon: 
-  #     src: reactivity.svg
-  #   details: The grid core is built upon an advanced reactive approach. By incorporating smart recombination, it handles substantial data loads and intricate operations.
-  #   link: ./guide/overview.md#Magic-behind-the-scene
-  #   linkText: Read mode
-  
-  # - title: Transparent Codebase
-  #   icon:
-  #     src: code.svg
-  #   details: 'The code you truly own: understand, build, and extend with minimal effort.'
-  #   link: ./guide/overview#Magic-behind-the-scene
-  #   linkText: Read more
+        __LT__RevoGrid {source} {columns} /__GT__
 
-integrations:
-- title: Vue
-  alt: Vue Data Grid
-  icon: vuejs.svg
-  details: Vue Data Grid to speed up your Vue code base.
-  path: /guide/vue3/
-- title: Angular
-  alt: Angular Data Grid
-  icon: angular.svg
-  details: Angular Data Grid to speed up your Angular code base.
-  path: /guide/angular/
-- title: React
-  alt: React Data Grid
-  icon: react.svg
-  details: React Data Grid to speed up your React code base.
-  path: /guide/react/
-- title: Svelte
-  alt: Svelte Data Grid
-  icon: svelte.svg
-  details: Svelte Data Grid to speed up your Svelte code base.
-  path: /guide/svelte/
-- title: JavaScript
-  alt: JavaScript Data Grid
-  icon: js.svg
-  details: JavaScript Data Grid to speed up your JavaScript code base.
-  path: /guide/
+advanced:
+  label: Advanced modules
+  title: Start with the grid. Add modules when you need them.
+  description: RevoGrid scales from a fast editable grid to advanced product workflows without switching tools or rewriting integrations.
+  action:
+    text: Explore advanced modules
+    link: /pro/
+  items:
+    - title: Pivot Grid
+      tag: Pro Advanced
+      type: pivot
+      link: /pivot
+      description: Analyze and summarize complex datasets directly inside your application with aggregation, reordering, and drill-down.
+    - title: Gantt Chart
+      tag: Pro Advanced
+      type: gantt
+      link: /gantt
+      description: Build planning and timeline views with drag-and-resize tasks, dependencies, milestones, and resource views.
+    - title: ERP Workflows
+      tag: Pro Advanced
+      type: erp
+      link: /demo/ecommerce
+      description: Use RevoGrid as the interface layer for inventory, finance, admin, and operations workflows.
+      target: _self
+
+useCases:
+  label: Use cases
+  title: Built for real product interfaces
+  description: RevoGrid is used wherever complex structured data meets user interaction.
+  items:
+    - title: Admin Panels
+      icon: chart
+      description: Fast, editable data tables for internal management interfaces with sorting, filtering, and bulk actions.
+    - title: SaaS Dashboards
+      icon: app
+      description: Customer-facing data views in production SaaS apps. High performance without compromising UX.
+    - title: Internal Tools
+      icon: tool
+      description: Operations, support, and back-office tools that require inline editing and complex workflows.
+    - title: Finance and Trading
+      icon: money
+      description: Real-time market data grids, portfolio managers, and financial reporting interfaces.
+    - title: Inventory Systems
+      icon: box
+      description: Large product catalogs, stock management, and warehouse operations with live edits.
+    - title: ERP Interfaces
+      icon: factory
+      description: Complex multi-step data entry forms and grid-based operations for ERP and manufacturing software.
+    - title: Analytics Tools
+      icon: trend
+      description: Deep data exploration with pivot, grouping, and drill-down capabilities for analytical interfaces.
+    - title: Project Planning
+      icon: calendar
+      description: Resource allocation, scheduling, and timeline views with drag-and-drop task management.
+
+comparison:
+  label: Why RevoGrid
+  title: More powerful than basic tables. Easier to adopt than heavy enterprise suites.
+  columns:
+    - Feature
+    - Simple table libs
+    - RevoGrid
+    - Enterprise suites
+    - Custom in-house
+  rows:
+    - [Virtualized row rendering, no, yes, yes, partial]
+    - [Spreadsheet-style UX, no, yes, yes, partial]
+    - [Custom cell renderers, partial, yes, yes, yes]
+    - [Plugin architecture, no, yes, partial, partial]
+    - [All major frameworks, partial, yes, yes, partial]
+    - [Advanced modules, no, yesPro, yes, no]
+    - [Simple per-developer licensing, na, yes, complex, na]
+    - [Self-serve purchase, yes, yes, noSales, na]
+    - [Time to first grid, minutes, minutes, days, weeks]
+
+pricing:
+  label: Pricing
+  title: Start small. Scale when your app demands it.
+  description: Per-developer licensing. No deployment counting. No server license. Upgrade as your product grows.
+  note: Simple per-developer licensing. No deployment counting. No server license. Upgrade when your product needs more advanced modules.
+  cards:
+    - id: light
+      name: Pro Light
+      description: For individual developers and small teams building production data apps.
+      action: Buy Pro Light
+      features:
+        - Commercial production use
+        - text: Production-ready plugins and examples
+          link: /pro/
+        - Pro MCP (Model Context Protocol)
+        - Includes one year of updates
+      dim:
+        - Pivot Grid module
+        - Gantt Chart module
+    - id: advanced
+      name: Pro Advanced
+      featured: true
+      badge: Best for advanced workflows
+      description: For product teams building Pivot, Gantt, and complex operational interfaces.
+      action: Buy Pro Advanced
+      features:
+        - Everything in Pro Light
+        - Pivot Grid module
+        - Gantt Chart module
+        - Roadmap influence
+        - Priority support
+        - Priority bug fix queue
+        - Early access to new modules
+    - id: enterprise
+      name: Enterprise
+      description: For larger teams with procurement, security review, and custom terms.
+      price: Custom
+      period: ''
+      sub: ''
+      action: Talk to sales
+      link: mailto:hello@revolist.ee
+      features:
+        - Everything in Pro Advanced
+        - Custom contracts & invoicing
+        - Procurement onboarding assistance
+        - Security review support & documentation
+        - Dedicated engineering contact
+        - Flexible licensing for contractor-based development teams
+        - Enterprise integration guidance
+        - Roadmap collaboration
+
+faq:
+  label: FAQ
+  title: Common questions
+  items:
+    - q: Is RevoGrid only for ERP applications?
+      a: No. RevoGrid is a high-performance data grid for any web application that works with structured data. ERP is one use case among many.
+    - q: Can I use RevoGrid in a SaaS product?
+      a: Yes. Commercial plans cover production SaaS applications. Your end users can use the product without any additional licensing.
+    - q: How does licensing work? Do you charge per deployment?
+      a: No. Licensing is based on the number of developers building with RevoGrid, not deployments, environments, or end users.
+    - q: What is the difference between Pro Light and Pro Advanced?
+      a: Pro Light gives production access to Pro workflows and examples. Pro Advanced adds premium modules such as Pivot Grid, Gantt Chart, and advanced operational patterns.
+    - q: Can I evaluate RevoGrid before purchasing?
+      a: Yes. The open-source core is available on npm and GitHub, and live interactive demos are available without signing up.
+    - q: Can I upgrade my plan later?
+      a: Yes. Start with the core grid or Pro Light and upgrade to Pro Advanced when your product requires Pivot, Gantt, or deeper workflow modules.
+    - q: Does RevoGrid work with TypeScript?
+      a: Yes. RevoGrid is built with TypeScript and ships type definitions for APIs, columns, events, and plugin interfaces.
+
+finalCta:
+  title: Build your next complex data interface with RevoGrid.
+  description: Start with the core grid today. Add Pivot, Gantt, and advanced modules as your product grows.
+  note: Per-developer licensing. No deployment counting. Upgrade anytime.
+  actions:
+    - text: Try live demo
+      link: /demo
+      variant: primary
+      target: _self
+    - text: View pricing
+      link: /pricing
+      variant: secondary
+    - text: View docs
+      link: /guide/
+      variant: ghost
 ---
 
+<!-- Optional Markdown content can be rendered by the custom layout if needed later. -->

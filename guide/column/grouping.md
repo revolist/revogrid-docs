@@ -1,14 +1,50 @@
-# Grouping (Stacked Columns) in Data Grid
+# Column Grouping
 
-[<Badge type="tip">Type: ColumnGrouping</Badge>](../types/TypeAlias.ColumnGrouping)
+[<Badge type="tip">Interface: ColumnGrouping</Badge>](../types/Interface.ColumnGrouping)
 
+Column grouping creates stacked headers by placing related columns under a shared parent header. Use it when several fields belong to the same business concept, for example `Personal` details with `First Name`, `Last Name`, and `Age` below it.
 
-<!--@include: ../parts/_column.group.md-->
+Groups are declared directly in the `columns` array. A regular column has a `prop`; a grouped column has `children`. Grouped columns can be nested, so the header can have as many levels as your layout needs.
 
-Columns in RevoGrid can be defined as either regular columns or grouped columns (stacked columns). To create a stacked column, simply define it as a group. Check the interfaces for more information.
+<!--@include: ../../guide/demos/js/js.column.group.md-->
+
+## Basic structure
+
+```ts
+import type { ColumnGrouping, ColumnRegular } from '@revolist/revogrid'
+
+const columns: (ColumnGrouping | ColumnRegular)[] = [
+    {
+        name: 'Personal',
+        children: [
+            { name: 'First Name', prop: 'firstName' },
+            { name: 'Last Name', prop: 'lastName' },
+        ],
+    },
+    { name: 'Project', prop: 'project' },
+]
+```
+
+In this example `Personal` is only a header group. The leaf columns, `First Name` and `Last Name`, are still the columns bound to row data.
+
+## Nested groups
+
+Use nested `children` arrays when a header needs more than one grouping level. RevoGrid calculates the header depth from the column tree and aligns regular columns with grouped columns automatically.
 
 <<< @/demo/js/js.column.group.example.ts#columns
 
-Here's an example demonstrating how to define both regular and grouped columns:
+## When to use column groups
 
-<!--@include: ../../demo/js/js.column.group.md-->
+- Group related fields so wide datasets are easier to scan.
+- Create multi-level headers for reports, financial tables, schedules, and operational dashboards.
+- Keep column definitions declarative instead of manually composing header rows.
+- Combine groups with regular column features such as sizing, sorting, pinning, templates, and filtering on the leaf columns.
+
+## Notes
+
+- A grouped column should use `children`; a leaf column should use `prop`.
+- Sorting, filtering, editing, and data mapping apply to leaf columns.
+- Header templates can still be used on regular leaf columns. For group header customization, use the group/header render hooks exposed by the header API.
+- Column groups are a core feature and work in Community, Pro Lite, and Pro Advanced.
+
+<!--@include: ./_grouping.pro.md-->

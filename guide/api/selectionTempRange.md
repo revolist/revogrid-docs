@@ -8,11 +8,11 @@ Temporary range selection component. Shows temporary range selection.
 
 ## Properties
 
-| Property         | Attribute         | Description                                        | Type                                    | Default     |
-| ---------------- | ----------------- | -------------------------------------------------- | --------------------------------------- | ----------- |
-| `dimensionCol`   | `dimension-col`   | Dimension column store                             | `ObservableMap<DimensionSettingsState>` | `undefined` |
-| `dimensionRow`   | `dimension-row`   | Dimension row store                                | `ObservableMap<DimensionSettingsState>` | `undefined` |
-| `selectionStore` | `selection-store` | Selection store, shows current selection and focus | `ObservableMap<SelectionStoreState>`    | `undefined` |
+| Property         | Attribute | Description                                        | Type                                                                                                                                                                                            | Default     |
+| ---------------- | --------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `dimensionCol`   | --        | Dimension column store                             | `DimensionSettingsState`                                                                                                                                                                        | `undefined` |
+| `dimensionRow`   | --        | Dimension row store                                | `DimensionSettingsState`                                                                                                                                                                        | `undefined` |
+| `selectionStore` | --        | Selection store, shows current selection and focus | `{ range: RangeArea \| null; tempRange: RangeArea \| null; tempRangeType: string \| null; focus: Cell \| null; edit: EditCellStore \| null; lastCell: Cell \| null; nextFocus: Cell \| null; }` | `undefined` |
 
 
 ## Dependencies

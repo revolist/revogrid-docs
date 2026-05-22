@@ -1,9 +1,12 @@
 ---
+title: RevoGrid Privacy Policy
+description: Review how RevoGrid handles routine website data, cookies, customer references, third-party links, security, privacy updates, and contact requests.
 sidebar: false
 footer: true
 ---
 
 # Privacy Policy
+> Last updated: March 16, 2026
 
 We at **Revolist OÜ** take your privacy seriously. To better protect your privacy, we provide this privacy policy notice explaining the way your personal information is collected and used.
 
@@ -22,6 +25,10 @@ Advertising partners and other third parties may use cookies, scripts, and/or we
 ## Links to Third-Party Websites
 
 We have included links on this website for your use and reference. We are not responsible for the privacy policies on these websites. You should be aware that the privacy policies of these websites may differ from our own.
+
+## Customer References
+
+For business customers, we may process limited business identification data (such as company name and publicly available logo) to indicate that RevoGrid is being used by that customer on our website and in marketing materials. We do not publish personal contact data, confidential pricing, or non-public project details for this purpose. Customers may opt out at any time by contacting [contact@revolist.eu](mailto:contact@revolist.eu).
 
 ## Security
 

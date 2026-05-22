@@ -8,22 +8,23 @@ Viewport scroll component for RevoGrid
 
 ## Properties
 
-| Property               | Attribute        | Description             | Type                                                      | Default     |
-| ---------------------- | ---------------- | ----------------------- | --------------------------------------------------------- | ----------- |
-| `colType` _(required)_ | `col-type`       |                         | `"colPinEnd" \| "colPinStart" \| "rgCol" \| "rowHeaders"` | `undefined` |
-| `contentHeight`        | `content-height` | Height of inner content | `number`                                                  | `0`         |
-| `contentWidth`         | `content-width`  | Width of inner content  | `number`                                                  | `0`         |
-| `rowHeader`            | `row-header`     | Enable row header       | `boolean`                                                 | `undefined` |
+| Property                     | Attribute                       | Description             | Type                                                      | Default     |
+| ---------------------------- | ------------------------------- | ----------------------- | --------------------------------------------------------- | ----------- |
+| `colType` _(required)_       | `col-type`                      |                         | `"colPinEnd" \| "colPinStart" \| "rgCol" \| "rowHeaders"` | `undefined` |
+| `contentHeight`              | `content-height`                | Height of inner content | `number`                                                  | `0`         |
+| `contentWidth`               | `content-width`                 | Width of inner content  | `number`                                                  | `0`         |
+| `noHorizontalScrollTransfer` | `no-horizontal-scroll-transfer` |                         | `boolean`                                                 | `false`     |
+| `rowHeader`                  | `row-header`                    | Enable row header       | `boolean`                                                 | `undefined` |
 
 
 ## Events
 
-| Event                  | Description                                                                         | Type                                                                                                                          |
-| ---------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `resizeviewport`       | Viewport resize                                                                     | `CustomEvent<{ dimension: DimensionType; size: number; rowHeader?: boolean \| undefined; }>`                                  |
-| `scrollchange`         | Triggered on scroll change, can be used to get information about scroll visibility  | `CustomEvent<{ type: DimensionType; hasScroll: boolean; }>`                                                                   |
-| `scrollviewport`       | Before scroll event                                                                 | `CustomEvent<{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }>` |
-| `scrollviewportsilent` | Silently scroll to coordinate Made to align negative coordinates for mobile devices | `CustomEvent<{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }>` |
+| Event                  | Description                                                                         | Type                                                                                         |
+| ---------------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `resizeviewport`       | Viewport resize                                                                     | `CustomEvent<{ dimension: DimensionType; size: number; rowHeader?: boolean \| undefined; }>` |
+| `scrollchange`         | Triggered on scroll change, can be used to get information about scroll visibility  | `CustomEvent<{ type: DimensionType; hasScroll: boolean; }>`                                  |
+| `scrollviewport`       | Before scroll event                                                                 | `CustomEvent<D>`                                                                             |
+| `scrollviewportsilent` | Silently scroll to coordinate Made to align negative coordinates for mobile devices | `CustomEvent<D>`                                                                             |
 
 
 ## Methods

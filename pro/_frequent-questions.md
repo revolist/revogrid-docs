@@ -108,4 +108,13 @@ If you have questions or need support, reach out:
 - For product issues, [open a GitHub issue](https://github.com/revolist/revogrid/issues).
 
 :::
+:::: details Is there a deployment fee?
+
+No. RevoGrid Pro does not currently charge a deployment fee.
+
+Your license costs are based on the selected plan and the required number of developer licenses, not on how many times you deploy.
+
+For custom licensing questions, please [contact sales](mailto:contact@revolist.eu).
+::::
+
 </div>

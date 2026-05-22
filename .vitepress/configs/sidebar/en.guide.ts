@@ -1,4 +1,11 @@
 import type { DefaultTheme } from 'vitepress'
+import {
+    sidebarAngularEn,
+    sidebarJavaScriptDemosEn,
+    sidebarReactEn,
+    sidebarVue2En,
+    sidebarVue3En,
+} from './en.demo'
 
     // {
     //     text: 'Pro',
@@ -12,6 +19,31 @@ import type { DefaultTheme } from 'vitepress'
 
 export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
     {
+        text: 'Getting Started',
+        items: [
+            {
+                text: 'Quick Start',
+                link: '/guide/',
+            },
+            {
+                text: 'Installation',
+                link: '/guide/installation',
+            },
+            {
+                text: 'Overview',
+                link: '/guide/overview',
+            },
+            {
+                text: 'Data Synchronization',
+                link: '/guide/data-sync',
+            },
+            {
+                text: 'Grid size',
+                link: '/guide/grid.size',
+            },
+        ],
+    },
+    {
         text: 'Essentials',
         collapsed: true,
         items: [
@@ -20,16 +52,32 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 link: '/guide/patterns',
             },
             {
+                text: 'Performance',
+                link: '/guide/performance',
+            },
+            {
+                text: 'Programmatic Control',
+                link: '/guide/programmatic-control',
+            },
+            {
+                text: 'AI Agents and MCP',
+                link: '/guide/mcp',
+            },
+            {
+                text: 'Advanced Configuration',
+                link: '/guide/advanced-configuration',
+            },
+            {
+                text: 'Event Patterns',
+                link: '/guide/events-guide',
+            },
+            {
                 text: 'JSX/TSX Template',
                 link: '/guide/jsx.template',
             },
             {
                 text: 'Features and Definitions',
                 link: '/guide/defs',
-            },
-            {
-                text: 'Grid size',
-                link: '/guide/grid.size',
             },
             {
                 text: 'API',
@@ -43,28 +91,6 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
             {
                 text: 'Viewports',
                 link: '/guide/viewports',
-            },
-        ],
-    },
-    {
-        text: 'Getting Started',
-        collapsed: true,
-        items: [
-            {
-                text: 'Overview',
-                link: '/guide/overview',
-            },
-            {
-                text: 'Quick Start',
-                link: '/guide/',
-            },
-            {
-                text: 'Installation',
-                link: '/guide/installation',
-            },
-            {
-                text: 'Data Synchronization',
-                link: '/guide/data-sync',
             },
         ],
     },
@@ -109,7 +135,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                         link: '/guide/column/grouping',
                     },
                     {
-                        text: 'Custom Columns',
+                        text: 'Custom Column & Cell Formats',
                         link: '/guide/column/types',
                     },
                     {
@@ -135,6 +161,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                     {
                         text: 'Cell Template',
                         link: '/guide/cell/renderer',
+                    },
+                    {
+                        text: 'Custom Cell Formats',
+                        link: '/guide/cell/custom-formats',
                     },
                     {
                         text: 'Cell Editor',
@@ -225,6 +255,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 text: 'Theme Manager',
                 link: '/guide/theme',
             },
+            {
+                text: 'Real-Time Updates',
+                link: '/guide/realtime-updates',
+            },
         ],
     },
 
@@ -233,7 +267,19 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
         text: 'Frameworks',
         items: [
             {
-                text: 'Angular',
+                text: '<img src="/js.svg" alt="JS logo" width="15" height="15"/> TypeScript',
+                collapsed: true,
+                items: [
+                    { text: 'Getting Started', link: '/guide/ts/' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: sidebarJavaScriptDemosEn,
+                    },
+                ],
+            },
+            {
+                text: '<img src="/angular.svg" alt="Angular logo" width="15" height="15"/> Angular',
                 collapsed: true,
                 items: [
                     { text: 'Getting Started', link: '/guide/angular/' },
@@ -242,10 +288,16 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                         link: '/guide/angular/renderer',
                     },
                     { text: 'Cell Editor', link: '/guide/angular/editor' },
+                    { text: 'Tree Data', link: '/guide/angular/tree' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: sidebarAngularEn,
+                    },
                 ],
             },
             {
-                text: 'React',
+                text: '<img src="/react.svg" alt="React logo" width="15" height="15"/> React',
                 collapsed: true,
                 items: [
                     { text: 'Getting Started', link: '/guide/react/' },
@@ -254,45 +306,95 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                         link: '/guide/react/renderer',
                     },
                     { text: 'Cell Editor', link: '/guide/react/editor' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: sidebarReactEn,
+                    },
                 ],
             },
             {
-                text: 'StencilJs',
-                collapsed: true,
-                items: [
-                    { text: 'Getting Started', link: '/guide/stencil/' },
-                ],
-            },
-            {
-                text: 'Svelte',
-                collapsed: true,
-                items: [
-                    { text: 'Getting Started', link: '/guide/svelte/' },
-                    { text: 'Cell Template', link: '/guide/svelte/renderer' },
-                    { text: 'Cell Editor', link: '/guide/svelte/editor' },
-                ],
-            },
-            {
-                text: 'Vue 2',
-                collapsed: true,
-                items: [
-                    { text: 'Getting Started', link: '/guide/vue2/' },
-                    { text: 'Cell Template', link: '/guide/vue2/renderer' },
-                    { text: 'Cell Editor', link: '/guide/vue2/editor' },
-                ],
-            },
-            {
-                text: 'Vue 3',
+                text: '<img src="/vuejs.svg" alt="Vue 3 logo" width="15" height="15"/> Vue 3',
                 collapsed: true,
                 items: [
                     { text: 'Getting Started', link: '/guide/vue3/' },
                     { text: 'Cell Template', link: '/guide/vue3/renderer' },
                     { text: 'Cell Editor', link: '/guide/vue3/editor' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: sidebarVue3En,
+                    },
                 ],
             },
             {
-                text: 'Tanstack',
-                link: '/guide/tanstack',
+                text: '<img src="/svelte.svg" alt="Svelte logo" width="15" height="15"/> Svelte',
+                collapsed: true,
+                items: [
+                    { text: 'Getting Started', link: '/guide/svelte/' },
+                    { text: 'Cell Template', link: '/guide/svelte/renderer' },
+                    { text: 'Cell Editor', link: '/guide/svelte/editor' },
+                    { text: 'Tree Data', link: '/guide/svelte/tree' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: [
+                            {
+                                text: 'Getting Started',
+                                link: '/guide/demos/svelte/svelte-datagrid',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                text: '<img src="/stenciljs.svg" alt="StencilJs logo" width="15" height="15"/> StencilJs',
+                collapsed: true,
+                items: [
+                    { text: 'Getting Started', link: '/guide/stencil/' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: [
+                            {
+                                text: 'Getting Started',
+                                link: '/guide/demos/stencil/stencil.sample',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                text: '<img src="/vuejs.svg" alt="Vue 2 logo" width="15" height="15"/> Vue 2',
+                collapsed: true,
+                items: [
+                    { text: 'Getting Started', link: '/guide/vue2/' },
+                    { text: 'Cell Template', link: '/guide/vue2/renderer' },
+                    { text: 'Cell Editor', link: '/guide/vue2/editor' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: sidebarVue2En,
+                    },
+                ],
+            },
+            {
+                text: '<img src="/react-query-icon.svg" alt="TanStack logo" width="15" height="15"/> Tanstack',
+                collapsed: true,
+                items: [
+                    { text: 'Getting Started', link: '/guide/tanstack' },
+                    { text: 'Tree Data', link: '/guide/tanstack/tree' },
+                    {
+                        text: 'Examples',
+                        collapsed: true,
+                        items: [
+                            {
+                                text: 'Getting Started',
+                                link: '/guide/demos/tanstack/',
+                            },
+                        ],
+                    },
+                ],
             },
         ],
     },

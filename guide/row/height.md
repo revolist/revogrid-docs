@@ -77,7 +77,7 @@ In this scenario, all rows will default to a height of 50 pixels, except for the
 
 ## Example
 
-<!--@include: ../../demo/js/js.custom.rows.md-->
+<!--@include: ../../guide/demos/js/js.custom.rows.md-->
 
 
 ## Conclusion

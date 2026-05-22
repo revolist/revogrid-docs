@@ -5,11 +5,11 @@ What are cell properties in RevoGrid. You can add various properties to cells, i
 
 ## Adding Custom Properties
 
-You can customize cells by defining properties within the `cellProperties` function. This function allows you to dynamically assign styles, classes, and events based on the cell's data.
+You can customize cells by defining properties within the `cellProperties` function. This function allows you to dynamically assign styles, classes, data attributes, and events based on the cell's data.
 
 ### Example
 
-Here's an example of how to use `cellProperties` to add custom styles, classes, and events to cells:
+Here's an example of how to use `cellProperties` to add custom styles, classes, data attributes, and events to cells:
 
 ```js
 const columns = [{
@@ -32,10 +32,8 @@ const columns = [{
       onClick: (event) => {
         console.log(`Cell clicked: ${model[prop]}`);
       },
-      // Custom attributes (tags)
-      attributes: {
-        'data-tooltip': model[prop]
-      }
+      // Custom data attribute
+      'data-tooltip': model[prop]
     };
   },
 }];

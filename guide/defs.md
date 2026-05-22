@@ -1,63 +1,77 @@
-# Features and Definitions
+---
+title: RevoGrid Features and Definitions
+description: A practical glossary for RevoGrid concepts, including cells, columns, rows, ranges, viewports, plugins, props, methods, and virtual scrolling.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid glossary, data grid definitions, virtual scrolling terms, grid rows columns cells, RevoGrid concepts
+---
 
-This document is intended to help both new and experienced developers familiarize themselves with the terminologies associated with RevoGrid.
+# RevoGrid Features and Definitions
+
+This page is a quick glossary for the concepts used throughout the RevoGrid docs. It is especially useful when you are moving between high-level guides, framework wrappers, and the API reference.
 
 <!--@include: ./parts/_lifecycle.md-->
 
-## API (Application Programming Interface)
-Defines a set of rules and protocols for building and interacting with software applications. RevoGrid's API allows for programmatic interaction with the grid, including methods for data manipulation, event handling, and customization.
+## API
 
+The public API is the combination of:
+
+- props such as `columns`, `source`, `filter`, `grouping`, and `additionalData`
+- methods such as `setDataAt`, `scrollToRow`, `setCellsFocus`, and `getVisibleSource`
+- events such as `beforeedit`, `afteredit`, `beforefilterapply`, and `beforesourceset`
+
+Start at [RevoGrid API](/guide/api/revoGrid).
 
 ## Cell
+
 <!--@include: ./parts/_cell.md-->
 
-### Cell Editors
-Customizable components that enable cell editing within the grid, allowing for a variety of data input methods, including text, date, select options, and more.
+### Cell editor
 
-### Cell Merge
-Combines two or more adjacent cells into a single cell, used for creating spanning headers or emphasizing data.
+A cell editor is the UI used to modify a value. RevoGrid ships with a core editor flow and supports custom editor registration through the `editors` prop.
 
-### Cell Render/Template
-Custom functions or components that define how data is displayed in cells, allowing for the visualization of complex data types or the customization of cell appearance.
+### Cell template
+
+A cell template is a custom renderer for displaying richer cell content while keeping the grid virtualized.
+
+### Cell merge
+
+Cell merging refers to combining adjacent cells into a larger visual area. This is available in RevoGrid Pro.
 
 ## Clipboard
-Clipboard operations like `copy`, `cut`, and `paste`. Users can easily manipulate grid data using standard clipboard shortcuts. [Read more in the API docs](./api/clipboard).
+
+Clipboard support enables copy, cut, and paste workflows. It is controlled by `useClipboard` and range selection behavior. See [Clipboard Operations](/guide/clipboard).
 
 ## Column
 
-<!--@include: ./parts/column.md-->
+Columns define how the grid reads and displays row data. A column can configure:
 
-### Column Grouping
+- `prop` mapping
+- `name`
+- `size`, `minSize`, `maxSize`
+- `sortable`
+- `filter`
+- `editor`
+- `cellTemplate`
+- `cellProperties`
+- `readonly`
+- `pin`
+- `columnType`
 
-<!--@include: ./parts/_column.group.md-->
+Related guides:
 
+- [Column Definitions](/guide/column/)
+- [Custom Columns](/guide/column/types)
+- [Column Groups](/guide/column/grouping)
 
-### Column Header Property
+## Data source
 
-<!--@include: ./parts/column.props.md-->
+The data source is the row array shown by the grid. The main dataset is assigned through `source`, while pinned row regions use `pinnedTopSource` and `pinnedBottomSource`.
 
-### Column Pin/Freeze
+## Data model
 
-<!--@include: ./parts/column.pin.md-->
-
-### Column Property
-
-<!--@include: ./parts/column.props.md-->
-
-## Conditional Formatting
-Changes the appearance of cells based on specific conditions, such as values or ranges, to facilitate quick data analysis.
-
-## Data Source
-A collection of data items displayed by the grid, where each item (Data Model) represents a row. Here is an example of a simple data source:
-
-```typescript
-type DataSource = Person[]; // or any other type
-```
-
-
-## Data Model
-
-The data model defines the structure of the data (Data Source). Here is an example of a simple data model:
+The data model is the shape of each row object inside your source array.
 
 ```typescript
 interface Person {
@@ -68,92 +82,129 @@ interface Person {
 }
 ```
 
-
-## DOM (Document Object Model)
-A programming interface for HTML and XML documents, allowing scripts to update the content, structure, and style of a document. RevoGrid manipulates the DOM to render and dynamically update the grid.
-
-## ES Modules (ECMAScript Modules)
-A module system for JavaScript, allowing developers to import library as an ES Module in modern JavaScript projects.
-
 ## Event
-Custom events triggered by RevoGrid, allowing developers to respond to various actions within the grid, such as cell editing, row selection, or data updates.
 
-## Export to Excel, CSV
-The functionality to export grid data to Excel or CSV formats, enabling users to share or analyze data outside the grid environment.
+Events are how RevoGrid exposes lifecycle and interaction hooks. Many events are cancelable and let you change the behavior before the grid commits it.
+
+Examples:
+
+- editing: `beforeedit`, `afteredit`
+- data updates: `beforesourceset`, `aftersourceset`
+- filtering: `beforefilterapply`, `beforefiltertrimmed`
+- focus: `beforecellfocus`, `beforefocuslost`, `afterfocus`
+
+See [Event Patterns and Lifecycles](/guide/events-guide) and [Hooks and Events API](/guide/api/events).
+
+## Export
+
+The core export plugin supports file export workflows from the grid surface. See [Export Data](/guide/export.plugin). Excel-focused export workflows are available in Pro.
 
 ## Focus
-The action or state of a cell or range of cells being the active target for keyboard inputs or commands. Focus can be set programmatically or through user interaction, such as clicking or using navigation keys. To disable or enable focus, use the `can-focus` property. For programmatic updates, use the `setCellsFocus`, `clearFocus`, and `getFocused` methods. [Read more in the API docs](./api/revoGrid). 
 
-### Range
-Refers to a selection of multiple cells within the grid. Ranges can be used for operations like copying, pasting, applying formatting, or performing calculations on a group of cells. To disable or enable range, use the `range` property. For programmatic updates, use the `getSelectedRange`, `clearFocus`, and `getFocused` methods. [Read more in the API docs](./api/revoGrid). 
+Focus is the active cell target used for keyboard navigation, editing, and selection overlays. It can be enabled or disabled with `canFocus`.
 
-### Range Autofill
-A feature that allows users to automatically fill multiple cells with data by dragging the fill handle of a selected cell or range of cells. This can be used to copy data, fill series, and apply formulas to adjacent cells, simplifying data entry and manipulation.
+Useful methods:
 
-## Keyboard
-Keyboard support provided to enhance navigation and usability within the grid. This allows users to interact with the grid more efficiently using their keyboard.
-- **Navigation**: Use arrow keys to navigate between cells.
-- **Editing**: Press `Enter` to start editing a cell and `Esc` to cancel editing.
-- **Selection**: Use `Shift + Arrow keys` to select a range of cells.
-- **Copy/Paste**: Use `Ctrl+C` to copy and `Ctrl+V` to paste cell content.
-- **Select all**: Use `Ctrl+A` to select all cells.
-- **Focus**: Press `Tab` to move focus to the next cell.
+- `setCellsFocus`
+- `clearFocus`
+- `getFocused`
 
-## Customization
+## Range
 
-You can customize keyboard interactions using event listeners and RevoGrid’s API methods. 
+A range is a rectangular selection of cells. Range selection is enabled with the `range` prop and exposed through `getSelectedRange`.
+
+### Range autofill
+
+Autofill extends a selected value or pattern across a dragged range. Advanced autofill workflows are available in RevoGrid Pro.
+
+## Keyboard support
+
+RevoGrid includes keyboard navigation for moving focus, editing cells, selecting ranges, and copying or pasting data. Custom features should integrate with keyboard behavior rather than bypassing it.
 
 ## Method
-Functions provided by component that can be called to perform actions or retrieve data from the grid, such as refreshing the grid or adding rows.
+
+Methods are imperative APIs exposed on the grid instance. They are useful when application state or external controls need to drive the grid directly.
+
+Examples:
+
+- `scrollToRow`
+- `scrollToColumnProp`
+- `setCellEdit`
+- `setDataAt`
+- `getVisibleSource`
 
 ## Plugin
 
-A modular extension designed to enhance or add new functionalities to the RevoGrid library. 
+Plugins extend grid behavior without changing the core component. RevoGrid includes built-in plugins for filtering, sorting, exporting, grouping, stretching, accessibility, and more.
 
-Plugins allow developers to customize and extend the grid's capabilities beyond its core features. They can be used for integrating additional tools, improving user interaction, or automating tasks within the grid. 
-
-By leveraging plugins, users can update the grid to meet specific requirements of their applications, ensuring a more versatile and adaptable data management solution.
-
-### Pagination
-A method of dividing the dataset into separate pages, enhancing the user's ability to navigate through large datasets. RevoGrid supports pagination in a Pro version plugin.
+The `plugins` prop can also receive custom plugin classes. For plugin-oriented props and provider access, see [Advanced Configuration](/guide/advanced-configuration).
 
 ### Filtering
-The plugin that enables the grid to display only those rows that meet certain criteria, with support for custom filter functions.
+
+The filtering plugin hides rows that do not match the selected criteria.
 
 ### Sorting
-A plugin that orders the data rows based on one or more columns, with the ability to implement custom sorting logic.
 
+The sorting plugin updates column order state and applies sorted row order to the source.
+
+### Pagination
+
+Pagination is not part of the OSS core guide surface today. It is available through RevoGrid Pro workflows.
 
 ## Performance
-The efficiency of the library in processing and rendering large datasets without compromising the responsiveness or user experience.
 
+Performance in RevoGrid comes from virtual rendering, viewport separation, lightweight renderers, and explicit data update methods. Read [Grid Performance and Virtualization](/guide/performance).
 
 ## Prop
-Short for "property," refers to the attributes that can be passed to customize and configure component, influencing its behavior and appearance.
+
+A prop is a public configuration field passed to the grid, such as `columns`, `source`, `filter`, `readonly`, `stretch`, or `grouping`.
 
 ## Row
 
-<!--@include: ../guide/parts/_row.md-->
+Rows represent records in the source dataset and can be customized through pinned regions, row headers, row definitions, grouping, and trimming.
 
-### Row Grouping
-The capability to group rows or columns under a shared header to organize data more effectively. This feature enhances the readability and usability of large datasets by structuring them into meaningful groups.
+### Row grouping
 
-### Row Headers
-Labels for rows, providing indices, identifiers, or categories for each row to improve readability and navigation.
+Row grouping groups records under shared labels based on selected props. See [Row Grouping](/guide/row/grouping).
 
-### Row Pin/Freeze
-Allows rows to be fixed or "pinned" to one top/bottom of the grid, remaining visible as the user scrolls vertically through other rows.
+### Row headers
 
-### Trimmed Rows
-Rows which are present in datasource but not visible in viewport. For example filtered values.
+Row headers add an index or custom left-hand row area. See [Row Headers](/guide/row/headers).
+
+### Row pinning
+
+Pinned rows stay visible in `pinnedTopSource` or `pinnedBottomSource` while the main dataset scrolls.
+
+### Trimmed rows
+
+Trimmed rows are source rows that exist but are currently hidden from the visible viewport. Filtering uses trimming internally, and you can also control trimming directly with `trimmedRows` or `addTrimmed`.
 
 ## Viewport
-Refers to the currently visible portion of the grid to the user. RevoGrid's virtual scrolling technology efficiently updates the viewport with visible rows and columns as the user scrolls, significantly improving the performance and user experience when navigating large datasets.
 
-### Virtual Scrolling
-A performance optimization technique that renders only the rows and columns visible to the user, significantly enhancing performance for grids handling large datasets.
+A viewport is one rendered region of the grid. RevoGrid uses separate viewports for:
+
+- main rows: `rgRow`
+- pinned top rows: `rowPinStart`
+- pinned bottom rows: `rowPinEnd`
+- main columns: `rgCol`
+- pinned start columns: `colPinStart`
+- pinned end columns: `colPinEnd`
+
+Events often expose indexes relative to a viewport, not the original array position. See [Understanding Viewports](/guide/viewports).
+
+### Virtual scrolling
+
+Virtual scrolling means the grid renders only what is visible, plus a small rendering frame. This keeps large grids usable and responsive.
 
 <!--@include: ../guide/parts/_reactive.md-->
 
 ## Web Component
-RevoGrid is implemented as a Web Component, making it framework-agnostic and capable of being used in any web application, enhancing its versatility and ease of integration.
+
+RevoGrid is implemented as a Web Component, which is why it can be used directly in JavaScript and wrapped by multiple frameworks without changing the core implementation.
+
+## Related guides
+
+- [Overview](/guide/overview)
+- [Grid Performance and Virtualization](/guide/performance)
+- [Programmatic Grid Control](/guide/programmatic-control)
+- [Advanced Configuration](/guide/advanced-configuration)

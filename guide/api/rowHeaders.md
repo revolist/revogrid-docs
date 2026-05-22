@@ -9,24 +9,24 @@ Visible on the left side of the table
 
 ## Properties
 
-| Property           | Attribute            | Description                                                                                                                                                                                | Type                    | Default     |
-| ------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- | ----------- |
-| `additionalData`   | `additional-data`    | Additional data to pass to renderer                                                                                                                                                        | `any`                   | `undefined` |
-| `dataPorts`        | `data-ports`         | Viewport data                                                                                                                                                                              | `ViewportData[]`        | `undefined` |
-| `headerProp`       | `header-prop`        | Header props                                                                                                                                                                               | `{ [x: string]: any; }` | `undefined` |
-| `height`           | `height`             | Header height to setup row headers                                                                                                                                                         | `number`                | `undefined` |
-| `jobsBeforeRender` | `jobs-before-render` | Prevent rendering until job is done. Can be used for initial rendering performance improvement. When several plugins require initial rendering this will prevent double initial rendering. | `Promise<any>[]`        | `[]`        |
-| `resize`           | `resize`             | Enable resize                                                                                                                                                                              | `boolean`               | `undefined` |
-| `rowClass`         | `row-class`          | Row class                                                                                                                                                                                  | `string`                | `undefined` |
-| `rowHeaderColumn`  | `row-header-column`  | Row header column                                                                                                                                                                          | `RowHeaders`            | `undefined` |
+| Property           | Attribute         | Description                                                                                                                                                                                | Type             | Default     |
+| ------------------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- | ----------- |
+| `additionalData`   | `additional-data` | Additional data to pass to renderer                                                                                                                                                        | `any`            | `undefined` |
+| `dataPorts`        | --                | Viewport data                                                                                                                                                                              | `ViewportData[]` | `undefined` |
+| `headerProp`       | --                | Header props                                                                                                                                                                               | `any \| string`  | `undefined` |
+| `height`           | `height`          | Header height to setup row headers                                                                                                                                                         | `number`         | `undefined` |
+| `jobsBeforeRender` | --                | Prevent rendering until job is done. Can be used for initial rendering performance improvement. When several plugins require initial rendering this will prevent double initial rendering. | `Promise<any>[]` | `[]`        |
+| `resize`           | `resize`          | Enable resize                                                                                                                                                                              | `boolean`        | `undefined` |
+| `rowClass`         | `row-class`       | Row class                                                                                                                                                                                  | `string`         | `undefined` |
+| `rowHeaderColumn`  | --                | Row header column                                                                                                                                                                          | `RowHeaders`     | `undefined` |
 
 
 ## Events
 
-| Event        | Description                | Type                                                                                                                          |
-| ------------ | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `ref`        | Register element to scroll | `CustomEvent<ElementScroll>`                                                                                                  |
-| `scrollview` | Scroll viewport            | `CustomEvent<{ dimension: DimensionType; coordinate: number; delta?: number \| undefined; outside?: boolean \| undefined; }>` |
+| Event        | Description                | Type                         |
+| ------------ | -------------------------- | ---------------------------- |
+| `ref`        | Register element to scroll | `CustomEvent<ElementScroll>` |
+| `scrollview` | Scroll viewport            | `CustomEvent<D>`             |
 
 
 ## Dependencies

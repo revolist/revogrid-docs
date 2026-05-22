@@ -11,6 +11,7 @@ head:
 
 <!--@include: ../parts/_editor.header.md-->
 
+<!--@include: ../../guide/demos/vue/vue2.editor.md-->
 
 ## App
 ```vue
@@ -76,8 +77,5 @@ export default {
 }
 </script>
 ```
-
-
-<!--@include: ../../demo/vue/vue2.editor.md-->
 
 <!--@include: ./_examples.md-->

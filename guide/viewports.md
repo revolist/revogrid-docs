@@ -1,3 +1,8 @@
+---
+title: RevoGrid Viewports
+description: Understand RevoGrid viewport architecture for virtual rows, virtual columns, pinned rows, pinned columns, dimensions, and scrolling behavior.
+---
+
 <script lang="ts" setup>
 import VPImage from 'vitepress/dist/client/theme-default/components/VPImage.vue'
 </script>
@@ -251,3 +256,13 @@ function setSourceByPhysicalIndex(store, modelByIndex, mutate = true)
 2. Use physical indexes when modifying the underlying data
 3. Always use the appropriate conversion functions when switching between index types
 4. Be aware that virtual indexes can change during operations like sorting or filtering 
+
+
+## Related guides
+
+- [Grid Performance and Virtualization](/guide/performance)
+- [Programmatic Grid Control](/guide/programmatic-control)
+- [Advanced Configuration](/guide/advanced-configuration)
+- [API: RevoGrid](/guide/api/revoGrid)
+
+Read more about render behavior in [proxy items](/guide/proxy-items).

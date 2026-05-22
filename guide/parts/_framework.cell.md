@@ -1,12 +1,14 @@
 <!--@include: ./_cross-framework-banner.md-->
 <style scoped>
-    a img {
+    .framework-list img {
         width: 20px;
-        float: left;
         margin-right: 5px;
+        vertical-align: middle;
     }
 </style>
-- [![Angular](/angular.svg) Angular](../angular/renderer) – Cell render in Angular environments.
-- [![React](/react.svg) React](../react/renderer) – Usage Cell render within React applications.
-- [![Vue 2](/vuejs.svg) Vue 2](../vue2/renderer) – Cell render adaptations for Vue 2.
-- [![Vue 3](/vuejs.svg) Vue 3](../vue3/renderer) – Detailed guide for integrating native Cell render with Vue 3.
+<ul class="framework-list">
+  <li><a href="../angular/renderer"><img src="/angular.svg" alt="Angular logo">Angular</a> - Cell renderer for Angular applications.</li>
+  <li><a href="../react/renderer"><img src="/react.svg" alt="React logo">React</a> - Cell renderer for React applications.</li>
+  <li><a href="../vue2/renderer"><img src="/vuejs.svg" alt="Vue 2 logo">Vue 2</a> - Cell renderer for Vue 2 applications.</li>
+  <li><a href="../vue3/renderer"><img src="/vuejs.svg" alt="Vue 3 logo">Vue 3</a> - Cell renderer for Vue 3 applications.</li>
+</ul>

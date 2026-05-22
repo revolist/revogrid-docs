@@ -2,6 +2,13 @@
 
 <!--@include: ../parts/_row.md-->
 
+<DemoWidgetFrame
+  demo="core-js-examples"
+  framework="ts"
+  title="RevoGrid Core Features"
+/>
+
+
 RevoGrid offers extensive capabilities for managing rows and the data they contain. From customizing row appearances with class bindings to handling complex data structures, RevoGrid provides the tools you need to create dynamic and responsive data grids.
 
 ## Row Class Binding
@@ -141,3 +148,13 @@ The [`MasterRowsPlugin`](./master.pro.md) enables expandable rows within the gri
 
 - **Performance Optimization**: Reduces the amount of visible data, which can enhance grid performance.
 - **Improved Usability**: Allows for better management of large datasets by hiding irrelevant or unneeded rows.
+
+## Related guides
+
+- [Advanced Configuration](/guide/advanced-configuration)
+- [Programmatic Grid Control](/guide/programmatic-control)
+- [Understanding Viewports](/guide/viewports)
+
+## Related Pro features
+
+Need more row-focused workflows such as row select, row autosize, row order, transpose, or master-detail patterns? Continue with [RevoGrid Pro](/pro/) and [Feature Comparison](/pro/feature-table).

@@ -2,176 +2,170 @@ import type { DefaultTheme } from 'vitepress'
 export const sidebarReactEn: DefaultTheme.SidebarItem[] = [
     {
         text: 'Getting Started',
-        link: '/demo/react/react-datagrid',
+        link: '/guide/demos/react/react-datagrid',
     },
     {
         text: 'Cell component',
-        link: '/demo/react/react.cell',
+        link: '/guide/demos/react/react.cell',
     },
     {
         text: 'Editor component',
-        link: '/demo/react/react.editor',
+        link: '/guide/demos/react/react.editor',
     },
     {
         text: 'Grouping',
-        link: '/demo/react/react-grouping',
+        link: '/guide/demos/react/react-grouping',
     },
     {
         text: 'Multi selection',
-        link: '/demo/react/react-multiselect',
+        link: '/guide/demos/react/react-multiselect',
     },
     {
         text: 'Tree view',
-        link: '/demo/react/react-tree',
+        link: '/guide/demos/react/react-tree',
     },
 ]
 
 export const sidebarAngularEn: DefaultTheme.SidebarItem[] = [
     {
         text: 'Getting Started Standalone',
-        link: '/demo/angular/angular-datagrid',
+        link: '/guide/demos/angular/angular-datagrid',
     },
     {
         text: 'Cell component',
-        link: '/demo/angular/angular.cell',
+        link: '/guide/demos/angular/angular.cell',
     },
     {
         text: 'Column resize',
-        link: '/demo/angular/angular.column-resize',
+        link: '/guide/demos/angular/angular.column-resize',
     },
     {
         text: 'Header component & Tooltip',
-        link: '/demo/angular/angular.header',
+        link: '/guide/demos/angular/angular.header',
     },
     {
         text: 'Editor component',
-        link: '/demo/angular/angular.editor',
+        link: '/guide/demos/angular/angular.editor',
     },
     {
         text: 'Editor custom date format',
-        link: '/demo/angular/angular.editor-custom',
+        link: '/guide/demos/angular/angular.editor-custom',
     },
     {
         text: 'Focus Catch',
-        link: '/demo/angular/angular.focus',
+        link: '/guide/demos/angular/angular.focus',
     },
     {
         text: 'Demo: Inventory List',
-        link: '/demo/angular/angular.full-demo',
+        link: '/guide/demos/angular/angular.full-demo',
     },
+    {
+        text: 'Demo: Sample module',
+        link: '/guide/demos/angular/angular.sample.module',
+    },
+    {
+        text: 'Tree view',
+        link: '/guide/demos/angular/angular-tree',
+    }
 ]
 export const sidebarVue3En: DefaultTheme.SidebarItem[] = [
     {
         text: 'Getting Started Composition API',
-        link: '/demo/vue/vue3-datagrid',
+        link: '/guide/demos/vue/vue3-datagrid',
     },
     {
         text: 'Getting Started Options API',
-        link: '/demo/vue/vue.sample.options',
+        link: '/guide/demos/vue/vue.sample.options',
     },
     {
         text: 'Cell component',
-        link: '/demo/vue/vue.cell.composition',
+        link: '/guide/demos/vue/vue.cell.composition',
     },
     {
         text: 'Editor component',
-        link: '/demo/vue/vue.editor.composition',
+        link: '/guide/demos/vue/vue.editor.composition',
     },
     {
         text: 'Checkbox list with Select All',
-        link: '/demo/vue/vue.select',
-    },
-    {
-        text: 'Tree view',
-        link: '/demo/vue/vue.tree',
+        link: '/guide/demos/vue/vue.select',
     },
     {
         text: 'Grouping',
-        link: '/demo/vue/vue.grouping',
+        link: '/guide/demos/vue/vue.grouping',
+    },
+    {
+        text: 'Tree view',
+        link: '/guide/demos/vue/vue-tree',
     },
 ]
 
 export const sidebarVue2En: DefaultTheme.SidebarItem[] = [
     {
         text: 'Getting Started Options API',
-        link: '/demo/vue/vue2-datagrid',
+        link: '/guide/demos/vue/vue2-datagrid',
     },
     {
         text: 'Cell component',
-        link: '/demo/vue/vue2.cell',
+        link: '/guide/demos/vue/vue2.cell',
     },
     {
         text: 'Editor component',
-        link: '/demo/vue/vue2.editor',
+        link: '/guide/demos/vue/vue2.editor',
     },
     {
         text: 'Editor date component',
-        link: '/demo/vue/vue2.date',
+        link: '/guide/demos/vue/vue2.date',
     },
     {
         text: 'Grouping',
-        link: '/demo/vue/vue2.grouping',
+        link: '/guide/demos/vue/vue2.grouping',
     },
     {
         text: 'List',
-        link: '/demo/vue/vue2.list',
+        link: '/guide/demos/vue/vue2.list',
     },
     {
         text: 'Checkbox list with Select All',
-        link: '/demo/vue/vue2.select',
+        link: '/guide/demos/vue/vue2.select',
     },
 ]
 
-export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
+export const sidebarJavaScriptDemosEn: DefaultTheme.SidebarItem[] = [
     {
-        text: 'Demo',
-        link: '/demo/',
+        text: 'Getting Started',
+        link: '/guide/demos/js/js.overview',
     },
     {
-        text: 'Demo: Pivot',
-        link: '/demo/pivot',
+        text: 'Grouping rows',
+        link: '/guide/demos/js/js.grouping',
     },
     {
-        text: 'Demo: Color',
-        link: '/demo/color',
+        text: 'Individual row sizes',
+        link: '/guide/demos/js/js.custom.rows',
     },
     {
-        text: 'Demo: Prompts',
-        link: '/demo/vue/ai-prompts',
+        text: 'Date column',
+        link: '/guide/demos/js/js.date',
     },
+    {
+        text: 'Clear Filtering',
+        link: '/guide/demos/js/js.filtering',
+    },
+    {
+        text: 'JSX Template',
+        link: '/guide/demos/jsx/jsx.template',
+    },
+    {
+        text: 'Hierarchical Tree',
+        link: '/guide/demos/jsx/jsx-tree',
+    },
+]
+
+export const sidebarGuideDemosEn: DefaultTheme.SidebarItem[] = [
     {
         text: '<img src="/js.svg" alt="JS logo" width="15" height="15"/> JS,JSX',
         collapsed: true,
-        items: [
-            {
-                text: 'Getting Started',
-                link: '/demo/js/js.overview',
-            },
-            {
-                text: 'Grouping rows',
-                link: '/demo/js/js.grouping',
-            },
-            {
-                text: 'Individual row sizes',
-                link: '/demo/js/js.custom.rows',
-            },
-            {
-                text: 'Date column',
-                link: '/demo/js/js.date',
-            },
-            {
-                text: 'Clear Filtering',
-                link: '/demo/js/js.filtering',
-            },
-            {
-                text: 'Hierarchical Tree',
-                link: '/demo/jsx/jsx.tree',
-            },
-            {
-                text: 'JSX Template',
-                link: '/demo/jsx/jsx.template',
-            },
-        ],
+        items: sidebarJavaScriptDemosEn,
     },
     {
         text: '<img src="/vuejs.svg" alt="Vue 3 logo" width="15" height="15"/> Vue 3',
@@ -199,7 +193,7 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         items: [
             {
                 text: 'Getting Started',
-                link: '/demo/svelte/svelte-datagrid',
+                link: '/guide/demos/svelte/svelte-datagrid',
             },
         ],
     },
@@ -209,8 +203,35 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         items: [
             {
                 text: 'Getting Started',
-                link: '/demo/stencil/stencil.sample',
+                link: '/guide/demos/stencil/stencil.sample',
             },
         ],
+    },
+]
+
+export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
+    {
+        text: 'Grid at Scale',
+        link: 'https://rv-grid.com/demo/',
+    },
+    {
+        text: 'HR Workspace',
+        link: 'https://rv-grid.com/demo/hr',
+    },
+    {
+        text: 'Pivot Analytics Workspace',
+        link: 'https://rv-grid.com/demo/pivot',
+    },
+    {
+        text: 'Project Tracker',
+        link: 'https://rv-grid.com/demo/color',
+    },
+    {
+        text: 'Gantt Workspace',
+        link: 'https://rv-grid.com/demo/gantt',
+    },
+    {
+        text: 'Ecommerce Workspace',
+        link: 'https://rv-grid.com/demo/ecommerce',
     },
 ]

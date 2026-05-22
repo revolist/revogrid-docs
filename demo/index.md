@@ -1,36 +1,19 @@
 ---
-title: Data Grid Demo - Vue, Angular, React, and Svelte
-pageClass: demo-page-class
+title: RevoGrid Data Grid Demos
+description: Explore RevoGrid demos for JavaScript, React, Vue, Angular, Svelte, Stencil, Pro workflows, pivot analytics, Gantt planning, and editable business grids.
+pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false
+footer: false
+prev: false
+next: false
+editLink: false
 head:
     - - meta
       - name: description
-        content: Demo page showcasing RevoGrid Filtering and Sorting, Resizing, Pinned and Grouped Columns
+        content: Explore RevoGrid demos for JavaScript, React, Vue, Angular, Svelte, Stencil, Pro workflows, pivot analytics, Gantt planning, and editable business grids.
       - name: keywords
-        content: RevoGrid Demo, Data Grid, Data Table, JavaScript Grid, Vue Grid, React Grid, Angular Grid, High-Performance Grid, Excel Export, React Table, Scalable Data Grids, Customizable Grid, Data Filtering
+        content: RevoGrid Pro Demo, Data Grid, Data Table, JavaScript Grid, Vue Grid, React Grid, Angular Grid, High-Performance Grid, Excel Export, Scalable Data Grids, Customizable Grid, Data Filtering
 ---
 
-<script setup>
-import ShowoffBanner from '../guide/parts/ShowoffBanner.vue'
-import Grid from './vue/DemoHR.vue'
-</script>
-
-# Demo Page
-
-<br />
-
-<Grid />
-
-<div style="max-width: 800px;">
-
-<!--@include: ../guide/parts/_fake-data-banner.md-->
-
-<br /><br />
-<ShowoffBanner />
-
-
-
-<!--@include: ../guide/parts/_framework.md-->
-
-</div>
+<ProDemoFrame />

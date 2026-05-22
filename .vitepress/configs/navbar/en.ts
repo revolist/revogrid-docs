@@ -2,22 +2,44 @@ import type { DefaultTheme } from 'vitepress'
 
 export const navbarEn: DefaultTheme.NavItem[] = [
   {
+    text: 'Product',
+    items: [
+      {
+        text: 'Data Grid',
+        link: '/',
+        activeMatch: '^/$',
+      },
+      {
+        text: 'Pivot Analytics',
+        link: '/pivot',
+        activeMatch: '^/pivot',
+      },
+      {
+        text: 'Gantt',
+        link: '/gantt',
+        activeMatch: '^/gantt',
+      },
+    ],
+  },
+  {
     text: 'Docs',
     link: '/guide/',
     activeMatch: '^/guide/',
   },
   {
-    text: 'Demo',
-    link: '/demo/',
+    text: 'Demos',
+    link: '/demo/hr',
     activeMatch: '^/demo/',
+    target: '_self',
+  },
+  {
+    text: 'Pricing',
+    link: '/pricing',
   },
   {
     text: 'RevoGrid Pro',
     link: '/pro/',
-    activeMatch: '^/(pro|pro-docs)/',
-  }, {
-    text: 'v4.x',
-    items: [{ text: 'v3.x', link: 'https://v3.rv-grid.com' }],
+    activeMatch: '^/(pro/(?!prices(?:/|$))|pro-docs/)',
   },
   {
     text: 'Links',
@@ -30,10 +52,10 @@ export const navbarEn: DefaultTheme.NavItem[] = [
         text: 'Roadmap',
         link: 'https://github.com/users/revolist/projects/3',
       },
-      // {
-      //   text: 'Changelog',
-      //   link: 'https://github.com/revolist/revogrid/CHANGELOG.md',
-      // },
+      {
+        text: 'v3.x',
+        link: 'https://v3.rv-grid.com',
+      },
     ],
   },
 ]

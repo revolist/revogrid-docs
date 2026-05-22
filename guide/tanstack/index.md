@@ -18,7 +18,7 @@ RevoGrid operates on the column level, which allows for superior performance, wh
 The following example shows how to use TanStack with RevoGrid to create columns, bind data, and manage interactions.
 
 
-<!--@include: ../../demo/tanstack/index.md-->
+<!--@include: ../../guide/demos/tanstack/index.md-->
 
 
 ## Summary

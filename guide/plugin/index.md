@@ -1,3 +1,8 @@
+---
+title: RevoGrid Plugin System
+description: Learn how to build RevoGrid plugins with BasePlugin, providers, event subscriptions, dispatching, lifecycle cleanup, and extension points.
+---
+
 # Plugin System
 
 [<Badge type="tip">Interface: PluginBaseComponent</Badge>](../types/Interface.PluginBaseComponent)

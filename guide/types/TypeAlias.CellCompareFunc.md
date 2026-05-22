@@ -1,22 +1,28 @@
-[RevoGrid Documentation v4.20.1](README.md) / CellCompareFunc
+[RevoGrid Documentation v4.21.11](README.md) / CellCompareFunc
 
-# Type Alias: CellCompareFunc()
+# Type Alias: CellCompareFunc()\<TModel\>
 
 ```ts
-type CellCompareFunc: (prop: ColumnProp, a: DataType, b: DataType) => number;
+type CellCompareFunc<TModel>: (prop: ColumnProp, a: TModel, b: TModel) => number;
 ```
 
 `CellCompareFunc` is a function that takes the column property to compare,
 the data of the first cell, and the data of the second cell. It returns a
 number indicating the relative order of the two cells.
 
+## Type Parameters
+
+| Type Parameter | Default type |
+| ------ | ------ |
+| `TModel` *extends* [`DataType`](TypeAlias.DataType.md) | [`DataType`](TypeAlias.DataType.md) |
+
 ## Parameters
 
 | Parameter | Type |
 | ------ | ------ |
 | `prop` | [`ColumnProp`](TypeAlias.ColumnProp.md) |
-| `a` | [`DataType`](TypeAlias.DataType.md) |
-| `b` | [`DataType`](TypeAlias.DataType.md) |
+| `a` | `TModel` |
+| `b` | `TModel` |
 
 ## Returns
 
@@ -24,4 +30,4 @@ number indicating the relative order of the two cells.
 
 ## Defined in
 
-[src/types/interfaces.ts:421](https://github.com/revolist/revogrid/blob/886bccdbb56a18366fb1471c77380cf8944f7722/src/types/interfaces.ts#L421)
+[src/types/interfaces.ts:438](https://github.com/revolist/revogrid/blob/a761193a7b5041ca04115de4e1eceb6ed9b2b905/src/types/interfaces.ts#L438)

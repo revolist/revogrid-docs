@@ -19,7 +19,7 @@ const columns: ColumnRegular[] = [
                         'button',
                         {
                             key: `action-${props.column.name}-${action}`,
-                            class: `action-btn action-${action}`,
+                            class: `action-control action-${action}`,
                         },
                         action
                     )

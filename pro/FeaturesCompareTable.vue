@@ -18,12 +18,12 @@
                         <div class="plan-price" v-if="plan.price">
                             <div>
                                 <span class="price-value"
-                                    >{{ plan.price }} $</span
+                                    >${{ plan.priceYear ?? plan.price * 12 }}</span
                                 >
-                                / month / dev
+                                / year
                             </div>
                             <div class="summary">
-                                Billed annually at {{ plan.price * 12 }}$ / dev
+                                1 developer seat · Unlimited production usage
                             </div>
                         </div>
                         <ul class="plan-details" v-if="plan.details">
@@ -37,6 +37,7 @@
                             :text="plan.buttonText"
                             :href="plan.link"
                             :theme="plan.buttonTheme"
+                            @click="handleStripeClientReferenceClick"
                         />
                     </th>
                 </tr>
@@ -62,9 +63,12 @@
                     </tr>
                     <template v-if="expandedGroups[groupIndex]">
                         <tr
-                            v-for="(feature, featureIndex) in group.features"
-                            :key="`${groupIndex}-${featureIndex}`"
-                            :class="{ 'nested-feature': feature.nesting > 0 }"
+                            v-for="feature in visibleFeatures(group)"
+                            :key="`${groupIndex}-${feature.name}`"
+                            :class="{
+                                'nested-feature': feature.nesting > 0,
+                                'collapsible-feature': feature.collapsible,
+                            }"
                         >
                             <td
                                 :style="{
@@ -73,18 +77,57 @@
                                 class="feature-card"
                                 :id="feature.name.replace(' ', '-')"
                             >
-                                {{ feature.name }}
-
                                 <button
-                                    class="video-preview"
-                                    v-if="feature.video"
-                                    @click="openPreview(feature.video)"
+                                    v-if="feature.collapsible"
+                                    class="feature-expand"
+                                    type="button"
+                                    :aria-expanded="isFeatureExpanded(group.name, feature.name)"
+                                    @click.stop="toggleFeature(group.name, feature.name)"
                                 >
-                                    <VPImage
-                                        style="width: 18px"
-                                        :image="{ src: 'video.svg' }"
-                                    />
+                                    {{ isFeatureExpanded(group.name, feature.name) ? '▼' : '▶' }}
                                 </button>
+                                <span class="feature-name-text">{{ feature.name }}</span>
+                                <span v-if="feature.beta" class="VPBadge warning" style="font-size:0.7em;vertical-align:middle;margin-left:4px">Beta</span>
+
+                                <span v-if="hasFeatureActions(feature)" class="feature-actions">
+                                    <a
+                                        v-if="feature.link"
+                                        class="rg-btn rg-btn-secondary feature-action-link docs-preview"
+                                        :href="feature.link"
+                                        :target="isExternalHref(feature.link) ? '_blank' : undefined"
+                                        :rel="isExternalHref(feature.link) ? 'noopener' : undefined"
+                                        title="Documentation"
+                                    >
+                                        Docs
+                                    </a>
+                                    <a
+                                        v-if="feature.demoUrl"
+                                        class="rg-btn rg-btn-secondary feature-action-link demo-preview"
+                                        :href="feature.demoUrl"
+                                        target="_blank"
+                                        rel="noopener"
+                                        title="Interactive demo"
+                                    >
+                                        Demo
+                                    </a>
+                                    <button
+                                        class="video-preview"
+                                        :class="{
+                                            'video-placeholder': !feature.video,
+                                        }"
+                                        type="button"
+                                        :title="feature.video ? 'Video preview' : undefined"
+                                        :disabled="!feature.video"
+                                        :tabindex="feature.video ? 0 : -1"
+                                        @click.stop="feature.video && openPreview(feature.video)"
+                                    >
+                                        <VPImage
+                                            v-if="feature.video"
+                                            style="width: 18px"
+                                            :image="{ src: 'video.svg' }"
+                                        />
+                                    </button>
+                                </span>
                             </td>
                             <td
                                 v-for="(plan, planIndex) in plans"
@@ -121,6 +164,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import VPImage from '../.vitepress/theme/VPImage.vue'
+import { handleStripeClientReferenceClick } from '../pricing-page/stripeClientReference'
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue'
 
 import { ElDialog } from 'element-plus'
@@ -132,9 +176,10 @@ const videoUrl = ref('')
 // Props
 interface Plan {
     name: string
-    price: number
-    details: string[]
-    buttonText: string
+    price?: number
+    priceYear?: number
+    details?: string[]
+    buttonText?: string
     link?: string
     ai?: boolean
     buttonTheme?: 'alt'
@@ -144,9 +189,14 @@ interface Feature {
     name: string
     supported: string[]
     nesting: number
+    parent?: string
+    collapsible?: boolean
+    expanded?: boolean
     children?: Feature[]
     link?: string
+    demoUrl?: string
     video?: string
+    beta?: boolean
 }
 
 interface FeatureGroup {
@@ -162,16 +212,44 @@ const props = defineProps<{
 
 // State
 const expandedGroups = ref<{ [key: number]: boolean }>({})
+const expandedFeatures = ref<Record<string, boolean>>({})
+
+const getFeatureKey = (groupName: string, featureName: string) => `${groupName}::${featureName}`
 
 // Initialize expanded state based on props
 props.features.forEach((group, index) => {
     expandedGroups.value[index] = group.expanded
+    group.features.forEach((feature) => {
+        if (feature.collapsible) {
+            expandedFeatures.value[getFeatureKey(group.name, feature.name)] = Boolean(feature.expanded)
+        }
+    })
 })
 
 // Methods
 const toggleGroup = (index: number) => {
     expandedGroups.value[index] = !expandedGroups.value[index]
 }
+
+const isFeatureExpanded = (groupName: string, featureName: string) => {
+    return expandedFeatures.value[getFeatureKey(groupName, featureName)] ?? true
+}
+
+const toggleFeature = (groupName: string, featureName: string) => {
+    const key = getFeatureKey(groupName, featureName)
+    expandedFeatures.value[key] = !isFeatureExpanded(groupName, featureName)
+}
+
+const visibleFeatures = (group: FeatureGroup) => {
+    return group.features.filter((feature) => {
+        if (!feature.parent) return true
+        return isFeatureExpanded(group.name, feature.parent)
+    })
+}
+
+const hasFeatureActions = (feature: Feature) => Boolean(feature.link || feature.demoUrl || feature.video)
+
+const isExternalHref = (href: string) => /^https?:\/\//.test(href)
 
 const openPreview = (video: string) => {
     videoUrl.value = video
@@ -185,8 +263,67 @@ const openPreview = (video: string) => {
     margin-top: 20px;
 }
 
-.video-preview {
+.feature-actions {
     float: right;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.feature-action-link {
+    height: 24px;
+    min-width: 24px;
+    padding: 0 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    line-height: 1;
+}
+
+.video-preview {
+    width: 32px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+
+    &:focus,
+    &:focus-visible {
+        outline: none;
+        box-shadow: none;
+    }
+
+    &:disabled {
+        cursor: default;
+    }
+}
+
+.video-placeholder {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.docs-preview,
+.demo-preview {
+    text-decoration: none;
+}
+
+.feature-link {
+    color: inherit;
+    font-weight: inherit;
+}
+
+.feature-expand {
+    width: 16px;
+    border: 0;
+    padding: 0;
+    margin-right: 4px;
+    background: transparent;
+    color: var(--vp-c-text-3);
+    cursor: pointer;
+    font-size: 10px;
+    line-height: 1;
 }
 
 .pricing-table {

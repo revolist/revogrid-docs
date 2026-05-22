@@ -1,13 +1,4 @@
-export const featuresPro = [
-    {
-        title: 'Pivot Table',
-        thumbnail: '/img/pivot.png',
-        videoUrl: '/video/pivot.mp4',
-        group: 'Advanced Data Structures',
-        description: `
-        Transform multidimensional data into insightful visualizations. Perfect for applications requiring complex data analysis, where flexibility and control are crucial.
-        `,
-    },
+const featuresProBase = [
     {
         title: 'Hierarchical Data View',
         thumbnail: '/img/tree.png',
@@ -25,46 +16,23 @@ export const featuresPro = [
         videoUrl: '/video/row-transpose.mp4',
     },
     {
-        title: 'Nested Grid',
-        thumbnail: '/img/nester-grid.png',
-        group: 'Advanced Data Structures',
-        description: 'Build a grid inside a grid, showcasing advanced editing options and user interactions for a more dynamic data presentation.',
-        videoUrl: '/video/nested-grid.mp4',
-    },
-    {
-        title: 'Master Detail',
-        thumbnail: '/img/master-detail.png',
-        videoUrl: '/video/master-detail.mp4',
-        group: 'Advanced Data Structures',
-        description:
-            'Advanced master-detail grid implementation that spans across pinned columns, showcasing complex data relationships.',
-    },
-    {
-        title: 'Smart Auto Fill',
-        thumbnail: '/img/autofill.png',
-        videoUrl: '/video/autofill.mp4',
-        group: 'Data Entry & Automation',
-        description:
-            'Automatically populating cells with a series, pattern based on the initial input. Perfect for repetitive tasks, saving users time.',
-    },
-    {
         title: 'Merge Cells',
         thumbnail: '/img/merge.png',
-        group: 'Layout & Styling',
+        group: 'Grid Structure',
         description: 'Merge multiple cells, columns and rows into a single unified cell. Often used for creating headers, organizing data hierarchically, or emphasizing important information across columns.',
         videoUrl: '/video/merge.mp4',
     },
     {
         title: 'Auto Merge',
         thumbnail: '/img/merge-auto.png',
-        group: 'Layout & Styling',
+        group: 'Grid Structure',
         description: 'Automatically merges cells with identical values in a column. Hides duplicate values and borders while maintaining data integrity.',
         videoUrl: '/video/auto-merge.mp4',
     },
     {
         title: 'Column Collapse & Expand (Drill Down)',
         thumbnail: '/img/column-drill.png',
-        group: 'Layout & Styling',
+        group: 'Grid Structure',
         description:
             'Collapse/expand grouped columns, trimm away unnecessary data. Perfect for focusing on the information that matters most, while keeping your workspace clean and efficient.',
         videoUrl: '/video/column-collapse.mp4',
@@ -72,47 +40,74 @@ export const featuresPro = [
     {
         title: 'Column Hide',
         thumbnail: '/img/column-hide.png',
-        group: 'Layout & Styling',
+        group: 'Grid Structure',
         description: 'Column hiding is a feature that allows you to hide specific columns in your grid, making them invisible to users. This is useful for focusing on specific data points, reducing visual clutter, creating different views of the same dataset, and implementing column visibility toggles.',
     },
     {
-        title: 'Column Stretch',
-        thumbnail: '/img/column-stretch.png',
-        group: 'Layout & Styling',
+        title: 'Audit Trail History',
+        thumbnail: '/img/history.png',
+        group: 'Data Management',
         description:
-            'Automatically adjusts column widths to fit the grid layout efficiently.',
-        videoUrl: '/video/column-stretch.mp4',
+            'Record and review detailed data-change history for audit workflows. Use it when teams need traceability for edits, user actions, or operational review.',
     },
     {
-        title: 'Dynamic Cell Formats',
-        thumbnail: '/img/cell-charts.png',
-        videoUrl: '/video/renders.mp4',
-        group: 'Data Visualization',
-        description:
-            'Empower your data grid with visually rich, interactive, and context-driven cells. From ratings to timelines, our custom cell renders elevate data visualization to the next level.',
+        title: 'History',
+        thumbnail: '/img/history.png',
+        videoUrl: '/video/history.mp4',
+        group: 'Data Management',
+        description: 'Track your history of changes. Undo and redo operations.',
     },
     {
-        title: 'Multi-Cell Formatting',
-        thumbnail: '/img/multi-cell-format.png',
-        group: 'Data Visualization',
+        title: 'Range Apply Preview',
+        thumbnail: '/img/clipboard.png',
+        group: 'Data Management',
         description:
-            'Apply different renderers and editors to cells within the same column based on user-defined conditions. Perfect for creating dynamic, context-aware data displays where each cell can have its own unique presentation and interaction model.',
+            'Preview pending range copy, paste, or fill changes before applying them to the grid. Useful for validating target cells, confirming mapped values, and preventing accidental bulk updates.',
     },
     {
-        title: 'Heat&Cold Maps',
-        thumbnail: '/img/heatmap.png',
-        videoUrl: '/video/heatmap.mp4',
-        group: 'Data Visualization',
+        title: 'Excel Export/Import',
+        thumbnail: '/img/excel.png',
+        group: 'Data Management',
         description:
-            'Data interpretation with a gradient legend, displaying the value range for heatmaps and coldmaps. Perfect for giving users context on how colors map to values.',
+            'Export data to Excel format. Supported types include `xlsx`, `xlsm`, `xlsb`, `xls`, and more.',
+        videoUrl: '/video/excel-export.mp4',
     },
     {
-        title: 'Conditional Formatting',
-        thumbnail: '/img/condition.png',
-        group: 'Data Visualization',
+        title: 'Infinite Scroll',
+        thumbnail: '/img/pagination-infinity.png',
+        group: 'Performance & Data Loading',
         description:
-            'Customize cell styles based on specific conditions. Highlight important data, create visual cues, and improve the readability.',
-        videoUrl: '/video/conditional-formatting.mp4',
+            'Remote-first infinite scrolling that loads server-side data as users scroll. Maintains optimal performance through intelligent data chunking and cleanup, with total-based or dynamic scrolling patterns to fit your use case.',
+        videoUrl: '/video/infinite-scroll.mp4',
+    },
+    {
+        title: 'Pagination',
+        thumbnail: '/img/pagination.png',
+        group: 'Performance & Data Loading',
+        description:
+            'Break larger datasets into smaller pages, enhancing both performance and user experience.',
+        videoUrl: '/video/pagination.mp4',
+    },
+    {
+        title: 'Pagination Remote',
+        thumbnail: '/img/pagination.png',
+        group: 'Performance & Data Loading',
+        description:
+            'Load page-sized data from a remote source while keeping pagination controls, total counts, and grid state in sync.',
+    },
+    {
+        title: 'Formula',
+        thumbnail: '/img/formula.png',
+        videoUrl: '/video/formula.mp4',
+        group: 'Advanced Calculations',
+        description:
+            'Excel-like formula engine with over 100+ functions, dynamic calculations, cell references, and real-time data manipulation. Build complex financial models, data analysis, and automated workflows with ease.',
+    },
+    {
+        title: 'Grouping Aggregation',
+        thumbnail: '/img/aggregation.png',
+        group: 'Advanced Calculations',
+        description: 'Apply summary functions like sum, average, and more to grouped data.',
     },
     {
         title: 'Advanced Selection Filtering',
@@ -120,6 +115,13 @@ export const featuresPro = [
         group: 'Data Filtering & Search',
         description: 'Advanced multi-condition filters based on selection.',
         videoUrl: '/video/filter-advance.mp4',
+    },
+    {
+        title: 'Selection Filter Cascade',
+        thumbnail: '/img/filter-select.png',
+        group: 'Data Filtering & Search',
+        description:
+            'Cascade selection filters so each filter narrows the available options in the next one. This helps users drill into related dimensions without choosing impossible combinations.',
     },
     {
         title: 'Advanced Slider Filtering',
@@ -145,12 +147,65 @@ export const featuresPro = [
         videoUrl: '/video/filter-date.mp4',
     },
     {
-        title: 'Multi-Filtering',
-        thumbnail: '/img/filter-multi.png',
-        group: 'Data Filtering & Search',
+        title: 'Column Stretch',
+        thumbnail: '/img/column-stretch.png',
+        group: 'Layout & Styling',
         description:
-            'Multi-condition filters logic example to refine and display your data more effectively.',
-        videoUrl: '/video/filter-multi.mp4',
+            'Automatically adjusts column widths to fit the grid layout efficiently.',
+        videoUrl: '/video/column-stretch.mp4',
+    },
+    {
+        title: 'Sticky Cells and Rows',
+        thumbnail: '/img/overlay.png',
+        group: 'Layout & Styling',
+        description:
+            'Keep important cells and rows visible while users scroll through large datasets. Use it for totals, labels, actions, or context rows that must stay available during navigation.',
+    },
+    {
+        title: 'Charts',
+        thumbnail: '/img/cell-charts.png',
+        group: 'Data Visualization',
+        videoUrl: '/video/renders.mp4',
+        description:
+            'Render compact visual summaries directly in cells, including progress lines, sparklines, bar charts, timelines, ratings, badges, change indicators, thumbs, and pie charts.',
+    },
+    {
+        title: 'Multi-Cell Formatting',
+        thumbnail: '/img/multi-cell-format.png',
+        group: 'Data Visualization',
+        description:
+            'Apply different renderers and editors to cells within the same column based on user-defined conditions. Perfect for creating dynamic, context-aware data displays where each cell can have its own unique presentation and interaction model.',
+    },
+    {
+        title: 'Heat&Cold Maps',
+        thumbnail: '/img/heatmap.png',
+        videoUrl: '/video/heatmap.mp4',
+        group: 'Data Visualization',
+        description:
+            'Data interpretation with a gradient legend, displaying the value range for heatmaps and coldmaps. Perfect for giving users context on how colors map to values.',
+    },
+    {
+        title: 'Conditional Formatting',
+        thumbnail: '/img/condition.png',
+        group: 'Data Visualization',
+        description:
+            'Customize cell styles based on specific conditions. Highlight important data, create visual cues, and improve the readability.',
+        videoUrl: '/video/conditional-formatting.mp4',
+    },
+    {
+        title: 'Nested Grid',
+        thumbnail: '/img/nester-grid.png',
+        group: 'Data Visualization',
+        description: 'Build a grid inside a grid, showcasing advanced editing options and user interactions for a more dynamic data presentation.',
+        videoUrl: '/video/nested-grid.mp4',
+    },
+    {
+        title: 'Master Detail',
+        thumbnail: '/img/master-detail.png',
+        videoUrl: '/video/master-detail.mp4',
+        group: 'Data Visualization',
+        description:
+            'Advanced master-detail grid implementation that spans across pinned columns, showcasing complex data relationships.',
     },
     {
         title: 'Cell Validation',
@@ -169,35 +224,12 @@ export const featuresPro = [
         videoUrl: '/video/data-validation-input.mp4',
     },
     {
-        title: 'Pagination',
-        thumbnail: '/img/pagination.png',
-        group: 'Performance & Data Loading',
+        title: 'Clipboard with JSON',
+        thumbnail: '/img/clipboard.png',
+        group: 'Data Quality & Validation',
         description:
-            'Break larger datasets into smaller pages, enhancing both performance and user experience.',
-        videoUrl: '/video/pagination.mp4',
-    },
-    {
-        title: 'Infinite Scroll',
-        thumbnail: '/img/pagination-infinity.png',
-        group: 'Performance & Data Loading',
-        description:
-            'Load large datasets with dynamic server-side data loading as users scroll. Maintaining optimal performance through intelligent data chunking and cleanup. Choose between total-based or dynamic scrolling patterns to best fit your use case.',
-        videoUrl: '/video/infinite-scroll.mp4',
-    },
-    {
-        title: 'Formula',
-        thumbnail: '/img/formula.png',
-        videoUrl: '/video/formula.mp4',
-        group: 'Advanced Calculations',
-        description:
-            'Excel-like formula engine with over 100+ functions, dynamic calculations, cell references, and real-time data manipulation. Build complex financial models, data analysis, and automated workflows with ease.',
-    },
-    {
-        title: 'Trail History',
-        thumbnail: '/img/history.png',
-        videoUrl: '/video/history.mp4',
-        group: 'Data Management',
-        description: 'Track your history of changes. Undo and redo operations.',
+            'Support for JSON and other objects. Copy and paste complex data structures explained.',
+        videoUrl: '/video/clipboard.mp4',
     },
     {
         title: 'Cell Flash',
@@ -206,21 +238,6 @@ export const featuresPro = [
         description:
             'Enable flashing cells to highlight updates, making it easy for users to spot changes in values.',
         videoUrl: '/video/cell-flash.mp4',
-    },
-    {
-        title: 'Connected Fields',
-        thumbnail: '/img/connected-fields.png',
-        group: 'Data Management',
-        description:
-            'Connect any fields together through progress, enabling advanced data connections for impressive visualizations. Interconnect data, enhance insights and drive better decision-making.',
-    },
-    {
-        title: 'Reference Data',
-        thumbnail: '/img/reference-data.png',
-        group: 'Data Management',
-        description:
-            'Manage static key/value pairs for displaying meaningful labels alongside coded values.',
-        videoUrl: '/video/reference-data.mp4',
     },
     {
         title: 'Context Menu',
@@ -301,31 +318,6 @@ export const featuresPro = [
         videoUrl: '/video/auto-focus.mp4',
     },
     {
-        title: 'Clipboard with JSON and Advanced Objects',
-        thumbnail: '/img/clipboard.png',
-        group: 'Data Management',
-        description:
-            'Support for JSON and other objects. Copy and paste complex data structures explained.',
-        videoUrl: '/video/clipboard.mp4',
-    },
-    {
-        title: 'Excel Export/Import',
-        thumbnail: '/img/excel.png',
-        group: 'Data Management',
-        description:
-            'Export data to Excel format. Supported types include `xlsx`, `xlsm`, `xlsb`, `xls`, and more.',
-        videoUrl: '/video/excel-export.mp4',
-    },
-    {
-        title: 'Event Manager',
-        thumbnail: '/img/event-manager.png',
-        group: 'Development & Integration',
-        description:
-            'Handles, customizes, and optimizes events. Use one event to process multiple actions.',
-        sponsor: '/guide/event-manager',
-        videoUrl: '/video/event-manager.mp4',
-    },
-    {
         title: 'Overlay layers',
         thumbnail: '/img/overlay.png',
         group: 'Layout & Styling',
@@ -333,10 +325,12 @@ export const featuresPro = [
             'Push and pop layers on top of the grid to enhance the user experience.',
     },
     {
-        title: 'Grouping Aggregation',
-        thumbnail: '/img/aggregation.png',
-        group: 'Advanced Calculations',
-        description: 'Apply summary functions like sum, average, and more to grouped data.',
+        title: 'Smart Auto Fill',
+        thumbnail: '/img/autofill.png',
+        videoUrl: '/video/autofill.mp4',
+        group: 'Data Management',
+        description:
+            'Automatically populating cells with a series, pattern based on the initial input. Perfect for repetitive tasks, saving users time.',
     },
     {
         title: 'Dynamic Form Editing',
@@ -380,7 +374,84 @@ export const featuresPro = [
         description: 'Visual timeline editor featuring an intuitive progress bar and native date pickers for seamless date range selection within grid cells. Perfect for project management, scheduling, and any application requiring visual time tracking or date range manipulation.',
         videoUrl: '/video/timeline-editor.mp4',
     },
+    {
+        title: 'Event Manager',
+        thumbnail: '/img/event-manager.png',
+        group: 'Development & Integration',
+        description:
+            'Handles, customizes, and optimizes events. Use one event to process multiple actions.',
+        sponsor: '/guide/event-manager',
+        videoUrl: '/video/event-manager.mp4',
+    },
+    {
+        title: 'Pivot Table',
+        thumbnail: '/img/pivot.png',
+        videoUrl: '/video/pivot.mp4',
+        group: 'Enterprise Tools',
+        description: `
+        Production-ready Pivot grid for multidimensional analytics, reporting, and OLAP-style workflows. Includes client-side and server-side engines, interactive configuration, drill-down, totals, and advanced layout control.
+        `,
+        subFeatures: [
+            { title: 'Dynamic row, column, and value dimensions' },
+            { title: 'Built-in aggregations: sum, count, avg, min, max' },
+            { title: 'Custom aggregators per dimension' },
+            { title: 'Hierarchical Pivot rows and generated column groups' },
+            { title: 'Flat header mode' },
+            { title: 'Grand totals and subtotals' },
+            { title: 'Custom total labels and duplicate-total suppression' },
+            { title: 'Values-on-rows layout' },
+            { title: 'Advanced rowTree and $values placement' },
+            { title: 'Row drill-down expand/collapse with persisted state' },
+            { title: 'Group-row aggregate values' },
+            { title: 'Column drill-down/collapse with persisted state' },
+            { title: 'Collapsed-column placeholder and aggregator overrides' },
+            { title: 'Full drag-and-drop Pivot configurator' },
+            { title: 'Compact in-grid Pivot field panel' },
+            { title: 'Filter fields in configurator and field panel' },
+            { title: 'Server-side Pivot engine/store contract' },
+            { title: 'Remote row and column axis windowing' },
+            { title: 'Remote sorting and filtering integration' },
+            { title: 'Drilldown request/response contract for fact rows' },
+            { title: 'Field registry validation for selectors, summaries, and intervals' },
+            { title: 'Deterministic remote cache keys and serializable Pivot errors' },
+            { title: 'Pivot state save/load contract' },
+        ],
+    },
+    {
+        title: 'Gantt & Scheduling',
+        thumbnail: '/img/gantt.png',
+        group: 'Enterprise Tools',
+        beta: true,
+        description: 'Production-ready Gantt chart and scheduling view for project planning, dependency management, resource allocation, and timeline analysis.',
+        subFeatures: [
+            { title: 'Project, task, dependency, calendar, resource, assignment, and baseline data model' },
+            { title: 'Summary tasks, regular tasks, and milestones' },
+            { title: 'Tree hierarchy with WBS task structure' },
+            { title: 'Automatic scheduling engine' },
+            { title: 'Calendar-aware duration with working days and holidays' },
+            { title: 'Manual, inactive, constrained, and deadline-aware task scheduling' },
+            { title: 'Dependency graph validation and cycle detection' },
+            { title: 'FS, SS, FF, and SF dependencies with lead/lag' },
+            { title: 'Dependency arrows with hover, selection, keyboard delete, and drag-to-connect' },
+            { title: 'Predecessor and successor field editing' },
+            { title: 'Critical path and slack calculation' },
+            { title: 'Baseline overlays and baseline selection' },
+            { title: 'Resource and assignment modeling' },
+            { title: 'Resource filtering and assignee field editing' },
+            { title: 'Interactive task create, move, and resize controls' },
+            { title: 'Progress drag/edit controls' },
+            { title: 'Task indent and outdent actions' },
+            { title: 'Cancelable before-change events for tasks, dependencies, and assignments' },
+            { title: 'Built-in timeline zoom levels from day/week to multi-year' },
+            { title: 'Wheel zoom, zoom anchors, locale formatting, and custom header formatting' },
+            { title: 'Resizable task table and timeline panels' },
+            { title: 'Today line, project line, milestone lines, and highlighted time ranges' },
+            { title: 'Non-working time shading, task labels, and custom task markers' },
+        ],
+    },
 ]
+
+export const featuresPro = featuresProBase
 export const proWhy = [
     {
         avatar: '/flash-circle.svg',

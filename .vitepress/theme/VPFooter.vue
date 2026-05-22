@@ -1,13 +1,40 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
-import { useSidebar } from 'vitepress/theme'
+import { useLayout } from 'vitepress/dist/client/theme-default/composables/layout.js'
 import VPImage from './VPImage.vue'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import ContactForm from '../../pro/ContactForm.vue'
+import { useHomeLink } from './useHomeLink'
 
 let showForm = ref(false) // isVisible
 const { site, theme, frontmatter } = useData()
-const { hasSidebar } = useSidebar()
+const { hasSidebar } = useLayout()
+const { homeLink } = useHomeLink()
+
+const footerLink = (text: string, link: string) => {
+    if (!frontmatter.value.externalHomeLinks) {
+        return homeLink(link)
+    }
+    if (text === 'About us') {
+        return homeLink('/about/')
+    }
+    if (text === 'Services') {
+        return homeLink('/services/')
+    }
+    return homeLink(link)
+}
+
+const footerItems = computed(() =>
+    (theme.value.footer?.items ?? []).map((section) => ({
+        ...section,
+        links: section.links.map((item) => ({
+            ...item,
+            link: footerLink(item.text, item.link),
+        })),
+    }))
+)
+const homeUrl = computed(() => homeLink('/'))
+const contactUrl = computed(() => homeLink('/contact/'))
 </script>
 
 <template>
@@ -20,7 +47,7 @@ const { hasSidebar } = useSidebar()
     >
         <div class="container">
             <div>
-                <a class="logo-container" href="/">
+                <a class="logo-container" :href="homeUrl">
                     <VPImage
                         v-if="theme.logo"
                         class="logo"
@@ -36,7 +63,7 @@ const { hasSidebar } = useSidebar()
                 </a>
             </div>
             <div class="sections">
-                <ul v-for="section in theme.footer.items">
+                <ul v-for="section in footerItems">
                     <li
                         v-for="item in section.links"
                         :key="item.text"
@@ -46,7 +73,10 @@ const { hasSidebar } = useSidebar()
                     </li>
                 </ul>
                 <ul style="margin-left: 15px;">
-                    <li><a href="#contact" @click="showForm = true">Contact us</a></li>
+                    <li>
+                        <a v-if="frontmatter.externalHomeLinks" :href="contactUrl">Contact us</a>
+                        <a v-else href="#contact" @click="showForm = true">Contact us</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -72,6 +102,7 @@ const { hasSidebar } = useSidebar()
     border-top: 1px solid var(--vp-c-gutter);
     padding: 20px 24px 32px 24px;
     background-color: var(--vp-c-bg);
+    overflow: hidden;
 
     .container {
         padding-bottom: 10px;

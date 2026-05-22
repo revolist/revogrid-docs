@@ -1,92 +1,119 @@
-# Best Practices
+---
+title: RevoGrid Best Practices
+description: Learn the practical patterns that keep RevoGrid fast and maintainable, including virtualization-safe renderers, state handling, editing flows, and large dataset strategies.
+head:
+  - - meta
+    - name: keywords
+      content: RevoGrid best practices, virtual grid performance, data grid patterns, editable grid tips, large dataset grid
+---
 
-When working with advanced data grids designed for large datasets, several key UI patterns and practices should be followed to ensure a seamless user experience and maintain high performance.
+# RevoGrid Best Practices
 
-These patterns help create an interface that is intuitive, responsive, and efficient, even with significant data volumes. Here are some of the most important patterns to follow:
+RevoGrid is designed for large datasets and interactive workflows, but the best results still come from using the right patterns. This guide focuses on practices that align with how the grid actually renders, edits, filters, and updates data.
 
-## Virtual Scrolling
+## Treat virtualization as the default
 
--   **Pattern**: Efficient handling of large datasets by rendering only visible rows and columns, reducing browser load.
--   **Best Practice**: Ensure custom rendering or plugins are compatible with virtual scrolling. Avoid heavy DOM manipulations outside the visible viewport to optimize performance.
+The core grid renders only the visible rows and columns plus a small frame around them. Build with that assumption:
 
-## Lazy Loading
+- keep custom cell renderers light
+- avoid expensive DOM work per cell
+- avoid doing data transforms inside every render callback
+- prefer precomputed values on the row model when a template is reused many times
 
--   **Pattern**: Load data as needed rather than all at once to improve performance.
--   **Best Practice**: Implement lazy loading, particularly with external data sources or APIs, ensuring data is fetched and rendered efficiently in chunks.
+Read more in [Grid Performance and Virtualization](/guide/performance).
 
-## Data Virtualization
+## Separate source data from presentation concerns
 
--   **Pattern**: Keep only a subset of data in memory, fetching and rendering only the data that is visible or near visible.
--   **Best Practice**: Ensure features like sorting, filtering, and grouping are optimized for large datasets and compatible with data virtualization.
+Keep your source rows focused on business data, and use column config for presentation:
 
-## Custom Cell Renderers
+- `columns` define names, sorting, filters, templates, editors, and read-only rules
+- `columnTypes` let you reuse configuration across many columns
+- `rowDefinitions` are better than mutating row height logic into templates
+- `additionalData` is useful for integration context, not as a second source of row data
 
--   **Pattern**: Create custom renderers for complex cell content, such as images, buttons, or interactive elements.
--   **Best Practice**: Keep custom cell renderers lightweight to avoid performance bottlenecks. Optimize expensive operations that are repeated across many cells. Use cache mechanisms to improve performance.
+## Prefer simple renderers first
 
-## VNode Keys
+Custom renderers are one of RevoGrid’s strengths, but the safest progression is:
 
--   **Pattern**: Use unique keys when rendering lists, arrays, or dynamic content in templates to help the virtual DOM efficiently track and update nodes.
--   **Best Practice**: Always provide stable, unique keys when rendering multiple elements. Use IDs from your data model rather than array indices when possible. Combine row and column identifiers for cell templates. Keys are essential for VNode reconciliation - they allow the virtual DOM to identify which node corresponds to which data item, enabling efficient updates and preserving component state when items are reordered or filtered.
+1. plain column values
+2. `cellProperties` for classes and attributes
+3. `cellTemplate` for custom rendering
+4. framework-native renderers only when the feature truly needs them
 
-## Responsive Design
+That keeps scroll performance predictable and makes debugging easier.
 
--   **Pattern**: Adapt grid layouts to varying screen sizes and resolutions.
--   **Best Practice**: Ensure the grid adjusts to different screen sizes with resizable columns and scrollable content. Use responsive features to manage column visibility or prioritize important data on smaller screens.
+## Use stable keys in dynamic VNode output
 
-## Keyboard Navigation
+When a renderer returns multiple nodes or list content, use stable keys based on your data model rather than array position. This helps the underlying VDOM reconcile updates correctly during filtering, sorting, and scrolling.
 
--   **Pattern**: Support keyboard navigation for seamless user interaction, especially for power users.
--   **Best Practice**: Ensure custom features integrate well with keyboard navigation, maintaining or enhancing keyboard accessibility. Consider custom keyboard shortcuts where applicable.
+## Use methods for imperative workflows
 
-## Infinite Scrolling
+If the UI needs to:
 
--   **Pattern**: Load additional data as the user scrolls down or across the grid.
--   **Best Practice**: Implement or support infinite scrolling, especially for large datasets, providing a smoother user experience compared to traditional pagination.
+- focus a cell
+- open an editor
+- scroll to a row or column
+- update a visible cell without rebuilding the whole grid
 
-## Column and Row Pinning
+use the public methods instead of custom DOM hacks. Start with [Programmatic Grid Control](/guide/programmatic-control).
 
--   **Pattern**: Keep specific rows or columns visible while scrolling through the data.
--   **Best Practice**: Support pinning in customizations, especially for grids where headers or key identifiers need to remain visible.
+## Keep event handling intentional
 
-## Custom Sorting and Filtering
+RevoGrid emits many events. In application code, it helps to group them by purpose:
 
--   **Pattern**: Implement custom logic for sorting and filtering to provide more complex or domain-specific data interactions.
--   **Best Practice**: Ensure custom sorting and filtering are optimized for performance, potentially applying logic on the server-side for large datasets.
+- validation and write control: `beforeedit`, `beforerangeedit`, `beforeeditstart`
+- source synchronization: `beforesourceset`, `aftersourceset`, `afteranysource`
+- filtering and sorting pipelines: `beforefilterapply`, `beforefiltertrimmed`, `beforesorting`
+- focus and selection: `beforecellfocus`, `beforefocuslost`, `afterfocus`
 
-## Editable Cells and Inline Editing
+Use cancelable events to enforce business rules and informative events for analytics, syncing, or UI side effects.
 
--   **Pattern**: Allow users to edit data directly within the grid for more intuitive data manipulation.
--   **Best Practice**: Ensure inline editing is user-friendly, supports keyboard shortcuts, and includes robust data validation and error handling.
+Read more in [Event Patterns and Lifecycles](/guide/events-guide).
 
-## Event Handling and Customization
+## Use physical and virtual indexes correctly
 
--   **Pattern**: Hook into various events (e.g., cell click, row hover) for custom behaviors.
--   **Best Practice**: Optimize event listeners and clean them up when no longer needed to avoid performance issues and memory leaks.
+A common source of bugs is mixing physical source indexes with viewport indexes:
 
-## Context Menus and Tooltips
+- source arrays are physical data
+- event coordinates are often viewport-specific virtual indexes
+- pinned rows and columns create separate index spaces
 
-   - **Pattern**: Enhance user interaction by providing additional options or information through context menus and tooltips.
-   - **Best Practice**: Implement contextually aware and lightweight context menus and tooltips to ensure they don't interfere with performance.
+If you are using `setDataAt`, `setCellsFocus`, custom plugins, or advanced event handling, read [Understanding Viewports](/guide/viewports).
 
-## Theming and Custom Styling
+## Choose the right loading strategy
 
-   - **Pattern**: Customize themes and styling to align the grid’s appearance with the overall application design.
-   - **Best Practice**: Use CSS variables and custom properties for consistent and easy-to-manage styles, ensuring custom styles do not conflict with core styles or degrade performance.
+For large or remote datasets:
 
-## State Management
+- use built-in virtualization first
+- use filtering and sorting carefully if the dataset must stay server-authoritative
+- use incremental loading or pagination patterns when you do not want the full dataset in memory
+- use `jobsBeforeRender` for initialization work that must finish before the first meaningful paint
 
-   - **Pattern**: Manage the grid’s state (e.g., selected rows, applied filters) for consistency, especially in complex applications.
-   - **Best Practice**: Integrate with a state management solution if necessary, ensuring the grid’s state is preserved across sessions or navigation.
+## Keep editing rules close to the column
 
-## Big O Notation Considerations
+Editing behavior is easiest to maintain when it is defined where the user sees it:
 
-   - **Pattern**: Understand the computational complexity of operations to ensure performance remains optimal as data size increases.
-   - **Best Practice**: Evaluate and optimize algorithms, especially for sorting, filtering, and rendering, to ensure they are efficient and scale well with large datasets.
+- `readonly` at grid or column level for broad rules
+- custom editors in `editors`
+- `applyOnClose` when you want close-to-save behavior
+- validation in `beforeedit` or related hooks
 
-## Accessibility (a11y)
+Read more in [Editing](/guide/editing).
 
-   - **Pattern**: Ensure the grid is accessible to all users, including those with disabilities.
-   - **Best Practice**: Follow accessibility best practices, such as providing proper ARIA labels, ensuring keyboard accessibility, and supporting screen readers. Test with accessibility tools to identify and fix issues.
+## Make framework wrappers thin
 
-By adhering to these patterns, you can create an implementation that is not only performant and scalable but also user-friendly and accessible. These practices will help you build grids that efficiently handle large datasets while providing a seamless and intuitive user experience.
+Whether you use React, Angular, Vue 3, or Svelte, keep the wrapper layer focused on:
+
+- providing props and events
+- holding refs to the grid instance
+- passing framework context through `additionalData` only when needed
+
+The more business logic stays close to the shared RevoGrid API, the easier it is to keep behavior consistent across frameworks.
+
+## Related guides
+
+- [Grid Performance and Virtualization](/guide/performance)
+- [Programmatic Grid Control](/guide/programmatic-control)
+- [Advanced Configuration](/guide/advanced-configuration)
+- [Editing](/guide/editing)
+- [Filtering](/guide/filters)

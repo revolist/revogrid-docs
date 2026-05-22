@@ -1,5 +1,6 @@
 ---
 title: JavaScript Data Grid Overview
+description: Learn what RevoGrid provides for high-performance JavaScript data grids, including virtual scrolling, framework support, custom cells, editing, and large dataset workflows.
 ---
 
 <script setup>
@@ -16,7 +17,7 @@ import Grid from '@/demo/vue/DemoHR.vue'
 }
 </style>
 
-# Overview
+# JavaScript Data Grid Overview
 
 So, you have an app that manages intensive datasets and you might think it’s straightforward enough to handle on your own. After all, implementing virtual scrolling might seem like all it takes. 
 

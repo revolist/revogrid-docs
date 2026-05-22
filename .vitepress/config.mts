@@ -1,6 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
-import { DefaultTheme, defineConfig, UserConfig } from 'vitepress'
-import { withMermaid } from 'vitepress-plugin-mermaid'
+import { DefaultTheme, defineConfig, HeadConfig, UserConfig } from 'vitepress'
 import svgLoader from 'vite-svg-loader'
 import { navbarEn } from './configs/navbar'
 import { sidebarEn } from './configs/sidebar'
@@ -12,6 +11,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import markdownItAttrs from 'markdown-it-attrs'
+import type MarkdownIt from 'markdown-it'
 
 dotenv.config()
 
@@ -34,9 +34,128 @@ export const slugify = (str: string): string =>
         // ensure it doesn't start with a number
         .replace(/^(\d)/, '_$1')
 
+const mermaidMarkdownPlugin = (md: MarkdownIt) => {
+    const fence = md.renderer.rules.fence?.bind(md.renderer.rules)
+
+    md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+        const token = tokens[idx]
+        const language = token.info.trim()
+
+        if (language === 'mermaid' || language === 'mmd') {
+            const id = `mermaid-${idx}`
+            const graph = encodeURIComponent(token.content)
+            return `<ClientOnly><Mermaid id="${id}" graph="${graph}" /></ClientOnly>`
+        }
+
+        return fence ? fence(tokens, idx, options, env, self) : self.renderToken(tokens, idx, options)
+    }
+}
+
+const useLocalProPackages = process.env.npm_lifecycle_event === 'dev' || process.argv.includes('dev')
+const localProPackageAliases = useLocalProPackages
+    ? [
+        {
+            find: '@revolist/revogrid-pro',
+            replacement: path.resolve(__dirname, '../../../packages/pro'),
+        },
+        {
+            find: '@revolist/revogrid-enterprise',
+            replacement: path.resolve(__dirname, '../../../packages/enterprise'),
+        },
+    ]
+    : []
+
+const standaloneBuildPages: Record<string, string> = {
+    gantt: 'gantt.md',
+    scheduler: 'scheduler.md',
+    timelinegrid: 'timelinegrid.md',
+    'ops-scheduler': 'ops-scheduler.md',
+    jsscheduler: 'jsscheduler.md',
+    pivot: 'pivot/index.md',
+    pivotio: 'pivotio.md',
+    vue: 'vue.md',
+    angular: 'angular.md',
+    datagridjs: 'datagridjs.md',
+}
+
+const standaloneBuildPage = process.env.DOCS_BUILD_PAGE
+const standaloneBuildSource = standaloneBuildPage ? standaloneBuildPages[standaloneBuildPage] : undefined
+const standaloneBuildRewrites = standaloneBuildSource
+    ? {
+        'index.md': '__home.md',
+        [standaloneBuildSource]: 'index.md',
+    }
+    : undefined
+
+const siteUrl = process.env.DOCS_SITE_URL || 'https://rv-grid.com'
+
+const cleanPagePath = (relativePath: string): string => {
+    const withoutExtension = relativePath.replace(/\.md$/, '')
+
+    if (withoutExtension === 'index') {
+        return '/'
+    }
+
+    if (withoutExtension.endsWith('/index')) {
+        return `/${withoutExtension.replace(/\/index$/, '/')}`
+    }
+
+    return `/${withoutExtension}`
+}
+
+const pageUrl = (relativePath: string): string => `${siteUrl}${cleanPagePath(relativePath)}`
+
+const normalizeTitle = (title: string): string =>
+    title.endsWith(' | RevoGrid') ? title : `${title} | RevoGrid`
+
+const hasHeadEntry = (
+    head: HeadConfig[] | undefined,
+    tag: string,
+    attrName: string,
+    attrValue: string
+): boolean =>
+    Boolean(head?.some(([headTag, attrs]) => {
+        if (headTag !== tag || !attrs) return false
+        return attrs[attrName] === attrValue
+    }))
+
+const headMetaContent = (
+    head: HeadConfig[] | undefined,
+    attrName: 'name' | 'property',
+    attrValue: string
+): string | undefined => {
+    const entry = head?.find(([tag, attrs]) => {
+        if (tag !== 'meta' || !attrs) return false
+        return attrs[attrName] === attrValue && typeof attrs.content === 'string'
+    })
+
+    return entry?.[1]?.content as string | undefined
+}
+
+const browserOnlyPackageSsrShims = () => ({
+    name: 'browser-only-package-ssr-shims',
+    enforce: 'pre' as const,
+    resolveId(source: string, _importer: string | undefined, options: { ssr?: boolean } = {}) {
+        if (!options.ssr) return null
+
+        if (source === '@revolist/revogrid-enterprise') {
+            return path.resolve(__dirname, 'revogrid-enterprise-ssr-shim.ts')
+        }
+
+        if (source === '@revolist/revogrid-pro') {
+            return path.resolve(__dirname, 'revogrid-pro-ssr-shim.ts')
+        }
+
+        return null
+    },
+})
+
 const config: UserConfig<DefaultTheme.Config> = {
     sitemap: {
-        hostname: 'https://rv-grid.com',
+        hostname: siteUrl,
+        transformItems(items) {
+            return items.filter((item) => !item.url.includes('pivot/landing'))
+        },
     },
     cleanUrls: true,
     title: 'RevoGrid',
@@ -65,6 +184,7 @@ const config: UserConfig<DefaultTheme.Config> = {
             bun: 'js',
         },
         config(md) {
+            md.use(mermaidMarkdownPlugin)
             md.use(tabsMarkdownPlugin)
             md.use(containerPreview)
             md.use(markdownItAttrs, {
@@ -76,18 +196,22 @@ const config: UserConfig<DefaultTheme.Config> = {
         },
     },
     head: [
+        ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+        ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+        [
+            'link',
+            {
+                rel: 'stylesheet',
+                href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap',
+            },
+        ],
         ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
         ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
-        ['meta', { property: 'og:title', content: 'RevoGrid - High-Performance Data Grid' }],
-        ['meta', { property: 'og:url', content: 'https://rv-grid.com/guide' }],
         ['meta', { property: 'og:image', content: 'https://rv-grid.com/og-image.jpg' }],
         ['meta', { property: 'og:type', content: 'website' }],
-        ['meta', { property: 'og:description', content: 'Explore RevoGrid documentation to build high-performance, customizable data grids.' }],
         ['meta', { property: 'og:site_name', content: 'RevoGrid Documentation' }],
 
         ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-        ['meta', { name: 'twitter:title', content: 'RevoGrid - High-Performance Data Grid Framework' }],
-        ['meta', { name: 'twitter:description', content: 'Explore RevoGrid documentation to build high-performance, customizable data grids.' }],
         ['meta', { name: 'twitter:image', content: 'https://rv-grid.com/og-image.jpg' }],
         ['meta', { name: 'twitter:site', content: '@RevoGrid' }],
 
@@ -101,6 +225,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T7JNJDXW');`,
         ],
     ],
+    transformHead({ pageData, siteData }) {
+        const frontmatter = pageData.frontmatter
+        const head = frontmatter.head as HeadConfig[] | undefined
+        const title = normalizeTitle(frontmatter.title || pageData.title || siteData.title)
+        const description = frontmatter.description || headMetaContent(head, 'name', 'description') || siteData.description
+        const url = pageUrl(pageData.relativePath)
+        const dynamicHead: HeadConfig[] = []
+
+        if (!hasHeadEntry(head, 'link', 'rel', 'canonical')) {
+            dynamicHead.push(['link', { rel: 'canonical', href: url }])
+        }
+
+        if (!hasHeadEntry(head, 'meta', 'property', 'og:title')) {
+            dynamicHead.push(['meta', { property: 'og:title', content: title }])
+        }
+
+        if (!hasHeadEntry(head, 'meta', 'property', 'og:description')) {
+            dynamicHead.push(['meta', { property: 'og:description', content: description }])
+        }
+
+        if (!hasHeadEntry(head, 'meta', 'property', 'og:url')) {
+            dynamicHead.push(['meta', { property: 'og:url', content: url }])
+        }
+
+        if (!hasHeadEntry(head, 'meta', 'name', 'twitter:title')) {
+            dynamicHead.push(['meta', { name: 'twitter:title', content: title }])
+        }
+
+        if (!hasHeadEntry(head, 'meta', 'name', 'twitter:description')) {
+            dynamicHead.push(['meta', { name: 'twitter:description', content: description }])
+        }
+
+        return dynamicHead
+    },
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
 
@@ -129,6 +287,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         text: 'Terms of Service',
                     },
                     {
+                        link: '/pro/policies/security',
+                        text: 'Security Policy',
+                    },
+                    {
                         link: '/guide/',
                         text: 'Quick Start',
                     },
@@ -151,7 +313,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         },
 
         search: {
-            provider: 'local',
+            provider: 'algolia',
+            options: {
+              appId: 'A7AL1RN49F',
+              apiKey: '32c3895410dbd2626a07c065d0e88bec',
+              indexName: 'RevoGrid',
+            }
         },
         nav: navbarEn,
 
@@ -159,6 +326,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     },
     vite: {
         plugins: [
+            {
+                name: 'inject-gtm-noscript',
+                transformIndexHtml(html) {
+                    return html.replace(
+                        /<body([^>]*)>/,
+                        `<body$1>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T7JNJDXW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->`,
+                    )
+                },
+            },
+            browserOnlyPackageSsrShims(),
             AutoImport({
                 resolvers: [ElementPlusResolver()],
             }),
@@ -168,13 +349,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             svgLoader(),
         ],
         ssr: {
-            noExternal: ['element-plus'],
+            noExternal: [
+                'element-plus',
+                '@revolist/revogrid-pro',
+                '@revolist/revogrid-enterprise',
+                '@revolist/revogrid-column-date',
+                '@revolist/revogrid-column-numeral',
+                '@revolist/revogrid-column-select',
+            ],
         },
         build: {
             sourcemap: false,
         },
         optimizeDeps: {
-            include: ['@revolist/revogrid-pro', 'pro-pages'], // List of node modules to include in bundling
+            include: [
+                '@revolist/revogrid-pro',
+                '@revolist/revogrid-enterprise',
+                '@braintree/sanitize-url',
+                'dayjs',
+                'debug',
+                'cytoscape-cose-bilkent',
+                'cytoscape',
+            ], // List of node modules to include in bundling
         },
         resolve: {
             extensions: [
@@ -202,20 +398,52 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 },
                 {
                     find: '@/',
-                    replacement: path.resolve(__dirname, '/'),
+                    replacement: `${path.resolve(__dirname, '../')}/`,
+                },
+                ...localProPackageAliases,
+                {
+                    find: 'dayjs/plugin/advancedFormat.js',
+                    replacement: 'dayjs/esm/plugin/advancedFormat',
                 },
                 {
-                    find: '@revolist/revogrid-pro',
-                    replacement: path.resolve(__dirname, '../pro-pages'),
+                    find: 'dayjs/plugin/customParseFormat.js',
+                    replacement: 'dayjs/esm/plugin/customParseFormat',
+                },
+                {
+                    find: 'dayjs/plugin/isoWeek.js',
+                    replacement: 'dayjs/esm/plugin/isoWeek',
+                },
+                {
+                    find: 'cytoscape/dist/cytoscape.umd.js',
+                    replacement: 'cytoscape/dist/cytoscape.esm.mjs',
                 },
             ],
         },
     },
     srcExclude: process.env.VITE_PRO_INCLUDE
-        ? ['**/_*.md']
-        : ['demo/**-pro/**', 'pro-pages/**', '**/_*.md'],
+        ? [
+            '**/_*.md',
+            'README.md',
+            'guide/parts/*.md',
+            'guide/plugin/base.md',
+            'guide/plugin/dispatcher.md',
+            'guide/plugin/example.md',
+            'guide/column/cell.template.md',
+        ]
+        : [
+            'demo/**-pro/**',
+            'pro-pages/**',
+            '**/_*.md',
+            'README.md',
+            'guide/parts/*.md',
+            'guide/plugin/base.md',
+            'guide/plugin/dispatcher.md',
+            'guide/plugin/example.md',
+            'guide/column/cell.template.md',
+        ],
+    rewrites: standaloneBuildRewrites,
     ignoreDeadLinks: true,
 }
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig(withMermaid(config))
+export default defineConfig(config)

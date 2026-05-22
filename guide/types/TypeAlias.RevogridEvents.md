@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.20.1](README.md) / RevogridEvents
+[RevoGrid Documentation v4.21.11](README.md) / RevogridEvents
 
 # Type Alias: RevogridEvents
 
@@ -23,6 +23,7 @@ type RevogridEvents:
   | "beforeanysource"
   | "aftersourceset"
   | "afteranysource"
+  | "beforecolumnsgather"
   | "beforecolumnsset"
   | "beforecolumnapplied"
   | "aftercolumnsset"
@@ -116,4 +117,4 @@ type RevogridEvents:
 
 ## Defined in
 
-[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/886bccdbb56a18366fb1471c77380cf8944f7722/src/types/events.ts#L2)
+[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/a761193a7b5041ca04115de4e1eceb6ed9b2b905/src/types/events.ts#L2)

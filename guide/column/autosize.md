@@ -69,7 +69,7 @@ enum ColumnAutoSizeMode {
 }
 ```
 
-Visit our [demo](/demo/) for real live sample.
+Visit our [demo](https://rv-grid.com/demo/) for real live sample.
 
 ::: warning
 Currently AutoSize works in Beta mode. Only text autosize supported. Mapped values and custom renders can't be autosized at this moment and require different plugin approach based on per column prerender.

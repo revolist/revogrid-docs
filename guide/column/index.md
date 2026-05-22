@@ -1,6 +1,6 @@
 ---
 title: Data Grid Column Configuration
-description: Setup Column Options for your Data Grid. Browse all Column Properties used to configure Columns and Column Groups. Lists properties, types and defaults. Download RevoGrid today - The best JavaScript Table & JavaScript Data Grid in the world.
+description: Configure RevoGrid columns with properties for sizing, grouping, pinning, templates, readonly behavior, column types, and header options.
 head:
   - - meta
     - name: keywords

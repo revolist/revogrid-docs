@@ -69,4 +69,4 @@ Quite simple, right?
 
 <!--@include: ./cell/_key.md-->
 
-<!--@include: ../demo/jsx/jsx.simple.example.md -->
+<!--@include: ../guide/demos/jsx/jsx.simple.example.md -->

@@ -7,7 +7,13 @@ head:
       content: RevoGrid, row grouping, data grid grouping, JavaScript table grouping, TypeScript grid grouping
 ---
 
-<!--@include: ../../demo/js/js.grouping.md-->
+# Row Grouping in Data Grid
+
+<DemoWidgetFrame
+  demo="grouping-rows"
+  framework="ts"
+  title="RevoGrid Row Grouping"
+/>
 
 
 ## Grouping Configuration
@@ -22,7 +28,7 @@ The grouping option takes an object with the props property, which specifies the
 ```
 
 
-<!--@include: ../../demo/vue/vue.row-grouping.md-->
+<!--@include: ../../guide/demos/vue/vue.row-grouping.md-->
 
 
 ### Example Grouping Output
@@ -39,3 +45,11 @@ grid.grouping = { props: ['newGroupingProperty'] };
 ```
 
 For more details, check the [GroupingOptions interface](../types/TypeAlias.GroupingOptions).
+
+## Related guides
+
+- [Advanced Configuration](/guide/advanced-configuration)
+- [Programmatic Grid Control](/guide/programmatic-control)
+- [Understanding Viewports](/guide/viewports)
+
+<!--@include: ./_grouping.pro.md-->

@@ -1,124 +1,91 @@
 ---
-title: RevoGrid Pro
-description: Start using RevoGrid for free! Switch to a commercial plan to access advanced features & technical support.
+title: RevoGrid Pro Data Grid Features
+description: Advanced column types, plugin API, pivot tables, and direct engineering support — built for teams that can't afford a slow data layer.
 sidebar: false
 aside: false
 editLink: false
 footer: true
 prev: false
 next: false
-pageClass: pro-table
+pageClass: pro-page-doc
 layout: custom
 breadcrumbs: false
+proPage:
+  hero:
+    badge: RevoGrid Pro
+    title:
+      main: RevoGrid Pro
+      highlight: Data Grid Features.
+    subtitle: Advanced column types, plugin API, pivot tables, and direct engineering support — built for teams that can't afford a slow data layer.
+    actions:
+      primary:
+        label: Get Pro
+        href: /pricing
+      secondary:
+        label: Explore features
+        href: '#features'
+    stats:
+      - label: MIT core
+        sub: always free
+      - label: No deploy fee
+        sub: ship anywhere
+      - label: Royalty-free
+        sub: unlimited users
+      - label: +5 frameworks
+        sub: one API
+  features:
+    id: features
+    eyebrow: Pro Features
+    title:
+      main: Everything your app needs,
+      highlight: ready to ship.
+    description:
+      prefix: production-ready Pro features across
+      suffix: categories — built on the same RevoGrid core, no migration required.
+    betaLabel: Beta
+    videoButtonTitle: Watch video
+    videoButtonAria:
+      prefix: Watch
+      suffix: video
+    defaultGroupLabel: Other
+    defaultGroupIcon: •
+    groupIcons:
+      Data Management: 🗂️
+      Advanced Data Structures: 🌲
+      Grid Structure: 🧱
+      Data Filtering & Search: 🔍
+      Data Quality & Validation: ✅
+      Layout & Styling: 🎨
+      Data Visualization: 📊
+      Performance & Data Loading: 🚀
+      Advanced Calculations: 🧮
+      User Interaction: 🖱️
+      Data Entry & Automation: ⚡
+      Development & Integration: 🔌
+      Enterprise Tools: 🏢
+    link:
+      label: View full feature table
+      href: /pricing#feature-comparison
+  cta:
+    title:
+      main: Start with the MIT core.
+      highlight: Upgrade when you're ready.
+    subtitle: No credit card required for the open-source build. Pro licenses activate instantly.
+    actions:
+      primary:
+        label: Get Pro
+        href: /pricing
+      secondary:
+        label: Read the docs
+        href: /guide/
+    note: Royalty-free · No deployment fee · Cancel anytime
+  modal:
+    ariaLabel: Feature video preview
+    closeLabel: Close video preview
 ---
-
-<style lang="scss" src="./pro.styles.scss"></style>
-<style lang="scss" scoped>
-  /* :deep(h3):first-child {
-    margin-top: 0;
-  } */
-  @media (min-width: 768px) {
-    h1 {
-      margin-top: 30px;
-      font-size: 70px;
-      line-height: 60px;
-      font-weight: bold;
-      max-width: 500px;
-    }
-  }
-</style>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import ContactForm from './ContactForm.vue'
-import type { DefaultTheme } from 'vitepress/theme'
-import { VPButton } from 'vitepress/theme'
-import { featuresPro, proWhy } from './features.pro'
-import FeaturesGrid from './FeaturesGrid.vue'
-import DemoSlider from './DemoSlider.vue'
-
-let showForm = ref(false) // isVisible
+import ProPageLayout from './ProPageLayout.vue'
 </script>
 
-<ContactForm :isVisible="showForm" @close="showForm = false" />
-
-
-
-# Build next level Apps as a Pro
-
-Features for faster implementation,  
-reducing overall project timelines and price.
-
-<VPButton size="big" text="Purchase" theme="alt" href="/pro/prices" />
-
-<br/>
-<br/>
-
-<DemoSlider />
-
-<br/>
-
-Watch our video previews or [compare our plans](./feature-table)
-
----
-
-<FeaturesGrid :features="featuresPro" />
-
-
-<div class="description">
-<br />
-Can't find the feature you're looking for? <a @click="showForm = true">Ask us!</a>
-
-<br />
-
-<br />
-
-
-## Save time and money with our features!
-Get cool features out of the box to build the best products and elevate your development experience!
-
-
-
-<VPButton size="medium" text="Purchase now!" href="/pro/prices" />
-
-
-<div class="grid">
-
-
-::: details Reduced Development Time {open dashed}
-
-Streamlined features allow for faster implementation, reducing overall project timelines.
-
-:::
-
-::: details Cost-Effective Plans {open dashed}
-
-Flexible pricing options cater to different needs, ensuring you only pay for what you use.
-
-:::
-
-::: details Built-in Features {open dashed}
-
-Access to a wide range of built-in features eliminates the need for costly third-party plugins.
-
-:::
-
-
-::: details Scalability {open dashed}
-
-Easily scale your applications without incurring significant additional costs.
-
-:::
-
-
-::: details Support and Resources {open dashed}
-
-Comprehensive support and documentation reduce the need for external consulting services. 
-
-:::
-
-</div>
-
-<br>
-</div>
-
+<ProPageLayout />

@@ -1,11 +1,11 @@
 ---
-title: Pro DataGrid Videos
-description: Watch our Pro DataGrid videos. Observe the power of RevoGrid Pro.
+title: RevoGrid Pro Feature Videos and Demos
+description: Watch RevoGrid Pro feature videos and interactive demos for advanced data grid plugins, editing, layout, filtering, validation, and enterprise workflows.
 
 head:
     - - meta
       - name: description
-        content: Watch our Pro DataGrid videos. Observe the power of RevoGrid Pro.
+        content: Watch RevoGrid Pro feature videos and interactive demos for advanced data grid plugins, editing, layout, filtering, validation, and enterprise workflows.
     - - meta
       - name: keywords
         content: RevoGrid Pro DataGrid Videos, RevoGrid Pro Features, RevoGrid Pro Demo
@@ -28,9 +28,9 @@ import FeaturesGrid from './FeaturesGrid.vue'
 
 <div style="text-align: center">
 
-# What's included in Pro?
+# RevoGrid Pro Feature Videos
 
-Click on the features below to see video previews or [compare our plans](/pro).
+Click on the features below to see video previews, explore the feature demos below, or [compare our plans](/pro).
 
 </div>
 <br/>

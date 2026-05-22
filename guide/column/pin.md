@@ -18,4 +18,4 @@ const columns = [
 ```
 
 
-<!--@include: ../../demo/js/js.column.pin.md-->
+<!--@include: ../../guide/demos/js/js.column.pin.md-->
