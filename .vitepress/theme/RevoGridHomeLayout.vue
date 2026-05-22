@@ -333,13 +333,23 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 
 .rg-live,
 .rg-module-tag {
-  background: var(--rg-green-bg);
-  border: 1px solid var(--rg-green-border);
-  color: var(--rg-font-green);
-  border-radius: 4px;
+  color: var(--rg-text);
+  border-radius: 6px;
   padding: 0 8px;
-  font-size: 11px;
-  letter-spacing: 0.03em;
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--rg-green);
+    margin-right: 6px;
+  }
 }
 
 .rg-grid-wrap {

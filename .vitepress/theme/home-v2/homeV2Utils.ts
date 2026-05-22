@@ -59,7 +59,7 @@ export function comparisonText(value: string) {
     yes: '✓',
     no: '×',
     partial: '±',
-    yesPro: '✓ (Pro)',
+    yesPro: '✓ Pro',
     noSales: 'Sales required',
     complex: 'Complex',
     na: 'n/a',
