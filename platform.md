@@ -27,7 +27,7 @@ hero:
     - theme: brand
       text: Explore use cases
       link: /demo/
-      target: self
+      target: _self
     - theme: alt
       text: Read docs
       link: /guide/

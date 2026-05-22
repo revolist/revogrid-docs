@@ -30,7 +30,7 @@ export const navbarEn: DefaultTheme.NavItem[] = [
     text: 'Demos',
     link: '/demo/hr',
     activeMatch: '^/demo/',
-    target: 'self',
+    target: '_self',
   },
   {
     text: 'Pricing',

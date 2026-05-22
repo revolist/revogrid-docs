@@ -22,7 +22,7 @@ hero:
   primaryAction:
     text: Try live demo
     link: /demo
-    target: self
+    target: _self
   secondaryAction:
     text: View docs
     link: /guide/
@@ -73,15 +73,15 @@ trustBadges:
 #       description: 100,000+ rows with smooth scrolling.
 #       link: /demo/hr
 #       type: dataset
-#       target: self
+#       target: _self
 #     - title: Spreadsheet Editing
 #       description: Selection, copy/paste, keyboard navigation, and inline editors.
 #       link: /demo/color
 #       type: editing
-#       target: self
+#       target: _self
 #     - title: Custom Cell Types
 #       description: Build badges, progress bars, ratings, dropdowns, and any custom renderer.
-#       target: self
+#       target: _self
 #       link: /guide/column/types
 #       type: custom
 #     - title: Tree Data
@@ -136,7 +136,7 @@ developer:
       link: /guide/
     - text: View examples
       link: /demo/demo/hr
-      target: self
+      target: _self
   tabs:
     - id: angular
       label: Angular
@@ -270,7 +270,7 @@ advanced:
       type: erp
       link: /demo/ecommerce
       description: Use RevoGrid as the interface layer for inventory, finance, admin, and operations workflows.
-      target: self
+      target: _self
 
 useCases:
   label: Use cases
@@ -400,7 +400,7 @@ finalCta:
     - text: Try live demo
       link: /demo
       variant: primary
-      target: self
+      target: _self
     - text: View pricing
       link: /pricing
       variant: secondary
