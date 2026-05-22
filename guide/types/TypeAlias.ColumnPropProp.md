@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.8](README.md) / ColumnPropProp
+[RevoGrid Documentation v4.21.11](README.md) / ColumnPropProp
 
 # Type Alias: ColumnPropProp
 
@@ -8,4 +8,4 @@ type ColumnPropProp: ColumnGrouping | ColumnTemplateProp;
 
 ## Defined in
 
-[src/types/interfaces.ts:285](https://github.com/revolist/revogrid/blob/cbcc53d7f9ef48561119d817a57d178f94244e50/src/types/interfaces.ts#L285)
+[src/types/interfaces.ts:285](https://github.com/revolist/revogrid/blob/a761193a7b5041ca04115de4e1eceb6ed9b2b905/src/types/interfaces.ts#L285)
