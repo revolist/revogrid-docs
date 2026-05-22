@@ -62,6 +62,35 @@ RevoGrid also supports range-based copy and paste operations, allowing users to 
 
 - **`clipboardrangepaste`**: This event is triggered when a range of data is pasted into the grid. Similar to the copy event, you can modify the pasted data or prevent the operation.
 
+## Adding Rows on Paste
+
+By default, paste only applies values inside the currently available row and column range. If your workflow needs spreadsheet-style row growth when users paste more rows than the grid currently has, register `AutoAddRowsPlugin`.
+
+```ts
+import { AutoAddRowsPlugin } from '@revolist/revogrid';
+
+const grid = document.querySelector('revo-grid');
+
+if (grid) {
+  grid.plugins = [AutoAddRowsPlugin];
+}
+```
+
+When pasted data extends below the current main row source, the plugin adds the missing rows before RevoGrid applies the paste. The plugin emits a cancelable `newRows` event so applications can provide default values or block the insertion:
+
+```ts
+grid.addEventListener('newRows', event => {
+  event.detail.newRows = event.detail.newRows.map(row => ({
+    ...row,
+    data: {
+      status: 'new',
+    },
+  }));
+});
+```
+
+The plugin only adds rows. RevoGrid does not automatically create columns during paste because new columns need application-owned definitions such as `prop`, header text, sizing, renderers, editors, and validation rules. To support pasted data with more columns than the current grid, update `grid.columns` before paste is applied or handle `beforepasteapply` in your application.
+
 ## Read-Only Mode
 
 If the grid is set to read-only mode, paste operations are disabled by default. This ensures that data integrity is maintained when editing is not permitted.
