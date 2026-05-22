@@ -268,6 +268,8 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 collapsed: true,
                 items: [
                     { text: 'Getting Started', link: '/guide/svelte/' },
+                    { text: 'Cell Template', link: '/guide/svelte/renderer' },
+                    { text: 'Cell Editor', link: '/guide/svelte/editor' },
                 ],
             },
             {
