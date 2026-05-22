@@ -47,15 +47,17 @@
             <div class="rg-live">Live</div>
           </div>
           <div class="rg-grid-wrap">
-              <revo-grid
-                readonly
-                range
-                hideAttribution
-                resize
-                stretch
-                rowSize="40"
-                ref="gridElement"
-                class="rg-grid"></revo-grid>
+              <ClientOnly>
+                <revo-grid
+                  readonly
+                  range
+                  hideAttribution
+                  resize
+                  stretch
+                  rowSize="40"
+                  ref="gridElement"
+                  class="rg-grid"></revo-grid>
+                </ClientOnly>
             <div class="rg-perf-badge">
               <span></span>
               100k+ rows · virtualized
