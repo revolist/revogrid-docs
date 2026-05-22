@@ -95,26 +95,20 @@
 
 :root {
     --vp-home-hero-name-color: transparent;
-    --vp-home-hero-name-background: -webkit-linear-gradient(
-        120deg,
-        #20d58e 30%,
-        #16c47f
-    );
+    --vp-home-hero-name-background: -webkit-linear-gradient(120deg,
+            #20d58e 30%,
+            #16c47f);
 
     --vp-home-hero-image-background-image: transparent;
-    --vp-home-hero-name-background: -webkit-linear-gradient(
-        120deg,
-        #20d58e 30%,
-        #16c47f
-    );
+    --vp-home-hero-name-background: -webkit-linear-gradient(120deg,
+            #20d58e 30%,
+            #16c47f);
 }
 
 :root:not(.dark) {
-    --vp-home-hero-name-background: -webkit-linear-gradient(
-        120deg,
-        #20d58e 10%,
-        #16c47f
-    );
+    --vp-home-hero-name-background: -webkit-linear-gradient(120deg,
+            #20d58e 10%,
+            #16c47f);
     --vp-c-bg-soft: #f6f6fc;
     --vp-button-alt-border: var(--vp-c-black);
     --vp-button-alt-bg: var(--vp-c-black);
@@ -128,7 +122,7 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-    --vp-font-family-base: ui-sans-serif, system-ui, -apple-system,
+    --vp-font-family-base: Poppins, ui-sans-serif, system-ui, -apple-system,
         BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
         Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
@@ -146,6 +140,7 @@
 
 :root {
     --rg-green: var(--vp-c-brand-3);
+    --rg-font-green: var(--vp-badge-tip-text);
     --rg-green-dim: var(--vp-c-brand-2);
     --rg-green-bg: color-mix(in srgb, var(--rg-green) 8%, transparent);
     --rg-green-border: color-mix(in srgb, var(--rg-green) 24%, transparent);
@@ -176,17 +171,56 @@
     --rg-grid-line: rgba(0, 0, 0, 0.05);
 }
 
+
+.rg-btn,
+a.rg-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: var(--rg-green);
+    color: #000;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 11px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.18s, background 0.18s, opacity 0.18s, transform 0.18s;
+    white-space: nowrap;
+
+    &:hover {
+        filter: brightness(1.1);
+        transform: translateY(-1px);
+        color: #000;
+    }
+
+
+    &.rg-btn-secondary {
+        background: var(--rg-bg-2);
+        color: var(--rg-text);
+        border: 1px solid var(--rg-border);
+
+        &:hover {
+            filter: none;
+            background: var(--rg-bg-3);
+            border-color: var(--rg-border-hover);
+        }
+    }
+}
+
+
 /**
  * Component: Algolia
  * -------------------------------------------------------------------------- */
 
- .VPHero {
+.VPHero {
     .actions {
         @media (min-width: 640px) {
             padding-top: 20px;
-       }
+        }
 
-        > .action {
+        >.action {
             display: none;
         }
 
@@ -207,21 +241,26 @@
             }
         }
     }
- }
+}
+
 .DocSearch {
     --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
+
 .VPContent .VPHome {
     margin-bottom: 0;
+
     @media (min-width: 768px) {
         margin-bottom: 0;
     }
 }
+
 .VPHomeHero {
     .main {
         order: 1;
         margin-bottom: 50px;
     }
+
     .image {
         overflow: hidden;
         margin: -40px 0 20px 0;
@@ -230,9 +269,11 @@
             margin: 0;
         }
     }
+
     .image-bg {
         display: none;
     }
+
     .image-container {
         transform: none;
         overflow: hidden;
@@ -252,6 +293,7 @@
         white-space: pre-wrap;
         color: var(--vp-c-text-2);
     }
+
     .topPill {
         display: none !important;
     }
@@ -264,7 +306,7 @@
 
         .name,
         .text {
-            font-weight: 800;
+            font-weight: 600;
             font-size: clamp(3.5rem, 14vw, 4.5rem);
             line-height: 1.1;
         }
@@ -310,9 +352,11 @@ header.VPFeatures {
 
     @media (min-width: 960px) {
         padding-bottom: 5rem !important;
+
         .items {
             grid-template-columns: 1fr 1fr 1fr;
         }
+
         .item.grid-4 {
             width: auto;
         }
@@ -344,6 +388,7 @@ header.VPFeatures {
     @media (min-width: 640px) {
         padding: 0 48px;
     }
+
     @media (min-width: 960px) {
         padding: 0 64px;
     }
@@ -358,7 +403,7 @@ header.VPFeatures {
     }
 
     .rv-heading-2 {
-        font-weight: 700;
+        font-weight: 600;
         letter-spacing: -0.03em;
         font-size: 2.5rem;
         line-height: 1.12;
@@ -374,31 +419,44 @@ header.VPFeatures {
         font-size: 10px;
     }
 
-    h2, h3, h4, h5, h6 {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         display: flex;
         gap: 5px;
     }
 }
+
 .no-x-padding {
-    .VPContent, .VPContent .content,
+
+    .VPContent,
+    .VPContent .content,
     .VPDoc {
         padding-right: 0 !important;
     }
+
     .VPContent .content,
     .VPDoc {
         padding-left: 0 !important;
     }
 }
+
 .no-top-padding {
     .VPContent {
         padding-top: 17px !important;
     }
 }
+
 .no-bottom-padding {
-    .VPContent, .content {
+
+    .VPContent,
+    .content {
         padding-bottom: 0 !important;
     }
 }
+
 @media (min-width: 1240px) {
     .demo-page-wrapper .demo-container {
         max-width: 1240px;
@@ -420,6 +478,7 @@ header.VPFeatures {
     .main .mit-section.vp-doc {
         justify-content: left;
     }
+
     .VPContent .VPHomeHero .tagline {
         justify-content: start;
     }
@@ -428,14 +487,16 @@ header.VPFeatures {
         padding-bottom: 3rem !important;
     }
 }
-.demo-container > revo-grid {
+
+.demo-container>revo-grid {
     margin: 0;
     border-radius: 10px;
 
     revogr-row-headers {
         border-radius: 10px 0 0 0;
     }
-    + .custom-block {
+
+    +.custom-block {
         margin: 0;
         border-radius: 0 0 8px 8px;
     }
@@ -448,6 +509,7 @@ header.VPFeatures {
         margin: -5px 0;
     }
 }
+
 .example-container {
     revo-grid {
         border-radius: 10px;
@@ -455,7 +517,8 @@ header.VPFeatures {
         overflow: hidden;
     }
 }
-.example-container + details {
+
+.example-container+details {
     summary {
         display: flex;
         pointer-events: none;
@@ -463,7 +526,7 @@ header.VPFeatures {
         margin: -8px 0 0 0 !important;
         gap: 10px;
 
-        .source-btn {
+        .source-label {
             pointer-events: all;
             background-color: var(--vp-c-bg);
             border-radius: 8px;

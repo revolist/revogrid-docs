@@ -16,7 +16,7 @@ import Example from '@/demo/vue/vue.row-grouping.vue';
 <Example />
 </div>
 
-::: details <span class="source-btn">Source code</span> <span class="external"> [Git](https://github.com/revolist/revogrid-docs/tree/main/demo/vue/vue.row-grouping.vue) </span>
+::: details <span class="source-label">Source code</span> <span class="external"> [Git](https://github.com/revolist/revogrid-docs/tree/main/demo/vue/vue.row-grouping.vue) </span>
 
 
 ::: code-group

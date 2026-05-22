@@ -107,7 +107,7 @@ defineProps<{
   background: var(--gantt-soft);
   font-family: var(--vp-font-family-mono);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -123,7 +123,7 @@ defineProps<{
   max-width: 680px;
   margin: 0 0 22px;
   font-size: clamp(40px, 5.2vw, 68px);
-  font-weight: 760;
+  font-weight: 600;
   line-height: 1.04;
   letter-spacing: -2px;
 }

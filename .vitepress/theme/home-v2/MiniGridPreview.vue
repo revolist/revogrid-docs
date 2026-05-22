@@ -66,7 +66,7 @@ const cellSpan = (cell: MiniCell) => typeof cell === 'string' ? undefined : cell
 
   &.selected {
     background: var(--rg-green-bg);
-    color: var(--rg-green);
+    color: var(--rg-font-green);
     font-weight: 600;
   }
 
@@ -90,7 +90,7 @@ const cellSpan = (cell: MiniCell) => typeof cell === 'string' ? undefined : cell
   }
 
   &.accent {
-    color: var(--rg-green);
+    color: var(--rg-font-green);
   }
 
   &.no-border {

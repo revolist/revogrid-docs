@@ -129,7 +129,7 @@ const advUsdYr = PRICES.advanced.year.USD
   display: inline-flex;
   align-items: center;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   font-family: var(--vp-font-family-mono);
   padding: 3px 10px;
   border-radius: 100px;
@@ -158,7 +158,7 @@ const advUsdYr = PRICES.advanced.year.USD
 
 .card-name {
   font-size: 21px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--vp-c-text-1);
   margin-bottom: 6px;
   letter-spacing: -0.3px;
@@ -188,7 +188,7 @@ const advUsdYr = PRICES.advanced.year.USD
 
 .price-num {
   font-size: 46px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -2px;
   color: var(--vp-c-text-1);
   line-height: 1;

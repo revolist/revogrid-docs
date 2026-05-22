@@ -4,8 +4,8 @@
     <h2>Use Pivot Grid with <span>RevoGrid</span></h2>
     <p>Pivot is in RevoGrid Pro. The MIT open-source core includes grouping, sorting, and virtual rendering. Start free - upgrade when you need pivot.</p>
     <div class="cta-actions">
-      <a :href="revoGridProPricesUrl" class="btn primary large" target="_blank" rel="noopener">Get full access in RevoGrid Pro -></a>
-      <a :href="pivotDocsUrl" class="btn secondary large" target="_blank" rel="noopener">Read the docs</a>
+      <a :href="revoGridProPricesUrl" class="rg-btn" target="_blank" rel="noopener">Get full access in RevoGrid Pro -></a>
+      <a :href="pivotDocsUrl" class="rg-btn rg-btn-secondary" target="_blank" rel="noopener">Read the docs</a>
     </div>
     <div class="cta-sub">RevoGrid core is MIT licensed · Pro plugin requires a commercial seat license</div>
   </section>

@@ -13,6 +13,8 @@ head:
   - - meta
     - name: keywords
       content: RevoGrid, JavaScript Data Grid, React Data Grid, Vue Data Grid, Angular Data Grid, Svelte Data Grid, Virtual Scrolling, Editable Grid, Data Table, Pivot Grid, Gantt Grid
+  - - script
+    - src: https://cdn.jsdelivr.net/npm/@revolist/revogrid@latest/dist/revo-grid/revo-grid.min.js
 
 hero:
   eyebrow: High-performance data grid
@@ -235,13 +237,12 @@ developer:
         npm install @revolist/revogrid
 
         <!-- index.html -->
-        <revo-grid style="height: 220px"></revo-grid>
+        __LT__revo-grid style="height: 220px"__GT____LT__/revo-grid__GT__
 
         // index.js
         import { defineCustomElements } from '@revolist/revogrid/loader'
 
         defineCustomElements()
-
         const grid = document.querySelector('revo-grid')
         grid.columns = [{ prop: 'value', name: 'Value' }]
         grid.source = [{ value: 120000 }, { value: 98000 }]

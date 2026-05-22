@@ -17,7 +17,7 @@ import Example from '@/demo/vue/vue.sample.options.example.vue';
 </div>
 
 
-::: details <span class="source-btn">Source code</span> <span class="external"> [Git](https://github.com/revolist/revogrid-docs/tree/main/demo/vue/vue.sample.options.example.vue) [Codesandbox](https://codesandbox.io/p/sandbox/rg-start-vue-3-options-ap-8mlqjx) </span>
+::: details <span class="source-label">Source code</span> <span class="external"> [Git](https://github.com/revolist/revogrid-docs/tree/main/demo/vue/vue.sample.options.example.vue) [Codesandbox](https://codesandbox.io/p/sandbox/rg-start-vue-3-options-ap-8mlqjx) </span>
 
 ::: code-group
 <<< @/demo/vue/vue.sample.options.example.vue

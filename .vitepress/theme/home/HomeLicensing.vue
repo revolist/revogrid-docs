@@ -87,7 +87,7 @@ const PRICING_CARDS = [
 
 .section-title {
     font-size: clamp(28px, 3vw, 42px);
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: -1px;
     line-height: 1.1;
     color: var(--vp-c-text-1);
@@ -135,7 +135,7 @@ const PRICING_CARDS = [
     flex-shrink: 0;
     margin-top: 1px;
     color: var(--vp-c-brand-1);
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .advantage-text {

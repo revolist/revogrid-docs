@@ -88,7 +88,7 @@ const { linkOf } = useHomeV2Links()
     align-items: center;
     gap: 3px;
     margin-top: 8px;
-    color: var(--rg-green);
+    color: var(--rg-font-green);
     font-size: 11px;
     font-weight: 600;
 

@@ -3,10 +3,10 @@
     <div class="cta-glow" aria-hidden="true"></div>
     <h2 class="cta-title">{{ cta.title }}<br />{{ cta.titleEmphasis }}</h2>
     <p class="cta-sub">{{ cta.subtitle }}</p>
-    <div class="cta-btns">
+    <div class="cta-actions">
       <a
         :href="cta.primary.href"
-        class="btn-cta-primary"
+        class="rg-btn"
         :target="cta.primary.external ? '_blank' : undefined"
         :rel="cta.primary.external ? 'noopener' : undefined"
         @click="handleLinkClick($event, cta.primary)"
@@ -18,7 +18,7 @@
       </a>
       <a
         :href="cta.secondary.href"
-        class="btn-cta-ghost"
+        class="rg-btn rg-btn-secondary"
         :target="cta.secondary.external ? '_blank' : undefined"
         :rel="cta.secondary.external ? 'noopener' : undefined"
         @click="handleLinkClick($event, cta.secondary)"
@@ -92,7 +92,7 @@ const handleLinkClick = (event: MouseEvent, link: PricingCtaLink) => {
 
 .cta-title {
   font-size: clamp(26px, 3.5vw, 40px);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -1px;
   color: var(--vp-c-text-1);
   margin-bottom: 14px;
@@ -111,7 +111,7 @@ const handleLinkClick = (event: MouseEvent, link: PricingCtaLink) => {
   position: relative;
 }
 
-.cta-btns {
+.cta-actions {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -119,50 +119,6 @@ const handleLinkClick = (event: MouseEvent, link: PricingCtaLink) => {
   flex-wrap: wrap;
   position: relative;
   margin-bottom: 40px;
-}
-
-.btn-cta-primary {
-  background: var(--vp-c-brand-3);
-  color: var(--vp-c-black);
-  border: none;
-  padding: 12px 26px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: var(--vp-font-family-base);
-  transition: all 0.25s;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  &:hover {
-    filter: brightness(1.1);
-    transform: translateY(-2px);
-  }
-}
-
-.btn-cta-ghost {
-  background: var(--vp-c-bg-elv);
-  border: 1px solid var(--vp-c-divider);
-  color: var(--vp-c-text-1);
-  padding: 12px 26px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  font-family: var(--vp-font-family-base);
-  transition: all 0.2s;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  &:hover {
-    background: var(--vp-c-bg-soft);
-    border-color: var(--vp-c-brand-2);
-  }
 }
 
 .footer-links-row {

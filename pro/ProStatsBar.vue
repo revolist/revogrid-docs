@@ -59,7 +59,7 @@ defineProps<{
     color: var(--vp-c-text-3);
     font-family: var(--vp-font-family-mono);
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
   }

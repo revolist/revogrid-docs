@@ -15,7 +15,7 @@ import Example from '@/demo/vue/vue3-datagrid.vue';
 <Example />
 </div>
 
-::: details <span class="source-btn">Source code</span> <span class="external"> [Git](https://github.com/revolist/revogrid-docs/tree/main/demo/vue/vue3-datagrid.vue) [Codesandbox](https://codesandbox.io/p/sandbox/rg-start-vue-3-composition-api-3775m4) </span>
+::: details <span class="source-label">Source code</span> <span class="external"> [Git](https://github.com/revolist/revogrid-docs/tree/main/demo/vue/vue3-datagrid.vue) [Codesandbox](https://codesandbox.io/p/sandbox/rg-start-vue-3-composition-api-3775m4) </span>
 
 
 ::: code-group

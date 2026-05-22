@@ -97,7 +97,7 @@ import HomeUseCaseOperations from './use-cases/HomeUseCaseOperations.vue'
     max-width: 520px;
     margin: 0 auto 16px;
     font-size: clamp(28px, 3vw, 42px);
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: -0.8px;
     line-height: 1.1;
     color: var(--uc-text);
@@ -223,7 +223,7 @@ import HomeUseCaseOperations from './use-cases/HomeUseCaseOperations.vue'
 
 .uc-detail-title {
     font-size: clamp(24px, 2.8vw, 36px);
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: -0.8px;
     line-height: 1.1;
     color: var(--uc-text);
@@ -263,7 +263,7 @@ import HomeUseCaseOperations from './use-cases/HomeUseCaseOperations.vue'
     justify-content: center;
     font-size: 10px;
     color: var(--uc-teal);
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .uc-feature-text {
@@ -281,41 +281,6 @@ import HomeUseCaseOperations from './use-cases/HomeUseCaseOperations.vue'
     display: flex;
     gap: 11px;
     flex-wrap: wrap;
-}
-
-.btn-primary-lg,
-.btn-secondary-lg {
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-}
-
-.btn-primary-lg {
-    background: var(--uc-teal);
-    color: #fff;
-    border: none;
-    box-shadow: 0 4px 14px color-mix(in srgb, var(--uc-teal) 28%, transparent);
-
-    &:hover {
-        filter: brightness(1.08);
-        transform: translateY(-1px);
-    }
-}
-
-.btn-secondary-lg {
-    background: var(--uc-surface2);
-    border: 1px solid var(--uc-border2);
-    color: var(--uc-text);
-
-    &:hover {
-        background: var(--uc-bg3);
-    }
 }
 
 .mock-panel {
@@ -410,13 +375,13 @@ import HomeUseCaseOperations from './use-cases/HomeUseCaseOperations.vue'
     }
 }
 
-.pt-add-btn {
+.pt-add-control {
     background: var(--uc-teal);
     color: #fff;
     border-radius: 5px;
     padding: 4px 9px;
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 600;
     margin-left: auto;
     white-space: nowrap;
 }
@@ -434,7 +399,7 @@ import HomeUseCaseOperations from './use-cases/HomeUseCaseOperations.vue'
     background: var(--uc-bg2);
     border-bottom: 1px solid var(--uc-border);
     font-size: 9px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--uc-text-dimmer);
     text-transform: uppercase;
     letter-spacing: 0.07em;
@@ -449,7 +414,7 @@ import HomeUseCaseOperations from './use-cases/HomeUseCaseOperations.vue'
     border-bottom: 1px solid var(--uc-border);
     border-left: 3px solid var(--uc-teal);
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--uc-text);
 
     &.orange {
@@ -501,7 +466,7 @@ import HomeUseCaseOperations from './use-cases/HomeUseCaseOperations.vue'
     align-items: center;
     justify-content: center;
     font-size: 7px;
-    font-weight: 800;
+    font-weight: 600;
     color: #fff;
 }
 
@@ -624,7 +589,7 @@ import HomeUseCaseOperations from './use-cases/HomeUseCaseOperations.vue'
     }
 }
 
-.ca-tb-btn,
+.ca-toolbar-control,
 .ca-stat-chip {
     padding: 3px 8px;
     border-radius: 5px;
@@ -635,7 +600,7 @@ import HomeUseCaseOperations from './use-cases/HomeUseCaseOperations.vue'
     white-space: nowrap;
 }
 
-.ca-tb-btn {
+.ca-toolbar-control {
     font-weight: 600;
 }
 
@@ -647,11 +612,11 @@ import HomeUseCaseOperations from './use-cases/HomeUseCaseOperations.vue'
     }
 }
 
-.ca-export-btn {
+.ca-export-control {
     padding: 3px 9px;
     border-radius: 5px;
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 600;
     background: var(--uc-teal);
     color: #fff;
 }
@@ -682,7 +647,7 @@ import HomeUseCaseOperations from './use-cases/HomeUseCaseOperations.vue'
 .ca-cg-span {
     padding: 3px 7px;
     font-size: 9px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--uc-text-dimmer);
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -709,7 +674,7 @@ import HomeUseCaseOperations from './use-cases/HomeUseCaseOperations.vue'
     span {
         padding: 4px 7px;
         font-size: 9px;
-        font-weight: 700;
+        font-weight: 600;
         color: var(--uc-text-dimmer);
         text-transform: uppercase;
         letter-spacing: 0.06em;
@@ -861,7 +826,7 @@ import HomeUseCaseOperations from './use-cases/HomeUseCaseOperations.vue'
     color: var(--uc-text-dim);
 
     &.strong {
-        font-weight: 700;
+        font-weight: 600;
         color: var(--uc-text);
     }
 }

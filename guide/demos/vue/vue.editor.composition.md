@@ -16,7 +16,7 @@ import Example from '@/demo/vue/vue.editor.composition.example.vue';
 <Example />
 </div>
 
-::: details <span class="source-btn">Source code</span> <span class="external"> [Git](https://github.com/revolist/revogrid-docs/tree/main/demo/vue/vue.editor.composition.example.vue) [Codesandbox](https://codesandbox.io/p/sandbox/rg-editor-vue-3-composition-api-sl8vvw) </span>
+::: details <span class="source-label">Source code</span> <span class="external"> [Git](https://github.com/revolist/revogrid-docs/tree/main/demo/vue/vue.editor.composition.example.vue) [Codesandbox](https://codesandbox.io/p/sandbox/rg-editor-vue-3-composition-api-sl8vvw) </span>
 
 
 ::: code-group

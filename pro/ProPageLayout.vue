@@ -15,13 +15,13 @@
         </h1>
         <p class="hero-sub fade-up-3">{{ pageText.hero.subtitle }}</p>
         <div class="hero-ctas fade-up-4">
-          <a :href="pageText.hero.actions.primary.href" class="btn-pro">
+          <a :href="pageText.hero.actions.primary.href" class="rg-btn">
             {{ pageText.hero.actions.primary.label }}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
-          <a :href="pageText.hero.actions.secondary.href" class="btn-ghost">{{ pageText.hero.actions.secondary.label }}</a>
+          <a :href="pageText.hero.actions.secondary.href" class="rg-btn rg-btn-secondary">{{ pageText.hero.actions.secondary.label }}</a>
         </div>
         <DemoSlider class="fade-up-4" />
         <br/><br/>
@@ -119,14 +119,14 @@
       <div class="cta-glow" aria-hidden="true"></div>
       <h2 class="cta-title">{{ pageText.cta.title.main }}<br />{{ pageText.cta.title.highlight }}</h2>
       <p class="cta-sub">{{ pageText.cta.subtitle }}</p>
-      <div class="cta-btns">
-        <a :href="pageText.cta.actions.primary.href" class="btn-pro">
+      <div class="cta-actions">
+        <a :href="pageText.cta.actions.primary.href" class="rg-btn">
           {{ pageText.cta.actions.primary.label }}
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a :href="pageText.cta.actions.secondary.href" class="btn-ghost">{{ pageText.cta.actions.secondary.label }}</a>
+        <a :href="pageText.cta.actions.secondary.href" class="rg-btn rg-btn-secondary">{{ pageText.cta.actions.secondary.label }}</a>
       </div>
       <div class="cta-note">{{ pageText.cta.note }}</div>
     </section>
@@ -309,7 +309,7 @@ function closeVideo() {
 
 .hero-title {
   font-size: clamp(36px, 5.5vw, 68px);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -2.5px;
   line-height: 1.06;
   color: var(--vp-c-text-1);
@@ -340,48 +340,6 @@ function closeVideo() {
   margin-bottom: 48px;
 }
 
-.btn-pro {
-  background: var(--vp-c-brand-3);
-  color: #fff;
-  border: none;
-  padding: 13px 26px;
-  border-radius: 9px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.25s;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  &:hover {
-    filter: brightness(1.1);
-    transform: translateY(-2px);
-  }
-}
-
-.btn-ghost {
-  background: var(--vp-c-bg-elv);
-  border: 1px solid var(--vp-c-divider);
-  color: var(--vp-c-text-1);
-  padding: 13px 26px;
-  border-radius: 9px;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  &:hover {
-    background: var(--vp-c-bg-soft);
-    border-color: var(--vp-c-brand-2);
-  }
-}
-
 .hero-stats {
   display: flex;
   align-items: center;
@@ -396,7 +354,7 @@ function closeVideo() {
 
 .hero-stat-label {
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--vp-c-text-1);
   letter-spacing: -0.3px;
 }
@@ -426,7 +384,7 @@ function closeVideo() {
 
 .section-title {
   font-size: clamp(28px, 3vw, 42px);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -1px;
   line-height: 1.1;
   color: var(--vp-c-text-1);
@@ -490,7 +448,7 @@ function closeVideo() {
 
 .fc-label {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--vp-c-text-1);
   letter-spacing: -0.2px;
 }
@@ -543,7 +501,7 @@ function closeVideo() {
   padding: 0 4px;
   font-family: var(--vp-font-family-mono);
   font-size: 9px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 14px;
   text-transform: uppercase;
 }
@@ -567,7 +525,7 @@ function closeVideo() {
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
   cursor: help;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1;
   padding: 0;
   transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease, transform 0.18s ease;
@@ -736,7 +694,7 @@ function closeVideo() {
 
 .cta-title {
   font-size: clamp(28px, 3.5vw, 48px);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -1.5px;
   color: var(--vp-c-text-1);
   margin-bottom: 14px;
@@ -755,7 +713,7 @@ function closeVideo() {
   position: relative;
 }
 
-.cta-btns {
+.cta-actions {
   display: flex;
   align-items: center;
   gap: 12px;

@@ -79,7 +79,7 @@
   --cbg: #111110;
   --cbg2: #1c1c1a;
   --stbg: #f0efeb;
-  --sans: Figtree, Inter, ui-sans-serif, system-ui, sans-serif;
+  --sans: Poppins, ui-sans-serif, system-ui, sans-serif;
   --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
   min-height: 100vh;
@@ -224,26 +224,6 @@
     background: var(--accent);
   }
 
-  .nav-cta,
-  .btn.primary {
-    background: var(--accent);
-    color: #fff;
-  }
-
-  .nav-cta {
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 1.2;
-    white-space: nowrap;
-  }
-
-  .nav-cta:hover,
-  .btn.primary:hover {
-    background: var(--accent-h);
-  }
-
   .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -300,7 +280,7 @@
   .revo-band h2,
   .final-cta h2 {
     color: var(--tx);
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: -0.035em;
   }
 
@@ -340,36 +320,6 @@
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 32px;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 700;
-    white-space: nowrap;
-  }
-
-  .btn.primary {
-    padding: 11px 22px;
-  }
-
-  .btn.secondary {
-    padding: 10px 20px;
-    border: 1px solid var(--bd2);
-    color: var(--tx) !important;
-    background: transparent;
-  }
-
-  .btn.secondary:hover {
-    background: var(--bg2);
-  }
-
-  .btn.large {
-    padding: 13px 26px;
-    font-size: 15px;
   }
 
   .frameworks {
@@ -562,7 +512,7 @@
   .agg-tabs button.on {
     color: var(--tx);
     background: var(--sf);
-    font-weight: 700;
+    font-weight: 600;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
 
@@ -614,7 +564,7 @@
     color: var(--tx2);
     background: var(--bg2);
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.02em;
     text-align: left;
   }
@@ -652,7 +602,7 @@
   .group-label {
     color: var(--tx);
     background: var(--bg2);
-    font-weight: 800;
+    font-weight: 600;
   }
 
   .sub-label {
@@ -681,14 +631,14 @@
   .row-total {
     color: var(--tx) !important;
     background: var(--bg2) !important;
-    font-weight: 800;
+    font-weight: 600;
   }
 
   .grand-row td {
     border-top: 2px solid var(--bd2);
     color: var(--tx) !important;
     background: var(--bg3) !important;
-    font-weight: 800;
+    font-weight: 600;
   }
 
   .grand-row td:first-child {
@@ -756,7 +706,7 @@
   .stat-num {
     color: var(--tx);
     font-size: 34px;
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: -0.04em;
     line-height: 1;
   }
@@ -904,7 +854,7 @@
     border-radius: 9px;
     font-family: var(--mono);
     font-size: 10px;
-    font-weight: 800;
+    font-weight: 600;
   }
 
   .cap-icon.blue { color: #2e5eff; background: rgba(26, 71, 255, 0.1); }
@@ -918,7 +868,7 @@
   .use-card h3 {
     color: var(--tx);
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: -0.015em;
   }
 
@@ -962,7 +912,7 @@
     color: var(--tx3);
     font-family: var(--mono);
     font-size: 10.5px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.07em;
     text-transform: uppercase;
   }
@@ -1108,7 +1058,7 @@
   .compare-table .highlight {
     color: var(--tx);
     background: color-mix(in srgb, var(--accent) 4%, var(--sf));
-    font-weight: 700;
+    font-weight: 600;
   }
 
   .use-grid {
@@ -1210,7 +1160,7 @@
     display: block;
     color: var(--tx);
     font-size: 38px;
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: -0.04em;
     line-height: 1;
   }

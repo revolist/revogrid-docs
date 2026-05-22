@@ -32,19 +32,19 @@ pivotLanding:
     titleSuffix: analytics, embedded.
     description: Ship spreadsheet-style pivot analysis inside your application. Let users group, filter, aggregate, visualize, and export large datasets without leaving the page.
     actions:
-      - label: Explore the live pivot demo
-        href: https://rv-grid.com/demo/pivot
+      - label: Pivot demo
+        href: /demo/pivot
         arrow: true
-      - label: Read implementation docs
-        href: https://pro.rv-grid.com/guides/pivot/
+        target: _self
+      - label: Feature list
+        href: /pricing#feature-comparison
         variant: secondary
-        target: _blank
-        rel: noopener
     badges:
-      - Drag-and-drop dimensions
+      - D&D dimensions
       - Multi-level aggregation
-      - Heatmap cell rendering
+      - Heatmap cells
       - Client-side on 350K+ rows
+      - Server-side models
   preview:
     enabled: true
   statsAriaLabel: Pivot product stats
@@ -101,8 +101,10 @@ pivotLanding:
     description: Add a client-side pivot table component to React, Vue, Angular, Svelte, or vanilla JavaScript apps. Included in Pro Advanced.
     primaryHref: https://rv-grid.com/demo/pivot
     primaryLabel: Open pivot demo
+    primaryTarget: _self
     secondaryHref: /pricing
     secondaryLabel: View Pro pricing
+    secondaryTarget: _self
 ---
 
 <script lang="ts" setup>

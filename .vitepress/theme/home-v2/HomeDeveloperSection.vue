@@ -9,8 +9,7 @@
           <a
             v-for="action in section?.actions"
             :key="action.text"
-            class="rg-btn"
-            :class="action.text.includes('GitHub') ? 'rg-btn-ghost' : 'rg-btn-secondary'"
+            class="rg-btn rg-btn-secondary"
             :href="linkOf(action.link)"
             :target="targetOf(action.link)"
             :rel="relOf(action.link)"

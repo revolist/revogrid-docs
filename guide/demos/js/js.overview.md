@@ -11,7 +11,7 @@ Use this standalone JavaScript demo to see RevoGrid render editable tabular data
 :::preview #demo-overview .rv-overview :path /demo/js/js.overview.example
 :::
 
-::: details <span class="source-btn">Source code</span> <span class="external"> [Git](https://github.com/revolist/revogrid-docs/tree/main/demo/js/js.overview.example.ts) [Codesandbox](https://codesandbox.io/p/sandbox/rg-quick-overview-88rf36?from-embed=) </span>
+::: details <span class="source-label">Source code</span> <span class="external"> [Git](https://github.com/revolist/revogrid-docs/tree/main/demo/js/js.overview.example.ts) [Codesandbox](https://codesandbox.io/p/sandbox/rg-quick-overview-88rf36?from-embed=) </span>
 
 
 ::: code-group

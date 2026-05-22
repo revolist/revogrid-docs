@@ -95,7 +95,7 @@ const INCLUDED = [
 .callout-eyebrow {
   color: var(--callout-accent);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -159,7 +159,7 @@ const INCLUDED = [
 .amount {
   color: var(--vp-c-text-1);
   font-size: 46px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -2px;
   line-height: 1;
 }
@@ -179,7 +179,7 @@ const INCLUDED = [
 
   span:first-child {
     color: var(--callout-accent);
-    font-weight: 800;
+    font-weight: 600;
   }
 }
 </style>

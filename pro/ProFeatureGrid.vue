@@ -83,7 +83,7 @@ defineProps<{
   background: var(--pro-doc-soft, var(--gantt-soft, rgba(29, 78, 216, 0.09)));
   font-family: var(--vp-font-family-mono);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .feature-tags {

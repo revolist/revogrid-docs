@@ -52,8 +52,12 @@ export type PivotLandingPage = {
     description: string
     primaryHref: string
     primaryLabel: string
+    primaryTarget?: string
+    primaryRel?: string
     secondaryHref: string
     secondaryLabel: string
+    secondaryTarget?: string
+    secondaryRel?: string
   }
 }
 

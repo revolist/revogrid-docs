@@ -24,8 +24,12 @@
       :description="page.cta.description"
       :primary-href="resolvePivotLink(page.cta.primaryHref)"
       :primary-label="page.cta.primaryLabel"
+      :primary-target="page.cta.primaryTarget"
+      :primary-rel="page.cta.primaryRel"
       :secondary-href="resolvePivotLink(page.cta.secondaryHref)"
       :secondary-label="page.cta.secondaryLabel"
+      :secondary-target="page.cta.secondaryTarget"
+      :secondary-rel="page.cta.secondaryRel"
     />
   </div>
 </template>

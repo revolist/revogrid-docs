@@ -16,7 +16,7 @@ Use this demo to compare how TanStack Table data models can be rendered through 
 <Example />
 </div>
 
-::: details <span class="source-btn">Source code</span> <span class="external"> [Git](https://github.com/revolist/revogrid-docs/tree/main/demo/vue/DemoTanstack.vue)</span>
+::: details <span class="source-label">Source code</span> <span class="external"> [Git](https://github.com/revolist/revogrid-docs/tree/main/demo/vue/DemoTanstack.vue)</span>
 
 
 ::: code-group

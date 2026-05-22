@@ -84,7 +84,7 @@ const STATS = [
 .stat-num {
     font-family: var(--vp-font-family-base);
     font-size: 36px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--vp-c-text-1);
     letter-spacing: -1px;
     line-height: 1.1;

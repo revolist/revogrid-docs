@@ -92,7 +92,7 @@
                                 <span v-if="hasFeatureActions(feature)" class="feature-actions">
                                     <a
                                         v-if="feature.link"
-                                        class="docs-preview action-outline-btn"
+                                        class="rg-btn rg-btn-secondary feature-action-link docs-preview"
                                         :href="feature.link"
                                         :target="isExternalHref(feature.link) ? '_blank' : undefined"
                                         :rel="isExternalHref(feature.link) ? 'noopener' : undefined"
@@ -102,7 +102,7 @@
                                     </a>
                                     <a
                                         v-if="feature.demoUrl"
-                                        class="demo-preview action-outline-btn"
+                                        class="rg-btn rg-btn-secondary feature-action-link demo-preview"
                                         :href="feature.demoUrl"
                                         target="_blank"
                                         rel="noopener"
@@ -270,27 +270,13 @@ const openPreview = (video: string) => {
     gap: 8px;
 }
 
-.action-outline-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+.feature-action-link {
     height: 24px;
     min-width: 24px;
     padding: 0 8px;
-    border: 1px solid var(--vp-c-divider);
     border-radius: 6px;
-    background: transparent;
-    color: var(--vp-c-text-2);
     font-size: 11px;
-    font-weight: 600;
     line-height: 1;
-    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
-
-    &:hover {
-        border-color: var(--vp-c-brand-1);
-        color: var(--vp-c-brand-1);
-        background: var(--vp-c-bg-soft);
-    }
 }
 
 .video-preview {

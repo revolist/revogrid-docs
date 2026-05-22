@@ -7,7 +7,7 @@
         v-for="action in section?.actions"
         :key="action.text"
         class="rg-btn"
-        :class="`rg-btn-${action.variant}`"
+        :class="{ 'rg-btn-secondary': action.variant !== 'primary' }"
         :href="linkOf(action.link)"
         :target="action.target"
       >

@@ -47,7 +47,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 
 .rg-home .rg-product-link {
   color: var(--rg-accent);
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
@@ -77,7 +77,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   align-items: center;
   gap: 9px;
   color: var(--rg-text);
-  font-weight: 800;
+  font-weight: 600;
   font-size: 18px;
   text-decoration: none;
 }
@@ -120,7 +120,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   }
 
   .rg-pro-link {
-    color: var(--rg-green);
+    color: var(--rg-font-green);
   }
 }
 
@@ -190,11 +190,11 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   gap: 7px;
   background: var(--rg-green-bg);
   border: 1px solid var(--rg-green-border);
-  color: var(--rg-green);
+  color: var(--rg-font-green);
   border-radius: 999px;
   padding: 5px 12px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 24px;
@@ -211,12 +211,12 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 .rg-hero-title {
   font-size: clamp(38px, 4.5vw, 58px);
   line-height: 1.08;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.02em;
   margin: 0 0 20px;
 
   em {
-    color: var(--rg-green);
+    color: var(--rg-font-green);
     font-style: normal;
   }
 }
@@ -241,45 +241,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   gap: 10px;
 }
 
-.rg-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  border-radius: 8px;
-  padding: 11px 20px;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: border-color 0.18s, background 0.18s, opacity 0.18s, transform 0.18s;
-  white-space: nowrap;
-}
-
-.rg-btn:hover {
-  transform: translateY(-1px);
-}
-
-.rg-btn-primary {
-  background: var(--rg-green);
-  color: #000;
-}
-
-.rg-btn-secondary {
-  background: var(--rg-bg-2);
-  color: var(--rg-text);
-  border: 1px solid var(--rg-border);
-}
-
-.rg-btn-secondary:hover {
-  background: var(--rg-bg-3);
-  border-color: var(--rg-border-hover);
-}
-
-.rg-btn-ghost {
-  color: var(--rg-text-2);
-  background: transparent;
-  padding-inline: 12px;
-}
 
 .rg-play {
   width: 0;
@@ -374,13 +335,11 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 .rg-module-tag {
   background: var(--rg-green-bg);
   border: 1px solid var(--rg-green-border);
-  color: var(--rg-green);
+  color: var(--rg-font-green);
   border-radius: 4px;
   padding: 0 8px;
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: 11px;
+  letter-spacing: 0.03em;
 }
 
 .rg-grid-wrap {
@@ -430,7 +389,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   color: var(--rg-text);
   font-family: var(--vp-font-family-mono);
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 600;
   max-height: 22px;
 }
 
@@ -472,11 +431,11 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 
 .perf-up,
 .perf-dn {
-  font-weight: 800;
+  font-weight: 600;
   font-size: 12px;
 }
 
-.perf-up { color: var(--rg-green); }
+.perf-up { color: var(--rg-font-green); }
 .perf-dn { color: #f87171; }
 
 .rg-proof {
@@ -554,9 +513,9 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 }
 
 .rg-section-label {
-  color: var(--rg-green);
+  color: var(--rg-font-green);
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -572,7 +531,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   color: var(--rg-text);
   font-size: clamp(26px, 3vw, 38px);
   line-height: 1.14;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.02em;
   margin: 0 0 14px;
 }
@@ -665,13 +624,13 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   border-radius: 10px;
   border: 1px solid var(--rg-border);
   background: var(--rg-bg-2);
-  color: var(--rg-green);
+  color: var(--rg-font-green);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--vp-font-family-mono);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 600;
   margin-bottom: 16px;
 }
 
@@ -878,8 +837,8 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   }
 
   .check {
-    color: var(--rg-green);
-    font-weight: 800;
+    color: var(--rg-font-green);
+    font-weight: 600;
   }
 
   .cross {
@@ -912,7 +871,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
     padding: 20px 0;
     font: inherit;
     font-size: 16px;
-    font-weight: 800;
+    font-weight: 600;
     text-align: left;
   }
 
@@ -932,7 +891,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 
   &.open {
     button span:last-child {
-      color: var(--rg-green);
+      color: var(--rg-font-green);
       transform: rotate(45deg);
     }
 

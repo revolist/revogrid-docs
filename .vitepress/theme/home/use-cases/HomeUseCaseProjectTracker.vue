@@ -13,8 +13,8 @@
                         <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Timeline badges</strong> — date range rendering with conditional coloring based on deadline status</span></div>
                     </div>
                     <div class="uc-ctas">
-                        <a href="https://rv-grid.com/demo/" class="btn-primary-lg">See live demo</a>
-                        <a :href="homeLink('/guide/')" class="btn-secondary-lg">Read docs</a>
+                        <a href="https://rv-grid.com/demo/" class="rg-btn">See live demo</a>
+                        <a :href="homeLink('/guide/')" class="rg-btn rg-btn-secondary">Read docs</a>
                     </div>
                 </div>
 
@@ -30,7 +30,7 @@
                         <div class="pt-filter-pill"><strong>Owner</strong> All ▾</div>
                         <div class="pt-filter-pill"><strong>Priority</strong> All ▾</div>
                         <div class="pt-filter-pill"><strong>Status</strong> All ▾</div>
-                        <div class="pt-add-btn">+ Add task</div>
+                        <div class="pt-add-control">+ Add task</div>
                     </div>
                     <div class="pt-col-hdr">
                         <span>TASK</span><span>OWNER</span><span>PRIORITY</span><span>STATUS</span><span>PROGRESS</span><span>TIMELINE</span><span>BUDGET</span>

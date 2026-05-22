@@ -5,8 +5,8 @@
       <h2>{{ title }}</h2>
       <p>{{ description }}</p>
       <div class="cta-actions">
-        <ProDocButton :href="primaryHref" arrow>{{ primaryLabel }}</ProDocButton>
-        <ProDocButton :href="secondaryHref" variant="secondary">{{ secondaryLabel }}</ProDocButton>
+        <ProDocButton :href="primaryHref" :target="primaryTarget" :rel="primaryRel" arrow>{{ primaryLabel }}</ProDocButton>
+        <ProDocButton :href="secondaryHref" :target="secondaryTarget" :rel="secondaryRel" variant="secondary">{{ secondaryLabel }}</ProDocButton>
       </div>
     </div>
   </section>
@@ -20,8 +20,12 @@ defineProps<{
   description: string
   primaryHref: string
   primaryLabel: string
+  primaryTarget?: string
+  primaryRel?: string
   secondaryHref: string
   secondaryLabel: string
+  secondaryTarget?: string
+  secondaryRel?: string
 }>()
 </script>
 

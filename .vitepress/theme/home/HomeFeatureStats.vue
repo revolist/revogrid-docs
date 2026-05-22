@@ -89,7 +89,7 @@ const features = computed(() =>
 
 .section-title {
     font-size: clamp(28px, 3vw, 42px);
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: -1px;
     line-height: 1.1;
     color: var(--vp-c-text-1);
@@ -149,7 +149,7 @@ const features = computed(() =>
 
 .stat-num {
     font-size: 32px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--vp-c-brand-1);
     letter-spacing: -1px;
     line-height: 1;
@@ -163,7 +163,7 @@ const features = computed(() =>
 
 .col-title {
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--vp-c-text-1);
     margin-bottom: 12px;
     letter-spacing: -0.3px;

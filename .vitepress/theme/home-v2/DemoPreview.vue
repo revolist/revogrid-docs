@@ -94,7 +94,7 @@ const gridRows = computed(() => {
 })
 
 const realtimeBars = [
-  { width: 72, color: 'var(--rg-green)', delay: '0s' },
+  { width: 72, color: 'var(--rg-font-green)', delay: '0s' },
   { width: 58, color: '#3b82f6', delay: '0.3s' },
   { width: 85, color: '#f59e0b', delay: '0.6s' },
 ]
@@ -139,7 +139,7 @@ const realtimeBars = [
 .tree-icon {
   width: 10px;
   flex: 0 0 10px;
-  color: var(--rg-green);
+  color: var(--rg-font-green);
   font-size: 8px;
 }
 
@@ -188,7 +188,7 @@ const realtimeBars = [
   align-items: center;
   gap: 3px;
   padding: 5px 8px;
-  color: var(--rg-green);
+  color: var(--rg-font-green);
   font-weight: 600;
 }
 
@@ -197,7 +197,7 @@ const realtimeBars = [
   gap: 2px;
 
   .on {
-    color: var(--rg-green);
+    color: var(--rg-font-green);
   }
 }
 

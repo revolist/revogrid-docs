@@ -13,8 +13,8 @@
                         <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Inline filter toolbar</strong> — per-column filter expressions with live row count and spend aggregation</span></div>
                     </div>
                     <div class="uc-ctas">
-                        <a href="https://rv-grid.com/demo/ecommerce" class="btn-primary-lg">See live demo</a>
-                        <a :href="docsUrl" class="btn-secondary-lg">Read docs</a>
+                        <a href="https://rv-grid.com/demo/ecommerce" class="rg-btn">See live demo</a>
+                        <a :href="docsUrl" class="rg-btn rg-btn-secondary">Read docs</a>
                     </div>
                 </div>
 
@@ -27,11 +27,11 @@
                     </div>
                     <div class="ca-toolbar">
                         <div class="ca-search"><span>Gender eq "Female"...</span></div>
-                        <div class="ca-tb-btn">Reset</div>
-                        <div class="ca-tb-btn">Columns ▾</div>
+                        <div class="ca-toolbar-control">Reset</div>
+                        <div class="ca-toolbar-control">Columns ▾</div>
                         <div class="ca-stat-chip">Rows <strong>350/350</strong></div>
                         <div class="ca-stat-chip">Spend <strong>$295.9K</strong></div>
-                        <div class="ca-export-btn">Export</div>
+                        <div class="ca-export-control">Export</div>
                     </div>
                     <div class="ca-hint">↕ Drag columns here to group by row.</div>
                     <div class="ca-col-group">

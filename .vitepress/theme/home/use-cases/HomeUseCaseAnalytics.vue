@@ -13,8 +13,8 @@
                         <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Export to CSV / Excel</strong> — one-line API for full-data exports including filtered views</span></div>
                     </div>
                     <div class="uc-ctas">
-                        <a href="https://rv-grid.com/demo/pivot" class="btn-primary-lg">See live demo</a>
-                        <a :href="homeLink('/pivot')" class="btn-secondary-lg">Read docs</a>
+                        <a href="https://rv-grid.com/demo/pivot" class="rg-btn">See live demo</a>
+                        <a :href="homeLink('/pivot')" class="rg-btn rg-btn-secondary">Read docs</a>
                     </div>
                 </div>
 

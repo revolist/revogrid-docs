@@ -63,7 +63,7 @@ const USE_CASES = [
   color: var(--pivot-accent);
   font-family: var(--vp-font-family-mono);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -73,7 +73,7 @@ const USE_CASES = [
   margin: 12px 0 14px;
   color: var(--vp-c-text-1);
   font-size: clamp(30px, 3.6vw, 46px);
-  font-weight: 760;
+  font-weight: 600;
   letter-spacing: -1.4px;
   line-height: 1.08;
 }
@@ -126,7 +126,7 @@ const USE_CASES = [
   margin-bottom: 6px;
   color: rgba(15, 118, 110, 0.18);
   font-size: 40px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -2px;
   line-height: 1;
 }

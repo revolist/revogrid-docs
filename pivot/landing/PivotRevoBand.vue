@@ -9,8 +9,8 @@
           <span v-for="item in REVO_FEATURES" :key="item">{{ item }}</span>
         </div>
         <div class="hero-actions">
-          <a :href="revoGridBaseUrl" class="btn primary" target="_blank" rel="noopener">Explore RevoGrid -></a>
-          <a :href="pivotDocsUrl" class="btn secondary" target="_blank" rel="noopener">Read docs</a>
+          <a :href="revoGridBaseUrl" class="rg-btn" target="_blank" rel="noopener">Explore RevoGrid -></a>
+          <a :href="pivotDocsUrl" class="rg-btn rg-btn-secondary" target="_blank" rel="noopener">Read docs</a>
         </div>
       </div>
       <div class="revo-stats">

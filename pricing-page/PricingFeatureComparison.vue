@@ -51,7 +51,7 @@
                     <span v-if="hasFeatureActions(row)" class="feature-actions">
                       <a
                         v-if="row.link"
-                        class="docs-preview action-outline-btn"
+                        class="rg-btn rg-btn-secondary feature-action-link docs-preview"
                         :href="row.link"
                         :target="isExternalHref(row.link) ? '_blank' : undefined"
                         :rel="isExternalHref(row.link) ? 'noopener' : undefined"
@@ -61,7 +61,7 @@
                       </a>
                       <a
                         v-if="row.demoUrl"
-                        class="demo-preview action-outline-btn"
+                        class="rg-btn rg-btn-secondary feature-action-link demo-preview"
                         :href="row.demoUrl"
                         target="_blank"
                         rel="noopener"
@@ -210,7 +210,7 @@ const openPreview = (video: string) => {
     padding: 14px 20px;
     text-align: left;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--vp-c-text-3);
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -267,7 +267,7 @@ const openPreview = (video: string) => {
     cursor: pointer;
     font-family: var(--vp-font-family-base);
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.1em;
     line-height: 1.4;
     text-align: left;
@@ -323,28 +323,13 @@ const openPreview = (video: string) => {
   margin-left: 12px;
 }
 
-.action-outline-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.feature-action-link {
   height: 24px;
   min-width: 24px;
   padding: 0 8px;
-  border: 1px solid var(--vp-c-divider);
   border-radius: 6px;
-  background: transparent;
-  color: var(--vp-c-text-2);
   font-size: 11px;
-  font-weight: 600;
   line-height: 1;
-  text-decoration: none;
-  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
-
-  &:hover {
-    border-color: var(--vp-c-brand-1);
-    color: var(--vp-c-brand-1);
-    background: var(--vp-c-bg-soft);
-  }
 }
 
 .video-preview {
@@ -385,7 +370,7 @@ const openPreview = (video: string) => {
 .check-yes {
   color: var(--green);
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .check-no {
@@ -403,7 +388,7 @@ const openPreview = (video: string) => {
   background: var(--vp-c-warning-soft);
   color: var(--vp-c-warning-1);
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.4;
   text-transform: uppercase;
 }

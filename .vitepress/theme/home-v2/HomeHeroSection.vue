@@ -9,14 +9,14 @@
         <h1 class="rg-hero-title" v-html="heroTitle"></h1>
         <p class="rg-hero-sub" v-html="heroTagline"></p>
         <div class="rg-actions">
-          <a class="rg-btn rg-btn-primary" :href="linkOf(hero?.primaryAction?.link)" :target="hero?.primaryAction?.target" :rel="hero?.primaryAction?.rel" :data-router-ignore="hero?.primaryAction?.ignore">
+          <a class="rg-btn" :href="linkOf(hero?.primaryAction?.link)" :target="hero?.primaryAction?.target" :rel="hero?.primaryAction?.rel" :data-router-ignore="hero?.primaryAction?.ignore">
             <span class="rg-play" aria-hidden="true"></span>
             {{ hero?.primaryAction?.text }}
           </a>
           <a class="rg-btn rg-btn-secondary" :href="linkOf(hero?.secondaryAction?.link)" :target="hero?.secondaryAction?.target" :rel="hero?.secondaryAction?.rel" :data-router-ignore="hero?.secondaryAction?.ignore">
             {{ hero?.secondaryAction?.text }}
           </a>
-          <a v-if="hero?.tertiaryAction" class="rg-btn rg-btn-ghost" :href="linkOf(hero.tertiaryAction.link)" :target="hero?.tertiaryAction?.target" :rel="hero?.tertiaryAction?.rel" :data-router-ignore="hero?.tertiaryAction?.ignore">
+          <a v-if="hero?.tertiaryAction" class="rg-btn rg-btn-secondary" :href="linkOf(hero.tertiaryAction.link)" :target="hero?.tertiaryAction?.target" :rel="hero?.tertiaryAction?.rel" :data-router-ignore="hero?.tertiaryAction?.ignore">
             {{ hero?.tertiaryAction?.text }}
             <HomeChevron />
           </a>
@@ -47,20 +47,15 @@
             <div class="rg-live">Live</div>
           </div>
           <div class="rg-grid-wrap">
-            <ClientOnly>
-              <VGrid
-                class="rg-grid"
+              <revo-grid
                 readonly
                 range
-                hide-attribution
+                hideAttribution
                 resize
-                :row-size="40"
-                :stretch="true"
-                :theme="isDark ? 'darkMaterial' : 'material'"
-                :source="gridRows"
-                :columns="gridColumns"
-              />
-            </ClientOnly>
+                stretch
+                rowSize="40"
+                ref="gridElement"
+                class="rg-grid"></revo-grid>
             <div class="rg-perf-badge">
               <span></span>
               100k+ rows · virtualized
@@ -73,9 +68,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onBeforeUnmount, onMounted, shallowRef } from 'vue'
+import { computed, onBeforeUnmount, onMounted, shallowRef, watch } from 'vue'
 import { useData } from 'vitepress'
-import VGrid, { type ColumnRegular, type VNode } from '@revolist/vue3-datagrid'
 import HomeChevron from './HomeChevron.vue'
 import { escapeHtml, linkProductMentions, type HomeV2Record, useHomeV2Links } from './homeV2Utils'
 // @ts-ignore
@@ -112,6 +106,18 @@ const TICKER_ROW_COUNT = 100_000
 const LIVE_UPDATE_ROWS = 80
 const orderedStocks = [...(stocks as HomeV2Record[])].sort((a, b) => String(a.symbol).localeCompare(String(b.symbol)))
 
+type RevoGridElement = HTMLElement & {
+  columns?: unknown[]
+  source?: HomeV2Record[]
+  theme?: string
+}
+
+type GridCreateElement = (tag: string, props?: Record<string, unknown>, children?: unknown) => unknown
+type GridCellContext = {
+  value?: unknown
+  model: HomeV2Record
+}
+
 function createTickerRow(stock: HomeV2Record, index: number): HomeV2Record {
   const seed = stock.symbol.split('').reduce((sum: number, char: string) => sum + char.charCodeAt(0), 0)
   const cycle = Math.floor(index / orderedStocks.length)
@@ -140,10 +146,23 @@ function createTickerRows() {
 }
 
 const gridRows = shallowRef<HomeV2Record[]>([])
+const gridElement = shallowRef<RevoGridElement>()
 let updateTimer: ReturnType<typeof window.setInterval> | undefined
+
+
+function applyGridProps(rows = gridRows.value) {
+  const grid = gridElement.value
+  if (!grid) return
+
+  grid.theme = isDark.value ? 'darkMaterial' : 'material'
+  grid.columns = gridColumns
+  grid.source = rows
+}
 
 onMounted(() => {
   gridRows.value = createTickerRows()
+  applyGridProps()
+
   updateTimer = window.setInterval(() => {
     const nextRows = gridRows.value.slice()
     const rowsToUpdate = Math.min(LIVE_UPDATE_ROWS, nextRows.length)
@@ -163,6 +182,7 @@ onMounted(() => {
     }
 
     gridRows.value = nextRows
+    applyGridProps(nextRows)
   }, 1600)
 })
 
@@ -170,14 +190,16 @@ onBeforeUnmount(() => {
   if (updateTimer) window.clearInterval(updateTimer)
 })
 
-const gridColumns = computed<ColumnRegular[]>(() => [
+watch(isDark, () => applyGridProps())
+
+const gridColumns = [
   {
     name: 'Ticker',
     prop: 'symbol',
     pin: 'colPinStart',
     size: 92,
     sortable: true,
-    cellTemplate(createElement, { value, model }) {
+    cellTemplate(createElement: GridCreateElement, { value, model }: GridCellContext) {
       return createElement('span', {
         class: {
           'ticker-chip': true,
@@ -186,15 +208,15 @@ const gridColumns = computed<ColumnRegular[]>(() => [
         },
       }, value)
     },
-  } as ColumnRegular,
+  },
   { name: 'Company Name', prop: 'company_name', size: 150, sortable: true },
   {
     name: 'Trend',
     prop: 'trend',
     size: 70,
     readonly: true,
-    cellTemplate(createElement, { model }) {
-      const bars: VNode[] = model.trend.map((point: number, index: number) =>
+    cellTemplate(createElement: GridCreateElement, { model }: GridCellContext) {
+      const bars = model.trend.map((point: number, index: number) =>
         createElement('span', {
           key: index,
           class: { 'spark-bar': true, up: index === 0 ? true : point >= model.trend[index - 1] },
@@ -203,33 +225,33 @@ const gridColumns = computed<ColumnRegular[]>(() => [
       )
       return createElement('span', { class: 'sparkline' }, bars)
     },
-  } as ColumnRegular,
+  },
   {
     name: 'Price',
     prop: 'price',
     size: 65,
     sortable: true,
-    cellTemplate(createElement, { value }) {
+    cellTemplate(createElement: GridCreateElement, { value }: GridCellContext) {
       return createElement('span', { class: 'num' }, Number(value).toFixed(2))
     },
-  } as ColumnRegular,
+  },
   {
     name: 'Change',
     prop: 'percent_change',
     size: 80,
     sortable: true,
-    cellTemplate(createElement, { value }) {
+    cellTemplate(createElement: GridCreateElement, { value }: GridCellContext) {
       const numeric = Number(value)
       return createElement('span', { class: numeric >= 0 ? 'perf-up' : 'perf-dn' }, `${numeric >= 0 ? '+' : ''}${numeric.toFixed(2)}%`)
     },
-  } as ColumnRegular,
+  },
   {
     name: 'Volume',
     prop: 'volume',
     size: 80,
-    cellTemplate(createElement, { value }) {
+    cellTemplate(createElement: GridCreateElement, { value }: GridCellContext) {
       return createElement('span', { class: 'num' }, value)
     },
-  } as ColumnRegular,
-])
+  },
+]
 </script>

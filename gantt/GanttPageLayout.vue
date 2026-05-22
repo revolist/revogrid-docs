@@ -140,7 +140,7 @@ function resolveLandingLink(href: string) {
   color: var(--gantt-accent);
   font-family: var(--vp-font-family-mono);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -150,7 +150,7 @@ function resolveLandingLink(href: string) {
   margin: 12px 0 14px;
   color: var(--vp-c-text-1);
   font-size: clamp(30px, 3.6vw, 46px);
-  font-weight: 760;
+  font-weight: 600;
   line-height: 1.08;
   letter-spacing: -1.4px;
 }

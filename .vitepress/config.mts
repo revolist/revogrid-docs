@@ -196,6 +196,15 @@ const config: UserConfig<DefaultTheme.Config> = {
         },
     },
     head: [
+        ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+        ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+        [
+            'link',
+            {
+                rel: 'stylesheet',
+                href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap',
+            },
+        ],
         ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
         ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
         ['meta', { property: 'og:image', content: 'https://rv-grid.com/og-image.jpg' }],

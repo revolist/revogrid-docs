@@ -100,7 +100,7 @@ function linkFrameworkMentions(value: string | undefined) {
   color: var(--rg-text);
   font-size: clamp(26px, 3vw, 38px);
   line-height: 1.14;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.02em;
   margin: 0 0 14px;
 }
@@ -127,12 +127,12 @@ function linkFrameworkMentions(value: string | undefined) {
   border-radius: 8px;
   padding: 7px 11px;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .rg-native-links a:hover {
   border-color: var(--rg-border-hover);
-  color: var(--rg-green);
+  color: var(--rg-font-green);
 }
 
 .rg-native-examples {
@@ -159,7 +159,7 @@ function linkFrameworkMentions(value: string | undefined) {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   color: rgba(214, 222, 255, 0.72);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .rg-native-card-top span {

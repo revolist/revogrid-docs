@@ -29,8 +29,8 @@
       <li v-for="feature in card.dim" :key="feature" class="dim">{{ feature }}</li>
     </ul>
     <a
-      class="rg-plan-btn"
-      :class="card.featured ? 'primary' : 'secondary'"
+      class="rg-btn"
+      :class="{ 'rg-btn-secondary': !card.featured }"
       :href="linkOf(card.link)"
       :target="targetOf(card.link)"
       :rel="relOf(card.link)"
@@ -87,8 +87,8 @@ const handlePlanClick = (event: MouseEvent) => {
   }
 
   &.featured {
-    border-color: var(--rg-green);
-    background: color-mix(in srgb, var(--rg-green) 4%, var(--rg-bg-2));
+    border-color: var(--rg-font-green);
+    background: color-mix(in srgb, var(--rg-font-green) 4%, var(--rg-bg-2));
   }
 
   h3 {
@@ -122,8 +122,8 @@ const handlePlanClick = (event: MouseEvent) => {
 
     &::before {
       content: '✓';
-      color: var(--rg-green);
-      font-weight: 800;
+      color: var(--rg-font-green);
+      font-weight: 600;
       margin-right: 8px;
     }
 
@@ -154,12 +154,12 @@ const handlePlanClick = (event: MouseEvent) => {
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
-  background: var(--rg-green);
-  color: #000;
+  background: var(--rg-font-green);
+  color: #fff;
   border-radius: 999px;
   padding: 4px 12px;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .rg-plan-desc,
@@ -182,7 +182,7 @@ const handlePlanClick = (event: MouseEvent) => {
   span {
     color: var(--rg-text);
     font-size: 32px;
-    font-weight: 800;
+    font-weight: 600;
   }
 
   small {
@@ -207,35 +207,8 @@ const handlePlanClick = (event: MouseEvent) => {
   margin: 16px 0;
 }
 
-.rg-plan-btn {
+.rg-pricing-card > .rg-btn {
   margin-top: auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  padding: 12px 26px;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-  transition: filter 0.25s, transform 0.25s, background 0.2s, border-color 0.2s;
-
-  &:hover {
-    transform: translateY(-2px);
-  }
-
-  &.primary {
-    background: var(--rg-green);
-    color: var(--vp-c-black);
-
-    &:hover {
-      filter: brightness(1.1);
-    }
-  }
-
-  &.secondary {
-    color: var(--rg-text);
-    border: 1px solid var(--rg-border);
-  }
+  width: 100%;
 }
 </style>
