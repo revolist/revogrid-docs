@@ -135,7 +135,7 @@ developer:
     - text: Read docs
       link: /guide/
     - text: View examples
-      link: /demo/demo/hr
+      link: /demo/color
       target: _self
   tabs:
     - id: angular
@@ -154,23 +154,11 @@ developer:
           selector: 'app-root',
           standalone: true,
           imports: [RevoGrid],
-          template: `
-            <revo-grid
-              [columns]="columns"
-              [source]="rows"
-            ></revo-grid>
-          `
+          template: `<revo-grid [columns]="columns" [source]="rows" />`
         })
         export class AppComponent {
-          columns = [
-            { prop: 'name' },
-            { prop: 'value' },
-          ]
-
-          rows = [
-            { name: 'Northwind', value: 120000 },
-            { name: 'Contoso', value: 98000 },
-          ]
+          columns = [{ prop: 'value', name: 'Value' }]
+          rows = [{ value: 120000 }, { value: 98000 }]
         }
     - id: react
       label: React
@@ -183,18 +171,11 @@ developer:
         // App.tsx
         import { RevoGrid } from '@revolist/react-datagrid'
 
-        const columns = [
-          { prop: 'name', name: 'Name' },
-          { prop: 'revenue', name: 'Revenue' },
-        ]
-
-        const rows = [
-          { name: 'Northwind', revenue: 120000 },
-          { name: 'Contoso', revenue: 98000 },
-        ]
+        const columns = [{ prop: 'value', name: 'Value' }]
+        const rows = [{ value: 120000 }, { value: 98000 }]
 
         export default function App() {
-          return <RevoGrid source={rows} columns={columns} />
+          return <RevoGrid columns={columns} source={rows} />
         }
     - id: vue
       label: Vue
@@ -204,21 +185,14 @@ developer:
         __LT__!-- npm install @revolist/vue3-datagrid --__GT__
         __LT__!-- Grid.vue --__GT__
         __LT__template__GT__
-          __LT__RevoGrid :source="rows" :columns="columns" /__GT__
+          __LT__RevoGrid :columns="columns" :source="rows" /__GT__
         __LT__/template__GT__
 
         __LT__script setup__GT__
         import RevoGrid from '@revolist/vue3-datagrid'
 
-        const columns = [
-          { prop: 'name', name: 'Name' },
-          { prop: 'value', name: 'Value' },
-        ]
-
-        const rows = [
-          { name: 'Northwind', value: 120000 },
-          { name: 'Contoso', value: 98000 },
-        ]
+        const columns = [{ prop: 'value', name: 'Value' }]
+        const rows = [{ value: 120000 }, { value: 98000 }]
         __LT__/script__GT__
     - id: js
       label: JavaScript
@@ -237,15 +211,8 @@ developer:
         defineCustomElements()
 
         const grid = document.querySelector('revo-grid')
-        grid.columns = [
-          { prop: 'name', name: 'Name' },
-          { prop: 'value', name: 'Value' },
-        ]
-        const rows = [
-          { name: 'Northwind', value: 120000 },
-          { name: 'Contoso', value: 98000 },
-        ]
-        grid.source = rows
+        grid.columns = [{ prop: 'value', name: 'Value' }]
+        grid.source = [{ value: 120000 }, { value: 98000 }]
 
 advanced:
   label: Advanced modules
