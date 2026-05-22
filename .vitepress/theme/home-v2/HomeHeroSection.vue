@@ -47,7 +47,6 @@
             <div class="rg-live">Live</div>
           </div>
           <div class="rg-grid-wrap">
-              <ClientOnly>
                 <revo-grid
                   readonly
                   range
@@ -56,8 +55,8 @@
                   stretch
                   rowSize="40"
                   ref="gridElement"
-                  class="rg-grid"></revo-grid>
-                </ClientOnly>
+                  class="rg-grid"
+                  @aftergridinit="aftergridinit"></revo-grid>
             <div class="rg-perf-badge">
               <span></span>
               100k+ rows · virtualized
@@ -161,7 +160,7 @@ function applyGridProps(rows = gridRows.value) {
   grid.source = rows
 }
 
-onMounted(() => {
+const aftergridinit = () => {
   gridRows.value = createTickerRows()
   applyGridProps()
 
@@ -186,7 +185,7 @@ onMounted(() => {
     gridRows.value = nextRows
     applyGridProps(nextRows)
   }, 1600)
-})
+}
 
 onBeforeUnmount(() => {
   if (updateTimer) window.clearInterval(updateTimer)
