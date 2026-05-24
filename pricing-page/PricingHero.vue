@@ -65,9 +65,7 @@ defineProps<{
 }
 
 .hero-title {
-  font-family: var(--vp-font-family-base);
   font-size: clamp(36px, 5vw, 58px);
-  font-weight: 600;
   letter-spacing: -2px;
   line-height: 1.06;
   color: var(--vp-c-text-1);

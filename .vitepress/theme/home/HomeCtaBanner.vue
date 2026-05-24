@@ -45,7 +45,6 @@ const { homeLink } = useHomeLink()
 
 .cta-title {
     font-size: clamp(28px, 3.5vw, 48px);
-    font-weight: 600;
     letter-spacing: -1.5px;
     color: var(--vp-c-text-1);
     margin-bottom: 16px;

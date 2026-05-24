@@ -123,7 +123,6 @@ defineProps<{
   max-width: 680px;
   margin: 0 0 22px;
   font-size: clamp(40px, 5.2vw, 68px);
-  font-weight: 600;
   line-height: 1.04;
   letter-spacing: -2px;
 }
