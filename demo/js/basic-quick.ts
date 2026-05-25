@@ -10,5 +10,5 @@ grid.columns = [
 // Provide the rows to render
 grid.source = [
   { name: 'Ada Lovelace', role: 'Mathematician' },
-  { name: 'Grace Hopper', role: 'Computer scientist' },
+  { name: 'Grace Hopper', role: 'Scientist' },
 ];
