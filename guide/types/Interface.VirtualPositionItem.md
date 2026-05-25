@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.21.11](README.md) / VirtualPositionItem
+[RevoGrid Documentation v4.22.1](README.md) / VirtualPositionItem
 
 # Interface: VirtualPositionItem
 
@@ -13,7 +13,7 @@ in the viewport.
 
 | Property | Type | Description | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| `end` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`end` | [src/types/interfaces.ts:659](https://github.com/revolist/revogrid/blob/49e5e706d3314aa8ce35738e7006a9b755b0e7f0/src/types/interfaces.ts#L659) |
-| `itemIndex` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`itemIndex` | [src/types/interfaces.ts:657](https://github.com/revolist/revogrid/blob/49e5e706d3314aa8ce35738e7006a9b755b0e7f0/src/types/interfaces.ts#L657) |
-| `size` | `number` | The size of the virtual position item. | - | [src/types/interfaces.ts:623](https://github.com/revolist/revogrid/blob/49e5e706d3314aa8ce35738e7006a9b755b0e7f0/src/types/interfaces.ts#L623) |
-| `start` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`start` | [src/types/interfaces.ts:658](https://github.com/revolist/revogrid/blob/49e5e706d3314aa8ce35738e7006a9b755b0e7f0/src/types/interfaces.ts#L658) |
+| `end` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`end` | [src/types/interfaces.ts:666](https://github.com/revolist/revogrid/blob/bce42ab6540458f2c36ae8753100657c474422a3/src/types/interfaces.ts#L666) |
+| `itemIndex` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`itemIndex` | [src/types/interfaces.ts:664](https://github.com/revolist/revogrid/blob/bce42ab6540458f2c36ae8753100657c474422a3/src/types/interfaces.ts#L664) |
+| `size` | `number` | The size of the virtual position item. | - | [src/types/interfaces.ts:630](https://github.com/revolist/revogrid/blob/bce42ab6540458f2c36ae8753100657c474422a3/src/types/interfaces.ts#L630) |
+| `start` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`start` | [src/types/interfaces.ts:665](https://github.com/revolist/revogrid/blob/bce42ab6540458f2c36ae8753100657c474422a3/src/types/interfaces.ts#L665) |
