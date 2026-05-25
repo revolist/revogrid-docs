@@ -27,7 +27,7 @@ For prototypes, internal tools, or plain HTML pages, load RevoGrid directly from
     <revo-grid style="height: 150px"></revo-grid>
 
     <script type="module">
-      import { defineCustomElement as defineRevoGrid } from 'https://cdn.jsdelivr.net/npm/@revolist/revogrid@latest/standalone/revo-grid.js/+esm';
+      import { defineCustomElement as defineRevoGrid } from 'https://cdn.jsdelivr.net/npm/@revolist/revogrid@4.23.0/standalone/revo-grid.js/+esm';
 
       defineRevoGrid();
 
