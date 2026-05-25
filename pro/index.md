@@ -23,7 +23,7 @@ head:
       href: https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap
 proPage:
   hero:
-    badge: RevoGrid Pro - v4.0
+    badge: RevoGrid Pro - v2+
     title:
       prefix: Ship the data layer in
       highlight: days
@@ -39,7 +39,7 @@ proPage:
         href: '#features'
     meta:
       - MIT core, always free
-      - 5 frameworks, one API
+      - 5+ frameworks, one API
       - Royalty-free
     showcase:
       title: revogrid.app / q4-revenue.grid
@@ -54,13 +54,13 @@ proPage:
         value: EUR 56,090
         delta: "+14.2% vs Q3"
   trust:
-    - value: "53"
+    - valueSource: featureCount
       label: features
-      description: Production-ready, across 13 categories
+      description: Production-ready, across {categoryCount} categories
     - value: 1M+
       label: rows
       description: Virtualized rendering, no jank
-    - value: "5"
+    - value: "5+"
       label: frameworks
       description: React, Vue, Angular, Svelte, vanilla
     - value: "0"
@@ -146,6 +146,39 @@ proPage:
         demoLabel: Open live demo
         demoUrl: /demo/gantt
         wide: true
+  serverSide:
+    tag: Server-side data workflows
+    title:
+      prefix: Render massive datasets from
+      highlight: your server.
+    subtitle: Keep the grid responsive while your backend owns the heavy work - paging, range loading, grouped branches, totals, and remote analytics contracts.
+    pillars:
+      - label: Infinite scroll
+        value: viewport
+        description: Request only the rows the user is approaching, append or replace slices, and keep total-based or open-ended scrolling smooth.
+      - label: Server-side grouping
+        value: grouped
+        description: Let the API return group headers, child ranges, counts, and expanded branches without materializing every row in the browser.
+      - label: Remote analytics
+        value: pivot
+        description: Pair Pivot with server-side row and column windows, deterministic cache keys, and drilldown responses for fact rows.
+    flow:
+      title: Grid request contract
+      steps:
+        - Viewport asks for rows 2,000-2,200
+        - API applies filters, sort, grouping, and permissions
+        - Grid receives rows, totals, and branch metadata
+        - User expands a group; only that branch is fetched
+    stats:
+      - label: source rows
+        value: unbounded
+      - label: browser payload
+        value: sliced
+      - label: grouping work
+        value: server
+    cta:
+      label: Explore infinite scroll
+      href: /guide/demos/vue/vue2.list
   useCases:
     tag: Where teams use Pro
     title:
@@ -173,7 +206,7 @@ proPage:
     tag: Full feature catalog
     title:
       countLabel: features
-      highlight: thirteen categories,
+      highlight: "{categoryCount} categories,"
       ending: one consistent API.
     subtitle: Everything is in the same component - no plugin sprawl, no separate bundles, no migration when you go from MIT to Pro.
     defaultIcon: +
