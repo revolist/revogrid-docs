@@ -79,22 +79,20 @@ For a quick proof of concept, load the grid directly from a CDN.
 ### Script tag
 
 ```html
-<script src="https://unpkg.com/@revolist/revogrid@latest/dist/revo-grid/revo-grid.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@revolist/revogrid@latest/dist/revo-grid.js"></script>
 ```
 
 ### ES modules
 
 ```html
 <script type="module">
-  import { applyPolyfills, defineCustomElements } from 'https://unpkg.com/@revolist/revogrid@latest/loader';
+  import { defineCustomElement as defineRevoGrid } from 'https://cdn.jsdelivr.net/npm/@revolist/revogrid@latest/standalone/revo-grid.js/+esm';
 
-  applyPolyfills().then(() => {
-    defineCustomElements();
-  });
+  defineRevoGrid();
 </script>
 ```
 
-Use the module version when you want a more explicit initialization flow or need compatibility support through `applyPolyfills`.
+Use the module version when you want to register the standalone custom element from an ES module.
 
 ## Which package should you install?
 

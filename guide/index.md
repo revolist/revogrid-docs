@@ -11,12 +11,45 @@ head:
 
 RevoGrid is a high-performance [MIT-licensed](/guide/licensing) JavaScript data grid built for large datasets, fast scrolling, and spreadsheet-like interactions. It works as a Web Component, so the same core grid can be used in JavaScript, TypeScript, React, Angular, Vue, Svelte, and other modern frontends.
 
-<DemoWidgetFrame
-  demo="hr"
-  framework="ts"
-  title="RevoGrid getting started demo"
-  minHeight="600"
-/>
+## Quick start in 60 seconds
+
+For prototypes, internal tools, or plain HTML pages, load RevoGrid directly from a CDN:
+
+<QuickStartCdnExample />
+
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    <revo-grid style="height: 150px"></revo-grid>
+
+    <script type="module">
+      import { defineCustomElement as defineRevoGrid } from 'https://cdn.jsdelivr.net/npm/@revolist/revogrid@latest/standalone/revo-grid.js/+esm';
+
+      defineRevoGrid();
+
+      const grid = document.querySelector('revo-grid');
+
+      grid.columns = [
+        { prop: 'name', name: 'Name' },
+        { prop: 'role', name: 'Role' },
+      ];
+
+      grid.source = [
+        { name: 'Ada Lovelace', role: 'Mathematician' },
+        { name: 'Grace Hopper', role: 'Computer scientist' },
+      ];
+    </script>
+  </body>
+</html>
+```
+
+The same setup in JavaScript:
+
+```typescript
+<!--@include: ../demo/js/basic-quick.ts-->
+```
+
 
 This page is the fastest way to get a grid on the screen. From here you can move into feature guides, framework-specific setup, and the full API.
 
@@ -34,28 +67,6 @@ This page is the fastest way to get a grid on the screen. From here you can move
 If you want to try the grid before installing anything locally, start with the live example:
 
 <!--@include: ../guide/demos/js/js.overview.md-->
-
-## Quick start in 60 seconds
-
-For prototypes, internal tools, or plain HTML pages, load RevoGrid directly from a CDN:
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/@revolist/revogrid@latest/dist/revo-grid/revo-grid.js"></script>
-  </head>
-  <body>
-    <revo-grid style="height: 220px"></revo-grid>
-  </body>
-</html>
-```
-
-Then define columns and pass a source array:
-
-```typescript
-<!--@include: ../demo/js/basic-quick.ts-->
-```
 
 ## Basic setup with a custom cell template
 

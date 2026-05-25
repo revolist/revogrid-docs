@@ -75,6 +75,10 @@ aside: false
 | beforeheaderrender | `{ column: VirtualPositionItem; additionalData: any; data: ColumnTemplateProp<ColumnProp>; range?: RangeArea \| null \| undefined; canResize?: boolean \| undefined; canFilter?: boolean \| undefined; onResize?(e: ResizeEvent): void; onClick?(data: InitialHeaderClick): void; onDblClick?(data: InitialHeaderClick): void; } & Partial<Pick<ResizeProps, "active">>` | revogr-header | Before each header cell render function. Allows to override cell properties |
 | beforegroupheaderrender | `{ start: number; end: number; group: Group; providers: ProvidersColumns<DimensionCols \| "rowHeaders">; additionalData: any; canResize?: boolean \| undefined; onResize?(e: ResizeEvent): void; } & Partial<Pick<ResizeProps, "active">>` | revogr-header | Before each group header cell render function. Allows to override group header cell properties |
 | afterheaderrender | `ProvidersColumns<DimensionCols \| "rowHeaders">` | revogr-header | After all header cells rendered. Finalizes cell rendering. |
+| columndragstart | `ColumnDragStartEventData` | revo-grid | Triggered when a column drag operation starts. Call preventDefault() to prevent the column move. |
+| columndragmousemove | `MouseEvent` | revo-grid | Fired while a column drag operation is moving. |
+| beforecolumndragend | `BeforeColumnDragEndEventData` | revo-grid | Fired before the column drag operation is applied. Call preventDefault() to reject the move. |
+| columndragend | `ColumnDragEventData` | revo-grid | Fired when the column drag operation completes. Includes reordered columns, physical order, and viewport type. |
 | rowdragstartinit | `TModel` | revogr-order-editor | Row drag started |
 | rowdragendinit | `{ rowType: DimensionRows; }` | revogr-order-editor | Row drag ended started |
 | rowdragmoveinit | `PositionItem & { rowType: DimensionRows; }` | revogr-order-editor | Row move started |

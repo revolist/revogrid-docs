@@ -1,6 +1,14 @@
-// Snag your grid element from the DOM
+// Get the grid element from the page
 const grid = document.querySelector('revo-grid');
-// Let the grid know about your columns and data
-grid.columns = [{ prop: 'first', name: 'First column' }];
-// Here's your data, ready to be displayed
-grid.source = [{ first: 'New item', second: 'Item description' }];
+
+// Define the columns users will see
+grid.columns = [
+  { prop: 'name', name: 'Name' },
+  { prop: 'role', name: 'Role' },
+];
+
+// Provide the rows to render
+grid.source = [
+  { name: 'Ada Lovelace', role: 'Mathematician' },
+  { name: 'Grace Hopper', role: 'Computer scientist' },
+];

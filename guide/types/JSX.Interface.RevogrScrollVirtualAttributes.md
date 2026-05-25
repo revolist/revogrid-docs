@@ -6,7 +6,7 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `clientSize` | `number` | [src/components.d.ts:2570](https://github.com/revolist/revogrid/blob/a761193a7b5041ca04115de4e1eceb6ed9b2b905/src/components.d.ts#L2570) |
-| `dimension` | [`DimensionType`](TypeAlias.DimensionType.md) | [src/components.d.ts:2567](https://github.com/revolist/revogrid/blob/a761193a7b5041ca04115de4e1eceb6ed9b2b905/src/components.d.ts#L2567) |
-| `realSize` | `number` | [src/components.d.ts:2568](https://github.com/revolist/revogrid/blob/a761193a7b5041ca04115de4e1eceb6ed9b2b905/src/components.d.ts#L2568) |
-| `virtualSize` | `number` | [src/components.d.ts:2569](https://github.com/revolist/revogrid/blob/a761193a7b5041ca04115de4e1eceb6ed9b2b905/src/components.d.ts#L2569) |
+| `clientSize` | `number` | [src/components.d.ts:2570](https://github.com/revolist/revogrid/blob/49e5e706d3314aa8ce35738e7006a9b755b0e7f0/src/components.d.ts#L2570) |
+| `dimension` | [`DimensionType`](TypeAlias.DimensionType.md) | [src/components.d.ts:2567](https://github.com/revolist/revogrid/blob/49e5e706d3314aa8ce35738e7006a9b755b0e7f0/src/components.d.ts#L2567) |
+| `realSize` | `number` | [src/components.d.ts:2568](https://github.com/revolist/revogrid/blob/49e5e706d3314aa8ce35738e7006a9b755b0e7f0/src/components.d.ts#L2568) |
+| `virtualSize` | `number` | [src/components.d.ts:2569](https://github.com/revolist/revogrid/blob/49e5e706d3314aa8ce35738e7006a9b755b0e7f0/src/components.d.ts#L2569) |
