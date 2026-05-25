@@ -62,10 +62,6 @@ This page is the fastest way to get a grid on the screen. From here you can move
 
 <!--@include: ./parts/_framework.md-->
 
-## Play online
-
-If you want to try the grid before installing anything locally, start with the live example:
-
 <!--@include: ../guide/demos/js/js.overview.md-->
 
 ## Basic setup with a custom cell template
