@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.0](README.md) / DimensionStoreCollection
+[RevoGrid Documentation v4.23.1](README.md) / DimensionStoreCollection
 
 # Type Alias: DimensionStoreCollection
 
@@ -8,4 +8,4 @@ type DimensionStoreCollection: { [T in MultiDimensionType]: DimensionStore };
 
 ## Defined in
 
-[src/store/dimension/dimension.store.ts:19](https://github.com/revolist/revogrid/blob/98dd59e63a465ae157bf91fcd65f36f501e77722/src/store/dimension/dimension.store.ts#L19)
+[src/store/dimension/dimension.store.ts:19](https://github.com/revolist/revogrid/blob/ecd87cafef00335964bf62b5550ca31914bb6ae2/src/store/dimension/dimension.store.ts#L19)

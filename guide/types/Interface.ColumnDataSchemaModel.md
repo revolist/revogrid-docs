@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.0](README.md) / ColumnDataSchemaModel
+[RevoGrid Documentation v4.23.1](README.md) / ColumnDataSchemaModel
 
 # Interface: ColumnDataSchemaModel\<TModel, TColumn, TProp\>
 
@@ -19,12 +19,12 @@
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `colIndex` | `number` | Virtual index of the column in the viewport | [src/types/interfaces.ts:59](https://github.com/revolist/revogrid/blob/98dd59e63a465ae157bf91fcd65f36f501e77722/src/types/interfaces.ts#L59) |
-| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | Column type based on viewport | [src/types/interfaces.ts:63](https://github.com/revolist/revogrid/blob/98dd59e63a465ae157bf91fcd65f36f501e77722/src/types/interfaces.ts#L63) |
-| `column` | `TColumn` | Column data object | [src/types/interfaces.ts:51](https://github.com/revolist/revogrid/blob/98dd59e63a465ae157bf91fcd65f36f501e77722/src/types/interfaces.ts#L51) |
-| `data` | `TModel`[] | Row models based on viewport | [src/types/interfaces.ts:71](https://github.com/revolist/revogrid/blob/98dd59e63a465ae157bf91fcd65f36f501e77722/src/types/interfaces.ts#L71) |
-| `model` | `TModel` | Row data object | [src/types/interfaces.ts:47](https://github.com/revolist/revogrid/blob/98dd59e63a465ae157bf91fcd65f36f501e77722/src/types/interfaces.ts#L47) |
-| `prop` | `TProp` | Column prop used for mapping value to cell from data source model/row | [src/types/interfaces.ts:43](https://github.com/revolist/revogrid/blob/98dd59e63a465ae157bf91fcd65f36f501e77722/src/types/interfaces.ts#L43) |
-| `rowIndex` | `number` | Virtual index of the row in the viewport | [src/types/interfaces.ts:55](https://github.com/revolist/revogrid/blob/98dd59e63a465ae157bf91fcd65f36f501e77722/src/types/interfaces.ts#L55) |
-| `type` | [`DimensionRows`](TypeAlias.DimensionRows.md) | Row type based on viewport | [src/types/interfaces.ts:67](https://github.com/revolist/revogrid/blob/98dd59e63a465ae157bf91fcd65f36f501e77722/src/types/interfaces.ts#L67) |
-| `value?` | `ModelValueByProp`\<`TModel`, `TProp`\> | Current cell data value Mapped from model through column property like model['prop'] | [src/types/interfaces.ts:76](https://github.com/revolist/revogrid/blob/98dd59e63a465ae157bf91fcd65f36f501e77722/src/types/interfaces.ts#L76) |
+| `colIndex` | `number` | Virtual index of the column in the viewport | [src/types/interfaces.ts:59](https://github.com/revolist/revogrid/blob/ecd87cafef00335964bf62b5550ca31914bb6ae2/src/types/interfaces.ts#L59) |
+| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | Column type based on viewport | [src/types/interfaces.ts:63](https://github.com/revolist/revogrid/blob/ecd87cafef00335964bf62b5550ca31914bb6ae2/src/types/interfaces.ts#L63) |
+| `column` | `TColumn` | Column data object | [src/types/interfaces.ts:51](https://github.com/revolist/revogrid/blob/ecd87cafef00335964bf62b5550ca31914bb6ae2/src/types/interfaces.ts#L51) |
+| `data` | `TModel`[] | Row models based on viewport | [src/types/interfaces.ts:71](https://github.com/revolist/revogrid/blob/ecd87cafef00335964bf62b5550ca31914bb6ae2/src/types/interfaces.ts#L71) |
+| `model` | `TModel` | Row data object | [src/types/interfaces.ts:47](https://github.com/revolist/revogrid/blob/ecd87cafef00335964bf62b5550ca31914bb6ae2/src/types/interfaces.ts#L47) |
+| `prop` | `TProp` | Column prop used for mapping value to cell from data source model/row | [src/types/interfaces.ts:43](https://github.com/revolist/revogrid/blob/ecd87cafef00335964bf62b5550ca31914bb6ae2/src/types/interfaces.ts#L43) |
+| `rowIndex` | `number` | Virtual index of the row in the viewport | [src/types/interfaces.ts:55](https://github.com/revolist/revogrid/blob/ecd87cafef00335964bf62b5550ca31914bb6ae2/src/types/interfaces.ts#L55) |
+| `type` | [`DimensionRows`](TypeAlias.DimensionRows.md) | Row type based on viewport | [src/types/interfaces.ts:67](https://github.com/revolist/revogrid/blob/ecd87cafef00335964bf62b5550ca31914bb6ae2/src/types/interfaces.ts#L67) |
+| `value?` | `ModelValueByProp`\<`TModel`, `TProp`\> | Current cell data value Mapped from model through column property like model['prop'] | [src/types/interfaces.ts:76](https://github.com/revolist/revogrid/blob/ecd87cafef00335964bf62b5550ca31914bb6ae2/src/types/interfaces.ts#L76) |
