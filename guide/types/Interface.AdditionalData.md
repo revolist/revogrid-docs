@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.22.1](README.md) / AdditionalData
+[RevoGrid Documentation v4.23.0](README.md) / AdditionalData
 
 # Interface: AdditionalData
 

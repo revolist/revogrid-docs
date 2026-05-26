@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.22.1](README.md) / DataLookup
+[RevoGrid Documentation v4.23.0](README.md) / DataLookup
 
 # Type Alias: DataLookup\<T, K\>
 
@@ -19,4 +19,4 @@ type DataLookup<T, K>: {};
 
 ## Defined in
 
-[src/types/interfaces.ts:482](https://github.com/revolist/revogrid/blob/bce42ab6540458f2c36ae8753100657c474422a3/src/types/interfaces.ts#L482)
+[src/types/interfaces.ts:482](https://github.com/revolist/revogrid/blob/98dd59e63a465ae157bf91fcd65f36f501e77722/src/types/interfaces.ts#L482)
