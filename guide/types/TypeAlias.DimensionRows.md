@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.1](README.md) / DimensionRows
+[RevoGrid Documentation v4.23.2](README.md) / DimensionRows
 
 # Type Alias: DimensionRows
 
@@ -8,4 +8,4 @@ type DimensionRows: DimensionTypeRow | DimensionRowPin;
 
 ## Defined in
 
-[src/types/dimension.ts:7](https://github.com/revolist/revogrid/blob/ecd87cafef00335964bf62b5550ca31914bb6ae2/src/types/dimension.ts#L7)
+[src/types/dimension.ts:7](https://github.com/revolist/revogrid/blob/2ab297309bca72a9ee6de7e26f5f41940fbe0414/src/types/dimension.ts#L7)
