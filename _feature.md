@@ -17,3 +17,22 @@
 **Tests:**
 - Build: `pnpm build`.
 - Visual: run `pnpm dev`, compare `/pro/` to the supplied HTML reference at desktop and mobile sizes, verify light/dark theme, and confirm `/pro/v1` still renders.
+
+### Column Pinning With Active Cell Focus
+
+**Goal:** Keep grid layout and focus state valid when a column is pinned or unpinned while a body cell is selected.
+
+**Non-goals:** No public API changes, no context-menu-specific behavior, and no changes to column pinning semantics.
+
+**Expected behavior:** After `columns` changes move a column between `rgCol`, `colPinStart`, or `colPinEnd`, the selected cell overlay must stay attached to the same logical column when possible, and pinned/regular viewports must not reuse stale selection stores from their previous positions.
+
+**API/config/data model:** Existing `setCellsFocus`, `getFocused`, and `getSelectedRange` contracts remain unchanged.
+
+**Interactions/lifecycle:** Rerendering viewports after a column pin update must rebind selection stores to the current viewport type mapping.
+
+**Rendering/performance notes:** The fix should be limited to selection store bookkeeping during viewport registration and avoid extra grid-wide renders.
+
+**Edge cases:** Covers adding a left-pinned viewport before the regular viewport and preserving focus on the moved column.
+
+**Tests:**
+- E2E: add a `revogrid/e2e/pinning.spec.ts` regression that focuses a regular cell, pins that column left through `grid.columns`, and verifies focus/range moves to `colPinStart` without broken pinned layout.

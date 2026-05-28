@@ -9,9 +9,12 @@ head:
 
 # JavaScript Data Grid Quick Start
 
-RevoGrid is a high-performance [MIT-licensed](/guide/licensing) JavaScript data grid built for large datasets, fast scrolling, and spreadsheet-like interactions. It works as a Web Component, so the same core grid can be used in JavaScript, TypeScript, React, Angular, Vue, Svelte, and other modern frontends.
+RevoGrid is a high-performance [MIT-licensed](/guide/licensing) JavaScript data grid built for large datasets, fast scrolling, and spreadsheet-like interactions. It works as a Web Component, so the same core grid can be used in JavaScript, [TypeScript](/guide/ts/), [React](/guide/react/), [Angular](/guide/angular/), [Vue](/guide/vue3/), [Svelte](/guide/svelte/), and other modern frontends.
 
 ## Quick start in 60 seconds
+
+This page is the fastest way to get a data grid on the screen. From here you can move into feature guides, framework-specific setup, and the full [API](/guide/api/revoGrid).
+
 
 For prototypes, internal tools, or plain HTML pages, load RevoGrid directly from a CDN:
 
@@ -24,7 +27,7 @@ For prototypes, internal tools, or plain HTML pages, load RevoGrid directly from
     <revo-grid style="height: 150px"></revo-grid>
 
     <script type="module">
-      import { defineCustomElement as defineRevoGrid } from 'https://cdn.jsdelivr.net/npm/@revolist/revogrid@latest/standalone/revo-grid.js/+esm';
+      import { defineCustomElement as defineRevoGrid } from 'https://cdn.jsdelivr.net/npm/@revolist/revogrid@4.23.0/standalone/revo-grid.js/+esm';
 
       defineRevoGrid();
 
@@ -44,27 +47,15 @@ For prototypes, internal tools, or plain HTML pages, load RevoGrid directly from
 </html>
 ```
 
-The same setup in JavaScript:
-
-```typescript
-<!--@include: ../demo/js/basic-quick.ts-->
-```
-
-
-This page is the fastest way to get a grid on the screen. From here you can move into feature guides, framework-specific setup, and the full API.
 
 ## Why teams use RevoGrid
 
-- Virtual rows and columns keep rendering fast as datasets grow.
-- Built-in focus, range selection, editing, sorting, filtering, and pinning cover common grid workflows.
-- The same `<revo-grid>` core works across multiple frameworks.
-- Public methods and events make it possible to build custom workflows without forking the grid.
+- [Virtual rows and columns](/guide/performance) keep rendering fast as datasets grow.
+- Built-in [focus](/guide/defs#Focus), [range selection](/guide/defs#Range), [editing](/guide/editing), [sorting](/guide/sorting), [filtering](/guide/filters), [column pinning](/guide/column/pin), and [row pinning](/guide/row/pin) cover common grid workflows.
+- The same [`<revo-grid>` core](/guide/defs#Web-Component) works across multiple frameworks.
+- Public [methods](/guide/programmatic-control) and [events](/guide/api/events) make it possible to build custom workflows without forking the grid.
 
 <!--@include: ./parts/_framework.md-->
-
-## Play online
-
-If you want to try the grid before installing anything locally, start with the live example:
 
 <!--@include: ../guide/demos/js/js.overview.md-->
 

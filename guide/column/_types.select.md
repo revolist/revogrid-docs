@@ -80,3 +80,24 @@ const dropdown = {
 ```
 
 Use the object form when the visible label and stored value should differ.
+
+#### Dynamic source
+
+`source` can be a synchronous function when options depend on the current row
+or on external state passed through `additionalData`.
+
+```ts
+const columns = [
+  {
+    prop: 'city',
+    columnType: 'select',
+    labelKey: 'label',
+    valueKey: 'value',
+    source: ({ model, additionalData }) =>
+      additionalData.citiesByCountry[model.country] ?? [],
+  },
+]
+```
+
+The resolver receives the current cell model, prop, column, indexes, and
+`additionalData`. Async loading is not supported by this API.
