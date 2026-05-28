@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.3](README.md) / ExportFormat
+[RevoGrid Documentation v4.23.4](README.md) / ExportFormat
 
 # Type Alias: ExportFormat
 
@@ -8,4 +8,4 @@ type ExportFormat: Partial<CSVFormat>;
 
 ## Defined in
 
-[src/plugins/export/export.plugin.ts:17](https://github.com/revolist/revogrid/blob/70bb45efb434905fefaf72f1148974b6ef74baa4/src/plugins/export/export.plugin.ts#L17)
+[src/plugins/export/export.plugin.ts:17](https://github.com/revolist/revogrid/blob/c2fda5674b1ac002b69cd436fd16b39afbcbc99d/src/plugins/export/export.plugin.ts#L17)
