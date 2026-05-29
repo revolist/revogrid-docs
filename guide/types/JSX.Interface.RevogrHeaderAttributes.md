@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.4](README.md) / [JSX](Namespace.JSX.md) / RevogrHeaderAttributes
+[RevoGrid Documentation v4.23.5](README.md) / [JSX](Namespace.JSX.md) / RevogrHeaderAttributes
 
 # Interface: RevogrHeaderAttributes
 
@@ -6,9 +6,9 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `additionalData` | `string` | [src/components.d.ts:2546](https://github.com/revolist/revogrid/blob/c2fda5674b1ac002b69cd436fd16b39afbcbc99d/src/components.d.ts#L2546) |
-| `canResize` | `boolean` | [src/components.d.ts:2543](https://github.com/revolist/revogrid/blob/c2fda5674b1ac002b69cd436fd16b39afbcbc99d/src/components.d.ts#L2543) |
-| `columnFilter` | `boolean` | [src/components.d.ts:2544](https://github.com/revolist/revogrid/blob/c2fda5674b1ac002b69cd436fd16b39afbcbc99d/src/components.d.ts#L2544) |
-| `groupingDepth` | `number` | [src/components.d.ts:2541](https://github.com/revolist/revogrid/blob/c2fda5674b1ac002b69cd436fd16b39afbcbc99d/src/components.d.ts#L2541) |
-| `readonly` | `boolean` | [src/components.d.ts:2542](https://github.com/revolist/revogrid/blob/c2fda5674b1ac002b69cd436fd16b39afbcbc99d/src/components.d.ts#L2542) |
-| `type` | [`DimensionCols`](TypeAlias.DimensionCols.md) \| `"rowHeaders"` | [src/components.d.ts:2545](https://github.com/revolist/revogrid/blob/c2fda5674b1ac002b69cd436fd16b39afbcbc99d/src/components.d.ts#L2545) |
+| `additionalData` | `string` | [src/components.d.ts:2546](https://github.com/revolist/revogrid/blob/d5fe1d61d5b92cf947395e32d1c27654486cf79d/src/components.d.ts#L2546) |
+| `canResize` | `boolean` | [src/components.d.ts:2543](https://github.com/revolist/revogrid/blob/d5fe1d61d5b92cf947395e32d1c27654486cf79d/src/components.d.ts#L2543) |
+| `columnFilter` | `boolean` | [src/components.d.ts:2544](https://github.com/revolist/revogrid/blob/d5fe1d61d5b92cf947395e32d1c27654486cf79d/src/components.d.ts#L2544) |
+| `groupingDepth` | `number` | [src/components.d.ts:2541](https://github.com/revolist/revogrid/blob/d5fe1d61d5b92cf947395e32d1c27654486cf79d/src/components.d.ts#L2541) |
+| `readonly` | `boolean` | [src/components.d.ts:2542](https://github.com/revolist/revogrid/blob/d5fe1d61d5b92cf947395e32d1c27654486cf79d/src/components.d.ts#L2542) |
+| `type` | [`DimensionCols`](TypeAlias.DimensionCols.md) \| `"rowHeaders"` | [src/components.d.ts:2545](https://github.com/revolist/revogrid/blob/d5fe1d61d5b92cf947395e32d1c27654486cf79d/src/components.d.ts#L2545) |
