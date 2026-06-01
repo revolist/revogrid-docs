@@ -17,9 +17,9 @@ hero:
   eyebrow: High-performance data grid
   title: The extensible data grid for complex web apps
   emphasis: extensible
-  tagline: Build spreadsheet-grade tables with fast rendering, custom cells, inline editing, keyboard navigation, and framework-friendly APIs. Start with the core grid. Add Pivot and Gantt when your product needs them.
+  tagline: The world's fastest data grid. Inline editing, virtual scroll, custom cells — works everywhere. Go Pro for advanced features.
   primaryAction:
-    text: Try live demo
+    text: Live demo
     link: /demo
     target: _self
   secondaryAction:

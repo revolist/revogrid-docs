@@ -21,7 +21,6 @@
       <div class="server-panel reveal">
         <div class="server-panel-head">
           <span>{{ page.serverSide.flow.title }}</span>
-          <a :href="page.serverSide.cta.href">{{ page.serverSide.cta.label }} -&gt;</a>
         </div>
 
         <ol class="server-flow">

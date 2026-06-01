@@ -26,7 +26,7 @@ const featuresProBase = [
         title: 'Auto Merge',
         thumbnail: '/img/merge-auto.png',
         group: 'Grid Structure',
-        description: 'Automatically merges cells with identical values in a column. Hides duplicate values and borders while maintaining data integrity.',
+        description: 'Automatically merges cells with identical values across columns. Supports group-aware merging with leading columns that act as visual anchors — perfect for hierarchical data, grouped rows, and report-style layouts. Hides duplicate values and borders while keeping the underlying data intact.',
         videoUrl: '/video/auto-merge.mp4',
     },
     {
@@ -44,11 +44,18 @@ const featuresProBase = [
         description: 'Column hiding is a feature that allows you to hide specific columns in your grid, making them invisible to users. This is useful for focusing on specific data points, reducing visual clutter, creating different views of the same dataset, and implementing column visibility toggles.',
     },
     {
+        title: 'Column Group Reorder',
+        thumbnail: '/img/column-reorder.png',
+        group: 'Grid Structure',
+        description: 'Drag and reorder entire column groups as a single unit. Keeps multilevel column headers intact while letting users rearrange grouped sections to match their preferred layout.',
+    },
+    {
         title: 'Audit Trail History',
-        thumbnail: '/img/history.png',
+        thumbnail: '/img/audit-log.png',
+        videoUrl: '/video/al-demo.mp4',
         group: 'Data Management',
         description:
-            'Record and review detailed data-change history for audit workflows. Use it when teams need traceability for edits, user actions, or operational review.',
+            'Record and review detailed data-change history for audit workflows. Filter changes at the grid, row, or cell level to focus on exactly what changed, who changed it, and when. Export the full audit log to Excel for compliance reporting or offline review.',
     },
     {
         title: 'History',
@@ -59,7 +66,7 @@ const featuresProBase = [
     },
     {
         title: 'Range Apply Preview',
-        thumbnail: '/img/clipboard.png',
+        thumbnail: '/img/range-preview.png',
         group: 'Data Management',
         description:
             'Preview pending range copy, paste, or fill changes before applying them to the grid. Useful for validating target cells, confirming mapped values, and preventing accidental bulk updates.',
@@ -69,7 +76,7 @@ const featuresProBase = [
         thumbnail: '/img/excel.png',
         group: 'Data Management',
         description:
-            'Export data to Excel format. Supported types include `xlsx`, `xlsm`, `xlsb`, `xls`, and more.',
+            'Export data to Excel with the layout matching what the user sees in the grid — column order, visibility, frozen panes, and styling are all preserved. Supported formats include xlsx, xlsm, xlsb, xls, and more. Import flows through the same pipeline, keeping round-trips consistent.',
         videoUrl: '/video/excel-export.mp4',
     },
     {
@@ -91,9 +98,18 @@ const featuresProBase = [
     {
         title: 'Pagination Remote',
         thumbnail: '/img/pagination.png',
+        videoUrl: '/video/pagination.mp4',
         group: 'Performance & Data Loading',
         description:
             'Load page-sized data from a remote source while keeping pagination controls, total counts, and grid state in sync.',
+    },
+    {
+        title: 'Server-side Grouping',
+        thumbnail: '/img/server-grouping.png',
+        videoUrl: '/video/server-grouping.mp4',
+        group: 'Performance & Data Loading',
+        description:
+            'Delegate row grouping to the server so only the visible group level is fetched. Expand and collapse groups on demand without loading the full dataset — ideal for large hierarchical data where client-side grouping would be too slow.',
     },
     {
         title: 'Formula',
@@ -118,7 +134,7 @@ const featuresProBase = [
     },
     {
         title: 'Selection Filter Cascade',
-        thumbnail: '/img/filter-select.png',
+        thumbnail: '/img/filter-cascade.png',
         group: 'Data Filtering & Search',
         description:
             'Cascade selection filters so each filter narrows the available options in the next one. This helps users drill into related dimensions without choosing impossible combinations.',
@@ -291,7 +307,7 @@ const featuresProBase = [
         thumbnail: '/img/drag-and-drop.png',
         group: 'User Interaction',
         description:
-            'Customizable drag-and-drop for multiple items with advanced behaviors like custom drop zones, drag handles, and item reordering.',
+            'Customizable drag-and-drop for multiple items with advanced behaviors like custom drop zones, drag handles, and item reordering. Drag rows between tree hierarchy nodes with built-in drop validation to enforce structure rules. Drag between group nodes with automatic group value updates so moved rows instantly reflect their new group.',
         videoUrl: '/video/drag-and-drop.mp4',
     },
     {
@@ -420,6 +436,7 @@ const featuresProBase = [
     {
         title: 'Gantt & Scheduling',
         thumbnail: '/img/gantt.png',
+        videoUrl: '/video/gantt-demo.mp4',
         group: 'Enterprise Tools',
         beta: true,
         description: 'Production-ready Gantt chart and scheduling view for project planning, dependency management, resource allocation, and timeline analysis.',

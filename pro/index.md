@@ -28,7 +28,8 @@ proPage:
       prefix: Ship the data layer in
       highlight: days
       suffix: not quarters.
-    subtitle: RevoGrid Pro turns months of grid engineering - pivots, gantt, formulas, master-detail, audit history - into a single dependency. Built on the same MIT core. Royalty-free. No deploy fees.
+    subtitle: RevoGrid Pro turns months of grid engineering - formula engine, advanced layouts, hierarchical data, server-side rendering, reporting - into a single dependency.
+    subtitleNote: Built on the same MIT core. Royalty-free. No deploy fees.
     actions:
       primary:
         label: Get Pro
@@ -56,6 +57,7 @@ proPage:
   trust:
     - valueSource: featureCount
       label: features
+      href: '#catalog'
       description: Production-ready, across {categoryCount} categories
     - value: 1M+
       label: rows
@@ -75,11 +77,11 @@ proPage:
       highlight: capability.
     description: AI coding tools are excellent at wiring up APIs. RevoGrid Pro gives them a clear, typed, consistent surface to work with - so the integration that AI writes is built on a premium scheduling engine, a formula evaluator, or a pivot analytics layer.
     facts:
-      - icon: Alt
+      - icon: code
         text: TypeScript-first APIs through typed events and plugin configuration. Claude, Copilot and Cursor get accurate completions on the first try.
-      - icon: "=="
+      - icon: layer-group
         text: Consistent data model from the feature - no separate Gantt library, no BI iframe, no second table engine.
-      - icon: "O"
+      - icon: wand-magic-sparkles
         text: AI can customize it; can't replace it. Ask your AI to embed a Gantt for roadmap or turn customer MRR data into a pivot table; the underlying engine understands it.
   features:
     tag: What's inside Pro
@@ -92,46 +94,46 @@ proPage:
         tier: Pro
         title: Spreadsheet power
         titleSuffix: inside your app.
-        description: 100+ Excel formulas, smart auto-fill, multi-range selection, range copy preview, JSON clipboard, .xlsx import and export. Your users get the Excel UX they already know - without leaving your product.
+        description: 100+ Excel formulas, smart auto-fill, multi-range selection, range copy preview, multiuser editing, filtering, cell merge, inline cell charts, a rich library of column types, column collapse/expand, .xlsx import and export matching the grid view. Your users get the UX they already know - without leaving your product.
         saves: 10-14
         unit: wks
         savesAgainst: vs formula engine work
         replaces: Handsontable, Luckysheet, HyperFormula glue
-        demoLabel: Open live demo
+        demoLabel: Watch preview
         demoUrl: /guide/cell/formula
       - type: tree
         tier: Pro
         title: Hierarchies & master-detail
         titleSuffix: done right.
-        description: Tree views, server-side groups, drill-down, master-detail panels that expand inline. Built for org charts, BOMs, accounting plans, file trees - anywhere your data nests.
+        description: Tree views, server-side groups, drill-down, master-detail panels, advanced reordering, sticky cells, multilevel columns, and advanced filters with selection and sliders. Built for org charts, BOMs, accounting plans, file trees - anywhere your data nests.
         saves: 6-10
         unit: wks
         savesAgainst: vs custom tree component
         replaces: React-arborist, custom expanders, nested grid hacks
-        demoLabel: Open live demo
+        demoLabel: Watch preview
         demoUrl: /guide/row/master.pro
       - type: audit
         tier: Pro
         title: Audit-ready by default
         titleSuffix: history, validation, traceability.
-        description: Every edit goes through the event manager - undo/redo, validation, audit trail, flash highlights, range previews. Hand it to your compliance team without writing a separate logger.
+        description: Every edit goes through the event manager - undo/redo, data validation, audit trail, flash highlights, range previews. Enforce rules at the cell level and hand it to your compliance team without writing a separate logger.
         saves: "8"
         unit: weeks
         savesAgainst: vs custom event pipeline
         replaces: Sentry-for-data, custom undo stacks, manual edit logs
-        demoLabel: Open live demo
+        demoLabel: Watch preview
         demoUrl: /guide/events-guide
         wide: true
       - type: pivot
         tier: Enterprise
-        title: Pivot Analytics
-        titleSuffix: multidimensional reports without a BI tool.
+        title: Advanced Reporting
+        titleSuffix: group, aggregate, and drill down without a BI tool.
         description: Drag dimensions into rows, columns, and values. Aggregations, subtotals, grand totals, drilldown, saved state. Client-side for snappy datasets, server-side for unbounded ones. Same component.
         saves: 3-6
         unit: months
         savesAgainst: vs in-house BI layer
         replaces: Tableau Embedded, Power BI Embedded, in-house OLAP layer
-        demoLabel: Open live demo
+        demoLabel: Watch preview
         demoUrl: /demo/pivot
         wide: true
       - type: gantt
@@ -143,7 +145,7 @@ proPage:
         unit: months
         savesAgainst: vs DIY scheduling engine
         replaces: SyncFusion Gantt, MS Project Online, Bryntum
-        demoLabel: Open live demo
+        demoLabel: Watch preview
         demoUrl: /demo/gantt
         wide: true
   serverSide:
