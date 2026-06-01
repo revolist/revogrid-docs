@@ -76,7 +76,6 @@ const handlePlanClick = (event: MouseEvent) => {
 .rg-pricing-card {
   border: 1px solid var(--rg-border);
   border-radius: 16px;
-  background: var(--rg-bg-2);
   padding: 28px 24px;
   position: relative;
   display: flex;
@@ -88,7 +87,7 @@ const handlePlanClick = (event: MouseEvent) => {
 
   &.featured {
     border-color: var(--rg-font-green);
-    background: color-mix(in srgb, var(--rg-font-green) 4%, var(--rg-bg-2));
+    background: color-mix(in srgb, var(--rg-font-green) 1%, var(--rg-bg-2));
   }
 
   h3 {

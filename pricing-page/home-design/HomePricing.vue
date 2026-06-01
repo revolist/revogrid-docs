@@ -1,5 +1,5 @@
 <template>
-  <section id="pricing" class="rg-section rg-section-soft">
+  <section id="pricing" class="rg-section">
     <div class="rg-container">
       <PricingSectionHeader :section="section" />
       <div class="rg-pricing-grid">

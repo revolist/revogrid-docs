@@ -1,6 +1,5 @@
 <template>
   <div class="pricing-page">
-    <PricingHero :hero="pricingPage.hero" />
     <HomePricing :section="frontmatter.pricing" @contact-sales="showContactForm = true" />
     <PricingFeatureComparison :heading="pricingPage.featureComparison.heading" />
     <PricingFaq :faq="pricingPage.faq" />
@@ -16,19 +15,12 @@ import ContactForm from '../pro/ContactForm.vue'
 import PricingFaq from './PricingFaq.vue'
 import PricingFeatureComparison from './PricingFeatureComparison.vue'
 import PricingFinalCta from './PricingFinalCta.vue'
-import PricingHero from './PricingHero.vue'
 import HomePricing from './home-design/HomePricing.vue'
 import type { PricingPageData } from './types'
 
 const { frontmatter } = useData()
 
 const defaultPricingPage: PricingPageData = {
-  hero: {
-    eyebrow: 'Pricing',
-    title: 'RevoGrid Pro Pricing.',
-    titleEmphasis: 'Plans for data grid teams.',
-    subtitle: 'No deployment fees. No runtime royalties. Simple per-developer annual pricing.',
-  },
   featureComparison: {
     heading: 'Full feature comparison',
   },
