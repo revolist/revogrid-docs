@@ -102,7 +102,6 @@ const showContactForm = ref(false)
 :deep(.pricing-section-heading) {
   color: var(--vp-c-text-1);
   font-size: clamp(24px, 3vw, 32px);
-  font-weight: 600;
   letter-spacing: -1px;
   margin-bottom: 48px;
   text-align: center;

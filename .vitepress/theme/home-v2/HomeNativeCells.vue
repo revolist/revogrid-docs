@@ -4,7 +4,7 @@
       <div class="rg-native-grid">
         <div class="rg-native-copy">
           <div class="rg-section-label">{{ section?.label }}</div>
-          <h2 class="rg-native-title">{{ section?.title }}</h2>
+          <h2 class="rg-section-title">{{ section?.title }}</h2>
           <p class="rg-native-desc" v-html="sectionDescription"></p>
         </div>
         <div class="rg-native-examples" aria-label="Native framework cell examples">
@@ -94,15 +94,6 @@ function linkFrameworkMentions(value: string | undefined) {
   max-width: 760px;
   margin: 0 auto;
   text-align: center;
-}
-
-.rg-native-title {
-  color: var(--rg-text);
-  font-size: clamp(26px, 3vw, 38px);
-  line-height: 1.14;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  margin: 0 0 14px;
 }
 
 .rg-native-desc {

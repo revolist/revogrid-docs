@@ -92,7 +92,6 @@ const handleLinkClick = (event: MouseEvent, link: PricingCtaLink) => {
 
 .cta-title {
   font-size: clamp(26px, 3.5vw, 40px);
-  font-weight: 600;
   letter-spacing: -1px;
   color: var(--vp-c-text-1);
   margin-bottom: 14px;

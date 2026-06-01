@@ -17,9 +17,9 @@ hero:
   eyebrow: High-performance data grid
   title: The extensible data grid for complex web apps
   emphasis: extensible
-  tagline: Build spreadsheet-grade tables with fast rendering, custom cells, inline editing, keyboard navigation, and framework-friendly APIs. Start with the core grid. Add Pivot and Gantt when your product needs them.
+  tagline: The world's fastest data grid. Inline editing, virtual scroll, custom cells — works everywhere. Go Pro for advanced features.
   primaryAction:
-    text: Try live demo
+    text: Live demo
     link: /demo
     target: _self
   secondaryAction:
@@ -83,27 +83,27 @@ capabilities:
     - title: Performance at scale
       icon: pulse
       link: "/guide/performance"
-      description: Virtualized rendering keeps large datasets responsive without sacrificing spreadsheet-like interaction.
+      description: Renders millions of rows at 60 fps. Virtual scrolling, frozen columns, and pinned rows — no pagination required.
     - title: Spreadsheet-grade editing
       icon: grid
       link: "/guide/editing"
-      description: Selection ranges, keyboard navigation, copy/paste, and inline editing that match the UX users expect.
-    - title: Custom cells and renderers
+      description: Range selection, keyboard navigation, copy/paste, and inline editing. The UX your users already know.
+    - title: Advanced filtering and sorting
+      icon: tool
+      link: "/guide/sorting"
+      description: AND/OR condition trees across multiple filters per column. Additive multi-column sorting. All built into the core.
+    - title: Grouping and row ordering
+      icon: app
+      link: "/guide/row/grouping"
+      description: Group rows by any column. Drag to reorder. Full tree and nested data support included.
+    - title: Custom cells and editors
       icon: star
       link: "/guide/cell/renderer"
-      description: Build your own cell types, editors, and validators. Any framework component can become a grid cell.
+      description: Any Vue, React, or Angular component becomes a cell. Build pickers, badges, sparklines — whatever you need.
     - title: Plugin architecture
       icon: plugin
       link: "/guide/plugin/"
-      description: Extend the grid with modular plugins instead of forking a fixed component.
-    - title: Framework integrations
-      icon: links
-      link: "/guide/installation"
-      description: First-class support for React, Angular, Vue, Svelte, and vanilla JavaScript.
-    - title: Production licensing
-      icon: lock
-      link: "/guide/licensing"
-      description: Per-developer licensing designed for teams building real products.
+      description: Add column menus, export, history, or build your own. Extend without forking.
 
 nativeCells:
   label: No context switch
@@ -265,54 +265,29 @@ advanced:
   description: RevoGrid scales from a fast editable grid to advanced product workflows without switching tools or rewriting integrations.
   action:
     text: Explore advanced modules
-    link: /pro/
+    link: /pro/#catalog
   items:
-    - title: Pivot Grid
+    - title: Advanced Reporting
       tag: Pro Advanced
       type: pivot
       link: /pivot
-      description: Analyze and summarize complex datasets directly inside your application with aggregation, reordering, and drill-down.
-    - title: Gantt Chart
-      tag: Pro Advanced
-      type: gantt
-      link: /gantt
-      description: Build planning and timeline views with drag-and-resize tasks, dependencies, milestones, and resource views.
-    - title: ERP Workflows
-      tag: Pro Advanced
-      type: erp
-      link: /demo/ecommerce
-      description: Use RevoGrid as the interface layer for inventory, finance, admin, and operations workflows.
-      target: _self
-
-useCases:
-  label: Use cases
-  title: Built for real product interfaces
-  description: RevoGrid is used wherever complex structured data meets user interaction.
-  items:
-    - title: Admin Panels
-      icon: chart
-      description: Fast, editable data tables for internal management interfaces with sorting, filtering, and bulk actions.
-    - title: SaaS Dashboards
-      icon: app
-      description: Customer-facing data views in production SaaS apps. High performance without compromising UX.
-    - title: Internal Tools
-      icon: tool
-      description: Operations, support, and back-office tools that require inline editing and complex workflows.
-    - title: Finance and Trading
-      icon: money
-      description: Real-time market data grids, portfolio managers, and financial reporting interfaces.
-    - title: Inventory Systems
-      icon: box
-      description: Large product catalogs, stock management, and warehouse operations with live edits.
-    - title: ERP Interfaces
-      icon: factory
-      description: Complex multi-step data entry forms and grid-based operations for ERP and manufacturing software.
-    - title: Analytics Tools
-      icon: trend
-      description: Deep data exploration with pivot, grouping, and drill-down capabilities for analytical interfaces.
-    - title: Project Planning
-      icon: calendar
-      description: Resource allocation, scheduling, and timeline views with drag-and-drop task management.
+      thumbnail: /img/pivot.png
+      videoUrl: /video/pivot.mp4
+      description: Pivot, aggregate, and summarize complex datasets directly inside your app. Drag-and-drop dimensions, drill-down, and totals — no BI tool required.
+    - title: Master Detail
+      tag: Pro
+      type: master-detail
+      link: /pro/
+      thumbnail: /img/master-detail.png
+      videoUrl: /video/master-detail.mp4
+      description: Expand any row into a nested grid, form, or custom view. The UX pattern your customers already expect in real product interfaces.
+    - title: Audit Trail
+      tag: Pro
+      type: audit
+      link: /pro/
+      thumbnail: /img/audit-log.png
+      videoUrl: /video/al-demo.mp4
+      description: Record every cell change with who, what, and when. Filter, review, and export the full history. No DIY work required.
 
 comparison:
   label: Why RevoGrid

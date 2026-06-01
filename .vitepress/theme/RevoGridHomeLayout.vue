@@ -211,7 +211,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 .rg-hero-title {
   font-size: clamp(38px, 4.5vw, 58px);
   line-height: 1.08;
-  font-weight: 600;
   letter-spacing: -0.02em;
   margin: 0 0 20px;
 
@@ -287,7 +286,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 .rg-browser,
 .rg-code-panel {
   min-width: 0;
-  border: 1px solid var(--rg-border);
+  border: 1px solid var(--rg-border-hover);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--rg-shadow);
@@ -394,7 +393,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   min-width: 50px;
   border-radius: 4px;
   padding: 2px 7px;
-  border: 1px solid var(--rg-border);
   background: var(--rg-bg-3);
   color: var(--rg-text);
   font-family: var(--vp-font-family-mono);
@@ -404,13 +402,11 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 }
 
 .ticker-chip.up {
-  border-color: var(--rg-green-border);
-  background: var(--rg-green-bg);
+  background: var(--rg-green);
 }
 
 .ticker-chip.down {
-  border-color: rgba(248, 113, 113, 0.25);
-  background: rgba(248, 113, 113, 0.08);
+  background: var(--vp-c-danger-3);
 }
 
 .sparkline {
@@ -425,13 +421,11 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   width: 5.5px;
   min-height: 5px;
   border-radius: 2px;
-  background: #3b82f6;
-  opacity: 0.72;
+  background: var(--vp-c-danger-2);
 }
 
 .spark-bar.up {
   background: var(--rg-green);
-  opacity: 0.9;
 }
 
 .num {
@@ -541,7 +535,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   color: var(--rg-text);
   font-size: clamp(26px, 3vw, 38px);
   line-height: 1.14;
-  font-weight: 600;
   letter-spacing: -0.02em;
   margin: 0 0 14px;
 }
@@ -755,7 +748,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 
   .rg-module-tag {
     display: inline-flex;
-    margin-bottom: 14px;
+    margin-bottom: 4px;
   }
 }
 
