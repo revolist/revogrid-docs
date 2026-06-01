@@ -466,6 +466,26 @@ const featuresProBase = [
             { title: 'Non-working time shading, task labels, and custom task markers' },
         ],
     },
+    {
+        title: 'Collaborative Editing',
+        thumbnail: '/img/collaborative.png',
+        videoUrl: '/video/spreadhsheet.mp4',
+        group: 'Data Management',
+        beta: true,
+        description: 'Real-time multi-user editing that lets multiple people work on the same grid simultaneously. See live cursors and cell highlights for every connected user, track who is editing what, and commit changes through a shared conflict-resolution layer — so every participant always sees a consistent, up-to-date view of the data.',
+        subFeatures: [
+            { title: 'Live presence indicators showing connected users and their cursor positions' },
+            { title: 'Per-user cell and range highlight with configurable color assignment' },
+            { title: 'Optimistic local updates with server-reconciled commit flow' },
+            { title: 'Conflict detection and resolution on concurrent cell edits' },
+            { title: 'Operational-transform or CRDT-compatible change broadcast' },
+            { title: 'User identity and permission-level integration' },
+            { title: 'Commit, discard, and review workflow for pending collaborative changes' },
+            { title: 'Audit trail integration — every collaborative edit is attributed and timestamped' },
+            { title: 'WebSocket and WebRTC transport adapters' },
+            { title: 'Offline edit queuing with automatic sync on reconnect' },
+        ],
+    },
 ]
 
 export const featuresPro = featuresProBase

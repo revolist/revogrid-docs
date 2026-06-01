@@ -28,8 +28,7 @@ proPage:
       prefix: Ship the data layer in
       highlight: days
       suffix: not quarters.
-    subtitle: RevoGrid Pro turns months of grid engineering - formula engine, advanced layouts, hierarchical data, server-side rendering, reporting - into a single dependency.
-    subtitleNote: Built on the same MIT core. Royalty-free. No deploy fees.
+    subtitle: Formula engine, pivot analytics, Gantt scheduling, master-detail layouts, and audit trails — production-ready modules that drop into the grid you already use.
     actions:
       primary:
         label: Get Pro

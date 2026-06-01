@@ -206,11 +206,15 @@ const gridColumns = [
     size: 70,
     readonly: true,
     cellTemplate(createElement: GridCreateElement, { model }: GridCellContext) {
-      const bars = model.trend.map((point: number, index: number) =>
+      const values: number[] = model.trend
+      const min = Math.min(...values)
+      const max = Math.max(...values)
+      const range = max - min || 1
+      const bars = values.map((point: number, index: number) =>
         createElement('span', {
           key: index,
-          class: { 'spark-bar': true, up: index === 0 ? true : point >= model.trend[index - 1] },
-          style: { height: `${point}%` },
+          class: { 'spark-bar': true, up: index === 0 ? true : point >= values[index - 1] },
+          style: { height: `${10 + ((point - min) / range) * 90}%` },
         })
       )
       return createElement('span', { class: 'sparkline' }, bars)
