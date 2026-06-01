@@ -3,7 +3,6 @@
     <div class="mock-titlebar">
       <div class="window-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
       <span class="mock-title">Sales Pivot · RevoGrid</span>
-      <span class="live-pill">Live</span>
     </div>
     <div class="mock-fields">
       <span class="field-tag blue">Region</span>

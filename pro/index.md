@@ -28,7 +28,7 @@ proPage:
       prefix: Ship the data layer in
       highlight: days
       suffix: not quarters.
-    subtitle: Formula engine, pivot analytics, Gantt scheduling, master-detail layouts, and audit trails — production-ready modules that drop into the grid you already use.
+    subtitle: Advanced layouts, reports & analytics, charts, master-detail, and audit trails — production-ready modules that drop into the grid you already use.
     actions:
       primary:
         label: Get Pro

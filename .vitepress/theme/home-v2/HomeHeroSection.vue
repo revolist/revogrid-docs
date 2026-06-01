@@ -44,7 +44,6 @@
               <span style="background:#28c840"></span>
             </div>
             <div class="rg-browser-url">Market Data · RevoGrid</div>
-            <div class="rg-live">Live</div>
           </div>
           <ClientOnly>
             <div class="rg-grid-wrap">

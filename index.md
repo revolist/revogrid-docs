@@ -299,7 +299,7 @@ comparison:
     - Enterprise suites
     - Custom in-house
   rows:
-    - [Virtualized row rendering, no, yes, yes, partial]
+    - [Virtualized row rendering 1M+ Rows and Columns, no, yes, yes, partial]
     - [Spreadsheet-style UX, no, yes, yes, partial]
     - [Custom cell renderers, partial, yes, yes, yes]
     - [Plugin architecture, no, yes, partial, partial]
@@ -364,20 +364,16 @@ faq:
   label: FAQ
   title: Common questions
   items:
-    - q: Is RevoGrid only for ERP applications?
-      a: No. RevoGrid is a high-performance data grid for any web application that works with structured data. ERP is one use case among many.
     - q: Can I use RevoGrid in a SaaS product?
       a: Yes. Commercial plans cover production SaaS applications. Your end users can use the product without any additional licensing.
     - q: How does licensing work? Do you charge per deployment?
       a: No. Licensing is based on the number of developers building with RevoGrid, not deployments, environments, or end users.
     - q: What is the difference between Pro Light and Pro Advanced?
-      a: Pro Light gives production access to Pro workflows and examples. Pro Advanced adds premium modules such as Pivot Grid, Gantt Chart, and advanced operational patterns.
+      a: Pro Light gives production access to Pro workflows and examples. Pro Advanced adds premium modules such as Pivot Grid, Gantt Chart, and support.
     - q: Can I evaluate RevoGrid before purchasing?
-      a: Yes. The open-source core is available on npm and GitHub, and live interactive demos are available without signing up.
+      a: Yes. The open-source core is available on npm and GitHub, and live interactive demos are available without signing up. Trial available upon request.
     - q: Can I upgrade my plan later?
       a: Yes. Start with the core grid or Pro Light and upgrade to Pro Advanced when your product requires Pivot, Gantt, or deeper workflow modules.
-    - q: Does RevoGrid work with TypeScript?
-      a: Yes. RevoGrid is built with TypeScript and ships type definitions for APIs, columns, events, and plugin interfaces.
 
 finalCta:
   title: Build your next complex data interface with RevoGrid.

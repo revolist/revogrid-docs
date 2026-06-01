@@ -7,7 +7,7 @@
     <HomeDeveloperSection :section="data.developer" />
     <HomeNativeCells :section="data.nativeCells" />
     <HomeAdvancedModules :section="data.advanced" />
-    <HomeUseCases :section="data.useCases" />
+    <HomeUseCases v-if="data.useCases" :section="data.useCases" />
     <HomeComparison :section="data.comparison" />
     <HomeFaq :section="data.faq" />
     <HomeFinalCta :section="data.finalCta" />
@@ -172,8 +172,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 }
 
 .rg-hero {
-  padding: 80px 0 38px;
-  overflow: hidden;
+  padding: 80px 0 5px;
 }
 
 .rg-hero-grid,
@@ -290,7 +289,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--rg-shadow);
-  background: var(--rg-bg-2);
+  background: var(--rg-bg);
 }
 
 .rg-browser-bar,
@@ -360,12 +359,13 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 }
 
 .rg-grid {
+  $h: 460px;
   display: block;
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  height: 330px;
-  min-height: 330px;
+  height: $h;
+  min-height: $h;
   border: 0;
 }
 
@@ -443,7 +443,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 .perf-dn { color: #f87171; }
 
 .rg-proof {
-  border-top: 1px solid var(--rg-border);
   background: transparent;
   padding: 24px 0;
 }
@@ -458,8 +457,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 
 .rg-proof-card {
   display: flex;
-  align-items: center;
-  justify-content: center;
   min-height: 48px;
   border: 1px solid var(--rg-border);
   border-radius: 10px;
@@ -469,10 +466,10 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 
 .rg-proof-fortune {
   flex-direction: column;
-  gap: 1px;
-  min-width: 96px;
+  gap: 6px;
+  min-width: 80px;
   min-height: 54px;
-  padding: 6px 10px;
+  padding: 10px 0;
   background: #fff;
   border: 0;
   box-shadow: none;
@@ -555,15 +552,17 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 .rg-usecase-card {
   border: 1px solid var(--rg-border);
   border-radius: 16px;
-  background: var(--rg-bg-2);
   color: inherit;
   text-decoration: none;
 }
 
 .rg-module-card:hover,
-.rg-usecase-card:hover,
-.rg-cap-card:hover {
+.rg-usecase-card:hover {
   border-color: var(--rg-border-hover);
+}
+
+.rg-cap-card:hover {
+  background: var(--rg-bg-2);
 }
 
 .rg-module-preview {
@@ -597,6 +596,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 .rg-caps-grid {
   gap: 2px;
   border: 1px solid var(--rg-border);
+  background: var(--rg-bg);
 }
 
 .rg-cap-card,
@@ -806,53 +806,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   background: var(--rg-bg-3);
 }
 
-.rg-comparison-wrap {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: auto;
-}
-
-.rg-comparison {
-  width: 100%;
-  min-width: 760px;
-  border-collapse: collapse;
-  font-size: 14px;
-
-  th,
-  td {
-    border-bottom: 1px solid var(--rg-border);
-    padding: 13px 18px;
-    text-align: center;
-  }
-
-  th:first-child,
-  td:first-child {
-    text-align: left;
-  }
-
-  th {
-    color: var(--rg-text);
-    font-size: 14px;
-  }
-
-  .highlight {
-    background: var(--rg-green-bg);
-  }
-
-  .check {
-    color: var(--rg-font-green);
-    font-weight: 600;
-  }
-
-  .cross {
-    color: #f87171;
-  }
-
-  .partial {
-    color: #f59e0b;
-  }
-}
-
 .rg-faq-list {
   max-width: 760px;
   margin: 0 auto;
@@ -979,8 +932,9 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   }
 
   .rg-grid {
-    height: 360px;
-    min-height: 360px;
+    $h: 360px;
+    height: $h;
+    min-height: $h;
   }
 
   .rg-proof-card {

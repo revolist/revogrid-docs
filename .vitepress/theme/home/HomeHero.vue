@@ -6,9 +6,6 @@
                 <span class="mock-dot" style="background:#febc2e"></span>
                 <span class="mock-dot" style="background:#28c840"></span>
                 <span class="mock-title">Market Data · RevoGrid</span>
-                <div class="mock-options">
-                    <span class="mock-option active">Live</span>
-                </div>
             </div>
             <div class="mock-body">
                 <ClientOnly>
