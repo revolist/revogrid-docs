@@ -261,7 +261,7 @@ developer:
 
 advanced:
   label: Advanced modules
-  title: Start with the grid. Add modules when you need them.
+  title: Start with the core-grid. Add modules when you need them.
   description: RevoGrid scales from a fast editable grid to advanced product workflows without switching tools or rewriting integrations.
   action:
     text: Explore advanced modules
