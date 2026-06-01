@@ -49,7 +49,6 @@ const pricingPage = computed<PricingPageData>(() => {
   const page = frontmatter.value.pricingPage as Partial<PricingPageData> | undefined
 
   return {
-    hero: { ...defaultPricingPage.hero, ...page?.hero },
     featureComparison: {
       ...defaultPricingPage.featureComparison,
       ...page?.featureComparison,

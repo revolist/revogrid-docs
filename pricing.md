@@ -79,11 +79,9 @@ pricing:
         - Commercial production use
         - text: Production-ready plugins and examples
           link: /pro/
+        - Pro Portall Access
         - Pro MCP (Model Context Protocol)
         - Includes one year of updates
-      dim:
-        - Pivot Grid module
-        - Gantt Chart module
     - id: advanced
       name: Pro Advanced
       featured: true
@@ -92,12 +90,12 @@ pricing:
       action: Buy Pro Advanced
       features:
         - Everything in Pro Light
-        - Pivot Grid module
-        - Gantt Chart module
-        - Roadmap influence
         - Priority support
         - Priority bug fix queue
+        - Roadmap influence
         - Early access to new modules
+        - Pivot Grid module
+        - Gantt Chart module
     - id: enterprise
       name: Enterprise
       description: For larger teams with procurement, security review, and custom terms.

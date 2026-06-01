@@ -31,7 +31,6 @@ export interface PricingCtaData {
 }
 
 export interface PricingPageData {
-  hero: PricingHeroData
   featureComparison: {
     heading: string
   }
