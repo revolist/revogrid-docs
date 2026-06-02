@@ -470,7 +470,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   min-width: 80px;
   min-height: 54px;
   padding: 10px 0;
-  background: #fff;
   border: 0;
   box-shadow: none;
   color: #050505;
@@ -481,7 +480,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 .rg-fortune-word {
   border: 0;
   padding: 0;
-  color: #211d1f;
+  color: var(--rg-text-2);
   font-size: 13px;
   font-weight: 900;
   line-height: 0.95;
@@ -489,7 +488,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 }
 
 .rg-fortune-num {
-  color: #000;
+  color: var(--rg-text);
   font-size: 34px;
   font-weight: 900;
   line-height: 0.86;
