@@ -90,7 +90,7 @@ capabilities:
       description: Range selection, keyboard navigation, copy/paste, and inline editing. The UX your users already know.
     - title: Advanced filtering and sorting
       icon: tool
-      link: "/guide/sorting"
+      link: "/guide/filters"
       description: AND/OR condition trees across multiple filters per column. Additive multi-column sorting. All built into the core.
     - title: Grouping and row ordering
       icon: app
