@@ -99,7 +99,7 @@ capabilities:
     - title: Custom cells and editors
       icon: star
       link: "/guide/cell/renderer"
-      description: Any Vue, React, or Angular component becomes a cell. Build pickers, badges, sparklines — whatever you need.
+      description: Any Vue, React, Angular, or Svelte component becomes a cell. Build pickers, badges, sparklines — whatever you need.
     - title: Plugin architecture
       icon: plugin
       link: "/guide/plugin/"
@@ -108,7 +108,7 @@ capabilities:
 nativeCells:
   label: No context switch
   title: Full native framework support
-  description: RevoGrid supports React, Vue, and Angular at the core JavaScript DataGrid level, so developers can build data-heavy apps with native components, familiar framework patterns, and virtualized grid rendering.
+  description: RevoGrid supports React, Vue, Angular, and Svelte at the core JavaScript DataGrid level, so developers can build data-heavy apps with native components, familiar framework patterns, and virtualized grid rendering.
   links:
     - text: React cells
       href: /guide/react/renderer
@@ -116,6 +116,8 @@ nativeCells:
       href: /guide/vue3/renderer
     - text: Angular cells
       href: /guide/angular/renderer
+    - text: Svelte cells
+      href: /guide/svelte/renderer
   examples:
     - framework: React
       color: '#61DAFB'
@@ -157,6 +159,20 @@ nativeCells:
         columns = [
           { prop: 'value', cellTemplate: Template(CellComponent) },
         ]
+    - framework: Svelte
+      color: '#FF3E00'
+      lang: svelte
+      code: |
+        __LT__script lang="ts"__GT__
+          import Cell from './Cell.svelte'
+          import { RevoGrid, Template } from '@revolist/svelte-datagrid'
+
+          const columns = [
+            { prop: 'value', cellTemplate: Template(Cell) },
+          ]
+        __LT__/script__GT__
+
+        __LT__RevoGrid {columns} source={rows} /__GT__
 
 developer:
   label: For developers

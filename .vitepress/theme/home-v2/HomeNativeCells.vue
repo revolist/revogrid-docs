@@ -74,9 +74,10 @@ function linkFrameworkMentions(value: string | undefined) {
     React: '/guide/react/',
     Vue: '/guide/vue3/',
     Angular: '/guide/angular/',
+    Svelte: '/guide/svelte/',
   }
 
-  return escapeHtml(value).replace(/\b(React|Vue|Angular)\b/g, (label) => {
+  return escapeHtml(value).replace(/\b(React|Vue|Angular|Svelte)\b/g, (label) => {
     return `<a class="rg-product-link" href="${escapeHtml(linkOf(links[label]))}">${label}</a>`
   })
 }
@@ -128,8 +129,8 @@ function linkFrameworkMentions(value: string | undefined) {
 
 .rg-native-examples {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
   width: 100%;
 }
 
@@ -146,7 +147,7 @@ function linkFrameworkMentions(value: string | undefined) {
   display: flex;
   align-items: center;
   gap: 7px;
-  padding: 9px 11px;
+  padding: 8px 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   color: rgba(214, 222, 255, 0.72);
   font-size: 12px;
@@ -167,10 +168,10 @@ function linkFrameworkMentions(value: string | undefined) {
 .rg-native-code :deep(.shiki) {
   background: transparent !important;
   margin: 0;
-  padding: 13px;
+  padding: 11px;
   overflow: auto;
-  font-size: 11px;
-  line-height: 1.55;
+  font-size: 10.5px;
+  line-height: 1.5;
 }
 
 .rg-native-code :deep(pre),
@@ -178,7 +179,13 @@ function linkFrameworkMentions(value: string | undefined) {
   font-family: inherit;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+  .rg-native-examples {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
   .rg-native-examples {
     grid-template-columns: 1fr;
   }
