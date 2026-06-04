@@ -85,13 +85,13 @@ pricing:
         - Commercial production use
         - text: Production-ready plugins and examples
           link: /pro/
-        - Pro Portall Access
+        - Pro Portal Access
         - Pro MCP (Model Context Protocol)
         - Includes one year of updates
     - id: advanced
       name: Pro Advanced
       featured: true
-      badge: Best for teams that need the core team
+      badge: Best for teams that need production-ready Pro workflows
       description: For product teams that need Pivot Grid, Gantt Chart, and direct access to RevoGrid experts.
       action: Buy Pro Advanced
       features:

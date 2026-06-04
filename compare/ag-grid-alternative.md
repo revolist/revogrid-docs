@@ -1119,6 +1119,20 @@ Start with the MIT core. Add Pro features when your product needs them. Scale wi
 
 ---
 
+::: details Official sources checked
+Official vendor pages reviewed for AG Grid pricing, licensing, feature positioning, and support claims:
+
+- [AG Grid license and pricing](https://www.ag-grid.com/license-pricing/) — official pricing page showing AG Grid Community, AG Grid Enterprise from $999 USD per developer, and Enterprise Bundle from $1,498 USD per developer.
+- [AG Grid Enterprise data grid](https://www.ag-grid.com/landing-pages/enterprise-data-grid/) — official Enterprise overview and feature comparison for Enterprise and Enterprise Bundle.
+- [AG Grid Community vs Enterprise](https://www.ag-grid.com/javascript-data-grid/community-vs-enterprise/) — official feature split between Community and Enterprise.
+- [AG Grid Enterprise support](https://www.ag-grid.com/license-pricing/#support) — official pricing/support area linked from the AG Grid pricing page.
+- [AG Grid GitHub repository](https://github.com/ag-grid/ag-grid) — official public repository and package information.
+- [RevoGrid pricing](https://rv-grid.com/pricing) — RevoGrid plan, licensing, and support positioning used for the RevoGrid side of this comparison.
+- [RevoGrid GitHub repository](https://github.com/revolist/revogrid) — official RevoGrid core repository and MIT license source.
+:::
+
+---
+
 <small>
 AG Grid is a trademark of AG Grid Ltd. This page is an independent comparison intended to help teams evaluate JavaScript data grid options. Product names, pricing, and licensing terms may change; always review current vendor terms before purchasing.
 </small>

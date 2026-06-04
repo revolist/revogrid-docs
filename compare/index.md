@@ -23,17 +23,17 @@ Use these guides when you are choosing a JavaScript data grid for a product, int
 The comparison pages focus on practical buying and implementation questions: licensing, deployment rules, framework support, editing, filtering, export, Pivot, Gantt, server-side workflows, support, and migration tradeoffs.
 
 <div class="compare-index-grid">
-  <a class="compare-index-card" href="/compare/ag-grid-alternative">
+  <article class="compare-index-card">
     <span class="compare-index-label">Enterprise data grid comparison</span>
-    <strong>AG Grid vs RevoGrid</strong>
-    <span>Compare RevoGrid with AG Grid Community and AG Grid Enterprise across licensing, advanced features, SaaS deployment, Pivot, Gantt, and support.</span>
-  </a>
+    <a href="/compare/ag-grid-alternative">AG Grid Alternative</a>
+    <p>Compare RevoGrid with AG Grid Community and AG Grid Enterprise across licensing, advanced features, SaaS deployment, Pivot, Gantt, and support.</p>
+  </article>
 
-  <a class="compare-index-card" href="/compare/handsontable-alternative">
+  <article class="compare-index-card">
     <span class="compare-index-label">Spreadsheet-like grid comparison</span>
-    <strong>Handsontable vs RevoGrid</strong>
-    <span>Compare RevoGrid with Handsontable for spreadsheet UX, formulas, clipboard workflows, pricing, licensing, framework support, Pivot, and Gantt.</span>
-  </a>
+    <a href="/compare/handsontable-alternative">Handsontable Alternative</a>
+    <p>Compare RevoGrid with Handsontable for spreadsheet UX, formulas, clipboard workflows, pricing, licensing, framework support, Pivot, and Gantt.</p>
+  </article>
 </div>
 
 ## What To Compare
@@ -60,7 +60,7 @@ When evaluating grid frameworks, start with the constraints that are hardest to 
   }
 }
 
-a.compare-index-card {
+.compare-index-card {
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
   color: var(--vp-c-text-2);
@@ -68,26 +68,30 @@ a.compare-index-card {
   flex-direction: column;
   gap: 10px;
   padding: 22px;
-  text-decoration: none;
   transition:
     border-color 0.2s,
-    background-color 0.2s,
-    color 0.2s;
+    background-color 0.2s;
 
   &:hover {
     background: var(--vp-c-bg-soft);
     border-color: var(--vp-c-brand-2);
-    color: var(--vp-c-text-1);
   }
 
-  strong {
+  a {
     color: var(--vp-c-text-1);
     font-size: 20px;
+    font-weight: 700;
     line-height: 1.25;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--vp-c-brand-1);
+    }
   }
 
-  span {
+  p {
     line-height: 1.55;
+    margin: 0;
   }
 }
 

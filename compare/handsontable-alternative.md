@@ -1,5 +1,5 @@
 ---
-title: "Advanced Feature Comparison: RevoGrid Core & Pro vs Handsontable"
+title: "Handsontable Alternative: RevoGrid for Fast, Flexible Spreadsheet-like Data Grids"
 description: "Deep technical comparison of RevoGrid Core, RevoGrid Pro, and Handsontable across licensing, pricing, framework support, editing, virtualization, formulas, Pivot, Gantt, export, server-side workflows, and SaaS deployment."
 outline: deep
 aside: true
@@ -20,7 +20,7 @@ head:
       href: "https://rv-grid.com/compare/revogrid-pro-core-vs-handsontable"
   - - meta
     - property: og:title
-      content: "Advanced Feature Comparison: RevoGrid Core & Pro vs Handsontable"
+      content: "Handsontable Alternative: RevoGrid for Fast, Flexible Spreadsheet-like Data Grids"
   - - meta
     - property: og:description
       content: "Compare RevoGrid Core, RevoGrid Pro, and Handsontable for spreadsheet UX, data-grid workflows, formulas, Pivot, Gantt, pricing, licensing, and SaaS deployment."
@@ -32,7 +32,7 @@ head:
       content: "https://rv-grid.com/compare/revogrid-pro-core-vs-handsontable"
 ---
 
-# Advanced Feature Comparison: RevoGrid Core & Pro vs Handsontable
+# Handsontable Alternative: RevoGrid for Fast, Flexible Spreadsheet-like Data Grids
 
 <script lang="ts" setup>
 import CompareCta from './CompareCta.vue'
@@ -580,11 +580,11 @@ That distinction matters for SaaS teams. A spreadsheet component solves the tabl
   <CompareCta />
 </div>
 
-::: details Sources checked
-Official source pages reviewed for this comparison:
+::: details Official sources checked
+Official vendor pages reviewed for Handsontable pricing, licensing, feature positioning, and support claims:
 
 - [Handsontable homepage](https://handsontable.com/)
-- [Handsontable pricing](https://handsontable.com/pricing)
+- [Handsontable pricing](https://handsontable.com/pricing) — official pricing page showing a 45-day trial, Standard from $999, Priority from $1299, Enterprise custom pricing, and the developer-license requirement.
 - [Handsontable license key documentation](https://handsontable.com/docs/javascript-data-grid/license-key/)
 - [Handsontable feature examples](https://handsontable.com/features)
 - [Handsontable formula calculation documentation](https://handsontable.com/docs/javascript-data-grid/formula-calculation/)
