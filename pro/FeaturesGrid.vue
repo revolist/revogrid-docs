@@ -42,10 +42,10 @@ const groupedFeatures = computed(() => {
         return acc
     }, {})
 
-    if (groups['Enterprise Tools']) {
-        const enterpriseTools = groups['Enterprise Tools']
-        delete groups['Enterprise Tools']
-        groups['Enterprise Tools'] = enterpriseTools
+    if (groups['Pro Advanced Modules']) {
+        const proAdvancedModules = groups['Pro Advanced Modules']
+        delete groups['Pro Advanced Modules']
+        groups['Pro Advanced Modules'] = proAdvancedModules
     }
 
     return groups

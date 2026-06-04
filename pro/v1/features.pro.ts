@@ -387,7 +387,7 @@ const featuresProBase = [
         title: 'Pivot Table',
         thumbnail: '/img/pivot.png',
         videoUrl: '/video/pivot.mp4',
-        group: 'Enterprise Tools',
+        group: 'Pro Advanced Modules',
         description: `
         Production-ready Pivot grid for multidimensional analytics, reporting, and OLAP-style workflows. Includes client-side and server-side engines, interactive configuration, drill-down, totals, and advanced layout control.
         `,
@@ -420,7 +420,7 @@ const featuresProBase = [
     {
         title: 'Gantt & Scheduling',
         thumbnail: '/img/gantt.png',
-        group: 'Enterprise Tools',
+        group: 'Pro Advanced Modules',
         beta: true,
         description: 'Production-ready Gantt chart and scheduling view for project planning, dependency management, resource allocation, and timeline analysis.',
         subFeatures: [

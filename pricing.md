@@ -38,7 +38,7 @@ pricingPage:
       - question: Is there a deployment fee?
         answer: No. RevoGrid Pro does not currently charge a deployment fee. Your license costs are based on the selected plan and required number of developer licenses, not how many times you deploy.
       - question: What's the difference between Pro Light and Pro Advanced?
-        answer: <strong>Pro Light</strong> gives you advanced column types, enhanced sorting, export, and priority bug fixes. <strong>Pro Advanced</strong> adds direct access to the RevoGrid engineering team — priority support, bug fix queue, roadmap influence, and early access to new modules as your product scales.
+        answer: <strong>Pro Light</strong> gives you advanced column types, enhanced sorting, export, and priority bug fixes. <strong>Pro Advanced</strong> includes the Pivot Grid module and Gantt Chart module, plus direct access to the RevoGrid engineering team, priority support, bug fix queue, roadmap influence, and early access to new modules as your product scales.
       - question: Is the open-source version truly free?
         answer: Yes. The MIT core is free forever, including for commercial use, subject to the attribution requirements described in the <a href='/guide/attribution'>attribution guide</a>. Pro adds features on top of the open-source build.
       - question: Need help?
@@ -86,7 +86,7 @@ pricing:
       name: Pro Advanced
       featured: true
       badge: Best for teams that need the core team
-      description: For product teams that want direct access to RevoGrid experts.
+      description: For product teams that need Pivot Grid, Gantt Chart, and direct access to RevoGrid experts.
       action: Buy Pro Advanced
       features:
         - Everything in Pro Light

@@ -224,7 +224,7 @@ proPage:
       User Interaction: UI
       Data Entry & Automation: DE
       Development & Integration: DI
-      Enterprise Tools: ET
+      Pro Advanced Modules: PA
     groupLabels:
       Advanced Data Structures: Advanced Structures
       Data Filtering & Search: Filtering & Search

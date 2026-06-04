@@ -64,8 +64,8 @@ const featuresByGroup = featuresPro.reduce<Record<string, FeatureTableGroup>>((a
     }
   }
 
-  const isEnterpriseTools = feature.group === 'Enterprise Tools'
-  const supported = isEnterpriseTools ? ['Pro Advanced'] : ['Pro Lite', 'Pro Advanced']
+  const isProAdvancedModule = feature.group === 'Pro Advanced Modules'
+  const supported = isProAdvancedModule ? ['Pro Advanced'] : ['Pro Lite', 'Pro Advanced']
 
   acc[feature.group].features.push({
     name: feature.title,
@@ -157,5 +157,5 @@ featureTableGroups.push({
   ],
 })
 
-const enterpriseIdx = featureTableGroups.findIndex((group) => group.name === 'Enterprise Tools')
-if (enterpriseIdx >= 0) featureTableGroups.push(featureTableGroups.splice(enterpriseIdx, 1)[0])
+const proAdvancedIdx = featureTableGroups.findIndex((group) => group.name === 'Pro Advanced Modules')
+if (proAdvancedIdx >= 0) featureTableGroups.push(featureTableGroups.splice(proAdvancedIdx, 1)[0])

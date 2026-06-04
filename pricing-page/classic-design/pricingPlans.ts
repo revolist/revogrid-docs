@@ -24,8 +24,8 @@ export const PRO_LIGHT_FEATURES = [
 export const PRO_ADV_FEATURES = [
   'Everything in Pro Light',
   'Broader commercial use (no app limit)',
-  'Enterprise Pivot grid',
-  'Gantt / timeline renderer',
+  'Pivot Grid module',
+  'Gantt Chart module',
   'Access to typed source code',
   'Direct engineering support',
   'Team discounts 3+ seats',

@@ -62,7 +62,7 @@ proPage:
       User Interaction: 🖱️
       Data Entry & Automation: ⚡
       Development & Integration: 🔌
-      Enterprise Tools: 🏢
+      Pro Advanced Modules: PA
     link:
       label: View full feature table
       href: /pricing#feature-comparison

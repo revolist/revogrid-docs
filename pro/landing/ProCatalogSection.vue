@@ -28,7 +28,7 @@
               v-for="feature in group.features"
               :key="feature.title"
               class="feat-tile"
-              :class="{ ent: group.rawLabel === 'Enterprise Tools' }"
+              :class="{ ent: group.rawLabel === 'Pro Advanced Modules' }"
               @click="openModal(feature)"
             >
               <div class="feat-tile-thumb" :class="groupThumbClass(group.rawLabel)">
@@ -146,7 +146,7 @@ const THUMB_MAP: Record<string, string> = {
   'User Interaction': 'th-ux',
   'Data Entry & Automation': 'th-entry',
   'Development & Integration': 'th-dev',
-  'Enterprise Tools': 'th-ent',
+  'Pro Advanced Modules': 'th-ent',
 }
 
 const ICON_STYLE_MAP: Record<string, string> = {
@@ -162,7 +162,7 @@ const ICON_STYLE_MAP: Record<string, string> = {
   'User Interaction': 'background:rgba(167,139,250,.12);color:var(--violet)',
   'Data Entry & Automation': 'background:rgba(45,212,191,.12);color:var(--teal)',
   'Development & Integration': 'background:rgba(255,255,255,.06);color:var(--text-muted)',
-  'Enterprise Tools': 'background:var(--accent-soft);color:var(--accent)',
+  'Pro Advanced Modules': 'background:var(--accent-soft);color:var(--accent)',
 }
 
 function groupThumbClass(rawLabel: string): string {

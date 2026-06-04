@@ -31,7 +31,7 @@ The Pro version is available under a commercial license — visit the [Pricing p
 
 #### Advanced plan
 
-Unlocks the most advanced features of the RevoGrid, including AI, premium support, and the Enterprise Pivot grid with totals, drill-down, field panels, custom aggregations, and server-side analytics contracts. It also includes everything offered in the Pro Light plan.
+Unlocks the most advanced features of RevoGrid, including Pivot Grid, Gantt Chart, AI, premium support, totals, drill-down, field panels, custom aggregations, and server-side analytics contracts. It also includes everything offered in the Pro Light plan.
 
 The Pro Advanced version is available under a commercial license—visit the [Licensing page](/pro/policies/license) for details.
 
