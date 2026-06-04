@@ -34,6 +34,12 @@ The comparison pages focus on practical buying and implementation questions: lic
     <a href="/compare/handsontable-alternative">Handsontable Alternative</a>
     <p>Compare RevoGrid with Handsontable for spreadsheet UX, formulas, clipboard workflows, pricing, licensing, framework support, Pivot, and Gantt.</p>
   </article>
+
+  <article class="compare-index-card">
+    <span class="compare-index-label">Grid, Gantt, and Pivot comparison</span>
+    <a href="/compare/syncfusion-alternative">Syncfusion Alternative</a>
+    <p>Compare RevoGrid with Syncfusion DataGrid, Gantt, and Pivot Table for focused grid workflows, framework support, advanced modules, licensing, and product fit.</p>
+  </article>
 </div>
 
 ## What To Compare
