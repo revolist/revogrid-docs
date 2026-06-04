@@ -68,12 +68,20 @@ RevoGrid is built for that scenario. It focuses on the data surface itself: fast
 | Virtualized rows | ✅ | ✅ |
 | Virtualized columns | ✅ | ✅ |
 | Millions of rows / cells positioning | ✅ | ✅ |
+| Remote pagination | ✅ Pro | ⚠️ DataManager setup |
+| Infinite scroll | ✅ Pro | ⚠️ DataManager setup |
+| Viewport / range loading | ✅ Pro | ⚠️ Custom data source |
+| Trimmed rows | ✅ | ⚠️ App filtering logic |
+| Row animation | ✅ Pro | ⚠️ Custom styling |
 | Lightweight grid-first architecture | ✅ | ⚠️ Broad suite |
 | Web Component foundation | ✅ | ⚠️ Framework packages |
 | React support | ✅ | ✅ |
 | Vue support | ✅ | ✅ |
 | Angular support | ✅ | ✅ |
 | Svelte support | ✅ | ⚠️ Not primary focus |
+| SSR-aware usage | ✅ | ⚠️ Framework setup |
+| Stencil support | ✅ | ⚠️ Custom integration |
+| TanStack integration examples | ✅ | ⚠️ Custom integration |
 | Vanilla JavaScript support | ✅ | ✅ |
 | Custom cell templates | ✅ | ✅ |
 | Render framework-native components inside cells | ✅ | ⚠️ Template-dependent |
@@ -84,12 +92,23 @@ RevoGrid is built for that scenario. It focuses on the data surface itself: fast
 | Column groups / multi-level headers | ✅ | ✅ |
 | Column collapse and expand | ✅ Pro | ⚠️ Custom setup |
 | Column hide / show | ✅ Pro | ✅ |
+| Column group reorder | ✅ Pro | ⚠️ Custom setup |
+| Multilevel columns | ✅ Pro | ✅ |
+| Column spanning | ✅ Pro | ✅ |
+| Column selection | ✅ Pro | ⚠️ Selection setup |
+| Custom column menu | ✅ Pro | ⚠️ Custom menu |
 | Row grouping | ✅ Pro | ✅ |
 | Drag-and-drop row grouping panel | ✅ Pro | ✅ |
 | Server-side grouping | ✅ Pro | ⚠️ Server setup |
 | Tree / hierarchical rows | ✅ Pro | ⚠️ Separate TreeGrid/Gantt |
+| Self-referential tree data | ✅ Pro | ⚠️ Separate TreeGrid/Gantt |
 | Master-detail rows | ✅ Pro | ✅ |
 | Nested grid | ✅ Pro | ✅ |
+| Row auto size | ✅ Pro | ⚠️ Custom sizing |
+| Custom row heading | ✅ Pro | ⚠️ Custom template |
+| Row transpose | ✅ Pro | ⚠️ Custom transform |
+| Full-width rows | ✅ Pro | ⚠️ Detail/template setup |
+| Row spanning | ✅ Pro | ⚠️ Custom template |
 | Sorting | ✅ | ✅ |
 | Multi-column filtering | ✅ | ✅ |
 | Conditional filters | ✅ | ✅ |
@@ -102,39 +121,66 @@ RevoGrid is built for that scenario. It focuses on the data surface itself: fast
 | Multi-range selection | ✅ Pro | ⚠️ Control-dependent |
 | Fill handle | ✅ | ⚠️ Spreadsheet workflow |
 | Smart auto fill | ✅ Pro | ⚠️ Spreadsheet workflow |
+| Range handle | ✅ | ⚠️ Spreadsheet workflow |
+| Range copy preview | ✅ Pro | ❌ |
 | Clipboard copy/paste from Excel or Sheets | ✅ | ✅ |
 | Clipboard with JSON/object values | ✅ Pro | ⚠️ Custom serialization |
 | Inline editing | ✅ | ✅ |
 | Full row editing | ✅ Pro | ✅ |
+| Batch editing | ✅ Pro | ✅ |
 | Dynamic form editing | ✅ Pro | ⚠️ Custom forms |
 | Checkbox editors | ✅ Pro | ✅ |
 | Slider editor | ✅ Pro | ⚠️ Custom editor |
 | Counter editor | ✅ Pro | ⚠️ Custom editor |
 | Timeline editor | ✅ Pro | ⚠️ Custom/Gantt UI |
 | Textarea / dropdown editors | ✅ Pro | ✅ |
+| Rich select editor | ✅ Pro | ⚠️ Custom editor |
 | Cell validation | ✅ Pro | ✅ |
 | Input validation before commit | ✅ Pro | ✅ |
 | Undo / redo history | ✅ Pro | ⚠️ App/Spreadsheet logic |
 | Audit trail history | ✅ Pro | ⚠️ App logic |
+| Collaborative editing | ✅ Pro | ⚠️ App logic |
 | Range apply preview | ✅ Pro | ❌ |
 | Excel export | ✅ Pro | ✅ |
 | Excel import | ✅ Pro | ⚠️ Control-dependent |
 | CSV export | ✅ | ✅ |
 | PDF export | ⚠️ Custom export | ✅ |
 | Formulas | ✅ Pro | ✅ |
+| 100+ Excel formulas | ✅ Pro | ⚠️ Spreadsheet-specific |
 | Formula bar | ✅ Pro | ⚠️ Spreadsheet-focused |
+| Formula editor | ✅ Pro | ⚠️ Spreadsheet-focused |
+| Custom formula functions | ✅ Pro | ⚠️ Spreadsheet/custom |
+| Formula-aware fill handle | ✅ Pro | ⚠️ Spreadsheet workflow |
+| Spreadsheet-style expressions | ✅ Pro | ⚠️ Spreadsheet-focused |
 | Formula name manager | ✅ Pro | ⚠️ Spreadsheet-focused |
 | Formula dependency highlighting | ✅ Pro | ⚠️ Spreadsheet/custom |
 | Summary header | ✅ Pro | ✅ |
 | Grouping aggregation | ✅ Pro | ✅ |
+| Custom aggregation functions | ✅ Pro | ⚠️ Custom aggregate setup |
+| Total rows / subtotals | ✅ Pro | ✅ |
+| Grand totals | ✅ Pro | ✅ |
 | Server-side group aggregation | ✅ Pro | ⚠️ Server implementation |
+| Server-side row model | ✅ Pro | ⚠️ DataManager setup |
+| Server-side pagination | ✅ Pro | ⚠️ DataManager setup |
+| Server-side filtering | ✅ Pro | ⚠️ DataManager setup |
+| Server-side selection | ⚠️ App logic | ⚠️ App logic |
+| Server-side tree data | ✅ Pro | ⚠️ Separate TreeGrid/server setup |
+| Server-side master-detail | ✅ Pro | ⚠️ Custom/server setup |
+| Load retry | ✅ Pro | ⚠️ App data-source logic |
 | Pivot table | ✅ Pro | ✅ |
+| Pivot result columns | ✅ Pro | ✅ |
+| Pivot column groups | ✅ Pro | ✅ |
+| Field panels | ✅ Pro | ✅ |
+| Drag dimensions into rows / columns / values | ✅ Pro | ✅ |
 | Pivot configurator / field panel | ✅ Pro | ✅ |
 | Pivot rows, columns, values, filters | ✅ Pro | ✅ |
 | Pivot grand totals and subtotals | ✅ Pro | ✅ |
 | Pivot row/column drill-down | ✅ Pro | ✅ |
 | Pivot state save/load | ✅ Pro | ⚠️ App state setup |
 | Pivot server-side contracts | ✅ Pro | ⚠️ Data-source setup |
+| Remote analytics contract | ✅ Pro | ⚠️ Server/data-source setup |
+| Deterministic cache keys | ✅ Pro | ⚠️ App architecture |
+| BI-style embedded reporting | ✅ Pro | ⚠️ Separate BI/workflow setup |
 | Pivot charts | ⚠️ Chart integration | ✅ |
 | Gantt chart / scheduling | ✅ Pro | ✅ |
 | Gantt task hierarchy / WBS | ✅ Pro | ✅ |
@@ -147,11 +193,19 @@ RevoGrid is built for that scenario. It focuses on the data surface itself: fast
 | Task move, resize, create, progress controls | ✅ Pro | ✅ |
 | Timeline zoom / highlighted ranges / markers | ✅ Pro | ✅ |
 | Gantt toolbar and task editor dialog | ✅ Pro | ✅ |
+| Capacity warnings | ✅ Pro | ⚠️ Custom scheduling logic |
+| MS Project-style task editor | ✅ Pro | ⚠️ Custom dialog setup |
 | Context menu | ✅ Pro | ✅ |
 | Tooltips | ✅ Pro | ✅ |
 | Cell flash for live updates | ✅ Pro | ⚠️ Custom styling |
 | Heat/cold maps and conditional formatting | ✅ Pro | ✅ |
+| Multi-cell formatting | ✅ Pro | ✅ |
+| Conditional formatting | ✅ Pro | ✅ |
 | Charts inside cells | ✅ Pro | ⚠️ Templates/custom |
+| Sparklines | ✅ Pro | ⚠️ Templates/custom |
+| Inline cell charts | ✅ Pro | ⚠️ Templates/custom |
+| Integrated charts | ✅ Pro | ✅ |
+| Range charts | ✅ Pro | ✅ |
 | Avatar, badge, progress, link, rating renderers | ✅ Pro | ⚠️ Templates/custom |
 | Loader states | ✅ Pro | ✅ |
 | Event manager | ✅ Pro | ⚠️ App architecture |
