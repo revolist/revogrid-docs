@@ -1,0 +1,35 @@
+<template>
+  <div class="compare-cta" :class="{ 'compare-cta-inline': inline }">
+    <a class="rg-btn" href="#request-pro-trial" @click.prevent="showContactForm = true">
+      Request Pro Trial
+    </a>
+    <a class="rg-btn rg-btn-secondary" href="/pricing#pro-advanced">Buy Pro</a>
+  </div>
+
+  <ContactForm :isVisible="showContactForm" @close="showContactForm = false" />
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+import ContactForm from '../pro/ContactForm.vue'
+
+defineProps<{
+  inline?: boolean
+}>()
+
+const showContactForm = ref(false)
+</script>
+
+<style scoped>
+.compare-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 1.25rem;
+}
+
+.compare-cta-inline {
+  margin: 1.5rem 0 2rem;
+}
+</style>

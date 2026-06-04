@@ -45,6 +45,10 @@ export const navbarEn: DefaultTheme.NavItem[] = [
     text: 'Links',
     items: [
       {
+        text: 'Grid Comparisons',
+        link: '/compare/',
+      },
+      {
         text: 'Discussions',
         link: 'https://github.com/revolist/revogrid/discussions',
       },

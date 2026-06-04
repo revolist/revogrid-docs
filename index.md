@@ -19,8 +19,8 @@ hero:
   emphasis: extensible
   tagline: The world's fastest data grid. Inline editing, virtual scroll, custom cells — works everywhere. Go Pro for advanced features.
   primaryAction:
-    text: Live demo
-    link: /demo
+    text: Explore 1M-row demo
+    link: /demo/hr
     target: _self
   secondaryAction:
     text: View docs
@@ -345,8 +345,8 @@ finalCta:
   description: Start with the core grid today. Add Pivot, Gantt, and advanced modules as your product grows.
   note: Per-developer licensing. No deployment counting. Upgrade anytime.
   actions:
-    - text: Try live demo
-      link: /demo
+    - text: Explore 1M-row demo
+      link: /demo/hr
       variant: primary
       target: _self
     - text: View pricing

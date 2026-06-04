@@ -2,6 +2,7 @@
   <div class="pricing-page">
     <HomePricing :section="frontmatter.pricing" @contact-sales="showContactForm = true" />
     <PricingFeatureComparison :heading="pricingPage.featureComparison.heading" />
+    <PricingCompareLinks :compare-links="pricingPage.compareLinks" />
     <PricingFaq :faq="pricingPage.faq" />
     <PricingFinalCta :cta="pricingPage.cta" @contact-sales="showContactForm = true" />
     <ContactForm :isVisible="showContactForm" @close="showContactForm = false" />
@@ -12,6 +13,7 @@
 import { computed, ref } from 'vue'
 import { useData } from 'vitepress'
 import ContactForm from '../pro/ContactForm.vue'
+import PricingCompareLinks from './PricingCompareLinks.vue'
 import PricingFaq from './PricingFaq.vue'
 import PricingFeatureComparison from './PricingFeatureComparison.vue'
 import PricingFinalCta from './PricingFinalCta.vue'
@@ -23,6 +25,16 @@ const { frontmatter } = useData()
 const defaultPricingPage: PricingPageData = {
   featureComparison: {
     heading: 'Full feature comparison',
+  },
+  compareLinks: {
+    heading: 'Comparing grid vendors?',
+    description: 'Review side-by-side notes for licensing, deployment, pricing, and advanced workflow support before choosing a plan.',
+    items: [
+      {
+        label: 'Explore comparisons',
+        href: '/compare/',
+      },
+    ],
   },
   faq: {
     heading: 'Frequently asked questions',
@@ -52,6 +64,11 @@ const pricingPage = computed<PricingPageData>(() => {
     featureComparison: {
       ...defaultPricingPage.featureComparison,
       ...page?.featureComparison,
+    },
+    compareLinks: {
+      ...defaultPricingPage.compareLinks,
+      ...page?.compareLinks,
+      items: page?.compareLinks?.items ?? defaultPricingPage.compareLinks.items,
     },
     faq: {
       ...defaultPricingPage.faq,

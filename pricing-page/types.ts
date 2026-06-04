@@ -30,10 +30,17 @@ export interface PricingCtaData {
   footerLinks: PricingCtaLink[]
 }
 
+export interface PricingCompareLinksData {
+  heading: string
+  description: string
+  items: PricingCtaLink[]
+}
+
 export interface PricingPageData {
   featureComparison: {
     heading: string
   }
+  compareLinks: PricingCompareLinksData
   faq: PricingFaqData
   cta: PricingCtaData
 }

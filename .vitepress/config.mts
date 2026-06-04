@@ -295,6 +295,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         text: 'Quick Start',
                     },
                     {
+                        link: '/compare/',
+                        text: 'Grid Comparisons',
+                    },
+                    {
                         link: 'https://revolist.eu/about-us/',
                         text: 'About us',
                     },

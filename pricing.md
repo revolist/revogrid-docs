@@ -20,6 +20,12 @@ pricingPage:
     subtitle: No deployment fees. No runtime royalties. No per-seat charges for your end users. Simple per-developer annual pricing.
   featureComparison:
     heading: Full feature comparison
+  compareLinks:
+    heading: Comparing grid vendors?
+    description: Review side-by-side notes for licensing, deployment, pricing, and advanced workflow support before choosing a plan.
+    items:
+      - label: Explore comparisons
+        href: /compare/
   faq:
     heading: Frequently asked questions
     items:
