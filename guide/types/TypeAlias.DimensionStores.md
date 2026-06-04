@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.6](README.md) / DimensionStores
+[RevoGrid Documentation v4.23.7](README.md) / DimensionStores
 
 # Type Alias: DimensionStores
 
@@ -10,4 +10,4 @@ Represents the mapping of dimension types to their corresponding observable stor
 
 ## Defined in
 
-[src/types/interfaces.ts:751](https://github.com/revolist/revogrid/blob/fe0566a7e854f330e949303c09600d0c320f2290/src/types/interfaces.ts#L751)
+[src/types/interfaces.ts:751](https://github.com/revolist/revogrid/blob/790a26bfcfb8e83715d2bd150c6eae6ffbcedf9d/src/types/interfaces.ts#L751)
