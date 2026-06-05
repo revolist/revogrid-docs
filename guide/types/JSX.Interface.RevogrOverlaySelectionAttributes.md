@@ -12,4 +12,4 @@
 | `isMobileDevice` | `boolean` | [src/components.d.ts:2558](https://github.com/revolist/revogrid/blob/790a26bfcfb8e83715d2bd150c6eae6ffbcedf9d/src/components.d.ts#L2558) |
 | `range` | `boolean` | [src/components.d.ts:2553](https://github.com/revolist/revogrid/blob/790a26bfcfb8e83715d2bd150c6eae6ffbcedf9d/src/components.d.ts#L2553) |
 | `readonly` | `boolean` | [src/components.d.ts:2552](https://github.com/revolist/revogrid/blob/790a26bfcfb8e83715d2bd150c6eae6ffbcedf9d/src/components.d.ts#L2552) |
-| `useClipboard` | `boolean` | [src/components.d.ts:2555](https://github.com/revolist/revogrid/blob/790a26bfcfb8e83715d2bd150c6eae6ffbcedf9d/src/components.d.ts#L2555) |
+| `useClipboard` | `boolean` \| [`ClipboardConfig`](Interface.ClipboardConfig.md) | [src/components.d.ts:2555](https://github.com/revolist/revogrid/blob/790a26bfcfb8e83715d2bd150c6eae6ffbcedf9d/src/components.d.ts#L2555) |

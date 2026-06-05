@@ -7043,6 +7043,7 @@ function updateMissingAndRange(
 | [Cell](Interface.Cell.md) | Cell coordinates |
 | [CellTemplate](Interface.CellTemplate.md) | Interface for custom cell renderer. |
 | [CellTemplateProp](Interface.CellTemplateProp.md) | Template property for each cell, extends the column data schema model. Additionally, it provides access to the providers injected into the template. |
+| [ClipboardConfig](Interface.ClipboardConfig.md) | Clipboard behavior configuration. |
 | [ColumnDataSchemaModel](Interface.ColumnDataSchemaModel.md) | - |
 | [ColumnFilterConfig](Interface.ColumnFilterConfig.md) | Filter configuration for a column. This is the type of the `filter` property on a column. |
 | [ColumnGroup](Interface.ColumnGroup.md) | Configuration for header inner template properties |
