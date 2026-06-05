@@ -97,7 +97,7 @@ See [Event Patterns and Lifecycles](/guide/events-guide) and [Hooks and Events A
 
 ## Export
 
-The core export plugin supports file export workflows from the grid surface. See [Export Data](/guide/export.plugin). Excel-focused export workflows are available in Pro.
+The core export plugin supports CSV file export workflows from the grid surface. See [Export Data](/guide/export.plugin). Excel-focused export workflows are available in Pro, and browser-side PDF export is available through the [`@revolist/revogrid-pdf-export`](/guide/pdf-export) add-on plugin.
 
 ## Focus
 
