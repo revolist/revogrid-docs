@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.9](README.md) / ResizeProps
+[RevoGrid Documentation v4.23.10](README.md) / ResizeProps
 
 # Type Alias: ResizeProps
 
@@ -27,15 +27,15 @@ type ResizeProps: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `active` | ( \| `"r"` \| `"rb"` \| `"b"` \| `"lb"` \| `"l"` \| `"lt"` \| `"t"` \| `"rt"`)[] | [src/components/header/resizable.directive.tsx:2](https://github.com/revolist/revogrid/blob/7210be05d48d189d4cce2e41db0fe306da2f48fe/src/components/header/resizable.directive.tsx#L2) |
-| `disableAttributes` | (`"l"` \| `"t"` \| `"w"` \| `"h"`)[] | [src/components/header/resizable.directive.tsx:7](https://github.com/revolist/revogrid/blob/7210be05d48d189d4cce2e41db0fe306da2f48fe/src/components/header/resizable.directive.tsx#L7) |
-| `fitParent` | `boolean` | [src/components/header/resizable.directive.tsx:3](https://github.com/revolist/revogrid/blob/7210be05d48d189d4cce2e41db0fe306da2f48fe/src/components/header/resizable.directive.tsx#L3) |
-| `maxHeight` | `number` | [src/components/header/resizable.directive.tsx:9](https://github.com/revolist/revogrid/blob/7210be05d48d189d4cce2e41db0fe306da2f48fe/src/components/header/resizable.directive.tsx#L9) |
-| `maxWidth` | `number` | [src/components/header/resizable.directive.tsx:8](https://github.com/revolist/revogrid/blob/7210be05d48d189d4cce2e41db0fe306da2f48fe/src/components/header/resizable.directive.tsx#L8) |
-| `minHeight` | `number` | [src/components/header/resizable.directive.tsx:5](https://github.com/revolist/revogrid/blob/7210be05d48d189d4cce2e41db0fe306da2f48fe/src/components/header/resizable.directive.tsx#L5) |
-| `minWidth` | `number` | [src/components/header/resizable.directive.tsx:4](https://github.com/revolist/revogrid/blob/7210be05d48d189d4cce2e41db0fe306da2f48fe/src/components/header/resizable.directive.tsx#L4) |
-| `onResize` | `void` | [src/components/header/resizable.directive.tsx:11](https://github.com/revolist/revogrid/blob/7210be05d48d189d4cce2e41db0fe306da2f48fe/src/components/header/resizable.directive.tsx#L11) |
+| `active` | ( \| `"r"` \| `"rb"` \| `"b"` \| `"lb"` \| `"l"` \| `"lt"` \| `"t"` \| `"rt"`)[] | [src/components/header/resizable.directive.tsx:2](https://github.com/revolist/revogrid/blob/90b91787366997fc2dd0d419e5fc00e9e9b74f80/src/components/header/resizable.directive.tsx#L2) |
+| `disableAttributes` | (`"l"` \| `"t"` \| `"w"` \| `"h"`)[] | [src/components/header/resizable.directive.tsx:7](https://github.com/revolist/revogrid/blob/90b91787366997fc2dd0d419e5fc00e9e9b74f80/src/components/header/resizable.directive.tsx#L7) |
+| `fitParent` | `boolean` | [src/components/header/resizable.directive.tsx:3](https://github.com/revolist/revogrid/blob/90b91787366997fc2dd0d419e5fc00e9e9b74f80/src/components/header/resizable.directive.tsx#L3) |
+| `maxHeight` | `number` | [src/components/header/resizable.directive.tsx:9](https://github.com/revolist/revogrid/blob/90b91787366997fc2dd0d419e5fc00e9e9b74f80/src/components/header/resizable.directive.tsx#L9) |
+| `maxWidth` | `number` | [src/components/header/resizable.directive.tsx:8](https://github.com/revolist/revogrid/blob/90b91787366997fc2dd0d419e5fc00e9e9b74f80/src/components/header/resizable.directive.tsx#L8) |
+| `minHeight` | `number` | [src/components/header/resizable.directive.tsx:5](https://github.com/revolist/revogrid/blob/90b91787366997fc2dd0d419e5fc00e9e9b74f80/src/components/header/resizable.directive.tsx#L5) |
+| `minWidth` | `number` | [src/components/header/resizable.directive.tsx:4](https://github.com/revolist/revogrid/blob/90b91787366997fc2dd0d419e5fc00e9e9b74f80/src/components/header/resizable.directive.tsx#L4) |
+| `onResize` | `void` | [src/components/header/resizable.directive.tsx:11](https://github.com/revolist/revogrid/blob/90b91787366997fc2dd0d419e5fc00e9e9b74f80/src/components/header/resizable.directive.tsx#L11) |
 
 ## Defined in
 
-[src/components/header/resizable.directive.tsx:1](https://github.com/revolist/revogrid/blob/7210be05d48d189d4cce2e41db0fe306da2f48fe/src/components/header/resizable.directive.tsx#L1)
+[src/components/header/resizable.directive.tsx:1](https://github.com/revolist/revogrid/blob/90b91787366997fc2dd0d419e5fc00e9e9b74f80/src/components/header/resizable.directive.tsx#L1)
