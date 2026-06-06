@@ -80,7 +80,8 @@ const standaloneBuildPages: Record<string, string> = {
 
 const standaloneBuildPage = process.env.DOCS_BUILD_PAGE
 const standaloneBuildSource = standaloneBuildPage ? standaloneBuildPages[standaloneBuildPage] : undefined
-const standaloneBuildRewrites = standaloneBuildSource
+const standaloneBuildSrcDir = process.env.DOCS_STANDALONE_SRC_DIR
+const standaloneBuildRewrites = standaloneBuildSource && !standaloneBuildSrcDir
     ? {
         'index.md': '__home.md',
         [standaloneBuildSource]: 'index.md',
@@ -151,12 +152,19 @@ const browserOnlyPackageSsrShims = () => ({
 })
 
 const config: UserConfig<DefaultTheme.Config> = {
-    sitemap: {
+    ...(standaloneBuildSource ? {} : { sitemap: {
         hostname: siteUrl,
         transformItems(items) {
             return items.filter((item) => !item.url.includes('pivot/landing'))
         },
-    },
+    } }),
+    ...(standaloneBuildSrcDir
+        ? {
+            srcDir: standaloneBuildSrcDir,
+            outDir: path.resolve(__dirname, 'dist'),
+            publicDir: path.resolve(__dirname, '../public'),
+        }
+        : {}),
     cleanUrls: true,
     title: 'RevoGrid',
     appearance: 'dark',
@@ -264,7 +272,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         logo: '/logo.svg?skipsvgo',
         outline: [2, 3],
-        socialLinks: [
+        socialLinks: standaloneBuildSource ? [] : [
             // { icon: 'x', link: 'https://x.com/revolist_ou/' },
             {
                 icon: 'github',
@@ -275,7 +283,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         footer: {
             // copyright: '',
             message: `RevoGrid is a powerful data grid library made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. Copyright © 2017-present.`,
-            items: [
+            items: standaloneBuildSource ? [] : [
                 {
                 links: [
                     {
@@ -324,7 +332,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               indexName: 'RevoGrid',
             }
         },
-        nav: navbarEn,
+        nav: standaloneBuildSource ? [] : navbarEn,
 
         sidebar: sidebarEn,
     },

@@ -45,7 +45,7 @@ const contactUrl = computed(() => homeLink('/contact/'))
         class="VPFooter"
         :class="{ 'has-sidebar': hasSidebar }"
     >
-        <div class="container">
+        <div v-if="footerItems.length" class="container">
             <div>
                 <a class="logo-container" :href="homeUrl">
                     <VPImage
@@ -80,7 +80,7 @@ const contactUrl = computed(() => homeLink('/contact/'))
                 </ul>
             </div>
         </div>
-        <hr />
+        <hr v-if="footerItems.length" />
 
         <p
             v-if="theme.footer.message"

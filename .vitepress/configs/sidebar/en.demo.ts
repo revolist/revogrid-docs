@@ -223,6 +223,10 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         link: '/demo/color',
     },
     {
+        text: 'Excel Workbench',
+        link: '/demo/excel',
+    },
+    {
         text: 'Gantt Workspace',
         link: '/demo/gantt',
     },
