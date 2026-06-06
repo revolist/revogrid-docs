@@ -1,6 +1,16 @@
 ---
 title: JavaScript Data Grid vs Data Table - Key Differences
 description: Compare JavaScript data grids, data tables, HTML tables, and CSS grids, and learn when to use an interactive data grid for large datasets.
+date: 2025-03-18
+author: RevoGrid Team
+category: Data Grid
+tags:
+  - JavaScript
+  - Data Grid
+  - Performance
+image: /datagrid.png
+imageAlt: RevoGrid data grid preview
+featured: true
 head:
   - - meta
     - name: keywords
@@ -8,6 +18,8 @@ head:
 ---
 
 # JavaScript Data Grid vs Data Table
+
+![RevoGrid data grid preview](/datagrid.png)
 
 When discussing web components, terms like **Data Grid** and **Data Table** often overlap.
 This confusion arises due to existing web technologies and component behaviors:

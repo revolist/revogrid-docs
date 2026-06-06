@@ -42,6 +42,11 @@ export const navbarEn: DefaultTheme.NavItem[] = [
     activeMatch: '^/(pro/(?!prices(?:/|$))|pro-docs/)',
   },
   {
+    text: 'Blog',
+    link: '/blog/',
+    activeMatch: '^/blog/',
+  },
+  {
     text: 'Links',
     items: [
       {
