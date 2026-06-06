@@ -38,6 +38,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 link: '/guide/data-sync',
             },
             {
+                text: 'Proxy Source Editing',
+                link: '/guide/proxy-source',
+            },
+            {
                 text: 'Grid size',
                 link: '/guide/grid.size',
             },
@@ -223,8 +227,16 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 link: '/guide/editing',
             },
             {
-                text: 'Export',
+                text: 'Export CSV',
                 link: '/guide/export.plugin',
+            },
+            {
+                text: 'Export PDF',
+                link: '/guide/pdf-export',
+            },
+            {
+                text: 'Export Excel',
+                link: '/guide/data-grid-export-excel',
             },
             {
                 text: 'Filtering',

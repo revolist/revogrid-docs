@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.7](README.md) / Theme
+[RevoGrid Documentation v4.23.11](README.md) / Theme
 
 # Type Alias: Theme
 
@@ -14,4 +14,4 @@ type Theme:
 
 ## Defined in
 
-[src/types/theme.ts:9](https://github.com/revolist/revogrid/blob/790a26bfcfb8e83715d2bd150c6eae6ffbcedf9d/src/types/theme.ts#L9)
+[src/types/theme.ts:9](https://github.com/revolist/revogrid/blob/f395a0413c5a19651688edda4523592251ea55cc/src/types/theme.ts#L9)

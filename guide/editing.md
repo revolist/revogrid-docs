@@ -20,6 +20,8 @@ Editing in RevoGrid is controlled by a few core pieces:
 - `applyOnClose` controls whether closing an editor saves the current value
 - lifecycle events such as `beforeedit`, `beforeeditstart`, and `afteredit` let you validate or sync changes
 
+For source-owned synchronization without edit event handlers, see [Proxy Source Editing](/guide/proxy-source). That pattern passes proxied row models to `source` so RevoGrid writes route through your application store.
+
 ## Minimal editable setup
 
 ```javascript
@@ -192,6 +194,7 @@ grid.addEventListener('afteredit', async event => {
 ## Related guides
 
 - [Cell Editor](/guide/cell/editor)
+- [Proxy Source Editing](/guide/proxy-source)
 - [Programmatic Grid Control](/guide/programmatic-control)
 - [Event Patterns and Lifecycles](/guide/events-guide)
 - [API: RevoGrid](/guide/api/revoGrid)

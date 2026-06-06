@@ -20,6 +20,8 @@ RevoGrid offers several popular approaches for working with data:
       
       As part of the Pro version, we provide the **EventManagerPlugin**, which consolidates range, clipboard, and cell edit events into a single common event called `gridedit`. You can utilize this plugin to catch the event, modify it, or even create your own custom event manager.
 
+      If you want the application model to catch RevoGrid writes without edit event handlers, use [Proxy Source Editing](./proxy-source). This pattern passes proxied row objects to `source`, so property reads and writes go through your own store adapter.
+
 
 ### Pagination and Dynamic Data Loading: 
    - These two features are two sides of the same coin:
