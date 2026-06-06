@@ -13,6 +13,13 @@
           <a :href="page.hero.actions.primary.href" class="pro-btn pro-btn-primary pro-btn-lg">
             {{ page.hero.actions.primary.label }} <span>{{ page.hero.actions.primary.detail }}</span>
           </a>
+          <a
+            v-if="page.hero.actions.trial"
+            :href="page.hero.actions.trial.href"
+            class="pro-btn pro-btn-ghost pro-btn-lg"
+          >
+            {{ page.hero.actions.trial.label }}
+          </a>
           <button class="pro-btn pro-btn-ghost pro-btn-lg" @click="openDemo">
             {{ page.hero.actions.secondary.label }}
             <span aria-hidden="true">▶</span>
@@ -66,7 +73,7 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick, onUnmounted, ref, watch } from 'vue'
+import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 
 defineProps<{
   page: Record<string, any>
@@ -127,7 +134,7 @@ function onKeydown(e: KeyboardEvent) {
   if (e.key === 'Escape') closeDemo()
 }
 
-document.addEventListener('keydown', onKeydown)
+onMounted(() => document.addEventListener('keydown', onKeydown))
 onUnmounted(() => document.removeEventListener('keydown', onKeydown))
 </script>
 

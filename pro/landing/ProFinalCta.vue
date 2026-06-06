@@ -9,6 +9,13 @@
         <p>{{ page.cta.subtitle }}</p>
         <div class="cta-row">
           <a :href="page.cta.actions.primary.href" class="pro-btn pro-btn-primary pro-btn-lg">{{ page.cta.actions.primary.label }}</a>
+          <a
+            v-if="page.cta.actions.trial"
+            :href="page.cta.actions.trial.href"
+            class="pro-btn pro-btn-ghost pro-btn-lg"
+          >
+            {{ page.cta.actions.trial.label }}
+          </a>
           <a :href="page.cta.actions.secondary.href" class="pro-btn pro-btn-ghost pro-btn-lg">{{ page.cta.actions.secondary.label }}</a>
         </div>
         <div class="note">{{ page.cta.note }}</div>

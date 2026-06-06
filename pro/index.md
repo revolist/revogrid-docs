@@ -34,6 +34,9 @@ proPage:
         label: Get Pro
         detail:
         href: /pricing
+      trial:
+        label: Start free trial
+        href: /trial
       secondary:
         label: Watch 90s demo
         href: '#features'
@@ -244,6 +247,9 @@ proPage:
       primary:
         label: Get Pro
         href: /pricing
+      trial:
+        label: Start free trial
+        href: /trial
       secondary:
         label: Read the docs
         href: /guide/
