@@ -38,10 +38,6 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 link: '/guide/data-sync',
             },
             {
-                text: 'Proxy Source Editing',
-                link: '/guide/proxy-source',
-            },
-            {
                 text: 'Grid size',
                 link: '/guide/grid.size',
             },
@@ -62,6 +58,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
             {
                 text: 'Programmatic Control',
                 link: '/guide/programmatic-control',
+            },
+            {
+                text: 'Proxy Source Editing',
+                link: '/guide/proxy-source',
             },
             {
                 text: 'AI Agents and MCP',
