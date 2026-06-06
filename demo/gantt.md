@@ -22,5 +22,15 @@ head:
     - property: og:description
       content: Build planning and timeline interfaces with RevoGrid Pro Gantt Chart, task scheduling, dependencies, milestones, and resource views.
 ---
+<DemoWidgetFrame
+  demo="gantt-showcase"
+  framework="ts"
+/>
 
-<ProDemoFrame />
+<style scoped>
+:deep(.demo-widget-frame) {
+  min-height: calc(100vh - 60px);
+  margin-top: 40px;
+  border-radius: 0;
+}
+</style>

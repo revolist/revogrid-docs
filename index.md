@@ -20,8 +20,8 @@ hero:
   tagline: The world's fastest data grid. Inline editing, virtual scroll, custom cells — works everywhere. Go Pro for advanced features.
   primaryAction:
     text: Explore 1M-row demo
-    link: /demo/hr
-    target: _self
+    link: /demo/
+    # target: _self
   secondaryAction:
     text: View docs
     link: /guide/
@@ -346,9 +346,9 @@ finalCta:
   note: Per-developer licensing. No deployment counting. Upgrade anytime.
   actions:
     - text: Explore 1M-row demo
-      link: /demo/hr
+      link: /demo/
       variant: primary
-      target: _self
+      # target: _self
     - text: View pricing
       link: /pricing
       variant: secondary

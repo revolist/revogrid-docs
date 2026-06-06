@@ -23,4 +23,16 @@ head:
       content: Track projects, owners, deadlines, priorities, and statuses in a color-coded RevoGrid Pro workspace with fast editable grid interactions.
 ---
 
-<ProDemoFrame />
+
+<DemoWidgetFrame
+  demo="color"
+  framework="ts"
+/>
+
+<style scoped>
+:deep(.demo-widget-frame) {
+  min-height: calc(100vh - 60px);
+  margin-top: 40px;
+  border-radius: 0;
+}
+</style>

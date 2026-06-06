@@ -16,4 +16,15 @@ head:
         content: RevoGrid Pro Demo, Data Grid, Data Table, JavaScript Grid, Vue Grid, React Grid, Angular Grid, High-Performance Grid, Excel Export, Scalable Data Grids, Customizable Grid, Data Filtering
 ---
 
-<ProDemoFrame />
+<DemoWidgetFrame
+  demo="hr"
+  framework="ts"
+/>
+
+<style scoped>
+:deep(.demo-widget-frame) {
+  min-height: calc(100vh - 60px);
+  margin-top: 40px;
+  border-radius: 0;
+}
+</style>

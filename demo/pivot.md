@@ -23,4 +23,15 @@ head:
       content: Analyze complex datasets inside your application with RevoGrid Pro Pivot Grid, aggregation, grouping, drill-down, and high-performance grid rendering.
 ---
 
-<ProDemoFrame />
+<DemoWidgetFrame
+  demo="pivot"
+  framework="ts"
+/>
+
+<style scoped>
+:deep(.demo-widget-frame) {
+  min-height: calc(100vh - 60px);
+  margin-top: 40px;
+  border-radius: 0;
+}
+</style>

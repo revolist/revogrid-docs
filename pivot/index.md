@@ -35,7 +35,7 @@ pivotLanding:
       - label: Pivot demo
         href: /demo/pivot
         arrow: true
-        target: _self
+        # target: _self
       - label: Feature list
         href: /pricing#feature-comparison
         variant: secondary
@@ -101,10 +101,10 @@ pivotLanding:
     description: Add a client-side pivot table component to React, Vue, Angular, Svelte, or vanilla JavaScript apps. Included in Pro Advanced.
     primaryHref: https://rv-grid.com/demo/pivot
     primaryLabel: Open pivot demo
-    primaryTarget: _self
+    # primaryTarget: _self
     secondaryHref: /pricing
     secondaryLabel: View Pro pricing
-    secondaryTarget: _self
+    # secondaryTarget: _self
 ---
 
 <script lang="ts" setup>

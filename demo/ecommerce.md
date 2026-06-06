@@ -23,4 +23,15 @@ head:
       content: Use RevoGrid Pro as the interface layer for ecommerce, inventory, finance, admin, and operations workflows with high-performance editable grids.
 ---
 
-<ProDemoFrame />
+<DemoWidgetFrame
+  demo="ecommerce"
+  framework="ts"
+/>
+
+<style scoped>
+:deep(.demo-widget-frame) {
+  min-height: calc(100vh - 60px);
+  margin-top: 40px;
+  border-radius: 0;
+}
+</style>

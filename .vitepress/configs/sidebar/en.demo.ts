@@ -212,26 +212,22 @@ export const sidebarGuideDemosEn: DefaultTheme.SidebarItem[] = [
 export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
     {
         text: 'Grid at Scale',
-        link: 'https://rv-grid.com/demo/',
-    },
-    {
-        text: 'HR Workspace',
-        link: 'https://rv-grid.com/demo/hr',
+        link: '/demo/',
     },
     {
         text: 'Pivot Analytics Workspace',
-        link: 'https://rv-grid.com/demo/pivot',
+        link: '/demo/pivot',
     },
     {
         text: 'Project Tracker',
-        link: 'https://rv-grid.com/demo/color',
+        link: '/demo/color',
     },
     {
         text: 'Gantt Workspace',
-        link: 'https://rv-grid.com/demo/gantt',
+        link: '/demo/gantt',
     },
     {
         text: 'Ecommerce Workspace',
-        link: 'https://rv-grid.com/demo/ecommerce',
+        link: '/demo/ecommerce',
     },
 ]

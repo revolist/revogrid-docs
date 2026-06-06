@@ -36,3 +36,14 @@
 
 **Tests:**
 - E2E: add a `revogrid/e2e/pinning.spec.ts` regression that focuses a regular cell, pins that column left through `grid.columns`, and verifies focus/range moves to `colPinStart` without broken pinned layout.
+
+### Trial Success Icon
+
+**Goal:** Show the existing `wcag.svg` icon above the trial request success title.
+
+**Non-goals:** No changes to the trial form payload, endpoint, validation, or page routing.
+
+**Expected behavior:** After a trial request is sent, the success state displays the icon above "Trial request received" and keeps the success message readable on desktop and mobile.
+
+**Tests:**
+- Build or targeted compile check for the Vue component.

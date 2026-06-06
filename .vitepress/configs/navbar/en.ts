@@ -28,9 +28,9 @@ export const navbarEn: DefaultTheme.NavItem[] = [
   },
   {
     text: 'Demos',
-    link: '/demo/hr',
+    link: '/demo/',
     activeMatch: '^/demo/',
-    target: '_self',
+    // target: '_self',
   },
   {
     text: 'Pricing',

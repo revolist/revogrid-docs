@@ -23,4 +23,15 @@ head:
       content: Use RevoGrid Pro for HR and workforce operations with editable employee records, filtering, grouping, and high-performance data grid workflows.
 ---
 
-<ProDemoFrame />
+<DemoWidgetFrame
+  demo="hr"
+  framework="ts"
+/>
+
+<style scoped>
+:deep(.demo-widget-frame) {
+  min-height: calc(100vh - 60px);
+  margin-top: 40px;
+  border-radius: 0;
+}
+</style>

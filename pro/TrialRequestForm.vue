@@ -79,6 +79,7 @@
     </template>
 
     <div v-else class="form-success" role="status">
+      <img class="form-success-icon" :src="successIcon" alt="" aria-hidden="true" />
       <h2>{{ successTitle }}</h2>
       <p>{{ successMessage }}</p>
     </div>
@@ -87,6 +88,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import successIcon from '../.vitepress/theme/images/wcag.svg'
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -337,6 +339,12 @@ const handleSubmit = async () => {
     color: var(--vp-c-text-2);
     line-height: 1.6;
   }
+}
+
+.form-success-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 640px) {
