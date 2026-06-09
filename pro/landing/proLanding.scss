@@ -31,9 +31,9 @@
   --text: #111217;
   --text-muted: rgba(17, 18, 23, 0.68);
   --text-dim: rgba(17, 18, 23, 0.44);
-  --accent: #ed5533;
-  --accent-2: #d89528;
-  --accent-soft: rgba(237, 85, 51, 0.095);
+  --accent: var(--vp-c-brand-3);
+  --accent-2: var(--vp-c-brand-2);
+  --accent-soft: var(--vp-c-brand-soft);
   --good: #188552;
   --warn: #a16207;
   --info: #2563eb;
@@ -44,15 +44,15 @@
   --panel-shadow: 0 20px 44px -34px rgba(30, 41, 59, 0.36), 0 5px 18px -14px rgba(30, 41, 59, 0.18);
   --panel-inset: inset 0 1px 0 rgba(255, 255, 255, 0.92);
   --float-shadow: 0 16px 30px -22px rgba(30, 41, 59, 0.35), 0 4px 16px -12px rgba(30, 41, 59, 0.2);
-  --button-shadow: 0 10px 22px -14px rgba(237, 85, 51, 0.58);
+  --button-shadow: 0 10px 22px -14px color-mix(in srgb, var(--accent) 58%, transparent);
   --grid-line-bg: rgba(24, 31, 42, 0.04);
-  --pattern-line: rgba(237, 85, 51, 0.16);
+  --pattern-line: color-mix(in srgb, var(--accent) 16%, transparent);
   --pattern-line-2: rgba(24, 31, 42, 0.055);
   --timeline-grid-line: rgba(24, 31, 42, 0.095);
   --section-band: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   background:
-    radial-gradient(ellipse 70% 18% at 50% 0%, rgba(237, 85, 51, 0.075), transparent 64%),
-    radial-gradient(ellipse 46% 20% at 100% 0%, rgba(216, 149, 40, 0.055), transparent 58%),
+    radial-gradient(ellipse 70% 18% at 50% 0%, color-mix(in srgb, var(--accent) 7.5%, transparent), transparent 64%),
+    radial-gradient(ellipse 46% 20% at 100% 0%, color-mix(in srgb, var(--accent-2) 5.5%, transparent), transparent 58%),
     var(--bg);
 }
 
@@ -97,9 +97,9 @@
   --text: #f5f5f7;
   --text-muted: rgba(245, 245, 247, 0.62);
   --text-dim: rgba(245, 245, 247, 0.40);
-  --accent: #ff5d39;
-  --accent-2: #ffb547;
-  --accent-soft: rgba(255, 93, 57, 0.12);
+  --accent: var(--vp-c-brand-3);
+  --accent-2: var(--vp-c-brand-2);
+  --accent-soft: var(--vp-c-brand-soft);
   --good: #4ade80;
   --warn: #fbbf24;
   --info: #60a5fa;
@@ -126,8 +126,8 @@
   padding-top: var(--vp-nav-height, 64px);
   color: var(--text);
   background:
-    radial-gradient(ellipse 80% 18% at 50% 0%, rgba(255, 93, 57, 0.11), transparent 62%),
-    radial-gradient(ellipse 52% 22% at 100% 0%, rgba(255, 181, 71, 0.06), transparent 55%),
+    radial-gradient(ellipse 80% 18% at 50% 0%, color-mix(in srgb, var(--accent) 11%, transparent), transparent 62%),
+    radial-gradient(ellipse 52% 22% at 100% 0%, color-mix(in srgb, var(--accent-2) 6%, transparent), transparent 55%),
     var(--bg);
   font-size: 16px;
   line-height: 1.55;
@@ -1298,14 +1298,14 @@
     padding: 0 8px;
     overflow: hidden;
     border-radius: 4px;
-    color: #210b06;
+    color: #042015;
     font-size: 10px;
     font-weight: 700;
     line-height: 20px;
   }
 
-  .coral { background: linear-gradient(90deg, var(--accent), #ff7757); }
-  .amber { background: linear-gradient(90deg, var(--accent-2), #ffd089); }
+  .coral { background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 62%, #fff)); }
+  .amber { background: linear-gradient(90deg, var(--accent-2), color-mix(in srgb, var(--accent-2) 50%, #fff)); }
   .violet { background: linear-gradient(90deg, var(--violet), #c4b5fd); }
   .teal { background: linear-gradient(90deg, var(--teal), #5eead4); }
   .rose { background: linear-gradient(90deg, var(--rose), #fda4af); }
@@ -1818,15 +1818,15 @@
     }
 
     &.ent {
-      border-color: rgba(255, 93, 57, 0.2);
+      border-color: color-mix(in srgb, var(--accent) 20%, transparent);
 
       &:hover {
         border-color: var(--accent);
-        box-shadow: 0 16px 40px -10px rgba(255, 93, 57, 0.25);
+        box-shadow: 0 16px 40px -10px color-mix(in srgb, var(--accent) 25%, transparent);
       }
 
       .feat-tile-name {
-        background: rgba(255, 93, 57, 0.06);
+        background: color-mix(in srgb, var(--accent) 6%, transparent);
       }
     }
 
@@ -1867,7 +1867,7 @@
       background: var(--accent);
       color: #1a0a05;
       font-size: 11px;
-      box-shadow: 0 4px 16px rgba(255, 93, 57, 0.5);
+      box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 50%, transparent);
     }
 
     &-name {
@@ -2001,7 +2001,7 @@
       background: var(--accent);
       color: #1a0a05;
       font-size: 18px;
-      box-shadow: 0 8px 32px rgba(255, 93, 57, 0.45);
+      box-shadow: 0 8px 32px color-mix(in srgb, var(--accent) 45%, transparent);
       cursor: pointer;
       transition: transform 0.15s;
 
