@@ -12,7 +12,7 @@ tags:
   - Gantt
   - MCP
   - Enterprise
-image: /og-image.jpg
+image: /blog/v2-demo.png
 imageAlt: RevoGrid Pro 2+ animations, analytics, Gantt, and Pivot product update
 head:
   - - meta
@@ -32,7 +32,7 @@ head:
       content: https://rv-grid.com/blog/revogrid-pro-2
   - - meta
     - property: og:image
-      content: https://rv-grid.com/og-image.jpg
+      content: https://rv-grid.com/blog/v2-demo.png
   - - meta
     - name: twitter:card
       content: summary_large_image
@@ -66,6 +66,8 @@ head:
 ---
 
 # RevoGrid Pro 2+: New Foundation
+
+![RevoGrid Pro 2+ animations, analytics, Gantt, and Pivot product preview](/blog/v2-demo.png)
 
 RevoGrid Pro 2+ is the start of the next generation of RevoGrid Pro: a more structured, more stable, and more capable foundation for teams building complex data-heavy applications.
 
