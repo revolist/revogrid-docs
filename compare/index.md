@@ -48,6 +48,12 @@ The comparison pages focus on practical buying and implementation questions: lic
   </article>
 
   <article class="compare-index-card">
+    <span class="compare-index-label">JavaScript table comparison</span>
+    <a href="/compare/tabulator-alternative">Tabulator Alternative</a>
+    <p>Compare RevoGrid with Tabulator for interactive tables, framework support, spreadsheet-like editing, virtualization, SaaS licensing, Pivot, Gantt, and product workflows.</p>
+  </article>
+
+  <article class="compare-index-card">
     <span class="compare-index-label">FlexGrid and BI workflow comparison</span>
     <a href="/compare/wijmo-datagrid-alternative">Wijmo FlexGrid Alternative</a>
     <p>Compare RevoGrid with Wijmo FlexGrid for licensing, framework support, virtualization, pivot analytics, embedded BI, Gantt, and migration tradeoffs.</p>
