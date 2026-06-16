@@ -192,7 +192,7 @@ const posts = computed<BlogPost[]>(() =>
 
   h1 {
     font-size: 40px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0;
     line-height: 1.1;
     margin: 0;
@@ -297,7 +297,7 @@ const posts = computed<BlogPost[]>(() =>
   display: flex;
   flex-wrap: wrap;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 500;
   gap: 10px;
   justify-content: space-between;
   text-transform: uppercase;

@@ -300,7 +300,7 @@ const handleSubmit = async () => {
   background: var(--vp-c-brand-1);
   color: #fff;
   font: inherit;
-  font-weight: 700;
+  font-weight: 500;
   cursor: pointer;
   transition:
     background 0.2s ease,

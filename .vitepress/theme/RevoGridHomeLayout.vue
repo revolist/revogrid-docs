@@ -282,6 +282,46 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   border-radius: 50%;
 }
 
+.rg-hero-install {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  margin-top: 30px;
+  padding: 7px 8px 7px 12px;
+  border: 1px solid var(--rg-border);
+  border-radius: 8px;
+  background: var(--rg-bg-2);
+}
+
+.rg-hero-install code {
+  color: var(--rg-text);
+  font-family: var(--vp-font-family-mono);
+  font-size: 13px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.rg-hero-install button {
+  flex: 0 0 auto;
+  border: 1px solid var(--rg-border);
+  border-radius: 6px;
+  background: var(--rg-bg-3);
+  color: var(--rg-text-2);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 7px 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.rg-hero-install button:hover {
+  color: var(--rg-text);
+  border-color: var(--rg-accent);
+}
+
 .rg-browser,
 .rg-code-panel {
   min-width: 0;

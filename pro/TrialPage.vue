@@ -98,7 +98,7 @@ const stats = [
   margin-bottom: 4rem;
   color: var(--vp-c-text-1);
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 600;
   text-decoration: none;
 
   img {
@@ -111,7 +111,7 @@ const stats = [
   margin: 0 0 0.9rem;
   color: var(--vp-c-brand-1);
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -217,7 +217,7 @@ const stats = [
   span {
     color: var(--vp-c-text-3);
     font-size: 0.78rem;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
   }
@@ -231,7 +231,7 @@ const stats = [
   margin-top: 2.5rem;
   color: var(--vp-c-text-3);
   font-size: 1.05rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }

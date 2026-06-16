@@ -115,14 +115,32 @@ watch(
   { immediate: true }
 )
 
-function copyCode() {
-  if (typeof navigator === 'undefined' || !navigator.clipboard) return
-  navigator.clipboard.writeText(activeCode.value).then(() => {
+async function copyCode() {
+  if (typeof window === 'undefined') return
+
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(activeCode.value)
+    } else {
+      const textarea = document.createElement('textarea')
+      textarea.value = activeCode.value
+      textarea.setAttribute('readonly', '')
+      textarea.style.position = 'fixed'
+      textarea.style.left = '-9999px'
+      textarea.style.top = '0'
+      document.body.appendChild(textarea)
+      textarea.select()
+      document.execCommand('copy')
+      document.body.removeChild(textarea)
+    }
+
     copied.value = true
     window.setTimeout(() => {
       copied.value = false
     }, 1400)
-  })
+  } catch (error) {
+    console.warn('Unable to copy code example', error)
+  }
 }
 
 function decodeCode(code: string) {

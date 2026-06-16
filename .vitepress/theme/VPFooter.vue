@@ -29,7 +29,11 @@ const footerItems = computed(() =>
         ...section,
         links: section.links.map((item) => ({
             ...item,
-            link: footerLink(item.text, item.link),
+            link: item.link ? footerLink(item.text, item.link) : undefined,
+            items: item.items?.map((subItem) => ({
+                ...subItem,
+                link: footerLink(subItem.text, subItem.link),
+            })),
         })),
     }))
 )
@@ -69,7 +73,20 @@ const contactUrl = computed(() => homeLink('/contact/'))
                         :key="item.text"
                         class="link"
                     >
-                        <a :href="item.link" v-html="item.text"></a>
+                        <div v-if="item.items?.length" class="footer-submenu">
+                            <button type="button" class="footer-submenu-trigger" v-html="item.text"></button>
+                            <div class="footer-submenu-panel">
+                                <ul>
+                                    <li
+                                        v-for="subItem in item.items"
+                                        :key="subItem.text"
+                                    >
+                                        <a :href="subItem.link" v-html="subItem.text"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a v-else :href="item.link" v-html="item.text"></a>
                     </li>
                 </ul>
                 <ul style="margin-left: 15px;">
@@ -102,7 +119,7 @@ const contactUrl = computed(() => homeLink('/contact/'))
     border-top: 1px solid var(--vp-c-gutter);
     padding: 20px 24px 32px 24px;
     background-color: var(--vp-c-bg);
-    overflow: hidden;
+    overflow: visible;
 
     .container {
         padding-bottom: 10px;
@@ -177,6 +194,73 @@ a {
 }
 a:not(:hover) {
     text-decoration: none;
+}
+
+.footer-submenu {
+    position: relative;
+
+    .footer-submenu-trigger {
+        border: 0;
+        padding: 0;
+        background: transparent;
+        color: var(--vp-c-text-2);
+        cursor: pointer;
+        font-size: 13px;
+        font-family: inherit;
+    }
+
+    .footer-submenu-trigger:hover,
+    .footer-submenu-trigger:focus-visible {
+        color: var(--vp-c-text-1);
+    }
+
+    .footer-submenu-trigger::after {
+        content: ' ▾';
+        color: var(--vp-c-text-3);
+        font-size: 10px;
+    }
+
+    .footer-submenu-panel {
+        position: absolute;
+        left: 0;
+        bottom: 100%;
+        z-index: 5;
+        min-width: 170px;
+        padding: 10px;
+        border: 1px solid var(--vp-c-divider);
+        border-radius: 8px;
+        background: var(--vp-c-bg);
+        box-shadow: var(--vp-shadow-2);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(4px);
+        transition: opacity 0.15s, transform 0.15s;
+    }
+
+    .footer-submenu-panel::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -10px;
+        height: 10px;
+    }
+
+    &:hover .footer-submenu-panel,
+    &:focus-within .footer-submenu-panel {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+    }
 }
 
 .footer-title {

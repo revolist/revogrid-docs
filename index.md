@@ -111,13 +111,13 @@ nativeCells:
   description: RevoGrid supports React, Vue, Angular, and Svelte at the core JavaScript DataGrid level, so developers can build data-heavy apps with native components, familiar framework patterns, and virtualized grid rendering.
   links:
     - text: React cells
-      href: /guide/react/renderer
+      href: /react-data-grid
     - text: Vue cells
-      href: /guide/vue3/renderer
+      href: /vue-data-grid
     - text: Angular cells
-      href: /guide/angular/renderer
+      href: /angular-data-grid
     - text: Svelte cells
-      href: /guide/svelte/renderer
+      href: /svelte-data-grid
   examples:
     - framework: React
       color: '#61DAFB'
@@ -356,4 +356,3 @@ finalCta:
       link: /guide/
       variant: ghost
 ---
-

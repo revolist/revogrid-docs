@@ -19,6 +19,31 @@ export const navbarEn: DefaultTheme.NavItem[] = [
         link: '/gantt',
         activeMatch: '^/gantt',
       },
+      {
+        text: 'Frameworks',
+        items: [
+          {
+            text: 'React',
+            link: '/react-data-grid',
+            activeMatch: '^/react-data-grid',
+          },
+          {
+            text: 'Vue',
+            link: '/vue-data-grid',
+            activeMatch: '^/vue-data-grid',
+          },
+          {
+            text: 'Angular',
+            link: '/angular-data-grid',
+            activeMatch: '^/angular-data-grid',
+          },
+          {
+            text: 'Svelte',
+            link: '/svelte-data-grid',
+            activeMatch: '^/svelte-data-grid',
+          },
+        ],
+      },
     ],
   },
   {

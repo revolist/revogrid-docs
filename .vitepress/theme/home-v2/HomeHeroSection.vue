@@ -21,8 +21,14 @@
             <HomeChevron />
           </a>
         </div>
-        <div class="rg-frameworks">
-          <span class="rg-frameworks-label">Works with</span>
+        <div v-if="hero?.installCommand" class="rg-hero-install">
+          <code>{{ hero.installCommand }}</code>
+          <button type="button" @click="copyInstallCommand">
+            {{ installCopied ? 'copied' : 'copy' }}
+          </button>
+        </div>
+        <div v-else-if="hero?.frameworks?.length" class="rg-frameworks">
+          <span class="rg-frameworks-label">{{ hero?.frameworksLabel ?? 'Works with' }}</span>
           <a
             v-for="fw in hero?.frameworks"
             :key="fw.name"
@@ -73,7 +79,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onBeforeUnmount, shallowRef } from 'vue'
+import { computed, onBeforeUnmount, ref, shallowRef } from 'vue'
 import { useData } from 'vitepress'
 import RevoGrid from '@revolist/vue3-datagrid'
 import HomeChevron from './HomeChevron.vue'
@@ -96,6 +102,38 @@ const heroTitle = computed(() => {
 })
 
 const heroTagline = computed(() => linkProductMentions(props.hero?.tagline, linkOf))
+const installCopied = ref(false)
+
+async function copyInstallCommand() {
+  if (typeof window === 'undefined') return
+
+  const command = String(props.hero?.installCommand ?? '')
+  if (!command) return
+
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(command)
+    } else {
+      const textarea = document.createElement('textarea')
+      textarea.value = command
+      textarea.setAttribute('readonly', '')
+      textarea.style.position = 'fixed'
+      textarea.style.left = '-9999px'
+      textarea.style.top = '0'
+      document.body.appendChild(textarea)
+      textarea.select()
+      document.execCommand('copy')
+      document.body.removeChild(textarea)
+    }
+
+    installCopied.value = true
+    window.setTimeout(() => {
+      installCopied.value = false
+    }, 1400)
+  } catch (error) {
+    console.warn('Unable to copy install command', error)
+  }
+}
 
 const showcaseQuotes: Record<string, { price: number; percent_change: number; volume: string }> = {
   AAP: { price: 217.4, percent_change: 2.1, volume: '1.2M' },

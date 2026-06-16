@@ -139,7 +139,7 @@ const USE_CASES = [
   margin-bottom: 10px;
   color: var(--vp-c-text-1);
   font-size: 17px;
-  font-weight: 750;
+  font-weight: 600;
   letter-spacing: -0.2px;
   line-height: 1.25;
 }

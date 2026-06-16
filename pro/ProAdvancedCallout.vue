@@ -105,7 +105,7 @@ const INCLUDED = [
   margin: 12px 0 14px;
   color: var(--vp-c-text-1);
   font-size: clamp(24px, 3vw, 36px);
-  font-weight: 750;
+  font-weight: 600;
   letter-spacing: -0.8px;
   line-height: 1.12;
 }
@@ -153,7 +153,7 @@ const INCLUDED = [
   margin-top: 8px;
   color: var(--vp-c-text-2);
   font-size: 22px;
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .amount {

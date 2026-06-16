@@ -307,6 +307,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         text: 'Grid Comparisons',
                     },
                     {
+                        text: 'Frameworks',
+                        items: [
+                            {
+                                link: '/react-data-grid',
+                                text: 'React Data Grid',
+                            },
+                            {
+                                link: '/vue-data-grid',
+                                text: 'Vue Data Grid',
+                            },
+                            {
+                                link: '/angular-data-grid',
+                                text: 'Angular Data Grid',
+                            },
+                            {
+                                link: '/svelte-data-grid',
+                                text: 'Svelte Data Grid',
+                            },
+                        ],
+                    },
+                    {
                         link: 'https://revolist.eu/about-us/',
                         text: 'About us',
                     },

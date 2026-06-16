@@ -265,7 +265,7 @@
     &-primary {
       color: #1a0a05;
       background: var(--accent);
-      font-weight: 700;
+      font-weight: 500;
 
       &:hover {
         background: color-mix(in srgb, var(--accent) 86%, #fff);
@@ -393,7 +393,7 @@
   .pill {
     padding: 3px 9px;
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 500;
   }
 
   .toolbar-actions button {
@@ -567,7 +567,7 @@
         margin-bottom: 4px;
         color: var(--text);
         font-size: 18px;
-        font-weight: 700;
+        font-weight: 500;
 
         &[href] {
           text-decoration: underline;
@@ -698,7 +698,7 @@
         background: var(--accent-soft);
         font-family: var(--font-mono);
         font-size: 10px;
-        font-weight: 700;
+        font-weight: 500;
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
@@ -707,7 +707,7 @@
         margin: 0 0 8px;
         color: var(--text);
         font-size: 15px;
-        font-weight: 700;
+        font-weight: 500;
       }
 
       p {
@@ -737,11 +737,11 @@
       color: var(--text);
       font-family: var(--font-mono);
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 500;
 
       a {
         color: var(--accent);
-        font-weight: 700;
+        font-weight: 500;
       }
     }
 
@@ -778,7 +778,7 @@
           background: var(--accent-soft);
           font-family: var(--font-mono);
           font-size: 11px;
-          font-weight: 700;
+          font-weight: 500;
           content: counter(server-flow, decimal-leading-zero);
         }
       }
@@ -800,7 +800,7 @@
       .value {
         color: var(--text);
         font-size: 18px;
-        font-weight: 700;
+        font-weight: 500;
       }
 
       .label {
@@ -1035,7 +1035,7 @@
         margin: 4px 0 2px;
         color: var(--text);
         font-size: 20px;
-        font-weight: 700;
+        font-weight: 500;
       }
 
       .unit {
@@ -1073,7 +1073,7 @@
         border: none;
         background: none;
         color: var(--accent);
-        font-weight: 700;
+        font-weight: 500;
         cursor: pointer;
       }
     }
@@ -1127,7 +1127,7 @@
     color: var(--text-dim);
     background: rgba(255, 255, 255, 0.025);
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
   }
@@ -1138,7 +1138,7 @@
     &.head,
     &.gtot {
       color: var(--text);
-      font-weight: 700;
+      font-weight: 500;
     }
 
     &.indent {
@@ -1152,7 +1152,7 @@
     &.tot {
       color: var(--accent);
       background: var(--accent-soft);
-      font-weight: 700;
+      font-weight: 500;
     }
 
     &.gtot {
@@ -1163,7 +1163,7 @@
   .ph.tot {
     color: var(--accent);
     background: var(--accent-soft);
-    font-weight: 700;
+    font-weight: 500;
   }
 
   .chip {
@@ -1206,7 +1206,7 @@
       color: var(--text-dim);
       background: rgba(255, 255, 255, 0.02);
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
@@ -1300,7 +1300,7 @@
     border-radius: 4px;
     color: #042015;
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 20px;
   }
 
@@ -1370,7 +1370,7 @@
 
     &.total {
       color: var(--accent);
-      font-weight: 700;
+      font-weight: 500;
     }
 
     &.green {
@@ -1383,7 +1383,7 @@
     color: var(--text-dim) !important;
     background: rgba(255, 255, 255, 0.025);
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 500;
     text-align: center !important;
   }
 
@@ -1421,7 +1421,7 @@
         color: var(--text-dim);
         background: rgba(255, 255, 255, 0.02);
         font-size: 10px;
-        font-weight: 700;
+        font-weight: 500;
         letter-spacing: 0.07em;
         text-transform: uppercase;
       }
@@ -1467,7 +1467,7 @@
 
       .accent {
         color: var(--accent);
-        font-weight: 700;
+        font-weight: 500;
       }
     }
   }
@@ -1541,7 +1541,7 @@
         color: var(--info);
         background: color-mix(in srgb, var(--info) 12%, transparent);
         font-size: 9.5px;
-        font-weight: 700;
+        font-weight: 500;
 
         &.add {
           color: var(--good);
@@ -1593,14 +1593,14 @@
       background: var(--accent-soft);
       font-family: var(--font-mono);
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 500;
     }
 
     h3 {
       margin: 0 0 8px;
       color: var(--text);
       font-size: 17px;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: -0.01em;
     }
 
@@ -1644,7 +1644,7 @@
       margin: 0 0 6px;
       color: var(--text);
       font-size: 18px;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: -0.01em;
     }
 
@@ -1699,7 +1699,7 @@
       margin: 0 0 14px;
       color: var(--text);
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: -0.01em;
     }
 
@@ -2025,7 +2025,7 @@
         margin: 0 0 10px;
         color: var(--text);
         font-size: 22px;
-        font-weight: 700;
+        font-weight: 500;
         letter-spacing: -0.015em;
         line-height: 1.2;
       }

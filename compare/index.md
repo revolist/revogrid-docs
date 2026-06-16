@@ -36,9 +36,21 @@ The comparison pages focus on practical buying and implementation questions: lic
   </article>
 
   <article class="compare-index-card">
+    <span class="compare-index-label">React and Material UI comparison</span>
+    <a href="/compare/mui-x-grid-alternative">MUI X Data Grid Alternative</a>
+    <p>Compare RevoGrid with MUI X Data Grid for React apps, framework support, virtualization, server-side workflows, spreadsheet UX, pricing, Pivot, and Gantt.</p>
+  </article>
+
+  <article class="compare-index-card">
     <span class="compare-index-label">Grid, Gantt, and Pivot comparison</span>
     <a href="/compare/syncfusion-alternative">Syncfusion Alternative</a>
     <p>Compare RevoGrid with Syncfusion DataGrid, Gantt, and Pivot Table for focused grid workflows, framework support, advanced modules, licensing, and product fit.</p>
+  </article>
+
+  <article class="compare-index-card">
+    <span class="compare-index-label">FlexGrid and BI workflow comparison</span>
+    <a href="/compare/wijmo-datagrid-alternative">Wijmo FlexGrid Alternative</a>
+    <p>Compare RevoGrid with Wijmo FlexGrid for licensing, framework support, virtualization, pivot analytics, embedded BI, Gantt, and migration tradeoffs.</p>
   </article>
 </div>
 
@@ -86,7 +98,7 @@ When evaluating grid frameworks, start with the constraints that are hardest to 
   a {
     color: var(--vp-c-text-1);
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.25;
     text-decoration: none;
 
@@ -104,7 +116,7 @@ When evaluating grid frameworks, start with the constraints that are hardest to 
 .compare-index-label {
   color: var(--vp-c-brand-1);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
