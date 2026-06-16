@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.12](README.md) / ViewportStores
+[RevoGrid Documentation v4.23.15](README.md) / ViewportStores
 
 # Type Alias: ViewportStores
 
@@ -10,4 +10,4 @@ Represents the mapping of dimension types to their corresponding observable stor
 
 ## Defined in
 
-[src/types/interfaces.ts:758](https://github.com/revolist/revogrid/blob/7fc867bc90c8b537f3fb6e2e371773377b4fb177/src/types/interfaces.ts#L758)
+[src/types/interfaces.ts:758](https://github.com/revolist/revogrid/blob/5e190883a9b9ce9cbf8619639d2d2c839a2214b2/src/types/interfaces.ts#L758)
