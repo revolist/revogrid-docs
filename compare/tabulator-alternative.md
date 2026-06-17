@@ -1,6 +1,6 @@
 ---
 title: "Tabulator Alternative for JavaScript Applications"
-description: "Compare RevoGrid and Tabulator for JavaScript data grids, interactive tables, framework support, spreadsheet-like editing, virtualization, SaaS licensing, Pivot, Gantt, and enterprise product workflows."
+description: "Compare RevoGrid vs Tabulator for JavaScript data grids, interactive tables, framework support, spreadsheet-like editing, virtualization, Pivot, Gantt & enterprise products."
 outline: deep
 aside: true
 editLink: false

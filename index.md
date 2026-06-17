@@ -1,6 +1,7 @@
 ---
 layout: revogrid-home
 title: JavaScript Data Grid for Complex Web Apps
+externalHomeLinks: true
 navbar: true
 sidebar: false
 aside: false
