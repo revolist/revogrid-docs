@@ -179,3 +179,10 @@ function groupIconStyle(rawLabel: string): string {
   return ICON_STYLE_MAP[rawLabel] ?? ''
 }
 </script>
+
+<style scoped lang="scss">
+.feat-tile-thumb,
+.feat-tile-name {
+  pointer-events: none;
+}
+</style>
