@@ -39,7 +39,13 @@
           </div>
           <div class="feature-foot">
             <div class="replaces">Replaces - <b>{{ feature.replaces }}</b></div>
-            <button class="link" @click="openModal(feature)">Watch preview →</button>
+            <button
+              class="link fc-feat-title-link"
+              :id="featurePreviewId(feature.title)"
+              @click="openModal(feature)"
+            >
+              Watch preview →
+            </button>
           </div>
         </article>
       </div>
@@ -116,6 +122,11 @@ const activeVideoUrl = computed(() =>
 const activeThumb = computed(() =>
   activeFeature.value ? THUMB_MAP[activeFeature.value.type] || '' : '',
 )
+
+const featureSlug = (title: string) =>
+  title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+
+const featurePreviewId = (title: string) => featureSlug(title)
 
 watch(activeVideoUrl, async (url) => {
   if (!url) return

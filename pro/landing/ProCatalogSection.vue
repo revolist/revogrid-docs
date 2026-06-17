@@ -27,8 +27,9 @@
             <div
               v-for="feature in group.features"
               :key="feature.title"
-              class="feat-tile"
+              class="feat-tile fc-feat-title-link"
               :class="{ ent: group.rawLabel === 'Pro Advanced Modules' }"
+              :id="featurePreviewId(feature.title)"
               @click="openModal(feature)"
             >
               <div class="feat-tile-thumb" :class="groupThumbClass(group.rawLabel)">
@@ -109,6 +110,11 @@ const catalogTitleHighlight = computed(() =>
 
 const activeFeature = ref<FeatureItem | null>(null)
 const modalVideoEl = ref<HTMLVideoElement | null>(null)
+
+const featureSlug = (title: string) =>
+  title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+
+const featurePreviewId = (title: string) => featureSlug(title)
 
 watch(activeFeature, async (feature) => {
   if (!feature?.videoUrl) return
