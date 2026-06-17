@@ -12,6 +12,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import markdownItAttrs from 'markdown-it-attrs'
 import type MarkdownIt from 'markdown-it'
+import { createStructuredDataHead } from './configs/structuredData'
 
 dotenv.config()
 
@@ -264,6 +265,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         if (!hasHeadEntry(head, 'meta', 'name', 'twitter:description')) {
             dynamicHead.push(['meta', { name: 'twitter:description', content: description }])
         }
+
+        dynamicHead.push(...createStructuredDataHead({
+            siteUrl,
+            relativePath: pageData.relativePath,
+            title,
+            faq: frontmatter.faq as { items?: Array<{ q?: string; a?: string }> } | undefined,
+        }))
 
         return dynamicHead
     },

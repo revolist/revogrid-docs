@@ -346,6 +346,10 @@ faq:
       a: Yes. Wrap a Svelte component with Template(Component) and assign it to a column's cellTemplate property.
     - q: Can I use the open-source core in production?
       a: Yes. The MIT core can be used in production, including commercial apps, subject to the attribution requirements in the RevoGrid docs.
+    - q: Which frameworks can share the same RevoGrid foundation?
+      a: RevoGrid supports Svelte, React, Vue, Angular, JavaScript, and TypeScript-oriented projects, so teams can keep one grid model across multiple front-end stacks.
+    - q: Does RevoGrid support AI-assisted grid development?
+      a: Yes. RevoGrid has typed APIs, framework examples, and Pro MCP access for teams that want Claude, ChatGPT, Cursor, Codex, or other coding agents to retrieve real grid context.
 
 finalCta:
   title: Build a faster Svelte data grid with RevoGrid.

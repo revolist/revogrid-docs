@@ -15,9 +15,9 @@ head:
       content: RevoGrid, JavaScript Data Grid, React Data Grid, Vue Data Grid, Angular Data Grid, Svelte Data Grid, Virtual Scrolling, Editable Grid, Data Table, Pivot Grid, Gantt Grid, Excel
 hero:
   eyebrow: High-performance data grid
-  title: The extensible data grid for complex web apps
-  emphasis: extensible
-  tagline: The world's fastest data grid. Inline editing, virtual scroll, custom cells — works everywhere. Go Pro for advanced features.
+  title: JavaScript Data Grid for complex web apps
+  emphasis: JavaScript Data Grid
+  tagline: The world's fastest JavaScript data grid. Inline editing, virtual scroll, and custom cells for every major framework. 
   primaryAction:
     text: Explore 1M-row demo
     link: /demo/
@@ -320,9 +320,9 @@ comparison:
     - [Custom cell renderers, partial, yes, yes, yes]
     - [Plugin architecture, no, yes, partial, partial]
     - [All major frameworks, partial, yes, yes, partial]
-    - [Advanced modules, no, yesPro, yes, no]
-    - [Simple per-developer licensing, na, yes, complex, na]
-    - [Self-serve purchase, yes, yes, noSales, na]
+    - [Advanced modules, no, Pro plans, yes, no]
+    - [Simple per-developer licensing, not applicable, yes, complex, not applicable]
+    - [Self-serve purchase, yes, yes, sales-led, not applicable]
     - [Time to first grid, minutes, minutes, days, weeks]
 
 faq:
@@ -339,6 +339,10 @@ faq:
       a: Yes. The open-source core is available on npm and GitHub, and live interactive demos are available without signing up. Trial available upon request.
     - q: Can I upgrade my plan later?
       a: Yes. Start with the core grid or Pro Light and upgrade to Pro Advanced when your product requires Pivot, Gantt, or deeper workflow modules.
+    - q: Which frontend frameworks does RevoGrid support?
+      a: RevoGrid supports React, Vue, Angular, Svelte, JavaScript, and TypeScript-oriented projects from the same grid foundation.
+    - q: Is RevoGrid a good JavaScript data grid for AI-assisted coding?
+      a: Yes. RevoGrid uses typed configuration, framework examples, FAQ-style docs, and Pro MCP access so coding agents can retrieve real grid context before generating JavaScript grid code.
 
 finalCta:
   title: Build your next complex data interface with RevoGrid.

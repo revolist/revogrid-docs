@@ -367,13 +367,13 @@ comparison:
   description: RevoGrid is strongest when your React app needs fast scrolling, editing, custom cells, and a clear commercial upgrade path.
   columns: [Capability, TanStack Table, RevoGrid, MUI X, AG Grid React]
   rows:
-    - [Virtualized data grid, custom, yes, yes, yes]
-    - [Inline editing, custom, yes, partial, yes]
+    - [Virtualized data grid, custom implementation, built in, built in, built in]
+    - [Inline editing, custom implementation, built in, partial, built in]
     - [Custom React cells, yes, yes, yes, yes]
     - [Time to first grid, medium, minutes, minutes, medium]
     - [Open-source core, yes, yes, yes, yes]
-    - [Production SaaS licensing, na, perDev, perDev, enterprise]
-    - [Advanced modules, no, yesPro, yes, yes]
+    - [Production SaaS licensing, not applicable, per-developer Pro plans, per-developer paid tiers, Enterprise license]
+    - [Advanced modules, no, Pro plans, paid tiers, Enterprise modules]
 
 faq:
   label: FAQ
@@ -387,6 +387,8 @@ faq:
       a: Yes. Wrap a React component with Template(Component) and assign it to a column's cellTemplate property.
     - q: Can I use the open-source core in production?
       a: Yes. The MIT core can be used in production, including commercial apps, subject to the attribution requirements in the RevoGrid docs.
+    - q: What is the best data grid for React apps with AI-assisted development?
+      a: RevoGrid is a strong fit when React teams need virtual scrolling, inline editing, custom React cells, TypeScript, clear licensing, and Pro MCP context for coding agents.
 
 finalCta:
   title: Build a faster React data grid with RevoGrid.
@@ -401,5 +403,8 @@ finalCta:
       variant: secondary
     - text: View pricing
       link: /pricing
+      variant: ghost
+    - text: Best React grid guide
+      link: /best-data-grid-for-react
       variant: ghost
 ---
