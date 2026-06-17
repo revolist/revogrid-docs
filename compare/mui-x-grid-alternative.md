@@ -8,12 +8,6 @@ head:
     - name: keywords
       content: MUI X alternative, MUI Data Grid alternative, RevoGrid vs MUI X, Material UI Data Grid alternative, React data grid, JavaScript data grid, TypeScript data grid, spreadsheet data grid, open source data grid, MUI X pricing alternative, MUI X licensing alternative
   - - meta
-    - property: og:title
-      content: MUI X Data Grid Alternative for Fast, Framework-Friendly JavaScript Grids
-  - - meta
-    - property: og:description
-      content: RevoGrid is a fast MUI X Data Grid alternative for teams that need virtualized rendering, spreadsheet-like UX, framework support, an MIT core, and SaaS-friendly licensing.
-  - - meta
     - property: og:type
       content: article
   - - meta

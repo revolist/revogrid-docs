@@ -16,12 +16,6 @@ head:
     - name: keywords
       content: "Tabulator alternative, RevoGrid vs Tabulator, JavaScript data grid, JavaScript table library, React data grid, Vue data grid, Angular data grid, Svelte data grid, spreadsheet-like grid, SaaS data grid, enterprise data grid"
   - - meta
-    - property: og:title
-      content: "Tabulator Alternative: RevoGrid for Data-Heavy JavaScript Applications"
-  - - meta
-    - property: og:description
-      content: "Compare RevoGrid and Tabulator for interactive tables, virtualized data grids, spreadsheet UX, SaaS licensing, advanced workflows, Pivot, Gantt, and support."
-  - - meta
     - property: og:type
       content: "website"
 ---

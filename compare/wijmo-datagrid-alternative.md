@@ -9,12 +9,6 @@ head:
     - name: keywords
       content: wijmo alternative, wijmo flexgrid alternative, wijmo datagrid alternative, flexgrid alternative, javascript data grid, react data grid, vue data grid, angular data grid, svelte data grid, pivot grid, BI data grid, enterprise data grid, wijmo pricing alternative
   - - meta
-    - property: og:title
-      content: RevoGrid vs Wijmo FlexGrid/DataGrid
-  - - meta
-    - property: og:description
-      content: A practical comparison of RevoGrid vs Wijmo FlexGrid for teams building fast, customizable, BI-ready data workflows.
-  - - meta
     - property: og:type
       content: article
 ---

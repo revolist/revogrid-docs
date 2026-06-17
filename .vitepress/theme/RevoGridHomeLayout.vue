@@ -183,6 +183,30 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   align-items: center;
 }
 
+@media (min-width: 960px) {
+  .rg-hero .rg-container {
+    max-width: 1640px;
+  }
+
+  .rg-hero-grid {
+    gap: 56px;
+  }
+
+  .rg-hero-visual .rg-datagridjs-preview {
+    width: 100%;
+  }
+
+  .rg-hero-visual .rg-datagridjs-preview .mock-panel {
+    margin: 0;
+  }
+
+  .rg-hero-visual .rg-datagridjs-preview .grid-demo {
+    height: min(560px, calc(62vh + 60px));
+    min-height: 420px;
+  }
+}
+
+
 .rg-badge {
   display: inline-flex;
   align-items: center;
