@@ -28,12 +28,6 @@ head:
     - property: og:type
       content: article
   - - meta
-    - property: og:url
-      content: https://rv-grid.com/blog/best-js-datagrid-in-2026
-  - - meta
-    - property: og:image
-      content: https://rv-grid.com/blog/daragrid.png
-  - - meta
     - name: twitter:card
       content: summary_large_image
   - - script

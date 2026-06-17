@@ -28,12 +28,6 @@ head:
     - property: og:type
       content: article
   - - meta
-    - property: og:url
-      content: https://rv-grid.com/blog/revogrid-pro-2
-  - - meta
-    - property: og:image
-      content: https://rv-grid.com/blog/v2-demo.png
-  - - meta
     - name: twitter:card
       content: summary_large_image
   - - script

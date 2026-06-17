@@ -27,12 +27,6 @@ head:
     - property: og:type
       content: article
   - - meta
-    - property: og:url
-      content: https://rv-grid.com/blog/migrating-from-handsontable-to-revogrid
-  - - meta
-    - property: og:image
-      content: https://rv-grid.com/blog/handsontable.png
-  - - meta
     - name: twitter:card
       content: summary_large_image
   - - script
