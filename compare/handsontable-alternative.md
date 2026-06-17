@@ -1,5 +1,5 @@
 ---
-title: "Handsontable Alternative: RevoGrid for Fast, Flexible Spreadsheet-like Data Grids"
+title: Handsontable Alternative for Spreadsheet-like Data Grids
 description: "Deep technical comparison of RevoGrid Core, RevoGrid Pro, and Handsontable across licensing, pricing, framework support, editing, virtualization, formulas, Pivot, Gantt, export, server-side workflows, and SaaS deployment."
 outline: deep
 aside: true
@@ -15,9 +15,6 @@ head:
   - - meta
     - name: keywords
       content: "handsontable alternative, revogrid pro vs handsontable, revogrid core vs handsontable, handsontable pricing, handsontable commercial license, javascript spreadsheet component, react spreadsheet grid, javascript data grid with editing, spreadsheet-like data grid, open source handsontable alternative"
-  - - link
-    - rel: canonical
-      href: "https://rv-grid.com/compare/revogrid-pro-core-vs-handsontable"
   - - meta
     - property: og:title
       content: "Handsontable Alternative: RevoGrid for Fast, Flexible Spreadsheet-like Data Grids"

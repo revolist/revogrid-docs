@@ -17,12 +17,6 @@ head:
   - - meta
     - property: og:type
       content: article
-  - - meta
-    - property: og:url
-      content: https://rv-grid.com/compare/wijmo-datagrid-alternative
-  - - link
-    - rel: canonical
-      href: https://rv-grid.com/compare/wijmo-datagrid-alternative
 ---
 
 # Wijmo FlexGrid/DataGrid Alternative

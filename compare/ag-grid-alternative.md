@@ -1,5 +1,5 @@
 ---
-title: AG Grid Alternative for Fast, Flexible JavaScript Data Grids
+title: AG Grid Alternative JavaScript Data Grids
 description: Looking for an AG Grid alternative? RevoGrid gives teams a high-performance JavaScript data grid with virtual scrolling, spreadsheet-like UX, framework support, an MIT core, and SaaS-friendly licensing without deployment counting.
 outline: deep
 aside: true
@@ -17,14 +17,8 @@ head:
     - property: og:type
       content: article
   - - meta
-    - property: og:url
-      content: https://rv-grid.com/ag-grid-alternative/
-  - - meta
     - name: twitter:card
       content: summary_large_image
-  - - link
-    - rel: canonical
-      href: https://rv-grid.com/ag-grid-alternative/
   - - script
     - type: application/ld+json
     - |

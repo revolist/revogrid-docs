@@ -1,5 +1,5 @@
 ---
-title: MUI X Data Grid Alternative for Fast, Framework-Friendly JavaScript Grids
+title: MUI X Data Grid Alternative
 description: Looking for a MUI X Data Grid alternative? Compare RevoGrid and MUI X for React apps, framework support, virtualization, spreadsheet UX, pricing, licensing, server-side workflows, Pivot, Gantt, and SaaS product fit.
 outline: deep
 aside: true
@@ -17,14 +17,8 @@ head:
     - property: og:type
       content: article
   - - meta
-    - property: og:url
-      content: https://rv-grid.com/compare/mui-x-grid-alternative
-  - - meta
     - name: twitter:card
       content: summary_large_image
-  - - link
-    - rel: canonical
-      href: https://rv-grid.com/compare/mui-x-grid-alternative
   - - script
     - type: application/ld+json
     - |
