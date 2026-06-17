@@ -1,7 +1,7 @@
 ---
 title: Wijmo FlexGrid/DataGrid Alternative
 pageClass: compare-page wijmo-alternative-page
-description: Compare RevoGrid with Wijmo FlexGrid for high-performance JavaScript, React, Vue, Angular, Svelte, pivot analytics, BI-style reporting, Gantt, and SaaS-friendly data applications.
+description: RevoGrid vs Wijmo FlexGrid JavaScript Data Grid, Pivot analytics, BI-style reporting, Gantt & SaaS data applications.
 outline: deep
 aside: true
 head:
@@ -13,7 +13,7 @@ head:
       content: RevoGrid vs Wijmo FlexGrid/DataGrid
   - - meta
     - property: og:description
-      content: A practical comparison of RevoGrid and Wijmo FlexGrid for teams building fast, customizable, BI-ready data workflows.
+      content: A practical comparison of RevoGrid vs Wijmo FlexGrid for teams building fast, customizable, BI-ready data workflows.
   - - meta
     - property: og:type
       content: article
