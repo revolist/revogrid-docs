@@ -36,9 +36,6 @@ head:
   - - meta
     - name: twitter:card
       content: summary_large_image
-  - - link
-    - rel: canonical
-      href: https://rv-grid.com/blog/best-js-datagrid-in-2026
   - - script
     - type: application/ld+json
     - |

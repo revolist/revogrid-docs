@@ -35,9 +35,6 @@ head:
   - - meta
     - name: twitter:card
       content: summary_large_image
-  - - link
-    - rel: canonical
-      href: https://rv-grid.com/blog/migrating-from-ag-grid-to-revogrid
   - - script
     - type: application/ld+json
     - |
