@@ -1,5 +1,5 @@
 ---
-title: What Is a Pivot Table? A Beginner's Guide to Pivoting Data
+title: Beginner's Guide to Pivoting Data & Reporting in 2026
 description: Learn what a pivot table is, why teams use pivots, how rows, columns, values, filters, and aggregations work, and how RevoGrid Pivot brings pivot analytics into web apps.
 date: 2026-05-25
 author: RevoGrid Team

@@ -1,5 +1,5 @@
 ---
-title: RevoGrid Pro 2+ - Animations, Analytics, Gantt, Pivot & More
+title: Pro v2 - TreeGrid, Animations, Analytics, Gantt, Pivot & More
 description: RevoGrid Pro 2+ brings visual update highlights, Pivot analytics, Gantt scheduling, enterprise billing control, AI and MCP workflows, server-side data patterns, spreadsheet features, audit history, and a larger demo platform.
 outline: deep
 date: 2026-06-09

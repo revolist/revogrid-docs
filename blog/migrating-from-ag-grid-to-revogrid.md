@@ -1,5 +1,5 @@
 ---
-title: "Migrating from AG Grid to RevoGrid"
+title: Migrating from AG Grid to RevoGrid
 description: "A practical AG Grid to RevoGrid migration guide for JavaScript, React, Vue, Angular, and Svelte teams moving rowData, columnDefs, renderers, editors, events, filtering, sorting, selection, and advanced grid workflows."
 outline: deep
 date: 2026-06-17

@@ -1,5 +1,5 @@
 ---
-title: "Migrating from Syncfusion Grid to RevoGrid"
+title: Migrating from Syncfusion Grid to RevoGrid
 description: "A practical Syncfusion Grid to RevoGrid migration guide for JavaScript, React, Vue, Angular, and Svelte teams moving dataSource, columns, templates, editing, filtering, sorting, paging, virtualization, and advanced grid workflows."
 outline: deep
 date: 2026-06-17
