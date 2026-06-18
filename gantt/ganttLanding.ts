@@ -27,6 +27,7 @@ export type GanttLandingPage = {
   }
   preview: {
     enabled: boolean
+    kind?: 'gantt' | 'eventScheduler'
     title: string
     pills: { label: string, active?: boolean }[]
     liveLabel?: string

@@ -309,7 +309,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   background: var(--rg-bg-3);
   color: var(--rg-text-2);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1;
   padding: 7px 9px;
   text-transform: uppercase;

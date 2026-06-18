@@ -231,6 +231,10 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         link: '/demo/gantt',
     },
     {
+        text: 'Event Scheduler',
+        link: '/demo/event-scheduler',
+    },
+    {
         text: 'Ecommerce Workspace',
         link: '/demo/ecommerce',
     },

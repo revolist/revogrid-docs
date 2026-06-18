@@ -31,7 +31,8 @@
       </div>
 
       <ClientOnly v-if="preview.enabled">
-        <GanttPreviewGrid class="fade-up-3" :preview="preview" :is-dark="isDark" />
+        <EventSchedulerPreview v-if="preview.kind === 'eventScheduler'" class="fade-up-3" />
+        <GanttPreviewGrid v-else class="fade-up-3" :preview="preview" :is-dark="isDark" />
       </ClientOnly>
     </div>
   </section>
@@ -39,6 +40,7 @@
 
 <script lang="ts" setup>
 import ProDocButton from '../pro/ProDocButton.vue'
+import EventSchedulerPreview from './EventSchedulerPreview.vue'
 import GanttPreviewGrid from './GanttPreviewGrid.vue'
 import type { GanttLandingPage } from './ganttLanding'
 
@@ -158,4 +160,5 @@ defineProps<{
     font-weight: 600;
   }
 }
+
 </style>

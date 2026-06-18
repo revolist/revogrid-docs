@@ -20,6 +20,11 @@ export const navbarEn: DefaultTheme.NavItem[] = [
         activeMatch: '^/gantt',
       },
       {
+        text: 'Event Scheduler',
+        link: '/event-scheduler',
+        activeMatch: '^/event-scheduler',
+      },
+      {
         text: 'Frameworks',
         items: [
           {
