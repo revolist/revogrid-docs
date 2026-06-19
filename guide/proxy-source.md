@@ -234,7 +234,7 @@ grid.pinnedBottomSource = summaryRows.map(row =>
 
 ## Related Guides
 
-- [Data Synchronization](/guide/data-sync)
+- [Data Source Loading and Syncing](/guide/data-sync)
 - [Editing](/guide/editing)
 - [Programmatic Grid Control](/guide/programmatic-control)
 - [Event Patterns and Lifecycles](/guide/events-guide)

@@ -34,7 +34,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 link: '/guide/overview',
             },
             {
-                text: 'Data Synchronization',
+                text: 'Data Loading and Sync',
                 link: '/guide/data-sync',
             },
             {

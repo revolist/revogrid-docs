@@ -132,4 +132,4 @@ Choose the update shape based on the incoming data:
 - Batch rapid updates before touching the grid.
 - Avoid expensive custom cell templates for values that change often.
 - Use [Programmatic Grid Control](/guide/programmatic-control) for targeted methods such as `setDataAt`.
-- Use [Data Synchronization](/guide/data-sync) when your app needs a clear source-of-truth strategy.
+- Use [Data Source Loading and Syncing](/guide/data-sync) when your app needs a clear source-of-truth strategy.
