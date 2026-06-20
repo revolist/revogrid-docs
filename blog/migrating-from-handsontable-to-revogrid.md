@@ -112,7 +112,7 @@ This guide is written for developers who already have a Handsontable screen and 
 
 That Pro path matters for Handsontable migrations. RevoGrid core covers the fast grid foundation, while Pro adds many spreadsheet and enterprise workflows that Handsontable teams often depend on: [formulas](/guide/cell/formula), advanced filtering, Excel import/export, JSON clipboard support, autofill, validation, history/undo-redo, context menus, hierarchy/tree data, row grouping, aggregation, Pivot, and Gantt. Decide early which workflows belong in core RevoGrid, which should stay in your application layer, and which can move to a Pro module.
 
-If you are still comparing vendors, create a dedicated comparison page for Handsontable later. If you are ready to port code, use this migration guide.
+If you are still comparing vendors, start with the [Handsontable Alternative](/compare/handsontable-alternative/) page. If you are ready to port code, use this migration guide.
 
 ::: tip Migration principle
 Do not try to make RevoGrid look like Handsontable internally. Keep the same product workflow, but map it to RevoGrid's data model, column model, event model, and Web Component foundation.
@@ -1267,6 +1267,7 @@ That is the right first migration target. After that, add back the workflows tha
 - [RevoGrid Pro](/pro/)
 - [Programmatic Grid Control](/guide/programmatic-control)
 - [RevoGrid Export](/guide/export.plugin)
+- [Handsontable Alternative](/compare/handsontable-alternative/)
 
 ## FAQ
 

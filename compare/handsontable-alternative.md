@@ -54,6 +54,10 @@ import CompareHero from './CompareHero.vue'
 Use **Handsontable** when the product is primarily an Excel-like spreadsheet surface. Use **RevoGrid** when the spreadsheet UX is part of a broader product workflow: editable data tables, virtualized data, custom renderers, server-side loading, validation, export, Pivot analytics, Gantt scheduling, audit history, and SaaS-friendly licensing.
 :::
 
+::: tip Migration guide
+Already using Handsontable? Use the [Handsontable to RevoGrid migration guide](/blog/migrating-from-handsontable-to-revogrid/) to map data, columns, headers, hooks, renderers, editors, validation, formulas, clipboard, and plugin workflows.
+:::
+
 ## Positioning difference
 
 ### Handsontable positioning

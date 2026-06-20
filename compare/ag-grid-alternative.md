@@ -98,6 +98,10 @@ import CompareHero from './CompareHero.vue'
   use-cases="SaaS products, PPM products, internal platforms, admin panels, fintech tools, analytics workspaces, ERP/CRM interfaces, and applications where the grid is part of the core product experience"
 />
 
+::: tip Migration guide
+Already using AG Grid? Use the [AG Grid to RevoGrid migration guide](/blog/migrating-from-ag-grid-to-revogrid/) to map `rowData`, `columnDefs`, renderers, editors, events, and advanced workflows.
+:::
+
 ## Why teams look for an AG Grid alternative
 
 Most teams do not search for an AG Grid alternative because AG Grid is weak.
@@ -297,7 +301,7 @@ RevoGrid is the better fit when the grid needs to be **fast, product-friendly, f
 | Validation | ✅ Pro | ✅ | ✅ | RevoGrid Pro lists Cell/Input Validation; AG Grid supports validation. |
 | Input validation | ✅ Pro | ✅ | ✅ | RevoGrid Pro lists Input Validation. |
 | Cell validation | ✅ Pro | ✅ | ✅ | RevoGrid Pro lists Cell Validation. |
-| Multiuser / collaborative editing | ✅ Pro | ⚠️ Custom application logic | ⚠️ Custom application logic | RevoGrid Pro lists Collaborative Editing Beta. |
+| Collaborative mode | ✅ Pro | ⚠️ Custom application logic | ⚠️ Custom application logic | RevoGrid Pro lists collaborative editing workflows. |
 
 | Feature | RevoGrid | AG Grid Community | AG Grid Enterprise / Bundle | Notes |
 |---|:---:|:---:|:---:|---|

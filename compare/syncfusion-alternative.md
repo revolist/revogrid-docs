@@ -30,6 +30,10 @@ import CompareHero from './CompareHero.vue'
 Choose **RevoGrid** when performance, control, large datasets, custom cell rendering, SaaS-friendly licensing, and grid-first enterprise workflows matter more than buying a general-purpose UI suite.
 :::
 
+::: tip Migration guide
+Already using Syncfusion Grid? Use the [Syncfusion Grid to RevoGrid migration guide](/blog/migrating-from-syncfusion-to-revogrid/) to map `dataSource`, columns, templates, editing, filtering, sorting, paging, virtualization, and advanced workflows.
+:::
+
 ## Why teams look for a Syncfusion alternative
 
 Syncfusion covers a lot: grids, charts, schedulers, Gantt, pivot, document tools, PDF viewers, spreadsheet tools, and many other UI components. That breadth is useful, but it can also be too much when your real requirement is narrower:
@@ -139,12 +143,12 @@ RevoGrid is built for that scenario. It focuses on the data surface itself: fast
 | Input validation before commit | ✅ Pro | ✅ |
 | Undo / redo history | ✅ Pro | ⚠️ App/Spreadsheet logic |
 | Audit trail history | ✅ Pro | ⚠️ App logic |
-| Collaborative editing | ✅ Pro | ⚠️ App logic |
+| Collaborative mode | ✅ Pro | ⚠️ App logic |
 | Range apply preview | ✅ Pro | ❌ |
 | Excel export | ✅ Pro | ✅ |
 | Excel import | ✅ Pro | ⚠️ Control-dependent |
 | CSV export | ✅ | ✅ |
-| PDF export | ⚠️ Custom export | ✅ |
+| PDF export | ✅ Pro | ✅ |
 | Formulas | ✅ Pro | ✅ |
 | 100+ Excel formulas | ✅ Pro | ⚠️ Spreadsheet-specific |
 | Formula bar | ✅ Pro | ⚠️ Spreadsheet-focused |
@@ -183,6 +187,8 @@ RevoGrid is built for that scenario. It focuses on the data surface itself: fast
 | BI-style embedded reporting | ✅ Pro | ⚠️ Separate BI/workflow setup |
 | Pivot charts | ⚠️ Chart integration | ✅ |
 | Gantt chart / scheduling | ✅ Pro | ✅ |
+| Event scheduler / calendar | ✅ Pro | ✅ |
+| Resource planner | ✅ Pro | ✅ |
 | Gantt task hierarchy / WBS | ✅ Pro | ✅ |
 | Task dependencies | ✅ Pro | ✅ |
 | Automatic scheduling | ✅ Pro | ✅ |
@@ -271,7 +277,7 @@ That makes RevoGrid especially attractive for:
 - agencies building repeatable internal platforms;
 - products with many customer tenants;
 - companies that need predictable procurement;
-- teams that want the MIT core plus paid advanced modules.
+- teams that want the MIT core plus paid advanced modules for export, collaborative mode, pivot, Gantt, scheduler/calendar, and resource planning workflows.
 
 ## Where Syncfusion may still be the right choice
 
@@ -306,6 +312,8 @@ Choose RevoGrid when:
 | Syncfusion Pivot field list | ✅ Pro Pivot Configurator |
 | Syncfusion Pivot drill-down | ✅ Pro row/column drill-down and pivot contracts |
 | Syncfusion Gantt Chart | ✅ Pro Gantt & Scheduling |
+| Syncfusion Scheduler / Calendar | ✅ Pro event scheduler and calendar workflows |
+| Syncfusion resource planning workflows | ✅ Pro resource planner workflows |
 | Syncfusion Gantt dependencies | ✅ Pro dependencies with lead/lag support |
 | Syncfusion Gantt baselines / critical path | ✅ Pro baselines, critical path, slack, and scheduling tools |
 | Syncfusion DataManager / remote data | RevoGrid data source integration, remote pagination, infinite scroll, and server-side workflows |
@@ -354,7 +362,7 @@ Choose Syncfusion when you want a broad commercial UI suite and need many non-gr
 
 If your team is replacing Syncfusion because the grid experience feels too heavy, too suite-oriented, or too hard to tailor for your product, start with RevoGrid.
 
-RevoGrid gives you the performance-first foundation for complex data screens and the Pro modules needed for enterprise-grade pivot analytics, Gantt scheduling, formulas, editing, validation, and large-dataset workflows.
+RevoGrid gives you the performance-first foundation for complex data screens and the Pro modules needed for enterprise-grade pivot analytics, Gantt scheduling, event scheduler/calendar workflows, resource planning, collaborative mode, PDF export, formulas, editing, validation, and large-dataset workflows.
 
 <div class="vp-doc-grid-cta">
 

@@ -23,41 +23,68 @@ Use these guides when you are choosing a JavaScript data grid for a product, int
 The comparison pages focus on practical buying and implementation questions: licensing, deployment rules, framework support, editing, filtering, export, Pivot, Gantt, server-side workflows, support, and migration tradeoffs.
 
 <div class="compare-index-grid">
-  <article class="compare-index-card">
+  <a class="compare-index-card" href="/compare/ag-grid-alternative">
+    <div class="compare-index-preview">
+      <img src="/blog/aggrid.png" alt="AG Grid logo" loading="lazy">
+    </div>
     <span class="compare-index-label">Enterprise data grid comparison</span>
-    <a href="/compare/ag-grid-alternative">AG Grid Alternative</a>
+    <span class="compare-index-title">AG Grid Alternative</span>
     <p>Compare RevoGrid with AG Grid Community and AG Grid Enterprise across licensing, advanced features, SaaS deployment, Pivot, Gantt, and support.</p>
-  </article>
+  </a>
 
-  <article class="compare-index-card">
+  <a class="compare-index-card" href="/compare/handsontable-alternative">
+    <div class="compare-index-preview">
+      <img src="/blog/handsontable.png" alt="Handsontable logo" loading="lazy">
+    </div>
     <span class="compare-index-label">Spreadsheet-like grid comparison</span>
-    <a href="/compare/handsontable-alternative">Handsontable Alternative</a>
+    <span class="compare-index-title">Handsontable Alternative</span>
     <p>Compare RevoGrid with Handsontable for spreadsheet UX, formulas, clipboard workflows, pricing, licensing, framework support, Pivot, and Gantt.</p>
-  </article>
+  </a>
 
-  <article class="compare-index-card">
+  <a class="compare-index-card" href="/compare/mui-x-grid-alternative">
+    <div class="compare-index-preview">
+      <img src="/blog/muix.png" alt="MUI X logo" loading="lazy">
+    </div>
     <span class="compare-index-label">React and Material UI comparison</span>
-    <a href="/compare/mui-x-grid-alternative">MUI X Data Grid Alternative</a>
+    <span class="compare-index-title">MUI X Data Grid Alternative</span>
     <p>Compare RevoGrid with MUI X Data Grid for React apps, framework support, virtualization, server-side workflows, spreadsheet UX, pricing, Pivot, and Gantt.</p>
-  </article>
+  </a>
 
-  <article class="compare-index-card">
+  <a class="compare-index-card" href="/compare/kendo-ui-grid-alternative">
+    <div class="compare-index-preview">
+      <img src="/blog/kendo.png" alt="Kendo UI logo" loading="lazy">
+    </div>
+    <span class="compare-index-label">Telerik and enterprise grid comparison</span>
+    <span class="compare-index-title">Kendo UI Grid Alternative</span>
+    <p>Compare RevoGrid with Kendo UI Grid for framework support, customization, virtualization, licensing, spreadsheet UX, Pivot, Gantt, and SaaS product workflows.</p>
+  </a>
+
+  <a class="compare-index-card" href="/compare/syncfusion-alternative">
+    <div class="compare-index-preview">
+      <img src="/blog/syncfusion.png" alt="Syncfusion logo" loading="lazy">
+    </div>
     <span class="compare-index-label">Grid, Gantt, and Pivot comparison</span>
-    <a href="/compare/syncfusion-alternative">Syncfusion Alternative</a>
+    <span class="compare-index-title">Syncfusion Alternative</span>
     <p>Compare RevoGrid with Syncfusion DataGrid, Gantt, and Pivot Table for focused grid workflows, framework support, advanced modules, licensing, and product fit.</p>
-  </article>
+  </a>
 
-  <article class="compare-index-card">
+  <a class="compare-index-card" href="/compare/tabulator-alternative">
+    <div class="compare-index-preview">
+      <img src="/blog/tabulator-demo.png" alt="Tabulator logo" loading="lazy">
+    </div>
     <span class="compare-index-label">JavaScript table comparison</span>
-    <a href="/compare/tabulator-alternative">Tabulator Alternative</a>
+    <span class="compare-index-title">Tabulator Alternative</span>
     <p>Compare RevoGrid with Tabulator for interactive tables, framework support, spreadsheet-like editing, virtualization, SaaS licensing, Pivot, Gantt, and product workflows.</p>
-  </article>
+  </a>
 
-  <article class="compare-index-card">
+  <a class="compare-index-card" href="/compare/wijmo-datagrid-alternative">
+    <div class="compare-index-preview">
+      <img src="/blog/wijmo.png" alt="Wijmo logo" loading="lazy">
+    </div>
     <span class="compare-index-label">FlexGrid and BI workflow comparison</span>
-    <a href="/compare/wijmo-datagrid-alternative">Wijmo FlexGrid Alternative</a>
+    <span class="compare-index-title">Wijmo FlexGrid Alternative</span>
     <p>Compare RevoGrid with Wijmo FlexGrid for licensing, framework support, virtualization, pivot analytics, embedded BI, Gantt, and migration tradeoffs.</p>
-  </article>
+  </a>
 </div>
 
 ## What To Compare
@@ -90,8 +117,9 @@ When evaluating grid frameworks, start with the constraints that are hardest to 
   color: var(--vp-c-text-2);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   padding: 22px;
+  text-decoration: none !important;
   transition:
     border-color 0.2s,
     background-color 0.2s;
@@ -101,21 +129,47 @@ When evaluating grid frameworks, start with the constraints that are hardest to 
     border-color: var(--vp-c-brand-2);
   }
 
-  a {
+  &:focus-visible {
+    outline: 2px solid var(--vp-c-brand-1);
+    outline-offset: 3px;
+  }
+
+  &:hover .compare-index-title {
+    color: var(--vp-c-brand-1);
+  }
+
+  * {
+    text-decoration: none !important;
+  }
+
+  .compare-index-title {
     color: var(--vp-c-text-1);
     font-size: 20px;
     font-weight: 500;
     line-height: 1.25;
-    text-decoration: none;
-
-    &:hover {
-      color: var(--vp-c-brand-1);
-    }
   }
 
   p {
+    color: var(--vp-c-text-2);
     line-height: 1.55;
     margin: 0;
+  }
+}
+
+.compare-index-preview {
+  align-items: center;
+  display: flex;
+  height: 144px;
+  justify-content: center;
+  margin-bottom: 4px;
+  padding: 0;
+
+  img {
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    width: 100%;
   }
 }
 

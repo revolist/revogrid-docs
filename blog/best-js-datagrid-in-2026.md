@@ -328,7 +328,7 @@ For teams comparing Excel-like grids specifically, the [Handsontable alternative
 ### MUI X Data Grid
 
 [MUI X Data Grid](https://mui.com/x/react-data-grid/) is a strong React data grid for teams already using Material UI.
-![MUIX preview](/blog/muix.png)
+![MUIX preview](/blog/muix-demo.png)
 It has a polished React developer experience, strong TypeScript support, built-in UI conventions, and a growing AI Assistant story.
 
 #### Pros

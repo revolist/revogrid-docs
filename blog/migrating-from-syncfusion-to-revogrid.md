@@ -108,7 +108,7 @@ The real migration work starts after the first render. Syncfusion applications o
 
 This guide is written for developers who already have a Syncfusion Grid screen and want a practical migration path to [RevoGrid](/), a high-performance JavaScript data grid with an MIT-licensed core, Web Component architecture, framework wrappers, virtual rows and columns, editing, custom cells, and a path into [RevoGrid Pro](/pro/) features.
 
-If you are still comparing vendors, create a dedicated comparison page for Syncfusion later. If you are ready to port code, use this migration guide.
+If you are still comparing vendors, start with the [Syncfusion Alternative](/compare/syncfusion-alternative/) page. If you are ready to port code, use this migration guide.
 
 ::: tip Migration principle
 Do not try to make RevoGrid look like Syncfusion internally. Keep the same product workflow, but map it to RevoGrid's API, event model, and Web Component foundation.
@@ -1129,6 +1129,7 @@ That is the right first migration target. After that, add back the workflows tha
 - [RevoGrid Filtering](/guide/filters)
 - [Programmatic Grid Control](/guide/programmatic-control)
 - [Cell Renderer](/guide/cell/renderer)
+- [Syncfusion Alternative](/compare/syncfusion-alternative/)
 
 ## FAQ
 

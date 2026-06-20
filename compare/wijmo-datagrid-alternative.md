@@ -126,11 +126,11 @@ RevoGrid is built for that scenario. It focuses on the data surface itself: fast
 | Input validation before commit | ✅ Pro | ✅ |
 | Undo / redo history | ✅ Pro | ⚠️ App/FlexSheet logic |
 | Audit trail history | ✅ Pro | ⚠️ App logic |
-| Collaborative editing | ✅ Pro | ⚠️ App logic |
+| Collaborative mode | ✅ Pro | ⚠️ App logic |
 | Excel export | ✅ Pro | ✅ |
 | Excel import | ✅ Pro | ⚠️ Module/custom workflow |
 | CSV export | ✅ | ✅ |
-| PDF export | ⚠️ Custom export | ✅ |
+| PDF export | ✅ Pro | ✅ |
 | Formulas | ✅ Pro | ✅ FlexSheet |
 | Formula bar | ✅ Pro | ⚠️ FlexSheet-focused |
 | Formula editor | ✅ Pro | ⚠️ FlexSheet-focused |
@@ -160,6 +160,8 @@ RevoGrid is built for that scenario. It focuses on the data surface itself: fast
 | BI-style embedded reporting | ✅ Pro | ⚠️ OLAP/chart integration |
 | Pivot charts | ⚠️ Chart integration | ✅ FlexChart / OLAP integration |
 | Gantt chart / scheduling | ✅ Pro | ❌ Not primary Wijmo focus |
+| Event scheduler / calendar | ✅ Pro | ❌ Not primary Wijmo focus |
+| Resource planner | ✅ Pro | ❌ Not primary Wijmo focus |
 | Gantt task hierarchy / WBS | ✅ Pro | ❌ |
 | Task dependencies | ✅ Pro | ❌ |
 | Automatic scheduling | ✅ Pro | ❌ |
