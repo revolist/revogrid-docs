@@ -3,6 +3,7 @@
 title: Building Powerfull Enterprise Dashboards
 description: "A practical guide to designing data-heavy enterprise dashboards with JavaScript Data Grids: architecture, UX patterns, performance, security, analytics workflows & reports."
 category: Dashboards
+date: 2026-06-20
 tags:
   - Data Grid
   - JavaScript
