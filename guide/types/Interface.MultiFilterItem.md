@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.16](README.md) / MultiFilterItem
+[RevoGrid Documentation v4.23.17](README.md) / MultiFilterItem
 
 # Interface: MultiFilterItem
 

@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.16](README.md) / DimensionType
+[RevoGrid Documentation v4.23.17](README.md) / DimensionType
 
 # Type Alias: DimensionType
 
@@ -8,4 +8,4 @@ type DimensionType: DimensionTypeCol | DimensionTypeRow;
 
 ## Defined in
 
-[src/types/dimension.ts:5](https://github.com/revolist/revogrid/blob/afa54ee5117a4202f152f3480ef450775449789b/src/types/dimension.ts#L5)
+[src/types/dimension.ts:5](https://github.com/revolist/revogrid/blob/ea7fa0ee5cb2e50b935ef85ece5e63e426a24536/src/types/dimension.ts#L5)
