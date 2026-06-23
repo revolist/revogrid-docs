@@ -80,13 +80,14 @@
     "vue-github-button": "^3.1.3"
   },
   "dependencies": {
-    "@revolist/react-datagrid": "^4.23.16",
+    "@revolist/react-datagrid": "^4.23.17",
     "@revolist/revogrid-column-date": "^2.0.25",
     "@revolist/revogrid-column-numeral": "^2.0.11",
     "@revolist/revogrid-column-select": "^3.1.19",
     "@revolist/revogrid-enterprise": "latest",
     "@revolist/revogrid-pro": "latest",
     "@revolist/vue3-datagrid": "4.23.17",
+    "@revolist/revogrid-examples": "latest",
     "lodash-es": "^4.18.1"
   }
 }

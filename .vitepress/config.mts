@@ -423,6 +423,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 'debug',
                 'cytoscape-cose-bilkent',
                 'cytoscape',
+                'numeral',
             ], // List of node modules to include in bundling
         },
         resolve: {

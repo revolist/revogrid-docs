@@ -28,6 +28,9 @@ import 'virtual:uno.css'
 import '@revolist/revogrid-pro/dist/revogrid-pro.css'
 import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
 import { defineAsyncComponent } from 'vue'
+import { useData } from 'vitepress'
+
+const { isDark } = useData()
 
 const SpreadsheetWorkbench = defineAsyncComponent(() =>
   import('@revolist/revogrid-examples/components/spreadsheet/SpreadsheetWorkbench.vue')
@@ -36,7 +39,7 @@ const SpreadsheetWorkbench = defineAsyncComponent(() =>
 
 <ClientOnly>
   <div class="demo-main-widget">
-    <SpreadsheetWorkbench />
+    <SpreadsheetWorkbench :is-dark="isDark" />
   </div>
 </ClientOnly>
 

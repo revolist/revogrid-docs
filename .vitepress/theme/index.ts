@@ -19,6 +19,7 @@ import HomeCtaBanner from './home/HomeCtaBanner.vue'
 import ExternalHomeLinks from './ExternalHomeLinks.vue'
 import HeaderNavControls from './HeaderNavControls.vue'
 import HomePageColors from './home/HomePageColors.vue'
+import DemoThemeBridge from './DemoThemeBridge.vue'
 import ProDemoFrame from './ProDemoFrame.vue'
 import DemoWidgetFrame from './DemoWidgetFrame.vue'
 import QuickStartCdnExample from './QuickStartCdnExample.vue'
@@ -34,6 +35,7 @@ export default {
             'layout-top': () => [
                 h(HeaderNavControls),
                 h(HomePageColors),
+                h(DemoThemeBridge),
                 h(ExternalHomeLinks),
             ],
             'home-hero-image': () => h(HomeHero),
