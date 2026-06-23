@@ -30,7 +30,7 @@ import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
 import { defineAsyncComponent } from 'vue'
 
 const GanttShowcase = defineAsyncComponent(() =>
-  import('@revolist/revogrid-examples/components/gantt/GanttShowcase.vue')
+  import('@revolist/revogrid-examples/components/gantt/GanttBasic.vue')
 )
 </script>
 
@@ -45,6 +45,7 @@ const GanttShowcase = defineAsyncComponent(() =>
   min-height: calc(100vh - 60px);
   height: calc(100vh - 60px);
   margin-top: 40px;
+  padding-top: 10px;
   border-radius: 0;
 }
 </style>

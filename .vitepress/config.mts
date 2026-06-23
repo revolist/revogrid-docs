@@ -64,6 +64,10 @@ const localProPackageAliases = useLocalProPackages
             find: '@revolist/revogrid-enterprise',
             replacement: path.resolve(__dirname, '../../../packages/enterprise'),
         },
+        {
+            find: '@revolist/revogrid-examples',
+            replacement: path.resolve(__dirname, '../../../examples/components/src'),
+        },
     ]
     : []
 

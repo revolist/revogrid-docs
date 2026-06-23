@@ -32,6 +32,7 @@ head:
 :deep(.demo-widget-frame) {
   min-height: calc(100vh - 60px);
   margin-top: 40px;
+  padding-top: 10px;
   border-radius: 0;
 }
 </style>
