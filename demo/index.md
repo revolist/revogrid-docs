@@ -30,7 +30,12 @@ import HRDemo from '@revolist/revogrid-examples/components/hr/HRDemo.vue'
 .demo-main-widget {
   min-height: calc(100vh - 60px);
   height: calc(100vh - 60px);
-  margin-top: 40px;
+  margin-top: 50px;
   border-radius: 0;
+}
+:deep(.hr-toolbar) {
+  margin: 16px 20px;
+  padding: 4px;
+  font-size: 12px;
 }
 </style>
