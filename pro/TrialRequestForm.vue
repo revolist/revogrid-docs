@@ -91,14 +91,21 @@ import { computed, ref } from 'vue'
 import successIcon from '../.vitepress/theme/images/wcag.svg'
 
 const API_URL = import.meta.env.VITE_API_URL
+type RequestType = 'contact' | 'trial'
 
-withDefaults(
+const requestLabels: Record<RequestType, string> = {
+  contact: 'Contact request',
+  trial: 'Trial request',
+}
+
+const props = withDefaults(
   defineProps<{
     title?: string
     subtitle?: string
     submitLabel?: string
     successTitle?: string
     successMessage?: string
+    requestType?: RequestType
   }>(),
   {
     title: '',
@@ -106,20 +113,22 @@ withDefaults(
     submitLabel: 'Request Trial',
     successTitle: 'Thank you',
     successMessage: 'We will get back to you as soon as possible.',
+    requestType: 'contact',
   }
 )
 
+type TrialRequestPayload = {
+  fullName: string
+  companyName: string
+  businessEmail: string
+  applicationInfo: string
+  consent: boolean
+  requestType: RequestType
+  requestLabel: string
+}
+
 const emit = defineEmits<{
-  (
-    e: 'submit',
-    formData: {
-      fullName: string
-      companyName: string
-      businessEmail: string
-      applicationInfo: string
-      consent: boolean
-    }
-  ): void
+  (e: 'submit', formData: TrialRequestPayload): void
 }>()
 
 const form = ref({
@@ -150,6 +159,11 @@ const handleSubmit = async () => {
 
   errorMessage.value = ''
   isSubmitting.value = true
+  const payload: TrialRequestPayload = {
+    ...form.value,
+    requestType: props.requestType,
+    requestLabel: requestLabels[props.requestType],
+  }
 
   try {
     const response = await fetch(API_URL, {
@@ -157,14 +171,14 @@ const handleSubmit = async () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(form.value),
+      body: JSON.stringify(payload),
     })
 
     if (!response.ok) {
       throw new Error(response.statusText || 'Request failed')
     }
 
-    emit('submit', form.value)
+    emit('submit', payload)
     isSent.value = true
   } catch (error) {
     console.error('Error sending trial request:', error)

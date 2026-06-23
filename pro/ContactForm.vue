@@ -10,35 +10,30 @@
 <script setup lang="ts">
 import TrialRequestForm from './TrialRequestForm.vue'
 
+type ContactRequestPayload = {
+    fullName: string
+    companyName: string
+    businessEmail: string
+    applicationInfo: string
+    consent: boolean
+    requestType: 'contact' | 'trial'
+    requestLabel: string
+}
+
 defineProps<{
     isVisible: boolean
 }>()
 
 const emit = defineEmits<{
     (e: 'close'): void
-    (
-        e: 'submit',
-        formData: {
-            fullName: string
-            companyName: string
-            businessEmail: string
-            applicationInfo: string
-            consent: boolean
-        }
-    ): void
+    (e: 'submit', formData: ContactRequestPayload): void
 }>()
 
 const closeModal = () => {
     emit('close')
 }
 
-const handleSubmit = (formData: {
-    fullName: string
-    companyName: string
-    businessEmail: string
-    applicationInfo: string
-    consent: boolean
-}) => {
+const handleSubmit = (formData: ContactRequestPayload) => {
     emit('submit', formData)
 }
 </script>

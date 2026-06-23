@@ -22,6 +22,7 @@
             title="Request trial access"
             subtitle="No credit card required. Tell us where RevoGrid Pro will be evaluated."
             submit-label="Submit"
+            request-type="trial"
             success-title="Trial request received"
             success-message="We will send trial access details to your business email."
           />
