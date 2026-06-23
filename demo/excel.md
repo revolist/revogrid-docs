@@ -23,14 +23,27 @@ head:
       content: Work with spreadsheet-style data inside RevoGrid Pro using Excel-like editing, formulas, import and export workflows, and high-performance grid rendering.
 ---
 
-<DemoWidgetFrame
-  demo="spreadsheet-workbench"
-  framework="ts"
-/>
+<script setup>
+import 'virtual:uno.css'
+import '@revolist/revogrid-pro/dist/revogrid-pro.css'
+import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
+import { defineAsyncComponent } from 'vue'
+
+const SpreadsheetWorkbench = defineAsyncComponent(() =>
+  import('@revolist/revogrid-examples/components/spreadsheet/SpreadsheetWorkbench.vue')
+)
+</script>
+
+<ClientOnly>
+  <div class="demo-main-widget">
+    <SpreadsheetWorkbench />
+  </div>
+</ClientOnly>
 
 <style scoped>
-:deep(.demo-widget-frame) {
+.demo-main-widget {
   min-height: calc(100vh - 60px);
+  height: calc(100vh - 60px);
   margin-top: 40px;
   border-radius: 0;
 }

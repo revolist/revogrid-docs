@@ -23,15 +23,27 @@ head:
       content: Track projects, owners, deadlines, priorities, and statuses in a color-coded RevoGrid Pro workspace with fast editable grid interactions.
 ---
 
+<script setup>
+import 'virtual:uno.css'
+import '@revolist/revogrid-pro/dist/revogrid-pro.css'
+import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
+import { defineAsyncComponent } from 'vue'
 
-<DemoWidgetFrame
-  demo="color"
-  framework="ts"
-/>
+const Color = defineAsyncComponent(() =>
+  import('@revolist/revogrid-examples/components/showcase-color/Color.vue')
+)
+</script>
+
+<ClientOnly>
+  <div class="demo-main-widget">
+    <Color />
+  </div>
+</ClientOnly>
 
 <style scoped>
-:deep(.demo-widget-frame) {
+.demo-main-widget {
   min-height: calc(100vh - 60px);
+  height: calc(100vh - 60px);
   margin-top: 40px;
   border-radius: 0;
 }

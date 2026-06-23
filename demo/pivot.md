@@ -23,14 +23,30 @@ head:
       content: Analyze complex datasets inside your application with RevoGrid Pro Pivot Grid, aggregation, grouping, drill-down, and high-performance grid rendering.
 ---
 
-<DemoWidgetFrame
-  demo="pivot"
-  framework="ts"
-/>
+<script setup>
+import 'virtual:uno.css'
+import '@revolist/revogrid-pro/dist/revogrid-pro.css'
+import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
+
+import PivotShowcase from '@revolist/revogrid-examples/components/showcase-pivot/PivotShowcase.vue'
+import ecommerceData from '@revolist/revogrid-examples/components/sys-data/ecommerce.data.json'
+
+const pivotRows = ecommerceData.map((row, index) => ({
+  ...row,
+  Time: `${String(index % 24).padStart(2, '0')}:00`,
+}))
+</script>
+
+<ClientOnly>
+  <div class="demo-main-widget">
+    <PivotShowcase :rows="pivotRows" />
+  </div>
+</ClientOnly>
 
 <style scoped>
-:deep(.demo-widget-frame) {
+.demo-main-widget {
   min-height: calc(100vh - 60px);
+  height: calc(100vh - 60px);
   margin-top: 40px;
   border-radius: 0;
 }

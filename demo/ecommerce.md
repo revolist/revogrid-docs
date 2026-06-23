@@ -23,14 +23,33 @@ head:
       content: Use RevoGrid Pro as the interface layer for ecommerce, inventory, finance, admin, and operations workflows with high-performance editable grids.
 ---
 
-<DemoWidgetFrame
-  demo="ecommerce"
-  framework="ts"
-/>
+<script setup>
+import 'virtual:uno.css'
+import '@revolist/revogrid-pro/dist/revogrid-pro.css'
+import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
+import { defineAsyncComponent } from 'vue'
+import ecommerceData from '@revolist/revogrid-examples/components/sys-data/ecommerce.data.json'
+
+const ECommerce = defineAsyncComponent(() =>
+  import('@revolist/revogrid-examples/components/showcase/ECommerce.vue')
+)
+
+const rows = ecommerceData.map((row, index) => ({
+  ...row,
+  Time: `${String(index % 24).padStart(2, '0')}:00`,
+}))
+</script>
+
+<ClientOnly>
+  <div class="demo-main-widget">
+    <ECommerce :rows="rows" />
+  </div>
+</ClientOnly>
 
 <style scoped>
-:deep(.demo-widget-frame) {
+.demo-main-widget {
   min-height: calc(100vh - 60px);
+  height: calc(100vh - 60px);
   margin-top: 40px;
   border-radius: 0;
 }

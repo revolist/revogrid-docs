@@ -22,14 +22,28 @@ head:
     - property: og:description
       content: Build planning and timeline interfaces with RevoGrid Pro Gantt Chart, task scheduling, dependencies, milestones, and resource views.
 ---
-<DemoWidgetFrame
-  demo="gantt-showcase"
-  framework="ts"
-/>
+
+<script setup>
+import 'virtual:uno.css'
+import '@revolist/revogrid-pro/dist/revogrid-pro.css'
+import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
+import { defineAsyncComponent } from 'vue'
+
+const GanttShowcase = defineAsyncComponent(() =>
+  import('@revolist/revogrid-examples/components/gantt/GanttShowcase.vue')
+)
+</script>
+
+<ClientOnly>
+  <div class="demo-main-widget">
+    <GanttShowcase />
+  </div>
+</ClientOnly>
 
 <style scoped>
-:deep(.demo-widget-frame) {
+.demo-main-widget {
   min-height: calc(100vh - 60px);
+  height: calc(100vh - 60px);
   margin-top: 40px;
   border-radius: 0;
 }

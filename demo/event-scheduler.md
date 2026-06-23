@@ -23,18 +23,27 @@ head:
       content: Build shift planning and event scheduling workflows with RevoGrid Event Scheduler, week views, resources, conflicts, and controlled editing.
 ---
 
-<DemoWidgetFrame
-  demo="event-scheduler-shift-week"
-  framework="ts"
-  title="RevoGrid Event Scheduler shift week demo"
-  :initial-height="760"
-  :min-height="620"
-  :max-height="980"
-/>
+<script setup>
+import 'virtual:uno.css'
+import '@revolist/revogrid-pro/dist/revogrid-pro.css'
+import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
+import { defineAsyncComponent } from 'vue'
+
+const EventSchedulerShiftWeek = defineAsyncComponent(() =>
+  import('@revolist/revogrid-examples/components/event-scheduler/shift-week/index.vue')
+)
+</script>
+
+<ClientOnly>
+  <div class="demo-main-widget">
+    <EventSchedulerShiftWeek />
+  </div>
+</ClientOnly>
 
 <style scoped>
-:deep(.demo-widget-frame) {
+.demo-main-widget {
   min-height: calc(100vh - 60px);
+  height: calc(100vh - 60px);
   margin-top: 40px;
   border-radius: 0;
 }

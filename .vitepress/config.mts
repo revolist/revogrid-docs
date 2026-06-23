@@ -13,6 +13,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import markdownItAttrs from 'markdown-it-attrs'
 import type MarkdownIt from 'markdown-it'
 import { createStructuredDataHead } from './configs/structuredData'
+import UnoCSS from 'unocss/vite'
 
 dotenv.config()
 
@@ -146,6 +147,14 @@ const browserOnlyPackageSsrShims = () => ({
 
         if (source === '@revolist/revogrid-pro') {
             return path.resolve(__dirname, 'revogrid-pro-ssr-shim.ts')
+        }
+
+        if (
+            source === '@revolist/revogrid-column-date' ||
+            source === '@revolist/revogrid-column-numeral' ||
+            source === '@revolist/revogrid-column-select'
+        ) {
+            return path.resolve(__dirname, 'revogrid-column-type-ssr-shim.ts')
         }
 
         return null
@@ -386,6 +395,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }),
             Components({
                 resolvers: [ElementPlusResolver()],
+            }),
+            UnoCSS({
+                configFile: path.resolve(__dirname, '../uno.config.ts'),
             }),
             svgLoader(),
         ],
