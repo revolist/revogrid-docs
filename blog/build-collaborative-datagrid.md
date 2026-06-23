@@ -193,7 +193,9 @@ RevoGrid gives you the high-performance spreadsheet-like grid surface:
 * filtering and sorting;
 * framework integrations for React, Vue, Angular, Svelte, and plain JavaScript.
 
-[RevoGrid Pro](/pro/) and `@revolist/revogrid-collaborative-editing` extend this foundation with advanced spreadsheet and workflow capabilities such as:
+The collaboration stack uses more than one package. [RevoGrid Pro](/pro/) provides the grid-side helpers such as `EventManagerPlugin` and `CollaborativePresencePlugin`. Collaborative editing itself comes from the separate `@revolist/revogrid-collaborative-editing` package.
+
+Together, they extend this foundation with advanced spreadsheet and workflow capabilities such as:
 
 * normalized edit event management for collaborative write flows;
 * collaborative editing through `@revolist/revogrid-collaborative-editing`;
@@ -479,6 +481,8 @@ Those jobs map to different packages and plugin responsibilities:
 | Normalized edit stream | `EventManagerPlugin` from `@revolist/revogrid-pro` | Converts cell edits, range edits, paste, autofill, and source-edit operations into one normalized event stream. |
 | Collaborative write workflow | `CollaborativeEditingPlugin` from `@revolist/revogrid-collaborative-editing` | Owns pending edits, backend commit, acceptance/rejection, conflict policy, and collaborative write state. |
 | Remote awareness | `CollaborativePresencePlugin` from `@revolist/revogrid-pro` | Draws other users' focus/range markers and labels, filters stale users, and can apply remote row patches. |
+
+`CollaborativeEditingPlugin` is not exported from `@revolist/revogrid-pro`. Import it from `@revolist/revogrid-collaborative-editing`.
 
 This is an important distinction. `CollaborativePresencePlugin` is not the write engine. It should not decide whether a value is allowed, whether a conflict is safe, or whether an audit record exists. It is the visual collaboration layer.
 

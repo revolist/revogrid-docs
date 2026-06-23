@@ -1,6 +1,6 @@
 ---
 layout: home
-title: DataGridJS - Fast JavaScript Data Grid for Web Apps
+title: JavaScript Data Grid for Editable Web Apps | DataGridJS
 externalHomeLinks: true
 homeColors:
   brand1: '#d97706'
@@ -18,17 +18,17 @@ homeColors:
 head:
   - - meta
     - name: description
-      content: DataGridJS by RevoGrid is a fast JavaScript data grid for editable tables, virtualized datasets, dashboards, admin panels, and framework-free web apps.
+      content: Build a fast editable JavaScript data grid with virtual scrolling, inline editing, custom cells, and framework-free setup. Try the live RevoGrid demo or start with docs.
   - - meta
     - name: keywords
       content: DataGridJS, JavaScript Data Grid, JS Data Grid, Vanilla JS Grid, RevoGrid JavaScript, Virtual Data Grid, Editable JavaScript Table, Large Dataset Grid, Web App Data Grid
 
 hero:
-  eyebrow: Fast JavaScript data grid for production apps
+  eyebrow: JavaScript data grid for production apps
   showFrameworkBadges: true
-  name: Build editable, data-heavy apps —
+  name: Build fast editable data grids —
   text: without framework lock-in.
-  tagline: DataGridJS helps product teams ship high-performance tables, dashboards, admin panels, analytics tools, and operational UIs in plain JavaScript. Start framework-free, then move to Vue, Angular, React, or Svelte when your stack needs it.
+  tagline: DataGridJS by RevoGrid helps product teams ship virtualized tables, inline editing, keyboard navigation, custom cells, dashboards, admin panels, and operational UIs in plain JavaScript. Start framework-free, then move to Vue, Angular, React, or Svelte when your stack needs it.
   license:
     text: RevoGrid is a MIT-licensed open source data grid.
     details: Unlock advanced features by subscribing to
@@ -38,17 +38,17 @@ hero:
     action: Read what's new →
   actions:
     - theme: brand
-      text: Explore live demos
+      text: Try the live data grid demo
       link: /demo/
     - theme: alt
-      text: Start with docs
+      text: Build a JavaScript grid
       link: /guide/
 
 integrations:
 - title: JavaScript
   alt: JavaScript Data Grid
   icon: js.svg
-  details: Fast JavaScript data grid for editable, virtualized tables without framework dependencies.
+  details: Build an editable, virtualized JavaScript data grid without framework dependencies.
   path: /guide/
 - title: Vue
   alt: Vue Data Grid
