@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.17](README.md) / ViewportColumn
+[RevoGrid Documentation v4.23.19](README.md) / ViewportColumn
 
 # Type Alias: ViewportColumn
 
@@ -20,20 +20,20 @@ type ViewportColumn: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `colStore` | [`Observable`](TypeAlias.Observable.md)\<[`DSourceState`](TypeAlias.DSourceState.md)\<[`ColumnRegular`](Interface.ColumnRegular.md), [`DimensionCols`](TypeAlias.DimensionCols.md)\>\> | [src/types/viewport.interfaces.ts:49](https://github.com/revolist/revogrid/blob/ea7fa0ee5cb2e50b935ef85ece5e63e426a24536/src/types/viewport.interfaces.ts#L49) |
-| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | [src/types/viewport.interfaces.ts:40](https://github.com/revolist/revogrid/blob/ea7fa0ee5cb2e50b935ef85ece5e63e426a24536/src/types/viewport.interfaces.ts#L40) |
-| `dimensions` | [`DimensionStoreCollection`](TypeAlias.DimensionStoreCollection.md) | [src/types/viewport.interfaces.ts:46](https://github.com/revolist/revogrid/blob/ea7fa0ee5cb2e50b935ef85ece5e63e426a24536/src/types/viewport.interfaces.ts#L46) |
-| `fixWidth` | `boolean` | [src/types/viewport.interfaces.ts:43](https://github.com/revolist/revogrid/blob/ea7fa0ee5cb2e50b935ef85ece5e63e426a24536/src/types/viewport.interfaces.ts#L43) |
-| `position` | [`Cell`](Interface.Cell.md) | [src/types/viewport.interfaces.ts:41](https://github.com/revolist/revogrid/blob/ea7fa0ee5cb2e50b935ef85ece5e63e426a24536/src/types/viewport.interfaces.ts#L41) |
-| `rowStores` | `RowDataSources` | [src/types/viewport.interfaces.ts:48](https://github.com/revolist/revogrid/blob/ea7fa0ee5cb2e50b935ef85ece5e63e426a24536/src/types/viewport.interfaces.ts#L48) |
-| `viewports` | [`ViewportStoreCollection`](TypeAlias.ViewportStoreCollection.md) | [src/types/viewport.interfaces.ts:45](https://github.com/revolist/revogrid/blob/ea7fa0ee5cb2e50b935ef85ece5e63e426a24536/src/types/viewport.interfaces.ts#L45) |
+| `colStore` | [`Observable`](TypeAlias.Observable.md)\<[`DSourceState`](TypeAlias.DSourceState.md)\<[`ColumnRegular`](Interface.ColumnRegular.md), [`DimensionCols`](TypeAlias.DimensionCols.md)\>\> | [src/types/viewport.interfaces.ts:49](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/types/viewport.interfaces.ts#L49) |
+| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | [src/types/viewport.interfaces.ts:40](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/types/viewport.interfaces.ts#L40) |
+| `dimensions` | [`DimensionStoreCollection`](TypeAlias.DimensionStoreCollection.md) | [src/types/viewport.interfaces.ts:46](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/types/viewport.interfaces.ts#L46) |
+| `fixWidth` | `boolean` | [src/types/viewport.interfaces.ts:43](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/types/viewport.interfaces.ts#L43) |
+| `position` | [`Cell`](Interface.Cell.md) | [src/types/viewport.interfaces.ts:41](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/types/viewport.interfaces.ts#L41) |
+| `rowStores` | `RowDataSources` | [src/types/viewport.interfaces.ts:48](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/types/viewport.interfaces.ts#L48) |
+| `viewports` | [`ViewportStoreCollection`](TypeAlias.ViewportStoreCollection.md) | [src/types/viewport.interfaces.ts:45](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/types/viewport.interfaces.ts#L45) |
 
 ## Type declaration
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `noHorizontalScrollTransfer` | `boolean` | [src/types/viewport.interfaces.ts:52](https://github.com/revolist/revogrid/blob/ea7fa0ee5cb2e50b935ef85ece5e63e426a24536/src/types/viewport.interfaces.ts#L52) |
+| `noHorizontalScrollTransfer` | `boolean` | [src/types/viewport.interfaces.ts:52](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/types/viewport.interfaces.ts#L52) |
 
 ## Defined in
 
-[src/types/viewport.interfaces.ts:39](https://github.com/revolist/revogrid/blob/ea7fa0ee5cb2e50b935ef85ece5e63e426a24536/src/types/viewport.interfaces.ts#L39)
+[src/types/viewport.interfaces.ts:39](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/types/viewport.interfaces.ts#L39)

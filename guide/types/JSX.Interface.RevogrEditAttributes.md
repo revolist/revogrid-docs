@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.17](README.md) / [JSX](Namespace.JSX.md) / RevogrEditAttributes
+[RevoGrid Documentation v4.23.19](README.md) / [JSX](Namespace.JSX.md) / RevogrEditAttributes
 
 # Interface: RevogrEditAttributes
 
@@ -6,5 +6,5 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `additionalData` | `string` | [src/components.d.ts:2530](https://github.com/revolist/revogrid/blob/ea7fa0ee5cb2e50b935ef85ece5e63e426a24536/src/components.d.ts#L2530) |
-| `saveOnClose` | `boolean` | [src/components.d.ts:2529](https://github.com/revolist/revogrid/blob/ea7fa0ee5cb2e50b935ef85ece5e63e426a24536/src/components.d.ts#L2529) |
+| `additionalData` | `string` | [src/components.d.ts:2530](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/components.d.ts#L2530) |
+| `saveOnClose` | `boolean` | [src/components.d.ts:2529](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/components.d.ts#L2529) |

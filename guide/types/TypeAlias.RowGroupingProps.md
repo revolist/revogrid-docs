@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.17](README.md) / RowGroupingProps
+[RevoGrid Documentation v4.23.19](README.md) / RowGroupingProps
 
 # Type Alias: RowGroupingProps
 
@@ -12,8 +12,8 @@ type RowGroupingProps: GroupRowPros & PositionItem & {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `columnItems` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md)[] | Visible columns in the grid, can be used to get the width of the column and position of the column to calculate the position of the cells in the grouping row | [src/plugins/groupingRow/grouping.row.types.ts:54](https://github.com/revolist/revogrid/blob/ea7fa0ee5cb2e50b935ef85ece5e63e426a24536/src/plugins/groupingRow/grouping.row.types.ts#L54) |
+| `columnItems` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md)[] | Visible columns in the grid, can be used to get the width of the column and position of the column to calculate the position of the cells in the grouping row | [src/plugins/groupingRow/grouping.row.types.ts:54](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/plugins/groupingRow/grouping.row.types.ts#L54) |
 
 ## Defined in
 
-[src/plugins/groupingRow/grouping.row.types.ts:49](https://github.com/revolist/revogrid/blob/ea7fa0ee5cb2e50b935ef85ece5e63e426a24536/src/plugins/groupingRow/grouping.row.types.ts#L49)
+[src/plugins/groupingRow/grouping.row.types.ts:49](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/plugins/groupingRow/grouping.row.types.ts#L49)
