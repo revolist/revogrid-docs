@@ -48,4 +48,8 @@ const GanttShowcase = defineAsyncComponent(() =>
   padding-top: 10px;
   border-radius: 0;
 }
+:deep(revo-grid.gantt-plugin) .gantt-header-cell {
+  line-height: 18px;
+  font-size: 11px;
+}
 </style>
