@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.16](README.md) / EventData
+[RevoGrid Documentation v4.23.19](README.md) / EventData
 
 # Type Alias: EventData
 
@@ -18,14 +18,14 @@ type EventData: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `cols` | [`DimensionSettingsState`](Interface.DimensionSettingsState.md) | [src/components/overlay/selection.utils.ts:24](https://github.com/revolist/revogrid/blob/afa54ee5117a4202f152f3480ef450775449789b/src/components/overlay/selection.utils.ts#L24) |
-| `edit` | [`EditCellStore`](Interface.EditCellStore.md) \| `null` | [src/components/overlay/selection.utils.ts:28](https://github.com/revolist/revogrid/blob/afa54ee5117a4202f152f3480ef450775449789b/src/components/overlay/selection.utils.ts#L28) |
-| `el` | `HTMLElement` | [src/components/overlay/selection.utils.ts:22](https://github.com/revolist/revogrid/blob/afa54ee5117a4202f152f3480ef450775449789b/src/components/overlay/selection.utils.ts#L22) |
-| `focus` | [`Cell`](Interface.Cell.md) \| `null` | [src/components/overlay/selection.utils.ts:26](https://github.com/revolist/revogrid/blob/afa54ee5117a4202f152f3480ef450775449789b/src/components/overlay/selection.utils.ts#L26) |
-| `lastCell` | [`Cell`](Interface.Cell.md) | [src/components/overlay/selection.utils.ts:25](https://github.com/revolist/revogrid/blob/afa54ee5117a4202f152f3480ef450775449789b/src/components/overlay/selection.utils.ts#L25) |
-| `range` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/components/overlay/selection.utils.ts:27](https://github.com/revolist/revogrid/blob/afa54ee5117a4202f152f3480ef450775449789b/src/components/overlay/selection.utils.ts#L27) |
-| `rows` | [`DimensionSettingsState`](Interface.DimensionSettingsState.md) | [src/components/overlay/selection.utils.ts:23](https://github.com/revolist/revogrid/blob/afa54ee5117a4202f152f3480ef450775449789b/src/components/overlay/selection.utils.ts#L23) |
+| `cols` | [`DimensionSettingsState`](Interface.DimensionSettingsState.md) | [src/components/overlay/selection.utils.ts:24](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/components/overlay/selection.utils.ts#L24) |
+| `edit` | [`EditCellStore`](Interface.EditCellStore.md) \| `null` | [src/components/overlay/selection.utils.ts:28](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/components/overlay/selection.utils.ts#L28) |
+| `el` | `HTMLElement` | [src/components/overlay/selection.utils.ts:22](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/components/overlay/selection.utils.ts#L22) |
+| `focus` | [`Cell`](Interface.Cell.md) \| `null` | [src/components/overlay/selection.utils.ts:26](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/components/overlay/selection.utils.ts#L26) |
+| `lastCell` | [`Cell`](Interface.Cell.md) | [src/components/overlay/selection.utils.ts:25](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/components/overlay/selection.utils.ts#L25) |
+| `range` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/components/overlay/selection.utils.ts:27](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/components/overlay/selection.utils.ts#L27) |
+| `rows` | [`DimensionSettingsState`](Interface.DimensionSettingsState.md) | [src/components/overlay/selection.utils.ts:23](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/components/overlay/selection.utils.ts#L23) |
 
 ## Defined in
 
-[src/components/overlay/selection.utils.ts:21](https://github.com/revolist/revogrid/blob/afa54ee5117a4202f152f3480ef450775449789b/src/components/overlay/selection.utils.ts#L21)
+[src/components/overlay/selection.utils.ts:21](https://github.com/revolist/revogrid/blob/a080105dad693a2fbe4cd16b67e10c68f28be446/src/components/overlay/selection.utils.ts#L21)
