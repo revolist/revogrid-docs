@@ -24,8 +24,6 @@
         :row-headers="false"
         :theme="isDark ? 'darkCompact' : 'compact'"
         :plugins="plugins"
-        :source="[]"
-        :columns="[]"
       />
     </div>
 
@@ -46,6 +44,8 @@ import {
   type EventSchedulerEventEntity,
   type EventSchedulerResourceEntity,
 } from '@revolist/revogrid-enterprise'
+
+import '@revolist/revogrid-pro/dist/revogrid-pro.css'
 import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
 
 const { isDark } = useData()
