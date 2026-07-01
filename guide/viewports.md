@@ -95,6 +95,69 @@ export type BeforeSaveDataDetails = {
 
 Here, `rowIndex` and `colIndex` refer to the virtual indexes, which means that if you want to retrieve the actual data from your source, you may need to perform additional calculations or mappings based on the grid’s layout.
 
+## Why Ranges Stay Inside One Viewport
+
+Range coordinates are only complete when they are paired with their viewport
+types. A range area stores virtual coordinates:
+
+```ts
+type RangeArea = {
+  x: ColIndex;
+  y: RowIndex;
+  x1: ColIndex;
+  y1: RowIndex;
+};
+```
+
+The range event adds the row and column viewport types around those coordinates:
+
+```ts
+type ChangedRange = {
+  type: DimensionRows;
+  colType: DimensionCols;
+  newRange: RangeArea;
+  oldRange: RangeArea;
+};
+```
+
+This is why a single range selection, clipboard fill, or autofill operation
+should stay inside one row viewport and one column viewport. `x: 0` in
+`colPinStart` and `x: 0` in `rgCol` are different virtual coordinate systems.
+The same applies to `rowPinStart`, `rgRow`, and `rowPinEnd`.
+
+Autofill follows the same model. It reads the selected data from
+`providers.data.stores[type]` and resolves columns through
+`providers.column.stores[colType]`. If an autofill drag crossed from a pinned
+viewport into the main viewport, it would no longer be one rectangular
+`ChangedRange`; it would be several viewport-scoped ranges stitched together.
+
+For example, imagine a grid with one pinned top row and a vertically scrolled
+main viewport:
+
+- `rowPinStart` shows pinned row `0`.
+- `rgRow` is scrolled so the first visible main row is much lower in the dataset.
+- The user starts autofill from the pinned row and drags into a visible main row.
+
+If RevoGrid treated that as one range, the write target would be unclear. Should
+it fill only the cells that are visible on screen? Should it fill every main row
+between the pinned row and the scrolled row, including rows hidden behind the
+scroll gap? Or should the coordinates stay in the pinned row store, where the
+main viewport row does not exist? Each interpretation can surprise users and
+plugin authors in a different way.
+
+That stitching is a bad fit for the grid model because it hides where the
+operation actually writes, makes virtual indexes ambiguous, and can mix pinned
+and main data stores in one gesture. If a workflow needs to update pinned and
+main areas together, model it as explicit separate operations per viewport
+instead of one cross-viewport autofill.
+
+This is different from a spreadsheet such as Excel. Excel's Freeze Panes keeps
+rows or columns visible while another worksheet area scrolls, but the worksheet
+still has one continuous row and column address space. RevoGrid's pinned areas
+are separate row and column viewport stores, so the same visual gesture cannot
+be interpreted as one continuous autofill range without adding rules for the
+hidden rows and viewport boundaries.
+
 ## Practical Example
 
 Let’s say you have a grid with pinned rows and columns, and a user interacts with a cell in the main grid. 
