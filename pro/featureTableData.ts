@@ -152,6 +152,7 @@ featureTableGroups.push({
   features: [
     { name: 'AI Agent Support', supported: ['Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/pro/ai' },
     { name: 'RevoGrid MCP - AI-Native Grid Intelligence', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, beta: true },
+    { name: 'Private GitHub repository access', supported: ['Pro Advanced'], nesting: 1 },
     { name: 'Support via GitHub', supported: ['Pro Advanced'], nesting: 1 },
     { name: 'Support via Email', supported: ['Pro Advanced'], nesting: 1 },
   ],

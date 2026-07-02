@@ -27,6 +27,7 @@ export const PRO_ADV_FEATURES = [
   'Pivot Grid module',
   'Gantt Chart module',
   'Access to typed source code',
+  'Private GitHub repository access',
   'Direct engineering support',
   'Team discounts 3+ seats',
   'Roadmap influence',

@@ -98,6 +98,7 @@ pricing:
         - Everything in Pro Light
         - Priority support
         - Priority bug fix queue
+        - Private GitHub repository access
         - Roadmap influence
         - Early access to new modules
         - Pivot Grid module
