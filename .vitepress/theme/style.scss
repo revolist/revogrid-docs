@@ -171,6 +171,53 @@
     --rg-grid-line: rgba(0, 0, 0, 0.05);
 }
 
+.demo-sidebar-label {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    min-width: 0;
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+.demo-sidebar-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 1px 5px;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 14px;
+    white-space: nowrap;
+}
+
+.demo-sidebar-badge--core {
+    border-color: var(--vp-c-divider);
+    background: var(--vp-c-default-soft);
+    color: var(--vp-c-text-2);
+}
+
+.demo-sidebar-badge--pro-lite {
+    border-color: color-mix(in srgb, var(--vp-c-brand-1) 28%, transparent);
+    background: var(--vp-c-brand-soft);
+    color: var(--vp-c-brand-1);
+}
+
+.demo-sidebar-badge--pro-advanced {
+    border-color: color-mix(in srgb, var(--vp-c-warning-1) 28%, transparent);
+    background: var(--vp-c-warning-soft);
+    color: var(--vp-c-warning-1);
+}
+
+.VPSidebarItem .rg-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
 
 .rg-btn,
 a.rg-btn {

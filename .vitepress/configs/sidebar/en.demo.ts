@@ -1,4 +1,18 @@
 import type { DefaultTheme } from 'vitepress'
+
+type DemoTier = 'Core' | 'Pro Lite' | 'Pro Advanced'
+
+const demoTier: Record<DemoTier, { badge: string; className: string }> = {
+    Core: { badge: 'Core', className: 'core' },
+    'Pro Lite': { badge: 'Lite', className: 'pro-lite' },
+    'Pro Advanced': { badge: 'Adv', className: 'pro-advanced' },
+}
+
+const demoSidebarText = (text: string, tier: DemoTier) => {
+    const { badge, className } = demoTier[tier]
+    return `<span class="demo-sidebar-label"><span>${text}</span><span class="demo-sidebar-badge demo-sidebar-badge--${className}" title="${tier}">${badge}</span></span>`
+}
+
 export const sidebarReactEn: DefaultTheme.SidebarItem[] = [
     {
         text: 'Getting Started',
@@ -211,31 +225,35 @@ export const sidebarGuideDemosEn: DefaultTheme.SidebarItem[] = [
 
 export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
     {
-        text: 'Grid at Scale',
+        text: demoSidebarText('Grid at Scale', 'Core'),
         link: '/demo/',
     },
     {
-        text: 'Pivot Analytics Workspace',
+        text: demoSidebarText('Pivot Analytics', 'Pro Advanced'),
         link: '/demo/pivot',
     },
     {
-        text: 'Project Tracker',
+        text: demoSidebarText('Project Tracker', 'Pro Lite'),
         link: '/demo/color',
     },
     {
-        text: 'Excel Workbench',
+        text: demoSidebarText('Excel', 'Pro Lite'),
         link: '/demo/excel',
     },
     {
-        text: 'Gantt Workspace',
+        text: demoSidebarText('Gantt', 'Pro Advanced'),
         link: '/demo/gantt',
     },
     {
-        text: 'Event Scheduler',
+        text: demoSidebarText('Event Scheduler', 'Pro Advanced'),
         link: '/demo/event-scheduler',
     },
     {
-        text: 'Ecommerce Workspace',
+        text: demoSidebarText('E-commerce', 'Pro Lite'),
         link: '/demo/ecommerce',
+    },
+    {
+        text: '<span class="rg-btn rg-btn-secondary">Evaluate Pro</span>',
+        link: '/trial',
     },
 ]
