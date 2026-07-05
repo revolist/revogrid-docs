@@ -187,6 +187,7 @@ Full replacement is correct for:
 - dataset switch
 - server refresh
 - filter or search result replacement
+- server-side pagination, sorting, filtering, or grouping result replacement
 - adding, removing, or reordering rows outside the grid
 - switching from draft data to confirmed server data
 
@@ -218,6 +219,8 @@ cell edit -> recreate full source -> grid receives new dataset
 ## Related guides
 
 - [Proxy Source Editing](/guide/proxy-source)
+- [State Persistence](/guide/state-persistence)
+- [Server-side data, pagination, sorting, and filtering](/guide/server-side-data)
 - [Programmatic Grid Control](/guide/programmatic-control)
 - [RevoGrid Event Patterns and Lifecycles](/guide/events-guide)
 - [Real-Time Updates in RevoGrid](/guide/realtime-updates)

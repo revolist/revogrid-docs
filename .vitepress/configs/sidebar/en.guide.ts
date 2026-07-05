@@ -38,6 +38,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 link: '/guide/data-sync',
             },
             {
+                text: 'State Persistence',
+                link: '/guide/state-persistence',
+            },
+            {
                 text: 'Grid size',
                 link: '/guide/grid.size',
             },
@@ -250,6 +254,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 text: 'Security',
                 link: '/guide/security',
             },
+            {
+                text: 'Server-Side Data',
+                link: '/guide/server-side-data',
+            },
             { text: 'Slots', link: '/guide/slots' },
             {
                 text: 'Sorting',
@@ -413,6 +421,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
     {
         text: 'Licensing',
         link: '/guide/licensing',
+    },
+    {
+        text: 'Evaluate Pro',
+        link: '/trial',
     },
     {
         text: 'Remove Attribution',

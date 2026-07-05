@@ -43,6 +43,8 @@ pricingPage:
         answer: Yes. We offer a 50% discount for students, instructors, non-profits, and charities. To qualify, provide proof of affiliation and <a href='mailto:contact@revolist.eu'>contact sales</a>.
       - question: Is there a deployment fee?
         answer: No. RevoGrid Pro does not currently charge a deployment fee. Your license costs are based on the selected plan and required number of developer licenses, not how many times you deploy.
+      - question: Can I evaluate Pro before purchasing?
+        answer: Yes. Use the <a href='/trial'>Evaluate RevoGrid Pro</a> page to request trial access, try public demos, and review the path from evaluation to production.
       - question: What's the difference between Pro Lite and Pro Advanced?
         answer: <strong>Pro Lite</strong> gives you advanced column types, enhanced sorting, export, and priority bug fixes. <strong>Pro Advanced</strong> includes the Pivot Grid module and Gantt Chart module, plus direct access to the RevoGrid engineering team, priority support, bug fix queue, roadmap influence, and early access to new modules as your product scales.
       - question: Is the open-source version truly free?
@@ -52,7 +54,7 @@ pricingPage:
   cta:
     title: Start free. Upgrade when
     titleEmphasis: you're ready.
-    subtitle: No credit card required for the open-source build. Pro trials available on request.
+    subtitle: No credit card required for the open-source build. <a href="/trial">Pro trial access is available on request.</a>
     primary:
       label: Get started free
       href: https://github.com/revolist/revogrid

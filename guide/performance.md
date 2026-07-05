@@ -152,11 +152,13 @@ See [Programmatic Grid Control](/guide/programmatic-control).
 - keep row data normalized before it reaches the grid
 - prefer `setDataAt` for targeted updates
 - use `getVisibleSource()` when operations only need the currently visible rows
+- use server-side pagination, filtering, sorting, or grouping when the full dataset should not live in the browser
 - leave virtualization enabled unless the dataset is genuinely small
 
 ## Related guides
 
 - [Understanding Viewports](/guide/viewports)
+- [Server-side data, pagination, sorting, and filtering](/guide/server-side-data)
 - [Best Practices](/guide/patterns)
 - [Programmatic Grid Control](/guide/programmatic-control)
 - [API: RevoGrid](/guide/api/revoGrid)

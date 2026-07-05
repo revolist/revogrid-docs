@@ -502,6 +502,12 @@ header.VPFeatures {
     }
 }
 
+revo-grid {
+    revogr-edit input {
+        background-color: inherit;
+    }
+}
+
 .plugin-tabs--content {
     revo-grid {
         background-color: var(--vp-c-bg);
@@ -568,5 +574,16 @@ header.VPFeatures {
 .vp-doc {
     a.VPButton {
         text-decoration: none;
+    }
+
+    revo-grid {
+        ul {
+            margin: inherit;
+            list-style: none;
+            padding: inherit;
+        }
+        .rv-filter {
+            vertical-align: middle;
+        }
     }
 }

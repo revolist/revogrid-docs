@@ -217,6 +217,8 @@ Useful events:
 
 For the full event table, see [API: Events](/guide/api/events) and [API: RevoGrid](/guide/api/revoGrid). For the filtering event flow, see [Event Patterns and Lifecycles](/guide/events-guide#filtering).
 
+When the backend must own the filtered dataset, intercept `beforefilterapply`, prevent local trimming, and reload `source` from your server. See [Server-side data, pagination, sorting, and filtering](/guide/server-side-data#remote-filtering).
+
 ## Read filtered rows
 
 After a filter is applied, use `getVisibleSource()` when the application needs the current visible dataset.
@@ -290,6 +292,7 @@ Start with [RevoGrid Pro features](/pro/#features), or open the business demos t
 
 - [JavaScript filtering demo](/guide/demos/js/js.filtering)
 - [Column Types and Formats](/guide/column/types)
+- [Server-side data, pagination, sorting, and filtering](/guide/server-side-data)
 - [Programmatic Control](/guide/programmatic-control)
 - [Event Patterns and Lifecycles](/guide/events-guide#filtering)
 - [API: Events](/guide/api/events)

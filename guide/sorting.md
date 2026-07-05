@@ -52,7 +52,9 @@ For more details, please refer to the API section and the column data schema int
 
 - **`beforesortingapply`** - `CustomEvent<{ column: ColumnRegular, order: 'desc' | 'asc' }>` - Triggered before the sorting data is applied. Use `e.preventDefault()` to avoid the default data sorting and implement your own sorting logic.
 
-- **`aftersortingapply`** - Triggered after sorting has been applied and completed. This event occurs for both row and column sorting.
+- **`aftersortingapply`** - `CustomEvent<{ sorting?: SortingOrder, sortingColumns?: Record<ColumnProp, Partial<ColumnRegular> | undefined>, sortingOrder?: ColumnProp[], types: DimensionRows[] }>` - Triggered after sorting has been applied and completed. Use `sortingColumns` to inspect the columns that sorting was applied to and `sorting` for the applied order.
+
+For server-authoritative sorting, intercept `beforesortingapply`, call `e.preventDefault()`, and reload `source` from your backend with the requested sort state. See [Server-side data, pagination, sorting, and filtering](/guide/server-side-data#remote-sorting).
 
 
 
@@ -61,4 +63,4 @@ For more details, please refer to the API section and the column data schema int
 1. **`@event` `beforesorting`** - Triggered when sorting is initiated. At this point, no changes have been made yet. This event can be triggered by sorting from a column or from the source. If the sorting type is from rows, the column will be undefined.
 2. **`@method` `updateColumnSorting`** - This method updates the column sorting icon on the grid and the column itself, but the data remains unchanged.
 3. **`@event` `beforesortingapply`** - Triggered before the sorting data is applied to the data source. You can prevent this event to stop the data from being sorted. This event is only called when sorting is initiated from a column click.
-4. **`@event` `aftersortingapply`** - Triggered after the sorting has been applied and completed. This event occurs for both row and column sorting. If you prevent this event, the subsequent steps will not be executed.
+4. **`@event` `aftersortingapply`** - Triggered after the sorting has been applied and completed. The event detail provides the final sorting state, sorting column metadata, sorting priority, and affected row store types.

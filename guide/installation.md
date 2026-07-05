@@ -102,6 +102,8 @@ Use the module version when you want to register the standalone custom element f
 - Vue 3 wrapper: start at [Vue 3 Data Grid](/guide/vue3/)
 - Svelte wrapper: start at [Svelte Data Grid](/guide/svelte/)
 
+Evaluating Pro or Enterprise modules? Use [Evaluate RevoGrid Pro](/trial) to request trial access, review public demos, and understand the path from evaluation to production.
+
 ## Common next steps
 
 - [Quick Start](/guide/): first grid in plain JavaScript.

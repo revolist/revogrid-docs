@@ -89,6 +89,8 @@ For large or remote datasets:
 - use incremental loading or pagination patterns when you do not want the full dataset in memory
 - use `jobsBeforeRender` for initialization work that must finish before the first meaningful paint
 
+For a complete remote data pattern with pagination, sorting, filtering, cancellation, caching, and optimistic edits, read [Server-side data, pagination, sorting, and filtering](/guide/server-side-data).
+
 ## Keep editing rules close to the column
 
 Editing behavior is easiest to maintain when it is defined where the user sees it:
@@ -113,6 +115,7 @@ The more business logic stays close to the shared RevoGrid API, the easier it is
 ## Related guides
 
 - [Grid Performance and Virtualization](/guide/performance)
+- [Server-side data, pagination, sorting, and filtering](/guide/server-side-data)
 - [Programmatic Grid Control](/guide/programmatic-control)
 - [Advanced Configuration](/guide/advanced-configuration)
 - [Editing](/guide/editing)

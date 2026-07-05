@@ -35,7 +35,7 @@ proPage:
         detail:
         href: /pricing
       trial:
-        label: Start free trial
+        label: Evaluate Pro
         href: /trial
       secondary:
         label: Watch 90s demo

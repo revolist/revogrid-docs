@@ -55,10 +55,10 @@ import RevoGrid from '@revolist/vue3-datagrid';
 
 Contact us to upgrade to Pro Advanced.
 
-### Evaluation (trial) licenses
+### Evaluation (trial) access
 
-As of now, we don’t provide a full evaluation for Pro and Pro Advanced components. However, we do offer access to our [Pro portal](https://pro.rv-grid.com/), where users can register and try all Pro features.
+Yes, you can evaluate RevoGrid Pro before purchasing. Trial access is available by request for teams that need to validate Pro or Pro Advanced modules.
 
-Additionally, we provide a [playground](https://pro.rv-grid.com/demo/playground) where users can try all features with their own code.
+Start with the [Evaluate RevoGrid Pro](/trial) page for the request form, public demo links, trial limits, and the path from evaluation to production.
 
-For more details on the license quantity, see the relevant clause in the [EULA](https://rv-grid.com/pro/policies/license).
+For production license quantity details, see the relevant clause in the [EULA](https://rv-grid.com/pro/policies/license).

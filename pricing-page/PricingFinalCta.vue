@@ -2,7 +2,7 @@
   <section class="cta-section">
     <div class="cta-glow" aria-hidden="true"></div>
     <h2 class="cta-title">{{ cta.title }}<br />{{ cta.titleEmphasis }}</h2>
-    <p class="cta-sub">{{ cta.subtitle }}</p>
+    <p class="cta-sub" v-html="cta.subtitle"></p>
     <div class="cta-actions">
       <a
         :href="cta.primary.href"
@@ -108,6 +108,12 @@ const handleLinkClick = (event: MouseEvent, link: PricingCtaLink) => {
   margin-right: auto;
   line-height: 1.7;
   position: relative;
+
+  :deep(a) {
+    color: var(--vp-c-brand-1);
+    font-weight: 600;
+    text-decoration: underline;
+  }
 }
 
 .cta-actions {

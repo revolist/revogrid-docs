@@ -1,6 +1,6 @@
 ---
-title: RevoGrid Pro Trial
-description: Request a RevoGrid Pro trial for advanced data grid, Pivot Grid, and Gantt Chart features.
+title: Evaluate RevoGrid Pro
+description: Evaluate RevoGrid Pro with request-based trial access, live demos, Pivot Grid, Gantt Chart, and SaaS-friendly licensing guidance.
 sidebar: false
 aside: false
 editLink: false
@@ -8,10 +8,6 @@ footer: false
 prev: false
 next: false
 layout: page
-head:
-  - - link
-    - rel: canonical
-      href: https://rv-grid.com/trial
 ---
 
 <script lang="ts" setup>
