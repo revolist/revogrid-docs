@@ -157,6 +157,7 @@ See [Programmatic Grid Control](/guide/programmatic-control).
 
 ## Related guides
 
+- [Benchmarks](/benchmarks)
 - [Understanding Viewports](/guide/viewports)
 - [Server-side data, pagination, sorting, and filtering](/guide/server-side-data)
 - [Best Practices](/guide/patterns)

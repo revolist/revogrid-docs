@@ -1,0 +1,66 @@
+{
+  "runDate": "2026-07-05T19:22:43.122Z",
+  "browser": "Chromium 145.0.7632.6",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "rowCount": 100000,
+  "columnCount": 100,
+  "totalLogicalCells": 10000000,
+  "rendererComplexity": "Mixed renderer harness: 1 pinned custom name cell with status badge, 1 custom status badge column, 8 custom formatted numeric columns, 90 plain numeric columns.",
+  "machine": {
+    "model": "MacBookPro18,3",
+    "cpuBrand": "Apple M1 Pro",
+    "cpuCount": "8",
+    "memoryBytes": "17179869184",
+    "os": "macOS 26.4 (25E5207k)",
+    "kernel": "Darwin 25.4.0 arm64"
+  },
+  "metrics": {
+    "initialRenderMs": 34.100000001490116,
+    "scrollingFpsDisplayCap": 60,
+    "rawHeadlessScrollFps": 101,
+    "scrollFrames": 303,
+    "droppedFrames": 2,
+    "heapAfterWarmupBytes": 467498697,
+    "heapAfterWarmupSamplesBytes": [
+      467498005,
+      467498509,
+      467498697,
+      467498885,
+      467499469
+    ],
+    "heapAfterWarmupSamplesMiB": [
+      445.84,
+      445.84,
+      445.84,
+      445.84,
+      445.84
+    ],
+    "heapAfterInteractionBytes": 505476500,
+    "heapAfterInteractionSamplesBytes": [
+      505475632,
+      505475996,
+      505476500,
+      505476688,
+      505476992
+    ],
+    "heapAfterInteractionSamplesMiB": [
+      482.06,
+      482.06,
+      482.06,
+      482.06,
+      482.06
+    ],
+    "editLatencyMedianMs": 0,
+    "editLatencyP95Ms": 0.10000000149011612,
+    "domNodeCount": 807,
+    "renderedRows": 60,
+    "renderedCells": 260
+  },
+  "assets": {
+    "screenshot": "/benchmarks/revo-grid-benchmark.png",
+    "video": "/benchmarks/revo-grid-benchmark.webm"
+  }
+}
