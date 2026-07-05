@@ -72,7 +72,7 @@ RevoGrid Pro 2+ focuses on five areas:
 
 | Area | What changed |
 | --- | --- |
-| Product structure | Clearer Pro Light, Pro Advanced, and Enterprise paths with portal access and commercial support options. |
+| Product structure | Clearer Pro Lite, Pro Advanced, and Enterprise paths with portal access and commercial support options. |
 | Advanced modules | Pivot and Gantt are now positioned as major Pro Advanced capabilities for reporting and planning workflows. |
 | Spreadsheet workflows | Formula engine, smart autofill, multi-range selection, validation, Excel import/export, and range preview are easier to discover together. |
 | Enterprise readiness | Audit history, server-side grouping, infinite scroll, remote Pivot patterns, and stronger docs support larger production apps. |
@@ -88,7 +88,7 @@ The 2+ generation makes the commercial structure easier to understand:
 
 | Plan | Best fit |
 | --- | --- |
-| [Pro Light](/pricing/) | Teams that need production-ready Pro plugins, portal access, MCP support, and advanced grid workflows. |
+| [Pro Lite](/pricing/) | Teams that need production-ready Pro plugins, portal access, MCP support, and advanced grid workflows. |
 | [Pro Advanced](/pricing/) | Teams that need major modules such as Pivot Grid and Gantt Chart, plus priority support and early module access. |
 | Enterprise | Larger teams that need custom contracts, procurement support, security review help, dedicated engineering contact, and flexible licensing. |
 
@@ -286,7 +286,7 @@ RevoGrid Pro 2+ is especially relevant if your product needs any of these workfl
 RevoGrid Pro 2+ makes the Pro ecosystem easier to explain and easier to adopt:
 
 - the open-source core stays the foundation
-- Pro Light gives teams commercial Pro workflows and portal access
+- Pro Lite gives teams commercial Pro workflows and portal access
 - Pro Advanced brings the biggest modules, including Pivot and Gantt
 - Enterprise supports larger procurement, security, and integration needs
 - MCP makes AI-assisted development more accurate

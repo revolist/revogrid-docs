@@ -43,8 +43,8 @@ pricingPage:
         answer: Yes. We offer a 50% discount for students, instructors, non-profits, and charities. To qualify, provide proof of affiliation and <a href='mailto:contact@revolist.eu'>contact sales</a>.
       - question: Is there a deployment fee?
         answer: No. RevoGrid Pro does not currently charge a deployment fee. Your license costs are based on the selected plan and required number of developer licenses, not how many times you deploy.
-      - question: What's the difference between Pro Light and Pro Advanced?
-        answer: <strong>Pro Light</strong> gives you advanced column types, enhanced sorting, export, and priority bug fixes. <strong>Pro Advanced</strong> includes the Pivot Grid module and Gantt Chart module, plus direct access to the RevoGrid engineering team, priority support, bug fix queue, roadmap influence, and early access to new modules as your product scales.
+      - question: What's the difference between Pro Lite and Pro Advanced?
+        answer: <strong>Pro Lite</strong> gives you advanced column types, enhanced sorting, export, and priority bug fixes. <strong>Pro Advanced</strong> includes the Pivot Grid module and Gantt Chart module, plus direct access to the RevoGrid engineering team, priority support, bug fix queue, roadmap influence, and early access to new modules as your product scales.
       - question: Is the open-source version truly free?
         answer: Yes. The MIT core is free forever, including for commercial use, subject to the attribution requirements described in the <a href='/guide/attribution'>attribution guide</a>. Pro adds features on top of the open-source build.
       - question: Need help?
@@ -78,9 +78,9 @@ pricing:
   note: Simple per-developer licensing. No deployment counting. No server license. Upgrade when your product needs more advanced modules.
   cards:
     - id: light
-      name: Pro Light
+      name: Pro Lite
       description: For individual developers and small teams building production data apps.
-      action: Buy Pro Light
+      action: Buy Pro Lite
       features:
         - Commercial production use
         - text: Production-ready plugins and examples
@@ -95,7 +95,7 @@ pricing:
       description: For product teams that need Pivot Grid, Gantt Chart, and direct access to RevoGrid experts.
       action: Buy Pro Advanced
       features:
-        - Everything in Pro Light
+        - Everything in Pro Lite
         - Priority support
         - Priority bug fix queue
         - Private GitHub repository access

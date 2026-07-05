@@ -22,7 +22,7 @@ export const PRO_LIGHT_FEATURES = [
 ]
 
 export const PRO_ADV_FEATURES = [
-  'Everything in Pro Light',
+  'Everything in Pro Lite',
   'Broader commercial use (no app limit)',
   'Pivot Grid module',
   'Gantt Chart module',

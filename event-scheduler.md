@@ -139,27 +139,6 @@ import GanttPageLayout from './gantt/GanttPageLayout.vue'
 
 <GanttPageLayout />
 
-<section class="event-scheduler-example" aria-labelledby="event-scheduler-example-title">
-  <div class="event-scheduler-example__inner">
-    <p class="event-scheduler-example__kicker">Live example</p>
-    <h2 id="event-scheduler-example-title">Week-view shift planning with EventSchedulerPlugin.</h2>
-    <p>
-      The embedded demo uses the existing <code>event-scheduler-shift-week</code> example:
-      weekdays across the top, time slots down the grid, employee resources, locked shifts,
-      overlap conflicts, drag-create, move, resize, delete, calendar switching, and controlled
-      event persistence.
-    </p>
-    <DemoWidgetFrame
-      demo="event-scheduler-shift-week"
-      framework="ts"
-      title="RevoGrid Event Scheduler shift week example"
-      :initial-height="760"
-      :min-height="620"
-      :max-height="980"
-    />
-  </div>
-</section>
-
 <style scoped>
 .event-scheduler-example {
   border-top: 1px solid var(--vp-c-divider);

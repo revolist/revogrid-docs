@@ -189,7 +189,7 @@ The short version: **MUI X is a good React grid. RevoGrid is a better grid found
 | Grouping and aggregation | Row grouping in docs; Pro adds drag-and-drop grouping, aggregation, Pivot                                 | Row grouping and aggregation are Premium features                                        | RevoGrid is attractive if grouping is part of a broader spreadsheet/analytics workflow.                              |
 | Pivot                    | RevoGrid Pro Advanced includes Pivot Grid                                                                 | MUI X has Premium-level analysis features, including advanced data analysis capabilities | Both can cover advanced analysis, but RevoGrid pairs Pivot with a spreadsheet-like grid foundation and Gantt module. |
 | Gantt / scheduling path  | RevoGrid Pro Advanced includes Gantt, event scheduler, calendar, and resource planner workflows           | MUI X has separate advanced components and Scheduler Preview                             | RevoGrid is stronger when grid, Pivot, scheduling, and resource planning should share one product foundation.        |
-| Pricing                  | Community free; Pro Light and Pro Advanced per developer; no deployment counting; no server license       | Community free; Pro, Premium, Enterprise per developer                                   | RevoGrid is often simpler and more cost-efficient for SaaS and internal product teams.                               |
+| Pricing                  | Community free; Pro Lite and Pro Advanced per developer; no deployment counting; no server license        | Community free; Pro, Premium, Enterprise per developer                                   | RevoGrid is often simpler and more cost-efficient for SaaS and internal product teams.                               |
 | Best fit                 | Data-heavy SaaS, internal tools, ERP/MRP, analytics, spreadsheet-like apps, multi-framework teams         | React/MUI dashboards, Material UI apps, teams standardized on MUI X                      | The better choice depends on whether your grid is a component or infrastructure.                                     |
 
 ---
@@ -643,9 +643,9 @@ Pricing can change, so always verify the official vendor pages before buying. Th
 | Pricing area         | RevoGrid                                                                                   | MUI X                                                                  |
 | -------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
 | Free version         | Community MIT                                                                              | Community MIT                                                          |
-| Paid entry plan      | Pro Light                                                                                  | Pro                                                                    |
+| Paid entry plan      | Pro Lite                                                                                   | Pro                                                                    |
 | Paid advanced plan   | Pro Advanced                                                                               | Premium                                                                |
-| Public paid pricing  | Pro Light from $199/year per developer; Pro Advanced from $499/year per developer          | Pro from $299/year per developer; Premium from $599/year per developer |
+| Public paid pricing  | Pro Lite from $199/year per developer; Pro Advanced from $499/year per developer           | Pro from $299/year per developer; Premium from $599/year per developer |
 | Production usage     | Unlimited production usage listed on RevoGrid pricing                                      | Production usage allowed according to MUI commercial terms             |
 | Deployment counting  | RevoGrid pricing explicitly says no deployment counting                                    | MUI pricing focuses on developer licensing and multi-app usage         |
 | Server license       | RevoGrid pricing explicitly says no server license                                         | MUI licensing is developer-oriented                                    |
@@ -699,9 +699,9 @@ Core capabilities include:
 
 This gives teams enough power to validate serious data-grid use cases before moving to Pro.
 
-### RevoGrid Pro Light
+### RevoGrid Pro Lite
 
-RevoGrid Pro Light is intended for production data apps that need deeper workflows, such as:
+RevoGrid Pro Lite is intended for production data apps that need deeper workflows, such as:
 
 * Excel import/export
 * formulas

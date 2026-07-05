@@ -8,7 +8,7 @@
             <tr>
               <th class="feat-col">Feature</th>
               <th class="center-col">Free</th>
-              <th class="center-col highlight-col">Pro Light</th>
+              <th class="center-col highlight-col">Pro Lite</th>
               <th class="center-col">Pro Advanced</th>
             </tr>
           </thead>

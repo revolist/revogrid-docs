@@ -1,8 +1,8 @@
 <template>
   <div :class="['pricing-grid', `pricing-grid--${variant}`, { 'with-enterprise': includeEnterprise }]">
     <div class="price-card">
-      <div class="card-label subtle">Pro Light</div>
-      <div class="card-name">Pro Light</div>
+      <div class="card-label subtle">Pro Lite</div>
+      <div class="card-name">Pro Lite</div>
       <div class="card-tagline">For teams building production data apps that need advanced column types and export.</div>
       <div class="card-price-row">
         <span class="price-currency">$</span>
@@ -10,7 +10,7 @@
         <span class="price-period">/ year</span>
       </div>
       <div class="price-note">1 developer seat · Unlimited production usage</div>
-      <a :href="PRICES.light.link" class="card-cta ghost" @click="handleStripeClientReferenceClick">Start Pro Light</a>
+      <a :href="PRICES.light.link" class="card-cta ghost" @click="handleStripeClientReferenceClick">Start Pro Lite</a>
       <div class="card-divider"></div>
       <ul class="card-features">
         <li v-for="feature in PRO_LIGHT_FEATURES" :key="feature" class="card-feature">
