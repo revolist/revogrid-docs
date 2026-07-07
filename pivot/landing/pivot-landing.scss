@@ -715,8 +715,7 @@
     color: var(--accent);
   }
 
-  .stat-label,
-  .stat-tag {
+  .stat-label {
     color: var(--tx3);
     font-family: var(--mono);
     font-size: 10.5px;
@@ -726,18 +725,6 @@
 
   .stat-label {
     margin-top: 4px;
-  }
-
-  .stat-tag {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 13px 32px;
-    border-top: 1px solid var(--bd);
-    text-align: center;
-  }
-
-  .stat-tag strong {
-    color: var(--tx2);
   }
 
   .demo-section {

@@ -6,12 +6,11 @@
         <div class="stat-label">{{ stat.label }}</div>
       </div>
     </div>
-    <div class="stat-tag">
-      Used by engineering teams at <strong>Fortune 500 companies</strong> in automotive, pharma, finance, and enterprise software
-    </div>
+    <TrustedLogoStrip title-id="trusted-strip-title" variant="pivot" />
   </section>
 </template>
 
 <script lang="ts" setup>
+import TrustedLogoStrip from '../../.vitepress/theme/TrustedLogoStrip.vue'
 import { STATS } from './pivotLandingData'
 </script>

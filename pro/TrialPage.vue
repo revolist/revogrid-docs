@@ -31,6 +31,8 @@
       </div>
     </section>
 
+    <TrustedLogoStrip title-id="trial-trust-title" variant="trial" />
+
     <section class="trial-section" aria-labelledby="trial-answers-title">
       <div class="trial-container">
         <div class="section-heading">
@@ -123,6 +125,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import TrustedLogoStrip from '../.vitepress/theme/TrustedLogoStrip.vue'
 import TrialRequestForm from './TrialRequestForm.vue'
 
 const benefits = [

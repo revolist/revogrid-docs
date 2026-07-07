@@ -94,7 +94,26 @@ const standaloneBuildRewrites = standaloneBuildSource && !standaloneBuildSrcDir
     }
     : undefined
 
-const siteUrl = process.env.DOCS_SITE_URL || 'https://rv-grid.com'
+const trimTrailingSlash = (value: string): string => value.replace(/\/+$/, '')
+
+const siteUrl = trimTrailingSlash(process.env.DOCS_SITE_URL || 'https://rv-grid.com')
+
+const siteHostname = (value: string): string | undefined => {
+    try {
+        return new URL(value).hostname
+    } catch {
+        return undefined
+    }
+}
+
+const truthyEnv = (value: string | undefined): boolean =>
+    value === '1' || value === 'true' || value === 'yes'
+
+const archiveHostnames = new Set(['v3.rv-grid.com'])
+const isArchiveBuild = truthyEnv(process.env.DOCS_ARCHIVE) || archiveHostnames.has(siteHostname(siteUrl) || '')
+const canonicalSiteUrl = trimTrailingSlash(
+    process.env.DOCS_CANONICAL_SITE_URL || (isArchiveBuild ? 'https://rv-grid.com' : siteUrl)
+)
 
 const cleanPagePath = (relativePath: string): string => {
     const withoutExtension = relativePath.replace(/\.md$/, '')
@@ -110,7 +129,8 @@ const cleanPagePath = (relativePath: string): string => {
     return `/${withoutExtension}`
 }
 
-const pageUrl = (relativePath: string): string => `${siteUrl}${cleanPagePath(relativePath)}`
+const pageUrl = (relativePath: string, baseUrl = canonicalSiteUrl): string =>
+    `${baseUrl}${cleanPagePath(relativePath)}`
 
 const normalizeTitle = (title: string): string =>
     title.endsWith(' | RevoGrid') ? title : `${title} | RevoGrid`
@@ -137,6 +157,22 @@ const headMetaContent = (
     })
 
     return entry?.[1]?.content as string | undefined
+}
+
+const archiveControlledHead = (head: HeadConfig[] | undefined): HeadConfig[] | undefined => {
+    if (!isArchiveBuild || !head) {
+        return head
+    }
+
+    return head.filter(([tag, attrs]) => {
+        if (!attrs) return true
+
+        if (tag === 'meta' && (attrs.name === 'robots' || attrs.name === 'googlebot')) {
+            return false
+        }
+
+        return true
+    })
 }
 
 const browserOnlyPackageSsrShims = () => ({
@@ -166,7 +202,7 @@ const browserOnlyPackageSsrShims = () => ({
 })
 
 const config: UserConfig<DefaultTheme.Config> = {
-    ...(standaloneBuildSource ? {} : { sitemap: {
+    ...((standaloneBuildSource || isArchiveBuild) ? {} : { sitemap: {
         hostname: siteUrl,
         transformItems(items) {
             return items.filter((item) => !item.url.includes('pivot/landing'))
@@ -247,6 +283,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T7JNJDXW');`,
         ],
     ],
+    transformPageData(pageData) {
+        if (!isArchiveBuild) {
+            return
+        }
+
+        pageData.frontmatter.head = archiveControlledHead(pageData.frontmatter.head as HeadConfig[] | undefined)
+    },
     transformHead({ pageData, siteData }) {
         const frontmatter = pageData.frontmatter
         const head = frontmatter.head as HeadConfig[] | undefined
@@ -279,8 +322,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             dynamicHead.push(['meta', { name: 'twitter:description', content: description }])
         }
 
+        if (isArchiveBuild) {
+            dynamicHead.push(['meta', { name: 'robots', content: 'noindex,follow' }])
+            dynamicHead.push(['meta', { name: 'googlebot', content: 'noindex,follow' }])
+        }
+
         dynamicHead.push(...createStructuredDataHead({
-            siteUrl,
+            siteUrl: canonicalSiteUrl,
             relativePath: pageData.relativePath,
             title,
             faq: frontmatter.faq as { items?: Array<{ q?: string; a?: string }> } | undefined,

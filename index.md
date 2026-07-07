@@ -19,7 +19,7 @@ hero:
   emphasis: JavaScript Data Grid
   tagline: The world's fastest JavaScript data grid. Inline editing, virtual scroll, and custom cells for every major framework. 
   primaryAction:
-    text: Explore 1M-row demo
+    text: View demos
     link: /demo/
     # target: _self
   secondaryAction:
@@ -41,6 +41,19 @@ hero:
     - name: JavaScript
       color: '#F7DF1E'
       link: /guide/
+
+trust:
+  kicker: Trusted by thousands of teams building critical data products
+  title: Companies using RevoGrid
+  logos:
+    - name: Axon
+      id: axon
+    - name: BASF
+      id: basf
+    - name: Bayer
+      id: bayer
+    - name: CBRE
+      id: cbre
 
 # demos:
 #   label: Live demos
@@ -349,14 +362,14 @@ finalCta:
   description: Start with the core grid today. Add Pivot, Gantt, and advanced modules as your product grows.
   note: Per-developer licensing. No deployment counting. Upgrade anytime.
   actions:
-    - text: Explore 1M-row demo
+    - text: View demos
       link: /demo/
       variant: primary
       # target: _self
     - text: View pricing
       link: /pricing
       variant: secondary
-    - text: Evaluate Pro
+    - text: Download Trial
       link: /trial
       variant: secondary
     - text: View docs

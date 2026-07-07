@@ -1,7 +1,7 @@
 <template>
   <main class="rg-home">
     <HomeHeroSection :hero="data.hero" />
-    <HomeStatsTrust />
+    <HomeStatsTrust :section="data.trust" />
     <HomeDemoGallery v-if="data.demos" :section="data.demos" />
     <HomeCapabilities :section="data.capabilities" />
     <HomeDeveloperSection :section="data.developer" />
@@ -172,7 +172,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 }
 
 .rg-hero {
-  padding: 80px 0 5px;
+  padding: 50px 0 30px;
 }
 
 .rg-hero-grid,
@@ -481,71 +481,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 
 .perf-up { color: var(--rg-font-green); }
 .perf-dn { color: #f87171; }
-
-.rg-proof {
-  background: transparent;
-  padding: 24px 0;
-}
-
-.rg-proof-inner {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.rg-proof-card {
-  display: flex;
-  min-height: 48px;
-  border: 1px solid var(--rg-border);
-  border-radius: 10px;
-  background: var(--rg-bg);
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
-}
-
-.rg-proof-fortune {
-  flex-direction: column;
-  gap: 6px;
-  min-width: 80px;
-  min-height: 54px;
-  padding: 10px 0;
-  border: 0;
-  box-shadow: none;
-  color: #050505;
-  text-transform: uppercase;
-  letter-spacing: 0;
-}
-
-.rg-fortune-word {
-  border: 0;
-  padding: 0;
-  color: var(--rg-text-2);
-  font-size: 13px;
-  font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: 0.16em;
-}
-
-.rg-fortune-num {
-  color: var(--rg-text);
-  font-size: 34px;
-  font-weight: 900;
-  line-height: 0.86;
-  letter-spacing: -0.04em;
-}
-
-.rg-proof-copy {
-  max-width: 520px;
-  color: var(--rg-text-2);
-  font-size: 15px;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.dark .rg-proof-copy {
-  color: rgba(245, 245, 245, 0.78);
-}
 
 .rg-section-header {
   text-align: center;
@@ -974,11 +909,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
     $h: 360px;
     height: $h;
     min-height: $h;
-  }
-
-  .rg-proof-card {
-    width: 100%;
-    min-width: 0;
   }
 
   .rg-comparison {
