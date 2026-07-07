@@ -5,7 +5,9 @@ export interface FeatureTablePlan {
   name: string
   price?: number
   priceYear?: number
+  compareAtPriceYear?: number
   pricePeriod?: string
+  billingSummary?: string
   buttonText?: string
   link?: string
   buttonTheme?: 'alt'
@@ -39,7 +41,9 @@ export const featureTablePlans: FeatureTablePlan[] = [
     name: 'Pro Lite',
     price: PRICES.light.month.USD,
     priceYear: PRICES.light.year.USD,
+    compareAtPriceYear: PRICES.light.compareAtYear?.USD,
     pricePeriod: 'month',
+    billingSummary: '1 developer seat · 1 app usage',
     buttonText: 'Buy Now',
     link: PRICES.light.link,
   },
@@ -49,6 +53,7 @@ export const featureTablePlans: FeatureTablePlan[] = [
     price: PRICES.advanced.month.USD,
     priceYear: PRICES.advanced.year.USD,
     pricePeriod: 'month',
+    billingSummary: '1 developer seat · Unlimited production usage',
     buttonText: 'Buy Now',
     buttonTheme: 'alt',
     ai: true,

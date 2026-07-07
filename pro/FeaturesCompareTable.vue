@@ -20,10 +20,16 @@
                                 <span class="price-value"
                                     >${{ plan.priceYear ?? plan.price * 12 }}</span
                                 >
+                                <span v-if="plan.compareAtPriceYear" class="price-compare">
+                                    ${{ plan.compareAtPriceYear }}
+                                </span>
+                                <span v-if="plan.compareAtPriceYear" class="price-discount">
+                                    25% off
+                                </span>
                                 / year
                             </div>
                             <div class="summary">
-                                1 developer seat · Unlimited production usage
+                                {{ plan.billingSummary }}
                             </div>
                         </div>
                         <ul class="plan-details" v-if="plan.details">
@@ -178,7 +184,9 @@ interface Plan {
     name: string
     price?: number
     priceYear?: number
+    compareAtPriceYear?: number
     details?: string[]
+    billingSummary?: string
     buttonText?: string
     link?: string
     ai?: boolean
@@ -489,6 +497,26 @@ const openPreview = (video: string) => {
         .price-value {
             font-size: 18px;
             font-weight: bold;
+        }
+
+        .price-compare {
+            color: var(--vp-c-text-3);
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+        }
+
+        .price-discount {
+            display: inline-flex;
+            align-items: center;
+            color: var(--vp-c-brand-1);
+            border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 28%, transparent);
+            border-radius: 999px;
+            padding: 1px 6px;
+            font-size: 10px;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
         .summary {

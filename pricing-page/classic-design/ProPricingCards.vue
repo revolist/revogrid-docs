@@ -7,9 +7,12 @@
       <div class="card-price-row">
         <span class="price-currency">$</span>
         <span class="price-num">{{ lightUsdYr }}</span>
+        <span v-if="lightCompareAtUsdYr" class="price-compare">${{ lightCompareAtUsdYr }}</span>
+        <span v-if="lightCompareAtUsdYr" class="price-discount">25% off</span>
         <span class="price-period">/ year</span>
       </div>
-      <div class="price-note">1 developer seat · Unlimited production usage</div>
+      <div class="price-promo">Summer sale discount</div>
+      <div class="price-note">1 developer seat · 1 app usage</div>
       <a :href="PRICES.light.link" class="card-cta ghost" @click="handleStripeClientReferenceClick">Start Pro Lite</a>
       <div class="card-divider"></div>
       <ul class="card-features">
@@ -74,6 +77,7 @@ withDefaults(defineProps<{
 })
 
 const lightUsdYr = PRICES.light.year.USD
+const lightCompareAtUsdYr = PRICES.light.compareAtYear?.USD
 const advUsdYr = PRICES.advanced.year.USD
 </script>
 
@@ -174,7 +178,8 @@ const advUsdYr = PRICES.advanced.year.USD
 .card-price-row {
   display: flex;
   align-items: baseline;
-  gap: 2px;
+  flex-wrap: wrap;
+  gap: 4px;
   margin-bottom: 4px;
 }
 
@@ -198,6 +203,31 @@ const advUsdYr = PRICES.advanced.year.USD
   font-size: 13px;
   color: var(--vp-c-text-3);
   font-weight: 400;
+}
+
+.price-compare {
+  color: var(--vp-c-text-3);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+.price-discount {
+  color: var(--vp-c-brand-1);
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 28%, transparent);
+  border-radius: 999px;
+  padding: 2px 7px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.price-promo {
+  color: var(--vp-c-brand-1);
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0 0 4px;
 }
 
 .price-note {

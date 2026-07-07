@@ -10,12 +10,17 @@ interface PeriodPrices {
 interface PlanPrice {
   month: PeriodPrices;
   year: PeriodPrices;
+  compareAtYear?: Partial<PeriodPrices>;
   link: string;
 }
 
+const lightCompareAtYearPrices = {
+  USD: 199,
+};
+
 const lightYearPrices = {
   EUR: 170,
-  USD: 199,
+  USD: 149,
 };
 
 const advancedYearPrices = {
@@ -30,8 +35,9 @@ export const PRICES: Record<'light' | 'advanced', PlanPrice> = {
       USD: Math.round((lightYearPrices.USD / 12)),
     },
     year: lightYearPrices,
+    compareAtYear: lightCompareAtYearPrices,
     get link() {
-      return stripeLinkWithClientReferenceId('https://buy.stripe.com/3cIcN62oL6MEcWm8miew80e');
+      return stripeLinkWithClientReferenceId('https://buy.stripe.com/5kQeVe8N9ef67C29qmew80g');
     },
   },
   advanced: {

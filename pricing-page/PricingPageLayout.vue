@@ -1,5 +1,12 @@
 <template>
   <div class="pricing-page">
+    <div v-if="pricingPromo" class="pricing-promo-ribbon" role="note">
+      <span class="pricing-promo-label">{{ pricingPromo.label }}</span>
+      <span class="pricing-promo-copy">
+        <strong>{{ pricingPromo.title }}</strong>
+        <span>{{ pricingPromo.description }}</span>
+      </span>
+    </div>
     <HomePricing :section="frontmatter.pricing" @contact-sales="showContactForm = true" />
     <PricingFeatureComparison :heading="pricingPage.featureComparison.heading" />
     <PricingCompareLinks :compare-links="pricingPage.compareLinks" />
@@ -84,6 +91,7 @@ const pricingPage = computed<PricingPageData>(() => {
     },
   }
 })
+const pricingPromo = computed(() => frontmatter.value.pricing?.promo)
 const showContactForm = ref(false)
 </script>
 
@@ -95,6 +103,49 @@ const showContactForm = ref(false)
 
 :global(.dark) .pricing-page {
   --green: var(--vp-c-brand-3);
+}
+
+.pricing-promo-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin: 0;
+  padding: 10px max(24px, calc((100vw - 1200px) / 2 + 24px));
+  background: color-mix(in srgb, var(--rg-font-green) 8%, transparent);
+  text-align: center;
+
+  strong {
+    color: var(--rg-text);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+}
+
+.pricing-promo-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  color: var(--rg-text-2);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.pricing-promo-label {
+  flex: 0 0 auto;
+  color: #fff;
+  border: 1px solid var(--rg-font-green);
+  border-radius: 999px;
+  background: var(--rg-font-green);
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 :deep(.pricing-container) {

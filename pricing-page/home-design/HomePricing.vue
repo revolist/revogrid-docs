@@ -37,9 +37,11 @@ const pricingCards = computed(() => {
       return {
         ...card,
         price: `$${PRICES.light.year.USD}`,
+        compareAtPrice: PRICES.light.compareAtYear?.USD ? `$${PRICES.light.compareAtYear.USD}` : undefined,
+        discountLabel: '25% off',
         period: '/ year',
         sub: '',
-        billingNote: '1 developer seat · Unlimited production usage',
+        billingNote: '1 developer seat · 1 app usage',
         link: PRICES.light.link,
       }
     }

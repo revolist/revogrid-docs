@@ -6,6 +6,8 @@
       <p class="rg-plan-desc">{{ card.description }}</p>
       <div class="rg-price">
         <span>{{ card.price }}</span>
+        <del v-if="card.compareAtPrice">{{ card.compareAtPrice }}</del>
+        <em v-if="card.discountLabel">{{ card.discountLabel }}</em>
         <small>{{ card.period }}</small>
       </div>
       <p v-if="card.sub" class="rg-price-sub">{{ card.sub }}</p>
@@ -175,6 +177,7 @@ const handlePlanClick = (event: MouseEvent) => {
 .rg-price {
   display: flex;
   align-items: baseline;
+  flex-wrap: wrap;
   gap: 5px;
   margin-top: 18px;
 
@@ -186,6 +189,24 @@ const handlePlanClick = (event: MouseEvent) => {
 
   small {
     color: var(--rg-text-2);
+  }
+
+  del {
+    color: var(--rg-text-3);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration-thickness: 2px;
+  }
+
+  em {
+    color: var(--rg-font-green);
+    border: 1px solid color-mix(in srgb, var(--rg-font-green) 28%, transparent);
+    border-radius: 999px;
+    padding: 2px 7px;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.2;
   }
 }
 

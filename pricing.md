@@ -77,10 +77,15 @@ pricing:
   label: Pricing
   title: Start small. Scale when your app demands it.
   description: Per-developer licensing. No deployment counting. No server license. Upgrade as your product grows.
+  promo:
+    label: Summer sale
+    title: 25% off Pro Lite.
+    description: Pro Lite is $149/year for the summer discount, down from $199/year.
   note: Simple per-developer licensing. No deployment counting. No server license. Upgrade when your product needs more advanced modules.
   cards:
     - id: light
       name: Pro Lite
+      badge: 25% off summer discount
       description: For individual developers and small teams building production data apps.
       action: Buy Pro Lite
       features:
@@ -94,7 +99,7 @@ pricing:
       name: Pro Advanced
       featured: true
       badge: Best for teams that need production-ready Pro workflows
-      description: For product teams that need Pivot Grid, Gantt Chart, and direct access to RevoGrid experts.
+      description: For product teams that need Full Code Access, Pivot Grid, Gantt Chart,  and priority support.
       action: Buy Pro Advanced
       features:
         - Everything in Pro Lite
