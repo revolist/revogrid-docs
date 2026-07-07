@@ -18,6 +18,11 @@ export default defineConfig({
       dark: { dark: '[data-theme="dark"]' },
     }),
   ],
+  blocklist: [
+    // TypeDoc markdown contains TypeScript object/type notation that Uno can
+    // misread as arbitrary CSS property utilities, e.g. [prop:Object<string>].
+    /^\[[\w-]+:[^\]]+\]$/,
+  ],
   shortcuts: {
     'rv-btn': `${BTN_BASE} bg-[var(--rv-ui-btn-bg)] text-[var(--rv-ui-btn-fg)] shadow-sm hover:bg-[var(--rv-ui-btn-bg-hover)] active:bg-[var(--rv-ui-btn-bg-hover)]`,
     'rv-btn-primary': `${BTN_BASE} bg-[var(--rv-ui-accent)] text-[var(--rv-ui-accent-fg)] shadow-sm hover:bg-[var(--rv-ui-accent-hover)] active:bg-[var(--rv-ui-accent-hover)]`,
