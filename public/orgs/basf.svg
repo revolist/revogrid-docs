@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 12.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 51448)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd" [
-	<!ENTITY ns_svg "http://www.w3.org/2000/svg">
-	<!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
-]>
-<svg  version="1.0" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="152.028" height="55.721" viewBox="0 0 152.028 55.721"
-	 overflow="visible" enable-background="new 0 0 152.028 55.721" xml:space="preserve">
-<g id="Raster">
-</g>
-<g id="Logo" fill="currentColor">
+
+<svg  version="1.0" viewBox="0 0 152.028 55.721" xml:space="preserve">
+
+<g fill="currentColor">
 	<path d="M50.11,44.292c-1.955,0-3.37,1.581-3.37,3.731c0.069,2.191,1.151,3.772,3.438,3.772c1.61,0,2.748-0.86,3.066-2.44H52.08
 		c-0.208,0.93-0.888,1.4-1.858,1.4c-1.567,0-2.274-1.109-2.232-2.357h5.367C53.425,46.663,52.649,44.292,50.11,44.292z
 		 M47.989,47.358c0.082-1.098,0.818-2.025,2.052-2.025c1.165,0,2.011,0.901,2.067,2.025H47.989z M66.475,43.168h1.18v-1.441h-1.18

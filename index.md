@@ -54,6 +54,8 @@ trust:
       id: bayer
     - name: CBRE
       id: cbre
+    - name: Deltek
+      id: deltek
 
 # demos:
 #   label: Live demos

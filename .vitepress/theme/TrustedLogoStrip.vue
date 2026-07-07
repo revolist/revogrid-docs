@@ -25,8 +25,9 @@ import AxonLogo from '../../public/orgs/axon.svg'
 import BasfLogo from '../../public/orgs/basf.svg'
 import BayerLogo from '../../public/orgs/bayer.svg'
 import CbreLogo from '../../public/orgs/cbre.svg'
+import DeltekLogo from '../../public/orgs/deltek.svg'
 
-type TrustedLogoId = 'axon' | 'basf' | 'bayer' | 'cbre'
+type TrustedLogoId = 'axon' | 'basf' | 'bayer' | 'cbre' | 'deltek'
 type TrustedLogoConfig = {
   name: string
   id: TrustedLogoId
@@ -51,6 +52,7 @@ const LOGO_COMPONENTS = {
   basf: BasfLogo,
   bayer: BayerLogo,
   cbre: CbreLogo,
+  deltek: DeltekLogo,
 } satisfies Record<TrustedLogoId, unknown>
 
 const DEFAULT_SECTION: Required<TrustedLogoSection> = {
@@ -61,6 +63,7 @@ const DEFAULT_SECTION: Required<TrustedLogoSection> = {
     { name: 'BASF', id: 'basf' },
     { name: 'Bayer', id: 'bayer' },
     { name: 'CBRE', id: 'cbre' },
+    { name: 'Deltek', id: 'deltek' },
   ],
 }
 
@@ -185,7 +188,7 @@ const variantClass = computed(() => `trusted-logo-strip--${props.variant}`)
 }
 
 .trusted-logo-strip__logo--basf {
-  --trusted-logo-height: 40px;
+  --trusted-logo-height: 48px;
 }
 
 .trusted-logo-strip__logo--bayer {
@@ -193,7 +196,11 @@ const variantClass = computed(() => `trusted-logo-strip--${props.variant}`)
 }
 
 .trusted-logo-strip__logo--cbre {
-  --trusted-logo-height: 48px;
+  --trusted-logo-height: 38px;
+}
+
+.trusted-logo-strip__logo--deltek {
+  --trusted-logo-height: 42px;
 }
 
 @media (max-width: 640px) {
