@@ -17,6 +17,14 @@ import UnoCSS from 'unocss/vite'
 
 dotenv.config()
 
+const ssrGlobal = globalThis as typeof globalThis & {
+    Element?: typeof Element
+    HTMLElement?: typeof HTMLElement
+}
+
+ssrGlobal.Element ??= class Element {}
+ssrGlobal.HTMLElement ??= class HTMLElement extends ssrGlobal.Element {}
+
 const rControl = /[\u0000-\u001f]/g
 const rSpecial = /[\s~`!@#$%^&*()\-_+=[\]{}|\\;:"'“”‘’<>,.?/]+/g
 const rCombining = /[\u0300-\u036F]/g
@@ -174,32 +182,6 @@ const archiveControlledHead = (head: HeadConfig[] | undefined): HeadConfig[] | u
         return true
     })
 }
-
-const browserOnlyPackageSsrShims = () => ({
-    name: 'browser-only-package-ssr-shims',
-    enforce: 'pre' as const,
-    resolveId(source: string, _importer: string | undefined, options: { ssr?: boolean } = {}) {
-        if (!options.ssr) return null
-
-        if (source === '@revolist/revogrid-enterprise') {
-            return path.resolve(__dirname, 'revogrid-enterprise-ssr-shim.ts')
-        }
-
-        if (source === '@revolist/revogrid-pro') {
-            return path.resolve(__dirname, 'revogrid-pro-ssr-shim.ts')
-        }
-
-        if (
-            source === '@revolist/revogrid-column-date' ||
-            source === '@revolist/revogrid-column-numeral' ||
-            source === '@revolist/revogrid-column-select'
-        ) {
-            return path.resolve(__dirname, 'revogrid-column-type-ssr-shim.ts')
-        }
-
-        return null
-    },
-})
 
 const config: UserConfig<DefaultTheme.Config> = {
     ...((standaloneBuildSource || isArchiveBuild) ? {} : { sitemap: {
@@ -441,7 +423,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     )
                 },
             },
-            browserOnlyPackageSsrShims(),
             AutoImport({
                 resolvers: [ElementPlusResolver()],
             }),
