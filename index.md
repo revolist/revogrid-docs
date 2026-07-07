@@ -23,8 +23,8 @@ hero:
     link: /demo/
     # target: _self
   secondaryAction:
-    text: View docs
-    link: /guide/
+    text: Download Pro
+    link: /trial
   frameworks:
     - name: Vue
       color: '#4FC08D'
