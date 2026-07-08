@@ -29,14 +29,12 @@ ganttLanding:
     title: Build scheduling into your product.
     description: RevoGrid Gantt brings fast, editable project timelines to SaaS, ERP, and operations platforms. Let users drag tasks, manage dependencies, assign owners, and track delivery without leaving your app.
     actions:
-      - label: Explore the live Gantt
+      - label: View Demo
         href: /demo/gantt
         arrow: true
-      - label: View integration docs
-        href: https://pro.rv-grid.com/guides/gantt/
+      - label: Download Trial
+        href: /trial
         variant: secondary
-        target: _blank
-        rel: noopener
     badges:
       - Drag to reschedule
       - Inline assignees
@@ -44,12 +42,15 @@ ganttLanding:
       - Milestones
   preview:
     enabled: true
+    kind: image
+    lightSrc: /img/gantt-hero.light.png
+    darkSrc: /img/gantt-hero.dark.png
+    alt: RevoGrid Gantt project timeline with editable task rows, assignees, progress, and scheduling bars
     title: gantt-planning.revogrid.ts
     pills:
       - label: Basic plan
         active: true
       - label: Assignees
-    liveLabel: Live
   statsAriaLabel: Gantt product stats
   stats:
     - value: 10K+
@@ -117,9 +118,9 @@ ganttLanding:
     title: Add Gantt scheduling without building it from scratch.
     description: Embed RevoGrid Gantt, customize it with your product UI, and keep every scheduling interaction under your control.
     primaryHref: /demo/gantt
-    primaryLabel: Try the live demo
-    secondaryHref: /pricing
-    secondaryLabel: View Pro pricing
+    primaryLabel: View Demo
+    secondaryHref: /trial
+    secondaryLabel: Download Trial
 ---
 
 <script lang="ts" setup>

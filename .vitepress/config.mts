@@ -61,20 +61,34 @@ const mermaidMarkdownPlugin = (md: MarkdownIt) => {
     }
 }
 
-const useLocalProPackages = process.env.npm_lifecycle_event === 'dev' || process.argv.includes('dev')
+const revogridProWorkspaceRoot = path.resolve(__dirname, '../../..')
+const localProPackageRoot = path.resolve(revogridProWorkspaceRoot, 'packages/pro')
+const localEnterprisePackageRoot = path.resolve(revogridProWorkspaceRoot, 'packages/enterprise')
+const useLocalProPackages =
+    process.env.npm_lifecycle_event === 'dev' ||
+    process.env.npm_lifecycle_script?.includes('vitepress dev') ||
+    process.argv.some((argument) => argument === 'dev')
 const localProPackageAliases = useLocalProPackages
     ? [
         {
-            find: '@revolist/revogrid-pro',
-            replacement: path.resolve(__dirname, '../../../packages/pro'),
+            find: /^@revolist\/revogrid-pro\/dist\/revogrid-pro\.css$/,
+            replacement: path.resolve(localProPackageRoot, 'dist/revogrid-pro.css'),
         },
         {
-            find: '@revolist/revogrid-enterprise',
-            replacement: path.resolve(__dirname, '../../../packages/enterprise'),
+            find: /^@revolist\/revogrid-enterprise\/dist\/revogrid-enterprise\.css$/,
+            replacement: path.resolve(localEnterprisePackageRoot, 'dist/revogrid-enterprise.css'),
+        },
+        {
+            find: /^@revolist\/revogrid-pro$/,
+            replacement: path.resolve(localProPackageRoot, 'dist/revogrid-pro.js'),
+        },
+        {
+            find: /^@revolist\/revogrid-enterprise$/,
+            replacement: path.resolve(localEnterprisePackageRoot, 'dist/revogrid-enterprise.js'),
         },
         {
             find: '@revolist/revogrid-examples',
-            replacement: path.resolve(__dirname, '../../../examples/components/src'),
+            replacement: path.resolve(revogridProWorkspaceRoot, 'examples/components/src'),
         },
     ]
     : []
@@ -449,8 +463,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         },
         optimizeDeps: {
             include: [
-                '@revolist/revogrid-pro',
-                '@revolist/revogrid-enterprise',
+                ...(
+                    useLocalProPackages
+                        ? []
+                        : [
+                            '@revolist/revogrid-pro',
+                            '@revolist/revogrid-enterprise',
+                        ]
+                ),
                 '@braintree/sanitize-url',
                 'dayjs',
                 'debug',
@@ -458,6 +478,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 'cytoscape',
                 'numeral',
             ], // List of node modules to include in bundling
+            ...(useLocalProPackages
+                ? {
+                    exclude: [
+                        '@revolist/revogrid-pro',
+                        '@revolist/revogrid-enterprise',
+                    ],
+                }
+                : {}),
         },
         resolve: {
             extensions: [

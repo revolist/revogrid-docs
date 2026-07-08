@@ -38,14 +38,12 @@ ganttLanding:
     title: Build event scheduling into your product.
     description: EventSchedulerPlugin turns RevoGrid into a commercial scheduling surface for staff rosters, room bookings, equipment plans, field crews, support queues, and team capacity. Keep schedule data, editing, rules, and persistence inside your app.
     actions:
-      - label: Explore the scheduler demo
+      - label: View Demo
         href: /demo/event-scheduler
         arrow: true
-      - label: Read Event Scheduler docs
-        href: https://pro.rv-grid.com/guides/event-scheduler/
+      - label: Download Trial
+        href: /trial
         variant: secondary
-        target: _blank
-        rel: noopener
     badges:
       - Week calendars
       - Resource timelines
@@ -128,9 +126,9 @@ ganttLanding:
     title: Ship scheduling as a native product feature.
     description: Add event calendars, resource timelines, validation rules, and controlled persistence to your app without sending users to a separate scheduling tool.
     primaryHref: /demo/event-scheduler
-    primaryLabel: Explore scheduler demo
-    secondaryHref: /pricing
-    secondaryLabel: View Pro pricing
+    primaryLabel: View Demo
+    secondaryHref: /trial
+    secondaryLabel: Download Trial
 ---
 
 <script lang="ts" setup>

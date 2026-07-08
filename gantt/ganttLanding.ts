@@ -27,10 +27,13 @@ export type GanttLandingPage = {
   }
   preview: {
     enabled: boolean
-    kind?: 'gantt' | 'eventScheduler'
+    kind?: 'gantt' | 'eventScheduler' | 'image'
     title: string
     pills: { label: string, active?: boolean }[]
     liveLabel?: string
+    lightSrc?: string
+    darkSrc?: string
+    alt?: string
   }
   statsAriaLabel: string
   stats: { value: string, label: string }[]
@@ -78,8 +81,8 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
     title: 'The interactive Gantt your app deserves.',
     description: 'Production-ready project scheduling for SaaS, ERP, and operations platforms. Drag-to-reschedule tasks, assign owners, track progress, and embed it as a native product feature.',
     actions: [
-      { label: 'Try live demo', href: 'https://rv-grid.com/demo/gantt', arrow: true },
-      { label: 'Get Pro', href: 'https://rv-grid.com/pricing/', variant: 'secondary', target: '_blank', rel: 'noopener' },
+      { label: 'View Demo', href: 'https://rv-grid.com/demo/gantt', arrow: true },
+      { label: 'Download Trial', href: '/trial', variant: 'secondary' },
     ],
     badges: ['Drag to reschedule', 'Inline assignees', 'Progress bars', 'Milestones'],
   },
@@ -163,9 +166,9 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
     title: 'Ship Gantt as a feature, not a project.',
     description: 'Embed RevoGrid Gantt in your product and keep the scheduling experience under your control.',
     primaryHref: 'https://rv-grid.com/demo/gantt',
-    primaryLabel: 'Try live demo',
-    secondaryHref: '/pricing',
-    secondaryLabel: 'View Pro pricing',
+    primaryLabel: 'View Demo',
+    secondaryHref: '/trial',
+    secondaryLabel: 'Download Trial',
   },
 }
 

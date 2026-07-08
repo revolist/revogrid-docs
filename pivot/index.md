@@ -32,12 +32,12 @@ pivotLanding:
     titleSuffix: analytics, embedded.
     description: Ship spreadsheet-style pivot analysis inside your application. Let users group, filter, aggregate, visualize, and export large datasets without leaving the page.
     actions:
-      - label: Pivot demo
+      - label: View Demo
         href: /demo/pivot
         arrow: true
         # target: _self
-      - label: Feature list
-        href: /pricing#feature-comparison
+      - label: Download Trial
+        href: /trial
         variant: secondary
     badges:
       - D&D dimensions
@@ -100,10 +100,10 @@ pivotLanding:
       in your product.
     description: Add a client-side pivot table component to React, Vue, Angular, Svelte, or vanilla JavaScript apps. Included in Pro Advanced.
     primaryHref: https://rv-grid.com/demo/pivot
-    primaryLabel: Open pivot demo
+    primaryLabel: View Demo
     # primaryTarget: _self
-    secondaryHref: /pricing
-    secondaryLabel: View Pro pricing
+    secondaryHref: /trial
+    secondaryLabel: Download Trial
     # secondaryTarget: _self
 ---
 

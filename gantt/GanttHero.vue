@@ -30,7 +30,20 @@
         </div>
       </div>
 
-      <ClientOnly v-if="preview.enabled">
+      <div v-if="preview.enabled && preview.kind === 'image' && heroImageSrc" class="hero-image-wrap fade-up-3">
+        <img
+          class="hero-image"
+          :src="heroImageSrc"
+          :alt="heroImageAlt"
+          width="1570"
+          height="840"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </div>
+
+      <ClientOnly v-else-if="preview.enabled">
         <EventSchedulerPreview v-if="preview.kind === 'eventScheduler'" class="fade-up-3" />
         <GanttPreviewGrid v-else class="fade-up-3" :preview="preview" :is-dark="isDark" />
       </ClientOnly>
@@ -39,17 +52,28 @@
 </template>
 
 <script lang="ts" setup>
+import { computed, defineAsyncComponent } from 'vue'
 import ProDocButton from '../pro/ProDocButton.vue'
-import EventSchedulerPreview from './EventSchedulerPreview.vue'
-import GanttPreviewGrid from './GanttPreviewGrid.vue'
 import type { GanttLandingPage } from './ganttLanding'
 
-defineProps<{
+const EventSchedulerPreview = defineAsyncComponent(() => import('./EventSchedulerPreview.vue'))
+const GanttPreviewGrid = defineAsyncComponent(() => import('./GanttPreviewGrid.vue'))
+
+const props = defineProps<{
   hero: GanttLandingPage['hero']
   preview: GanttLandingPage['preview']
   isDark: boolean
   resolveLink: (href: string) => string
 }>()
+
+const heroImageSrc = computed(() => {
+  if (props.preview.kind !== 'image') return ''
+  return props.isDark
+    ? props.preview.darkSrc || props.preview.lightSrc || ''
+    : props.preview.lightSrc || props.preview.darkSrc || ''
+})
+
+const heroImageAlt = computed(() => props.preview.alt || 'RevoGrid Gantt preview')
 </script>
 
 <style lang="scss" scoped>
@@ -159,6 +183,24 @@ defineProps<{
     font-size: 12px;
     font-weight: 600;
   }
+}
+
+.hero-image-wrap {
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--vp-c-bg);
+  box-shadow: var(--pro-doc-shadow-lg);
+
+  @media (max-width: 1160px) {
+    max-width: 920px;
+  }
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
 
 </style>
