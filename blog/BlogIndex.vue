@@ -16,18 +16,20 @@
           <a class="blog-card__media" :href="post.url" :aria-label="post.title">
             <img :src="post.image" :alt="post.imageAlt" loading="lazy" decoding="async">
           </a>
-          <div class="blog-card__topline">
-            <span class="blog-badge">{{ post.category }}</span>
-            <span>{{ post.dateLabel }}</span>
-          </div>
-          <h3>
-            <a :href="post.url">{{ post.title }}</a>
-          </h3>
-          <p>{{ post.description }}</p>
-          <div class="blog-card__footer">
-            <span>{{ post.readingTime }}</span>
-            <div v-if="post.tags.length" class="blog-tags" aria-label="Tags">
-              <span v-for="tag in post.tags" :key="tag">{{ tag }}</span>
+          <div class="blog-card__content">
+            <div class="blog-card__topline">
+              <span class="blog-badge">{{ post.category }}</span>
+              <span>{{ post.dateLabel }}</span>
+            </div>
+            <h3>
+              <a :href="post.url">{{ post.title }}</a>
+            </h3>
+            <p>{{ post.description }}</p>
+            <div class="blog-card__footer">
+              <span>{{ post.readingTime }}</span>
+              <div v-if="post.tags.length" class="blog-tags" aria-label="Tags">
+                <span v-for="tag in post.tags" :key="tag">{{ tag }}</span>
+              </div>
             </div>
           </div>
         </article>
@@ -222,17 +224,22 @@ const posts = computed<BlogPost[]>(() =>
   gap: 16px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-
+.blog-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  flex-grow: 1;
+}
 .blog-card {
   background: var(--vp-c-bg);
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
   min-width: 0;
-  padding: 24px;
   transition: border-color 0.18s, transform 0.18s, background-color 0.18s;
+  overflow: hidden;
 
   &:hover {
     background: var(--vp-c-bg-soft);
@@ -277,10 +284,7 @@ const posts = computed<BlogPost[]>(() =>
 .blog-card__media {
   aspect-ratio: 16 / 9;
   background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 6px;
   display: block;
-  margin: -8px -8px 2px;
   overflow: hidden;
 
   img {
@@ -288,6 +292,7 @@ const posts = computed<BlogPost[]>(() =>
     height: 100%;
     object-fit: cover;
     width: 100%;
+    margin: 0;
   }
 }
 
@@ -306,7 +311,7 @@ const posts = computed<BlogPost[]>(() =>
 .blog-badge {
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
-  border-radius: 999px;
+  border-radius: 8px;
   color: var(--vp-c-text-1);
   line-height: 1;
   padding: 5px 8px;
@@ -330,7 +335,7 @@ const posts = computed<BlogPost[]>(() =>
 
   span {
     border: 1px solid var(--vp-c-divider);
-    border-radius: 999px;
+    border-radius: 6px;
     color: var(--vp-c-text-2);
     font-size: 12px;
     font-weight: 500;
