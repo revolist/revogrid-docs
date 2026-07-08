@@ -1,6 +1,6 @@
 ---
 title: RevoGrid Comparison Guides
-description: Compare RevoGrid with AG Grid, Handsontable, and other JavaScript data grid alternatives for pricing, licensing, framework support, and advanced data workflows.
+description: Compare RevoGrid Data Grid, Gantt, Scheduler, and Pivot with JavaScript alternatives for pricing, licensing, framework support, and advanced product workflows.
 sidebar: false
 aside: false
 editLink: false
@@ -10,17 +10,21 @@ layout: doc
 head:
   - - meta
     - name: keywords
-      content: RevoGrid comparison, AG Grid alternative, Handsontable alternative, JavaScript data grid comparison, data grid pricing, data grid licensing
+      content: RevoGrid comparison, AG Grid alternative, Handsontable alternative, JavaScript data grid comparison, JavaScript Gantt comparison, JavaScript Pivot comparison, data grid pricing, data grid licensing
   - - link
     - rel: canonical
       href: https://rv-grid.com/compare/
 ---
 
-# Compare RevoGrid With Other Data Grids
+# RevoGrid Comparison Guides
 
-Use these guides when you are choosing a JavaScript data grid for a product, internal platform, analytics workflow, scheduling tool, or spreadsheet-like application.
+These guides will help you to choose a JavaScript data grid, Gantt, scheduler, or Pivot component for a product, internal platform, analytics workflow, planning tool, or spreadsheet-like application.
 
-The comparison pages focus on practical buying and implementation questions: licensing, deployment rules, framework support, editing, filtering, export, Pivot, Gantt, server-side workflows, support, and migration tradeoffs.
+The comparison pages focus on practical buying and implementation questions: licensing, deployment rules, framework support, editing, filtering, export, Pivot analytics, Gantt planning, server-side workflows, support, and migration tradeoffs.
+
+## Data Grid Comparisons
+
+Compare RevoGrid with popular JavaScript data grid, spreadsheet, table, and enterprise UI suite alternatives.
 
 <div class="compare-index-grid">
   <a class="compare-index-card" href="/compare/ag-grid-alternative">
@@ -87,16 +91,57 @@ The comparison pages focus on practical buying and implementation questions: lic
   </a>
 </div>
 
+## Gantt And Scheduler Comparisons
+
+Find RevoGrid Gantt and Scheduler guides for planning, resource scheduling, Microsoft Project-style migration, and embedded scheduling workflows.
+
+<div class="compare-index-grid compare-index-grid--compact">
+  <a class="compare-index-card" href="/compare/microsoft-project-gantt-alternative">
+    <div class="compare-index-preview">
+      <img src="/blog/gantt-abstract.png" alt="Microsoft Project Gantt alternative preview" loading="lazy">
+    </div>
+    <span class="compare-index-label">Microsoft Project-style Gantt migration</span>
+    <span class="compare-index-title">Microsoft Project Gantt Replacement Guide</span>
+    <p>Learn how to replace Microsoft Project-style Gantt workflows with embedded scheduling, dependencies, resources, baselines, critical path, and SaaS product workflows.</p>
+  </a>
+
+  <a class="compare-index-card" href="/blog/best-js-scheduler-in-2026">
+    <div class="compare-index-preview">
+      <img src="/blog/scheduler.png" alt="RevoGrid Scheduler and Gantt planning preview" loading="lazy">
+    </div>
+    <span class="compare-index-label">Gantt and scheduler comparison</span>
+    <span class="compare-index-title">Best JavaScript Scheduler and Gantt Libraries</span>
+    <p>Compare RevoGrid Scheduler and Gantt with Bryntum, DHTMLX, DayPilot, Syncfusion, FullCalendar, and Kendo for planning-heavy web apps.</p>
+  </a>
+</div>
+
+## Pivot And Analytics Comparisons
+
+Compare RevoGrid Pivot with reporting tools, PivotGrid components, spreadsheet engines, and embedded analytics approaches.
+
+<div class="compare-index-grid compare-index-grid--compact">
+  <a class="compare-index-card" href="/blog/best-js-pivot-in-2026">
+    <div class="compare-index-preview">
+      <img src="/blog/pivot.png" alt="RevoGrid Pivot analytics preview" loading="lazy">
+    </div>
+    <span class="compare-index-label">Pivot and reporting comparison</span>
+    <span class="compare-index-title">Best JavaScript Pivot and Reporting Tools</span>
+    <p>Compare RevoGrid Pivot with AG Grid Enterprise Pivot, Flexmonster, WebDataRocks, SpreadJS, Syncfusion PivotView, DHTMLX Pivot, and PivotTable.js.</p>
+  </a>
+</div>
+
 ## What To Compare
 
-When evaluating grid frameworks, start with the constraints that are hardest to change later:
+When evaluating JavaScript Data Grid, Gantt, and Pivot frameworks, start with the constraints that are hardest to change later:
 
 - Licensing model, developer seats, deployment rules, and end-user counting
 - Framework support for React, Vue, Angular, Svelte, JavaScript, and TypeScript
 - Virtual scrolling and large dataset performance
 - Editing, clipboard, formulas, validation, and spreadsheet-like workflows
 - Filtering, grouping, server-side data, and export/import behavior
-- Advanced product modules such as Pivot, Gantt, master-detail, charts, and audit workflows
+- Gantt and Scheduler support for task hierarchy, dependencies, baselines, resources, and project planning
+- Pivot support for dimensions, measures, aggregations, subtotals, drill-down, saved state, and server-side analytics
+- Advanced product modules such as master-detail, charts, audit workflows, formulas, and custom renderers
 - Support model, procurement fit, security review, and roadmap access
 
 <style lang="scss">
@@ -104,11 +149,15 @@ When evaluating grid frameworks, start with the constraints that are hardest to 
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin: 32px 0;
+  margin: 24px 0 40px;
 
   @media (max-width: 720px) {
     grid-template-columns: 1fr;
   }
+}
+
+.compare-index-grid--compact {
+  margin-bottom: 48px;
 }
 
 .compare-index-card {
