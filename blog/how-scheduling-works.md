@@ -14,6 +14,7 @@ tags:
 image: /blog/gantt-abstract.png
 imageAlt: JavaScript Gantt Scheduling
 
+
 head:
   - - meta
     - name: keywords
