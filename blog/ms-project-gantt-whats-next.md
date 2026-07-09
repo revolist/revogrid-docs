@@ -21,7 +21,14 @@ head:
 
 # MS Project Gantt Is Dead — What Now?
 
+
+[Microsoft states that as of August 2025](https://en.wikipedia.org/wiki/Microsoft_Project), **Project for the web** and the **Project and Roadmap apps in Teams** were retired and users transitioned to **Planner for the web** and **Planner in Teams**. Existing Project for the web work is now accessible in Planner.
+
+
+![JavaScript Gantt MSP preview](/blog/gantt-msp.png)
+
 For a long time, when people said “Gantt chart”, many users heard “Microsoft Project”.
+
 
 The classic workflow was familiar: open a project file, define tasks, connect dependencies, check the critical path, level resources, then export the plan for the next meeting. It was not always simple, but it became the mental model for project scheduling.
 
@@ -50,8 +57,6 @@ For many products, the answer will not be “another standalone project manageme
 Let’s separate the noise from the important facts.
 
 ### Project for the web has moved into Planner
-
-[Microsoft states that as of August 2025](https://en.wikipedia.org/wiki/Microsoft_Project), **Project for the web** and the **Project and Roadmap apps in Teams** were retired and users transitioned to **Planner for the web** and **Planner in Teams**. Existing Project for the web work is now accessible in Planner.
 
 That means users who previously opened Project for the web are now expected to work through Planner endpoints and Planner experiences.
 

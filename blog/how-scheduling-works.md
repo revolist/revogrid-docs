@@ -11,8 +11,8 @@ tags:
   - Planner
   - RevoGrids
 
-image: /blog/gantt-abstract.png
-imageAlt: JavaScript Gantt Scheduling
+image: /blog/scheduling.png
+imageAlt: RevoGrid Gantt scheduling logic and project planning preview
 
 
 head:
@@ -24,6 +24,9 @@ head:
 # How Gantt Scheduling Works
 
 > Given the work, relationships, calendars, constraints, progress, and resources, when can each task realistically happen?
+
+
+![JavaScript Gantt Scheduling preview](/blog/gantt-msp.png)
 
 A project plan is rarely just a list of dates. A real plan has sequencing rules, non-working days, holidays, people with limited capacity, deadlines, manual promises, and changing progress. Scheduling is the logic that keeps those pieces consistent.
 
@@ -319,4 +322,3 @@ For most teams, the healthiest scheduling approach is:
 - preserve actual dates so execution history remains stable.
 
 The scheduler cannot decide business priorities by itself. It provides the calculated plan, warnings, and trade-offs so the team can make better decisions.
-
