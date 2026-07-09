@@ -1,5 +1,5 @@
 ---
-title: RevoGrid Comparison Guides
+title: RevoGrid Comparisons
 description: Compare RevoGrid Data Grid, Gantt, Scheduler, and Pivot with JavaScript alternatives for pricing, licensing, framework support, and advanced product workflows.
 sidebar: false
 aside: false
@@ -16,13 +16,13 @@ head:
       href: https://rv-grid.com/compare/
 ---
 
-# RevoGrid Comparison Guides
+# RevoGrid Comparisons
 
 These guides will help you to choose a JavaScript data grid, Gantt, scheduler, or Pivot component for a product, internal platform, analytics workflow, planning tool, or spreadsheet-like application.
 
 The comparison pages focus on practical buying and implementation questions: licensing, deployment rules, framework support, editing, filtering, export, Pivot analytics, Gantt planning, server-side workflows, support, and migration tradeoffs.
 
-## Data Grid Comparisons
+## Grid And Table Comparisons
 
 Compare RevoGrid with popular JavaScript data grid, spreadsheet, table, and enterprise UI suite alternatives.
 

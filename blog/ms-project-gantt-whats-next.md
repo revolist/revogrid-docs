@@ -11,7 +11,7 @@ tags:
   - Planner
   - RevoGrid
 outline: deep
-image: /blog/gantt-abstract.png
+image: /blog/gantt-msp.png
 imageAlt: JavaScript Gantt preview
 head:
   - - meta
