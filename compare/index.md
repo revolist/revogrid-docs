@@ -105,6 +105,33 @@ Find RevoGrid Gantt and Scheduler guides for planning, resource scheduling, Micr
     <p>Learn how to replace Microsoft Project-style Gantt workflows with embedded scheduling, dependencies, resources, baselines, critical path, and SaaS product workflows.</p>
   </a>
 
+  <a class="compare-index-card" href="/compare/bryntum-gantt-alternative">
+    <div class="compare-index-preview">
+      <img src="/blog/gantt-bryntum.png" alt="Bryntum Gantt alternative preview" loading="lazy">
+    </div>
+    <span class="compare-index-label">Grid-native Gantt comparison</span>
+    <span class="compare-index-title">Bryntum Gantt Alternative</span>
+    <p>Compare RevoGrid Gantt with Bryntum Gantt for scheduling, dependencies, resources, customization, framework support, licensing, and migration.</p>
+  </a>
+
+  <a class="compare-index-card" href="/compare/dhtmlx-gantt-alternative">
+    <div class="compare-index-preview">
+      <img src="/blog/dhtmlx.jpeg" alt="DHTMLX Gantt alternative preview" loading="lazy">
+    </div>
+    <span class="compare-index-label">Grid-first Gantt comparison</span>
+    <span class="compare-index-title">DHTMLX Gantt Alternative</span>
+    <p>Compare RevoGrid Gantt with DHTMLX Gantt for dependencies, baselines, critical path, resources, TypeScript, licensing, and product workflows.</p>
+  </a>
+
+  <a class="compare-index-card" href="/compare/syncfusion-gantt-alternative">
+    <div class="compare-index-preview">
+      <img src="/blog/syncfusion.png" alt="Syncfusion Gantt alternative preview" loading="lazy">
+    </div>
+    <span class="compare-index-label">Grid-native Gantt comparison</span>
+    <span class="compare-index-title">Syncfusion Gantt Alternative</span>
+    <p>Compare RevoGrid Gantt with Syncfusion Gantt for scheduling, dependencies, resources, framework support, licensing, and product workflows.</p>
+  </a>
+
   <a class="compare-index-card" href="/blog/best-js-scheduler-in-2026">
     <div class="compare-index-preview">
       <img src="/blog/scheduler.png" alt="RevoGrid Scheduler and Gantt planning preview" loading="lazy">

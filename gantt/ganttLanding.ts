@@ -51,6 +51,41 @@ export type GanttLandingPage = {
     description: string
     items: { icon: string, name: string, badge?: string }[]
   }
+  positioning?: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    items: { title: string, description: string }[]
+  }
+  featureComparison?: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    columns: string[]
+    rows: { feature: string, revogrid: string, note: string }[]
+  }
+  useCases?: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    items: { title: string, description: string }[]
+  }
+  faq?: {
+    id: string
+    kicker: string
+    title: string
+    items: { q: string, a: string }[]
+  }
+  linkSections?: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    sections: { title: string, items: { label: string, href: string }[] }[]
+  }
   advancedCallout?: {
     title: string
     sectionId?: string
@@ -181,6 +216,11 @@ export function mergeGanttPageConfig(config: Partial<GanttLandingPage> = {}): Ga
     preview: { ...DEFAULT_GANTT_PAGE.preview, ...config.preview },
     features: { ...DEFAULT_GANTT_PAGE.features, ...config.features },
     integrations: { ...DEFAULT_GANTT_PAGE.integrations, ...config.integrations },
+    positioning: config.positioning,
+    featureComparison: config.featureComparison,
+    useCases: config.useCases,
+    faq: config.faq,
+    linkSections: config.linkSections,
     advancedCallout: config.advancedCallout === null
       ? undefined
       : { ...DEFAULT_GANTT_PAGE.advancedCallout, ...config.advancedCallout },
