@@ -21,6 +21,10 @@ head:
 
 # MS Project Gantt Is Dead — What Now?
 
+::: tip Build planning into your product
+Start with the [RevoGrid Gantt product page](/gantt) for live demos, Microsoft Project-style planning features, framework support, pricing, and trial access.
+:::
+
 
 [Microsoft states that as of August 2025](https://en.wikipedia.org/wiki/Microsoft_Project), **Project for the web** and the **Project and Roadmap apps in Teams** were retired and users transitioned to **Planner for the web** and **Planner in Teams**. Existing Project for the web work is now accessible in Planner.
 

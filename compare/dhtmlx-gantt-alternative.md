@@ -15,6 +15,10 @@ head:
 
 # DHTMLX Gantt Alternative
 
+::: tip Evaluate RevoGrid Gantt directly
+See the complete [RevoGrid Gantt product page](/gantt) for live demos, supported planning features, performance evidence, pricing, and trial access.
+:::
+
 <script lang="ts" setup>
 import CompareFaq from './CompareFaq.vue'
 import CompareHero from './CompareHero.vue'

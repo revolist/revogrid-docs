@@ -174,11 +174,9 @@ export const createStructuredDataHead = ({
         jsonLdScript('breadcrumb-json-ld', breadcrumbJsonLd(siteUrl, relativePath, title)),
     ]
 
-    if (relativePath !== 'index.md') {
-        return head
+    if (relativePath === 'index.md') {
+        head.push(jsonLdScript('software-application-json-ld', softwareApplicationJsonLd(siteUrl)))
     }
-
-    head.push(jsonLdScript('software-application-json-ld', softwareApplicationJsonLd(siteUrl)))
 
     const faqSchema = faqJsonLd(faq)
 

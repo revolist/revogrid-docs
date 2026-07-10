@@ -1,5 +1,5 @@
 ---
-title: RevoGrid Gantt - JavaScript Gantt Chart for SaaS Apps
+title: JavaScript Gantt Chart for SaaS Apps
 description: Embed a production-ready JavaScript Gantt chart with drag-and-drop scheduling, dependencies, critical path analysis, progress tracking, and framework bindings.
 head:
   - - meta
@@ -15,18 +15,9 @@ pageClass: gantt-page-doc
 layout: custom
 breadcrumbs: false
 ganttLanding:
-  colors:
-    accent: '#1d4ed8'
-    accent2: '#3b82f6'
-    soft: rgba(29, 78, 216, 0.09)
-    border: rgba(29, 78, 216, 0.22)
-    darkAccent: '#60a5fa'
-    darkAccent2: '#93c5fd'
-    darkSoft: rgba(96, 165, 250, 0.14)
-    darkBorder: rgba(96, 165, 250, 0.28)
   hero:
-    eyebrow: RevoGrid Pro / Gantt
-    title: JavaScript Gantt Chart Component for SaaS Apps
+    eyebrow: RevoGrid Pro / Gantt Chart
+    title: JavaScript Gantt Chart for SaaS Apps
     description: Build scheduling into your product with fast editable timelines, dependencies, resources, critical path, and task planning inside your own application.
     actions:
       - label: View Demo
@@ -43,8 +34,8 @@ ganttLanding:
   preview:
     enabled: true
     kind: image
-    lightSrc: /img/gantt-hero.light.png
-    darkSrc: /img/gantt-hero.dark.png
+    lightSrc: /img/gantt-transparent-2.png
+    darkSrc: /img/gantt-transparent-2.png
     alt: RevoGrid Gantt project timeline with editable task rows, assignees, progress, and scheduling bars
     title: gantt-planning.revogrid.ts
     pills:
@@ -53,14 +44,33 @@ ganttLanding:
       - label: Assignees
   statsAriaLabel: Gantt product stats
   stats:
-    - value: 10K+
-      label: tasks at 60fps
-    - value: '1'
-      label: Component
-    - value: Unlimited
-      label: nested task groups
+    - value: 2-axis
+      label: grid virtualization
+    - value: '4'
+      label: dependency types
+    - value: 3K
+      label: scheduler benchmark case
     - value: '5'
       label: framework targets
+  demos:
+    id: live-gantt-demos
+    kicker: Live demos
+    title: Test the planning workflows, not just a screenshot.
+    description: Open working Gantt examples for the core project view, dependency editing, and resource-aware scheduling. Each demo runs against the same grid-first Gantt module.
+    items:
+      - title: Complete Gantt workspace
+        description: Edit task data, expand the hierarchy, move bars, inspect milestones, and switch critical-path and baseline overlays.
+        href: /demo/gantt
+        media: /video/gantt-demo.mp4
+        mediaKind: video
+      - title: Advanced dependencies
+        description: Create and validate FS, SS, FF, and SF links with lead/lag and scheduling diagnostics.
+        href: https://demo.rv-grid.com/gantt-dependencies-advanced/ts
+        media: /blog/gantt-dependencies.png
+      - title: Resource planning
+        description: Explore assignments, capacity context, workload warnings, and resource-aware planning data.
+        href: https://demo.rv-grid.com/gantt-resource-planning/ts
+        media: /blog/gantt-resource.png
   features:
     id: features
     kicker: Features
@@ -111,19 +121,46 @@ ganttLanding:
     items:
       - icon: JS
         name: JavaScript
-        badge: ''
+        badge: Web Component
       - icon: React
         name: React
-        badge: ''
+        badge: Integration guide
+        href: /gantt/react-gantt-component
       - icon: Vue
         name: Vue
-        badge: ''
+        badge: Integration guide
+        href: /gantt/vue-gantt-component
       - icon: Ng
         name: Angular
-        badge: ''
+        badge: Integration guide
+        href: /gantt/angular-gantt-component
       - icon: Sv
         name: Svelte
-        badge: ''
+        badge: Web Component
+  evidence:
+    id: gantt-performance
+    kicker: Performance evidence
+    title: A virtualized grid foundation with measurable scheduler workloads.
+    description: RevoGrid renders only the visible row and column viewports, while the Gantt engine keeps scheduling calculations separate from visual task-bar rendering. The repository includes repeatable scheduler benchmarks for dependency- and resource-heavy projects.
+    items:
+      - value: 1,000
+        title: Dependency benchmark
+        description: Checked-in benchmark scenario with summaries, dependencies, resources, warnings, holiday handling, and progress rescheduling.
+      - value: 3,000
+        title: Leveling benchmark
+        description: Checked-in scheduler scenario with automatic resource leveling and repeatable timing output.
+      - value: Rows + columns
+        title: Viewport virtualization
+        description: The task table inherits RevoGrid row and column virtualization instead of mounting the complete project grid.
+      - value: Your data
+        title: Production-fit proof
+        description: Use the trial to profile your own hierarchy depth, custom cells, calendars, dependency density, and browser targets.
+    note: These are benchmark workloads, not a universal FPS guarantee. Gantt-specific server-side data windowing remains a separate roadmap concern, so large-project validation should use your actual data and interaction mix.
+    links:
+      - label: JavaScript Gantt for large datasets
+        href: /gantt/javascript-gantt-large-datasets
+      - label: Open the live Gantt demo
+        href: /demo/gantt
   featureComparison:
     id: gantt-feature-comparison
     kicker: Feature comparison
@@ -191,6 +228,25 @@ ganttLanding:
         a: Yes. RevoGrid Gantt builds on the RevoGrid virtualized grid foundation, so it is designed for large editable task tables and timeline views.
       - q: Is it included in Pro Advanced?
         a: Yes. RevoGrid Gantt is part of the Pro Advanced bundle.
+  evaluation:
+    id: gantt-pricing-trial
+    kicker: Pricing and trial
+    title: Evaluate the complete Gantt module before purchase.
+    description: Gantt is included in RevoGrid Pro Advanced. Licensing is per front-end developer, with no runtime royalties, server license, deployment counting, or end-user seat fees under the current plan.
+    priceLabel: Pro Advanced current USD price
+    items:
+      - title: Request-based trial
+        description: Trial access is available on request with no credit card required. Start with public demos, then validate Pro behavior inside your application.
+      - title: Unlimited production usage
+        description: One licensed developer seat can ship the module in production without per-deployment or per-end-user charges, subject to the license terms.
+      - title: Full Advanced bundle
+        description: The same plan includes Gantt, Pivot, the plugin API, typed source access, private repository access, priority support, and engineering guidance.
+    actions:
+      - label: Request Gantt trial
+        href: /trial
+      - label: Review all pricing
+        href: /pricing
+        variant: secondary
   linkSections:
     id: gantt-resources
     kicker: Internal links
@@ -199,34 +255,52 @@ ganttLanding:
     sections:
       - title: Gantt articles
         items:
+          - label: Best JavaScript Gantt Libraries
+            href: /blog/best-js-gantt-in-2026
           - label: How Gantt Scheduling Works
             href: /blog/how-scheduling-works
           - label: MS Project Gantt Is Dead - What Now?
             href: /blog/ms-project-gantt-whats-next
-          - label: Best JavaScript Scheduler in 2026
-            href: /blog/best-js-scheduler-in-2026
-      - title: Gantt comparison
+          - label: JavaScript Gantt Dependencies
+            href: /blog/javascript-gantt-chart-dependencies
+      - title: Frameworks and scale
+        items:
+          - label: React Gantt Component
+            href: /gantt/react-gantt-component
+          - label: Angular Gantt Component
+            href: /gantt/angular-gantt-component
+          - label: Vue Gantt Component
+            href: /gantt/vue-gantt-component
+          - label: JavaScript Gantt for Large Datasets
+            href: /gantt/javascript-gantt-large-datasets
+      - title: Gantt alternatives
         items:
           - label: Microsoft Project Gantt Alternative
             href: /compare/microsoft-project-gantt-alternative
-      - title: Data grid comparison pages
+          - label: DHTMLX Gantt Alternative
+            href: /compare/dhtmlx-gantt-alternative
+          - label: Bryntum Gantt Alternative
+            href: /compare/bryntum-gantt-alternative
+          - label: Syncfusion Gantt Alternative
+            href: /compare/syncfusion-gantt-alternative
+      - title: Industry solutions
         items:
-          - label: Comparison Hub
-            href: /compare/
-          - label: AG Grid Alternative
-            href: /compare/ag-grid-alternative
-          - label: Handsontable Alternative
-            href: /compare/handsontable-alternative
-          - label: MUI X Grid Alternative
-            href: /compare/mui-x-grid-alternative
-          - label: Kendo UI Grid Alternative
-            href: /compare/kendo-ui-grid-alternative
-          - label: Syncfusion Alternative
-            href: /compare/syncfusion-alternative
-          - label: Tabulator Alternative
-            href: /compare/tabulator-alternative
-          - label: Wijmo DataGrid Alternative
-            href: /compare/wijmo-datagrid-alternative
+          - label: Gantt for SaaS
+            href: /gantt/saas-gantt
+          - label: Gantt for ERP
+            href: /gantt/erp-gantt
+          - label: Manufacturing Gantt
+            href: /gantt/manufacturing-gantt
+          - label: Gantt for Resource Planning
+            href: /gantt/resource-planning
+      - title: Feature guides
+        items:
+          - label: Gantt Critical Path
+            href: /gantt/critical-path
+          - label: Gantt Baselines
+            href: /gantt/baselines
+          - label: Gantt Resource Scheduling
+            href: /gantt/resource-scheduling
   advancedCallout:
     title: Gantt is part of the Pro Advanced bundle.
   cta:

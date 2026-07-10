@@ -30,6 +30,10 @@ head:
 
 # Microsoft Project Gantt Alternative
 
+::: tip RevoGrid Gantt product hub
+Review the full [RevoGrid Gantt feature set, live demos, framework support, pricing, and trial path](/gantt) before comparing migration options.
+:::
+
 <script lang="ts" setup>
 import CompareFaq from './CompareFaq.vue'
 import CompareHero from './CompareHero.vue'

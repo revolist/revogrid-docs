@@ -15,6 +15,10 @@ head:
 
 # Syncfusion Gantt Alternative
 
+::: tip Evaluate RevoGrid Gantt directly
+See the complete [RevoGrid Gantt product page](/gantt) for live demos, framework guides, feature coverage, pricing, and trial access.
+:::
+
 <script lang="ts" setup>
 import CompareHero from './CompareHero.vue'
 </script>

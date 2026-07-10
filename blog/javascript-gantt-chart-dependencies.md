@@ -98,6 +98,10 @@ head:
 
 # JavaScript Gantt Chart Dependencies: FS, SS, FF, SF, Lead/Lag
 
+::: tip See dependencies in the full product
+Explore [RevoGrid Gantt](/gantt) for the complete feature set, advanced dependency demo, performance evidence, current pricing, and trial access.
+:::
+
 ![RevoGrid JavaScript Gantt chart with task dependencies](/blog/gantt-dependencies.png)
 
 A JavaScript Gantt chart becomes useful when it does more than draw bars on a timeline.

@@ -23,6 +23,10 @@ head:
 
 # How Gantt Scheduling Works
 
+::: tip RevoGrid Gantt hub
+Evaluating a component? See the complete [RevoGrid Gantt feature set, live demos, framework support, performance evidence, pricing, and trial details](/gantt).
+:::
+
 > Given the work, relationships, calendars, constraints, progress, and resources, when can each task realistically happen?
 
 

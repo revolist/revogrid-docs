@@ -104,6 +104,10 @@ head:
 ---
 # React Gantt Chart Component: Build vs Buy
 
+::: tip Evaluate RevoGrid Gantt
+Compare the full [RevoGrid Gantt product surface](/gantt), then use the focused [React Gantt component guide](/gantt/react-gantt-component) for integration and buying criteria.
+:::
+
 ![RevoGrid Gantt React planning surface preview](/blog/gantt-pr2.png)
 
 React teams usually start the Gantt question with a simple requirement:

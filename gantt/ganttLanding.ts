@@ -49,7 +49,32 @@ export type GanttLandingPage = {
     kicker: string
     title: string
     description: string
-    items: { icon: string, name: string, badge?: string }[]
+    items: { icon: string, name: string, badge?: string, href?: string }[]
+  }
+  demos?: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    items: { title: string, description: string, href: string, media: string, mediaKind?: 'image' | 'video' }[]
+  }
+  evidence?: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    items: { value: string, title: string, description: string }[]
+    note: string
+    links: { label: string, href: string }[]
+  }
+  evaluation?: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    priceLabel: string
+    items: { title: string, description: string }[]
+    actions: GanttLandingAction[]
   }
   positioning?: {
     id: string
@@ -102,14 +127,14 @@ export type GanttLandingPage = {
 
 export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
   colors: {
-    accent: '#1d4ed8',
-    accent2: '#3b82f6',
-    soft: 'rgba(29, 78, 216, 0.09)',
-    border: 'rgba(29, 78, 216, 0.22)',
-    darkAccent: '#60a5fa',
-    darkAccent2: '#93c5fd',
-    darkSoft: 'rgba(96, 165, 250, 0.14)',
-    darkBorder: 'rgba(96, 165, 250, 0.28)',
+    accent: 'var(--vp-c-brand-3)',
+    accent2: 'var(--vp-c-brand-2)',
+    soft: 'var(--vp-c-brand-soft)',
+    border: 'color-mix(in srgb, var(--vp-c-brand-3) 24%, transparent)',
+    darkAccent: 'var(--vp-c-brand-2)',
+    darkAccent2: 'var(--vp-c-brand-3)',
+    darkSoft: 'var(--vp-c-brand-soft)',
+    darkBorder: 'color-mix(in srgb, var(--vp-c-brand-2) 28%, transparent)',
   },
   hero: {
     eyebrow: 'RevoGrid Pro / Gantt',
