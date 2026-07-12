@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.20](README.md) / [JSX](Namespace.JSX.md) / RevogrOrderEditorAttributes
+[RevoGrid Documentation v4.23.21](README.md) / [JSX](Namespace.JSX.md) / RevogrOrderEditorAttributes
 
 # Interface: RevogrOrderEditorAttributes
 
@@ -6,4 +6,4 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/components.d.ts:2554](https://github.com/revolist/revogrid/blob/0426d53a46c1f3da5ce6b3adf7d65996494f6b42/src/components.d.ts#L2554) |
+| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/components.d.ts:2564](https://github.com/revolist/revogrid/blob/84a6ba8ad24305e446533202f2fe61b513edd353/src/components.d.ts#L2564) |
