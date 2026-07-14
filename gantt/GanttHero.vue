@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <div v-if="preview.enabled && preview.kind === 'image' && heroImageSrc" class="hero-image-wrap fade-up-3">
+      <div v-if="preview.enabled && preview.kind === 'image' && heroImageSrc" class="hero-preview hero-image-wrap fade-up-3">
         <img
           class="hero-image"
           :src="heroImageSrc"
@@ -42,8 +42,8 @@
       </div>
 
       <ClientOnly v-else-if="preview.enabled">
-        <EventSchedulerPreview v-if="preview.kind === 'eventScheduler'" class="fade-up-3" />
-        <GanttPreviewGrid v-else class="fade-up-3" :preview="preview" :is-dark="isDark" />
+        <EventSchedulerPreview v-if="preview.kind === 'eventScheduler'" class="hero-preview fade-up-3" />
+        <GanttPreviewGrid v-else class="hero-preview fade-up-3" :preview="preview" :is-dark="isDark" />
       </ClientOnly>
     </div>
   </section>
@@ -86,8 +86,11 @@ const heroImageAlt = computed(() => props.preview.alt || 'RevoGrid Gantt preview
 .fade-up-4 { animation: fadeUp 0.6s 0.24s ease both; }
 
 .container {
+  width: 100%;
+  max-width: 1336px;
   margin: 0 auto;
   padding: 0 48px;
+  box-sizing: border-box;
 
   @media (max-width: 768px) {
     padding: 0 24px;
@@ -101,14 +104,16 @@ const heroImageAlt = computed(() => props.preview.alt || 'RevoGrid Gantt preview
 
 
 .hero-inner {
-  display: grid;
-  grid-template-columns: minmax(560px, 0.9fr) minmax(460px, 1.1fr);
-  gap: 56px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 56px;
+  text-align: center;
+}
 
-  @media (max-width: 1160px) {
-    grid-template-columns: 1fr;
-  }
+.hero-copy {
+  width: 100%;
+  max-width: 780px;
 }
 
 .eyebrow {
@@ -137,6 +142,7 @@ const heroImageAlt = computed(() => props.preview.alt || 'RevoGrid Gantt preview
 }
 
 .rg-hero-title {
+  max-width: 780px;
   font-size: clamp(38px, 4.5vw, 58px);
   line-height: 1.08;
   letter-spacing: -0.02em;
@@ -151,7 +157,8 @@ const heroImageAlt = computed(() => props.preview.alt || 'RevoGrid Gantt preview
 }
 
 .hero-sub {
-  margin: 0 0 32px;
+  max-width: 620px;
+  margin: 0 auto 32px;
   color: var(--rg-text-2);
   font-size: 17px;
   line-height: 1.75;
@@ -162,12 +169,14 @@ const heroImageAlt = computed(() => props.preview.alt || 'RevoGrid Gantt preview
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
+  justify-content: center;
 }
 
 .hero-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  justify-content: center;
   margin-top: 26px;
 
   span {
@@ -181,13 +190,33 @@ const heroImageAlt = computed(() => props.preview.alt || 'RevoGrid Gantt preview
   }
 }
 
+.hero-preview {
+  width: 100%;
+}
+
+.hero-image-wrap {
+  overflow: hidden;
+  border: 1px solid var(--gantt-border);
+  border-radius: 16px;
+  background: var(--gantt-panel);
+  box-shadow: var(--pro-doc-shadow-lg);
+}
 
 .hero-image {
   display: block;
   width: 100%;
   height: auto;
   margin: 0 auto;
-  max-width: 450px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 64px;
+  }
+
+  .hero-inner {
+    gap: 40px;
+  }
 }
 
 </style>

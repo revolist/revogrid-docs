@@ -34,8 +34,8 @@ ganttLanding:
   preview:
     enabled: true
     kind: image
-    lightSrc: /img/gantt-transparent-2.png
-    darkSrc: /img/gantt-transparent-2.png
+    lightSrc: /img/gantt-preview.png
+    darkSrc: /img/gantt-preview.png
     alt: RevoGrid Gantt project timeline with editable task rows, assignees, progress, and scheduling bars
     title: gantt-planning.revogrid.ts
     pills:

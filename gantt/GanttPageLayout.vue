@@ -286,10 +286,19 @@ function resolveLandingLink(href: string) {
   color: var(--rg-text);
 }
 
+:global(.gantt-page-doc) {
+  max-width: 1240px !important;
+  margin: 0 auto;
+}
+
+:global(.gantt-page-doc .VPDoc) {
+  padding-left: 0;
+  padding-right: 0;
+}
 
 :global(.gantt-page-doc .VPDoc .container),
 :global(.gantt-page-doc .VPDoc .content)  {
-  max-width: initial !important;
+  max-width: 1240px !important;
   padding: 0 !important;
 }
 

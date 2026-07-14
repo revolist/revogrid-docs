@@ -229,12 +229,12 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         link: '/demo/',
     },
     {
-        text: demoSidebarText('Pivot Analytics', 'Pro Advanced'),
-        link: '/demo/pivot',
-    },
-    {
         text: demoSidebarText('Project Tracker', 'Pro Lite'),
         link: '/demo/color',
+    },
+    {
+        text: demoSidebarText('Pivot Analytics', 'Pro Advanced'),
+        link: '/demo/pivot',
     },
     {
         text: demoSidebarText('Excel', 'Pro Lite'),
