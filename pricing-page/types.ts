@@ -54,8 +54,21 @@ export interface PricingDifferenceValue {
   text?: string
 }
 
+export interface PricingDifferenceFeaturePart {
+  text: string
+  href?: string
+}
+
+export type PricingDifferenceFeature =
+  | string
+  | {
+      text: string
+      href?: string
+      parts?: PricingDifferenceFeaturePart[]
+    }
+
 export interface PricingDifferenceRow {
-  feature: string
+  feature: PricingDifferenceFeature
   free: PricingDifferenceValue
   lite: PricingDifferenceValue
   advanced: PricingDifferenceValue

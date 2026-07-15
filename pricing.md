@@ -29,7 +29,7 @@ pricingPage:
         free: { kind: text, text: 'Open-source core' }
         lite: { kind: text, text: '1 product/app' }
         advanced: { kind: text, text: 'Unlimited product usage' }
-      - feature: Production-ready Pro plugins/examples
+      - feature: { text: 'Production-ready Pro plugins/examples', href: /pro }
         free: { kind: not-included }
         lite: { kind: included }
         advanced: { kind: included }
@@ -45,11 +45,16 @@ pricingPage:
         free: { kind: not-included }
         lite: { kind: not-included }
         advanced: { kind: included }
-      - feature: Pivot Grid
+      - feature: { text: 'Pivot Grid', href: /pivot/ }
         free: { kind: not-included }
         lite: { kind: not-included }
         advanced: { kind: included }
-      - feature: Gantt & Scheduler
+      - feature:
+          text: 'Gantt & Scheduler'
+          parts:
+            - { text: Gantt, href: /gantt }
+            - { text: ' & ' }
+            - { text: Scheduler, href: /event-scheduler }
         free: { kind: not-included }
         lite: { kind: not-included }
         advanced: { kind: included }

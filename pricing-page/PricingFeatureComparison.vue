@@ -23,8 +23,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="row in differences.rows" :key="row.feature">
-              <th scope="row">{{ row.feature }}</th>
+            <tr v-for="row in differences.rows" :key="featureText(row.feature)">
+              <th scope="row">
+                <template
+                  v-for="(part, index) in featureParts(row.feature)"
+                  :key="`${featureText(row.feature)}-${index}`"
+                >
+                  <a v-if="part.href" :href="linkOf(part.href)">{{ part.text }}</a>
+                  <span v-else>{{ part.text }}</span>
+                </template>
+              </th>
               <PricingDifferenceCell :value="row.free" />
               <PricingDifferenceCell :value="row.lite" />
               <PricingDifferenceCell :value="row.advanced" />
@@ -46,7 +54,11 @@
 <script lang="ts" setup>
 import VPImage from '../.vitepress/theme/VPImage.vue'
 import PricingDifferenceCell from './PricingDifferenceCell.vue'
-import type { PricingKeyDifferencesData } from './types'
+import type {
+  PricingDifferenceFeature,
+  PricingDifferenceFeaturePart,
+  PricingKeyDifferencesData,
+} from './types'
 import { usePricingLinks } from './home-design/pricingDesignUtils'
 
 defineProps<{
@@ -54,6 +66,14 @@ defineProps<{
 }>()
 
 const { linkOf } = usePricingLinks()
+
+const featureText = (feature: PricingDifferenceFeature) =>
+  typeof feature === 'string' ? feature : feature.text
+
+const featureParts = (feature: PricingDifferenceFeature): PricingDifferenceFeaturePart[] => {
+  if (typeof feature === 'string') return [{ text: feature }]
+  return feature.parts ?? [{ text: feature.text, href: feature.href }]
+}
 </script>
 
 <style lang="scss" scoped>
@@ -139,6 +159,24 @@ th:first-child {
   color: var(--rg-text);
   font-weight: 600;
   text-align: left;
+}
+
+tbody th a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--rg-font-green) 55%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: var(--rg-font-green);
+  }
+
+  &:focus-visible {
+    border-radius: 3px;
+    outline: 2px solid var(--rg-font-green);
+    outline-offset: 2px;
+  }
 }
 
 tbody tr:last-child th,
