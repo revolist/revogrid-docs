@@ -233,12 +233,16 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         link: '/demo/color',
     },
     {
-        text: demoSidebarText('Pivot Analytics', 'Pro Advanced'),
-        link: '/demo/pivot',
-    },
-    {
         text: demoSidebarText('Excel', 'Pro Lite'),
         link: '/demo/excel',
+    },
+    {
+        text: demoSidebarText('E-commerce', 'Pro Lite'),
+        link: '/demo/ecommerce',
+    },
+    {
+        text: demoSidebarText('Pivot Analytics', 'Pro Advanced'),
+        link: '/demo/pivot',
     },
     {
         text: demoSidebarText('Gantt', 'Pro Advanced'),
@@ -247,10 +251,6 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
     {
         text: demoSidebarText('Event Scheduler', 'Pro Advanced'),
         link: '/demo/event-scheduler',
-    },
-    {
-        text: demoSidebarText('E-commerce', 'Pro Lite'),
-        link: '/demo/ecommerce',
     },
     {
         text: '<span class="rg-btn rg-btn-secondary">Evaluate Pro</span>',
