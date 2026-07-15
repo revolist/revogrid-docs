@@ -7,98 +7,73 @@
         <span>{{ pricingPromo.description }}</span>
       </span>
     </div>
-    <HomePricing :section="frontmatter.pricing" @contact-sales="showContactForm = true" />
-    <PricingFeatureComparison :heading="pricingPage.featureComparison.heading" />
+
+    <HomePricing
+      :section="pricingSection"
+      :at="pricingClock"
+      @contact-sales="showContactForm = true"
+    />
+    <PricingFeatureComparison :differences="pricingPage.keyDifferences" />
+    <PricingEvaluation :evaluation="pricingPage.evaluation" />
+    <PricingGuidance
+      :guidance="pricingPage.guidance"
+      @contact-sales="showContactForm = true"
+    />
+    <PricingFaq :faq="faq" />
     <PricingCompareLinks :compare-links="pricingPage.compareLinks" />
-    <PricingFaq :faq="pricingPage.faq" />
-    <PricingFinalCta :cta="pricingPage.cta" @contact-sales="showContactForm = true" />
-    <ContactForm :isVisible="showContactForm" @close="showContactForm = false" />
+    <ContactForm :is-visible="showContactForm" @close="showContactForm = false" />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useData } from 'vitepress'
 import ContactForm from '../pro/ContactForm.vue'
 import PricingCompareLinks from './PricingCompareLinks.vue'
+import PricingEvaluation from './PricingEvaluation.vue'
 import PricingFaq from './PricingFaq.vue'
 import PricingFeatureComparison from './PricingFeatureComparison.vue'
-import PricingFinalCta from './PricingFinalCta.vue'
+import PricingGuidance from './PricingGuidance.vue'
 import HomePricing from './home-design/HomePricing.vue'
-import type { PricingPageData } from './types'
+import { resolvePlanPrice, SUMMER_SALE_CUTOFF } from './prices'
+import type { PricingFaqData, PricingPageData, PricingSectionData } from './types'
 
 const { frontmatter } = useData()
+const pricingClock = ref(new Date())
+const showContactForm = ref(false)
+let promotionTimer: ReturnType<typeof setTimeout> | undefined
 
-const defaultPricingPage: PricingPageData = {
-  featureComparison: {
-    heading: 'Full feature comparison',
-  },
-  compareLinks: {
-    heading: 'Comparing grid vendors?',
-    description: 'Review side-by-side notes for licensing, deployment, pricing, and advanced workflow support before choosing a plan.',
-    items: [
-      {
-        label: 'Explore comparisons',
-        href: '/compare/',
-      },
-    ],
-  },
-  faq: {
-    heading: 'Frequently asked questions',
-    items: [],
-  },
-  cta: {
-    title: 'Start free. Upgrade when',
-    titleEmphasis: "you're ready.",
-    subtitle: 'No credit card required for the open-source build. Pro trials available on request.',
-    primary: {
-      label: 'Get started free',
-      href: 'https://github.com/revolist/revogrid',
-      external: true,
-    },
-    secondary: {
-      label: 'Explore Pro features',
-      href: '/pro/',
-    },
-    footerLinks: [],
-  },
+const pricingPage = computed(() => frontmatter.value.pricingPage as PricingPageData)
+const pricingSection = computed(() => frontmatter.value.pricing as PricingSectionData)
+const faq = computed(() => frontmatter.value.faq as PricingFaqData)
+const pricingPromo = computed(() => resolvePlanPrice('light', pricingClock.value).promotion)
+
+const schedulePromotionRefresh = () => {
+  if (promotionTimer) clearTimeout(promotionTimer)
+
+  const remaining = new Date(SUMMER_SALE_CUTOFF).getTime() - Date.now()
+  if (remaining <= 0) {
+    pricingClock.value = new Date()
+    return
+  }
+
+  promotionTimer = setTimeout(() => {
+    pricingClock.value = new Date()
+    schedulePromotionRefresh()
+  }, Math.min(remaining + 100, 2_147_483_647))
 }
 
-const pricingPage = computed<PricingPageData>(() => {
-  const page = frontmatter.value.pricingPage as Partial<PricingPageData> | undefined
-
-  return {
-    featureComparison: {
-      ...defaultPricingPage.featureComparison,
-      ...page?.featureComparison,
-    },
-    compareLinks: {
-      ...defaultPricingPage.compareLinks,
-      ...page?.compareLinks,
-      items: page?.compareLinks?.items ?? defaultPricingPage.compareLinks.items,
-    },
-    faq: {
-      ...defaultPricingPage.faq,
-      ...page?.faq,
-      items: page?.faq?.items ?? defaultPricingPage.faq.items,
-    },
-    cta: {
-      ...defaultPricingPage.cta,
-      ...page?.cta,
-      primary: { ...defaultPricingPage.cta.primary, ...page?.cta?.primary },
-      secondary: { ...defaultPricingPage.cta.secondary, ...page?.cta?.secondary },
-      footerLinks: page?.cta?.footerLinks ?? defaultPricingPage.cta.footerLinks,
-    },
-  }
+onMounted(schedulePromotionRefresh)
+onBeforeUnmount(() => {
+  if (promotionTimer) clearTimeout(promotionTimer)
 })
-const pricingPromo = computed(() => frontmatter.value.pricing?.promo)
-const showContactForm = ref(false)
 </script>
 
 <style lang="scss" scoped>
 .pricing-page {
   --green: var(--vp-c-brand-3);
   --purple: oklch(0.65 0.22 290);
+  overflow-x: clip;
 }
 
 :global(.dark) .pricing-page {
@@ -149,20 +124,56 @@ const showContactForm = ref(false)
 }
 
 :deep(.pricing-container) {
-  max-width: 1100px;
+  width: min(1100px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 0 48px;
-
-  @media (max-width: 768px) {
-    padding: 0 24px;
-  }
 }
 
 :deep(.pricing-section-heading) {
-  color: var(--vp-c-text-1);
+  color: var(--rg-text);
   font-size: clamp(24px, 3vw, 32px);
-  letter-spacing: -1px;
-  margin-bottom: 48px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 34px;
   text-align: center;
+}
+
+:global(body:has(.pricing-page) .VPFooter hr) {
+  width: 100vw;
+  max-width: 100vw;
+  margin-right: calc((100% - 100vw) / 2);
+  margin-left: calc((100% - 100vw) / 2);
+  box-sizing: border-box;
+}
+
+@media (max-width: 520px) {
+  .pricing-promo-ribbon {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  :deep(.pricing-container) {
+    width: min(100% - 32px, 1100px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 800px) {
+  :global(body:has(.pricing-page) .VPNavBar .content) {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+  }
+
+  :global(body:has(.pricing-page) .VPNavBar .content-body) {
+    min-width: 0;
+  }
+
+  :global(body:has(.pricing-page) .VPNavBarMenu),
+  :global(body:has(.pricing-page) .VPNavBarExtra) {
+    display: none;
+  }
+
+  :global(body:has(.pricing-page) .VPNavBarHamburger) {
+    display: flex;
+  }
 }
 </style>

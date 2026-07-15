@@ -1,5 +1,8 @@
-import { PRICES } from '../pricing-page/prices'
+import { resolvePlanPrice } from '../pricing-page/prices'
 import { featuresPro } from './features.pro'
+
+const lightPrice = resolvePlanPrice('light')
+const advancedPrice = resolvePlanPrice('advanced')
 
 export interface FeatureTablePlan {
   name: string
@@ -39,19 +42,19 @@ export const featureTablePlans: FeatureTablePlan[] = [
   },
   {
     name: 'Pro Lite',
-    price: PRICES.light.month.USD,
-    priceYear: PRICES.light.year.USD,
-    compareAtPriceYear: PRICES.light.compareAtYear?.USD,
+    price: lightPrice.month.USD,
+    priceYear: lightPrice.year.USD,
+    compareAtPriceYear: lightPrice.compareAtYear?.USD,
     pricePeriod: 'month',
     billingSummary: '1 developer seat · 1 app usage',
     buttonText: 'Buy Now',
-    link: PRICES.light.link,
+    link: lightPrice.link,
   },
   {
     name: 'Pro Advanced',
-    link: PRICES.advanced.link,
-    price: PRICES.advanced.month.USD,
-    priceYear: PRICES.advanced.year.USD,
+    link: advancedPrice.link,
+    price: advancedPrice.month.USD,
+    priceYear: advancedPrice.year.USD,
     pricePeriod: 'month',
     billingSummary: '1 developer seat · Unlimited production usage',
     buttonText: 'Buy Now',

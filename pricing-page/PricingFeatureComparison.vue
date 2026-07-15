@@ -1,395 +1,192 @@
 <template>
-  <section id="feature-comparison" class="comparison-section">
+  <section class="comparison-section" aria-labelledby="key-differences-heading">
     <div class="pricing-container">
-      <h2 class="pricing-section-heading">{{ heading }}</h2>
-      <div class="table-wrap">
-        <table class="comp-table">
+      <header class="section-heading">
+        <h2 id="key-differences-heading">{{ differences.heading }}</h2>
+        <p>{{ differences.description }}</p>
+      </header>
+
+      <p class="scroll-hint">{{ differences.scrollHint }}</p>
+      <div
+        class="table-scroll"
+        role="region"
+        aria-labelledby="key-differences-heading"
+        tabindex="0"
+      >
+        <table>
           <thead>
             <tr>
-              <th class="feat-col">Feature</th>
-              <th class="center-col">Free</th>
-              <th class="center-col highlight-col">Pro Lite</th>
-              <th class="center-col">Pro Advanced</th>
+              <th scope="col">Key difference</th>
+              <th scope="col">Free</th>
+              <th scope="col">Pro Lite</th>
+              <th scope="col">Pro Advanced</th>
             </tr>
           </thead>
           <tbody>
-            <template v-for="section in COMP_SECTIONS" :key="section.label">
-              <tr class="category-row">
-                <td colspan="4">
-                  <button
-                    class="category-toggle"
-                    type="button"
-                    :aria-expanded="expandedSections[section.label]"
-                    @click="toggleSection(section.label)"
-                  >
-                    <span class="expand-icon" aria-hidden="true">
-                      {{ expandedSections[section.label] ? '▼' : '▶' }}
-                    </span>
-                    <span>{{ section.label }}</span>
-                  </button>
-                </td>
-              </tr>
-              <template v-if="expandedSections[section.label]">
-                <tr
-                  v-for="row in visibleRows(section)"
-                  :key="`${section.label}-${row.name}`"
-                  :class="{ 'collapsible-feature': row.collapsible }"
-                >
-                  <td :class="['feature-name', `nesting-${row.nesting}`]">
-                    <button
-                      v-if="row.collapsible"
-                      class="feature-expand"
-                      type="button"
-                      :aria-expanded="isFeatureExpanded(section.label, row.name)"
-                      @click="toggleFeature(section.label, row.name)"
-                    >
-                      {{ isFeatureExpanded(section.label, row.name) ? '▼' : '▶' }}
-                    </button>
-                    <span class="feature-name-text">{{ row.name }}</span>
-                    <span v-if="row.beta" class="beta-badge">Beta</span>
-
-                    <span v-if="hasFeatureActions(row)" class="feature-actions">
-                      <a
-                        v-if="row.link"
-                        class="rg-btn rg-btn-secondary feature-action-link docs-preview"
-                        :href="row.link"
-                        :target="isExternalHref(row.link) ? '_blank' : undefined"
-                        :rel="isExternalHref(row.link) ? 'noopener' : undefined"
-                        title="Documentation"
-                      >
-                        Docs
-                      </a>
-                      <a
-                        v-if="row.demoUrl"
-                        class="rg-btn rg-btn-secondary feature-action-link demo-preview"
-                        :href="row.demoUrl"
-                        target="_blank"
-                        rel="noopener"
-                        title="Interactive demo"
-                      >
-                        Demo
-                      </a>
-                      <button
-                        class="video-preview"
-                        :class="{ 'video-placeholder': !row.video }"
-                        type="button"
-                        :title="row.video ? 'Video preview' : undefined"
-                        :disabled="!row.video"
-                        :tabindex="row.video ? 0 : -1"
-                        @click="row.video && openPreview(row.video)"
-                      >
-                        <VPImage
-                          v-if="row.video"
-                          style="width: 18px"
-                          :image="{ src: 'video.svg' }"
-                        />
-                      </button>
-                    </span>
-                  </td>
-                  <td class="center-col">
-                    <span v-if="row.supported.includes('Basic')" class="check-yes">✓</span>
-                    <span v-else class="check-no">—</span>
-                  </td>
-                  <td class="center-col highlight-col">
-                    <span v-if="row.supported.includes('Pro Lite')" class="check-yes">✓</span>
-                    <span v-else class="check-no">—</span>
-                  </td>
-                  <td class="center-col">
-                    <span v-if="row.supported.includes('Pro Advanced')" class="check-yes">✓</span>
-                    <span v-else class="check-no">—</span>
-                  </td>
-                </tr>
-              </template>
-            </template>
+            <tr v-for="row in differences.rows" :key="row.feature">
+              <th scope="row">{{ row.feature }}</th>
+              <PricingDifferenceCell :value="row.free" />
+              <PricingDifferenceCell :value="row.lite" />
+              <PricingDifferenceCell :value="row.advanced" />
+            </tr>
           </tbody>
         </table>
       </div>
+
+      <div class="comparison-action">
+        <a class="rg-btn rg-btn-secondary" :href="linkOf(differences.link.href)">
+          {{ differences.link.label }}
+          <VPImage class="action-icon" :image="{ src: 'arrow-right.svg' }" aria-hidden="true" />
+        </a>
+      </div>
     </div>
   </section>
-
-  <ElDialog v-model="dialogVisible" width="600">
-    <video
-      class="video"
-      :src="videoUrl"
-      loop
-      muted
-      playsinline
-      autoplay
-    ></video>
-  </ElDialog>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { ElDialog } from 'element-plus'
-import 'element-plus/es/components/dialog/style/css'
-import 'element-plus/theme-chalk/dark/css-vars.css'
 import VPImage from '../.vitepress/theme/VPImage.vue'
-import { featureTableGroups } from '../pro/featureTableData'
-import type { FeatureTableGroup, FeatureTableItem } from '../pro/featureTableData'
+import PricingDifferenceCell from './PricingDifferenceCell.vue'
+import type { PricingKeyDifferencesData } from './types'
+import { usePricingLinks } from './home-design/pricingDesignUtils'
 
 defineProps<{
-  heading: string
+  differences: PricingKeyDifferencesData
 }>()
 
-type ComparisonSection = {
-  label: string
-  rows: FeatureTableGroup['features']
-}
-
-const COMP_SECTIONS: ComparisonSection[] = featureTableGroups.map((group) => ({
-  label: group.name,
-  rows: group.features,
-}))
-
-const expandedSections = ref<Record<string, boolean>>(
-  Object.fromEntries(featureTableGroups.map((group) => [group.name, group.expanded])),
-)
-
-const getFeatureKey = (groupName: string, featureName: string) => `${groupName}::${featureName}`
-
-const expandedFeatures = ref<Record<string, boolean>>(
-  Object.fromEntries(
-    featureTableGroups.flatMap((group) =>
-      group.features
-        .filter((feature) => feature.collapsible)
-        .map((feature) => [getFeatureKey(group.name, feature.name), Boolean(feature.expanded)]),
-    ),
-  ),
-)
-const dialogVisible = ref(false)
-const videoUrl = ref('')
-
-const toggleSection = (label: string) => {
-  expandedSections.value[label] = !expandedSections.value[label]
-}
-
-const isFeatureExpanded = (groupName: string, featureName: string) => {
-  return expandedFeatures.value[getFeatureKey(groupName, featureName)] ?? true
-}
-
-const toggleFeature = (groupName: string, featureName: string) => {
-  const key = getFeatureKey(groupName, featureName)
-  expandedFeatures.value[key] = !isFeatureExpanded(groupName, featureName)
-}
-
-const visibleRows = (section: ComparisonSection) => {
-  return section.rows.filter((row) => {
-    if (!row.parent) return true
-    return isFeatureExpanded(section.label, row.parent)
-  })
-}
-
-const hasFeatureActions = (row: FeatureTableItem) => {
-  return Boolean(row.link || row.demoUrl || row.video)
-}
-
-const isExternalHref = (href: string) => /^https?:\/\//.test(href)
-
-const openPreview = (video: string) => {
-  videoUrl.value = video
-  dialogVisible.value = true
-}
+const { linkOf } = usePricingLinks()
 </script>
 
 <style lang="scss" scoped>
 .comparison-section {
-  padding: 80px 0;
-  border-top: 1px solid var(--vp-c-divider);
+  padding: 76px 0;
+  border-top: 1px solid var(--rg-border);
 }
 
-.table-wrap {
+.section-heading {
+  margin-bottom: 24px;
+  text-align: center;
+
+  h2 {
+    color: var(--rg-text);
+    font-size: clamp(26px, 3vw, 34px);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0 0 10px;
+  }
+
+  p {
+    color: var(--rg-text-2);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.scroll-hint {
+  display: none;
+  margin: 0 0 8px;
+  color: var(--rg-text-3);
+  font-size: 12px;
+  text-align: right;
+}
+
+.table-scroll {
+  max-width: 100%;
   overflow-x: auto;
-}
-
-.comp-table {
-  width: 100%;
-  border-collapse: collapse;
-
-  th {
-    padding: 14px 20px;
-    text-align: left;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--vp-c-text-3);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    border-bottom: 1px solid var(--vp-c-divider);
-
-    &.center-col { text-align: center; }
-    &.highlight-col { color: var(--vp-c-brand-1); }
-  }
-
-  td {
-    padding: 13px 20px;
-    font-size: 13px;
-    color: var(--vp-c-text-2);
-    border-bottom: 1px solid var(--vp-c-divider);
-
-    &.center-col { text-align: center; }
-    &.highlight-col { background: var(--vp-c-brand-soft); }
-  }
-
-  tbody tr:hover td {
-    background: var(--vp-c-bg-soft);
-
-    &.highlight-col {
-      background: color-mix(in srgb, var(--vp-c-brand-soft) 60%, var(--vp-c-bg-soft));
-    }
-  }
-
-  tbody tr:last-child td {
-    border-bottom: none;
-  }
-
-  .category-row td {
-    padding: 14px 20px;
-    border-bottom: none;
-    background: color-mix(in srgb, var(--vp-c-bg-alt) 80%, transparent) !important;
-
-    &:first-child {
-      border-radius: 8px 0 0 8px;
-    }
-
-    &:last-child {
-      border-radius: 0 8px 8px 0;
-    }
-  }
-
-  .category-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: 0;
-    padding: 0;
-    background: transparent;
-    color: var(--vp-c-text-1);
-    cursor: pointer;
-    font-family: var(--vp-font-family-base);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    line-height: 1.4;
-    text-align: left;
-    text-transform: uppercase;
-
-    &:hover {
-      color: var(--vp-c-text-1);
-    }
-  }
-
-  .expand-icon {
-    width: 10px;
-    font-size: 10px;
-    line-height: 1;
-    opacity: 0.8;
-  }
-
-  .feature-name {
-    color: var(--vp-c-text-1);
-
-    a {
-      color: inherit;
-      text-decoration: none;
-
-      &:hover {
-        color: var(--vp-c-brand-1);
-      }
-    }
-
-    &.nesting-2 {
-      padding-left: 40px;
-    }
-  }
-}
-
-.feature-expand {
-  width: 16px;
-  border: 0;
-  padding: 0;
-  margin-right: 4px;
-  background: transparent;
-  color: var(--vp-c-text-3);
-  cursor: pointer;
-  font-size: 10px;
-  line-height: 1;
-}
-
-.feature-actions {
-  float: right;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-left: 12px;
-}
-
-.feature-action-link {
-  height: 24px;
-  min-width: 24px;
-  padding: 0 8px;
-  border-radius: 6px;
-  font-size: 11px;
-  line-height: 1;
-}
-
-.video-preview {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 24px;
-  border: 0;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
+  contain: inline-size paint;
+  border: 1px solid var(--rg-border);
+  border-radius: 12px;
+  background: var(--rg-bg);
+  box-shadow: inset -18px 0 20px -24px var(--rg-text);
   outline: none;
-  box-shadow: none;
-  color: var(--vp-c-text-2);
 
-  &:focus,
   &:focus-visible {
-    outline: none;
-    box-shadow: none;
-  }
-
-  &:disabled {
-    cursor: default;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--rg-font-green) 30%, transparent),
+      inset -18px 0 20px -24px var(--rg-text);
   }
 }
 
-.video-placeholder {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.video {
+table {
   width: 100%;
-  display: block;
+  min-width: 760px;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
-.check-yes {
-  color: var(--green);
-  font-size: 15px;
-  font-weight: 600;
+th,
+:deep(td) {
+  padding: 15px 18px;
+  border-bottom: 1px solid var(--rg-border);
+  color: var(--rg-text-2);
+  font-size: 13px;
+  line-height: 1.45;
+  text-align: center;
+  vertical-align: middle;
 }
 
-.check-no {
-  color: var(--vp-c-text-3);
-  opacity: 0.4;
-  font-size: 15px;
-}
-
-.beta-badge {
-  display: inline-flex;
-  align-items: center;
-  margin-left: 6px;
-  padding: 1px 5px;
-  border-radius: 999px;
-  background: var(--vp-c-warning-soft);
-  color: var(--vp-c-warning-1);
-  font-size: 10px;
-  font-weight: 600;
-  line-height: 1.4;
+thead th {
+  color: var(--rg-text-3);
+  background: var(--rg-bg-2);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+th:first-child {
+  width: 31%;
+  min-width: 220px;
+  color: var(--rg-text);
+  font-weight: 600;
+  text-align: left;
+}
+
+tbody tr:last-child th,
+tbody tr:last-child :deep(td) {
+  border-bottom: 0;
+}
+
+tbody tr:hover th,
+tbody tr:hover :deep(td) {
+  background: var(--rg-bg-2);
+}
+
+.comparison-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  .rg-btn {
+    min-width: min(100%, 360px);
+  }
+}
+
+:deep(.action-icon) {
+  width: 12px;
+  height: 12px;
+  margin-left: 8px;
+}
+
+@media (max-width: 800px) {
+  .comparison-section {
+    padding: 64px 0;
+  }
+
+  .scroll-hint {
+    display: block;
+  }
+
+  th:first-child {
+    position: sticky;
+    z-index: 1;
+    left: 0;
+    background: var(--rg-bg);
+    box-shadow: 10px 0 14px -16px var(--rg-text);
+  }
+
+  thead th:first-child {
+    z-index: 2;
+    background: var(--rg-bg-2);
+  }
 }
 </style>

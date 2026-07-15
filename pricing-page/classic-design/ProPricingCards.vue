@@ -8,16 +8,16 @@
         <span class="price-currency">$</span>
         <span class="price-num">{{ lightUsdYr }}</span>
         <span v-if="lightCompareAtUsdYr" class="price-compare">${{ lightCompareAtUsdYr }}</span>
-        <span v-if="lightCompareAtUsdYr" class="price-discount">25% off</span>
+        <span v-if="lightPromotion" class="price-discount">{{ lightPromotion.discountLabel }}</span>
         <span class="price-period">/ year</span>
       </div>
-      <div class="price-promo">Summer sale discount</div>
+      <div v-if="lightPromotion" class="price-promo">{{ lightPromotion.label }} discount</div>
       <div class="price-note">1 developer seat · 1 app usage</div>
-      <a :href="PRICES.light.link" class="card-cta ghost" @click="handleStripeClientReferenceClick">Start Pro Lite</a>
+      <a :href="lightPrice.link" class="card-cta ghost" @click="handleStripeClientReferenceClick">Start Pro Lite</a>
       <div class="card-divider"></div>
       <ul class="card-features">
         <li v-for="feature in PRO_LIGHT_FEATURES" :key="feature" class="card-feature">
-          <span class="feat-icon check">✓</span>
+          <VPImage class="feat-icon check" :image="{ src: 'check.svg' }" aria-hidden="true" />
           <span>{{ feature }}</span>
         </li>
       </ul>
@@ -33,11 +33,11 @@
         <span class="price-period">/ year</span>
       </div>
       <div class="price-note">1 developer seat · Unlimited production usage</div>
-      <a :href="PRICES.advanced.link" class="card-cta primary" @click="handleStripeClientReferenceClick">Start Pro Advanced</a>
+      <a :href="advancedPrice.link" class="card-cta primary" @click="handleStripeClientReferenceClick">Start Pro Advanced</a>
       <div class="card-divider"></div>
       <ul class="card-features">
         <li v-for="feature in PRO_ADV_FEATURES" :key="feature" class="card-feature">
-          <span class="feat-icon check">✓</span>
+          <VPImage class="feat-icon check" :image="{ src: 'check.svg' }" aria-hidden="true" />
           <span>{{ feature }}</span>
         </li>
       </ul>
@@ -55,7 +55,7 @@
       <div class="card-divider"></div>
       <ul class="card-features">
         <li v-for="feature in ENTERPRISE_FEATURES" :key="feature" class="card-feature">
-          <span class="feat-icon ent">✓</span>
+          <VPImage class="feat-icon ent" :image="{ src: 'check.svg' }" aria-hidden="true" />
           <span>{{ feature }}</span>
         </li>
       </ul>
@@ -64,7 +64,8 @@
 </template>
 
 <script lang="ts" setup>
-import { PRICES } from '../prices'
+import VPImage from '../../.vitepress/theme/VPImage.vue'
+import { resolvePlanPrice } from '../prices'
 import { handleStripeClientReferenceClick } from '../stripeClientReference'
 import { ENTERPRISE_FEATURES, PRO_ADV_FEATURES, PRO_LIGHT_FEATURES } from './pricingPlans'
 
@@ -76,9 +77,12 @@ withDefaults(defineProps<{
   variant: 'tiers',
 })
 
-const lightUsdYr = PRICES.light.year.USD
-const lightCompareAtUsdYr = PRICES.light.compareAtYear?.USD
-const advUsdYr = PRICES.advanced.year.USD
+const lightPrice = resolvePlanPrice('light')
+const advancedPrice = resolvePlanPrice('advanced')
+const lightUsdYr = lightPrice.year.USD
+const lightCompareAtUsdYr = lightPrice.compareAtYear?.USD
+const lightPromotion = lightPrice.promotion
+const advUsdYr = advancedPrice.year.USD
 </script>
 
 <style lang="scss" scoped>
@@ -305,8 +309,9 @@ const advUsdYr = PRICES.advanced.year.USD
   font-size: 13px;
 }
 
-.feat-icon {
-  font-size: 13px;
+:deep(.feat-icon) {
+  width: 13px;
+  height: 13px;
   flex-shrink: 0;
   margin-top: 1px;
 

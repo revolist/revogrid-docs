@@ -1,5 +1,5 @@
 import type { HeadConfig } from 'vitepress'
-import { PRICES } from '../../pricing-page/prices'
+import { resolvePlanPrice } from '../../pricing-page/prices'
 
 type JsonLdData = Record<string, unknown>
 
@@ -77,30 +77,34 @@ const breadcrumbJsonLd = (
     }
 }
 
-const softwareApplicationJsonLd = (siteUrl: string): JsonLdData => ({
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    '@id': `${siteUrl}/#software`,
-    name: 'RevoGrid',
-    alternateName: 'RevoGrid Data Grid',
-    applicationCategory: 'DeveloperApplication',
-    applicationSubCategory: 'JavaScript Data Grid',
-    operatingSystem: 'Any',
-    url: siteUrl,
-    image: `${siteUrl}/og-image.jpg`,
-    description: 'A high-performance JavaScript data grid for Vue, React, Angular, Svelte, and JavaScript applications.',
-    author: {
-        '@type': 'Organization',
-        name: 'Revolist OU',
-        url: 'https://revolist.eu/',
-    },
-    publisher: {
-        '@type': 'Organization',
-        name: 'Revolist OU',
-        url: 'https://revolist.eu/',
-    },
-    softwareVersion: '4',
-    offers: [
+const softwareApplicationJsonLd = (siteUrl: string): JsonLdData => {
+    const lightPrice = resolvePlanPrice('light')
+    const advancedPrice = resolvePlanPrice('advanced')
+
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        '@id': `${siteUrl}/#software`,
+        name: 'RevoGrid',
+        alternateName: 'RevoGrid Data Grid',
+        applicationCategory: 'DeveloperApplication',
+        applicationSubCategory: 'JavaScript Data Grid',
+        operatingSystem: 'Any',
+        url: siteUrl,
+        image: `${siteUrl}/og-image.jpg`,
+        description: 'A high-performance JavaScript data grid for Vue, React, Angular, Svelte, and JavaScript applications.',
+        author: {
+            '@type': 'Organization',
+            name: 'Revolist OU',
+            url: 'https://revolist.eu/',
+        },
+        publisher: {
+            '@type': 'Organization',
+            name: 'Revolist OU',
+            url: 'https://revolist.eu/',
+        },
+        softwareVersion: '4',
+        offers: [
         {
             '@type': 'Offer',
             name: 'RevoGrid Open Source',
@@ -112,12 +116,15 @@ const softwareApplicationJsonLd = (siteUrl: string): JsonLdData => ({
         },
         {
             '@type': 'Offer',
-            name: 'RevoGrid Pro Light',
-            price: PRICES.light.year.USD,
+            name: 'RevoGrid Pro Lite',
+            price: lightPrice.year.USD,
             priceCurrency: 'USD',
+            ...(lightPrice.promotion
+                ? { priceValidUntil: lightPrice.promotion.priceValidUntil }
+                : {}),
             priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: PRICES.light.year.USD,
+                price: lightPrice.year.USD,
                 priceCurrency: 'USD',
                 unitText: 'developer seat per year',
             },
@@ -127,19 +134,20 @@ const softwareApplicationJsonLd = (siteUrl: string): JsonLdData => ({
         {
             '@type': 'Offer',
             name: 'RevoGrid Pro Advanced',
-            price: PRICES.advanced.year.USD,
+            price: advancedPrice.year.USD,
             priceCurrency: 'USD',
             priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: PRICES.advanced.year.USD,
+                price: advancedPrice.year.USD,
                 priceCurrency: 'USD',
                 unitText: 'developer seat per year',
             },
             url: `${siteUrl}/pricing`,
             availability: 'https://schema.org/InStock',
         },
-    ],
-})
+        ],
+    }
+}
 
 const faqJsonLd = (faq: StructuredDataHeadOptions['faq']): JsonLdData | undefined => {
     const questions = faq?.items

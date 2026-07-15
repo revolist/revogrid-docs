@@ -2,14 +2,14 @@
   <main ref="rootEl" class="pro-landing">
     <ProHeroSection :page="page" />
     <ProTrustSection :items="trustItems" />
-    <ProFeatureHighlights :page="page" />
-    <ProServerSideSection :page="page" />
     <ProCatalogSection
       :page="page"
       :feature-count="PRO_FEATURE_COUNT"
       :category-count="PRO_CATEGORY_COUNT"
       :groups="catalogGroups"
     />
+    <ProFeatureHighlights :page="page" />
+    <ProServerSideSection :page="page" />
     <ProAiSection :page="page" />
     <ProUseCasesSection :page="page" />
     <ProFinalCta :page="page" />
