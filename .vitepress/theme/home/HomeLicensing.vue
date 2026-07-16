@@ -46,8 +46,8 @@ const ADVANTAGES = [
 ]
 
 const PRICING_CARDS = [
-    { name: 'Pro Light', desc: 'For individual developers and small teams', price: `$${PRICES.light.year.USD}`, period: '/dev/yr', featured: false },
-    { name: 'Pro Advanced', desc: 'Plugins, priority support, and advanced features', price: `$${PRICES.advanced.year.USD}`, period: '/dev/yr', featured: true },
+    { name: 'Pro Light', desc: 'For individual developers and small teams', price: `$${PRICES.light.year}`, period: '/dev/yr', featured: false },
+    { name: 'Pro Advanced', desc: 'Plugins, priority support, and advanced features', price: `$${PRICES.advanced.year}`, period: '/dev/yr', featured: true },
 ]
 </script>
 

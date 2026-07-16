@@ -41,8 +41,8 @@ const resolveCard = (card: PricingCardData): ResolvedPricingCardData => {
     return {
       ...card,
       badge: price.promotion?.badge,
-      price: `$${price.year.USD}`,
-      compareAtPrice: price.compareAtYear?.USD ? `$${price.compareAtYear.USD}` : undefined,
+      price: `$${price.year}`,
+      compareAtPrice: price.compareAtYear ? `$${price.compareAtYear}` : undefined,
       discountLabel: price.promotion?.discountLabel,
       period: '/ year',
       sub: '',
@@ -55,7 +55,7 @@ const resolveCard = (card: PricingCardData): ResolvedPricingCardData => {
     const price = resolvePlanPrice('advanced', props.at)
     return {
       ...card,
-      price: `$${price.year.USD}`,
+      price: `$${price.year}`,
       period: '/ year',
       sub: '',
       billingNote: '1 developer seat · Unlimited production usage',

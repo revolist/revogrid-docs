@@ -79,10 +79,10 @@ withDefaults(defineProps<{
 
 const lightPrice = resolvePlanPrice('light')
 const advancedPrice = resolvePlanPrice('advanced')
-const lightUsdYr = lightPrice.year.USD
-const lightCompareAtUsdYr = lightPrice.compareAtYear?.USD
+const lightUsdYr = lightPrice.year
+const lightCompareAtUsdYr = lightPrice.compareAtYear
 const lightPromotion = lightPrice.promotion
-const advUsdYr = advancedPrice.year.USD
+const advUsdYr = advancedPrice.year
 </script>
 
 <style lang="scss" scoped>

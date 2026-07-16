@@ -347,7 +347,7 @@ Pricing changes often, so always verify vendor pages before purchasing. But the 
 
 | Product              | Pricing / licensing style                                 | Practical note                                    |
 | -------------------- | --------------------------------------------------------- | ------------------------------------------------- |
-| RevoGrid Pivot       | Commercial Pro/Advanced plan, with MIT core               | Lightweight compared with enterprise alternatives |
+| RevoGrid Pivot       | Commercial Pro Advanced plan, with MIT core                | Lightweight compared with enterprise alternatives |
 | AG Grid Enterprise   | Per-developer enterprise license                          | Powerful, but can become expensive                |
 | Flexmonster          | Internal, SaaS, OEM-style licensing                       | Strong engine, SaaS pricing needs review          |
 | WebDataRocks         | Free proprietary reporting tool                           | Good for simple use, not ideal for SaaS/OEM       |

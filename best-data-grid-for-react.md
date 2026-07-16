@@ -55,7 +55,8 @@ head:
           {
             "@type": "Offer",
             "name": "RevoGrid Pro",
-            "priceCurrency": "EUR",
+            "price": "199",
+            "priceCurrency": "USD",
             "url": "https://rv-grid.com/pricing"
           }
         ]
@@ -145,7 +146,7 @@ Use the [React data grid guide](/react-data-grid) for implementation details, th
 | Open-source core | Yes, MIT licensed with attribution requirements |
 | Commercial modules | Yes, through RevoGrid Pro plans |
 | Pivot Grid | Pro Advanced |
-| Gantt Chart | Pro Advanced / Enterprise workflows |
+| Gantt Chart | Pro Advanced |
 | AI coding support | Pro MCP and AI code generation pages are available for teams using coding agents |
 
 ## RevoGrid vs Common React Grid Options

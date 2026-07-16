@@ -41,8 +41,8 @@ head:
         "url": "https://rv-grid.com/react-data-grid",
         "offers": {
           "@type": "Offer",
-          "price": "200",
-          "priceCurrency": "EUR",
+          "price": "199",
+          "priceCurrency": "USD",
           "url": "https://rv-grid.com/pricing"
         }
       }
@@ -347,7 +347,7 @@ advanced:
       videoUrl: /video/pivot.mp4
       description: Turn React grid data into grouped, aggregated reporting views without embedding a separate BI surface.
     - title: Gantt planning
-      tag: Enterprise
+      tag: Pro Advanced
       type: gantt
       link: /demo/gantt
       thumbnail: /img/gantt.png
@@ -393,7 +393,7 @@ faq:
 finalCta:
   title: Build a faster React data grid with RevoGrid.
   description: Start with the open-source React package, then upgrade when your product needs Pro modules, support, and production workflows.
-  note: Open-source core. Per-developer Pro licensing from €200. No deployment counting.
+  pricingNote: true
   actions:
     - text: Explore 1M-row demo
       link: /demo/

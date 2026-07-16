@@ -253,7 +253,7 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         link: '/demo/event-scheduler',
     },
     {
-        text: '<span class="rg-btn rg-btn-secondary">Evaluate Pro</span>',
+        text: '<span class="rg-btn rg-btn-secondary">Request Pro Trial</span>',
         link: '/trial',
     },
 ]

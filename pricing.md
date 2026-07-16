@@ -72,7 +72,7 @@ pricingPage:
           - Technical resources and implementation guidance
           - Access provided on request
         action:
-          label: Request a Pro trial
+          label: Request Pro Trial
           href: /trial
       - eyebrow: Start immediately
         heading: Start with open source
@@ -115,7 +115,7 @@ faq:
     - q: Is there a deployment fee?
       a: No. RevoGrid Pro does not currently charge a deployment fee. Your license costs are based on the selected plan and required number of developer licenses, not how many times you deploy.
     - q: Can I evaluate Pro before purchasing?
-      a: Yes. Use the <a href='/trial'>Evaluate RevoGrid Pro</a> page to request trial access, try public demos, and review the path from evaluation to production.
+      a: Yes. RevoGrid Pro has a 14-day trial. Use the <a href='/trial'>Evaluate RevoGrid Pro</a> page to request access, try public demos, and review the path from evaluation to production.
     - q: What's the difference between Pro Lite and Pro Advanced?
       a: <strong>Pro Lite</strong> covers one product or app and includes production-ready Pro plugins and full typed Pro packages through the private npm registry. <strong>Pro Advanced</strong> adds unlimited product usage, original source repository access, Pivot Grid, Gantt and Scheduler, plus priority support.
     - q: Is the open-source version truly free?

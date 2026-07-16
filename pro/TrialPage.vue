@@ -6,8 +6,8 @@
           <p class="eyebrow">Evaluate RevoGrid Pro</p>
           <h1>Try Pro before you buy.</h1>
           <p class="lead">
-            Request access to evaluate Pro and Enterprise modules with live demos,
-            module guidance, and support for your product workflow.
+            Evaluate Pro modules, including Pivot and Gantt, with trial code,
+            live demos, module guidance, and support for your product workflow.
           </p>
 
           <ul class="benefit-list" aria-label="Trial benefits">
@@ -20,9 +20,9 @@
 
         <div class="trial-form-panel">
           <TrialRequestForm
-            title="Request trial access"
-            subtitle="No credit card required. Tell us where RevoGrid Pro will be evaluated and which modules you need."
-            submit-label="Submit"
+            title="Request Pro Trial"
+            subtitle="Request 14-day trial access. No credit card required. Tell us where RevoGrid Pro will be evaluated and which modules you need."
+            submit-label="Request Pro Trial"
             request-type="trial"
             success-title="Trial request received"
             success-message="We will send trial access details to your business email."
@@ -39,8 +39,8 @@
           <p class="eyebrow">Evaluation options</p>
           <h2 id="trial-answers-title">One clear path from demo to production.</h2>
           <p>
-            RevoGrid Pro evaluation is available by request. You can inspect public demos first,
-            then request access when you need to validate Pro behavior inside your app.
+            Start with the public trial code and demos, then request evaluation support
+            when you need help validating Pro behavior inside your app.
           </p>
         </div>
 
@@ -129,24 +129,26 @@ import TrustedLogoStrip from '../.vitepress/theme/TrustedLogoStrip.vue'
 import TrialRequestForm from './TrialRequestForm.vue'
 
 const benefits = [
-  'Trial access by request',
-  'Public demos before installing anything',
-  'Guidance for app-level Pro and Enterprise evaluation',
-  'Clear production path for SaaS, internal tools, and commercial apps',
+  '14-day evaluation period',
+  'Trial code includes Pivot and Gantt',
+  'Public trial repository and live demos',
+  'Guidance for app-level Pro evaluation',
 ]
 
 const answers = [
   {
     title: 'Can I try Pro?',
-    description: 'Yes. Request trial access here when your team needs to evaluate Pro or Enterprise modules in a real product workflow.',
+    description: 'Yes. RevoGrid Pro has a 14-day trial. Start with the public trial repository, which includes Pivot and Gantt, and request evaluation support when you need help validating Pro in your product workflow.',
     links: [
-      { href: '#trialFullName', text: 'Request trial access' },
+      { href: 'https://github.com/revolist/revogrid-pro-trial', text: 'Open the trial repository', external: true },
+      { href: '#trialFullName', text: 'Request Pro Trial' },
     ],
   },
   {
     title: 'Is there a public sandbox?',
-    description: 'Yes. Start with the public demo gallery, Pivot demo, and Gantt demo for feature exploration before requesting trial access.',
+    description: 'Yes. Use the public trial repository, demo gallery, Pivot demo, and Gantt demo to explore the Pro modules.',
     links: [
+      { href: 'https://github.com/revolist/revogrid-pro-trial', text: 'Trial repository', external: true },
       { href: '/demo/', text: 'Demo gallery' },
       { href: '/demo/pivot', text: 'Pivot demo' },
       { href: '/demo/gantt', text: 'Gantt demo' },
@@ -154,7 +156,10 @@ const answers = [
   },
   {
     title: 'What is included in trial?',
-    description: 'Trial access can cover the MIT core, Pro modules, Enterprise modules such as Pivot and Gantt where approved, examples, docs, and evaluation support.',
+    description: 'The 14-day trial code includes the MIT core, Pro modules, Pivot, Gantt, examples, and docs. Evaluation support is also available by request.',
+    links: [
+      { href: 'https://github.com/revolist/revogrid-pro-trial', text: 'View the trial code', external: true },
+    ],
   },
   {
     title: 'Can I use it in SaaS?',
@@ -178,17 +183,17 @@ const lifecycle = [
   {
     step: '01',
     title: 'What is included',
-    description: 'The MIT core remains public. Trial access can include Pro modules, Enterprise modules such as Pivot and Gantt where approved, examples, docs, and evaluation support.',
+    description: 'The 14-day public trial code includes the MIT core, Pro modules, Pivot, Gantt, examples, and docs. Evaluation support is available by request.',
   },
   {
     step: '02',
-    title: 'Trial limits',
-    description: 'Trial access is for evaluation only and cannot be redistributed or used in production before paid access is active.',
+    title: '14-day duration and limits',
+    description: 'Trial access lasts 14 days, is for evaluation only, and cannot be redistributed or used in production before paid access is active.',
   },
   {
     step: '03',
     title: 'After the trial',
-    description: 'Move to paid Pro or Enterprise access, use the required production license setup, and follow the production rules in the EULA.',
+    description: 'Move to paid Pro access, use the required production license setup, and follow the production rules in the EULA.',
   },
 ]
 

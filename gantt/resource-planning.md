@@ -49,7 +49,7 @@ For an implementation-focused explanation, read [Gantt resource scheduling](/gan
 
 Synthetic “one person per task” data misses the difficult cases. Test shared resources, overlapping assignments, different calendars, part-time capacity, locked tasks, deadlines, and summary projects. Measure both scheduling calculations and the UI used to inspect conflicts.
 
-The [main Gantt page](/gantt) links to the live resource-planning demo, current Pro Advanced pricing, and request-based trial access.
+The [main Gantt page](/gantt) links to the live resource-planning demo, current Pro Advanced pricing, and the request-based 14-day trial.
 
 ## Resource planning FAQ
 
@@ -60,4 +60,3 @@ Resources can represent people or non-human capacity such as crews, machines, ro
 ### Resource planning versus resource scheduling?
 
 Planning looks at demand and capacity; scheduling commits work to specific times and resources under calendars, dependencies, and constraints.
-

@@ -117,14 +117,14 @@ const softwareApplicationJsonLd = (siteUrl: string): JsonLdData => {
         {
             '@type': 'Offer',
             name: 'RevoGrid Pro Lite',
-            price: lightPrice.year.USD,
+            price: lightPrice.year,
             priceCurrency: 'USD',
             ...(lightPrice.promotion
                 ? { priceValidUntil: lightPrice.promotion.priceValidUntil }
                 : {}),
             priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: lightPrice.year.USD,
+                price: lightPrice.year,
                 priceCurrency: 'USD',
                 unitText: 'developer seat per year',
             },
@@ -134,11 +134,11 @@ const softwareApplicationJsonLd = (siteUrl: string): JsonLdData => {
         {
             '@type': 'Offer',
             name: 'RevoGrid Pro Advanced',
-            price: advancedPrice.year.USD,
+            price: advancedPrice.year,
             priceCurrency: 'USD',
             priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: advancedPrice.year.USD,
+                price: advancedPrice.year,
                 priceCurrency: 'USD',
                 unitText: 'developer seat per year',
             },

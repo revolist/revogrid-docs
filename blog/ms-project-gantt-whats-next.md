@@ -214,7 +214,7 @@ A better approach is:
 
 This is the core idea behind **RevoGrid Gantt**.
 
-RevoGrid Gantt is built as an Enterprise plugin on top of the base RevoGrid data grid. RevoGrid owns rendering, virtualization, editing, keyboard interaction, selection, and scrolling. Gantt adds timeline projection, task bars, dependency links, scheduling rules, resources, assignments, baselines, critical path, and timeline tools.
+RevoGrid Gantt is included in Pro Advanced and built as a plugin on top of the base RevoGrid data grid. RevoGrid owns rendering, virtualization, editing, keyboard interaction, selection, and scrolling. Gantt adds timeline projection, task bars, dependency links, scheduling rules, resources, assignments, baselines, critical path, and timeline tools.
 
 In other words: the Gantt view does not replace the grid.
 

@@ -44,7 +44,7 @@ defineProps<{
   sectionId?: string
 }>()
 
-const proAdvancedUsdYear = PRICES.advanced.year.USD
+const proAdvancedUsdYear = PRICES.advanced.year
 const proAdvancedLink = PRICES.advanced.link
 
 const INCLUDED = [

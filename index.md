@@ -351,7 +351,7 @@ faq:
     - q: What is the difference between Pro Lite and Pro Advanced?
       a: Pro Lite gives production access to Pro workflows and examples. Pro Advanced adds premium modules such as Pivot Grid, Gantt Chart, and support.
     - q: Can I evaluate RevoGrid before purchasing?
-      a: Yes. The open-source core is available on npm and GitHub, live demos are available without signing up, and <a href="/trial">Pro trial access is available by request</a>.
+      a: Yes. The open-source core is available on npm and GitHub, live demos are available without signing up, and a <a href="/trial">14-day Pro trial is available</a>.
     - q: Can I upgrade my plan later?
       a: Yes. Start with the core grid or Pro Lite and upgrade to Pro Advanced when your product requires Pivot, Gantt, or deeper workflow modules.
     - q: Which frontend frameworks does RevoGrid support?
@@ -371,7 +371,7 @@ finalCta:
     - text: View pricing
       link: /pricing
       variant: secondary
-    - text: Download Trial
+    - text: Request Pro Trial
       link: /trial
       variant: secondary
     - text: View docs

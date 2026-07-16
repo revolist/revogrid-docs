@@ -438,7 +438,6 @@ const featuresProBase = [
         thumbnail: '/img/gantt.png',
         videoUrl: '/video/gantt-demo.mp4',
         group: 'Pro Advanced Modules',
-        beta: true,
         description: 'Production-ready Gantt chart and scheduling view for project planning, dependency management, resource allocation, and timeline analysis.',
         subFeatures: [
             { title: 'Project, task, dependency, calendar, resource, assignment, and baseline data model' },

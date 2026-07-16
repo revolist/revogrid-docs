@@ -317,7 +317,7 @@ RevoGrid Gantt starts from a virtualized grid foundation, so React does not need
 It combines:
 
 * the RevoGrid rendering and editing foundation;
-* an Enterprise Gantt plugin;
+* a Pro Advanced Gantt plugin;
 * task timeline projection;
 * dependency links;
 * scheduling rules;
@@ -350,7 +350,7 @@ The important point is not that RevoGrid Gantt has a long checklist. The importa
 
 ## React example: RevoGrid Gantt as a planning surface
 
-A RevoGrid Gantt setup in React uses the RevoGrid React wrapper and the Enterprise `GanttPlugin`.
+A RevoGrid Gantt setup in React uses the RevoGrid React wrapper and the Pro Advanced `GanttPlugin`.
 
 ```tsx
 import React, { useMemo, useRef } from 'react';
@@ -580,9 +580,9 @@ The difference is not “React versus not React.” RevoGrid works in React. The
 | Decision point | RevoGrid Gantt | SVAR React Gantt |
 | --- | --- | --- |
 | Product philosophy | Grid-powered planning platform | Native React Gantt component |
-| React story | React wrapper around RevoGrid Web Component and Enterprise Gantt plugin | Pure React component with no JavaScript wrappers |
+| React story | React wrapper around RevoGrid Web Component and Pro Advanced Gantt plugin | Pure React component with no JavaScript wrappers |
 | Best for | Editable planning surfaces in data-heavy products | React-only apps that want a React-first Gantt |
-| Open-source story | RevoGrid core is MIT; Gantt is a Pro/Enterprise workflow | MIT open-source core plus commercial PRO edition |
+| Open-source story | RevoGrid core is MIT; Gantt is included in Pro Advanced | MIT open-source core plus commercial PRO edition |
 | Advanced scheduling | Gantt scheduling engine with dependencies, calendars, constraints, baselines, critical path, resources | Advanced features in PRO edition such as baselines, calendars, auto-scheduling, split tasks, resource planning, and export |
 | Cross-framework reuse | Stronger | React-focused |
 | Grid editing foundation | Stronger fit for task-table-heavy products | Gantt-specific grid columns and customization |
@@ -945,7 +945,7 @@ Yes. RevoGrid Gantt includes resource entities, assignments, workload view, util
 
 ### Does RevoGrid Gantt work in React?
 
-Yes. RevoGrid Gantt can be used in React through the RevoGrid React wrapper with the Enterprise `GanttPlugin`. It also follows the broader RevoGrid architecture, which supports React, Vue, Angular, Svelte, TypeScript, and plain JavaScript usage through the same grid foundation.
+Yes. RevoGrid Gantt can be used in React through the RevoGrid React wrapper with the Pro Advanced `GanttPlugin`. It also follows the broader RevoGrid architecture, which supports React, Vue, Angular, Svelte, TypeScript, and plain JavaScript usage through the same grid foundation.
 
 ### Can I export data from RevoGrid Gantt?
 
@@ -953,7 +953,7 @@ Yes. RevoGrid Gantt provides JSON project snapshot helpers and integration recip
 
 ### Is RevoGrid Gantt open source?
 
-RevoGrid core is MIT-licensed. Gantt is an advanced Pro/Enterprise workflow. That means teams can start with the open grid foundation and move into Pro modules when they need production planning features such as Gantt, pivot, scheduler, advanced export, formulas, validation, and enterprise workflows.
+RevoGrid core is MIT-licensed. Gantt is a Pro Advanced workflow. That means teams can start with the open grid foundation and move into Pro modules when they need production planning features such as Gantt, pivot, scheduler, advanced export, formulas, validation, and enterprise workflows.
 
 ### When is a custom React Gantt chart better than RevoGrid Gantt?
 

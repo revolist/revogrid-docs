@@ -57,7 +57,7 @@ Contact us to upgrade to Pro Advanced.
 
 ### Evaluation (trial) access
 
-Yes, you can evaluate RevoGrid Pro before purchasing. Trial access is available by request for teams that need to validate Pro or Pro Advanced modules.
+Yes, you can evaluate RevoGrid Pro before purchasing. The trial lasts 14 days and is available by request for teams that need to validate Pro or Pro Advanced modules.
 
 Start with the [Evaluate RevoGrid Pro](/trial) page for the request form, public demo links, trial limits, and the path from evaluation to production.
 

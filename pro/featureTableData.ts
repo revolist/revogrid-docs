@@ -42,9 +42,9 @@ export const featureTablePlans: FeatureTablePlan[] = [
   },
   {
     name: 'Pro Lite',
-    price: lightPrice.month.USD,
-    priceYear: lightPrice.year.USD,
-    compareAtPriceYear: lightPrice.compareAtYear?.USD,
+    price: lightPrice.month,
+    priceYear: lightPrice.year,
+    compareAtPriceYear: lightPrice.compareAtYear,
     pricePeriod: 'month',
     billingSummary: '1 developer seat · 1 app usage',
     buttonText: 'Buy Now',
@@ -53,8 +53,8 @@ export const featureTablePlans: FeatureTablePlan[] = [
   {
     name: 'Pro Advanced',
     link: advancedPrice.link,
-    price: advancedPrice.month.USD,
-    priceYear: advancedPrice.year.USD,
+    price: advancedPrice.month,
+    priceYear: advancedPrice.year,
     pricePeriod: 'month',
     billingSummary: '1 developer seat · Unlimited production usage',
     buttonText: 'Buy Now',

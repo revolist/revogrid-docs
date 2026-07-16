@@ -532,7 +532,7 @@ Yes. RevoGrid models resources and assignments separately, supports multiple res
 
 ### Is RevoGrid Gantt open source?
 
-The RevoGrid core data grid is MIT licensed and remains free. Gantt is an enterprise feature included in RevoGrid Pro Advanced under a commercial license.
+The RevoGrid core data grid is MIT licensed and remains free. Gantt is a Pro Advanced feature available under a commercial license.
 
 ### Can I use RevoGrid Gantt in React, Vue, Angular, or Svelte?
 
@@ -566,7 +566,7 @@ The practical decision is not simply which product has more checkmarks. It is wh
 
 **Build scheduling into your product with RevoGrid Gantt.**
 
-[Explore RevoGrid Gantt](/gantt) · [View the Gantt docs](https://pro.rv-grid.com/guides/gantt/) · [Compare Pro features](/pro/feature-table) · [Start a trial](/pro/)
+[Explore RevoGrid Gantt](/gantt) · [View the Gantt docs](https://pro.rv-grid.com/guides/gantt/) · [Compare Pro features](/pro/feature-table) · [Request Pro Trial](/trial)
 
 </div>
 

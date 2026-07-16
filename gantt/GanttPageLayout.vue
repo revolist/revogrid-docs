@@ -239,7 +239,7 @@ const { frontmatter, isDark } = useData()
 const rvGridBaseUrl = trimTrailingSlash(import.meta.env.VITE_RV_GRID_BASE_URL || 'https://rv-grid.com')
 const rvGridProBaseUrl = trimTrailingSlash(import.meta.env.VITE_RV_GRID_PRO_BASE_URL || 'https://pro.rv-grid.com')
 const page = computed(() => mergeGanttPageConfig(frontmatter.value.ganttLanding ?? {}))
-const proAdvancedUsdYear = PRICES.advanced.year.USD
+const proAdvancedUsdYear = PRICES.advanced.year
 const pageStyle = computed(() => ({
   '--gantt-accent': isDark.value ? page.value.colors.darkAccent : page.value.colors.accent,
   '--gantt-accent-2': isDark.value ? page.value.colors.darkAccent2 : page.value.colors.accent2,

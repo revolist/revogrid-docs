@@ -126,9 +126,9 @@ Upon expiration of the License Term:
 
 1. **General Policy**: All payments for RevoGrid Pro licenses are **non-refundable** except in specific circumstances outlined below.
 
-2. **Trial Evaluation Requirement**: Revolist provides a comprehensive trial version of RevoGrid Pro for evaluation purposes. Trial access is granted upon request and requires direct contact with Revolist. By purchasing RevoGrid Pro, the User acknowledges they have had the opportunity to evaluate the service capabilities and compatibility with their needs before purchase. To request trial access, contact Revolist at [contact@revolist.eu](mailto:contact@revolist.eu).
+2. **Trial Evaluation Requirement**: Revolist provides a comprehensive 14-day trial version of RevoGrid Pro for evaluation purposes. Trial access is granted upon request and requires direct contact with Revolist. By purchasing RevoGrid Pro, the User acknowledges they have had the opportunity to evaluate the service capabilities and compatibility with their needs before purchase. To request trial access, contact Revolist at [contact@revolist.eu](mailto:contact@revolist.eu).
 
-3. **Consumer Rights and Trial**: Due to the immediate digital delivery nature of RevoGrid Pro services and the availability of trial evaluation upon request, consumer withdrawal rights under EU law may be limited. The trial platform provides consumers with the opportunity to test the service before purchase, which may affect their right to withdraw from the purchase agreement.
+3. **Consumer Rights and Trial**: Due to the immediate digital delivery nature of RevoGrid Pro services and the availability of a 14-day trial evaluation upon request, consumer withdrawal rights under EU law may be limited. The trial platform provides consumers with the opportunity to test the service before purchase, which may affect their right to withdraw from the purchase agreement.
 
 4. **Edge Cases for Refunds**: Refunds may be considered only in the following exceptional circumstances:
    - **Technical Issues**: If Revolist is unable to provide access to the RevoGrid Pro repository or services due to technical failures on Revolist's part that cannot be resolved.

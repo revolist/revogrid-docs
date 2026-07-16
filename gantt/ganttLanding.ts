@@ -142,7 +142,7 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
     description: 'Production-ready project scheduling for SaaS, ERP, and operations platforms. Drag-to-reschedule tasks, assign owners, track progress, and embed it as a native product feature.',
     actions: [
       { label: 'View Demo', href: 'https://rv-grid.com/demo/gantt', arrow: true },
-      { label: 'Download Trial', href: '/trial', variant: 'secondary' },
+      { label: 'Request Pro Trial', href: '/trial', variant: 'secondary' },
     ],
     badges: ['Drag to reschedule', 'Inline assignees', 'Progress bars', 'Milestones'],
   },
@@ -228,7 +228,7 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
     primaryHref: 'https://rv-grid.com/demo/gantt',
     primaryLabel: 'View Demo',
     secondaryHref: '/trial',
-    secondaryLabel: 'Download Trial',
+    secondaryLabel: 'Request Pro Trial',
   },
 }
 

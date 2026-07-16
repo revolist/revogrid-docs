@@ -1,13 +1,7 @@
 import { stripeLinkWithClientReferenceId } from './stripeClientReference'
 
-export type Currency = 'EUR' | 'USD'
 export type PurchasablePlanId = 'light' | 'advanced'
 export type PriceTimestamp = Date | number | string
-
-export interface PeriodPrices {
-  EUR: number
-  USD: number
-}
 
 export interface ResolvedPromotion {
   id: 'summer-sale-2026'
@@ -21,15 +15,15 @@ export interface ResolvedPromotion {
 }
 
 export interface ResolvedPlanPrice {
-  month: PeriodPrices
-  year: PeriodPrices
-  compareAtYear?: Partial<PeriodPrices>
+  month: number
+  year: number
+  compareAtYear?: number
   link: string
   promotion?: ResolvedPromotion
 }
 
 interface BasePlanPrice {
-  year: PeriodPrices
+  year: number
   link: string
 }
 
@@ -37,18 +31,18 @@ interface PromotionPrice {
   planId: PurchasablePlanId
   startsAt: string
   expiresAt: string
-  year: Partial<PeriodPrices>
+  year: number
   link: string
   content: Omit<ResolvedPromotion, 'expiresAt'>
 }
 
 const BASE_PRICES: Record<PurchasablePlanId, BasePlanPrice> = {
   light: {
-    year: { EUR: 170, USD: 199 },
+    year: 199,
     link: 'https://buy.stripe.com/3cIcN62oL6MEcWm8miew80e',
   },
   advanced: {
-    year: { EUR: 430, USD: 499 },
+    year: 499,
     link: 'https://buy.stripe.com/dRm14ofbxfja5tU6eaew80f',
   },
 }
@@ -60,7 +54,7 @@ const SUMMER_SALE: PromotionPrice = {
   planId: 'light',
   startsAt: '2026-06-01T00:00:00Z',
   expiresAt: SUMMER_SALE_EXPIRES_AT,
-  year: { USD: 149 },
+  year: 149,
   link: 'https://buy.stripe.com/5kQeVe8N9ef67C29qmew80g',
   content: {
     id: 'summer-sale-2026',
@@ -78,10 +72,7 @@ const asTimestamp = (at: PriceTimestamp): number => {
   return Number.isFinite(value) ? value : Number.POSITIVE_INFINITY
 }
 
-const monthlyPrices = (year: PeriodPrices): PeriodPrices => ({
-  EUR: Math.round(year.EUR / 12),
-  USD: Math.round(year.USD / 12),
-})
+const monthlyPrice = (year: number): number => Math.round(year / 12)
 
 export const resolvePlanPrice = (
   planId: PurchasablePlanId,
@@ -95,27 +86,34 @@ export const resolvePlanPrice = (
 
   if (!promotionIsActive) {
     return {
-      month: monthlyPrices(base.year),
-      year: { ...base.year },
+      month: monthlyPrice(base.year),
+      year: base.year,
       link: stripeLinkWithClientReferenceId(base.link),
     }
   }
 
-  const promotionalYear = {
-    ...base.year,
-    ...SUMMER_SALE.year,
-  }
-
   return {
-    month: monthlyPrices(promotionalYear),
-    year: promotionalYear,
-    compareAtYear: { USD: base.year.USD },
+    month: monthlyPrice(SUMMER_SALE.year),
+    year: SUMMER_SALE.year,
+    compareAtYear: base.year,
     link: stripeLinkWithClientReferenceId(SUMMER_SALE.link),
     promotion: {
       ...SUMMER_SALE.content,
       expiresAt: SUMMER_SALE.expiresAt,
     },
   }
+}
+
+export const formatFrameworkPricingNote = (
+  at: PriceTimestamp = new Date(),
+): string => {
+  const lightPrice = resolvePlanPrice('light', at)
+  const advancedPrice = resolvePlanPrice('advanced', at)
+  const lightPriceCopy = lightPrice.compareAtYear
+    ? `$${lightPrice.year}/year sale ($${lightPrice.compareAtYear} regular)`
+    : `$${lightPrice.year}/year`
+
+  return `Open-source core. Pro Lite: ${lightPriceCopy}. Pro Advanced: $${advancedPrice.year}/year. Per-developer licensing. No deployment counting.`
 }
 
 export const PRICES: Record<PurchasablePlanId, ResolvedPlanPrice> = {

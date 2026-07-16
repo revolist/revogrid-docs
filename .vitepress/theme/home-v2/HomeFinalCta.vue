@@ -14,12 +14,13 @@
         {{ action.text }}<HomeChevron v-if="action.variant === 'ghost'" />
       </a>
     </div>
-    <small>{{ section?.note }}</small>
+    <small>{{ noteText }}</small>
   </section>
 </template>
 
 <script lang="ts" setup>
 import { computed } from 'vue'
+import { formatFrameworkPricingNote } from '../../../pricing-page/prices'
 import HomeChevron from './HomeChevron.vue'
 import { linkProductMentions, type HomeV2Record, useHomeV2Links } from './homeV2Utils'
 
@@ -29,4 +30,7 @@ const props = defineProps<{
 
 const { linkOf } = useHomeV2Links()
 const descriptionHtml = computed(() => linkProductMentions(props.section?.description, linkOf))
+const noteText = computed(() =>
+  props.section?.pricingNote ? formatFrameworkPricingNote() : props.section?.note,
+)
 </script>

@@ -1,6 +1,6 @@
 ---
 title: Evaluate RevoGrid Pro
-description: Evaluate RevoGrid Pro with request-based trial access, live demos, Pivot Grid, Gantt Chart, and SaaS-friendly licensing guidance.
+description: Evaluate RevoGrid Pro with a 14-day trial, public trial code, live demos, Pivot Grid, Gantt Chart, and SaaS-friendly licensing guidance.
 sidebar: false
 aside: false
 editLink: false
