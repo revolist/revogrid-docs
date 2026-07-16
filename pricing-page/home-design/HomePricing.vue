@@ -14,7 +14,13 @@
           @contact-sales="$emit('contact-sales')"
         />
       </div>
-      <p v-if="section?.note" class="rg-pricing-note">{{ section.note }}</p>
+      <p v-if="section?.note" class="rg-pricing-note">
+        <span class="rg-pricing-note-icon" aria-hidden="true">
+          <FontAwesomeSvgIcon class="rg-pricing-note-shield" name="shield" />
+          <FontAwesomeSvgIcon class="rg-pricing-note-check" name="check" />
+        </span>
+        <span>{{ section.note }}</span>
+      </p>
     </div>
   </section>
 </template>
@@ -22,6 +28,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { getPlan } from '../../commercial/productCatalog'
+import FontAwesomeSvgIcon from '../../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
 import { resolvePlanPrice, type PriceTimestamp } from '../prices'
 import type { PricingCardData, PricingSectionData, ResolvedPricingCardData } from '../types'
 import HomePricingCard from './HomePricingCard.vue'
@@ -45,7 +52,7 @@ const resolveCard = (card: PricingCardData): ResolvedPricingCardData => {
       name: plan.name,
       action: plan.actionLabel,
       features: [...plan.pricingHighlights],
-      badge: price.promotion?.badge,
+      badge: undefined,
       price: `$${price.year}`,
       compareAtPrice: price.compareAtYear ? `$${price.compareAtYear}` : undefined,
       discountLabel: price.promotion?.discountLabel,
@@ -108,11 +115,47 @@ const pricingCards = computed<ResolvedPricingCardData[]>(() =>
 }
 
 .rg-pricing-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   color: var(--rg-text-2);
-  font-size: 12px;
-  line-height: 1.45;
-  text-align: center;
-  margin: 22px auto 0;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 24px auto 0;
+}
+
+.rg-pricing-note-icon {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 19.2px;
+  width: 19.2px;
+  height: 22.4px;
+  color: var(--rg-font-green);
+}
+
+:deep(.rg-pricing-note-shield) {
+  width: 19.2px;
+  height: 22.4px;
+}
+
+:deep(.rg-pricing-note-shield svg) {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 24px;
+  stroke-linejoin: round;
+}
+
+:deep(.rg-pricing-note-check) {
+  position: absolute;
+  top: 7.2px;
+  left: 5.6px;
+  width: 8px;
+  height: 8px;
+}
+
+:deep(.rg-pricing-note-check svg) {
+  fill: currentColor;
 }
 
 @media (max-width: 1023px) {
@@ -135,6 +178,11 @@ const pricingCards = computed<ResolvedPricingCardData[]>(() =>
   .rg-pricing-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;
+  }
+
+  .rg-pricing-note {
+    align-items: flex-start;
+    text-align: left;
   }
 }
 </style>

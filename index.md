@@ -28,8 +28,8 @@ hero:
     link: /demo/
     # target: _self
   secondaryAction:
-    text: Request Pro Trial
-    link: /trial
+    text: RevoGrid Pro
+    link: /pro/
   frameworks:
     - name: Vue
       color: '#4FC08D'

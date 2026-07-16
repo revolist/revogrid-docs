@@ -29,22 +29,32 @@ pricingPage:
       label: View full feature comparison
       href: /pro/feature-table
   evaluation:
-    heading: Choose how you want to evaluate RevoGrid
-    description: Test the complete Pro experience in your own project, or start immediately with the open-source core.
+    heading: Want to evaluate RevoGrid first?
+    description: Choose the immediate MIT core or request approved Pro trial access for your own project.
     options:
       - eyebrow: Recommended for Pro evaluation
       - eyebrow: Start immediately
-    clarification: Generated from the commercial catalog.
   guidance:
     eyebrow: Product guidance
     heading: Still have questions about RevoGrid?
     description: Tell us what you're building, what you're comparing, or what you're still unsure about. The RevoGrid team can help you choose the right evaluation path or plan.
     action: Ask the RevoGrid team
   compareLinks:
-    heading: Still evaluating your options?
-    description: Explore practical guides to licensing, deployment, performance, and advanced workflows across popular JavaScript grids.
+    heading: Comparing RevoGrid with another grid?
+    description: Explore practical comparisons covering licensing, deployment, framework support, performance, and advanced workflows.
+    examples:
+      - label: AG Grid
+        href: /compare/ag-grid-alternative
+      - label: Handsontable
+        href: /compare/handsontable-alternative
+      - label: MUI X
+        href: /compare/mui-x-grid-alternative
+      - label: Syncfusion
+        href: /compare/syncfusion-alternative
+      - label: More
+        href: /compare/
     items:
-      - label: Explore comparison guides
+      - label: Explore grid comparisons
         href: /compare/
 faq:
   heading: Frequently asked questions
@@ -65,13 +75,13 @@ pricing:
   label: Pricing
   title: Start small. Scale when your app demands it.
   description: Per-developer licensing. No deployment counting. No server license. Upgrade as your product grows.
-  note: Simple per-developer licensing. No deployment counting. No server license. Upgrade when your product needs more advanced modules.
+  note: Simple per-developer licensing. No deployment counting. No server license.
   cards:
     - id: light
       description: For individual developers and small teams building production data apps.
     - id: advanced
       featured: true
-      badge: Best for teams that need production-ready Pro workflows
+      badge: Best for product teams
       description: For product teams that need original source repository access, Pivot Grid, Gantt and Scheduler, and priority support.
     - id: enterprise
       description: For larger teams with procurement, security review, and custom terms.

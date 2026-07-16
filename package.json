@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "node ./scripts/update-policy-last-updated.mjs && vitepress build && node ./scripts/generate-llms.mjs",
-    "validate:commercial": "node --import tsx ./scripts/validate-commercial-data.ts",
     "test:commercial": "node --import tsx --test ./commercial/productCatalog.test.ts",
     "build:page": "node ./scripts/build-page.mjs",
     "build:gantt": "node ./scripts/build-page.mjs gantt",
@@ -68,6 +67,7 @@
     "markdown-it-container": "^4.0.0",
     "mermaid": "^11.14.0",
     "sass": "^1.99.0",
+    "sass-embedded": "npm:sass@^1.99.0",
     "svg-parser": "^2.0.4",
     "terser": "^5.46.2",
     "typescript": "^5.9.3",

@@ -365,62 +365,85 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ],
 
         footer: {
-            // copyright: '',
             message: `RevoGrid is a powerful data grid library made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. Copyright © 2017-present.`,
             items: standaloneBuildSource ? [] : [
                 {
-                links: [
+                    title: 'Product',
+                    links: [
+                        {
+                            link: '/',
+                            text: 'Overview',
+                        },
+                        {
+                            link: '/pro/feature-table',
+                            text: 'Features',
+                        },
+                        {
+                            link: '/pricing',
+                            text: 'Pricing',
+                        },
+                        {
+                            link: '/pro/',
+                            text: 'RevoGrid Pro',
+                        },
+                    ],
+                },
+                {
+                    title: 'Resources',
+                    links: [
+                        {
+                            link: '/guide/',
+                            text: 'Docs',
+                        },
+                        {
+                            link: '/demo/',
+                            text: 'Demos',
+                        },
+                        {
+                            link: '/compare/',
+                            text: 'Comparisons',
+                        },
+                        {
+                            link: '/blog/',
+                            text: 'Blog',
+                        },
+                    ],
+                },
+                {
+                    title: 'Company',
+                    links: [
+                        {
+                            link: 'https://revolist.eu/about-us/',
+                            text: 'About us',
+                        },
+                        {
+                            link: 'https://revolist.eu/services/',
+                            text: 'Services',
+                        },
+                    ],
+                },
+                {
+                    title: 'Legal',
+                    links: [
+                        {
+                            link: '/pro/policies/license',
+                            text: 'License',
+                        },
                     {
                         link: '/pro/policies/privacy',
-                        text: 'Privacy Policy',
+                            text: 'Privacy',
                     },
                     {
                         link: '/pro/policies/terms',
-                        text: 'Terms of Service',
+                            text: 'Terms',
                     },
                     {
                         link: '/pro/policies/security',
-                        text: 'Security Policy',
+                            text: 'Security',
                     },
-                    {
-                        link: '/guide/',
-                        text: 'Quick Start',
-                    },
-                    {
-                        link: '/compare/',
-                        text: 'Comparisons',
-                    },
-                    {
-                        text: 'Frameworks',
-                        items: [
-                            {
-                                link: '/react-data-grid',
-                                text: 'React Data Grid',
-                            },
-                            {
-                                link: '/vue-data-grid',
-                                text: 'Vue Data Grid',
-                            },
-                            {
-                                link: '/angular-data-grid',
-                                text: 'Angular Data Grid',
-                            },
-                            {
-                                link: '/svelte-data-grid',
-                                text: 'Svelte Data Grid',
-                            },
-                        ],
-                    },
-                    {
-                        link: 'https://revolist.eu/about-us/',
-                        text: 'About us',
-                    },
-                    {
-                        link: 'https://revolist.eu/services/',
-                        text: 'Services',
-                    },
-                ],
-            }],
+                    ],
+                },
+            ],
         },
 
         editLink: {

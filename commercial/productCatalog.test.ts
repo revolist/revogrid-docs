@@ -87,8 +87,21 @@ test('generates commercial FAQs, demo badges, and pricing view facts', () => {
     title: 'Pro Advanced',
     status: 'stable',
   })
-  assert.match(evaluation.options[0].description, /private npm/)
-  assert.ok(differences.some((row) => row.feature === 'Support level'))
+  assert.equal(evaluation.options[0].heading, 'Start with the free core')
+  assert.match(evaluation.options[0].description, /Free for commercial use/)
+  assert.match(evaluation.options[0].description, /not a Pro trial/)
+  assert.equal(evaluation.options[0].action.label, 'Explore open source')
+  assert.equal(
+    evaluation.options[1].description,
+    'Test Pro functionality in your own project before purchasing. Access is provided on request.',
+  )
+  assert.equal(evaluation.options[1].action.label, 'Request Pro Trial')
+  assert.equal(evaluation.options[1].action.href, '/trial')
+  assert.match(evaluation.options[1].features[0], /14-day private npm/)
+  assert.equal(differences.length, 5)
+  assert.ok(differences.some((row) =>
+    typeof row.feature !== 'string' && row.feature.text === 'Priority support'))
+  assert.equal(differences.at(-1)?.enterprise.kind, 'included')
 })
 
 test('generates route-aware structured-data offers', () => {

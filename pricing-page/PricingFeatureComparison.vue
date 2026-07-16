@@ -3,7 +3,6 @@
     <div class="pricing-container">
       <header class="section-heading">
         <h2 id="key-differences-heading">{{ differences.heading }}</h2>
-        <p>{{ differences.description }}</p>
       </header>
 
       <p class="scroll-hint">{{ differences.scrollHint }}</p>
@@ -16,44 +15,60 @@
         <table>
           <thead>
             <tr>
-              <th scope="col">Key difference</th>
-              <th scope="col">Free</th>
+              <th scope="col">Capability</th>
               <th scope="col">Pro Lite</th>
               <th scope="col">Pro Advanced</th>
+              <th scope="col">Enterprise</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="row in differences.rows" :key="featureText(row.feature)">
               <th scope="row">
-                <template
-                  v-for="(part, index) in featureParts(row.feature)"
-                  :key="`${featureText(row.feature)}-${index}`"
-                >
-                  <a v-if="part.href" :href="linkOf(part.href)">{{ part.text }}</a>
-                  <span v-else>{{ part.text }}</span>
-                </template>
+                <span class="capability-layout">
+                  <FontAwesomeSvgIcon
+                    class="capability-icon"
+                    :name="featureIcon(row.feature)"
+                  />
+                  <span class="capability-copy">
+                    <span class="capability-title">
+                      <template
+                        v-for="(part, index) in featureParts(row.feature)"
+                        :key="`${featureText(row.feature)}-${index}`"
+                      >
+                        <a v-if="part.href" :href="linkOf(part.href)">{{ part.text }}</a>
+                        <span v-else>{{ part.text }}</span>
+                      </template>
+                    </span>
+                    <span v-if="featureDescription(row.feature)" class="capability-description">
+                      {{ featureDescription(row.feature) }}
+                    </span>
+                  </span>
+                </span>
               </th>
-              <PricingDifferenceCell :value="row.free" />
               <PricingDifferenceCell :value="row.lite" />
               <PricingDifferenceCell :value="row.advanced" />
+              <PricingDifferenceCell :value="row.enterprise" />
             </tr>
           </tbody>
         </table>
       </div>
 
       <div class="comparison-action">
-        <a class="rg-btn rg-btn-secondary" :href="linkOf(differences.link.href)">
+        <a :href="linkOf(differences.link.href)">
           {{ differences.link.label }}
-          <VPImage class="action-icon" :image="{ src: 'arrow-right.svg' }" aria-hidden="true" />
+          <FontAwesomeSvgIcon class="action-arrow" name="arrowDown" />
         </a>
       </div>
+
+      <PricingTailoredPackage @contact-sales="$emit('contact-sales')" />
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
-import VPImage from '../.vitepress/theme/VPImage.vue'
+import FontAwesomeSvgIcon from '../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
 import PricingDifferenceCell from './PricingDifferenceCell.vue'
+import PricingTailoredPackage from './PricingTailoredPackage.vue'
 import type {
   PricingDifferenceFeature,
   PricingDifferenceFeaturePart,
@@ -65,6 +80,10 @@ defineProps<{
   differences: PricingKeyDifferencesData
 }>()
 
+defineEmits<{
+  (event: 'contact-sales'): void
+}>()
+
 const { linkOf } = usePricingLinks()
 
 const featureText = (feature: PricingDifferenceFeature) =>
@@ -74,30 +93,28 @@ const featureParts = (feature: PricingDifferenceFeature): PricingDifferenceFeatu
   if (typeof feature === 'string') return [{ text: feature }]
   return feature.parts ?? [{ text: feature.text, href: feature.href }]
 }
+
+const featureDescription = (feature: PricingDifferenceFeature) =>
+  typeof feature === 'string' ? undefined : feature.description
+
+const featureIcon = (feature: PricingDifferenceFeature) =>
+  typeof feature === 'string' ? 'grid' : feature.icon ?? 'grid'
 </script>
 
 <style lang="scss" scoped>
 .comparison-section {
-  padding: 76px 0;
+  padding: 72px 0 76px;
   border-top: 1px solid var(--rg-border);
 }
 
 .section-heading {
-  margin-bottom: 24px;
-  text-align: center;
+  margin-bottom: 16px;
 
   h2 {
     color: var(--rg-text);
-    font-size: clamp(26px, 3vw, 34px);
+    font-size: clamp(24px, 3vw, 30px);
     letter-spacing: -0.02em;
     line-height: 1.15;
-    margin: 0 0 10px;
-  }
-
-  p {
-    color: var(--rg-text-2);
-    font-size: 14px;
-    line-height: 1.6;
     margin: 0;
   }
 }
@@ -117,25 +134,23 @@ const featureParts = (feature: PricingDifferenceFeature): PricingDifferenceFeatu
   border: 1px solid var(--rg-border);
   border-radius: 12px;
   background: var(--rg-bg);
-  box-shadow: inset -18px 0 20px -24px var(--rg-text);
   outline: none;
 
   &:focus-visible {
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--rg-font-green) 30%, transparent),
-      inset -18px 0 20px -24px var(--rg-text);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--rg-font-green) 30%, transparent);
   }
 }
 
 table {
   width: 100%;
-  min-width: 760px;
+  min-width: 780px;
   border-collapse: separate;
   border-spacing: 0;
 }
 
 th,
 :deep(td) {
-  padding: 15px 18px;
+  padding: 18px 24px;
   border-bottom: 1px solid var(--rg-border);
   color: var(--rg-text-2);
   font-size: 13px;
@@ -145,20 +160,60 @@ th,
 }
 
 thead th {
-  color: var(--rg-text-3);
+  color: var(--rg-text);
   background: var(--rg-bg-2);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 th:first-child {
-  width: 31%;
-  min-width: 220px;
+  width: 40%;
+  min-width: 310px;
   color: var(--rg-text);
-  font-weight: 600;
+  font-weight: 500;
   text-align: left;
+}
+
+.capability-layout {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.capability-icon {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  color: var(--rg-font-green);
+}
+
+:deep(.capability-icon svg) {
+  fill: currentColor;
+  opacity: 1;
+}
+
+.capability-copy,
+.capability-title,
+.capability-description {
+  display: block;
+}
+
+.capability-copy {
+  min-width: 0;
+}
+
+.capability-title {
+  color: var(--rg-text);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.capability-description {
+  color: var(--rg-text-3);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 3px;
 }
 
 tbody th a {
@@ -186,23 +241,43 @@ tbody tr:last-child :deep(td) {
 
 tbody tr:hover th,
 tbody tr:hover :deep(td) {
-  background: var(--rg-bg-2);
+  background: color-mix(in srgb, var(--rg-font-green) 3%, var(--rg-bg));
 }
 
 .comparison-action {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 24px;
 
-  .rg-btn {
-    min-width: min(100%, 360px);
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--rg-font-green);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--vp-c-brand-2);
+    }
+
+    &:focus-visible {
+      border-radius: 4px;
+      outline: 2px solid var(--rg-font-green);
+      outline-offset: 4px;
+    }
   }
 }
 
-:deep(.action-icon) {
-  width: 12px;
-  height: 12px;
-  margin-left: 8px;
+.action-arrow {
+  width: 13px;
+  height: 13px;
+}
+
+:deep(.action-arrow svg) {
+  fill: currentColor;
+  opacity: 1;
 }
 
 @media (max-width: 800px) {
@@ -225,6 +300,12 @@ tbody tr:hover :deep(td) {
   thead th:first-child {
     z-index: 2;
     background: var(--rg-bg-2);
+  }
+}
+
+@media (max-width: 520px) {
+  .comparison-section {
+    padding: 56px 0 60px;
   }
 }
 </style>

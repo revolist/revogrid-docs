@@ -13,7 +13,10 @@
       :at="pricingClock"
       @contact-sales="showContactForm = true"
     />
-    <PricingFeatureComparison :differences="pricingPage.keyDifferences" />
+    <PricingFeatureComparison
+      :differences="pricingPage.keyDifferences"
+      @contact-sales="showContactForm = true"
+    />
     <PricingEvaluation :evaluation="pricingPage.evaluation" />
     <PricingGuidance
       :guidance="pricingPage.guidance"
@@ -55,13 +58,7 @@ const pricingPage = computed(() => {
     },
     evaluation: {
       ...page.evaluation,
-      clarification: evaluationFacts.clarification,
-      options: page.evaluation.options.map((option, index) => ({
-        ...option,
-        ...evaluationFacts.options[index],
-        eyebrow: option.eyebrow,
-        recommended: index === 0,
-      })),
+      options: evaluationFacts.options,
     },
   }
 })

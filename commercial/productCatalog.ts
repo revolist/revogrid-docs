@@ -585,68 +585,64 @@ export const supportLevelLabel: Record<SupportLevel, string> = {
 }
 
 export const getPricingDifferenceRows = () => {
-  const openSource = getPlan('open-source')
-  const lite = getPlan('pro-lite')
-  const advanced = getPlan('pro-advanced')
-  const text = (value: string) => ({ kind: 'text' as const, text: value })
   const included = { kind: 'included' as const }
   const excluded = { kind: 'not-included' as const }
 
   return [
     {
-      feature: 'Commercial use',
-      free: text('MIT core, attribution retained'),
-      lite: text('Paid license, attribution removable'),
-      advanced: text('Paid license, attribution removable'),
-    },
-    {
-      feature: 'Plan scope',
-      free: text(applicationLimitLabel[openSource.applicationLimit]),
-      lite: text(applicationLimitLabel[lite.applicationLimit]),
-      advanced: text(applicationLimitLabel[advanced.applicationLimit]),
-    },
-    {
-      feature: { text: 'Production-ready Pro plugins/examples', href: '/pro' },
-      free: excluded,
+      feature: {
+        text: 'Advanced grid features',
+        href: '/pro',
+        description: 'Editing, filtering, grouping, validation, export, and workflows',
+        icon: 'grid',
+      },
       lite: included,
       advanced: included,
-    },
-    {
-      feature: 'Typed Pro packages via private npm',
-      free: excluded,
-      lite: included,
-      advanced: included,
-    },
-    {
-      feature: 'Original source repository access (GitHub)',
-      free: excluded,
-      lite: excluded,
-      advanced: included,
-    },
-    {
-      feature: 'Support level',
-      free: text(supportLevelLabel[openSource.support]),
-      lite: text(supportLevelLabel[lite.support]),
-      advanced: text(supportLevelLabel[advanced.support]),
-    },
-    {
-      feature: { text: 'Pivot Grid', href: '/pivot/' },
-      free: excluded,
-      lite: excluded,
-      advanced: included,
+      enterprise: included,
     },
     {
       feature: {
-        text: 'Gantt & Scheduler',
+        text: 'Original source repository access',
+        description: 'Private source access through GitHub',
+        icon: 'code',
+      },
+      lite: excluded,
+      advanced: included,
+      enterprise: included,
+    },
+    {
+      feature: {
+        text: 'Pivot, Gantt & Scheduler',
+        icon: 'calendarDays',
         parts: [
+          { text: 'Pivot', href: '/pivot/' },
+          { text: ', ' },
           { text: 'Gantt', href: '/gantt' },
           { text: ' & ' },
           { text: 'Scheduler', href: '/event-scheduler' },
         ],
       },
-      free: excluded,
       lite: excluded,
       advanced: included,
+      enterprise: included,
+    },
+    {
+      feature: {
+        text: 'Priority support',
+        icon: 'headset',
+      },
+      lite: excluded,
+      advanced: included,
+      enterprise: included,
+    },
+    {
+      feature: {
+        text: 'Custom terms & onboarding',
+        icon: 'users',
+      },
+      lite: excluded,
+      advanced: excluded,
+      enterprise: included,
     },
   ]
 }
@@ -659,9 +655,21 @@ export const getPricingEvaluationFacts = () => {
   return {
     options: [
       {
-        id: 'pro-trial',
+        id: 'open-source' as const,
+        icon: 'code',
+        eyebrow: 'Start immediately',
+        heading: 'Start with the free core',
+        description: 'Use the MIT-licensed RevoGrid core in your application. Free for commercial use — this is not a Pro trial.',
+        features: openSource.pricingHighlights.map(({ text }) => text),
+        action: { label: openSource.actionLabel, href: '/guide/' },
+        recommended: false,
+      },
+      {
+        id: 'pro-trial' as const,
+        icon: 'starOutline',
+        eyebrow: 'Evaluate Pro features',
         heading: 'Evaluate RevoGrid Pro',
-        description: `Request approved ${trialDays}-day private npm access to test Pro packages and advanced modules in your own project.`,
+        description: 'Test Pro functionality in your own project before purchasing. Access is provided on request.',
         features: [
           `${trialDays}-day private npm access after approval`,
           'Pro plugins and production-ready examples',
@@ -669,16 +677,9 @@ export const getPricingEvaluationFacts = () => {
           'Public GitHub repository is setup boilerplate only',
         ],
         action: { label: 'Request Pro Trial', href: advanced.trial.requestUrl! },
-      },
-      {
-        id: 'open-source',
-        heading: `Start with ${openSource.name}`,
-        description: 'Install the public MIT core immediately. No request, approval, trial, or credit card is required.',
-        features: openSource.pricingHighlights.map(({ text }) => text),
-        action: { label: openSource.actionLabel, href: '/guide/' },
+        recommended: true,
       },
     ],
-    clarification: `${openSource.name} is not a Pro trial. Pro packages are delivered through approved private npm access; the public trial repository contains setup boilerplate only.`,
   }
 }
 

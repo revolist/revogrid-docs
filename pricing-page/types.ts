@@ -68,13 +68,15 @@ export type PricingDifferenceFeature =
       text: string
       href?: string
       parts?: PricingDifferenceFeaturePart[]
+      description?: string
+      icon?: string
     }
 
 export interface PricingDifferenceRow {
   feature: PricingDifferenceFeature
-  free: PricingDifferenceValue
   lite: PricingDifferenceValue
   advanced: PricingDifferenceValue
+  enterprise: PricingDifferenceValue
 }
 
 export interface PricingKeyDifferencesData {
@@ -86,6 +88,8 @@ export interface PricingKeyDifferencesData {
 }
 
 export interface PricingEvaluationOption {
+  id: 'open-source' | 'pro-trial'
+  icon: string
   eyebrow: string
   heading: string
   description: string
@@ -98,7 +102,6 @@ export interface PricingEvaluationData {
   heading: string
   description: string
   options: PricingEvaluationOption[]
-  clarification: string
 }
 
 export interface PricingGuidanceData {
@@ -121,6 +124,7 @@ export interface PricingFaqData {
 export interface PricingCompareLinksData {
   heading: string
   description: string
+  examples: PricingLink[]
   items: PricingLink[]
 }
 

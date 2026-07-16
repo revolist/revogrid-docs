@@ -64,7 +64,6 @@ const handleKeydown = (event: KeyboardEvent, index: number) => {
 <style lang="scss" scoped>
 .faq-section {
   padding: 72px 0;
-  background: var(--rg-bg-2);
   border-top: 1px solid var(--rg-border);
 }
 

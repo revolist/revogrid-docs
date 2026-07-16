@@ -2,7 +2,7 @@
   <td>
     <span v-if="value.kind === 'text'">{{ value.text }}</span>
     <template v-else-if="value.kind === 'included'">
-      <VPImage class="status-icon" :image="{ src: 'check.svg' }" aria-hidden="true" />
+      <FontAwesomeSvgIcon class="status-icon" name="circleCheck" />
       <span class="sr-only">Included</span>
     </template>
     <template v-else>
@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import VPImage from '../.vitepress/theme/VPImage.vue'
+import FontAwesomeSvgIcon from '../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
 import type { PricingDifferenceValue } from './types'
 
 defineProps<{
@@ -24,13 +24,19 @@ defineProps<{
 <style lang="scss" scoped>
 :deep(.status-icon) {
   display: inline-block;
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
   color: var(--rg-font-green);
+}
+
+:deep(.status-icon svg) {
+  fill: currentColor;
+  opacity: 1;
 }
 
 .dash {
   color: var(--rg-text-3);
+  font-size: 18px;
 }
 
 .sr-only {
