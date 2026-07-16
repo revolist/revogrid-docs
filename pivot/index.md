@@ -11,10 +11,15 @@ editLink: false
 footer: true
 prev: false
 next: false
+commercialFaqKeys:
+  - plan-difference
+  - trial
+  - source-access
 pageClass: pivot-page-doc
 layout: custom
 breadcrumbs: false
 pivotLanding:
+  catalogProductId: pivot
   colors:
     accent: '#0f766e'
     accentMid: '#0d9488'

@@ -1,6 +1,7 @@
 import type { PivotLandingPage, PivotLandingPageConfig } from './types'
 
 const DEFAULT_PAGE: PivotLandingPage = {
+  catalogProductId: 'pivot',
   colors: {
     accent: '#0f766e',
     accentMid: '#0d9488',

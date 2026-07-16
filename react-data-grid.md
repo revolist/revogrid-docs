@@ -10,6 +10,10 @@ editLink: false
 footer: true
 prev: false
 next: false
+commercialFaqKeys:
+  - open-source-production
+  - plan-difference
+  - trial
 head:
   - - link
     - rel: canonical
@@ -29,86 +33,6 @@ head:
   - - meta
     - name: twitter:card
       content: summary_large_image
-  - - script
-    - type: application/ld+json
-    - |
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "RevoGrid",
-        "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "Web",
-        "url": "https://rv-grid.com/react-data-grid",
-        "offers": {
-          "@type": "Offer",
-          "price": "199",
-          "priceCurrency": "USD",
-          "url": "https://rv-grid.com/pricing"
-        }
-      }
-  - - script
-    - type: application/ld+json
-    - |
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Does RevoGrid work with Next.js and SSR?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. RevoGrid depends on browser APIs, so render the grid in a client component or dynamically load it on the client while keeping surrounding page copy server-rendered."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does RevoGrid support TypeScript?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. The React package exports RevoGrid, Template, Editor, and core RevoGrid types so columns, rows, editors, and event handlers can be typed."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I use existing React components as cells?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Wrap a React component with Template(Component) and assign it to a column's cellTemplate property."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I use the open-source core in production?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. The MIT core can be used in production, including commercial apps, subject to the attribution requirements in the RevoGrid docs."
-            }
-          }
-        ]
-      }
-  - - script
-    - type: application/ld+json
-    - |
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://rv-grid.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "React Data Grid",
-            "item": "https://rv-grid.com/react-data-grid"
-          }
-        ]
-      }
-
 hero:
   eyebrow: React data grid
   title: The React Data Grid for complex, data-heavy apps

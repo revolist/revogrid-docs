@@ -59,6 +59,7 @@ function prepareStandaloneSource() {
 
   copySupportDir('gantt')
   copySupportDir('pivot')
+  copySupportDir('commercial')
   copySupportDir('pricing-page')
   copySupportDir('pro')
   copySupportDir('public')

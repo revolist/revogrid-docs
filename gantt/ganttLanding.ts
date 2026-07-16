@@ -8,6 +8,7 @@ export type GanttLandingAction = {
 }
 
 export type GanttLandingPage = {
+  catalogProductId: 'gantt' | 'scheduler' | 'event-scheduler'
   colors: {
     accent: string
     accent2: string
@@ -126,6 +127,7 @@ export type GanttLandingPage = {
 }
 
 export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
+  catalogProductId: 'gantt',
   colors: {
     accent: 'var(--vp-c-brand-3)',
     accent2: 'var(--vp-c-brand-2)',

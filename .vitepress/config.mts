@@ -13,6 +13,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import markdownItAttrs from 'markdown-it-attrs'
 import type MarkdownIt from 'markdown-it'
 import { createStructuredDataHead } from './configs/structuredData'
+import { resolveCommercialFaqs, type CommercialFaqKey } from '../commercial/productCatalog'
 import UnoCSS from 'unocss/vite'
 
 dotenv.config()
@@ -280,11 +281,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ],
     ],
     transformPageData(pageData) {
+        const frontmatter = pageData.frontmatter
+        const commercialFaqKeys = (frontmatter.commercialFaqKeys ?? []) as CommercialFaqKey[]
+        const authoredFaq = frontmatter.faq as { heading?: string, items?: Array<{ q?: string, a?: string }> } | undefined
+        const nestedFaq = (frontmatter.ganttLanding as { faq?: { items?: Array<{ q?: string, a?: string }> } } | undefined)?.faq
+        const generatedFaqs = resolveCommercialFaqs(commercialFaqKeys)
+        const baseItems = authoredFaq?.items ?? nestedFaq?.items ?? []
+        const generatedQuestions = new Set(generatedFaqs.map((item) => item.q))
+
+        if (generatedFaqs.length || baseItems.length) {
+            frontmatter.faq = {
+                ...authoredFaq,
+                items: [
+                    ...baseItems.filter((item) => !item.q || !generatedQuestions.has(item.q)),
+                    ...generatedFaqs,
+                ],
+            }
+        }
+
         if (!isArchiveBuild) {
             return
         }
 
-        pageData.frontmatter.head = archiveControlledHead(pageData.frontmatter.head as HeadConfig[] | undefined)
+        frontmatter.head = archiveControlledHead(frontmatter.head as HeadConfig[] | undefined)
     },
     transformHead({ pageData, siteData }) {
         const frontmatter = pageData.frontmatter

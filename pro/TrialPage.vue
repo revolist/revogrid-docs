@@ -6,8 +6,8 @@
           <p class="eyebrow">Evaluate RevoGrid Pro</p>
           <h1>Try Pro before you buy.</h1>
           <p class="lead">
-            Evaluate Pro modules, including Pivot and Gantt, with trial code,
-            live demos, module guidance, and support for your product workflow.
+            Evaluate Pro modules, including Pivot, Gantt, and Scheduler, with
+            {{ trialDuration }} private npm access, live demos, and implementation guidance.
           </p>
 
           <ul class="benefit-list" aria-label="Trial benefits">
@@ -21,7 +21,7 @@
         <div class="trial-form-panel">
           <TrialRequestForm
             title="Request Pro Trial"
-            subtitle="Request 14-day trial access. No credit card required. Tell us where RevoGrid Pro will be evaluated and which modules you need."
+            subtitle="No credit card required. Approved trials are delivered through the private npm registry."
             submit-label="Request Pro Trial"
             request-type="trial"
             success-title="Trial request received"
@@ -39,8 +39,8 @@
           <p class="eyebrow">Evaluation options</p>
           <h2 id="trial-answers-title">One clear path from demo to production.</h2>
           <p>
-            Start with the public trial code and demos, then request evaluation support
-            when you need help validating Pro behavior inside your app.
+            Start with the public boilerplate and demos, then request private npm access
+            to validate Pro behavior inside your app.
           </p>
         </div>
 
@@ -126,29 +126,35 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import TrustedLogoStrip from '../.vitepress/theme/TrustedLogoStrip.vue'
+import { getPlan } from '../commercial/productCatalog'
 import TrialRequestForm from './TrialRequestForm.vue'
 
+const litePlan = getPlan('pro-lite')
+const advancedPlan = getPlan('pro-advanced')
+const trialDuration = `${litePlan.trial.durationDays}-day`
+const boilerplateUrl = litePlan.trial.boilerplateUrl!
+
 const benefits = [
-  '14-day evaluation period',
-  'Trial code includes Pivot and Gantt',
-  'Public trial repository and live demos',
+  `${trialDuration} private npm access after approval`,
+  'Public boilerplate repository and live demos',
+  `Evaluate ${litePlan.name} and ${advancedPlan.name} modules`,
   'Guidance for app-level Pro evaluation',
 ]
 
 const answers = [
   {
     title: 'Can I try Pro?',
-    description: 'Yes. RevoGrid Pro has a 14-day trial. Start with the public trial repository, which includes Pivot and Gantt, and request evaluation support when you need help validating Pro in your product workflow.',
+    description: `Yes. Request approved ${trialDuration} private npm access. Use the public repository as setup boilerplate while you validate Pro in your product workflow.`,
     links: [
-      { href: 'https://github.com/revolist/revogrid-pro-trial', text: 'Open the trial repository', external: true },
+      { href: boilerplateUrl, text: 'Open the trial boilerplate', external: true },
       { href: '#trialFullName', text: 'Request Pro Trial' },
     ],
   },
   {
     title: 'Is there a public sandbox?',
-    description: 'Yes. Use the public trial repository, demo gallery, Pivot demo, and Gantt demo to explore the Pro modules.',
+    description: 'Yes. Use the public boilerplate, demo gallery, Pivot demo, and Gantt demo before requesting the private Pro packages.',
     links: [
-      { href: 'https://github.com/revolist/revogrid-pro-trial', text: 'Trial repository', external: true },
+      { href: boilerplateUrl, text: 'Trial boilerplate', external: true },
       { href: '/demo/', text: 'Demo gallery' },
       { href: '/demo/pivot', text: 'Pivot demo' },
       { href: '/demo/gantt', text: 'Gantt demo' },
@@ -156,9 +162,9 @@ const answers = [
   },
   {
     title: 'What is included in trial?',
-    description: 'The 14-day trial code includes the MIT core, Pro modules, Pivot, Gantt, examples, and docs. Evaluation support is also available by request.',
+    description: `Approved trials provide ${trialDuration} private npm access to the selected Pro modules. The public repository contains boilerplate and examples, not the Pro packages.`,
     links: [
-      { href: 'https://github.com/revolist/revogrid-pro-trial', text: 'View the trial code', external: true },
+      { href: boilerplateUrl, text: 'View the trial boilerplate', external: true },
     ],
   },
   {
@@ -183,17 +189,17 @@ const lifecycle = [
   {
     step: '01',
     title: 'What is included',
-    description: 'The 14-day public trial code includes the MIT core, Pro modules, Pivot, Gantt, examples, and docs. Evaluation support is available by request.',
+    description: `Approved access includes ${trialDuration} private npm delivery for selected Pro modules. The public repository supplies evaluation boilerplate.`,
   },
   {
     step: '02',
-    title: '14-day duration and limits',
-    description: 'Trial access lasts 14 days, is for evaluation only, and cannot be redistributed or used in production before paid access is active.',
+    title: `${litePlan.trial.durationDays}-day duration and limits`,
+    description: `Private npm access lasts ${litePlan.trial.durationDays} days, is evaluation-only, and cannot be redistributed or used in production.`,
   },
   {
     step: '03',
     title: 'After the trial',
-    description: 'Move to paid Pro access, use the required production license setup, and follow the production rules in the EULA.',
+    description: `Move to ${litePlan.name}, ${advancedPlan.name}, or Enterprise access and follow the production rules in the EULA.`,
   },
 ]
 

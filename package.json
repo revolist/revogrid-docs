@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "node ./scripts/update-policy-last-updated.mjs && vitepress build && node ./scripts/generate-llms.mjs",
+    "validate:commercial": "node --import tsx ./scripts/validate-commercial-data.ts",
+    "test:commercial": "node --import tsx --test ./commercial/productCatalog.test.ts",
     "build:page": "node ./scripts/build-page.mjs",
     "build:gantt": "node ./scripts/build-page.mjs gantt",
     "build:scheduler": "node ./scripts/build-page.mjs scheduler",

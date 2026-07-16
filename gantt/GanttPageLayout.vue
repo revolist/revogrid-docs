@@ -102,7 +102,7 @@
           {{ page.featureComparison.description }}
         </p>
 
-        <div>
+        <div class="comparison-table-scroll">
           <table class="comparison-table">
             <thead>
               <tr>
@@ -208,6 +208,7 @@
       v-if="page.advancedCallout"
       :title="page.advancedCallout.title"
       :section-id="page.advancedCallout.sectionId"
+      :product-id="page.catalogProductId"
     />
 
     <ProCtaBanner
@@ -225,12 +226,18 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useData } from 'vitepress'
+import {
+  getPlan,
+  getProduct,
+  resolveCommercialFaqs,
+  resolvePlanPrice,
+  type CommercialFaqKey,
+} from '../commercial/productCatalog'
 import ProAdvancedCallout from '../pro/ProAdvancedCallout.vue'
 import ProCtaBanner from '../pro/ProCtaBanner.vue'
 import ProDocButton from '../pro/ProDocButton.vue'
 import ProFeatureGrid from '../pro/ProFeatureGrid.vue'
 import ProStatsBar from '../pro/ProStatsBar.vue'
-import { PRICES } from '../pricing-page/prices'
 import GanttHero from './GanttHero.vue'
 import GanttIntegrations from './GanttIntegrations.vue'
 import { mergeGanttPageConfig } from './ganttLanding'
@@ -238,8 +245,58 @@ import { mergeGanttPageConfig } from './ganttLanding'
 const { frontmatter, isDark } = useData()
 const rvGridBaseUrl = trimTrailingSlash(import.meta.env.VITE_RV_GRID_BASE_URL || 'https://rv-grid.com')
 const rvGridProBaseUrl = trimTrailingSlash(import.meta.env.VITE_RV_GRID_PRO_BASE_URL || 'https://pro.rv-grid.com')
-const page = computed(() => mergeGanttPageConfig(frontmatter.value.ganttLanding ?? {}))
-const proAdvancedUsdYear = PRICES.advanced.year
+const page = computed(() => {
+  const merged = mergeGanttPageConfig(frontmatter.value.ganttLanding ?? {})
+  const product = getProduct(merged.catalogProductId)
+  const plan = getPlan(product.minimumPlan)
+  const trialDays = plan.trial.durationDays ?? 14
+  const commercialFaqs = resolveCommercialFaqs(
+    (frontmatter.value.commercialFaqKeys ?? []) as CommercialFaqKey[],
+  )
+  return {
+    ...merged,
+    advancedCallout: merged.advancedCallout
+      ? { ...merged.advancedCallout, title: `${product.name} is part of the ${plan.name} bundle.` }
+      : undefined,
+    evaluation: merged.evaluation
+      ? {
+          ...merged.evaluation,
+          description: `${product.name} is included in ${plan.name}. Licensing is per front-end developer with no runtime royalties or deployment counting.`,
+          items: [
+            {
+              title: `${trialDays}-day private npm trial`,
+              description: `Request approved ${trialDays}-day private npm access. The public repository is setup boilerplate and does not contain Pro packages.`,
+            },
+            {
+              title: plan.billingSummary,
+              description: 'Licensed applications can be deployed without per-deployment or per-end-user charges, subject to the license terms.',
+            },
+            {
+              title: `Full ${plan.name} bundle`,
+              description: 'Includes Pivot, Gantt, Scheduler, original private source access, and priority support.',
+            },
+          ],
+          actions: [
+            { label: 'Request Pro Trial', href: product.trialUrl! },
+            { label: 'Review all pricing', href: '/pricing', variant: 'secondary' as const },
+          ],
+        }
+      : undefined,
+    faq: merged.faq
+      ? { ...merged.faq, items: [...merged.faq.items, ...commercialFaqs] }
+      : commercialFaqs.length
+        ? { id: `${merged.catalogProductId}-faq`, kicker: 'FAQ', title: `${product.name} questions`, items: commercialFaqs }
+        : undefined,
+    cta: merged.cta
+      ? {
+          ...merged.cta,
+          secondaryHref: product.trialUrl!,
+          secondaryLabel: 'Request Pro Trial',
+        }
+      : undefined,
+  }
+})
+const proAdvancedUsdYear = resolvePlanPrice('pro-advanced').year.USD
 const pageStyle = computed(() => ({
   '--gantt-accent': isDark.value ? page.value.colors.darkAccent : page.value.colors.accent,
   '--gantt-accent-2': isDark.value ? page.value.colors.darkAccent2 : page.value.colors.accent2,
@@ -398,6 +455,11 @@ function resolveLandingLink(href: string) {
     font-size: 14px;
     line-height: 1.7;
   }
+}
+
+.comparison-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .comparison-table {

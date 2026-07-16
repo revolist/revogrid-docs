@@ -28,6 +28,7 @@
 <script lang="ts" setup>
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useData } from 'vitepress'
+import { getPricingDifferenceRows, getPricingEvaluationFacts } from '../commercial/productCatalog'
 import ContactForm from '../pro/ContactForm.vue'
 import PricingCompareLinks from './PricingCompareLinks.vue'
 import PricingEvaluation from './PricingEvaluation.vue'
@@ -43,7 +44,27 @@ const pricingClock = ref(new Date())
 const showContactForm = ref(false)
 let promotionTimer: ReturnType<typeof setTimeout> | undefined
 
-const pricingPage = computed(() => frontmatter.value.pricingPage as PricingPageData)
+const pricingPage = computed(() => {
+  const page = frontmatter.value.pricingPage as PricingPageData
+  const evaluationFacts = getPricingEvaluationFacts()
+  return {
+    ...page,
+    keyDifferences: {
+      ...page.keyDifferences,
+      rows: getPricingDifferenceRows(),
+    },
+    evaluation: {
+      ...page.evaluation,
+      clarification: evaluationFacts.clarification,
+      options: page.evaluation.options.map((option, index) => ({
+        ...option,
+        ...evaluationFacts.options[index],
+        eyebrow: option.eyebrow,
+        recommended: index === 0,
+      })),
+    },
+  }
+})
 const pricingSection = computed(() => frontmatter.value.pricing as PricingSectionData)
 const faq = computed(() => frontmatter.value.faq as PricingFaqData)
 const pricingPromo = computed(() => resolvePlanPrice('light', pricingClock.value).promotion)

@@ -16,6 +16,7 @@
       v-if="page.advancedCallout"
       :title="page.advancedCallout.title"
       :section-id="page.advancedCallout.sectionId"
+      :product-id="page.catalogProductId"
     />
 
     <ProCtaBanner

@@ -21,7 +21,9 @@ layout: custom
 
 
 <script lang="ts" setup>
-import { featuresPro } from './features.pro'
+import { getCatalogProFeatures } from '../commercial/productCatalog'
+
+const featuresPro = getCatalogProFeatures()
 import FeaturesGrid from './FeaturesGrid.vue'
 </script>
 

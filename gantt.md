@@ -14,7 +14,12 @@ next: false
 pageClass: gantt-page-doc
 layout: custom
 breadcrumbs: false
+commercialFaqKeys:
+  - trial
+  - source-access
+  - application-limits
 ganttLanding:
+  catalogProductId: gantt
   hero:
     eyebrow: RevoGrid Pro / Gantt Chart
     title: JavaScript Gantt Chart for SaaS Apps

@@ -15,10 +15,10 @@ export type PricingFeatureEntry = string | PricingFeature
 
 export interface PricingCardData {
   id: PricingPlanId
-  name: string
+  name?: string
   description: string
-  action: string
-  features: PricingFeatureEntry[]
+  action?: string
+  features?: PricingFeatureEntry[]
   featured?: boolean
   badge?: string
   price?: string
@@ -29,6 +29,9 @@ export interface PricingCardData {
 }
 
 export interface ResolvedPricingCardData extends PricingCardData {
+  name: string
+  action: string
+  features: PricingFeatureEntry[]
   compareAtPrice?: string
   discountLabel?: string
 }

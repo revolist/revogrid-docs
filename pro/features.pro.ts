@@ -470,7 +470,6 @@ const featuresProBase = [
         thumbnail: '/blog/scheduler.png',
         videoUrl: '/video/gantt-demo.mp4',
         group: 'Pro Advanced Modules',
-        beta: true,
         link: '/event-scheduler',
         demoUrl: '/demo/event-scheduler',
         description: 'Commercial event scheduling for staff rosters, booking calendars, resource timelines, shift planning, availability rules, conflicts, remote data, and scheduler exports.',
@@ -494,7 +493,6 @@ const featuresProBase = [
         thumbnail: '/img/collaborative.png',
         videoUrl: '/video/spreadhsheet.mp4',
         group: 'Data Management',
-        beta: true,
         description: 'Real-time multi-user editing that lets multiple people work on the same grid simultaneously. See live cursors and cell highlights for every connected user, track who is editing what, and commit changes through a shared conflict-resolution layer — so every participant always sees a consistent, up-to-date view of the data.',
     },
 ]

@@ -10,6 +10,11 @@ next: false
 pageClass: pro-landing-doc
 layout: custom
 breadcrumbs: false
+commercialFaqKeys:
+  - plan-difference
+  - trial
+  - source-access
+  - application-limits
 head:
   - - link
     - rel: preconnect

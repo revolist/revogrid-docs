@@ -1,10 +1,20 @@
-import { resolvePlanPrice } from '../pricing-page/prices'
-import { featuresPro } from './features.pro'
+import {
+  PRODUCT_CATALOG,
+  chartFeatureTableItems,
+  featureTableSupplementalGroups,
+  getCatalogProFeatures,
+  getPlan,
+  planIncludesFeature,
+  resolvePlanPrice,
+  type PlanId,
+} from '../commercial/productCatalog'
 
-const lightPrice = resolvePlanPrice('light')
-const advancedPrice = resolvePlanPrice('advanced')
+const lightPrice = resolvePlanPrice('pro-lite')
+const advancedPrice = resolvePlanPrice('pro-advanced')
+const publishedPlanIds: PlanId[] = ['open-source', 'pro-lite', 'pro-advanced']
 
 export interface FeatureTablePlan {
+  id: PlanId
   name: string
   price?: number
   priceYear?: number
@@ -18,6 +28,7 @@ export interface FeatureTablePlan {
 }
 
 export interface FeatureTableItem {
+  id?: string
   name: string
   supported: string[]
   nesting: number
@@ -27,7 +38,7 @@ export interface FeatureTableItem {
   link?: string
   demoUrl?: string
   video?: string
-  beta?: boolean
+  status?: 'stable' | 'beta' | 'preview'
 }
 
 export interface FeatureTableGroup {
@@ -38,32 +49,40 @@ export interface FeatureTableGroup {
 
 export const featureTablePlans: FeatureTablePlan[] = [
   {
-    name: 'Basic',
+    id: 'open-source',
+    name: getPlan('open-source').name,
   },
   {
-    name: 'Pro Lite',
-    price: lightPrice.month,
-    priceYear: lightPrice.year,
-    compareAtPriceYear: lightPrice.compareAtYear,
+    id: 'pro-lite',
+    name: getPlan('pro-lite').name,
+    price: lightPrice.month.USD,
+    priceYear: lightPrice.year.USD,
+    compareAtPriceYear: lightPrice.compareAtYear?.USD,
     pricePeriod: 'month',
-    billingSummary: '1 developer seat · 1 app usage',
+    billingSummary: getPlan('pro-lite').billingSummary,
     buttonText: 'Buy Now',
     link: lightPrice.link,
   },
   {
-    name: 'Pro Advanced',
+    id: 'pro-advanced',
+    name: getPlan('pro-advanced').name,
     link: advancedPrice.link,
-    price: advancedPrice.month,
-    priceYear: advancedPrice.year,
+    price: advancedPrice.month.USD,
+    priceYear: advancedPrice.year.USD,
     pricePeriod: 'month',
-    billingSummary: '1 developer seat · Unlimited production usage',
+    billingSummary: getPlan('pro-advanced').billingSummary,
     buttonText: 'Buy Now',
     buttonTheme: 'alt',
     ai: true,
   },
 ]
 
-const featuresByGroup = featuresPro.reduce<Record<string, FeatureTableGroup>>((acc, feature) => {
+const planNamesForFeature = (featureId: string) =>
+  publishedPlanIds
+    .filter((planId) => planIncludesFeature(planId, featureId))
+    .map((planId) => getPlan(planId).name)
+
+const featuresByGroup = getCatalogProFeatures().reduce<Record<string, FeatureTableGroup>>((acc, feature) => {
   if (!acc[feature.group]) {
     acc[feature.group] = {
       name: feature.group,
@@ -72,10 +91,9 @@ const featuresByGroup = featuresPro.reduce<Record<string, FeatureTableGroup>>((a
     }
   }
 
-  const isProAdvancedModule = feature.group === 'Pro Advanced Modules'
-  const supported = isProAdvancedModule ? ['Pro Advanced'] : ['Pro Lite', 'Pro Advanced']
-
+  const supported = planNamesForFeature(feature.id)
   acc[feature.group].features.push({
+    id: feature.id,
     name: feature.title,
     supported,
     nesting: 1,
@@ -84,16 +102,18 @@ const featuresByGroup = featuresPro.reduce<Record<string, FeatureTableGroup>>((a
     link: feature.link,
     demoUrl: feature.demoUrl,
     video: feature.videoUrl,
-    beta: feature.beta,
+    status: feature.status,
   })
 
   feature.subFeatures?.forEach((subFeature) => {
     acc[feature.group].features.push({
+      id: `${feature.id}:${subFeature.title}`,
       name: subFeature.title,
       supported,
       nesting: 2,
       parent: feature.title,
       link: subFeature.link,
+      status: feature.status,
     })
   })
 
@@ -104,67 +124,35 @@ export const featureTableGroups: FeatureTableGroup[] = Object.values(featuresByG
 
 const dataVisualizationGroup = featureTableGroups.find((group) => group.name === 'Data Visualization')
 if (dataVisualizationGroup) {
-  dataVisualizationGroup.features.push(
-    { name: 'Charts', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, collapsible: true, expanded: false },
-    { name: 'Progress Line', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, parent: 'Charts' },
-    { name: 'Progress Line with Value', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, parent: 'Charts' },
-    { name: 'Sparkline', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, parent: 'Charts' },
-    { name: 'Bar Chart', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, parent: 'Charts' },
-    { name: 'Timeline', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, parent: 'Charts' },
-    { name: 'Rating Star', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, parent: 'Charts' },
-    { name: 'Badge', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, parent: 'Charts' },
-    { name: 'Change', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, parent: 'Charts' },
-    { name: 'Thumbs', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, parent: 'Charts' },
-    { name: 'Pie Chart', supported: ['Pro Lite', 'Pro Advanced'], nesting: 2, parent: 'Charts' },
-  )
+  dataVisualizationGroup.features.push(...chartFeatureTableItems.map((feature) => ({
+    id: feature.featureId,
+    name: feature.name,
+    supported: feature.planIds.map((planId) => getPlan(planId).name),
+    nesting: feature.nesting,
+    parent: feature.parent,
+    collapsible: feature.collapsible,
+    expanded: feature.expanded,
+    status: feature.featureId ? PRODUCT_CATALOG.features.find(({ id }) => id === feature.featureId)?.status : 'stable',
+  })))
 }
 
-featureTableGroups.push({
-  name: 'Core Features',
-  expanded: true,
-  features: [
-    { name: 'Basic Cell Formats', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-    { name: 'Text Format', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/types#String' },
-    { name: 'Number Format', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/types#Number' },
-    { name: 'Date Format', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/types#Date' },
-    { name: 'Selection Format', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/types#Select-Dropdown' },
-    { name: 'Column Features', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-    { name: 'Last Column Stretch', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/stretch' },
-    { name: 'Column Groups', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/grouping' },
-    { name: 'Column Resizing', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/resize' },
-    { name: 'Column Autosizing', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/autosize' },
-    { name: 'Column Ordering', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/order' },
-    { name: 'Column Pinning', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/pin' },
-    { name: 'Selection Features', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-    { name: 'Cell Range Selection', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2 },
-    { name: 'Fill Handle', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2 },
-    { name: 'Core Features', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 1 },
-    { name: 'Column Virtualization', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/viewports' },
-    { name: 'Row Virtualization', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/viewports' },
-    { name: 'Keyboard Support', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/defs#Keyboard' },
-    { name: 'Intelligent Virtual DOM', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/overview#VNode-Reactive-DOM' },
-    { name: 'Basic Sorting', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/sorting' },
-    { name: 'Theme Support', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/theme' },
-    { name: 'Plugin System', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/plugin/' },
-    { name: 'Trimmed Rows', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/row/#Trimmed-Rows' },
-    { name: 'Custom Header Templates', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/column/header.template' },
-    { name: 'Custom Cell Properties', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2, link: 'https://rv-grid.com/guide/cell/' },
-    { name: 'Accessibility', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2 },
-    { name: 'Localization', supported: ['Basic', 'Pro Lite', 'Pro Advanced'], nesting: 2 },
-  ],
-})
+featureTableGroups.push(...featureTableSupplementalGroups.map((group) => ({
+  name: group.name,
+  expanded: group.expanded,
+  features: group.features.map((feature) => ({
+    id: feature.featureId,
+    name: feature.name,
+    supported: feature.planIds.map((planId) => getPlan(planId).name),
+    nesting: feature.nesting,
+    parent: feature.parent,
+    collapsible: feature.collapsible,
+    expanded: feature.expanded,
+    link: feature.link,
+    status: feature.featureId ? PRODUCT_CATALOG.features.find(({ id }) => id === feature.featureId)?.status : 'stable',
+  })),
+})))
 
-featureTableGroups.push({
-  name: 'Advanced Support',
-  expanded: true,
-  features: [
-    { name: 'AI Agent Support', supported: ['Pro Advanced'], nesting: 1, link: 'https://rv-grid.com/pro/ai' },
-    { name: 'RevoGrid MCP - AI-Native Grid Intelligence', supported: ['Pro Lite', 'Pro Advanced'], nesting: 1, beta: true },
-    { name: 'Private GitHub repository access', supported: ['Pro Advanced'], nesting: 1 },
-    { name: 'Support via GitHub', supported: ['Pro Advanced'], nesting: 1 },
-    { name: 'Support via Email', supported: ['Pro Advanced'], nesting: 1 },
-  ],
-})
-
-const proAdvancedIdx = featureTableGroups.findIndex((group) => group.name === 'Pro Advanced Modules')
-if (proAdvancedIdx >= 0) featureTableGroups.push(featureTableGroups.splice(proAdvancedIdx, 1)[0])
+const advancedModulesIndex = featureTableGroups.findIndex((group) => group.name === 'Pro Advanced Modules')
+if (advancedModulesIndex >= 0) {
+  featureTableGroups.push(featureTableGroups.splice(advancedModulesIndex, 1)[0])
+}

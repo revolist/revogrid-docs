@@ -27,7 +27,12 @@ import ProHeroSection from './landing/ProHeroSection.vue'
 import ProServerSideSection from './landing/ProServerSideSection.vue'
 import ProTrustSection from './landing/ProTrustSection.vue'
 import ProUseCasesSection from './landing/ProUseCasesSection.vue'
-import { featuresPro } from './features.pro'
+import {
+  getCatalogProFeatures,
+  getPlan,
+  getProduct,
+  PRODUCT_CATALOG,
+} from '../commercial/productCatalog'
 
 const FA_ICONS: Record<string, string> = {
   'Data Management': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M448 80l0 48c0 44.2-100.3 80-224 80S0 172.2 0 128L0 80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6L448 288c0 44.2-100.3 80-224 80S0 332.2 0 288L0 186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6l0 85.9c0 44.2-100.3 80-224 80S0 476.2 0 432l0-85.9z"/></svg>',
@@ -46,6 +51,7 @@ const FA_ICONS: Record<string, string> = {
 }
 
 type ProPage = Record<string, any>
+const featuresPro = getCatalogProFeatures()
 type ProFeature = (typeof featuresPro)[number]
 type CatalogGroup = {
   rawLabel: string
@@ -61,7 +67,40 @@ type CatalogGroup = {
 }
 
 const { frontmatter } = useData()
-const page = computed(() => frontmatter.value.proPage as ProPage)
+const page = computed(() => {
+  const raw = frontmatter.value.proPage as ProPage
+  const productByType: Record<string, 'pivot' | 'gantt' | undefined> = {
+    pivot: 'pivot',
+    gantt: 'gantt',
+  }
+  return {
+    ...raw,
+    features: {
+      ...raw.features,
+      items: (raw.features?.items ?? []).map((item: Record<string, any>) => {
+        const productId = productByType[item.type]
+        const planId = productId ? getProduct(productId).minimumPlan : 'pro-lite'
+        const status = productId ? getProduct(productId).status : 'stable'
+        return {
+          ...item,
+          tier: getPlan(planId).name,
+          status,
+        }
+      }),
+    },
+    cta: {
+      ...raw.cta,
+      actions: {
+        ...raw.cta?.actions,
+        trial: {
+          label: 'Request Pro Trial',
+          href: PRODUCT_CATALOG.urls.trialRequest,
+        },
+      },
+      note: 'Royalty-free - No deployment fee - 14-day private npm trial',
+    },
+  }
+})
 const rootEl = ref<HTMLElement | null>(null)
 const PRO_FEATURE_COUNT = featuresPro.length
 const PRO_CATEGORY_COUNT = new Set(featuresPro.map((feature) => feature.group || 'Other')).size

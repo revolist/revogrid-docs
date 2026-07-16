@@ -11,6 +11,10 @@ next: false
 pageClass: gantt-page-doc
 layout: custom
 breadcrumbs: false
+commercialFaqKeys:
+  - trial
+  - source-access
+  - application-limits
 headerNav:
   hiddenItems:
     - Product
@@ -25,6 +29,7 @@ head:
     - name: keywords
       content: RevoGrid Scheduler, JavaScript Scheduler, Resource Scheduling Component, Web Scheduler, Capacity Planning Software, Shift Scheduling UI, Operations Scheduler, Timeline Scheduler, React Scheduler, Vue Scheduler, Angular Scheduler
 ganttLanding:
+  catalogProductId: scheduler
   colors:
     accent: '#047857'
     accent2: '#10b981'

@@ -21,6 +21,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
+import { getPlan } from '../../commercial/productCatalog'
 import { resolvePlanPrice, type PriceTimestamp } from '../prices'
 import type { PricingCardData, PricingSectionData, ResolvedPricingCardData } from '../types'
 import HomePricingCard from './HomePricingCard.vue'
@@ -37,34 +38,48 @@ defineEmits<{
 
 const resolveCard = (card: PricingCardData): ResolvedPricingCardData => {
   if (card.id === 'light') {
+    const plan = getPlan('pro-lite')
     const price = resolvePlanPrice('light', props.at)
     return {
       ...card,
+      name: plan.name,
+      action: plan.actionLabel,
+      features: [...plan.pricingHighlights],
       badge: price.promotion?.badge,
       price: `$${price.year}`,
       compareAtPrice: price.compareAtYear ? `$${price.compareAtYear}` : undefined,
       discountLabel: price.promotion?.discountLabel,
       period: '/ year',
       sub: '',
-      billingNote: '1 developer seat · 1 app usage',
+      billingNote: plan.billingSummary,
       link: price.link,
     }
   }
 
   if (card.id === 'advanced') {
+    const plan = getPlan('pro-advanced')
     const price = resolvePlanPrice('advanced', props.at)
     return {
       ...card,
+      name: plan.name,
+      action: plan.actionLabel,
+      features: [...plan.pricingHighlights],
       price: `$${price.year}`,
       period: '/ year',
       sub: '',
-      billingNote: '1 developer seat · Unlimited production usage',
+      billingNote: plan.billingSummary,
       link: price.link,
     }
   }
 
+  const plan = getPlan('enterprise')
   return {
     ...card,
+    name: plan.name,
+    action: plan.actionLabel,
+    features: [...plan.pricingHighlights],
+    price: 'Custom',
+    billingNote: plan.billingSummary,
     link: '#contact-sales',
   }
 }

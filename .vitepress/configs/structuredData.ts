@@ -1,5 +1,11 @@
 import type { HeadConfig } from 'vitepress'
-import { resolvePlanPrice } from '../../pricing-page/prices'
+import {
+    getPlan,
+    getProduct,
+    getProductOfferPlanIds,
+    resolvePlanPrice,
+    type ProductId,
+} from '../../commercial/productCatalog'
 
 type JsonLdData = Record<string, unknown>
 
@@ -77,22 +83,81 @@ const breadcrumbJsonLd = (
     }
 }
 
-const softwareApplicationJsonLd = (siteUrl: string): JsonLdData => {
-    const lightPrice = resolvePlanPrice('light')
-    const advancedPrice = resolvePlanPrice('advanced')
+const structuredProductForPath = (relativePath: string): ProductId | undefined => {
+    if (relativePath === 'index.md') {
+        const standaloneProduct = {
+            pivot: 'pivot',
+            gantt: 'gantt',
+            scheduler: 'scheduler',
+        }[process.env.DOCS_BUILD_PAGE || ''] as ProductId | undefined
+        return standaloneProduct ?? 'revogrid'
+    }
+    if (['react-data-grid.md', 'vue-data-grid.md', 'angular-data-grid.md', 'svelte-data-grid.md'].includes(relativePath)) {
+        return 'revogrid'
+    }
+    if (relativePath === 'pivot/index.md') return 'pivot'
+    if (relativePath === 'gantt.md') return 'gantt'
+    if (relativePath === 'scheduler.md') return 'scheduler'
+    if (relativePath === 'event-scheduler.md') return 'event-scheduler'
+    return undefined
+}
+
+const offerJsonLd = (siteUrl: string, planId: 'open-source' | 'pro-lite' | 'pro-advanced'): JsonLdData => {
+    const plan = getPlan(planId)
+    if (planId === 'open-source') {
+        return {
+            '@type': 'Offer',
+            name: `RevoGrid ${plan.name}`,
+            price: 0,
+            priceCurrency: 'USD',
+            category: 'Free',
+            url: `${siteUrl}/guide/installation`,
+            availability: 'https://schema.org/InStock',
+        }
+    }
+
+    const price = resolvePlanPrice(planId)
+    return {
+        '@type': 'Offer',
+        name: `RevoGrid ${plan.name}`,
+        price: price.year.USD,
+        priceCurrency: 'USD',
+        ...(price.promotion ? { priceValidUntil: price.promotion.priceValidUntil } : {}),
+        priceSpecification: {
+            '@type': 'UnitPriceSpecification',
+            price: price.year.USD,
+            priceCurrency: 'USD',
+            unitText: 'developer seat per year',
+        },
+        url: `${siteUrl}/pricing`,
+        availability: 'https://schema.org/InStock',
+    }
+}
+
+const softwareApplicationJsonLd = (
+    siteUrl: string,
+    relativePath: string,
+    productId: ProductId,
+): JsonLdData => {
+    const product = getProduct(productId)
+    const pagePath = relativePath === 'index.md' && productId !== 'revogrid'
+        ? product.pageUrl
+        : cleanPagePath(relativePath)
 
     return {
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
         '@id': `${siteUrl}/#software`,
-        name: 'RevoGrid',
-        alternateName: 'RevoGrid Data Grid',
+        name: product.name,
+        alternateName: productId === 'revogrid' ? 'RevoGrid Data Grid' : undefined,
         applicationCategory: 'DeveloperApplication',
         applicationSubCategory: 'JavaScript Data Grid',
         operatingSystem: 'Any',
-        url: siteUrl,
+        url: `${siteUrl}${pagePath === '/' ? '' : pagePath}`,
         image: `${siteUrl}/og-image.jpg`,
-        description: 'A high-performance JavaScript data grid for Vue, React, Angular, Svelte, and JavaScript applications.',
+        description: productId === 'revogrid'
+            ? 'A high-performance JavaScript data grid for Vue, React, Angular, Svelte, and JavaScript applications.'
+            : `${product.name} is an embeddable commercial module for data-heavy web applications.`,
         author: {
             '@type': 'Organization',
             name: 'Revolist OU',
@@ -104,48 +169,9 @@ const softwareApplicationJsonLd = (siteUrl: string): JsonLdData => {
             url: 'https://revolist.eu/',
         },
         softwareVersion: '4',
-        offers: [
-        {
-            '@type': 'Offer',
-            name: 'RevoGrid Open Source',
-            price: 0,
-            priceCurrency: 'USD',
-            category: 'Free',
-            url: `${siteUrl}/guide/installation`,
-            availability: 'https://schema.org/InStock',
-        },
-        {
-            '@type': 'Offer',
-            name: 'RevoGrid Pro Lite',
-            price: lightPrice.year,
-            priceCurrency: 'USD',
-            ...(lightPrice.promotion
-                ? { priceValidUntil: lightPrice.promotion.priceValidUntil }
-                : {}),
-            priceSpecification: {
-                '@type': 'UnitPriceSpecification',
-                price: lightPrice.year,
-                priceCurrency: 'USD',
-                unitText: 'developer seat per year',
-            },
-            url: `${siteUrl}/pricing`,
-            availability: 'https://schema.org/InStock',
-        },
-        {
-            '@type': 'Offer',
-            name: 'RevoGrid Pro Advanced',
-            price: advancedPrice.year,
-            priceCurrency: 'USD',
-            priceSpecification: {
-                '@type': 'UnitPriceSpecification',
-                price: advancedPrice.year,
-                priceCurrency: 'USD',
-                unitText: 'developer seat per year',
-            },
-            url: `${siteUrl}/pricing`,
-            availability: 'https://schema.org/InStock',
-        },
-        ],
+        offers: getProductOfferPlanIds(productId)
+            .filter((planId): planId is 'open-source' | 'pro-lite' | 'pro-advanced' => planId !== 'enterprise')
+            .map((planId) => offerJsonLd(siteUrl, planId)),
     }
 }
 
@@ -182,8 +208,9 @@ export const createStructuredDataHead = ({
         jsonLdScript('breadcrumb-json-ld', breadcrumbJsonLd(siteUrl, relativePath, title)),
     ]
 
-    if (relativePath === 'index.md') {
-        head.push(jsonLdScript('software-application-json-ld', softwareApplicationJsonLd(siteUrl)))
+    const productId = structuredProductForPath(relativePath)
+    if (productId) {
+        head.push(jsonLdScript('software-application-json-ld', softwareApplicationJsonLd(siteUrl, relativePath, productId)))
     }
 
     const faqSchema = faqJsonLd(faq)
