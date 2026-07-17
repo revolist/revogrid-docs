@@ -34,11 +34,6 @@ pricingPage:
     options:
       - eyebrow: Recommended for Pro evaluation
       - eyebrow: Start immediately
-  guidance:
-    eyebrow: Product guidance
-    heading: Still have questions about RevoGrid?
-    description: Tell us what you're building, what you're comparing, or what you're still unsure about. The RevoGrid team can help you choose the right evaluation path or plan.
-    action: Ask the RevoGrid team
   compareLinks:
     heading: Comparing RevoGrid with another grid?
     description: Explore practical comparisons covering licensing, deployment, framework support, performance, and advanced workflows.

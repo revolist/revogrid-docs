@@ -131,6 +131,5 @@ export interface PricingCompareLinksData {
 export interface PricingPageData {
   keyDifferences: PricingKeyDifferencesData
   evaluation: PricingEvaluationData
-  guidance: PricingGuidanceData
   compareLinks: PricingCompareLinksData
 }

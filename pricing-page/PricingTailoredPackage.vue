@@ -5,6 +5,7 @@
     aria-labelledby="tailored-package-heading"
   >
     <div class="tailored-copy">
+      <span class="tailored-new-badge">New</span>
       <h3 id="tailored-package-heading">Need only part of RevoGrid?</h3>
       <p>
         Choose the grid capabilities required for your project, and we'll suggest
@@ -104,6 +105,22 @@ defineEmits<{
     font-size: 16px;
     line-height: 1.65;
   }
+}
+
+.tailored-new-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 16px;
+  border-radius: 999px;
+  background: #ff2693;
+  padding: 7px 16px;
+  color: #fff;
+  box-shadow: 0 6px 18px color-mix(in srgb, #ff2693 28%, transparent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  text-transform: uppercase;
 }
 
 .tailored-action {
