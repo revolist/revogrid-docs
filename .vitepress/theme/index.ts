@@ -25,6 +25,7 @@ import DemoWidgetFrame from './DemoWidgetFrame.vue'
 import QuickStartCdnExample from './QuickStartCdnExample.vue'
 import TreeDataProDemo from './TreeDataProDemo.vue'
 import RevoGridHomeLayout from './RevoGridHomeLayout.vue'
+import DemoFeedbackSurvey from './DemoFeedbackSurvey.vue'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 
 export default {
@@ -37,6 +38,7 @@ export default {
                 h(HomePageColors),
                 h(DemoThemeBridge),
                 h(ExternalHomeLinks),
+                h(DemoFeedbackSurvey),
             ],
             'home-hero-image': () => h(HomeHero),
             'home-hero-actions-before-actions': () => h(HomeHeroActions),

@@ -128,6 +128,9 @@ export interface ResolvedPlanPrice {
 const TRIAL_REQUEST_URL = '/trial'
 const TRIAL_BOILERPLATE_URL = 'https://github.com/revolist/revogrid-pro-trial'
 const CONTACT_SALES_URL = 'mailto:contact@revolist.eu'
+const OPEN_SOURCE_GITHUB_URL = 'https://github.com/revolist/revogrid'
+const OPEN_SOURCE_NPM_URL = 'https://www.npmjs.com/package/@revolist/revogrid'
+const PRO_FEATURES_URL = '/pro/'
 
 const plans = {
   'open-source': {
@@ -163,7 +166,7 @@ const plans = {
     sourceAccess: 'typed-private-packages',
     trial: {
       available: true,
-      durationDays: 14,
+      durationDays: 30,
       delivery: 'private-npm',
       requestUrl: TRIAL_REQUEST_URL,
       boilerplateUrl: TRIAL_BOILERPLATE_URL,
@@ -193,7 +196,7 @@ const plans = {
     sourceAccess: 'original-private-source',
     trial: {
       available: true,
-      durationDays: 14,
+      durationDays: 30,
       delivery: 'private-npm',
       requestUrl: TRIAL_REQUEST_URL,
       boilerplateUrl: TRIAL_BOILERPLATE_URL,
@@ -417,6 +420,9 @@ export const PRODUCT_CATALOG = {
     trialRequest: TRIAL_REQUEST_URL,
     trialBoilerplate: TRIAL_BOILERPLATE_URL,
     contactSales: CONTACT_SALES_URL,
+    openSourceGitHub: OPEN_SOURCE_GITHUB_URL,
+    openSourceNpm: OPEN_SOURCE_NPM_URL,
+    proFeatures: PRO_FEATURES_URL,
   },
 } as const
 
@@ -543,7 +549,7 @@ export const commercialFaqs: Record<CommercialFaqKey, { q: string, a: string }> 
   },
   trial: {
     q: 'Can I evaluate RevoGrid Pro before purchasing?',
-    a: `Yes. Request a 14-day trial for approved private npm access. The public trial repository is boilerplate for evaluation setup; it does not contain the Pro packages.`,
+    a: `Yes. Request a 30-day trial for approved private npm access. The public trial repository is boilerplate for evaluation setup; it does not contain the Pro packages.`,
   },
   'source-access': {
     q: 'What source access is included?',

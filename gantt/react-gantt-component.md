@@ -42,7 +42,7 @@ RevoGrid Gantt extends the same grid engine used for data-heavy RevoGrid screens
 
 “Native React” can be useful, but it is not the only architecture that integrates cleanly. A framework-independent Web Component avoids maintaining a separate scheduling implementation for every frontend. It also lets teams share the same Gantt behavior across React, Vue, Angular, Svelte, and vanilla JavaScript products.
 
-The practical test is whether the component exposes typed configuration, predictable events, cleanup, custom rendering hooks, and stable data ownership. Use the [live Gantt demo](/demo/gantt) to inspect interaction behavior, then validate the integration inside your actual React application during the [request-based 14-day trial](/trial).
+The practical test is whether the component exposes typed configuration, predictable events, cleanup, custom rendering hooks, and stable data ownership. Use the [live Gantt demo](/demo/gantt) to inspect interaction behavior, then validate the integration inside your actual React application during the [request-based 30-day trial](/trial).
 
 ## RevoGrid Gantt vs an ordinary React timeline
 

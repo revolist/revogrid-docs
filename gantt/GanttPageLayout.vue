@@ -249,7 +249,7 @@ const page = computed(() => {
   const merged = mergeGanttPageConfig(frontmatter.value.ganttLanding ?? {})
   const product = getProduct(merged.catalogProductId)
   const plan = getPlan(product.minimumPlan)
-  const trialDays = plan.trial.durationDays ?? 14
+  const trialDays = plan.trial.durationDays ?? 30
   const commercialFaqs = resolveCommercialFaqs(
     (frontmatter.value.commercialFaqKeys ?? []) as CommercialFaqKey[],
   )

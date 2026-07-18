@@ -97,7 +97,7 @@ const page = computed(() => {
           href: PRODUCT_CATALOG.urls.trialRequest,
         },
       },
-      note: 'Royalty-free - No deployment fee - 14-day private npm trial',
+      note: 'Royalty-free - No deployment fee - 30-day private npm trial',
     },
   }
 })

@@ -46,7 +46,7 @@ Dedicated Gantt widgets frequently treat the task table as supporting chrome. In
 
 RevoGrid Gantt keeps those fields on a programmable, virtualized grid foundation. The timeline adds scheduling context to the same records rather than creating a separate mini-application with different editing behavior.
 
-For adjacent buying questions, review [Gantt for ERP](/gantt/erp-gantt), [manufacturing Gantt](/gantt/manufacturing-gantt), and [resource scheduling](/gantt/resource-scheduling). Current Pro Advanced pricing and 14-day trial terms are summarized on the [main Gantt page](/gantt#gantt-pricing-trial).
+For adjacent buying questions, review [Gantt for ERP](/gantt/erp-gantt), [manufacturing Gantt](/gantt/manufacturing-gantt), and [resource scheduling](/gantt/resource-scheduling). Current Pro Advanced pricing and 30-day trial terms are summarized on the [main Gantt page](/gantt#gantt-pricing-trial).
 
 ## Angular Gantt FAQ
 

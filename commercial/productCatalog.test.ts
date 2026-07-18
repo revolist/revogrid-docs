@@ -62,7 +62,7 @@ test('defines the approved private npm trial lifecycle', () => {
   for (const planId of ['pro-lite', 'pro-advanced'] as const) {
     const trial = getPlan(planId).trial
     assert.equal(trial.available, true)
-    assert.equal(trial.durationDays, 14)
+    assert.equal(trial.durationDays, 30)
     assert.equal(trial.delivery, 'private-npm')
     assert.equal(trial.requestUrl, '/trial')
     assert.match(trial.note!, /boilerplate/i)
@@ -78,7 +78,7 @@ test('generates commercial FAQs, demo badges, and pricing view facts', () => {
   const evaluation = getPricingEvaluationFacts()
   const differences = getPricingDifferenceRows()
 
-  assert.match(trialFaq.a, /14-day trial/)
+  assert.match(trialFaq.a, /30-day trial/)
   assert.match(trialFaq.a, /boilerplate/)
   assert.deepEqual(pivotBadge, {
     label: 'Pivot Analytics',
@@ -97,7 +97,7 @@ test('generates commercial FAQs, demo badges, and pricing view facts', () => {
   )
   assert.equal(evaluation.options[1].action.label, 'Request Pro Trial')
   assert.equal(evaluation.options[1].action.href, '/trial')
-  assert.match(evaluation.options[1].features[0], /14-day private npm/)
+  assert.match(evaluation.options[1].features[0], /30-day private npm/)
   assert.equal(differences.length, 5)
   assert.ok(differences.some((row) =>
     typeof row.feature !== 'string' && row.feature.text === 'Priority support'))

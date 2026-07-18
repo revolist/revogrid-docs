@@ -240,8 +240,8 @@ ganttLanding:
     description: Gantt is included in RevoGrid Pro Advanced. Licensing is per front-end developer, with no runtime royalties, server license, deployment counting, or end-user seat fees under the current plan.
     priceLabel: Pro Advanced current USD price
     items:
-      - title: 14-day trial
-        description: The trial lasts 14 days and is available on request with no credit card required. Start with public demos, then validate Pro behavior inside your application.
+      - title: 30-day trial
+        description: The trial lasts 30 days and is available on request with no credit card required. Start with public demos, then validate Pro behavior inside your application.
       - title: Unlimited production usage
         description: One licensed developer seat can ship the module in production without per-deployment or per-end-user charges, subject to the license terms.
       - title: Full Advanced bundle

@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "node ./scripts/update-policy-last-updated.mjs && vitepress build && node ./scripts/generate-llms.mjs",
-    "test:commercial": "node --import tsx --test ./commercial/productCatalog.test.ts",
     "build:page": "node ./scripts/build-page.mjs",
     "build:gantt": "node ./scripts/build-page.mjs gantt",
     "build:scheduler": "node ./scripts/build-page.mjs scheduler",
@@ -86,10 +85,10 @@
     "@revolist/revogrid-column-date": "^2.0.25",
     "@revolist/revogrid-column-numeral": "^2.0.11",
     "@revolist/revogrid-column-select": "^3.1.19",
-    "@revolist/revogrid-enterprise": "2.3.1",
-    "@revolist/revogrid-pro": "2.3.1",
+    "@revolist/revogrid-enterprise": "2.3.2",
+    "@revolist/revogrid-pro": "2.3.2",
     "@revolist/vue3-datagrid": "4.23.22",
-    "@revolist/revogrid-examples": "2.3.1",
+    "@revolist/revogrid-examples": "2.3.2",
     "lodash-es": "^4.18.1"
   }
 }

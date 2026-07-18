@@ -262,7 +262,7 @@ proPage:
       secondary:
         label: Read the docs
         href: /guide/
-    note: Royalty-free - No deployment fee - Cancel anytime - 14-day trial
+    note: Royalty-free - No deployment fee - Cancel anytime - 30-day trial
 ---
 
 <script lang="ts" setup>

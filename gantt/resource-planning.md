@@ -49,7 +49,7 @@ For an implementation-focused explanation, read [Gantt resource scheduling](/gan
 
 Synthetic “one person per task” data misses the difficult cases. Test shared resources, overlapping assignments, different calendars, part-time capacity, locked tasks, deadlines, and summary projects. Measure both scheduling calculations and the UI used to inspect conflicts.
 
-The [main Gantt page](/gantt) links to the live resource-planning demo, current Pro Advanced pricing, and the request-based 14-day trial.
+The [main Gantt page](/gantt) links to the live resource-planning demo, current Pro Advanced pricing, and the request-based 30-day trial.
 
 ## Resource planning FAQ
 
