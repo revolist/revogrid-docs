@@ -60,7 +60,7 @@
         </a>
       </div>
 
-      <PricingTailoredPackage @contact-sales="$emit('contact-sales')" />
+      <PricingTailoredPackage @contact-sales="$emit('tailored-package')" />
     </div>
   </section>
 </template>
@@ -81,7 +81,7 @@ defineProps<{
 }>()
 
 defineEmits<{
-  (event: 'contact-sales'): void
+  (event: 'tailored-package'): void
 }>()
 
 const { linkOf } = usePricingLinks()

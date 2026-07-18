@@ -15,12 +15,16 @@
     />
     <PricingFeatureComparison
       :differences="pricingPage.keyDifferences"
-      @contact-sales="showContactForm = true"
+      @tailored-package="showTailoredPackageForm = true"
     />
     <PricingEvaluation :evaluation="pricingPage.evaluation" />
     <PricingFaq :faq="faq" />
     <PricingCompareLinks :compare-links="pricingPage.compareLinks" />
     <ContactForm :is-visible="showContactForm" @close="showContactForm = false" />
+    <PricingTailoredPackageForm
+      :is-visible="showTailoredPackageForm"
+      @close="showTailoredPackageForm = false"
+    />
   </div>
 </template>
 
@@ -33,6 +37,7 @@ import PricingCompareLinks from './PricingCompareLinks.vue'
 import PricingEvaluation from './PricingEvaluation.vue'
 import PricingFaq from './PricingFaq.vue'
 import PricingFeatureComparison from './PricingFeatureComparison.vue'
+import PricingTailoredPackageForm from './PricingTailoredPackageForm.vue'
 import HomePricing from './home-design/HomePricing.vue'
 import { resolvePlanPrice, SUMMER_SALE_CUTOFF } from './prices'
 import type { PricingFaqData, PricingPageData, PricingSectionData } from './types'
@@ -40,6 +45,7 @@ import type { PricingFaqData, PricingPageData, PricingSectionData } from './type
 const { frontmatter } = useData()
 const pricingClock = ref(new Date())
 const showContactForm = ref(false)
+const showTailoredPackageForm = ref(false)
 let promotionTimer: ReturnType<typeof setTimeout> | undefined
 
 const pricingPage = computed(() => {
