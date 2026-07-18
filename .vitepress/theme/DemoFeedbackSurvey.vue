@@ -56,6 +56,8 @@
     @close="closeFlow"
     @submit="submitDetailedAnswer"
     @next-action="takeNextAction"
+    @option-selected="recordOptionSelection"
+    @text-used="recordTextUsage"
   />
 </template>
 
@@ -80,9 +82,11 @@ import {
   addDemoVisibleTime,
   canRequestDemoFeedback,
   createDemoFeedbackAnalyticsProperties,
+  createDemoFeedbackOptionAnalyticsEvent,
   createInitialDemoFeedbackAnswers,
   createDemoFeedbackPayload,
   createDemoFeedbackSessionId,
+  createDemoFeedbackTextAnalyticsEvent,
   deriveDemoFeedbackTrafficSource,
   dismissDemoFeedback,
   evaluateDemoFeedbackEligibility,
@@ -113,8 +117,10 @@ import {
   type DemoFeedbackCooldownState,
   type DemoFeedbackPayload,
   type DemoFeedbackPrimaryAnswer,
+  type DemoFeedbackOptionSelection,
   type DemoFeedbackSessionContext,
   type DemoFeedbackSessionState,
+  type DemoFeedbackTextUsage,
 } from './demoFeedback'
 
 type SubmissionState = 'idle' | 'submitting' | 'succeeded' | 'error'
@@ -257,6 +263,38 @@ const pushAnalytics = (
   const analyticsWindow = window as DataLayerWindow
   analyticsWindow.dataLayer ??= []
   analyticsWindow.dataLayer.push({ event, ...properties, ...extra })
+}
+
+const recordOptionSelection = ({
+  questionId,
+  answerCode,
+  isSelected,
+}: DemoFeedbackOptionSelection) => {
+  const properties = analyticsProperties()
+  if (!properties) return
+  const analyticsWindow = window as DataLayerWindow
+  analyticsWindow.dataLayer ??= []
+  analyticsWindow.dataLayer.push(createDemoFeedbackOptionAnalyticsEvent({
+    demo_slug: properties.demo_slug,
+    demo_tier: properties.demo_tier,
+    time_on_demo: properties.time_on_demo,
+    demo_interactions: properties.demo_interactions,
+  }, { questionId, answerCode, isSelected }))
+}
+
+const recordTextUsage = ({
+  questionId,
+  hasText,
+  textLengthBucket,
+}: DemoFeedbackTextUsage) => {
+  const properties = analyticsProperties()
+  if (!properties) return
+  const analyticsWindow = window as DataLayerWindow
+  analyticsWindow.dataLayer ??= []
+  analyticsWindow.dataLayer.push(createDemoFeedbackTextAnalyticsEvent(
+    properties.demo_slug,
+    { questionId, hasText, textLengthBucket },
+  ))
 }
 
 const flushActiveTime = (restart = false) => {

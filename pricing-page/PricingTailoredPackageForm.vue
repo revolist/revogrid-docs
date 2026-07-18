@@ -149,6 +149,7 @@
 import { computed, nextTick, ref, watch } from 'vue'
 import ModalDialog from '../.vitepress/theme/ModalDialog.vue'
 import FontAwesomeSvgIcon from '../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
+import { createTailoredPackageRequestPayload } from './pricingTailoredPackageRequest'
 
 type Capability = {
   id: string
@@ -290,18 +291,13 @@ const submitRequest = async () => {
   }
 
   submissionState.value = 'submitting'
-  const payload = {
+  const payload = createTailoredPackageRequestPayload({
     email: email.value,
     message: trimmedMessage,
-    selectedCapabilities: [...selectedCapabilities.value],
+    selectedCapabilities: selectedCapabilityDetails.value,
     describeItMyself: usedFreeform.value,
-    source: 'pricing-tailored-package',
     pageUrl: window.location.href,
-    businessEmail: email.value,
-    applicationInfo: trimmedMessage,
-    requestType: 'contact',
-    requestLabel: 'Tailored package request',
-  }
+  })
 
   try {
     const response = await fetch(API_URL, {

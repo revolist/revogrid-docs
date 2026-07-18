@@ -77,7 +77,7 @@
                 type="checkbox"
                 :value="option.code"
                 :disabled="submissionState === 'submitting'"
-                @change="validationMessage = ''"
+                @change="handleVerificationChange(option.code, $event)"
               />
               <span>{{ option.label }}</span>
             </label>
@@ -102,7 +102,7 @@
                 name="demo-feedback-row-volume"
                 :value="option.code"
                 :disabled="submissionState === 'submitting'"
-                @change="validationMessage = ''"
+                @change="handleRowVolumeChange(option.code)"
               />
               <span>{{ option.label }}</span>
             </label>
@@ -141,7 +141,7 @@
                   name="demo-feedback-not-fit"
                   :value="option.code"
                   :disabled="submissionState === 'submitting'"
-                  @change="validationMessage = ''"
+                  @change="handleNotFitChange(option.code)"
                 />
                 <span>{{ option.label }}</span>
               </label>
@@ -209,6 +209,7 @@ import {
   DEMO_FEEDBACK_ROW_VOLUME_OPTIONS,
   DEMO_FEEDBACK_TEXT_MAX_LENGTH,
   createInitialDemoFeedbackAnswers,
+  getDemoFeedbackTextLengthBucket,
   getBranchForPrimaryAnswer,
   getDemoFeedbackReadyBranch,
   getDemoFeedbackVerificationOptions,
@@ -217,8 +218,11 @@ import {
   type DemoFeedbackAnswers,
   type DemoFeedbackFlowStep,
   type DemoFeedbackNotFitReason,
+  type DemoFeedbackOptionSelection,
   type DemoFeedbackPrimaryAnswer,
   type DemoFeedbackRowVolume,
+  type DemoFeedbackTextLengthBucket,
+  type DemoFeedbackTextUsage,
   type DemoFeedbackVerificationCode,
 } from './demoFeedback'
 
@@ -241,6 +245,8 @@ const emit = defineEmits<{
   (event: 'close', reason: DemoFeedbackFlowCloseReason): void
   (event: 'submit', value: { primaryAnswer: DemoFeedbackPrimaryAnswer, answers: DemoFeedbackAnswers }): void
   (event: 'next-action', value: { action: DemoFeedbackAction, primaryAnswer: DemoFeedbackPrimaryAnswer, answers: DemoFeedbackAnswers }): void
+  (event: 'option-selected', value: DemoFeedbackOptionSelection): void
+  (event: 'text-used', value: DemoFeedbackTextUsage): void
 }>()
 
 const DemoFeedbackFormFooter = defineComponent({
@@ -287,6 +293,7 @@ const notFitReason = ref<DemoFeedbackNotFitReason | undefined>()
 const notFitFreeText = ref('')
 const validationMessage = ref('')
 const stepHeadingRef = ref<HTMLElement | null>(null)
+const emittedTextBuckets = new Set<DemoFeedbackTextLengthBucket>()
 
 const readyBranch = computed(() => props.demo
   ? getDemoFeedbackReadyBranch(props.demo)
@@ -313,7 +320,37 @@ const reset = () => {
   rowVolume.value = undefined
   notFitReason.value = undefined
   notFitFreeText.value = ''
+  emittedTextBuckets.clear()
   validationMessage.value = ''
+}
+
+const handleVerificationChange = (answerCode: DemoFeedbackVerificationCode, event: Event) => {
+  validationMessage.value = ''
+  const input = event.currentTarget
+  if (!(input instanceof HTMLInputElement)) return
+  emit('option-selected', {
+    questionId: 'verification',
+    answerCode,
+    isSelected: input.checked,
+  })
+}
+
+const handleRowVolumeChange = (answerCode: DemoFeedbackRowVolume) => {
+  validationMessage.value = ''
+  emit('option-selected', {
+    questionId: 'row_volume',
+    answerCode,
+    isSelected: true,
+  })
+}
+
+const handleNotFitChange = (answerCode: DemoFeedbackNotFitReason) => {
+  validationMessage.value = ''
+  emit('option-selected', {
+    questionId: 'not_fit',
+    answerCode,
+    isSelected: true,
+  })
 }
 
 const currentAnswers = (): DemoFeedbackAnswers => ({
@@ -352,6 +389,17 @@ watch(() => props.submissionState, (submissionState) => {
 
 watch(notFitReason, (reason, previousReason) => {
   if (previousReason !== undefined && reason !== previousReason) notFitFreeText.value = ''
+})
+
+watch(notFitFreeText, (value) => {
+  const textLengthBucket = getDemoFeedbackTextLengthBucket(value)
+  if (!textLengthBucket || emittedTextBuckets.has(textLengthBucket)) return
+  emittedTextBuckets.add(textLengthBucket)
+  emit('text-used', {
+    questionId: 'not_fit_follow_up',
+    hasText: true,
+    textLengthBucket,
+  })
 })
 
 watch(step, async () => {

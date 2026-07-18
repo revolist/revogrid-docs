@@ -173,6 +173,9 @@ export type DemoFeedbackRowVolume = (typeof DEMO_FEEDBACK_ROW_VOLUME_OPTIONS)[nu
 export type DemoFeedbackVerificationCode = {
   [K in DemoId]: (typeof DEMO_FEEDBACK_DEMO_CONFIG)[K]['verificationOptions'][number]['code']
 }[DemoId]
+export type DemoFeedbackOptionQuestionId = 'verification' | 'row_volume' | 'not_fit'
+export type DemoFeedbackTextQuestionId = 'not_fit_follow_up'
+export type DemoFeedbackTextLengthBucket = '1_50' | '51_100' | '101_200'
 export type DemoFeedbackBranch = 'ready' | 'needs_information' | 'comparing' | 'not_fit' | 'complete'
 export type DemoFeedbackFlowStep = 'ready' | 'needs_information' | 'not_fit' | 'confirmation'
 export type DemoFeedbackNextAction =
@@ -267,6 +270,23 @@ export interface DemoFeedbackAnswers {
   freeText?: string
 }
 
+export interface DemoFeedbackOptionSelection {
+  questionId: DemoFeedbackOptionQuestionId
+  answerCode: DemoFeedbackVerificationCode | DemoFeedbackRowVolume | DemoFeedbackNotFitReason
+  isSelected: boolean
+}
+
+export interface DemoFeedbackTextUsage {
+  questionId: DemoFeedbackTextQuestionId
+  hasText: true
+  textLengthBucket: DemoFeedbackTextLengthBucket
+}
+
+export type DemoFeedbackOptionAnalyticsContext = Pick<
+  DemoFeedbackAnalyticsProperties,
+  'demo_slug' | 'demo_tier' | 'time_on_demo' | 'demo_interactions'
+>
+
 export interface DemoFeedbackAction {
   code: DemoFeedbackNextAction
   label: string
@@ -323,7 +343,6 @@ export interface DemoFeedbackAnalyticsProperties {
   card_response?: DemoFeedbackCardResponse
   primary_answer?: DemoFeedbackPrimaryAnswer
   detail_answers?: Array<DemoFeedbackVerificationCode | DemoFeedbackNotFitReason>
-  free_text?: string
   expected_row_volume?: DemoFeedbackRowVolume
   next_action?: DemoFeedbackNextAction
   time_on_demo: number
@@ -829,6 +848,16 @@ export const getDemoFeedbackReadyBranch = (demo: CatalogDemo): DemoFeedbackReady
 export const normalizeDemoFeedbackText = (value = ''): string =>
   value.trim().slice(0, DEMO_FEEDBACK_TEXT_MAX_LENGTH)
 
+export const getDemoFeedbackTextLengthBucket = (
+  value: string,
+): DemoFeedbackTextLengthBucket | undefined => {
+  const length = normalizeDemoFeedbackText(value).length
+  if (length === 0) return undefined
+  if (length <= 50) return '1_50'
+  if (length <= 100) return '51_100'
+  return '101_200'
+}
+
 const normalizedAnswers = (
   demo: CatalogDemo,
   primaryAnswer: DemoFeedbackPrimaryAnswer,
@@ -960,7 +989,6 @@ export const createDemoFeedbackAnalyticsProperties = (
   ...(payload.cardResponse ? { card_response: payload.cardResponse } : {}),
   ...(payload.primaryAnswer ? { primary_answer: payload.primaryAnswer } : {}),
   ...(payload.detailAnswers ? { detail_answers: payload.detailAnswers } : {}),
-  ...(payload.freeText ? { free_text: payload.freeText } : {}),
   ...(payload.expectedRowVolume ? { expected_row_volume: payload.expectedRowVolume } : {}),
   ...(payload.nextAction ? { next_action: payload.nextAction } : {}),
   time_on_demo: payload.timeOnDemo,
@@ -969,6 +997,28 @@ export const createDemoFeedbackAnalyticsProperties = (
   traffic_source: payload.trafficSource,
   landing_page: payload.landingPage,
   anonymous_session_id: payload.anonymousSessionId,
+})
+
+export const createDemoFeedbackOptionAnalyticsEvent = (
+  context: DemoFeedbackOptionAnalyticsContext,
+  selection: DemoFeedbackOptionSelection,
+) => ({
+  event: 'demo_feedback_option_selected' as const,
+  ...context,
+  question_id: selection.questionId,
+  answer_code: selection.answerCode,
+  is_selected: selection.isSelected,
+})
+
+export const createDemoFeedbackTextAnalyticsEvent = (
+  demoSlug: DemoId,
+  usage: DemoFeedbackTextUsage,
+) => ({
+  event: 'demo_feedback_text_used' as const,
+  demo_slug: demoSlug,
+  question_id: usage.questionId,
+  has_text: usage.hasText,
+  text_length_bucket: usage.textLengthBucket,
 })
 
 export const deriveDemoFeedbackTrafficSource = (href: string, referrer = ''): string => {

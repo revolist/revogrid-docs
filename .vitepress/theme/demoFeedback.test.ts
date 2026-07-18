@@ -17,7 +17,9 @@ import {
   addDemoVisibleTime,
   canRequestDemoFeedback,
   createDemoFeedbackAnalyticsProperties,
+  createDemoFeedbackOptionAnalyticsEvent,
   createDemoFeedbackPayload,
+  createDemoFeedbackTextAnalyticsEvent,
   createInitialDemoFeedbackCooldownState,
   createInitialDemoFeedbackSession,
   dismissDemoFeedback,
@@ -25,6 +27,7 @@ import {
   getBranchForPrimaryAnswer,
   getDemoByPath,
   getDemoFeedbackReadyBranch,
+  getDemoFeedbackTextLengthBucket,
   getDemosViewedInSession,
   getPrimaryAnswerForCardResponse,
   isDemoFeedbackConversionCta,
@@ -331,6 +334,54 @@ test('includes a normalized optional follow-up with a not-fit reason', () => {
   assert.deepEqual(payload.detailAnswers, ['missing_feature'])
   assert.equal(payload.freeText, 'Resource leveling')
   assert.match(payload.applicationInfo, /Visitor note: Resource leveling/)
+  assert.equal('free_text' in createDemoFeedbackAnalyticsProperties(payload), false)
+})
+
+test('buckets optional text length without exposing its contents', () => {
+  assert.equal(getDemoFeedbackTextLengthBucket(''), undefined)
+  assert.equal(getDemoFeedbackTextLengthBucket('   '), undefined)
+  assert.equal(getDemoFeedbackTextLengthBucket('a'), '1_50')
+  assert.equal(getDemoFeedbackTextLengthBucket('a'.repeat(50)), '1_50')
+  assert.equal(getDemoFeedbackTextLengthBucket('a'.repeat(51)), '51_100')
+  assert.equal(getDemoFeedbackTextLengthBucket('a'.repeat(100)), '51_100')
+  assert.equal(getDemoFeedbackTextLengthBucket('a'.repeat(101)), '101_200')
+  assert.equal(getDemoFeedbackTextLengthBucket('a'.repeat(250)), '101_200')
+})
+
+test('builds immediate option and privacy-safe text analytics events', () => {
+  assert.deepEqual(createDemoFeedbackOptionAnalyticsEvent({
+    demo_slug: 'gantt',
+    demo_tier: 'pro-advanced',
+    time_on_demo: 42,
+    demo_interactions: 7,
+  }, {
+    questionId: 'not_fit',
+    answerCode: 'pricing_licensing',
+    isSelected: true,
+  }), {
+    event: 'demo_feedback_option_selected',
+    demo_slug: 'gantt',
+    demo_tier: 'pro-advanced',
+    time_on_demo: 42,
+    demo_interactions: 7,
+    question_id: 'not_fit',
+    answer_code: 'pricing_licensing',
+    is_selected: true,
+  })
+
+  const textEvent = createDemoFeedbackTextAnalyticsEvent('gantt', {
+    questionId: 'not_fit_follow_up',
+    hasText: true,
+    textLengthBucket: '1_50',
+  })
+  assert.deepEqual(textEvent, {
+    event: 'demo_feedback_text_used',
+    demo_slug: 'gantt',
+    question_id: 'not_fit_follow_up',
+    has_text: true,
+    text_length_bucket: '1_50',
+  })
+  assert.equal('free_text' in textEvent, false)
 })
 
 test('maps primary answers to the correct short branch', () => {
