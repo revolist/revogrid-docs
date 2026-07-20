@@ -10,11 +10,17 @@ export const DEMO_FEEDBACK_SESSION_STORAGE_KEY = 'revogrid:demo-evaluation-feedb
 export const DEMO_FEEDBACK_COOLDOWN_STORAGE_KEY = 'revogrid:demo-evaluation-feedback:cooldowns:v1'
 export const DEMO_FEEDBACK_SURVEY_VERSION = 'demo-evaluation-v4'
 export const DEMO_FEEDBACK_STATE_VERSION = 1 as const
-export const DEMO_FEEDBACK_COOLDOWN_STATE_VERSION = 1 as const
-export const DEMO_FEEDBACK_MIN_TIME_MS = 30_000
+export const DEMO_FEEDBACK_COOLDOWN_STATE_VERSION = 2 as const
+export const DEMO_FEEDBACK_MIN_TIME_MS = 20_000
 export const DEMO_FEEDBACK_MAX_PROMPTS_PER_SESSION = 2
 export const DEMO_FEEDBACK_PROMPT_SPACING_MS = 120_000
-export const DEMO_FEEDBACK_DEMO_COOLDOWN_MS = 30 * 24 * 60 * 60 * 1_000
+export const DAY_MS = 24 * 60 * 60 * 1_000
+export const DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS = DAY_MS
+export const DEMO_FEEDBACK_SECOND_DISMISSAL_COOLDOWN_MS = 7 * DAY_MS
+export const DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS = 30 * DAY_MS
+export const DEMO_FEEDBACK_SUBMITTED_COOLDOWN_MS = 90 * DAY_MS
+export const DEMO_FEEDBACK_GLOBAL_WINDOW_MS = 30 * DAY_MS
+export const DEMO_FEEDBACK_GLOBAL_MAX_PROMPTS = 3
 export const DEMO_FEEDBACK_INTERACTION_DEDUPE_MS = 350
 export const DEMO_FEEDBACK_TEXT_MAX_LENGTH = 200
 export const DEMO_FEEDBACK_TRIGGER = 'engagement_card' as const
@@ -245,15 +251,37 @@ export interface DemoFeedbackSessionState {
 }
 
 export type DemoFeedbackPromptOutcome = 'dismissed' | 'submitted'
+export type DemoFeedbackStoredPromptOutcome = 'shown' | DemoFeedbackPromptOutcome
+export type DemoFeedbackCooldownPolicy =
+  | 'first_dismissal_1d'
+  | 'second_dismissal_7d'
+  | 'repeated_dismissal_30d'
+  | 'submitted_90d'
 
 export interface DemoFeedbackCooldownEntry {
-  promptedAt: number
-  outcome: DemoFeedbackPromptOutcome
+  lastPromptedAt: number
+  lastOutcome: DemoFeedbackPromptOutcome
+  dismissalCount: number
+  submittedAt?: number
+}
+
+export interface DemoFeedbackPromptDisplay {
+  demoId: DemoId
+  displayedAt: number
+  outcome: DemoFeedbackStoredPromptOutcome
 }
 
 export interface DemoFeedbackCooldownState {
   version: typeof DEMO_FEEDBACK_COOLDOWN_STATE_VERSION
   demos: Partial<Record<DemoId, DemoFeedbackCooldownEntry>>
+  prompts: DemoFeedbackPromptDisplay[]
+}
+
+export interface DemoFeedbackPromptFrequencyContext {
+  prompt_number_for_demo: number
+  dismissal_count_before_prompt: number
+  cooldown_policy: DemoFeedbackCooldownPolicy
+  is_returning_prompt: boolean
 }
 
 export interface DemoFeedbackSessionContext {
@@ -351,6 +379,10 @@ export interface DemoFeedbackAnalyticsProperties {
   traffic_source: string
   landing_page: string
   anonymous_session_id: string
+  prompt_number_for_demo?: number
+  dismissal_count_before_prompt?: number
+  cooldown_policy?: DemoFeedbackCooldownPolicy
+  is_returning_prompt?: boolean
 }
 
 const knownDemoIds = new Set<DemoId>(Object.values(PRODUCT_CATALOG.demos).map(({ id }) => id))
@@ -524,10 +556,12 @@ export const shouldRestoreDemoFeedbackCard = (
   && state.shown
   && !state.dismissed
   && !state.submitted
+  && !state.ctaSuppressed
 
 export const createInitialDemoFeedbackCooldownState = (): DemoFeedbackCooldownState => ({
   version: DEMO_FEEDBACK_COOLDOWN_STATE_VERSION,
   demos: {},
+  prompts: [],
 })
 
 export const parseDemoFeedbackCooldownState = (raw: string | null): DemoFeedbackCooldownState => {
@@ -536,24 +570,67 @@ export const parseDemoFeedbackCooldownState = (raw: string | null): DemoFeedback
 
   try {
     const candidate = JSON.parse(raw) as unknown
-    if (!isRecord(candidate) || candidate.version !== DEMO_FEEDBACK_COOLDOWN_STATE_VERSION) {
-      return initial
-    }
+    if (!isRecord(candidate) || (candidate.version !== 1 && candidate.version !== 2)) return initial
 
     const demos: DemoFeedbackCooldownState['demos'] = {}
+    const prompts: DemoFeedbackPromptDisplay[] = []
     if (isRecord(candidate.demos)) {
       for (const [demoId, rawEntry] of Object.entries(candidate.demos)) {
         if (!knownDemoIds.has(demoId as DemoId) || !isRecord(rawEntry)) continue
-        const promptedAt = finiteNumber(rawEntry.promptedAt, -1)
-        const outcome = rawEntry.outcome
+        if (candidate.version === 1) {
+          const promptedAt = finiteNumber(rawEntry.promptedAt, -1)
+          const outcome = rawEntry.outcome
+          if (promptedAt < 0 || (outcome !== 'dismissed' && outcome !== 'submitted')) continue
+          demos[demoId as DemoId] = {
+            lastPromptedAt: promptedAt,
+            lastOutcome: outcome,
+            dismissalCount: outcome === 'dismissed' ? 1 : 0,
+            ...(outcome === 'submitted' ? { submittedAt: promptedAt } : {}),
+          }
+          prompts.push({ demoId: demoId as DemoId, displayedAt: promptedAt, outcome })
+          continue
+        }
+
+        const lastPromptedAt = finiteNumber(rawEntry.lastPromptedAt, -1)
+        const lastOutcome = rawEntry.lastOutcome
+        const dismissalCount = finiteInteger(rawEntry.dismissalCount, -1)
+        const submittedAt = finiteNumber(rawEntry.submittedAt, -1)
         if (
-          promptedAt < 0
-          || (outcome !== 'dismissed' && outcome !== 'submitted')
+          lastPromptedAt < 0
+          || dismissalCount < 0
+          || (lastOutcome !== 'dismissed' && lastOutcome !== 'submitted')
+          || (lastOutcome === 'dismissed' && dismissalCount < 1)
         ) continue
-        demos[demoId as DemoId] = { promptedAt, outcome }
+        demos[demoId as DemoId] = {
+          lastPromptedAt,
+          lastOutcome,
+          dismissalCount,
+          ...(submittedAt >= 0 ? { submittedAt } : {}),
+        }
       }
     }
-    return { version: DEMO_FEEDBACK_COOLDOWN_STATE_VERSION, demos }
+
+    if (candidate.version === 2 && Array.isArray(candidate.prompts)) {
+      const seen = new Set<string>()
+      for (const rawPrompt of candidate.prompts) {
+        if (!isRecord(rawPrompt) || !knownDemoIds.has(rawPrompt.demoId as DemoId)) continue
+        const displayedAt = finiteNumber(rawPrompt.displayedAt, -1)
+        const outcome = rawPrompt.outcome
+        if (
+          displayedAt < 0
+          || (outcome !== 'shown' && outcome !== 'dismissed' && outcome !== 'submitted')
+        ) continue
+        const key = `${rawPrompt.demoId}:${displayedAt}`
+        if (seen.has(key)) continue
+        seen.add(key)
+        prompts.push({ demoId: rawPrompt.demoId as DemoId, displayedAt, outcome })
+      }
+    }
+    return {
+      version: DEMO_FEEDBACK_COOLDOWN_STATE_VERSION,
+      demos,
+      prompts: prompts.sort((left, right) => left.displayedAt - right.displayedAt).slice(-100),
+    }
   } catch {
     return initial
   }
@@ -643,10 +720,33 @@ export const isDemoFeedbackInCooldown = (
   demoId: DemoId,
   at: number,
 ): boolean => {
-  const promptedAt = cooldownState.demos[demoId]?.promptedAt
-  return promptedAt !== undefined
-    && (at < promptedAt || at - promptedAt < DEMO_FEEDBACK_DEMO_COOLDOWN_MS)
+  const allowedAt = getNextDemoFeedbackAllowedAt(cooldownState.demos[demoId])
+  return allowedAt !== undefined && at < allowedAt
 }
+
+export const getDemoFeedbackCooldownDuration = (
+  entry: DemoFeedbackCooldownEntry | undefined,
+): number => {
+  if (!entry) return 0
+  if (entry.lastOutcome === 'submitted') return DEMO_FEEDBACK_SUBMITTED_COOLDOWN_MS
+  if (entry.dismissalCount <= 1) return DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS
+  if (entry.dismissalCount === 2) return DEMO_FEEDBACK_SECOND_DISMISSAL_COOLDOWN_MS
+  return DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS
+}
+
+export const getNextDemoFeedbackAllowedAt = (
+  entry: DemoFeedbackCooldownEntry | undefined,
+): number | undefined => entry
+  ? (entry.lastOutcome === 'submitted' ? entry.submittedAt ?? entry.lastPromptedAt : entry.lastPromptedAt)
+    + getDemoFeedbackCooldownDuration(entry)
+  : undefined
+
+export const isDemoFeedbackGlobalLimitReached = (
+  state: DemoFeedbackCooldownState,
+  at: number,
+): boolean => state.prompts.filter(({ displayedAt }) =>
+  at < displayedAt || at - displayedAt < DEMO_FEEDBACK_GLOBAL_WINDOW_MS).length
+  >= DEMO_FEEDBACK_GLOBAL_MAX_PROMPTS
 
 export const canRequestDemoFeedback = (
   state: DemoFeedbackSessionState,
@@ -663,6 +763,7 @@ export const canRequestDemoFeedback = (
     && !state.promptedDemoIds.includes(demoId)
     && !spacingActive
     && !(options.cooldownState && isDemoFeedbackInCooldown(options.cooldownState, demoId, at))
+    && !(options.cooldownState && isDemoFeedbackGlobalLimitReached(options.cooldownState, at))
 }
 
 export const evaluateDemoFeedbackEligibility = (
@@ -716,18 +817,107 @@ export const markDemoFeedbackShown = (
   cardResponse: undefined,
 })
 
-export const markDemoFeedbackCooldown = (
+export const recordDemoFeedbackPromptDisplay = (
+  state: DemoFeedbackCooldownState,
+  demoId: DemoId,
+  displayedAt: number,
+): DemoFeedbackCooldownState => {
+  const normalizedAt = finiteNumber(displayedAt)
+  if (state.prompts.some((prompt) => prompt.demoId === demoId && prompt.displayedAt === normalizedAt)) {
+    return state
+  }
+  const prompt: DemoFeedbackPromptDisplay = { demoId, displayedAt: normalizedAt, outcome: 'shown' }
+  return {
+    ...state,
+    prompts: [...state.prompts, prompt]
+      .sort((left, right) => left.displayedAt - right.displayedAt)
+      .slice(-100),
+  }
+}
+
+export const recordDemoFeedbackOutcome = (
   state: DemoFeedbackCooldownState,
   demoId: DemoId,
   outcome: DemoFeedbackPromptOutcome,
   promptedAt: number,
-): DemoFeedbackCooldownState => ({
-  ...state,
-  demos: {
-    ...state.demos,
-    [demoId]: { promptedAt: finiteNumber(promptedAt), outcome },
-  },
-})
+): DemoFeedbackCooldownState => {
+  const normalizedAt = finiteNumber(promptedAt)
+  const promptIndex = state.prompts.findIndex((prompt) =>
+    prompt.demoId === demoId && prompt.displayedAt === normalizedAt)
+  if (promptIndex < 0 || state.prompts[promptIndex]?.outcome !== 'shown') return state
+
+  const previous = state.demos[demoId]
+  const prompts = state.prompts.map((prompt, index): DemoFeedbackPromptDisplay =>
+    index === promptIndex ? { ...prompt, outcome } : prompt)
+  return {
+    ...state,
+    demos: {
+      ...state.demos,
+      [demoId]: {
+        lastPromptedAt: normalizedAt,
+        lastOutcome: outcome,
+        dismissalCount: (previous?.dismissalCount || 0) + (outcome === 'dismissed' ? 1 : 0),
+        ...(outcome === 'submitted'
+          ? { submittedAt: normalizedAt }
+          : previous?.submittedAt !== undefined ? { submittedAt: previous.submittedAt } : {}),
+      },
+    },
+    prompts,
+  }
+}
+
+export const getDemoPromptNumber = (
+  state: DemoFeedbackCooldownState,
+  demoId: DemoId,
+  promptedAt?: number,
+): number => {
+  const demoPrompts = state.prompts.filter((prompt) => prompt.demoId === demoId)
+  const currentIndex = promptedAt === undefined
+    ? -1
+    : demoPrompts.findIndex((prompt) => prompt.displayedAt === promptedAt)
+  const currentPrompt = currentIndex >= 0 ? demoPrompts[currentIndex] : undefined
+  const persistedDismissalsBeforePrompt = Math.max(
+    0,
+    (state.demos[demoId]?.dismissalCount || 0) - (currentPrompt?.outcome === 'dismissed' ? 1 : 0),
+  )
+  const historyPromptNumber = currentIndex >= 0 ? currentIndex + 1 : demoPrompts.length + 1
+  return Math.max(historyPromptNumber, persistedDismissalsBeforePrompt + 1)
+}
+
+export const getDemoFeedbackPromptFrequencyContext = (
+  state: DemoFeedbackCooldownState,
+  demoId: DemoId,
+  promptedAt?: number,
+  outcome?: DemoFeedbackPromptOutcome,
+): DemoFeedbackPromptFrequencyContext => {
+  const promptNumber = getDemoPromptNumber(state, demoId, promptedAt)
+  const dismissalCount = state.prompts.filter((prompt) =>
+    prompt.demoId === demoId
+    && prompt.outcome === 'dismissed'
+    && (promptedAt === undefined || prompt.displayedAt < promptedAt)).length
+  const persistedDismissals = state.demos[demoId]?.dismissalCount || 0
+  const currentPrompt = promptedAt === undefined
+    ? undefined
+    : state.prompts.find((prompt) => prompt.demoId === demoId && prompt.displayedAt === promptedAt)
+  const dismissalCountBeforePrompt = Math.max(
+    dismissalCount,
+    persistedDismissals - (currentPrompt?.outcome === 'dismissed' ? 1 : 0),
+  )
+  const cooldownPolicy: DemoFeedbackCooldownPolicy = outcome === 'submitted'
+    ? 'submitted_90d'
+    : dismissalCountBeforePrompt === 0
+      ? 'first_dismissal_1d'
+      : dismissalCountBeforePrompt === 1
+        ? 'second_dismissal_7d'
+        : 'repeated_dismissal_30d'
+
+  return {
+    prompt_number_for_demo: promptNumber,
+    dismissal_count_before_prompt: dismissalCountBeforePrompt,
+    cooldown_policy: cooldownPolicy,
+    is_returning_prompt: promptNumber > 1,
+  }
+}
 
 export const setDemoFeedbackCardResponse = (
   state: DemoFeedbackSessionState,

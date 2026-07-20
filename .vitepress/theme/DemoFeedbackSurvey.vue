@@ -91,15 +91,17 @@ import {
   dismissDemoFeedback,
   evaluateDemoFeedbackEligibility,
   getDemoByPath,
+  getDemoFeedbackPromptFrequencyContext,
   getDemoVisibleTime,
   getDemosViewedInSession,
   getPrimaryAnswerForCardResponse,
   isDemoFeedbackConversionCta,
-  markDemoFeedbackCooldown,
   markDemoFeedbackShown,
   parseDemoFeedbackCooldownState,
   parseDemoFeedbackSession,
   recordDemoFeedbackAnalyticsKey,
+  recordDemoFeedbackOutcome,
+  recordDemoFeedbackPromptDisplay,
   recordDemoInteraction,
   recordDemoView,
   serializeDemoFeedbackCooldownState,
@@ -214,20 +216,31 @@ const analyticsProperties = (
   primaryAnswer?: DemoFeedbackPrimaryAnswer,
   answers?: DemoFeedbackAnswers,
   nextAction?: DemoFeedbackAction['code'],
+  outcome?: 'dismissed' | 'submitted',
 ): DemoFeedbackAnalyticsProperties | null => {
   const demo = feedbackDemo.value
   if (!demo) return null
 
   if (primaryAnswer) {
-    return createDemoFeedbackAnalyticsProperties(createDemoFeedbackPayload({
-      demo,
-      state: feedbackState,
-      primaryAnswer,
-      ...(answers ? { answers } : {}),
-      ...(nextAction ? { nextAction } : {}),
-      activeDemoId,
-      activeElapsedMs: activeElapsedMs(),
-    }))
+    return {
+      ...createDemoFeedbackAnalyticsProperties(createDemoFeedbackPayload({
+        demo,
+        state: feedbackState,
+        primaryAnswer,
+        ...(answers ? { answers } : {}),
+        ...(nextAction ? { nextAction } : {}),
+        activeDemoId,
+        activeElapsedMs: activeElapsedMs(),
+      })),
+      ...getDemoFeedbackPromptFrequencyContext(
+        feedbackCooldownState,
+        demo.id,
+        feedbackState.feedbackDemoId === demo.id && feedbackState.shown
+          ? feedbackState.lastPromptedAt
+          : undefined,
+        outcome,
+      ),
+    }
   }
 
   const engagement = feedbackState.demoEngagement[demo.id]
@@ -245,6 +258,14 @@ const analyticsProperties = (
     traffic_source: feedbackState.trafficSource,
     landing_page: feedbackState.landingPage,
     anonymous_session_id: feedbackState.anonymousSessionId,
+    ...getDemoFeedbackPromptFrequencyContext(
+      feedbackCooldownState,
+      demo.id,
+      feedbackState.feedbackDemoId === demo.id && feedbackState.shown
+        ? feedbackState.lastPromptedAt
+        : undefined,
+      outcome,
+    ),
   }
 }
 
@@ -306,12 +327,13 @@ const flushActiveTime = (restart = false) => {
 
 const recordPromptOutcome = (outcome: 'dismissed' | 'submitted') => {
   const demoId = feedbackDemo.value?.id
-  if (!demoId) return
-  feedbackCooldownState = markDemoFeedbackCooldown(
+  const promptedAt = feedbackState.lastPromptedAt
+  if (!demoId || promptedAt === undefined) return
+  feedbackCooldownState = recordDemoFeedbackOutcome(
     feedbackCooldownState,
     demoId,
     outcome,
-    Date.now(),
+    promptedAt,
   )
   persistCooldownState()
 }
@@ -327,8 +349,9 @@ const showFeedbackCard = () => {
   if (!demo || demo.id !== activeDemoId) return
 
   feedbackDemo.value = demo
+  feedbackCooldownState = recordDemoFeedbackPromptDisplay(feedbackCooldownState, demo.id, now)
   feedbackState = markDemoFeedbackShown(feedbackState, demo.id, now)
-  if (!persistState()) return
+  if (!persistState() || !persistCooldownState()) return
   cardVisible.value = true
   pushAnalytics('demo_feedback_shown', 'shown', analyticsProperties())
 }
@@ -352,7 +375,7 @@ const evaluateEligibility = () => {
 
 const scheduleEligibilityCheck = () => {
   if (eligibilityTimer !== undefined) window.clearTimeout(eligibilityTimer)
-  if (!isActive || !activeDemoId) return
+  if (!isActive || !activeDemoId || document.visibilityState !== 'visible') return
 
   const now = Date.now()
   const nextAllowedAt = Math.max(now, (feedbackState.lastPromptedAt || 0) + DEMO_FEEDBACK_PROMPT_SPACING_MS)
@@ -436,7 +459,13 @@ const handleDocumentClick = (event: MouseEvent) => {
       feedbackState = suppressDemoFeedbackForCta(feedbackState)
       persistState()
       cardVisible.value = false
-      if (flowVisible.value) closeFlow('close')
+      if (flowVisible.value) {
+        activeAbortController?.abort()
+        activeAbortController = null
+        flowVisible.value = false
+        submissionState.value = 'idle'
+        errorMessage.value = ''
+      }
       scheduleEligibilityCheck()
       return
     }
@@ -456,6 +485,10 @@ const handleDocumentChange = (event: Event) => {
 
 const handleVisibilityChange = () => {
   if (document.visibilityState === 'hidden') {
+    if (eligibilityTimer !== undefined) {
+      window.clearTimeout(eligibilityTimer)
+      eligibilityTimer = undefined
+    }
     flushActiveTime(false)
     return
   }
@@ -477,6 +510,14 @@ const activateRoute = async (path: string) => {
     scanForGrids()
     if (shouldRestoreDemoFeedbackCard(feedbackState, activeDemoId)) {
       feedbackDemo.value = demo || null
+      if (feedbackState.lastPromptedAt !== undefined) {
+        feedbackCooldownState = recordDemoFeedbackPromptDisplay(
+          feedbackCooldownState,
+          activeDemoId,
+          feedbackState.lastPromptedAt,
+        )
+        persistCooldownState()
+      }
       cardVisible.value = true
     } else {
       evaluateEligibility()
@@ -491,7 +532,9 @@ const dismissCard = () => {
   feedbackState = dismissDemoFeedback(feedbackState)
   recordPromptOutcome('dismissed')
   persistState()
-  pushAnalytics('demo_feedback_closed', 'closed', analyticsProperties(), { close_reason: 'card_dismissed' })
+  pushAnalytics('demo_feedback_closed', 'closed', analyticsProperties(undefined, undefined, undefined, 'dismissed'), {
+    close_reason: 'card_dismissed',
+  })
   scheduleEligibilityCheck()
 }
 
@@ -542,7 +585,12 @@ const closeFlow = (reason: DemoFeedbackFlowCloseReason) => {
     }
   }
   persistState()
-  pushAnalytics('demo_feedback_closed', 'closed', analyticsProperties(feedbackState.primaryAnswer), {
+  pushAnalytics('demo_feedback_closed', 'closed', analyticsProperties(
+    feedbackState.primaryAnswer,
+    undefined,
+    undefined,
+    feedbackState.submitted ? 'submitted' : 'dismissed',
+  ), {
     close_reason: reason,
   })
   scheduleEligibilityCheck()
@@ -613,7 +661,7 @@ const submitDetailedAnswer = async ({
   pushAnalytics(
     'demo_feedback_detail_answer',
     `detail:${primaryAnswer}`,
-    createDemoFeedbackAnalyticsProperties(payload),
+    analyticsProperties(primaryAnswer, answers, undefined, 'submitted'),
   )
 
   submissionState.value = 'submitting'
@@ -652,7 +700,12 @@ const completeWithoutDetails = ({
   persistState()
   sendPayloadInBackground(payload)
   flowVisible.value = false
-  pushAnalytics('demo_feedback_closed', 'closed', createDemoFeedbackAnalyticsProperties(payload), {
+  pushAnalytics('demo_feedback_closed', 'closed', analyticsProperties(
+    primaryAnswer,
+    answers,
+    undefined,
+    'submitted',
+  ), {
     close_reason: 'completed',
   })
   scheduleEligibilityCheck()
@@ -680,7 +733,7 @@ const takeNextAction = ({
   pushAnalytics(
     'demo_feedback_next_action',
     `next:${action.code}`,
-    createDemoFeedbackAnalyticsProperties(payload),
+    analyticsProperties(primaryAnswer, answers, action.code, 'submitted'),
   )
   if (!feedbackState.submitted) {
     feedbackState = submitDemoFeedback(feedbackState)
@@ -689,7 +742,12 @@ const takeNextAction = ({
     sendPayloadInBackground(payload)
   }
   flowVisible.value = false
-  pushAnalytics('demo_feedback_closed', 'closed', createDemoFeedbackAnalyticsProperties(payload), {
+  pushAnalytics('demo_feedback_closed', 'closed', analyticsProperties(
+    primaryAnswer,
+    answers,
+    action.code,
+    'submitted',
+  ), {
     close_reason: 'next_action',
   })
   scheduleEligibilityCheck()

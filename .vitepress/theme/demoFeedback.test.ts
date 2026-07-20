@@ -6,14 +6,19 @@ import {
   DEMO_FEEDBACK_CARD_OPTIONS,
   DEMO_FEEDBACK_COPY,
   DEMO_FEEDBACK_DEMO_CONFIG,
-  DEMO_FEEDBACK_DEMO_COOLDOWN_MS,
   DEMO_FEEDBACK_ELEMENT_IDS,
+  DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS,
+  DEMO_FEEDBACK_GLOBAL_MAX_PROMPTS,
+  DEMO_FEEDBACK_GLOBAL_WINDOW_MS,
   DEMO_FEEDBACK_MAX_PROMPTS_PER_SESSION,
   DEMO_FEEDBACK_MIN_TIME_MS,
   DEMO_FEEDBACK_NOT_FIT_OPTIONS,
   DEMO_FEEDBACK_NOT_FIT_FOLLOW_UPS,
   DEMO_FEEDBACK_PROMPT_SPACING_MS,
+  DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS,
   DEMO_FEEDBACK_ROW_VOLUME_OPTIONS,
+  DEMO_FEEDBACK_SECOND_DISMISSAL_COOLDOWN_MS,
+  DEMO_FEEDBACK_SUBMITTED_COOLDOWN_MS,
   addDemoVisibleTime,
   canRequestDemoFeedback,
   createDemoFeedbackAnalyticsProperties,
@@ -27,16 +32,19 @@ import {
   getBranchForPrimaryAnswer,
   getDemoByPath,
   getDemoFeedbackReadyBranch,
+  getDemoFeedbackPromptFrequencyContext,
   getDemoFeedbackTextLengthBucket,
   getDemosViewedInSession,
   getPrimaryAnswerForCardResponse,
   isDemoFeedbackConversionCta,
-  markDemoFeedbackCooldown,
+  isDemoFeedbackInCooldown,
   markDemoFeedbackShown,
   normalizeDemoPath,
   parseDemoFeedbackCooldownState,
   parseDemoFeedbackSession,
   recordDemoFeedbackAnalyticsKey,
+  recordDemoFeedbackOutcome,
+  recordDemoFeedbackPromptDisplay,
   recordDemoInteraction,
   recordDemoView,
   serializeDemoFeedbackCooldownState,
@@ -94,17 +102,41 @@ test('parses session state safely without ever persisting answer text', () => {
   )
 })
 
-test('makes each demo eligible immediately without requiring an interaction', () => {
+test('requires exactly 30 seconds of visible demo time without an interaction', () => {
   const state = recordDemoView(initial(), 'gantt', NOW)
 
-  assert.equal(DEMO_FEEDBACK_MIN_TIME_MS, 0)
-  const result = evaluateDemoFeedbackEligibility(state, {
+  assert.equal(DEMO_FEEDBACK_MIN_TIME_MS, 30_000)
+  const tooEarly = evaluateDemoFeedbackEligibility(state, {
     activeDemoId: 'gantt',
-    at: NOW,
+    activeElapsedMs: 29_999,
+    at: NOW + 29_999,
   })
-  assert.equal(result.becameEligible, true)
-  assert.deepEqual(result.state.eligibleDemoIds, ['gantt'])
-  assert.deepEqual(getDemosViewedInSession(result.state), ['gantt'])
+  assert.equal(tooEarly.becameEligible, false)
+
+  const eligible = evaluateDemoFeedbackEligibility(state, {
+    activeDemoId: 'gantt',
+    activeElapsedMs: 30_000,
+    at: NOW + 30_000,
+  })
+  assert.equal(eligible.becameEligible, true)
+  assert.deepEqual(eligible.state.eligibleDemoIds, ['gantt'])
+  assert.equal(eligible.state.demoEngagement.gantt?.interactions, 0)
+})
+
+test('does not count hidden-tab time toward eligibility', () => {
+  let state = recordDemoView(initial(), 'pivot', NOW)
+  state = addDemoVisibleTime(state, 'pivot', 20_000)
+  // Ten seconds hidden: no visible-time transition is recorded.
+  assert.equal(evaluateDemoFeedbackEligibility(state, {
+    activeDemoId: 'pivot',
+    at: NOW + 30_000,
+  }).becameEligible, false)
+
+  state = addDemoVisibleTime(state, 'pivot', 10_000)
+  assert.equal(evaluateDemoFeedbackEligibility(state, {
+    activeDemoId: 'pivot',
+    at: NOW + 40_000,
+  }).becameEligible, true)
 })
 
 test('deduplicates one interaction burst and remembers data manipulation', () => {
@@ -160,36 +192,145 @@ test('restores an unanswered card after reload until it is dismissed or submitte
   assert.equal(shouldRestoreDemoFeedbackCard(submitDemoFeedback(reloaded), 'pivot'), false)
 })
 
-test('stores only per-demo cooldown timestamps and outcomes for 30 days', () => {
-  assert.equal(DEMO_FEEDBACK_DEMO_COOLDOWN_MS, 30 * 24 * 60 * 60 * 1_000)
-  const cooldown = markDemoFeedbackCooldown(
-    createInitialDemoFeedbackCooldownState(),
-    'pivot',
-    'dismissed',
-    NOW,
-  )
-  const parsed = parseDemoFeedbackCooldownState(serializeDemoFeedbackCooldownState(cooldown))
+const displayAndRecord = (
+  state: ReturnType<typeof createInitialDemoFeedbackCooldownState>,
+  demoId: 'pivot' | 'gantt' | 'ecommerce',
+  outcome: 'dismissed' | 'submitted',
+  at: number,
+) => recordDemoFeedbackOutcome(recordDemoFeedbackPromptDisplay(state, demoId, at), demoId, outcome, at)
 
-  assert.deepEqual(parsed, cooldown)
-  assert.equal(parsed.demos.pivot?.outcome, 'dismissed')
+test('uses progressive per-demo dismissal cooldowns', () => {
+  assert.equal(DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS, 24 * 60 * 60 * 1_000)
+  assert.equal(DEMO_FEEDBACK_SECOND_DISMISSAL_COOLDOWN_MS, 7 * 24 * 60 * 60 * 1_000)
+  assert.equal(DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS, 30 * 24 * 60 * 60 * 1_000)
+
+  let cooldown = displayAndRecord(createInitialDemoFeedbackCooldownState(), 'pivot', 'dismissed', NOW)
+  assert.equal(cooldown.demos.pivot?.dismissalCount, 1)
+  assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS - 1), true)
+  assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS), false)
   assert.equal(canRequestDemoFeedback(initial(), 'pivot', {
-    at: NOW + DEMO_FEEDBACK_DEMO_COOLDOWN_MS - 1,
-    cooldownState: parsed,
+    at: NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS,
+    cooldownState: cooldown,
+  }), true, 'a fresh session can prompt again at the first-dismissal boundary')
+
+  const secondAt = NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS
+  cooldown = displayAndRecord(cooldown, 'pivot', 'dismissed', secondAt)
+  assert.equal(cooldown.demos.pivot?.dismissalCount, 2)
+  assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', secondAt + DEMO_FEEDBACK_SECOND_DISMISSAL_COOLDOWN_MS - 1), true)
+  assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', secondAt + DEMO_FEEDBACK_SECOND_DISMISSAL_COOLDOWN_MS), false)
+
+  const thirdAt = secondAt + DEMO_FEEDBACK_SECOND_DISMISSAL_COOLDOWN_MS
+  cooldown = displayAndRecord(cooldown, 'pivot', 'dismissed', thirdAt)
+  assert.equal(cooldown.demos.pivot?.dismissalCount, 3)
+  assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', thirdAt + DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS - 1), true)
+  assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', thirdAt + DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS), false)
+
+  const fourthAt = thirdAt + DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS
+  cooldown = displayAndRecord(cooldown, 'pivot', 'dismissed', fourthAt)
+  assert.equal(cooldown.demos.pivot?.dismissalCount, 4)
+  assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', fourthAt + DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS - 1), true)
+})
+
+test('uses a 90-day submission cooldown without incrementing dismissals', () => {
+  assert.equal(DEMO_FEEDBACK_SUBMITTED_COOLDOWN_MS, 90 * 24 * 60 * 60 * 1_000)
+  let cooldown = displayAndRecord(createInitialDemoFeedbackCooldownState(), 'gantt', 'dismissed', NOW)
+  const submittedAt = NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS
+  cooldown = displayAndRecord(cooldown, 'gantt', 'submitted', submittedAt)
+
+  assert.equal(cooldown.demos.gantt?.dismissalCount, 1)
+  assert.equal(cooldown.demos.gantt?.submittedAt, submittedAt)
+  assert.equal(isDemoFeedbackInCooldown(cooldown, 'gantt', submittedAt + DEMO_FEEDBACK_SUBMITTED_COOLDOWN_MS - 1), true)
+  assert.equal(isDemoFeedbackInCooldown(cooldown, 'gantt', submittedAt + DEMO_FEEDBACK_SUBMITTED_COOLDOWN_MS), false)
+})
+
+test('keeps cooldown histories independent by demo with a rolling global ceiling', () => {
+  assert.equal(DEMO_FEEDBACK_GLOBAL_MAX_PROMPTS, 3)
+  assert.equal(DEMO_FEEDBACK_GLOBAL_WINDOW_MS, 30 * 24 * 60 * 60 * 1_000)
+  let cooldown = displayAndRecord(createInitialDemoFeedbackCooldownState(), 'pivot', 'dismissed', NOW)
+
+  assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', NOW + 1), true)
+  assert.equal(isDemoFeedbackInCooldown(cooldown, 'gantt', NOW + 1), false)
+  cooldown = displayAndRecord(cooldown, 'gantt', 'dismissed', NOW + 1)
+  cooldown = displayAndRecord(cooldown, 'ecommerce', 'dismissed', NOW + 2)
+  assert.equal(canRequestDemoFeedback(initial(), 'grid-at-scale', {
+    at: NOW + 3,
+    cooldownState: cooldown,
   }), false)
-  assert.equal(canRequestDemoFeedback(initial(), 'pivot', {
-    at: NOW + DEMO_FEEDBACK_DEMO_COOLDOWN_MS,
-    cooldownState: parsed,
+  assert.equal(canRequestDemoFeedback(initial(), 'grid-at-scale', {
+    at: NOW + DEMO_FEEDBACK_GLOBAL_WINDOW_MS,
+    cooldownState: cooldown,
   }), true)
-  assert.deepEqual(
-    parseDemoFeedbackCooldownState(JSON.stringify({
-      version: 1,
-      demos: { pivot: { promptedAt: NOW, outcome: 'shown' } },
-    })),
-    createInitialDemoFeedbackCooldownState(),
-    'legacy shown-only entries must not suppress an unanswered survey',
+})
+
+test('restoration and duplicate close handling do not create another impression or dismissal', () => {
+  let cooldown = recordDemoFeedbackPromptDisplay(createInitialDemoFeedbackCooldownState(), 'pivot', NOW)
+  cooldown = parseDemoFeedbackCooldownState(serializeDemoFeedbackCooldownState(cooldown))
+  cooldown = recordDemoFeedbackPromptDisplay(cooldown, 'pivot', NOW)
+  assert.equal(cooldown.prompts.length, 1)
+
+  const closed = recordDemoFeedbackOutcome(cooldown, 'pivot', 'dismissed', NOW)
+  const duplicate = recordDemoFeedbackOutcome(closed, 'pivot', 'dismissed', NOW)
+  assert.equal(duplicate.demos.pivot?.dismissalCount, 1)
+  assert.equal(duplicate.prompts.length, 1)
+  assert.equal(duplicate.prompts[0]?.outcome, 'dismissed')
+
+  const shownAnalytics = recordDemoFeedbackAnalyticsKey(initial(), 'pivot:shown')
+  const reloadedSession = parseDemoFeedbackSession(
+    serializeDemoFeedbackSession(shownAnalytics.state),
+    context,
   )
+  assert.equal(recordDemoFeedbackAnalyticsKey(reloadedSession, 'pivot:shown').shouldEmit, false)
+})
+
+test('migrates valid version-1 cooldowns conservatively and ignores malformed storage', () => {
+  const dismissed = parseDemoFeedbackCooldownState(JSON.stringify({
+    version: 1,
+    demos: { pivot: { promptedAt: NOW, outcome: 'dismissed' } },
+  }))
+  assert.equal(dismissed.version, 2)
+  assert.equal(dismissed.demos.pivot?.dismissalCount, 1)
+  assert.equal(isDemoFeedbackInCooldown(dismissed, 'pivot', NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS - 1), true)
+
+  const submitted = parseDemoFeedbackCooldownState(JSON.stringify({
+    version: 1,
+    demos: { gantt: { promptedAt: NOW, outcome: 'submitted' } },
+  }))
+  assert.equal(submitted.demos.gantt?.submittedAt, NOW)
+  assert.equal(submitted.demos.gantt?.dismissalCount, 0)
+  assert.equal(isDemoFeedbackInCooldown(submitted, 'gantt', NOW + DEMO_FEEDBACK_SUBMITTED_COOLDOWN_MS - 1), true)
+
   assert.deepEqual(parseDemoFeedbackCooldownState('{broken'), createInitialDemoFeedbackCooldownState())
-  assert.equal('freeText' in parsed, false)
+  assert.deepEqual(parseDemoFeedbackCooldownState(JSON.stringify({ version: 2, demos: 'bad', prompts: ['bad'] })), createInitialDemoFeedbackCooldownState())
+})
+
+test('cooldown persistence contains no answer content and exposes frequency analytics context', () => {
+  let cooldown = displayAndRecord(createInitialDemoFeedbackCooldownState(), 'pivot', 'dismissed', NOW)
+  const nextAt = NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS
+  cooldown = recordDemoFeedbackPromptDisplay(cooldown, 'pivot', nextAt)
+  const serialized = serializeDemoFeedbackCooldownState(cooldown)
+  assert.equal(serialized.includes('freeText'), false)
+  assert.equal(serialized.includes('answer'), false)
+  assert.deepEqual(getDemoFeedbackPromptFrequencyContext(cooldown, 'pivot', nextAt), {
+    prompt_number_for_demo: 2,
+    dismissal_count_before_prompt: 1,
+    cooldown_policy: 'second_dismissal_7d',
+    is_returning_prompt: true,
+  })
+  assert.equal(
+    getDemoFeedbackPromptFrequencyContext(cooldown, 'pivot', nextAt, 'submitted').cooldown_policy,
+    'submitted_90d',
+  )
+})
+
+test('CTA suppression stays in session state and creates no local cooldown outcome', () => {
+  const session = suppressDemoFeedbackForCta(initial())
+  const cooldown = createInitialDemoFeedbackCooldownState()
+  assert.equal(canRequestDemoFeedback(session, 'pivot', { at: NOW, cooldownState: cooldown }), false)
+  assert.deepEqual(cooldown, createInitialDemoFeedbackCooldownState())
+  assert.equal(shouldRestoreDemoFeedbackCard({
+    ...markDemoFeedbackShown(initial(), 'pivot', NOW),
+    ctaSuppressed: true,
+  }, 'pivot'), false)
 })
 
 test('keeps typed verification choices centralized for all catalog demos', () => {
