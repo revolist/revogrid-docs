@@ -4,7 +4,7 @@ description: Evaluate RevoGrid Pro with a 30-day private npm trial, public setup
 sidebar: false
 aside: false
 editLink: false
-footer: false
+footer: true
 prev: false
 next: false
 layout: page

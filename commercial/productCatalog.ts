@@ -675,7 +675,7 @@ export const getPricingEvaluationFacts = () => {
         heading: 'Evaluate RevoGrid Pro',
         description: 'Test Pro functionality in your own project before purchasing. Access is provided on request.',
         features: [
-          `${trialDays}-day private npm access after approval`,
+          `${trialDays}-day private npm access`,
           'Pro plugins and production-ready examples',
           'Pivot, Gantt, Scheduler, and Event Scheduler',
           'Public GitHub repository is setup boilerplate only',

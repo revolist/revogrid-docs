@@ -1,49 +1,73 @@
 <template>
   <div class="trial-request-form">
     <template v-if="!isSent">
+      <div v-if="eyebrow || helper" class="form-meta">
+        <p v-if="eyebrow" class="form-eyebrow">{{ eyebrow }}</p>
+        <span v-if="helper" class="form-helper">{{ helper }}</span>
+      </div>
       <h2 v-if="title">{{ title }}</h2>
       <p v-if="subtitle" class="trial-request-form-subtitle">{{ subtitle }}</p>
 
-      <form @submit.prevent="handleSubmit">
+      <form
+        ref="formElement"
+        @focusin="handleFormStart"
+        @input.capture="handleFormStart"
+        @invalid.capture="handleInvalid"
+        @submit.prevent="handleSubmit"
+      >
         <div class="form-grid">
           <label class="form-field" for="trialFullName">
-            <span>Full Name <em>*</em></span>
+            <span>
+              {{ isTrialRequest ? 'First name' : 'Full Name' }}
+              <template v-if="!isTrialRequest"> <em>*</em></template>
+              <small v-else>(optional)</small>
+            </span>
             <input
               id="trialFullName"
               v-model.trim="form.fullName"
               type="text"
-              autocomplete="name"
-              required
+              :autocomplete="isTrialRequest ? 'given-name' : 'name'"
+              :placeholder="isTrialRequest ? 'Alex' : undefined"
+              :required="!isTrialRequest"
               :disabled="isSubmitting"
             />
           </label>
 
           <label class="form-field" for="trialCompanyName">
-            <span>Company Name <em>*</em></span>
+            <span>
+              {{ isTrialRequest ? 'Company name' : 'Company Name' }}
+              <template v-if="!isTrialRequest"> <em>*</em></template>
+              <small v-else>(optional)</small>
+            </span>
             <input
               id="trialCompanyName"
               v-model.trim="form.companyName"
               type="text"
               autocomplete="organization"
-              required
+              :placeholder="isTrialRequest ? 'Acme Inc.' : undefined"
+              :required="!isTrialRequest"
               :disabled="isSubmitting"
             />
           </label>
 
           <label class="form-field form-field-wide" for="trialBusinessEmail">
-            <span>Business Email <em>*</em></span>
+            <span>{{ isTrialRequest ? 'Email' : 'Business Email' }} <em>*</em></span>
             <input
               id="trialBusinessEmail"
               v-model.trim="form.businessEmail"
               type="email"
               autocomplete="email"
+              :placeholder="isTrialRequest ? 'alex@company.com' : undefined"
               required
               :disabled="isSubmitting"
             />
           </label>
 
           <label class="form-field form-field-wide" for="trialApplicationInfo">
-            <span>Tell us more about your application</span>
+            <span>
+              Tell us more about your application
+              <small v-if="isTrialRequest">(optional)</small>
+            </span>
             <textarea
               id="trialApplicationInfo"
               v-model.trim="form.applicationInfo"
@@ -72,7 +96,15 @@
         <div class="form-actions">
           <button class="submit-button" type="submit" :disabled="isSubmitting">
             <span>{{ isSubmitting ? 'Sending' : submitLabel }}</span>
-            <img v-if="isSubmitting" class="spinner" width="18" height="18" src="/spinner-solid.svg" alt="" />
+            <img
+              v-if="isSubmitting"
+              class="spinner"
+              width="18"
+              height="18"
+              src="/spinner-solid.svg"
+              alt=""
+            />
+            <FontAwesomeSvgIcon v-else class="submit-arrow" name="arrowDown" />
           </button>
         </div>
       </form>
@@ -88,10 +120,13 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import FontAwesomeSvgIcon from '../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
 import successIcon from '../.vitepress/theme/images/wcag.svg'
 
 const API_URL = import.meta.env.VITE_API_URL
 type RequestType = 'contact' | 'trial'
+type AnalyticsAction = 'started' | 'validation_error' | 'submitted' | 'submit_failed'
+type DataLayerWindow = Window & { dataLayer?: Array<Record<string, unknown>> }
 
 const requestLabels: Record<RequestType, string> = {
   contact: 'Contact request',
@@ -100,6 +135,8 @@ const requestLabels: Record<RequestType, string> = {
 
 const props = withDefaults(
   defineProps<{
+    eyebrow?: string
+    helper?: string
     title?: string
     subtitle?: string
     submitLabel?: string
@@ -108,13 +145,15 @@ const props = withDefaults(
     requestType?: RequestType
   }>(),
   {
+    eyebrow: '',
+    helper: '',
     title: '',
     subtitle: '',
     submitLabel: 'Request Pro Trial',
     successTitle: 'Thank you',
     successMessage: 'We will get back to you as soon as possible.',
     requestType: 'contact',
-  }
+  },
 )
 
 type TrialRequestPayload = {
@@ -128,9 +167,10 @@ type TrialRequestPayload = {
 }
 
 const emit = defineEmits<{
-  (e: 'submit', formData: TrialRequestPayload): void
+  (event: 'submit', formData: TrialRequestPayload): void
 }>()
 
+const formElement = ref<HTMLFormElement | null>(null)
 const form = ref({
   fullName: '',
   companyName: '',
@@ -142,18 +182,62 @@ const form = ref({
 const isSubmitting = ref(false)
 const isSent = ref(false)
 const errorMessage = ref('')
+const hasStarted = ref(false)
 
+const isTrialRequest = computed(() => props.requestType === 'trial')
 const isFormValid = computed(() => {
+  const hasRequiredName = isTrialRequest.value || Boolean(form.value.fullName)
+  const hasRequiredCompany = isTrialRequest.value || Boolean(form.value.companyName)
   return Boolean(
-    form.value.fullName &&
-      form.value.companyName &&
+    hasRequiredName &&
+      hasRequiredCompany &&
       form.value.businessEmail &&
-      form.value.consent
+      form.value.consent,
   )
 })
 
+const pushAnalytics = (
+  action: AnalyticsAction,
+  properties: Record<string, unknown> = {},
+) => {
+  if (typeof window === 'undefined') return
+  const analyticsWindow = window as DataLayerWindow
+  analyticsWindow.dataLayer ??= []
+  analyticsWindow.dataLayer.push({
+    event: `${props.requestType}_request_form_${action}`,
+    request_type: props.requestType,
+    ...properties,
+  })
+}
+
+const handleFormStart = () => {
+  if (hasStarted.value) return
+  hasStarted.value = true
+  pushAnalytics('started')
+}
+
+const fieldNames: Record<string, string> = {
+  trialFullName: 'name',
+  trialCompanyName: 'company',
+  trialBusinessEmail: 'email',
+  trialConsent: 'consent',
+}
+
+const handleInvalid = (event: Event) => {
+  handleFormStart()
+  const field = event.target instanceof HTMLInputElement
+    ? fieldNames[event.target.id] ?? 'unknown'
+    : 'unknown'
+  pushAnalytics('validation_error', { field })
+}
+
 const handleSubmit = async () => {
-  if (!isFormValid.value || isSubmitting.value) {
+  if (isSubmitting.value) return
+
+  handleFormStart()
+  if (!isFormValid.value) {
+    errorMessage.value = 'Please complete the required fields and give your consent.'
+    pushAnalytics('validation_error', { field: 'required_fields' })
     return
   }
 
@@ -179,9 +263,11 @@ const handleSubmit = async () => {
     }
 
     emit('submit', payload)
+    pushAnalytics('submitted')
     isSent.value = true
   } catch (error) {
     console.error('Error sending trial request:', error)
+    pushAnalytics('submit_failed')
     errorMessage.value = 'We could not send the request. Please try again or email contact@revolist.eu.'
   } finally {
     isSubmitting.value = false
@@ -191,29 +277,53 @@ const handleSubmit = async () => {
 
 <style lang="scss" scoped>
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
+  to {
     transform: rotate(360deg);
   }
 }
 
-.trial-request-form {
-  h2 {
-    margin: 0 0 0.5rem;
-    color: var(--vp-c-text-1);
-    font-size: 1.75rem;
-    line-height: 1.15;
-  }
+.form-meta {
+  display: flex;
+  min-height: 32px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-eyebrow {
+  margin: 0;
+  color: var(--vp-c-brand-1);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.form-helper {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--vp-c-brand-1), transparent 92%);
+  color: var(--vp-c-text-2);
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.45rem 0.75rem;
+}
+
+.trial-request-form h2 {
+  margin: 0;
+  color: var(--vp-c-text-1);
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
 }
 
 .trial-request-form-subtitle {
-  margin: 0 0 1.5rem;
+  margin: 0.85rem 0 2rem;
   color: var(--vp-c-text-2);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .form-grid {
@@ -224,50 +334,65 @@ const handleSubmit = async () => {
 
 .form-field {
   display: grid;
-  gap: 0.45rem;
-  color: var(--vp-c-text-2);
-  font-size: 0.9rem;
+  gap: 0.5rem;
+  color: var(--vp-c-text-1);
+  font-size: 0.85rem;
   font-weight: 600;
+}
 
-  em {
-    color: var(--vp-c-brand-1);
-    font-style: normal;
-  }
+.form-field em {
+  color: var(--vp-c-brand-1);
+  font-style: normal;
+}
 
-  input,
-  textarea {
-    width: 100%;
-    border: 1px solid var(--vp-c-divider);
-    border-radius: 8px;
-    background: var(--vp-c-bg);
-    color: var(--vp-c-text-1);
-    font: inherit;
-    transition:
-      border-color 0.2s ease,
-      box-shadow 0.2s ease;
+.form-field small {
+  color: var(--vp-c-text-3);
+  font-size: inherit;
+  font-weight: 400;
+}
 
-    &:focus {
-      border-color: var(--vp-c-brand-1);
-      outline: none;
-      box-shadow: 0 0 0 3px color-mix(in srgb, var(--vp-c-brand-1), transparent 82%);
-    }
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  font: inherit;
+  font-weight: 400;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
 
-    &:disabled {
-      cursor: not-allowed;
-      opacity: 0.68;
-    }
-  }
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--vp-c-text-3);
+  opacity: 0.72;
+}
 
-  input {
-    min-height: 48px;
-    padding: 0 0.9rem;
-  }
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--vp-c-brand-1);
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--vp-c-brand-1), transparent 82%);
+}
 
-  textarea {
-    min-height: 118px;
-    resize: vertical;
-    padding: 0.8rem 0.9rem;
-  }
+.form-field input:disabled,
+.form-field textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.68;
+}
+
+.form-field input {
+  min-height: 50px;
+  padding: 0 0.9rem;
+}
+
+.form-field textarea {
+  min-height: 108px;
+  padding: 0.8rem 0.9rem;
+  resize: vertical;
 }
 
 .form-field-wide {
@@ -281,54 +406,85 @@ const handleSubmit = async () => {
   align-items: start;
   margin-top: 1rem;
   color: var(--vp-c-text-2);
-  font-size: 0.82rem;
-  line-height: 1.5;
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
 
-  input {
-    margin-top: 0.2rem;
-  }
+.form-consent input {
+  width: 18px;
+  height: 18px;
+  margin: 0.1rem 0 0;
+  accent-color: var(--vp-c-brand-1);
+}
+
+.form-consent:focus-within {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .form-error {
   margin: 1rem 0 0;
   color: var(--vp-c-danger-1);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   line-height: 1.5;
 }
 
 .form-actions {
   display: flex;
   justify-content: center;
-  margin-top: 1.5rem;
+  margin-top: 1.6rem;
 }
 
 .submit-button {
   display: inline-flex;
-  min-width: 168px;
-  min-height: 48px;
+  min-width: 184px;
+  min-height: 50px;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.85rem;
   border: 0;
   border-radius: 8px;
   background: var(--vp-c-brand-1);
+  box-shadow: 0 12px 24px color-mix(in srgb, var(--vp-c-brand-1), transparent 78%);
   color: #fff;
-  font: inherit;
-  font-weight: 500;
   cursor: pointer;
+  font: inherit;
+  font-weight: 600;
   transition:
     background 0.2s ease,
+    box-shadow 0.2s ease,
     transform 0.2s ease;
+}
 
-  &:hover:not(:disabled) {
-    background: var(--vp-c-brand-2);
-    transform: translateY(-1px);
-  }
+.submit-button:hover:not(:disabled) {
+  background: var(--vp-c-brand-2);
+  box-shadow: 0 14px 28px color-mix(in srgb, var(--vp-c-brand-1), transparent 72%);
+  transform: translateY(-1px);
+}
 
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.72;
-  }
+.submit-button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--vp-c-brand-1), white 42%);
+  outline-offset: 3px;
+}
+
+.submit-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.submit-arrow,
+.spinner {
+  width: 17px;
+  height: 17px;
+}
+
+.submit-arrow {
+  --rg-text: #fff;
+
+  color: #fff;
+  transform: rotate(-90deg);
 }
 
 .spinner {
@@ -338,21 +494,21 @@ const handleSubmit = async () => {
 
 .form-success {
   display: grid;
-  min-height: 280px;
+  min-height: 430px;
   align-content: center;
   justify-items: center;
   text-align: center;
+}
 
-  h2 {
-    margin-bottom: 0.75rem;
-  }
+.form-success h2 {
+  margin-bottom: 0.75rem;
+}
 
-  p {
-    max-width: 28rem;
-    margin: 0;
-    color: var(--vp-c-text-2);
-    line-height: 1.6;
-  }
+.form-success p {
+  max-width: 28rem;
+  margin: 0;
+  color: var(--vp-c-text-2);
+  line-height: 1.6;
 }
 
 .form-success-icon {
@@ -362,8 +518,20 @@ const handleSubmit = async () => {
 }
 
 @media (max-width: 640px) {
+  .trial-request-form-subtitle {
+    margin-bottom: 1.5rem;
+  }
+
   .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .form-field-wide {
+    grid-column: auto;
+  }
+
+  .submit-button {
+    width: 100%;
   }
 }
 </style>
