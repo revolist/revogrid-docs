@@ -81,14 +81,18 @@
     "vue-github-button": "^3.1.3"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.2.0",
     "@revolist/react-datagrid": "^4.23.22",
+    "@revolist/revogrid": "^4.23.22",
     "@revolist/revogrid-column-date": "^2.0.25",
     "@revolist/revogrid-column-numeral": "^2.0.11",
     "@revolist/revogrid-column-select": "^3.1.19",
-    "@revolist/revogrid-enterprise": "2.3.2",
-    "@revolist/revogrid-pro": "2.3.2",
+    "@revolist/revogrid-enterprise": "2.3.6",
+    "@revolist/revogrid-pro": "2.3.6",
     "@revolist/vue3-datagrid": "4.23.22",
-    "@revolist/revogrid-examples": "2.3.2",
-    "lodash-es": "^4.18.1"
+    "@revolist/revogrid-presets": "latest",
+    "lodash-es": "^4.18.1",
+    "numeral": "^2.0.6",
+    "read-excel-file": "^9.0.10"
   }
 }

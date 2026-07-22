@@ -1334,7 +1334,6 @@ Start here:
 - [Compare Pro features](/pro/feature-table)
 - [Open the demo gallery](/demo/)
 - [Try Pivot analytics](/demo/pivot)
-- [View Ecommerce and ERP demo](/demo/ecommerce)
 
 ## Practical implementation blueprint
 

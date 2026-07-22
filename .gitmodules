@@ -1,0 +1,4 @@
+[submodule "revogrid-demos"]
+	path = revogrid-demos
+	url = https://github.com/revolist/revogrid-demos.git
+	branch = main

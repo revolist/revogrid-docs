@@ -14,7 +14,6 @@ export type DemoId =
   | 'grid-at-scale'
   | 'project-tracker'
   | 'excel'
-  | 'ecommerce'
   | 'pivot'
   | 'gantt'
   | 'event-scheduler'
@@ -403,7 +402,6 @@ const demos = {
   'grid-at-scale': { id: 'grid-at-scale', title: 'Grid at Scale', planId: 'open-source', status: 'stable', pageUrl: '/demo/' },
   'project-tracker': { id: 'project-tracker', title: 'Project Tracker', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/color' },
   excel: { id: 'excel', title: 'Excel', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/excel' },
-  ecommerce: { id: 'ecommerce', title: 'E-commerce', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/ecommerce' },
   pivot: { id: 'pivot', title: 'Pivot Analytics', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot' },
   gantt: { id: 'gantt', title: 'Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt' },
   'event-scheduler': { id: 'event-scheduler', title: 'Event Scheduler', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },

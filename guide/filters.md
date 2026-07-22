@@ -306,7 +306,6 @@ These Pro filters are valuable when users live in the grid all day: they can nar
 
 Start with [RevoGrid Pro features](/pro/#features), or open the business demos that use Pro workflows:
 
-- [Ecommerce and ERP demo](https://rv-grid.com/demo/ecommerce)
 - [Pivot analytics demo](/pivot/)
 
 

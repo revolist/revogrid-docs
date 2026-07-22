@@ -233,10 +233,6 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         link: '/demo/excel',
     },
     {
-        text: demoSidebarText('ecommerce'),
-        link: '/demo/ecommerce',
-    },
-    {
         text: demoSidebarText('pivot'),
         link: '/demo/pivot',
     },
@@ -247,9 +243,5 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
     {
         text: demoSidebarText('event-scheduler'),
         link: '/demo/event-scheduler',
-    },
-    {
-        text: '<span class="rg-btn">Request Pro Trial</span>',
-        link: '/trial',
     },
 ]

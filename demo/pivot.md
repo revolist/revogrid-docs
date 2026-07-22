@@ -28,24 +28,27 @@ import 'virtual:uno.css'
 import '@revolist/revogrid-pro/dist/revogrid-pro.css'
 import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
 
-import PivotShowcase from '@revolist/revogrid-examples/components/showcase-pivot/PivotShowcase.vue'
+import PivotShowcase from '@revogrid-demos/pro-advanced-pivot/src/pivot.vue'
 </script>
 
-<ClientOnly>
+<DemoPageLayout demo-id="pivot">
   <div class="demo-main-widget">
     <PivotShowcase />
   </div>
-</ClientOnly>
+</DemoPageLayout>
 
 <style scoped>
 .demo-main-widget {
-  min-height: calc(100vh - 60px);
-  height: calc(100vh - 60px);
-  margin-top: 40px;
+  min-height: 0;
+  height: 100%;
   border-radius: 0;
 }
 
 .demo-main-widget :deep(.financial-pivot-showcase) {
-  padding-top: 20px;
+  padding-top: 8px;
+}
+
+.demo-main-widget :deep(financial-pivot-guidance) {
+  display: none !important;
 }
 </style>

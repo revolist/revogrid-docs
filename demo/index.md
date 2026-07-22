@@ -17,20 +17,19 @@ head:
 ---
 
 <script setup>
-import HRDemo from '@revolist/revogrid-examples/components/hr/HRDemo.vue'
+import HRDemo from '@revogrid-demos/core-free/src/hr.vue'
 </script>
 
-<ClientOnly>
+<DemoPageLayout demo-id="grid-at-scale">
   <div class="demo-main-widget">
     <HRDemo />
   </div>
-</ClientOnly>
+</DemoPageLayout>
 
 <style scoped>
 .demo-main-widget {
-  min-height: calc(100vh - 60px);
-  height: calc(100vh - 60px);
-  margin-top: 40px;
+  min-height: 0;
+  height: 100%;
   padding-top: 10px;
   border-radius: 0;
 }

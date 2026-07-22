@@ -39,6 +39,7 @@ export default defineConfig({
   content: {
     filesystem: [
       './**/*.{html,md,js,ts,jsx,tsx,vue}',
+      '!./**/node_modules/**',
       '../../examples/components/src/components/**/*.{html,js,ts,jsx,tsx,vue}',
       '../../packages/pro/plugins/**/*.{html,js,ts,jsx,tsx,vue}',
       '../../packages/enterprise/plugins/**/*.{html,js,ts,jsx,tsx,vue}',

@@ -23,15 +23,20 @@ head:
       content: Use RevoGrid Pro for HR and workforce operations with editable employee records, filtering, grouping, and high-performance data grid workflows.
 ---
 
-<DemoWidgetFrame
-  demo="hr"
-  framework="ts"
-/>
+<script setup>
+import HRDemo from '@revogrid-demos/core-free/src/hr.vue'
+</script>
+
+<DemoPageLayout demo-id="grid-at-scale">
+  <div class="demo-main-widget">
+    <HRDemo />
+  </div>
+</DemoPageLayout>
 
 <style scoped>
-:deep(.demo-widget-frame) {
-  min-height: calc(100vh - 60px);
-  margin-top: 40px;
+.demo-main-widget {
+  min-height: 0;
+  height: 100%;
   padding-top: 10px;
   border-radius: 0;
 }
