@@ -194,7 +194,7 @@ const variantClasses = computed(() => ({
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: clamp(2.6rem, 7vw, 6.5rem);
+  gap: clamp(2.6rem,3vw,4.5rem);
 }
 
 .trusted-logo-strip--trial .trusted-logo-strip__logos {
