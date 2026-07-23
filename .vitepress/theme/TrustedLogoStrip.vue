@@ -141,14 +141,6 @@ const variantClasses = computed(() => ({
   --trusted-strip-inner-width: min(1120px, calc(100% - 48px));
 }
 
-.trusted-logo-strip--trial {
-  --trusted-strip-bg: var(--vp-c-bg);
-  --trusted-strip-accent: var(--vp-c-text-3);
-  --trusted-strip-inner-width: min(1200px, calc(100% - 48px));
-
-  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-}
-
 .trusted-logo-strip__inner {
   display: grid;
   gap: 2.25rem;
@@ -163,10 +155,6 @@ const variantClasses = computed(() => ({
   justify-items: center;
 }
 
-.trusted-logo-strip--trial .trusted-logo-strip__copy {
-  gap: 0;
-}
-
 .trusted-logo-strip__kicker {
   margin: 0;
   color: var(--trusted-strip-accent);
@@ -174,12 +162,6 @@ const variantClasses = computed(() => ({
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-}
-
-.trusted-logo-strip--trial .trusted-logo-strip__kicker {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
 }
 
 .trusted-logo-strip__copy h2 {
@@ -195,12 +177,6 @@ const variantClasses = computed(() => ({
   align-items: center;
   justify-content: center;
   gap: clamp(2.6rem,3vw,4.5rem);
-}
-
-.trusted-logo-strip--trial .trusted-logo-strip__logos {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: clamp(1.5rem, 4vw, 4rem);
 }
 
 .trusted-logo-strip__logo {
@@ -227,11 +203,6 @@ const variantClasses = computed(() => ({
     opacity: 1;
     filter: grayscale(0);
   }
-}
-
-.trusted-logo-strip--trial .trusted-logo-strip__logo {
-  height: 88px;
-  opacity: 0.8;
 }
 
 .trusted-logo-strip__logo--axon {
@@ -262,7 +233,7 @@ const variantClasses = computed(() => ({
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin: 0;
-  padding: 2.4rem 0 0;
+  padding: 4.4rem 0 0;
   border-top: 1px solid var(--trusted-strip-border);
 }
 
@@ -294,10 +265,6 @@ const variantClasses = computed(() => ({
 }
 
 @media (max-width: 800px) {
-  .trusted-logo-strip--trial .trusted-logo-strip__logos {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .trusted-logo-strip__metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -319,19 +286,6 @@ const variantClasses = computed(() => ({
 @media (max-width: 640px) {
   .trusted-logo-strip {
     --trusted-strip-inner-width: min(100% - 32px, 1180px);
-  }
-
-  .trusted-logo-strip--trial {
-    padding: 3.5rem 0;
-  }
-
-  .trusted-logo-strip--trial .trusted-logo-strip__logos {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem 1.5rem;
-  }
-
-  .trusted-logo-strip--trial .trusted-logo-strip__logo {
-    height: 72px;
   }
 
   .trusted-logo-strip__metric {
