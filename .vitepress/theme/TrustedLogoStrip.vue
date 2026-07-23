@@ -175,6 +175,7 @@ const variantClasses = computed(() => ({
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  color: var(--rg-text);
   justify-content: center;
   gap: clamp(2.6rem,3vw,4.5rem);
 }
