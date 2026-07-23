@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.22](README.md) / RowIndex
+[RevoGrid Documentation v4.23.23](README.md) / RowIndex
 
 # Type Alias: RowIndex
 
@@ -8,4 +8,4 @@ type RowIndex: number;
 
 ## Defined in
 
-[src/types/selection.ts:13](https://github.com/revolist/revogrid/blob/7bcc5e9bd1eec761404fc48882953584821f05ce/src/types/selection.ts#L13)
+[src/types/selection.ts:13](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/types/selection.ts#L13)

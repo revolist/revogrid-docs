@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.22](README.md) / Nullable
+[RevoGrid Documentation v4.23.23](README.md) / Nullable
 
 # Type Alias: Nullable\<T\>
 
@@ -14,4 +14,4 @@ type Nullable<T>: { [P in keyof T]: T[P] | null };
 
 ## Defined in
 
-[src/types/interfaces.ts:22](https://github.com/revolist/revogrid/blob/7bcc5e9bd1eec761404fc48882953584821f05ce/src/types/interfaces.ts#L22)
+[src/types/interfaces.ts:22](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/types/interfaces.ts#L22)

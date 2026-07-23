@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.22](README.md) / HeaderProperties
+[RevoGrid Documentation v4.23.23](README.md) / HeaderProperties
 
 # Type Alias: HeaderProperties
 
@@ -8,4 +8,4 @@ type HeaderProperties: RevogrHeader;
 
 ## Defined in
 
-[src/types/viewport.interfaces.ts:31](https://github.com/revolist/revogrid/blob/7bcc5e9bd1eec761404fc48882953584821f05ce/src/types/viewport.interfaces.ts#L31)
+[src/types/viewport.interfaces.ts:31](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/types/viewport.interfaces.ts#L31)

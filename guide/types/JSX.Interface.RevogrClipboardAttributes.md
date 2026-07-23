@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.22](README.md) / [JSX](Namespace.JSX.md) / RevogrClipboardAttributes
+[RevoGrid Documentation v4.23.23](README.md) / [JSX](Namespace.JSX.md) / RevogrClipboardAttributes
 
 # Interface: RevogrClipboardAttributes
 
@@ -6,4 +6,4 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `readonly` | `boolean` | [src/components.d.ts:2533](https://github.com/revolist/revogrid/blob/7bcc5e9bd1eec761404fc48882953584821f05ce/src/components.d.ts#L2533) |
+| `readonly` | `boolean` | [src/components.d.ts:2533](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/components.d.ts#L2533) |
