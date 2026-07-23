@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.21](README.md) / WatchConfig
+[RevoGrid Documentation v4.23.22](README.md) / WatchConfig
 
 # Type Alias: WatchConfig
 
@@ -12,8 +12,8 @@ type WatchConfig: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `immediate` | `boolean` | [src/plugins/base.plugin.ts:5](https://github.com/revolist/revogrid/blob/84a6ba8ad24305e446533202f2fe61b513edd353/src/plugins/base.plugin.ts#L5) |
+| `immediate` | `boolean` | [src/plugins/base.plugin.ts:5](https://github.com/revolist/revogrid/blob/7bcc5e9bd1eec761404fc48882953584821f05ce/src/plugins/base.plugin.ts#L5) |
 
 ## Defined in
 
-[src/plugins/base.plugin.ts:5](https://github.com/revolist/revogrid/blob/84a6ba8ad24305e446533202f2fe61b513edd353/src/plugins/base.plugin.ts#L5)
+[src/plugins/base.plugin.ts:5](https://github.com/revolist/revogrid/blob/7bcc5e9bd1eec761404fc48882953584821f05ce/src/plugins/base.plugin.ts#L5)

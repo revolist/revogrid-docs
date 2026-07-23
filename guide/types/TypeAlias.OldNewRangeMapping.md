@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.21](README.md) / OldNewRangeMapping
+[RevoGrid Documentation v4.23.22](README.md) / OldNewRangeMapping
 
 # Type Alias: OldNewRangeMapping
 
@@ -12,4 +12,4 @@ type OldNewRangeMapping: {};
 
 ## Defined in
 
-[src/types/selection.ts:62](https://github.com/revolist/revogrid/blob/84a6ba8ad24305e446533202f2fe61b513edd353/src/types/selection.ts#L62)
+[src/types/selection.ts:62](https://github.com/revolist/revogrid/blob/7bcc5e9bd1eec761404fc48882953584821f05ce/src/types/selection.ts#L62)

@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.21](README.md) / ReadOnlyFormat
+[RevoGrid Documentation v4.23.22](README.md) / ReadOnlyFormat
 
 # Type Alias: ReadOnlyFormat\<TModel, TColumn\>
 
@@ -22,4 +22,4 @@ ColumnDataSchemaModel.
 
 ## Defined in
 
-[src/types/interfaces.ts:101](https://github.com/revolist/revogrid/blob/84a6ba8ad24305e446533202f2fe61b513edd353/src/types/interfaces.ts#L101)
+[src/types/interfaces.ts:101](https://github.com/revolist/revogrid/blob/7bcc5e9bd1eec761404fc48882953584821f05ce/src/types/interfaces.ts#L101)

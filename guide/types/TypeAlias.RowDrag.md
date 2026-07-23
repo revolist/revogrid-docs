@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.21](README.md) / RowDrag
+[RevoGrid Documentation v4.23.22](README.md) / RowDrag
 
 # Type Alias: RowDrag\<TModel, TColumn\>
 
@@ -15,4 +15,4 @@ type RowDrag<TModel, TColumn>: boolean | (params: ColumnDataSchemaModel<TModel, 
 
 ## Defined in
 
-[src/types/interfaces.ts:107](https://github.com/revolist/revogrid/blob/84a6ba8ad24305e446533202f2fe61b513edd353/src/types/interfaces.ts#L107)
+[src/types/interfaces.ts:107](https://github.com/revolist/revogrid/blob/7bcc5e9bd1eec761404fc48882953584821f05ce/src/types/interfaces.ts#L107)

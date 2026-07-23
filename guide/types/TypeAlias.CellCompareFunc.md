@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.21](README.md) / CellCompareFunc
+[RevoGrid Documentation v4.23.22](README.md) / CellCompareFunc
 
 # Type Alias: CellCompareFunc()\<TModel\>
 
@@ -30,4 +30,4 @@ number indicating the relative order of the two cells.
 
 ## Defined in
 
-[src/types/interfaces.ts:438](https://github.com/revolist/revogrid/blob/84a6ba8ad24305e446533202f2fe61b513edd353/src/types/interfaces.ts#L438)
+[src/types/interfaces.ts:438](https://github.com/revolist/revogrid/blob/7bcc5e9bd1eec761404fc48882953584821f05ce/src/types/interfaces.ts#L438)

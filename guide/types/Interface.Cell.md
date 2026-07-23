@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.21](README.md) / Cell
+[RevoGrid Documentation v4.23.22](README.md) / Cell
 
 # Interface: Cell
 
@@ -12,5 +12,5 @@ Cell coordinates
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `x` | `number` | [src/types/selection.ts:100](https://github.com/revolist/revogrid/blob/84a6ba8ad24305e446533202f2fe61b513edd353/src/types/selection.ts#L100) |
-| `y` | `number` | [src/types/selection.ts:101](https://github.com/revolist/revogrid/blob/84a6ba8ad24305e446533202f2fe61b513edd353/src/types/selection.ts#L101) |
+| `x` | `number` | [src/types/selection.ts:100](https://github.com/revolist/revogrid/blob/7bcc5e9bd1eec761404fc48882953584821f05ce/src/types/selection.ts#L100) |
+| `y` | `number` | [src/types/selection.ts:101](https://github.com/revolist/revogrid/blob/7bcc5e9bd1eec761404fc48882953584821f05ce/src/types/selection.ts#L101) |

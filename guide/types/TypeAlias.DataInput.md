@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.21](README.md) / DataInput
+[RevoGrid Documentation v4.23.22](README.md) / DataInput
 
 # Type Alias: DataInput
 
@@ -12,8 +12,8 @@ type DataInput: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `data` | [`DataType`](TypeAlias.DataType.md)[] | [src/plugins/export/types.ts:8](https://github.com/revolist/revogrid/blob/84a6ba8ad24305e446533202f2fe61b513edd353/src/plugins/export/types.ts#L8) |
+| `data` | [`DataType`](TypeAlias.DataType.md)[] | [src/plugins/export/types.ts:8](https://github.com/revolist/revogrid/blob/7bcc5e9bd1eec761404fc48882953584821f05ce/src/plugins/export/types.ts#L8) |
 
 ## Defined in
 
-[src/plugins/export/types.ts:7](https://github.com/revolist/revogrid/blob/84a6ba8ad24305e446533202f2fe61b513edd353/src/plugins/export/types.ts#L7)
+[src/plugins/export/types.ts:7](https://github.com/revolist/revogrid/blob/7bcc5e9bd1eec761404fc48882953584821f05ce/src/plugins/export/types.ts#L7)
