@@ -51,6 +51,8 @@ trust:
   kicker: Trusted by thousands of teams building critical data products
   title: Companies using RevoGrid
   logos:
+    - name: Siemens
+      id: siemens
     - name: Axon
       id: axon
     - name: BASF

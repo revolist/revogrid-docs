@@ -37,8 +37,9 @@ import BasfLogo from '../../public/orgs/basf.svg'
 import BayerLogo from '../../public/orgs/bayer.svg'
 import CbreLogo from '../../public/orgs/cbre.svg'
 import DeltekLogo from '../../public/orgs/deltek.svg'
+import SiemensLogo from '../../public/orgs/siemens.svg'
 
-type TrustedLogoId = 'axon' | 'basf' | 'bayer' | 'cbre' | 'deltek'
+type TrustedLogoId = 'axon' | 'basf' | 'bayer' | 'cbre' | 'deltek' | 'siemens'
 type TrustedLogoConfig = {
   name: string
   id: TrustedLogoId
@@ -70,12 +71,14 @@ const LOGO_COMPONENTS = {
   bayer: BayerLogo,
   cbre: CbreLogo,
   deltek: DeltekLogo,
+  siemens: SiemensLogo,
 } satisfies Record<TrustedLogoId, unknown>
 
 const DEFAULT_SECTION: Required<TrustedLogoSection> = {
   kicker: 'Trusted by thousands of teams building critical data products',
   title: 'Companies using RevoGrid',
   logos: [
+    { name: 'Siemens', id: 'siemens' },
     { name: 'Axon', id: 'axon' },
     { name: 'BASF', id: 'basf' },
     { name: 'Bayer', id: 'bayer' },
@@ -196,7 +199,7 @@ const variantClasses = computed(() => ({
 
 .trusted-logo-strip--trial .trusted-logo-strip__logos {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: clamp(1.5rem, 4vw, 4rem);
 }
 
@@ -207,8 +210,7 @@ const variantClasses = computed(() => ({
   align-items: center;
   justify-content: center;
   height: 96px;
-  color: var(--trusted-strip-muted);
-  opacity: 0.78;
+  opacity: 0.9;
   filter: grayscale(1);
   transition:
     opacity 0.2s ease,
@@ -229,8 +231,7 @@ const variantClasses = computed(() => ({
 
 .trusted-logo-strip--trial .trusted-logo-strip__logo {
   height: 88px;
-  color: var(--vp-c-text-3);
-  opacity: 0.62;
+  opacity: 0.8;
 }
 
 .trusted-logo-strip__logo--axon {
@@ -251,6 +252,10 @@ const variantClasses = computed(() => ({
 
 .trusted-logo-strip__logo--deltek {
   --trusted-logo-height: 42px;
+}
+
+.trusted-logo-strip__logo--siemens {
+  --trusted-logo-height: 250px;
 }
 
 .trusted-logo-strip__metrics {
