@@ -339,28 +339,28 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 items: [
                     {
                         text: 'Getting Started',
-                        link: '/guide/dash/#getting-started',
+                        link: '/guide/dash/getting-started',
                     },
                     {
                         text: 'DataFrames',
-                        link: '/guide/dash/#pandas-dataframes',
+                        link: '/guide/dash/dataframes',
                     },
-                    { text: 'Columns', link: '/guide/dash/#columns' },
+                    { text: 'Columns', link: '/guide/dash/columns' },
                     {
                         text: 'Callbacks and Events',
-                        link: '/guide/dash/#callbacks-and-events',
+                        link: '/guide/dash/callbacks-and-events',
                     },
                     {
                         text: 'Edit Synchronization',
-                        link: '/guide/dash/#edit-synchronization',
+                        link: '/guide/dash/edit-synchronization',
                     },
                     {
                         text: 'Property Reference',
-                        link: '/guide/dash/#complete-property-reference',
+                        link: '/guide/dash/property-reference',
                     },
                     {
                         text: 'Core API Reference',
-                        link: '/guide/dash/#revogrid-api-reference',
+                        link: '/guide/dash/core-api-reference',
                     },
                 ],
             },

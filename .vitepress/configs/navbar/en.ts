@@ -47,11 +47,6 @@ export const navbarEn: DefaultTheme.NavItem[] = [
             link: '/svelte-data-grid',
             activeMatch: '^/svelte-data-grid',
           },
-          {
-            text: 'Dash / Python',
-            link: '/guide/dash/',
-            activeMatch: '^/guide/dash/',
-          },
         ],
       },
     ],

@@ -40,9 +40,6 @@ hero:
     - name: React
       color: '#61DAFB'
       link: /guide/react/
-    - name: Dash / Python
-      color: '#119DFF'
-      link: /guide/dash/
     - name: Svelte
       color: '#FF3E00'
       link: /guide/svelte/
@@ -54,8 +51,6 @@ trust:
   kicker: Trusted by thousands of teams building critical data products
   title: Companies using RevoGrid
   logos:
-    - name: Siemens
-      id: siemens
     - name: Axon
       id: axon
     - name: BASF

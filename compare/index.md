@@ -89,6 +89,15 @@ Compare RevoGrid with popular JavaScript data grid, spreadsheet, table, and ente
     <span class="compare-index-title">Wijmo FlexGrid Alternative</span>
     <p>Compare RevoGrid with Wijmo FlexGrid for licensing, framework support, virtualization, pivot analytics, embedded BI, Gantt, and migration tradeoffs.</p>
   </a>
+
+  <a class="compare-index-card" href="/compare/dash-datatable-alternative">
+    <div class="compare-index-preview">
+      <img src="/blog/dash-datatable-alternative.png" alt="Dash DataTable alternative preview" loading="lazy">
+    </div>
+    <span class="compare-index-label">Python Dash data grid migration</span>
+    <span class="compare-index-title">Dash DataTable Alternative</span>
+    <p>Compare RevoGrid for Dash with Dash DataTable, Dash AG Grid, and simpler table options before migrating to Dash 5.0.</p>
+  </a>
 </div>
 
 ## Gantt And Scheduler Comparisons
