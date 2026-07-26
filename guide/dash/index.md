@@ -9,7 +9,7 @@ head:
 
 # Dash Data Grid
 
-`dash-datagrid` is the official RevoGrid Core integration for
+[`dash-datagrid`](https://github.com/revolist/dash-datagrid) is the official RevoGrid Core integration for
 [Plotly Dash](https://dash.plotly.com/). It exposes the grid as the generated
 Python component `dash_datagrid.RevoGrid` and packages the required JavaScript
 with the Python distribution.
@@ -31,12 +31,12 @@ Python, while the virtualized grid runs in the browser.
 
 | Distribution | Name | Purpose |
 | --- | --- | --- |
-| PyPI | `dash-datagrid` | Normal installation for a Dash application |
+| PyPI | [`dash-datagrid`](https://github.com/revolist/dash-datagrid) | Normal installation for a Dash application |
 | Python import | `dash_datagrid` | Exports `RevoGrid` |
-| npm | `@revolist/dash-datagrid` | JavaScript distribution used by the generated Dash component |
+| npm | [`@revolist/dash-datagrid`](https://github.com/revolist/dash-datagrid) | JavaScript distribution used by the generated Dash component |
 
 The Python package supports Python 3.10 or newer and Dash 3.x or 4.x. A normal
-Python application only installs `dash-datagrid`; Dash serves the packaged
+Python application only installs [`dash-datagrid`](https://github.com/revolist/dash-datagrid); Dash serves the packaged
 JavaScript locally, so a separate npm install is not required.
 
 Version 1 covers RevoGrid Core. Pro and Enterprise plugin activation, custom

@@ -553,7 +553,7 @@ RevoGrid for Dash is the best overall choice for a new editable, performance-sen
 
 ### Is RevoGrid for Dash open source?
 
-Yes. RevoGrid Core and the official `dash-datagrid` package use the MIT license. Advanced RevoGrid Pro and Enterprise functionality is commercially licensed.
+Yes. RevoGrid Core and the official [`dash-datagrid`](https://github.com/revolist/dash-datagrid) package use the MIT license. Advanced RevoGrid Pro and Enterprise functionality is commercially licensed.
 
 ### Does RevoGrid work with Pandas?
 

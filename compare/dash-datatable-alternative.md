@@ -64,7 +64,7 @@ A safer sequence is:
 2. Verify the new grid with real data and existing callbacks.
 3. Upgrade to Dash 5 after the replacement package confirms compatibility.
 
-The current `dash-datagrid` release declares support for Dash 3.x and 4.x. Check its compatibility notes before taking the separate Dash 5 upgrade step.
+The current [`dash-datagrid`](https://github.com/revolist/dash-datagrid) release declares support for Dash 3.x and 4.x. Check its compatibility notes before taking the separate Dash 5 upgrade step.
 
 ## The main Dash DataTable alternatives
 
@@ -131,7 +131,7 @@ Do not choose a full grid because the old component happened to be a DataTable. 
 | Decision point | RevoGrid for Dash | Dash DataTable | What it means for migration |
 |---|---|---|---|
 | Status | ✅ Actively packaged | ⚠️ Deprecated; planned for removal from the core API in Dash 5.0 | RevoGrid provides a maintained destination instead of a temporary compatibility pin. |
-| Python package | `dash-datagrid` | Included through Dash today | Install the replacement independently before upgrading Dash. |
+| Python package | [`dash-datagrid`](https://github.com/revolist/dash-datagrid) | Included through Dash today | Install the replacement independently before upgrading Dash. |
 | Python component | `dash_datagrid.RevoGrid` | `dash.dash_table.DataTable` | The layout changes at the component boundary; the rest of the Dash app can remain Python. |
 | Primary data prop | `source` | `data` | Both accept lists of row dictionaries. |
 | Column key | `prop` | `id` | Rename the field reference in each column definition. |
@@ -555,7 +555,7 @@ For a high-performance, editable Python Dash data grid, RevoGrid is a strong opt
 
 ### Is RevoGrid for Dash open source?
 
-The `dash-datagrid` package and RevoGrid Core use the MIT license. RevoGrid also has separate commercial modules for advanced product workflows, but the official Python package described here wraps the Core grid.
+The [`dash-datagrid`](https://github.com/revolist/dash-datagrid) package and RevoGrid Core use the MIT license. RevoGrid also has separate commercial modules for advanced product workflows, but the official Python package described here wraps the Core grid.
 
 ### Can RevoGrid use a Pandas DataFrame?
 
