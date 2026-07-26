@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.23](README.md) / PropertiesFunc
+[RevoGrid Documentation v4.23.24](README.md) / PropertiesFunc
 
 # Type Alias: PropertiesFunc()\<TModel\>
 
@@ -24,4 +24,4 @@ type PropertiesFunc<TModel>: (props: CellTemplateProp<TModel>) => CellProps | vo
 
 ## Defined in
 
-[src/types/interfaces.ts:451](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/types/interfaces.ts#L451)
+[src/types/interfaces.ts:451](https://github.com/revolist/revogrid/blob/378ffaf8d0c296fdd666895c8f50ce7cb8d43e36/src/types/interfaces.ts#L451)

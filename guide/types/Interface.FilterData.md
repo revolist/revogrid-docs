@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.23](README.md) / FilterData
+[RevoGrid Documentation v4.23.24](README.md) / FilterData
 
 # Interface: FilterData
 
@@ -6,8 +6,8 @@
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `hidden?` | `boolean` | Filter invisible in filter panel | [src/plugins/filter/filter.types.ts:152](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/plugins/filter/filter.types.ts#L152) |
-| `id` | `number` | - | [src/plugins/filter/filter.types.ts:140](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/plugins/filter/filter.types.ts#L140) |
-| `relation?` | `"and"` \| `"or"` | Filter relation | [src/plugins/filter/filter.types.ts:156](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/plugins/filter/filter.types.ts#L156) |
-| `type` | \| `"none"` \| `"empty"` \| `"notEmpty"` \| `"eq"` \| `"notEq"` \| `"begins"` \| `"contains"` \| `"notContains"` \| `"eqN"` \| `"neqN"` \| `"gt"` \| `"gte"` \| `"lt"` \| `"lte"` | Filter type | [src/plugins/filter/filter.types.ts:144](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/plugins/filter/filter.types.ts#L144) |
-| `value?` | `any` | Filter value | [src/plugins/filter/filter.types.ts:148](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/plugins/filter/filter.types.ts#L148) |
+| `hidden?` | `boolean` | Filter invisible in filter panel | [src/plugins/filter/filter.types.ts:152](https://github.com/revolist/revogrid/blob/378ffaf8d0c296fdd666895c8f50ce7cb8d43e36/src/plugins/filter/filter.types.ts#L152) |
+| `id` | `number` | - | [src/plugins/filter/filter.types.ts:140](https://github.com/revolist/revogrid/blob/378ffaf8d0c296fdd666895c8f50ce7cb8d43e36/src/plugins/filter/filter.types.ts#L140) |
+| `relation?` | `"and"` \| `"or"` | Filter relation | [src/plugins/filter/filter.types.ts:156](https://github.com/revolist/revogrid/blob/378ffaf8d0c296fdd666895c8f50ce7cb8d43e36/src/plugins/filter/filter.types.ts#L156) |
+| `type` | \| `"none"` \| `"empty"` \| `"notEmpty"` \| `"eq"` \| `"notEq"` \| `"begins"` \| `"contains"` \| `"notContains"` \| `"eqN"` \| `"neqN"` \| `"gt"` \| `"gte"` \| `"lt"` \| `"lte"` | Filter type | [src/plugins/filter/filter.types.ts:144](https://github.com/revolist/revogrid/blob/378ffaf8d0c296fdd666895c8f50ce7cb8d43e36/src/plugins/filter/filter.types.ts#L144) |
+| `value?` | `any` | Filter value | [src/plugins/filter/filter.types.ts:148](https://github.com/revolist/revogrid/blob/378ffaf8d0c296fdd666895c8f50ce7cb8d43e36/src/plugins/filter/filter.types.ts#L148) |
