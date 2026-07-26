@@ -1,74 +1,73 @@
 <template>
-    <div v-if="isVisible" class="modal">
-        <div class="modal-content">
-            <button class="close" type="button" aria-label="Close" @click="closeModal">&times;</button>
-            <TrialRequestForm title="Contact Us" submit-label="Submit" @submit="handleSubmit" />
-        </div>
-    </div>
+  <ModalDialog
+    :is-visible="isVisible"
+    title-id="contact-dialog-title"
+    description-id="contact-dialog-description"
+    close-label="Close contact form"
+    initial-focus="input:not([disabled])"
+    @close="closeModal"
+  >
+    <header class="contact-modal-heading">
+      <h2 id="contact-dialog-title">Contact the RevoGrid team</h2>
+      <p id="contact-dialog-description">Tell us about your product, team, or licensing question.</p>
+    </header>
+    <TrialRequestForm submit-label="Submit" request-type="contact" @submit="handleSubmit" />
+  </ModalDialog>
 </template>
 
 <script setup lang="ts">
+import ModalDialog from '../.vitepress/theme/ModalDialog.vue'
 import TrialRequestForm from './TrialRequestForm.vue'
 
 type ContactRequestPayload = {
-    fullName: string
-    companyName: string
-    businessEmail: string
-    applicationInfo: string
-    consent: boolean
-    requestType: 'contact' | 'trial'
-    requestLabel: string
+  fullName: string
+  companyName: string
+  businessEmail: string
+  applicationInfo: string
+  consent: boolean
+  requestType: 'contact' | 'trial'
+  requestLabel: string
 }
 
 defineProps<{
-    isVisible: boolean
+  isVisible: boolean
 }>()
 
 const emit = defineEmits<{
-    (e: 'close'): void
-    (e: 'submit', formData: ContactRequestPayload): void
+  (event: 'close'): void
+  (event: 'submit', formData: ContactRequestPayload): void
 }>()
 
-const closeModal = () => {
-    emit('close')
-}
+const closeModal = () => emit('close')
 
 const handleSubmit = (formData: ContactRequestPayload) => {
-    emit('submit', formData)
+  emit('submit', formData)
 }
 </script>
 
-<style lang="scss">
-.modal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+<style lang="scss" scoped>
+.contact-modal-heading {
+  padding-right: 38px;
+  margin-bottom: 24px;
 
-    &-content {
-        background: var(--vp-c-bg);
-        padding: 25px;
-        border-radius: 8px;
-        width: 500px;
-        max-width: 100%;
-        position: relative;
+  h2 {
+    margin: 0 0 8px;
+    color: var(--vp-c-text-1);
+    font-size: 26px;
+    line-height: 1.2;
+  }
 
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            border: 0;
-            background: transparent;
-            color: var(--vp-c-text-1);
-            cursor: pointer;
-            font-size: 30px;
-        }
-    }
+  p {
+    margin: 0;
+    color: var(--vp-c-text-2);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 560px) {
+  .contact-modal-heading {
+    padding-right: 44px;
+  }
 }
 </style>

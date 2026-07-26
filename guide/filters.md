@@ -106,6 +106,28 @@ Important options:
 [<Badge type="tip">FilterCollectionItem</Badge>](/guide/types/TypeAlias.FilterCollectionItem)
 [<Badge type="tip">MultiFilterItem</Badge>](/guide/types/Interface.MultiFilterItem)
 
+## Customize filter names
+
+Use `localization.filterNames` to replace the labels shown for built-in filter operations. The operation id for the default **Not set** filter is `empty`, so its label can be rendered as blank like this:
+
+```ts
+import { filterNames } from '@revolist/revogrid';
+
+grid.filter = {
+  localization: {
+    captions: {},
+    filterNames: {
+      ...filterNames,
+      empty: '',
+    },
+  },
+};
+```
+
+Spreading `filterNames` keeps all other built-in labels unchanged and satisfies the complete `FilterLocalization` mapping expected by TypeScript. Override any other operation id in the same object, such as `notEmpty` for **Set**, `eq` for **Equal**, or `contains` for **Contains**.
+
+[<Badge type="tip">FilterLocalization</Badge>](/guide/types/Interface.FilterLocalization)
+
 ## Restore saved filters
 
 Use `collection` for simple saved filters:
@@ -284,7 +306,6 @@ These Pro filters are valuable when users live in the grid all day: they can nar
 
 Start with [RevoGrid Pro features](/pro/#features), or open the business demos that use Pro workflows:
 
-- [Ecommerce and ERP demo](https://rv-grid.com/demo/ecommerce)
 - [Pivot analytics demo](/pivot/)
 
 

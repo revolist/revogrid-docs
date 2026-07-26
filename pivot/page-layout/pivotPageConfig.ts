@@ -1,6 +1,7 @@
 import type { PivotLandingPage, PivotLandingPageConfig } from './types'
 
 const DEFAULT_PAGE: PivotLandingPage = {
+  catalogProductId: 'pivot',
   colors: {
     accent: '#0f766e',
     accentMid: '#0d9488',
@@ -20,7 +21,7 @@ const DEFAULT_PAGE: PivotLandingPage = {
     description: 'Drag-and-drop pivot tables for web apps. Slice any dataset by rows, columns, aggregations, and filters without leaving the page.',
     actions: [
       { label: 'View Demo', href: 'https://rv-grid.com/demo/pivot', arrow: true },
-      { label: 'Download Trial', href: 'https://rv-grid.com/trial', variant: 'secondary' },
+      { label: 'Request Pro Trial', href: 'https://rv-grid.com/trial', variant: 'secondary' },
     ],
     badges: [
       'Drag-and-drop dimensions',
@@ -96,7 +97,7 @@ const DEFAULT_PAGE: PivotLandingPage = {
     primaryHref: 'https://rv-grid.com/demo/pivot',
     primaryLabel: 'View Demo',
     secondaryHref: 'https://rv-grid.com/trial',
-    secondaryLabel: 'Download Trial',
+    secondaryLabel: 'Request Pro Trial',
   },
 }
 

@@ -3,12 +3,11 @@
     <div class="container">
       <div class="callout-inner">
         <div>
-          <div class="callout-eyebrow">Included in RevoGrid Pro Advanced</div>
+          <div class="callout-eyebrow">Included in {{ plan.name }}</div>
           <h2 class="callout-title">{{ title }}</h2>
           <p class="callout-desc">
-            One Pro Advanced license gives your team Pivot Tables, Gantt charts,
-            the full Plugin API, typed source access, and direct engineering
-            support. No per-feature upsell.
+            {{ product.name }} is included with {{ plan.name }}, together with
+            original private source access, unlimited product usage, and priority support.
           </p>
           <div class="callout-actions">
             <ProDocButton :href="proAdvancedLink" @click="handleStripeClientReferenceClick">See Pro Advanced pricing</ProDocButton>
@@ -35,24 +34,29 @@
 </template>
 
 <script lang="ts" setup>
-import { PRICES } from '../pricing-page/prices'
+import { computed } from 'vue'
+import { getPlan, getProduct, resolvePlanPrice, type ProductId } from '../commercial/productCatalog'
 import { handleStripeClientReferenceClick } from '../pricing-page/stripeClientReference'
 import ProDocButton from './ProDocButton.vue'
 
-defineProps<{
+const props = defineProps<{
   title: string
   sectionId?: string
+  productId?: ProductId
 }>()
 
-const proAdvancedUsdYear = PRICES.advanced.year.USD
-const proAdvancedLink = PRICES.advanced.link
+const product = computed(() => getProduct(props.productId ?? 'revogrid'))
+const plan = getPlan('pro-advanced')
+const proAdvancedPrice = resolvePlanPrice('pro-advanced')
+const proAdvancedUsdYear = proAdvancedPrice.year.USD
+const proAdvancedLink = proAdvancedPrice.link
 
 const INCLUDED = [
   'Pivot Tables',
-  'Gantt and dependencies',
-  'Plugin API',
-  'Typed source access',
-  'Engineering support',
+  'Gantt and Scheduler',
+  'Original source repository',
+  plan.billingSummary,
+  'Priority support',
 ]
 </script>
 

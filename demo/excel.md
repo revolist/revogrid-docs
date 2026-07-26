@@ -33,22 +33,21 @@ import { useData } from 'vitepress'
 const { isDark } = useData()
 
 const SpreadsheetWorkbench = defineAsyncComponent(() =>
-  import('@revolist/revogrid-examples/components/spreadsheet/SpreadsheetWorkbench.vue')
+  import('@revogrid-demos/pro-excel/src/excel.vue')
 )
 </script>
 
-<ClientOnly>
+<DemoPageLayout demo-id="excel">
   <div class="demo-main-widget">
     <SpreadsheetWorkbench :is-dark="isDark" />
   </div>
-</ClientOnly>
+</DemoPageLayout>
 
 <style scoped>
 .demo-main-widget {
-  min-height: calc(100vh - 60px);
-  height: calc(100vh - 60px);
-  margin-top: 40px;
-  padding-top: 10px;
+  min-height: 0;
+  height: 100%;
+  padding-top: 0;
   border-radius: 0;
 }
 </style>

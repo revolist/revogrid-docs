@@ -509,7 +509,7 @@ RevoGrid is the better fit when the grid needs to be **fast, product-friendly, f
 | Flexible contractor-team licensing | ✅ Pro | ⚠️ Custom | ⚠️ Custom | RevoGrid Enterprise pricing includes flexible contractor-based development-team licensing. |
 | 1 year of updates | ✅ Pro | ✅ Community updates | ✅ | Both commercial models include update/support periods; details differ. |
 | Use after update entitlement expires | ✅ | ✅ | ✅ Perpetual licence | Both have perpetual-style usage concepts; review active terms. |
-| Trial / demos | ✅ Pro | ✅ Local test | ✅ Trial | AG Grid Enterprise can be tested locally; RevoGrid provides public demos and request-based trial access. |
+| Trial / demos | ✅ Pro | ✅ Local test | ✅ Trial | AG Grid Enterprise can be tested locally; RevoGrid provides public demos and a request-based 30-day trial. |
 
 | Feature | RevoGrid | AG Grid Community | AG Grid Enterprise / Bundle | Notes |
 |---|:---:|:---:|:---:|---|

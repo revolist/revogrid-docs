@@ -11,10 +11,15 @@ editLink: false
 footer: true
 prev: false
 next: false
+commercialFaqKeys:
+  - plan-difference
+  - trial
+  - source-access
 pageClass: pivot-page-doc
 layout: custom
 breadcrumbs: false
 pivotLanding:
+  catalogProductId: pivot
   colors:
     accent: '#0f766e'
     accentMid: '#0d9488'
@@ -36,7 +41,7 @@ pivotLanding:
         href: /demo/pivot
         arrow: true
         # target: _self
-      - label: Download Trial
+      - label: Request Pro Trial
         href: /trial
         variant: secondary
     badges:
@@ -103,7 +108,7 @@ pivotLanding:
     primaryLabel: View Demo
     # primaryTarget: _self
     secondaryHref: /trial
-    secondaryLabel: Download Trial
+    secondaryLabel: Request Pro Trial
     # secondaryTarget: _self
 ---
 

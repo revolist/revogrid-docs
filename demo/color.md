@@ -29,22 +29,21 @@ import '@revolist/revogrid-pro/dist/revogrid-pro.css'
 import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
 import { defineAsyncComponent } from 'vue'
 
-const Color = defineAsyncComponent(() =>
-  import('@revolist/revogrid-examples/components/showcase-color/Color.vue')
+const ProjectTable = defineAsyncComponent(() =>
+  import('@revogrid-demos/pro-project-table/src/project-table.vue')
 )
 </script>
 
-<ClientOnly>
+<DemoPageLayout demo-id="project-tracker">
   <div class="demo-main-widget">
-    <Color />
+    <ProjectTable />
   </div>
-</ClientOnly>
+</DemoPageLayout>
 
 <style scoped>
 .demo-main-widget {
-  min-height: calc(100vh - 60px);
-  height: calc(100vh - 60px);
-  margin-top: 40px;
+  min-height: 0;
+  height: 100%;
   border-radius: 0;
 }
 </style>

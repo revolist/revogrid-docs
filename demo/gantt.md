@@ -30,26 +30,24 @@ import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
 import { defineAsyncComponent } from 'vue'
 
 const GanttShowcase = defineAsyncComponent(() =>
-  import('@revolist/revogrid-examples/components/gantt/GanttBasic.vue')
+  import('@revogrid-demos/pro-advanced-gantt/src/gantt.vue')
 )
 </script>
 
-<ClientOnly>
+<DemoPageLayout demo-id="gantt">
   <div class="demo-main-widget">
     <GanttShowcase />
   </div>
-</ClientOnly>
+</DemoPageLayout>
 
 <style scoped>
 .demo-main-widget {
-  min-height: calc(100vh - 60px);
-  height: calc(100vh - 60px);
-  margin-top: 40px;
+  min-height: 0;
+  height: 100%;
   padding-top: 10px;
   border-radius: 0;
 }
-:deep(revo-grid.gantt-plugin) .gantt-header-cell {
-  line-height: 18px;
-  font-size: 11px;
+:deep(.gantt-showcase-controls) {
+  display: none;
 }
 </style>

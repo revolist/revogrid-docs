@@ -7,6 +7,10 @@ editLink: false
 footer: true
 prev: false
 next: false
+commercialFaqKeys:
+  - plan-difference
+  - trial
+  - source-access
 pageClass: gantt-page-doc
 layout: custom
 breadcrumbs: false
@@ -24,6 +28,7 @@ head:
     - name: keywords
       content: Event Scheduler, JavaScript event scheduler, resource scheduler, shift planning software, booking scheduler, staff scheduler, room booking scheduler, equipment scheduler, workforce scheduling UI, RevoGrid Event Scheduler, React event scheduler, Vue event scheduler, Angular event scheduler
 ganttLanding:
+  catalogProductId: event-scheduler
   colors:
     accent: '#7c3aed'
     accent2: '#14b8a6'
@@ -34,14 +39,14 @@ ganttLanding:
     darkSoft: rgba(167, 139, 250, 0.14)
     darkBorder: rgba(167, 139, 250, 0.28)
   hero:
-    eyebrow: RevoGrid Enterprise / Event Scheduler
+    eyebrow: RevoGrid Pro / Event Scheduler
     title: Build event scheduling into your product.
     description: EventSchedulerPlugin turns RevoGrid into a commercial scheduling surface for staff rosters, room bookings, equipment plans, field crews, support queues, and team capacity. Keep schedule data, editing, rules, and persistence inside your app.
     actions:
       - label: View Demo
         href: /demo/event-scheduler
         arrow: true
-      - label: Download Trial
+      - label: Request Pro Trial
         href: /trial
         variant: secondary
     badges:
@@ -128,7 +133,7 @@ ganttLanding:
     primaryHref: /demo/event-scheduler
     primaryLabel: View Demo
     secondaryHref: /trial
-    secondaryLabel: Download Trial
+    secondaryLabel: Request Pro Trial
 ---
 
 <script lang="ts" setup>

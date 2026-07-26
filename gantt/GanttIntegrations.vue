@@ -7,11 +7,17 @@
         {{ integrations.description }}
       </p>
       <div class="integration-grid">
-        <div v-for="integration in integrations.items" :key="integration.name" class="integration-card">
+        <component
+          :is="integration.href ? 'a' : 'div'"
+          v-for="integration in integrations.items"
+          :key="integration.name"
+          :href="integration.href ? resolveLink(integration.href) : undefined"
+          class="integration-card"
+        >
           <span class="integration-icon">{{ integration.icon }}</span>
           <strong>{{ integration.name }}</strong>
           <small>{{ integration.badge }}</small>
-        </div>
+        </component>
       </div>
     </div>
   </section>
@@ -22,6 +28,7 @@ import type { GanttLandingPage } from './ganttLanding'
 
 defineProps<{
   integrations: GanttLandingPage['integrations']
+  resolveLink: (href: string) => string
 }>()
 </script>
 
@@ -37,15 +44,15 @@ defineProps<{
 }
 
 .integrations {
-  padding: 92px 0;
-  border-top: 1px solid var(--vp-c-divider);
+  padding: 96px 0;
+  text-align: center;
 }
 
 .section-kicker {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--gantt-accent);
+  color: var(--rg-font-green);
   font-family: var(--vp-font-family-mono);
   font-size: 11px;
   font-weight: 600;
@@ -56,17 +63,17 @@ defineProps<{
 .section-title {
   max-width: 660px;
   margin: 12px 0 14px;
-  color: var(--vp-c-text-1);
-  font-size: clamp(30px, 3.6vw, 46px);
-  font-weight: 600;
+  color: var(--rg-text);
+  font-size: clamp(34px, 4.2vw, 56px);
+  font-weight: 400;
   line-height: 1.08;
-  letter-spacing: -1.4px;
+  letter-spacing: -0.01em;
 }
 
 .section-sub {
   max-width: 560px;
   margin: 0 0 48px;
-  color: var(--vp-c-text-2);
+  color: var(--rg-text-2);
   font-size: 16px;
   line-height: 1.7;
 }
@@ -93,18 +100,25 @@ defineProps<{
   align-items: center;
   gap: 8px;
   padding: 24px 18px;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
-  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--rg-border);
+  border-radius: 16px;
+  background: var(--rg-bg-2);
   text-align: center;
+  text-decoration: none;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+
+  &[href]:hover {
+    border-color: var(--rg-border-hover);
+    transform: translateY(-2px);
+  }
 
   strong {
-    color: var(--vp-c-text-1);
+    color: var(--rg-text);
     font-size: 14px;
   }
 
   small {
-    color: var(--vp-c-text-3);
+    color: var(--rg-text-3);
     font-family: var(--vp-font-family-mono);
   }
 }
@@ -115,8 +129,8 @@ defineProps<{
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  color: var(--gantt-accent);
-  background: var(--gantt-soft);
+  color: var(--rg-font-green);
+  background: var(--rg-green-bg);
   font-family: var(--vp-font-family-mono);
   font-size: 12px;
   font-weight: 900;

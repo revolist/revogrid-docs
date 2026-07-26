@@ -5,6 +5,11 @@ navbar: true
 sidebar: false
 aside: false
 footer: true
+commercialFaqKeys:
+  - deployment-fees
+  - plan-difference
+  - trial
+  - application-limits
 
 head:
   - - meta
@@ -23,8 +28,8 @@ hero:
     link: /demo/
     # target: _self
   secondaryAction:
-    text: Download Pro
-    link: /trial
+    text: RevoGrid Pro
+    link: /pro/
   frameworks:
     - name: Vue
       color: '#4FC08D'
@@ -302,21 +307,21 @@ advanced:
     link: /pro/#catalog
   items:
     - title: Advanced Reporting
-      tag: Pro Advanced
+      catalogProductId: pivot
       type: pivot
       link: /pivot
       thumbnail: /img/pivot.png
       videoUrl: /video/pivot.mp4
       description: Pivot, aggregate, and summarize complex datasets directly inside your app. Drag-and-drop dimensions, drill-down, and totals — no BI tool required.
     - title: Master Detail
-      tag: Pro
+      catalogFeatureId: master-detail
       type: master-detail
       link: /pro/
       thumbnail: /img/master-detail.png
       videoUrl: /video/master-detail.mp4
       description: Expand any row into a nested grid, form, or custom view. The UX pattern your customers already expect in real product interfaces.
     - title: Audit Trail
-      tag: Pro
+      catalogFeatureId: audit-trail-history
       type: audit
       link: /pro/
       thumbnail: /img/audit-log.png
@@ -349,14 +354,6 @@ faq:
   items:
     - q: Can I use RevoGrid in a SaaS product?
       a: Yes. Commercial plans cover production SaaS applications. Your end users can use the product without any additional licensing.
-    - q: How does licensing work? Do you charge per deployment?
-      a: No. Licensing is based on the number of developers building with RevoGrid, not deployments, environments, or end users.
-    - q: What is the difference between Pro Lite and Pro Advanced?
-      a: Pro Lite gives production access to Pro workflows and examples. Pro Advanced adds premium modules such as Pivot Grid, Gantt Chart, and support.
-    - q: Can I evaluate RevoGrid before purchasing?
-      a: Yes. The open-source core is available on npm and GitHub, live demos are available without signing up, and <a href="/trial">Pro trial access is available by request</a>.
-    - q: Can I upgrade my plan later?
-      a: Yes. Start with the core grid or Pro Lite and upgrade to Pro Advanced when your product requires Pivot, Gantt, or deeper workflow modules.
     - q: Which frontend frameworks does RevoGrid support?
       a: RevoGrid supports React, Vue, Angular, Svelte, JavaScript, and TypeScript-oriented projects from the same grid foundation.
     - q: Is RevoGrid a good JavaScript data grid for AI-assisted coding?
@@ -374,7 +371,7 @@ finalCta:
     - text: View pricing
       link: /pricing
       variant: secondary
-    - text: Download Trial
+    - text: Request Pro Trial
       link: /trial
       variant: secondary
     - text: View docs

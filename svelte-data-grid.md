@@ -10,6 +10,10 @@ editLink: false
 footer: true
 prev: false
 next: false
+commercialFaqKeys:
+  - open-source-production
+  - plan-difference
+  - trial
 head:
   - - link
     - rel: canonical
@@ -29,85 +33,6 @@ head:
   - - meta
     - name: twitter:card
       content: summary_large_image
-  - - script
-    - type: application/ld+json
-    - |
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "RevoGrid",
-        "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "Web",
-        "url": "https://rv-grid.com/svelte-data-grid",
-        "offers": {
-          "@type": "Offer",
-          "price": "200",
-          "priceCurrency": "EUR",
-          "url": "https://rv-grid.com/pricing"
-        }
-      }
-  - - script
-    - type: application/ld+json
-    - |
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Does RevoGrid work with SvelteKit and SSR?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. RevoGrid depends on browser APIs, so render the grid on the client side in SvelteKit while keeping surrounding page content server-rendered."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does RevoGrid support Svelte 5?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. The current Svelte wrapper supports Svelte 5, while Svelte 4 users should use the documented Svelte 4 branch or an earlier compatible package version."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I use existing Svelte components as cells?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Wrap a Svelte component with Template(Component) and assign it to a column's cellTemplate property."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I use the open-source core in production?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. The MIT core can be used in production, including commercial apps, subject to the attribution requirements in the RevoGrid docs."
-            }
-          }
-        ]
-      }
-  - - script
-    - type: application/ld+json
-    - |
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://rv-grid.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Svelte Data Grid",
-            "item": "https://rv-grid.com/svelte-data-grid"
-          }
-        ]
-      }
 
 hero:
   eyebrow: Svelte data grid
@@ -306,7 +231,7 @@ advanced:
       videoUrl: /video/pivot.mp4
       description: Turn Svelte grid data into grouped, aggregated reporting views without embedding a separate BI surface.
     - title: Gantt planning
-      tag: Enterprise
+      tag: Pro Advanced
       type: gantt
       link: /demo/gantt
       thumbnail: /img/gantt.png
@@ -354,7 +279,7 @@ faq:
 finalCta:
   title: Build a faster Svelte data grid with RevoGrid.
   description: Start with the open-source Svelte package, then upgrade when your product needs Pro modules, support, and production workflows.
-  note: Open-source core. Per-developer Pro licensing from €200. No deployment counting.
+  pricingNote: true
   actions:
     - text: Explore 1M-row demo
       link: /demo/

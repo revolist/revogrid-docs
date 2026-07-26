@@ -81,7 +81,6 @@
                                     paddingLeft: `${feature.nesting ? 20 * feature.nesting : 20}px`,
                                 }"
                                 class="feature-card"
-                                :id="feature.name.replace(' ', '-')"
                             >
                                 <button
                                     v-if="feature.collapsible"
@@ -92,8 +91,9 @@
                                 >
                                     {{ isFeatureExpanded(group.name, feature.name) ? '▼' : '▶' }}
                                 </button>
-                                <span class="feature-name-text">{{ feature.name }}</span>
-                                <span v-if="feature.beta" class="VPBadge warning" style="font-size:0.7em;vertical-align:middle;margin-left:4px">Beta</span>
+                                <span
+                                    class="feature-name-text"
+                                >{{ feature.name }}</span>
 
                                 <span v-if="hasFeatureActions(feature)" class="feature-actions">
                                     <a
@@ -117,20 +117,18 @@
                                         Demo
                                     </a>
                                     <button
-                                        class="video-preview"
-                                        :class="{
-                                            'video-placeholder': !feature.video,
-                                        }"
+                                        v-if="feature.video"
+                                        :id="featureId(group, feature)"
+                                        class="video-preview fc-feat-title-link"
                                         type="button"
-                                        :title="feature.video ? 'Video preview' : undefined"
-                                        :disabled="!feature.video"
-                                        :tabindex="feature.video ? 0 : -1"
-                                        @click.stop="feature.video && openPreview(feature.video)"
+                                        title="Video preview"
+                                        :aria-label="`Watch ${feature.name} video preview`"
+                                        @click.stop="openPreview(feature.video)"
                                     >
                                         <VPImage
-                                            v-if="feature.video"
-                                            style="width: 18px"
+                                            class="video-preview-icon"
                                             :image="{ src: 'video.svg' }"
+                                            aria-hidden="true"
                                         />
                                     </button>
                                 </span>
@@ -224,6 +222,22 @@ const expandedFeatures = ref<Record<string, boolean>>({})
 
 const getFeatureKey = (groupName: string, featureName: string) => `${groupName}::${featureName}`
 
+const slugify = (value: string) => value
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+
+const featureId = (group: FeatureGroup, feature: Feature) => {
+    const baseId = `${slugify(group.name)}-${slugify(feature.name)}`
+    const duplicateIndex = group.features
+        .filter((candidate) => candidate.name === feature.name)
+        .indexOf(feature)
+
+    return duplicateIndex > 0 ? `${baseId}-${duplicateIndex + 1}` : baseId
+}
+
 // Initialize expanded state based on props
 props.features.forEach((group, index) => {
     expandedGroups.value[index] = group.expanded
@@ -288,28 +302,44 @@ const openPreview = (video: string) => {
 }
 
 .video-preview {
-    width: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
     border: 0;
+    border-radius: 4px;
     padding: 0;
+    color: var(--vp-c-brand-1);
     background: transparent;
     cursor: pointer;
-    outline: none;
     box-shadow: none;
 
-    &:focus,
-    &:focus-visible {
-        outline: none;
-        box-shadow: none;
+    &:hover {
+        color: var(--vp-c-brand-2);
+        background: var(--vp-c-brand-soft);
     }
 
-    &:disabled {
-        cursor: default;
+    &:focus-visible {
+        outline: 2px solid var(--vp-c-brand-1);
+        outline-offset: 2px;
     }
 }
 
-.video-placeholder {
-    opacity: 0;
-    pointer-events: none;
+:deep(.video-preview-icon) {
+    display: block;
+    width: 18px;
+    height: 18px;
+    color: currentColor;
+    fill: none;
+}
+
+:deep(.video-preview-icon.fill-current) {
+    fill: none;
+}
+
+.fc-feat-title-link {
+    transition: color 0.2s, background-color 0.2s;
 }
 
 .docs-preview,

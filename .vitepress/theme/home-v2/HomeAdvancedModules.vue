@@ -15,7 +15,13 @@
             :videoUrl="item.videoUrl"
           />
           <div class="rg-module-card-body">
-            <h3>{{ item.title }} <span class="rg-module-tag">{{ item.tag }}</span></h3>
+            <h3>
+              {{ item.title }}
+              <span class="rg-module-tag">{{ catalogTag(item) }}</span>
+              <span v-if="catalogStatus(item) !== 'stable'" class="rg-module-tag">
+                {{ catalogStatus(item) }}
+              </span>
+            </h3>
             <p>{{ item.description }}</p>
             <a
               class="rg-module-link"
@@ -41,6 +47,7 @@
 </template>
 
 <script lang="ts" setup>
+import { getFeature, getPlan, getProduct } from '../../../commercial/productCatalog'
 import HomeSectionHeader from './HomeSectionHeader.vue'
 import HomeChevron from './HomeChevron.vue'
 import ModulePreview from './ModulePreview.vue'
@@ -51,6 +58,19 @@ defineProps<{
 }>()
 
 const { linkOf, targetOf, relOf } = useHomeV2Links()
+const catalogFacts = (item: HomeV2Record) => {
+  if (item.catalogProductId) {
+    const product = getProduct(item.catalogProductId)
+    return { planId: product.minimumPlan, status: product.status }
+  }
+  const feature = item.catalogFeatureId ? getFeature(item.catalogFeatureId) : undefined
+  return feature ? { planId: feature.minimumPlan, status: feature.status } : undefined
+}
+const catalogTag = (item: HomeV2Record) => {
+  const facts = catalogFacts(item)
+  return facts ? getPlan(facts.planId).name : item.tag
+}
+const catalogStatus = (item: HomeV2Record) => catalogFacts(item)?.status ?? 'stable'
 </script>
 
 <style lang="scss">

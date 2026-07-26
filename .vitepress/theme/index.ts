@@ -22,9 +22,11 @@ import HomePageColors from './home/HomePageColors.vue'
 import DemoThemeBridge from './DemoThemeBridge.vue'
 import ProDemoFrame from './ProDemoFrame.vue'
 import DemoWidgetFrame from './DemoWidgetFrame.vue'
+import DemoPageLayout from './DemoPageLayout.vue'
 import QuickStartCdnExample from './QuickStartCdnExample.vue'
 import TreeDataProDemo from './TreeDataProDemo.vue'
 import RevoGridHomeLayout from './RevoGridHomeLayout.vue'
+import DemoFeedbackSurvey from './DemoFeedbackSurvey.vue'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 
 export default {
@@ -37,6 +39,7 @@ export default {
                 h(HomePageColors),
                 h(DemoThemeBridge),
                 h(ExternalHomeLinks),
+                h(DemoFeedbackSurvey),
             ],
             'home-hero-image': () => h(HomeHero),
             'home-hero-actions-before-actions': () => h(HomeHeroActions),
@@ -60,6 +63,7 @@ export default {
         app.component('Mermaid', Mermaid)
         app.component('ProDemoFrame', ProDemoFrame)
         app.component('DemoWidgetFrame', DemoWidgetFrame)
+        app.component('DemoPageLayout', DemoPageLayout)
         app.component('QuickStartCdnExample', QuickStartCdnExample)
         app.component('TreeDataProDemo', TreeDataProDemo)
     },

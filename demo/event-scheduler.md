@@ -30,21 +30,20 @@ import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
 import { defineAsyncComponent } from 'vue'
 
 const EventSchedulerShiftWeek = defineAsyncComponent(() =>
-  import('@revolist/revogrid-examples/components/event-scheduler/shift-week/index.vue')
+  import('@revogrid-demos/pro-advanced-scheduler/src/scheduler.vue')
 )
 </script>
 
-<ClientOnly>
+<DemoPageLayout demo-id="event-scheduler">
   <div class="demo-main-widget">
     <EventSchedulerShiftWeek />
   </div>
-</ClientOnly>
+</DemoPageLayout>
 
 <style scoped>
 .demo-main-widget {
-  min-height: calc(100vh - 60px);
-  height: calc(100vh - 60px);
-  margin-top: 40px;
+  min-height: 0;
+  height: 100%;
   border-radius: 0;
 }
 :deep(.event-scheduler-shift-week-sidebar) {

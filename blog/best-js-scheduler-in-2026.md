@@ -20,6 +20,10 @@ head:
 
 # The Best JavaScript Schedulers in 2026
 
+::: tip Need project planning rather than calendar scheduling?
+See [RevoGrid Gantt](/gantt) for dependencies, critical path, baselines, resources, framework guides, demos, pricing, and trial details.
+:::
+
 ![RevoGrid Scheduler and Gantt planning preview](/blog/scheduler.png)
 
 Building a scheduler looks simple until the product grows.

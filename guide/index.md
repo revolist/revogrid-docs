@@ -72,7 +72,7 @@ RevoGrid can stay simple for read-only tables, or become interactive with custom
 Choose the path that matches what you are building:
 
 - [Installation](/guide/installation): package managers, CDN usage, and loader setup.
-- [Download Trial](/trial): request Pro trial access and compare public demos before purchasing.
+- [Request Pro Trial](/trial): request 30-day Pro trial access and compare public demos before purchasing.
 - [Overview](/guide/overview): how the grid is structured and when to use it.
 - [AI Agents and MCP](/guide/mcp): connect Codex, Cursor, Claude Code, or VS Code to version-aware RevoGrid docs, examples, migrations, and typed API context.
 - [Filtering](/guide/filters): enable built-in filtering and custom filter logic.

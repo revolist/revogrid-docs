@@ -1,7 +1,5 @@
 import { useHomeLink } from '../../.vitepress/theme/useHomeLink'
 
-export type PricingRecord = Record<string, any>
-
 export function usePricingLinks() {
   const { homeLink } = useHomeLink()
 

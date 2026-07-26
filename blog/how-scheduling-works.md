@@ -23,10 +23,14 @@ head:
 
 # How Gantt Scheduling Works
 
+::: tip RevoGrid Gantt hub
+Evaluating a component? See the complete [RevoGrid Gantt feature set, live demos, framework support, performance evidence, pricing, and trial details](/gantt).
+:::
+
 > Given the work, relationships, calendars, constraints, progress, and resources, when can each task realistically happen?
 
 
-![JavaScript Gantt Scheduling preview](/blog/gantt-msp.png)
+![JavaScript Gantt Scheduling preview](/blog/gantt-revo.png)
 
 A project plan is rarely just a list of dates. A real plan has sequencing rules, non-working days, holidays, people with limited capacity, deadlines, manual promises, and changing progress. Scheduling is the logic that keeps those pieces consistent.
 

@@ -229,7 +229,7 @@ export const tasks: LandingTask[] = [
     id: 'iac',
     parentId: 'devops',
     wbsCode: '1.4.1',
-    name: 'Infrastructure as Code',
+    name: 'IaC',
     type: 'task',
     status: 'done',
     startDate: '2026-04-06',

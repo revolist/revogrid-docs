@@ -5,6 +5,7 @@ import { navbarEn } from './configs/navbar'
 import { sidebarEn } from './configs/sidebar'
 import dotenv from 'dotenv'
 import path from 'node:path'
+import { readFile } from 'node:fs/promises'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import { containerPreview } from './plugin.preview'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -13,6 +14,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import markdownItAttrs from 'markdown-it-attrs'
 import type MarkdownIt from 'markdown-it'
 import { createStructuredDataHead } from './configs/structuredData'
+import { resolveCommercialFaqs, type CommercialFaqKey } from '../commercial/productCatalog'
 import UnoCSS from 'unocss/vite'
 
 dotenv.config()
@@ -62,6 +64,8 @@ const mermaidMarkdownPlugin = (md: MarkdownIt) => {
 }
 
 const revogridProWorkspaceRoot = path.resolve(__dirname, '../../..')
+const revogridDemosRoot = path.resolve(__dirname, '../revogrid-demos')
+const revogridDemoDataSuffix = '.revogrid-demo-source.ts'
 const localProPackageRoot = path.resolve(revogridProWorkspaceRoot, 'packages/pro')
 const localEnterprisePackageRoot = path.resolve(revogridProWorkspaceRoot, 'packages/enterprise')
 const useLocalProPackages =
@@ -85,10 +89,6 @@ const localProPackageAliases = useLocalProPackages
         {
             find: /^@revolist\/revogrid-enterprise$/,
             replacement: path.resolve(localEnterprisePackageRoot, 'dist/revogrid-enterprise.js'),
-        },
-        {
-            find: '@revolist/revogrid-examples',
-            replacement: path.resolve(revogridProWorkspaceRoot, 'examples/components/src'),
         },
     ]
     : []
@@ -280,11 +280,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ],
     ],
     transformPageData(pageData) {
+        const frontmatter = pageData.frontmatter
+        const commercialFaqKeys = (frontmatter.commercialFaqKeys ?? []) as CommercialFaqKey[]
+        const authoredFaq = frontmatter.faq as { heading?: string, items?: Array<{ q?: string, a?: string }> } | undefined
+        const nestedFaq = (frontmatter.ganttLanding as { faq?: { items?: Array<{ q?: string, a?: string }> } } | undefined)?.faq
+        const generatedFaqs = resolveCommercialFaqs(commercialFaqKeys)
+        const baseItems = authoredFaq?.items ?? nestedFaq?.items ?? []
+        const generatedQuestions = new Set(generatedFaqs.map((item) => item.q))
+
+        if (generatedFaqs.length || baseItems.length) {
+            frontmatter.faq = {
+                ...authoredFaq,
+                items: [
+                    ...baseItems.filter((item) => !item.q || !generatedQuestions.has(item.q)),
+                    ...generatedFaqs,
+                ],
+            }
+        }
+
         if (!isArchiveBuild) {
             return
         }
 
-        pageData.frontmatter.head = archiveControlledHead(pageData.frontmatter.head as HeadConfig[] | undefined)
+        frontmatter.head = archiveControlledHead(frontmatter.head as HeadConfig[] | undefined)
     },
     transformHead({ pageData, siteData }) {
         const frontmatter = pageData.frontmatter
@@ -346,66 +364,85 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ],
 
         footer: {
-            // copyright: '',
             message: `RevoGrid is a powerful data grid library made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. Copyright © 2017-present.`,
             items: standaloneBuildSource ? [] : [
                 {
-                links: [
+                    title: 'Product',
+                    links: [
+                        {
+                            link: '/',
+                            text: 'Overview',
+                        },
+                        {
+                            link: '/pro/feature-table',
+                            text: 'Features',
+                        },
+                        {
+                            link: '/pricing',
+                            text: 'Pricing',
+                        },
+                        {
+                            link: '/pro/',
+                            text: 'RevoGrid Pro',
+                        },
+                    ],
+                },
+                {
+                    title: 'Resources',
+                    links: [
+                        {
+                            link: '/guide/',
+                            text: 'Docs',
+                        },
+                        {
+                            link: '/demo/',
+                            text: 'Demos',
+                        },
+                        {
+                            link: '/compare/',
+                            text: 'Comparisons',
+                        },
+                        {
+                            link: '/blog/',
+                            text: 'Blog',
+                        },
+                    ],
+                },
+                {
+                    title: 'Company',
+                    links: [
+                        {
+                            link: 'https://revolist.eu/about-us/',
+                            text: 'About us',
+                        },
+                        {
+                            link: 'https://revolist.eu/services/',
+                            text: 'Services',
+                        },
+                    ],
+                },
+                {
+                    title: 'Legal',
+                    links: [
+                        {
+                            link: '/pro/policies/license',
+                            text: 'License',
+                        },
                     {
                         link: '/pro/policies/privacy',
-                        text: 'Privacy Policy',
+                            text: 'Privacy',
                     },
                     {
                         link: '/pro/policies/terms',
-                        text: 'Terms of Service',
+                            text: 'Terms',
                     },
                     {
                         link: '/pro/policies/security',
-                        text: 'Security Policy',
+                            text: 'Security',
                     },
-                    {
-                        link: '/guide/',
-                        text: 'Quick Start',
-                    },
-                    {
-                        link: '/compare/',
-                        text: 'Comparisons',
-                    },
-                    {
-                        text: 'Frameworks',
-                        items: [
-                            {
-                                link: '/react-data-grid',
-                                text: 'React Data Grid',
-                            },
-                            {
-                                link: '/vue-data-grid',
-                                text: 'Vue Data Grid',
-                            },
-                            {
-                                link: '/angular-data-grid',
-                                text: 'Angular Data Grid',
-                            },
-                            {
-                                link: '/svelte-data-grid',
-                                text: 'Svelte Data Grid',
-                            },
-                            {
-                                link: '/guide/dash/',
-                                text: 'Dash Data Grid',
-                            },
-                        ],
-                    },
-                    {
-                        link: 'https://revolist.eu/about-us/',
-                        text: 'About us',
-                    },
-                    {
-                        link: 'https://revolist.eu/services/',
-                        text: 'Services',
-                    },
-                ],
-            }],
+                    ],
+                },
+            ],
         },
 
         editLink: {
@@ -428,6 +465,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     },
     vite: {
         plugins: [
+            {
+                // VitePress reserves `*.data.ts` for content loaders. Demo datasets are
+                // regular source modules, so resolve them under a non-reserved filename.
+                name: 'revogrid-demo-data-source',
+                enforce: 'pre',
+                resolveId(source, importer) {
+                    if (!source.endsWith('.data') && !source.endsWith('.data.ts')) return null
+
+                    let resolvedSourcePath: string | null = null
+                    if (source.startsWith('@revogrid-demos/')) {
+                        resolvedSourcePath = path.resolve(
+                            revogridDemosRoot,
+                            source.slice('@revogrid-demos/'.length),
+                        )
+                    } else if (source.startsWith(revogridDemosRoot)) {
+                        resolvedSourcePath = source
+                    } else if (importer?.startsWith(revogridDemosRoot)) {
+                        resolvedSourcePath = path.resolve(path.dirname(importer), source)
+                    }
+
+                    const sourcePath = resolvedSourcePath?.replace(/\.ts$/, '')
+                    return sourcePath
+                        ? `${sourcePath}${revogridDemoDataSuffix}`
+                        : null
+                },
+                async load(id) {
+                    if (!id.endsWith(revogridDemoDataSuffix)) return null
+
+                    const sourcePath = `${id.slice(0, -revogridDemoDataSuffix.length)}.ts`
+                    this.addWatchFile(sourcePath)
+                    return readFile(sourcePath, 'utf8')
+                },
+            },
             {
                 name: 'inject-gtm-noscript',
                 transformIndexHtml(html) {
@@ -504,6 +574,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             ],
             alias: [
                 {
+                    find: '@revogrid-demos',
+                    replacement: revogridDemosRoot,
+                },
+                {
                     find: /^.*\/VPImage\.vue$/,
                     replacement: fileURLToPath(
                         new URL('./theme/VPImage.vue', import.meta.url)
@@ -541,6 +615,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     },
     srcExclude: process.env.VITE_PRO_INCLUDE
         ? [
+            'revogrid-demos/**',
             '**/_*.md',
             'README.md',
             'guide/parts/*.md',
@@ -550,6 +625,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             'guide/column/cell.template.md',
         ]
         : [
+            'revogrid-demos/**',
             'demo/**-pro/**',
             'pro-pages/**',
             '**/_*.md',

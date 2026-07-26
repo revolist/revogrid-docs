@@ -10,6 +10,11 @@ next: false
 pageClass: pro-landing-doc
 layout: custom
 breadcrumbs: false
+commercialFaqKeys:
+  - plan-difference
+  - trial
+  - source-access
+  - application-limits
 head:
   - - link
     - rel: preconnect
@@ -35,7 +40,7 @@ proPage:
         detail:
         href: /pricing
       trial:
-        label: Download Trial
+        label: Request Pro Trial
         href: /trial
       secondary:
         label: Watch 90s demo
@@ -71,20 +76,24 @@ proPage:
       label: royalties
       description: Per-dev license. Ship anywhere.
   ai:
-    tag: works with AI coding tools
-    codeTag: written with Claude
+    tag: AI-assisted integration
+    codeTag: Designed for AI-assisted integration
     title:
-      prefix: AI writes the integration.
-      suffix: Pro provides the
-      highlight: capability.
-    description: AI coding tools are excellent at wiring up APIs. RevoGrid Pro gives them a clear, typed, consistent surface to work with - so the integration that AI writes is built on a premium scheduling engine, a formula evaluator, or a pivot analytics layer.
+      prefix: AI accelerates the integration.
+      suffix: Pro delivers the
+      highlight: production system.
+    description: Use AI coding tools to connect your data, UI, and product workflows faster. RevoGrid Pro supplies the maintained engineering underneath - domain engines, stable contracts, compatibility work, migrations, examples, and support.
     facts:
       - icon: code
-        text: TypeScript-first APIs through typed events and plugin configuration. Claude, Copilot and Cursor get accurate completions on the first try.
+        text: Typed APIs and maintained examples give coding agents a reliable integration surface instead of forcing them to guess at events, plugin configuration, or payloads.
       - icon: layer-group
-        text: Consistent data model from the feature - no separate Gantt library, no BI iframe, no second table engine.
+        text: Tested scheduling behavior and defined formula evaluation semantics handle the domain logic behind planning and spreadsheet workflows.
       - icon: wand-magic-sparkles
-        text: AI can customize it; can't replace it. Ask your AI to embed a Gantt for roadmap or turn customer MRR data into a pivot table; the underlying engine understands it.
+        text: Pivot state models and remote-data contracts keep analytics, drill-down, grouping, totals, caching, and server-owned data flows consistent.
+      - icon: layer-group
+        text: Browser compatibility plus accessibility and keyboard handling are maintained across the shared grid foundation and framework integrations.
+      - icon: code
+        text: Version-aware migrations, maintained examples, commercial support, and ongoing fixes reduce the long-term ownership cost after the first generated integration.
   features:
     tag: What's inside Pro
     title:
@@ -114,6 +123,18 @@ proPage:
         replaces: React-arborist, custom expanders, nested grid hacks
         demoLabel: Watch preview
         demoUrl: /guide/row/master.pro
+      - type: pivot
+        tier: Pro Advanced
+        title: "Pivot & Reporting"
+        titleSuffix: group, aggregate, and drill down without a BI tool.
+        description: Drag dimensions into rows, columns, and values. Aggregations, subtotals, grand totals, drilldown, saved state. Client-side for snappy datasets, server-side for unbounded ones. Same component.
+        saves: 3-6
+        unit: months
+        savesAgainst: vs in-house BI layer
+        replaces: Tableau Embedded, Power BI Embedded, in-house OLAP layer
+        demoLabel: Watch preview
+        demoUrl: /demo/pivot
+        wide: true
       - type: audit
         tier: Pro
         title: Audit-ready by default
@@ -126,20 +147,8 @@ proPage:
         demoLabel: Watch preview
         demoUrl: /guide/events-guide
         wide: true
-      - type: pivot
-        tier: Enterprise
-        title: Advanced Reporting
-        titleSuffix: group, aggregate, and drill down without a BI tool.
-        description: Drag dimensions into rows, columns, and values. Aggregations, subtotals, grand totals, drilldown, saved state. Client-side for snappy datasets, server-side for unbounded ones. Same component.
-        saves: 3-6
-        unit: months
-        savesAgainst: vs in-house BI layer
-        replaces: Tableau Embedded, Power BI Embedded, in-house OLAP layer
-        demoLabel: Watch preview
-        demoUrl: /demo/pivot
-        wide: true
       - type: gantt
-        tier: Enterprise
+        tier: Pro Advanced
         title: Gantt & Scheduling
         titleSuffix: project planning, not a project.
         description: Task trees, dependencies, auto and manual scheduling, baselines, resources, critical path, capacity warnings. MS Project-style task editor included. All of it driven by the same grid data model.
@@ -248,12 +257,12 @@ proPage:
         label: Get Pro
         href: /pricing
       trial:
-        label: Start free trial
+        label: Request Pro Trial
         href: /trial
       secondary:
         label: Read the docs
         href: /guide/
-    note: Royalty-free - No deployment fee - Cancel anytime - 14-day trial
+    note: Royalty-free - No deployment fee - Cancel anytime - 30-day trial
 ---
 
 <script lang="ts" setup>

@@ -8,6 +8,7 @@ export type GanttLandingAction = {
 }
 
 export type GanttLandingPage = {
+  catalogProductId: 'gantt' | 'scheduler' | 'event-scheduler'
   colors: {
     accent: string
     accent2: string
@@ -49,7 +50,67 @@ export type GanttLandingPage = {
     kicker: string
     title: string
     description: string
-    items: { icon: string, name: string, badge?: string }[]
+    items: { icon: string, name: string, badge?: string, href?: string }[]
+  }
+  demos?: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    items: { title: string, description: string, href: string, media: string, mediaKind?: 'image' | 'video' }[]
+  }
+  evidence?: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    items: { value: string, title: string, description: string }[]
+    note: string
+    links: { label: string, href: string }[]
+  }
+  evaluation?: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    priceLabel: string
+    items: { title: string, description: string }[]
+    actions: GanttLandingAction[]
+  }
+  positioning?: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    items: { title: string, description: string }[]
+  }
+  featureComparison?: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    columns: string[]
+    rows: { feature: string, revogrid: string, note: string }[]
+  }
+  useCases?: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    items: { title: string, description: string }[]
+  }
+  faq?: {
+    id: string
+    kicker: string
+    title: string
+    items: { q: string, a: string }[]
+  }
+  linkSections?: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    sections: { title: string, items: { label: string, href: string }[] }[]
   }
   advancedCallout?: {
     title: string
@@ -66,15 +127,16 @@ export type GanttLandingPage = {
 }
 
 export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
+  catalogProductId: 'gantt',
   colors: {
-    accent: '#1d4ed8',
-    accent2: '#3b82f6',
-    soft: 'rgba(29, 78, 216, 0.09)',
-    border: 'rgba(29, 78, 216, 0.22)',
-    darkAccent: '#60a5fa',
-    darkAccent2: '#93c5fd',
-    darkSoft: 'rgba(96, 165, 250, 0.14)',
-    darkBorder: 'rgba(96, 165, 250, 0.28)',
+    accent: 'var(--vp-c-brand-3)',
+    accent2: 'var(--vp-c-brand-2)',
+    soft: 'var(--vp-c-brand-soft)',
+    border: 'color-mix(in srgb, var(--vp-c-brand-3) 24%, transparent)',
+    darkAccent: 'var(--vp-c-brand-2)',
+    darkAccent2: 'var(--vp-c-brand-3)',
+    darkSoft: 'var(--vp-c-brand-soft)',
+    darkBorder: 'color-mix(in srgb, var(--vp-c-brand-2) 28%, transparent)',
   },
   hero: {
     eyebrow: 'RevoGrid Pro / Gantt',
@@ -82,7 +144,7 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
     description: 'Production-ready project scheduling for SaaS, ERP, and operations platforms. Drag-to-reschedule tasks, assign owners, track progress, and embed it as a native product feature.',
     actions: [
       { label: 'View Demo', href: 'https://rv-grid.com/demo/gantt', arrow: true },
-      { label: 'Download Trial', href: '/trial', variant: 'secondary' },
+      { label: 'Request Pro Trial', href: '/trial', variant: 'secondary' },
     ],
     badges: ['Drag to reschedule', 'Inline assignees', 'Progress bars', 'Milestones'],
   },
@@ -168,7 +230,7 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
     primaryHref: 'https://rv-grid.com/demo/gantt',
     primaryLabel: 'View Demo',
     secondaryHref: '/trial',
-    secondaryLabel: 'Download Trial',
+    secondaryLabel: 'Request Pro Trial',
   },
 }
 
@@ -181,6 +243,11 @@ export function mergeGanttPageConfig(config: Partial<GanttLandingPage> = {}): Ga
     preview: { ...DEFAULT_GANTT_PAGE.preview, ...config.preview },
     features: { ...DEFAULT_GANTT_PAGE.features, ...config.features },
     integrations: { ...DEFAULT_GANTT_PAGE.integrations, ...config.integrations },
+    positioning: config.positioning,
+    featureComparison: config.featureComparison,
+    useCases: config.useCases,
+    faq: config.faq,
+    linkSections: config.linkSections,
     advancedCallout: config.advancedCallout === null
       ? undefined
       : { ...DEFAULT_GANTT_PAGE.advancedCallout, ...config.advancedCallout },

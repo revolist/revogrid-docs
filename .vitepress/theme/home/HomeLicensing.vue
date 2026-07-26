@@ -34,7 +34,7 @@
 
 <script lang="ts" setup>
 import AppButton from '../AppButton.vue'
-import { PRICES } from '../../../pricing-page/prices'
+import { getPlan, resolvePlanPrice } from '../../../commercial/productCatalog'
 import { useHomeLink } from '../useHomeLink'
 
 const { homeLink } = useHomeLink()
@@ -46,8 +46,8 @@ const ADVANTAGES = [
 ]
 
 const PRICING_CARDS = [
-    { name: 'Pro Light', desc: 'For individual developers and small teams', price: `$${PRICES.light.year.USD}`, period: '/dev/yr', featured: false },
-    { name: 'Pro Advanced', desc: 'Plugins, priority support, and advanced features', price: `$${PRICES.advanced.year.USD}`, period: '/dev/yr', featured: true },
+    { name: getPlan('pro-lite').name, desc: 'For individual developers and small teams', price: `$${resolvePlanPrice('pro-lite').year.USD}`, period: '/dev/yr', featured: false },
+    { name: getPlan('pro-advanced').name, desc: 'Plugins, priority support, and advanced features', price: `$${resolvePlanPrice('pro-advanced').year.USD}`, period: '/dev/yr', featured: true },
 ]
 </script>
 

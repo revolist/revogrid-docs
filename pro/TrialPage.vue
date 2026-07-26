@@ -6,13 +6,15 @@
           <p class="eyebrow">Evaluate RevoGrid Pro</p>
           <h1>Try Pro before you buy.</h1>
           <p class="lead">
-            Request access to evaluate Pro and Enterprise modules with live demos,
-            module guidance, and support for your product workflow.
+            Evaluate Pro modules, including Pivot, Gantt, and Scheduler, with
+            {{ trialDuration }} private npm access, live demos, and implementation guidance.
           </p>
 
           <ul class="benefit-list" aria-label="Trial benefits">
             <li v-for="benefit in benefits" :key="benefit">
-              <span class="check-icon" aria-hidden="true"></span>
+              <span class="benefit-icon" aria-hidden="true">
+                <FontAwesomeSvgIcon name="check" />
+              </span>
               {{ benefit }}
             </li>
           </ul>
@@ -20,103 +22,45 @@
 
         <div class="trial-form-panel">
           <TrialRequestForm
-            title="Request trial access"
-            subtitle="No credit card required. Tell us where RevoGrid Pro will be evaluated and which modules you need."
-            submit-label="Submit"
+            eyebrow="Start your trial"
+            helper="Takes ~1 min"
+            title="Get 30-day Pro access"
+            subtitle="No credit card required. We’ll send access details to your email."
+            submit-label="Get Pro access"
             request-type="trial"
             success-title="Trial request received"
-            success-message="We will send trial access details to your business email."
+            success-message="We’ll send trial access details to your email."
           />
         </div>
       </div>
     </section>
 
-    <TrustedLogoStrip title-id="trial-trust-title" variant="trial" />
+    <TrustedLogoStrip
+      title-id="trial-trust-title"
+      variant="trial"
+      :section="logoSection"
+      :metrics="metrics"
+    />
 
-    <section class="trial-section" aria-labelledby="trial-answers-title">
+    <section class="trial-steps" aria-labelledby="trial-steps-title">
       <div class="trial-container">
-        <div class="section-heading">
-          <p class="eyebrow">Evaluation options</p>
-          <h2 id="trial-answers-title">One clear path from demo to production.</h2>
-          <p>
-            RevoGrid Pro evaluation is available by request. You can inspect public demos first,
-            then request access when you need to validate Pro behavior inside your app.
-          </p>
+        <div class="steps-heading">
+          <p class="eyebrow">Simple from day one</p>
+          <h2 id="trial-steps-title">What happens after you submit</h2>
+          <p>No hidden steps, no automatic subscription.</p>
         </div>
 
-        <div class="answer-list">
-          <article
-            v-for="(answer, index) in answers"
-            :key="answer.title"
-            class="answer-item"
-            :class="{ open: openAnswers[index] }"
-          >
-            <button
-              type="button"
-              class="answer-trigger"
-              :aria-expanded="Boolean(openAnswers[index])"
-              :aria-controls="`trial-answer-${index}`"
-              @click="toggleAnswer(index)"
-            >
-              <span>{{ answer.title }}</span>
-              <span class="answer-toggle" aria-hidden="true">+</span>
-            </button>
-
-            <div
-              v-show="openAnswers[index]"
-              :id="`trial-answer-${index}`"
-              class="answer-body"
-            >
-              <p>{{ answer.description }}</p>
-              <div v-if="answer.links?.length" class="answer-links">
-                <a
-                  v-for="link in answer.links"
-                  :key="link.href"
-                  :href="link.href"
-                  :target="link.external ? '_blank' : undefined"
-                  :rel="link.external ? 'noopener noreferrer' : undefined"
-                >
-                  {{ link.text }}
-                </a>
-              </div>
+        <div class="steps-grid">
+          <article v-for="step in steps" :key="step.number" class="step-card">
+            <div class="step-card-top">
+              <span class="step-number">{{ step.number }}</span>
+              <span class="step-icon" aria-hidden="true">
+                <FontAwesomeSvgIcon :name="step.icon" />
+              </span>
             </div>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="trial-section" aria-labelledby="trial-lifecycle-title">
-      <div class="trial-container">
-        <div class="section-heading">
-          <p class="eyebrow">What to expect</p>
-          <h2 id="trial-lifecycle-title">Trial access, limits, and production rules.</h2>
-        </div>
-
-        <div class="lifecycle-grid">
-          <article v-for="item in lifecycle" :key="item.title" class="lifecycle-card">
-            <span>{{ item.step }}</span>
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.description }}</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="trial-proof" aria-labelledby="trial-proof-title">
-      <div class="trial-container">
-        <h2 id="trial-proof-title">Trusted by engineering teams building data-heavy products</h2>
-        <div class="proof-grid">
-          <div v-for="stat in stats" :key="stat.label" class="proof-stat">
-            <strong>{{ stat.value }}</strong>
-            <span>{{ stat.label }}</span>
-          </div>
-        </div>
-        <div class="logo-row" aria-label="Industries using RevoGrid">
-          <span>Enterprise software</span>
-          <span>Finance</span>
-          <span>Pharma</span>
-          <span>Automotive</span>
-          <span>Analytics</span>
         </div>
       </div>
     </section>
@@ -124,462 +68,332 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import FontAwesomeSvgIcon from '../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
 import TrustedLogoStrip from '../.vitepress/theme/TrustedLogoStrip.vue'
+import { getPlan } from '../commercial/productCatalog'
 import TrialRequestForm from './TrialRequestForm.vue'
 
+const litePlan = getPlan('pro-lite')
+const advancedPlan = getPlan('pro-advanced')
+const trialDuration = `${litePlan.trial.durationDays}-day`
+
 const benefits = [
-  'Trial access by request',
-  'Public demos before installing anything',
-  'Guidance for app-level Pro and Enterprise evaluation',
-  'Clear production path for SaaS, internal tools, and commercial apps',
+  `${trialDuration} private npm access`,
+  'Public boilerplate repository and live demos',
+  `Evaluate ${litePlan.name} and ${advancedPlan.name} modules`,
+  'Guidance for app-level Pro evaluation',
 ]
 
-const answers = [
-  {
-    title: 'Can I try Pro?',
-    description: 'Yes. Request trial access here when your team needs to evaluate Pro or Enterprise modules in a real product workflow.',
-    links: [
-      { href: '#trialFullName', text: 'Request trial access' },
-    ],
-  },
-  {
-    title: 'Is there a public sandbox?',
-    description: 'Yes. Start with the public demo gallery, Pivot demo, and Gantt demo for feature exploration before requesting trial access.',
-    links: [
-      { href: '/demo/', text: 'Demo gallery' },
-      { href: '/demo/pivot', text: 'Pivot demo' },
-      { href: '/demo/gantt', text: 'Gantt demo' },
-    ],
-  },
-  {
-    title: 'What is included in trial?',
-    description: 'Trial access can cover the MIT core, Pro modules, Enterprise modules such as Pivot and Gantt where approved, examples, docs, and evaluation support.',
-  },
-  {
-    title: 'Can I use it in SaaS?',
-    description: 'Yes. Paid Pro licensing is SaaS-friendly: no end-user fee, deployment fee, or runtime royalty for your users.',
-    links: [
-      { href: '/pricing', text: 'Review pricing' },
-    ],
-  },
-]
-
-const openAnswers = ref<Record<number, boolean>>({ 0: true })
-
-function toggleAnswer(index: number) {
-  openAnswers.value = {
-    ...openAnswers.value,
-    [index]: !openAnswers.value[index],
-  }
+const logoSection = {
+  kicker: 'Used by teams at companies including',
+  title: '',
 }
 
-const lifecycle = [
-  {
-    step: '01',
-    title: 'What is included',
-    description: 'The MIT core remains public. Trial access can include Pro modules, Enterprise modules such as Pivot and Gantt where approved, examples, docs, and evaluation support.',
-  },
-  {
-    step: '02',
-    title: 'Trial limits',
-    description: 'Trial access is for evaluation only and cannot be redistributed or used in production before paid access is active.',
-  },
-  {
-    step: '03',
-    title: 'After the trial',
-    description: 'Move to paid Pro or Enterprise access, use the required production license setup, and follow the production rules in the EULA.',
-  },
-]
-
-const stats = [
+const metrics = [
   { value: '900K+', label: 'jsDelivr downloads / mo' },
   { value: '3.4K+', label: 'GitHub stars' },
-  { value: '8K+', label: 'developers using RevoGrid' },
+  { value: `${litePlan.trial.durationDays} days`, label: 'to evaluate Pro' },
+  { value: '< 1 day', label: 'typical access time' },
+]
+
+const steps = [
+  {
+    number: '01',
+    icon: 'arrowDown',
+    title: 'Get your access',
+    description: 'After submitting the form, we’ll send private npm access to your email.',
+  },
+  {
+    number: '02',
+    icon: 'calendarDays',
+    title: `You evaluate Pro for ${litePlan.trial.durationDays} days`,
+    description: 'Test selected modules directly in your application with your own data and workflows. It is evaluation-only and cannot be redistributed or used in production.',
+  },
+  {
+    number: '03',
+    icon: 'check',
+    title: 'You decide when you’re ready',
+    description: `Move to ${litePlan.name}, ${advancedPlan.name}, or Enterprise when you are ready.`,
+  },
 ]
 </script>
 
 <style lang="scss" scoped>
 .trial-page {
   min-height: calc(100vh - var(--vp-nav-height));
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--vp-c-brand-1), transparent 94%), transparent 36rem),
-    var(--vp-c-bg);
+  background: var(--vp-c-bg);
 }
 
 .trial-container {
-  width: min(1180px, calc(100% - 48px));
+  width: min(1200px, calc(100% - 48px));
   margin: 0 auto;
 }
 
 .trial-hero {
-  padding: 4.5rem 0 5rem;
+  border-top: 1px solid var(--vp-c-divider);
+  background:
+    radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--vp-c-brand-1), transparent 91%), transparent 30rem),
+    var(--vp-c-bg);
+  padding: clamp(3.5rem, 6vw, 5.75rem) 0;
 }
 
 .trial-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 520px);
-  gap: clamp(2.5rem, 7vw, 6rem);
+  grid-template-columns: minmax(0, 1fr) minmax(500px, 570px);
+  gap: clamp(3rem, 7vw, 6.5rem);
   align-items: center;
-}
-
-.trial-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  margin-bottom: 4rem;
-  color: var(--vp-c-text-1);
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-decoration: none;
-
-  img {
-    width: 38px;
-    height: 38px;
-  }
 }
 
 .eyebrow {
-  margin: 0 0 0.9rem;
+  margin: 0 0 1.15rem;
   color: var(--vp-c-brand-1);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-.trial-copy {
-  h1 {
-    max-width: 12ch;
-    margin: 0;
-    color: var(--vp-c-text-1);
-    font-size: clamp(3rem, 5vw, 3.25rem);
-    line-height: 0.95;
-  }
+.trial-copy h1 {
+  max-width: 12ch;
+  margin: 0;
+  color: var(--vp-c-text-1);
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
 }
 
 .lead {
-  max-width: 42rem;
-  margin: 1.5rem 0 0;
+  max-width: 40rem;
+  margin: 1.75rem 0 0;
   color: var(--vp-c-text-2);
-  font-size: 1.25rem;
-  line-height: 1.65;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  line-height: 1.62;
 }
 
 .benefit-list {
   display: grid;
-  gap: 1.2rem;
-  margin: 3rem 0 0;
+  gap: 1.1rem;
+  margin: 3.25rem 0 0;
   padding: 0;
-  list-style: none;
   color: var(--vp-c-text-2);
-  font-size: 1.08rem;
+  font-size: 1rem;
+  list-style: none;
+}
 
-  li {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.9rem;
-    align-items: center;
-  }
+.benefit-list li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.9rem;
+  align-items: center;
+}
 
-  .check-icon {
-    display: inline-grid;
-    width: 32px;
-    height: 32px;
-    place-items: center;
-    border-radius: 50%;
-    background: color-mix(in srgb, var(--vp-c-brand-1), transparent 84%);
+.benefit-icon {
+  display: inline-grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--vp-c-brand-1), transparent 87%);
+  color: var(--vp-c-brand-1);
+}
 
-    &::before {
-      width: 12px;
-      height: 7px;
-      border: solid var(--vp-c-brand-1);
-      border-width: 0 0 3px 3px;
-      content: '';
-      transform: rotate(-45deg) translate(1px, -1px);
-    }
-  }
+.benefit-icon :deep(.fa-svg-icon) {
+  width: 14px;
+  height: 14px;
 }
 
 .trial-form-panel {
   border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--vp-c-bg);
-  box-shadow: 0 18px 50px color-mix(in srgb, #000, transparent 90%);
-  padding: clamp(1.4rem, 3vw, 2.25rem);
+  box-shadow: 0 22px 58px color-mix(in srgb, #17211d, transparent 90%);
+  padding: clamp(1.75rem, 3vw, 2.6rem);
 }
 
-.trial-section {
+.trial-steps {
   border-top: 1px solid var(--vp-c-divider);
-  padding: 4.5rem 0;
+  background: var(--vp-c-bg-soft);
+  padding: clamp(4.5rem, 7vw, 6.5rem) 0 clamp(5rem, 8vw, 7rem);
 }
 
-.section-heading {
-  max-width: 780px;
-  margin-bottom: 2rem;
-
-  &.compact {
-    margin-bottom: 0;
-  }
-
-  h2 {
-    margin: 0;
-    color: var(--vp-c-text-1);
-    font-size: clamp(2rem, 2vw, 3.25rem);
-    line-height: 1.08;
-  }
-
-  p:not(.eyebrow) {
-    margin: 1rem 0 0;
-    color: var(--vp-c-text-2);
-    font-size: 1.05rem;
-    line-height: 1.7;
-  }
+.steps-heading {
+  margin: 0 auto clamp(2.5rem, 4vw, 3.5rem);
+  text-align: center;
 }
 
-.lifecycle-grid {
+.steps-heading h2 {
+  margin: 0;
+  color: var(--vp-c-text-1);
+  font-size: clamp(2.35rem, 4.5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+}
+
+.steps-heading > p:last-child {
+  margin: 1.35rem 0 0;
+  color: var(--vp-c-text-2);
+  font-size: 1rem;
+}
+
+.steps-grid {
   display: grid;
-  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
 }
 
-.lifecycle-card {
+.step-card {
+  display: flex;
+  min-height: 265px;
+  flex-direction: column;
   border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
+  border-radius: 10px;
   background: var(--vp-c-bg);
+  padding: 1.8rem 2rem 2.1rem;
 }
 
-.lifecycle-card {
-  padding: 1.25rem;
-
-  h3 {
-    margin: 0;
-    color: var(--vp-c-text-1);
-    font-size: 1.05rem;
-    line-height: 1.3;
-  }
-
-  p {
-    margin: 0.75rem 0 0;
-    color: var(--vp-c-text-2);
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-}
-
-.answer-list {
-  display: grid;
-  gap: 0.85rem;
-  max-width: 900px;
-}
-
-.answer-item {
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
-  background: var(--vp-c-bg);
-  overflow: hidden;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-
-  &.open {
-    border-color: color-mix(in srgb, var(--vp-c-brand-1), var(--vp-c-divider) 55%);
-    box-shadow: 0 14px 36px color-mix(in srgb, #000, transparent 94%);
-
-    .answer-toggle {
-      transform: rotate(45deg);
-      color: var(--vp-c-brand-1);
-    }
-  }
-}
-
-.answer-trigger {
-  width: 100%;
+.step-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  border: 0;
-  background: transparent;
-  color: var(--vp-c-text-1);
-  cursor: pointer;
-  font: inherit;
-  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+}
+
+.step-number {
+  color: var(--vp-c-text-3);
+  font-size: 0.78rem;
   font-weight: 700;
-  line-height: 1.3;
-  padding: 1.1rem 1.25rem;
-  text-align: left;
+  letter-spacing: 0.04em;
+}
 
-  &:hover {
-    background: color-mix(in srgb, var(--vp-c-brand-1), transparent 94%);
+.step-icon {
+  display: inline-grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--vp-c-brand-1), transparent 88%);
+  color: var(--vp-c-brand-1);
+}
+
+.step-card:first-child .step-icon :deep(.fa-svg-icon) {
+  transform: rotate(-135deg);
+}
+
+.step-card h3 {
+  margin: 0;
+  color: var(--vp-c-text-1);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.step-card p {
+  margin: 1rem 0 0;
+  color: var(--vp-c-text-2);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 980px) {
+  .trial-hero-grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(430px, 1.1fr);
+    gap: 2.5rem;
+  }
+
+  .trial-copy h1 {
+    font-size: clamp(3.25rem, 6vw, 4.25rem);
   }
 }
 
-.answer-toggle {
-  flex: 0 0 auto;
-  color: var(--vp-c-text-3);
-  font-size: 1.45rem;
-  line-height: 1;
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.answer-body {
-  border-top: 1px solid var(--vp-c-divider);
-  padding: 0 1.25rem 1.25rem;
-
-  p {
-    max-width: 720px;
-    margin: 1rem 0 0;
-    color: var(--vp-c-text-2);
-    font-size: 0.98rem;
-    line-height: 1.7;
-  }
-}
-
-.answer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 0.8rem;
-  margin-top: 1rem;
-
-  a {
-    display: inline-flex;
-    color: var(--vp-c-brand-1);
-    font-size: 0.92rem;
-    font-weight: 600;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
-.lifecycle-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.lifecycle-card {
-  span {
-    display: inline-flex;
-    margin-bottom: 1rem;
-    color: var(--vp-c-brand-1);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-  }
-}
-
-.trial-proof {
-  border-top: 1px solid var(--vp-c-divider);
-  padding: 4rem 0 5rem;
-  text-align: center;
-
-  h2 {
-    max-width: 820px;
-    margin: 0 auto 2rem;
-    color: var(--vp-c-text-1);
-    font-size: clamp(2rem, 4vw, 3.25rem);
-    line-height: 1.08;
-  }
-}
-
-.proof-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--vp-c-divider);
-  border-bottom: 1px solid var(--vp-c-divider);
-}
-
-.proof-stat {
-  display: grid;
-  gap: 0.45rem;
-  padding: 1.5rem 1rem;
-  border-right: 1px solid var(--vp-c-divider);
-
-  &:last-child {
-    border-right: 0;
-  }
-
-  strong {
-    color: var(--vp-c-text-1);
-    font-size: 2rem;
-    line-height: 1;
-  }
-
-  span {
-    color: var(--vp-c-text-3);
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-}
-
-.logo-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 2.25rem;
-  justify-content: center;
-  margin-top: 2.5rem;
-  color: var(--vp-c-text-3);
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-@media (max-width: 900px) {
+@media (max-width: 820px) {
   .trial-hero {
-    padding-top: 2.25rem;
+    padding-top: 3rem;
   }
 
   .trial-hero-grid {
     grid-template-columns: 1fr;
   }
 
-  .trial-logo {
-    margin-bottom: 2.25rem;
-  }
-
   .trial-copy h1 {
-    max-width: 12ch;
+    max-width: 10ch;
   }
 
-  .lifecycle-grid {
+  .benefit-list {
+    margin-top: 2.5rem;
+  }
+
+  .steps-grid {
     grid-template-columns: 1fr;
   }
 
-  .section-heading.compact {
-    margin-bottom: 0;
+  .step-card {
+    min-height: 230px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 800px) {
+  :global(body:has(.trial-page) .VPNavBar .content) {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+  }
+
+  :global(body:has(.trial-page) .VPNavBar .content-body) {
+    min-width: 0;
+  }
+
+  :global(body:has(.trial-page) .VPNavBarMenu),
+  :global(body:has(.trial-page) .VPNavBarExtra) {
+    display: none;
+  }
+
+  :global(body:has(.trial-page) .VPNavBarHamburger) {
+    display: flex;
   }
 }
 
 @media (max-width: 640px) {
   .trial-container {
-    width: min(100% - 32px, 1180px);
+    width: min(100% - 32px, 1200px);
+  }
+
+  .trial-hero {
+    padding: 2.5rem 0 3.5rem;
   }
 
   .trial-copy h1 {
-    font-size: 3rem;
+    font-size: clamp(3rem, 15vw, 4rem);
   }
 
   .lead {
-    font-size: 1.05rem;
+    margin-top: 1.4rem;
   }
 
-  .proof-grid {
-    grid-template-columns: 1fr;
+  .benefit-list {
+    font-size: 0.95rem;
   }
 
-  .proof-stat {
-    border-right: 0;
-    border-bottom: 1px solid var(--vp-c-divider);
+  .trial-form-panel {
+    padding: 1.4rem;
+  }
 
-    &:last-child {
-      border-bottom: 0;
-    }
+  .steps-heading {
+    text-align: left;
+  }
+
+  .steps-heading h2 {
+    font-size: clamp(2.4rem, 12vw, 3.25rem);
+  }
+
+  .step-card {
+    min-height: 0;
+    padding: 1.5rem;
+  }
+
+  .step-card h3 {
+    margin-top: 0;
   }
 }
 </style>

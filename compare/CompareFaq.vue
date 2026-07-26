@@ -29,6 +29,17 @@
           class="answer-body"
         >
           <p>{{ item.description }}</p>
+          <div v-if="item.links?.length" class="answer-links">
+            <a
+              v-for="link in item.links"
+              :key="link.href"
+              :href="link.href"
+              :target="link.external ? '_blank' : undefined"
+              :rel="link.external ? 'noopener noreferrer' : undefined"
+            >
+              {{ link.text }}
+            </a>
+          </div>
         </div>
       </article>
     </div>
@@ -43,6 +54,11 @@ defineProps<{
   items: Array<{
     title: string
     description: string
+    links?: Array<{
+      href: string
+      text: string
+      external?: boolean
+    }>
   }>
 }>()
 
@@ -151,5 +167,24 @@ function toggleAnswer(index: number) {
   color: var(--vp-c-text-2);
   font-size: 0.98rem;
   line-height: 1.7;
+}
+
+.answer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.8rem;
+  margin-top: 1rem;
+}
+
+.answer-links a {
+  display: inline-flex;
+  color: var(--vp-c-brand-1);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.answer-links a:hover {
+  text-decoration: underline;
 }
 </style>

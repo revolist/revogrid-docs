@@ -1,16 +1,12 @@
 import type { DefaultTheme } from 'vitepress'
+import { getDemoBadge, type DemoId } from '../../../commercial/productCatalog'
 
-type DemoTier = 'Core' | 'Pro Lite' | 'Pro Advanced'
-
-const demoTier: Record<DemoTier, { badge: string; className: string }> = {
-    Core: { badge: 'Core', className: 'core' },
-    'Pro Lite': { badge: 'Lite', className: 'pro-lite' },
-    'Pro Advanced': { badge: 'Adv', className: 'pro-advanced' },
-}
-
-const demoSidebarText = (text: string, tier: DemoTier) => {
-    const { badge, className } = demoTier[tier]
-    return `<span class="demo-sidebar-label"><span>${text}</span><span class="demo-sidebar-badge demo-sidebar-badge--${className}" title="${tier}">${badge}</span></span>`
+const demoSidebarText = (demoId: DemoId) => {
+    const demo = getDemoBadge(demoId)
+    const status = demo.status === 'stable'
+        ? ''
+        : `<span class="demo-sidebar-status" title="${demo.status}">${demo.status}</span>`
+    return `<span class="demo-sidebar-label"><span>${demo.label}</span><span class="demo-sidebar-badge demo-sidebar-badge--${demo.className}" title="${demo.title}">${demo.badge}</span>${status}</span>`
 }
 
 export const sidebarReactEn: DefaultTheme.SidebarItem[] = [
@@ -225,35 +221,27 @@ export const sidebarGuideDemosEn: DefaultTheme.SidebarItem[] = [
 
 export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
     {
-        text: demoSidebarText('Grid at Scale', 'Core'),
+        text: demoSidebarText('grid-at-scale'),
         link: '/demo/',
     },
     {
-        text: demoSidebarText('Pivot Analytics', 'Pro Advanced'),
-        link: '/demo/pivot',
-    },
-    {
-        text: demoSidebarText('Project Tracker', 'Pro Lite'),
+        text: demoSidebarText('project-tracker'),
         link: '/demo/color',
     },
     {
-        text: demoSidebarText('Excel', 'Pro Lite'),
+        text: demoSidebarText('excel'),
         link: '/demo/excel',
     },
     {
-        text: demoSidebarText('Gantt', 'Pro Advanced'),
+        text: demoSidebarText('pivot'),
+        link: '/demo/pivot',
+    },
+    {
+        text: demoSidebarText('gantt'),
         link: '/demo/gantt',
     },
     {
-        text: demoSidebarText('Event Scheduler', 'Pro Advanced'),
+        text: demoSidebarText('event-scheduler'),
         link: '/demo/event-scheduler',
-    },
-    {
-        text: demoSidebarText('E-commerce', 'Pro Lite'),
-        link: '/demo/ecommerce',
-    },
-    {
-        text: '<span class="rg-btn rg-btn-secondary">Evaluate Pro</span>',
-        link: '/trial',
     },
 ]

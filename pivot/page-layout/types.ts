@@ -8,6 +8,7 @@ export type PivotLandingAction = {
 }
 
 export type PivotLandingPage = {
+  catalogProductId: 'pivot'
   colors: {
     accent: string
     accentMid: string

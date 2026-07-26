@@ -1,9 +1,14 @@
 <template>
-  <section class="trusted-logo-strip" :class="variantClass" :aria-labelledby="titleId">
+  <section
+    class="trusted-logo-strip"
+    :class="variantClasses"
+    :aria-labelledby="resolvedSection.title ? titleId : undefined"
+    :aria-label="resolvedSection.title ? undefined : resolvedSection.kicker"
+  >
     <div class="trusted-logo-strip__inner">
       <div class="trusted-logo-strip__copy">
         <p class="trusted-logo-strip__kicker">{{ resolvedSection.kicker }}</p>
-        <h2 :id="titleId">{{ resolvedSection.title }}</h2>
+        <h2 v-if="resolvedSection.title" :id="titleId">{{ resolvedSection.title }}</h2>
       </div>
       <div class="trusted-logo-strip__logos" aria-label="Companies using RevoGrid">
         <span
@@ -15,6 +20,12 @@
           <component :is="logo.component" role="img" :aria-label="logo.name" />
         </span>
       </div>
+      <dl v-if="metrics.length" class="trusted-logo-strip__metrics">
+        <div v-for="metric in metrics" :key="metric.label" class="trusted-logo-strip__metric">
+          <dt>{{ metric.value }}</dt>
+          <dd>{{ metric.label }}</dd>
+        </div>
+      </dl>
     </div>
   </section>
 </template>
@@ -37,14 +48,20 @@ type TrustedLogoSection = {
   title?: string
   logos?: TrustedLogoConfig[]
 }
+type TrustedLogoMetric = {
+  value: string
+  label: string
+}
 
 const props = withDefaults(defineProps<{
   section?: TrustedLogoSection
   titleId?: string
   variant?: 'home' | 'pivot' | 'trial'
+  metrics?: TrustedLogoMetric[]
 }>(), {
   titleId: 'trusted-logo-strip-title',
   variant: 'home',
+  metrics: () => [],
 })
 
 const LOGO_COMPONENTS = {
@@ -82,7 +99,10 @@ const trustedLogos = computed(() => {
     .filter((logo) => Boolean(logo.component))
 })
 
-const variantClass = computed(() => `trusted-logo-strip--${props.variant}`)
+const variantClasses = computed(() => ({
+  [`trusted-logo-strip--${props.variant}`]: true,
+  'trusted-logo-strip--with-metrics': Boolean(props.metrics.length),
+}))
 </script>
 
 <style lang="scss" scoped>
@@ -118,6 +138,14 @@ const variantClass = computed(() => `trusted-logo-strip--${props.variant}`)
   --trusted-strip-inner-width: min(1120px, calc(100% - 48px));
 }
 
+.trusted-logo-strip--trial {
+  --trusted-strip-bg: var(--vp-c-bg);
+  --trusted-strip-accent: var(--vp-c-text-3);
+  --trusted-strip-inner-width: min(1200px, calc(100% - 48px));
+
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+}
+
 .trusted-logo-strip__inner {
   display: grid;
   gap: 2.25rem;
@@ -132,6 +160,10 @@ const variantClass = computed(() => `trusted-logo-strip--${props.variant}`)
   justify-items: center;
 }
 
+.trusted-logo-strip--trial .trusted-logo-strip__copy {
+  gap: 0;
+}
+
 .trusted-logo-strip__kicker {
   margin: 0;
   color: var(--trusted-strip-accent);
@@ -139,6 +171,12 @@ const variantClass = computed(() => `trusted-logo-strip--${props.variant}`)
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.trusted-logo-strip--trial .trusted-logo-strip__kicker {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
 }
 
 .trusted-logo-strip__copy h2 {
@@ -154,6 +192,12 @@ const variantClass = computed(() => `trusted-logo-strip--${props.variant}`)
   align-items: center;
   justify-content: center;
   gap: clamp(2.6rem, 7vw, 6.5rem);
+}
+
+.trusted-logo-strip--trial .trusted-logo-strip__logos {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 4rem);
 }
 
 .trusted-logo-strip__logo {
@@ -183,6 +227,12 @@ const variantClass = computed(() => `trusted-logo-strip--${props.variant}`)
   }
 }
 
+.trusted-logo-strip--trial .trusted-logo-strip__logo {
+  height: 88px;
+  color: var(--vp-c-text-3);
+  opacity: 0.62;
+}
+
 .trusted-logo-strip__logo--axon {
   --trusted-logo-height: 180px;
 }
@@ -203,9 +253,84 @@ const variantClass = computed(() => `trusted-logo-strip--${props.variant}`)
   --trusted-logo-height: 42px;
 }
 
+.trusted-logo-strip__metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 2.4rem 0 0;
+  border-top: 1px solid var(--trusted-strip-border);
+}
+
+.trusted-logo-strip__metric {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0.4rem 1rem;
+  border-right: 1px solid var(--trusted-strip-border);
+}
+
+.trusted-logo-strip__metric:last-child {
+  border-right: 0;
+}
+
+.trusted-logo-strip__metric dt {
+  color: var(--trusted-strip-text);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.trusted-logo-strip__metric dd {
+  margin: 0;
+  color: var(--trusted-strip-muted);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 800px) {
+  .trusted-logo-strip--trial .trusted-logo-strip__logos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .trusted-logo-strip__metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .trusted-logo-strip__metric:nth-child(2) {
+    border-right: 0;
+  }
+
+  .trusted-logo-strip__metric:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--trusted-strip-border);
+    padding-bottom: 1.5rem;
+  }
+
+  .trusted-logo-strip__metric:nth-child(n + 3) {
+    padding-top: 1.5rem;
+  }
+}
+
 @media (max-width: 640px) {
   .trusted-logo-strip {
     --trusted-strip-inner-width: min(100% - 32px, 1180px);
+  }
+
+  .trusted-logo-strip--trial {
+    padding: 3.5rem 0;
+  }
+
+  .trusted-logo-strip--trial .trusted-logo-strip__logos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 1.5rem;
+  }
+
+  .trusted-logo-strip--trial .trusted-logo-strip__logo {
+    height: 72px;
+  }
+
+  .trusted-logo-strip__metric {
+    padding-inline: 0.75rem;
   }
 }
 </style>

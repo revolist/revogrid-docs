@@ -1,5 +1,6 @@
 import { computed } from 'vue'
 import { useData } from 'vitepress'
+import { getPlan, getProduct } from '../../commercial/productCatalog'
 import { mergePivotPageConfig } from './pivotPageConfig'
 import type { PivotLandingPageConfig } from './types'
 
@@ -11,7 +12,25 @@ export function usePivotPage() {
   const { frontmatter, isDark } = useData()
   const rvGridBaseUrl = trimTrailingSlash(import.meta.env.VITE_RV_GRID_BASE_URL || 'https://rv-grid.com')
   const rvGridProBaseUrl = trimTrailingSlash(import.meta.env.VITE_RV_GRID_PRO_BASE_URL || 'https://pro.rv-grid.com')
-  const page = computed(() => mergePivotPageConfig((frontmatter.value.pivotLanding ?? {}) as PivotLandingPageConfig))
+  const page = computed(() => {
+    const merged = mergePivotPageConfig((frontmatter.value.pivotLanding ?? {}) as PivotLandingPageConfig)
+    const product = getProduct(merged.catalogProductId)
+    const plan = getPlan(product.minimumPlan)
+    return {
+      ...merged,
+      advancedCallout: merged.advancedCallout
+        ? { ...merged.advancedCallout, title: `${product.name} is part of the ${plan.name} bundle.` }
+        : undefined,
+      cta: merged.cta
+        ? {
+            ...merged.cta,
+            description: `Add embedded pivot analytics to your application. Included in ${plan.name}.`,
+            secondaryHref: product.trialUrl!,
+            secondaryLabel: 'Request Pro Trial',
+          }
+        : undefined,
+    }
+  })
   const pageStyle = computed(() => ({
     '--pivot-accent': isDark.value ? page.value.colors.darkAccent : page.value.colors.accent,
     '--pivot-accent-mid': isDark.value ? page.value.colors.darkAccentMid : page.value.colors.accentMid,

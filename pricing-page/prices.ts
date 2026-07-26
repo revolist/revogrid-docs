@@ -1,56 +1,57 @@
-import { stripeLinkWithClientReferenceId } from './stripeClientReference';
+import {
+  SUMMER_SALE_CUTOFF,
+  SUMMER_SALE_EXPIRES_AT,
+  formatFrameworkPricingNote,
+  resolvePlanPrice as resolveCatalogPlanPrice,
+  type PriceTimestamp,
+  type ResolvedPromotion,
+} from '../commercial/productCatalog'
 
-export type Currency = 'EUR' | 'USD';
+export {
+  PRODUCT_CATALOG,
+  SUMMER_SALE_CUTOFF,
+  SUMMER_SALE_EXPIRES_AT,
+  formatFrameworkPricingNote,
+  type Currency,
+  type PeriodPrices,
+  type PriceTimestamp,
+  type ResolvedPromotion,
+} from '../commercial/productCatalog'
 
-interface PeriodPrices {
-  EUR: number;
-  USD: number;
+export type PurchasablePlanId = 'light' | 'advanced'
+
+export interface ResolvedPlanPrice {
+  month: number
+  year: number
+  compareAtYear?: number
+  link: string
+  promotion?: ResolvedPromotion
 }
 
-interface PlanPrice {
-  month: PeriodPrices;
-  year: PeriodPrices;
-  compareAtYear?: Partial<PeriodPrices>;
-  link: string;
+const catalogPlanId = {
+  light: 'pro-lite',
+  advanced: 'pro-advanced',
+} as const
+
+export const resolvePlanPrice = (
+  planId: PurchasablePlanId,
+  at: PriceTimestamp = new Date(),
+): ResolvedPlanPrice => {
+  const resolved = resolveCatalogPlanPrice(catalogPlanId[planId], at)
+  return {
+    month: resolved.month.USD,
+    year: resolved.year.USD,
+    compareAtYear: resolved.compareAtYear?.USD,
+    link: resolved.link,
+    promotion: resolved.promotion,
+  }
 }
 
-const lightCompareAtYearPrices = {
-  USD: 199,
-};
-
-const lightYearPrices = {
-  EUR: 170,
-  USD: 149,
-};
-
-const advancedYearPrices = {
-  EUR: 430,
-  USD: 499,
-};
-
-export const PRICES: Record<'light' | 'advanced', PlanPrice> = {
-  light: {
-    month: {
-      EUR: Math.round((lightYearPrices.EUR / 12)),
-      USD: Math.round((lightYearPrices.USD / 12)),
-    },
-    year: lightYearPrices,
-    compareAtYear: lightCompareAtYearPrices,
-    get link() {
-      return stripeLinkWithClientReferenceId('https://buy.stripe.com/5kQeVe8N9ef67C29qmew80g');
-    },
+export const PRICES: Record<PurchasablePlanId, ResolvedPlanPrice> = {
+  get light() {
+    return resolvePlanPrice('light')
   },
-  advanced: {
-    month: {
-      EUR: Math.round((advancedYearPrices.EUR / 12)),
-      USD: Math.round((advancedYearPrices.USD / 12)),
-    },
-    year: {
-      EUR: advancedYearPrices.EUR,
-      USD: advancedYearPrices.USD,
-    },
-    get link() {
-      return stripeLinkWithClientReferenceId('https://buy.stripe.com/dRm14ofbxfja5tU6eaew80f');
-    },
+  get advanced() {
+    return resolvePlanPrice('advanced')
   },
-};
+}
