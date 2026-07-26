@@ -334,10 +334,13 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 ],
             },
             {
-                text: 'Dash / Python',
+                text: '<img src="/python.svg" alt="Python logo" width="15" height="15"/> Dash / Python',
                 collapsed: true,
                 items: [
-                    { text: 'Getting Started', link: '/guide/dash/' },
+                    {
+                        text: 'Getting Started',
+                        link: '/guide/dash/#getting-started',
+                    },
                     {
                         text: 'DataFrames',
                         link: '/guide/dash/#pandas-dataframes',
