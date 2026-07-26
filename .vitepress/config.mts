@@ -390,6 +390,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 link: '/svelte-data-grid',
                                 text: 'Svelte Data Grid',
                             },
+                            {
+                                link: '/guide/dash/',
+                                text: 'Dash Data Grid',
+                            },
                         ],
                     },
                     {

@@ -26,6 +26,14 @@
         object-fit: contain;
     }
 
+    .framework-list__badge {
+        flex: 0 0 24px;
+        width: 20px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
     .framework-list__item a {
         font-weight: 500;
     }
@@ -39,6 +47,10 @@
     <div class="framework-list__item">
         <img src="/react.svg" alt="" />
         <span><a href="/guide/react/">React</a> – Usage within React applications.</span>
+    </div>
+    <div class="framework-list__item">
+        <span class="framework-list__badge" aria-hidden="true">Py</span>
+        <span><a href="/guide/dash/">Dash / Python</a> – Building data grids for Plotly Dash applications.</span>
     </div>
     <div class="framework-list__item">
         <img src="/svelte.svg" alt="" />

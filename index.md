@@ -9,10 +9,10 @@ footer: true
 head:
   - - meta
     - name: description
-      content: Build spreadsheet-grade js data grids with Vue, React, Angular, Svelte, and JavaScript apps.
+      content: Build spreadsheet-grade data grids with Vue, React, Angular, Svelte, Dash, Python, and JavaScript apps.
   - - meta
     - name: keywords
-      content: RevoGrid, JavaScript Data Grid, React Data Grid, Vue Data Grid, Angular Data Grid, Svelte Data Grid, Virtual Scrolling, Editable Grid, Data Table, Pivot Grid, Gantt Grid, Excel
+      content: RevoGrid, JavaScript Data Grid, React Data Grid, Vue Data Grid, Angular Data Grid, Svelte Data Grid, Dash Data Grid, Python Data Grid, Virtual Scrolling, Editable Grid, Data Table, Pivot Grid, Gantt Grid, Excel
 hero:
   eyebrow: High-performance data grid
   title: JavaScript Data Grid for complex web apps
@@ -35,6 +35,9 @@ hero:
     - name: React
       color: '#61DAFB'
       link: /guide/react/
+    - name: Dash / Python
+      color: '#119DFF'
+      link: /guide/dash/
     - name: Svelte
       color: '#FF3E00'
       link: /guide/svelte/

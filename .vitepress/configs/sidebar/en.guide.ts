@@ -334,6 +334,34 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 ],
             },
             {
+                text: 'Dash / Python',
+                collapsed: true,
+                items: [
+                    { text: 'Getting Started', link: '/guide/dash/' },
+                    {
+                        text: 'DataFrames',
+                        link: '/guide/dash/#pandas-dataframes',
+                    },
+                    { text: 'Columns', link: '/guide/dash/#columns' },
+                    {
+                        text: 'Callbacks and Events',
+                        link: '/guide/dash/#callbacks-and-events',
+                    },
+                    {
+                        text: 'Edit Synchronization',
+                        link: '/guide/dash/#edit-synchronization',
+                    },
+                    {
+                        text: 'Property Reference',
+                        link: '/guide/dash/#complete-property-reference',
+                    },
+                    {
+                        text: 'Core API Reference',
+                        link: '/guide/dash/#revogrid-api-reference',
+                    },
+                ],
+            },
+            {
                 text: '<img src="/vuejs.svg" alt="Vue 3 logo" width="15" height="15"/> Vue 3',
                 collapsed: true,
                 items: [
