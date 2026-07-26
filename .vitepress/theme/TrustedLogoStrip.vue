@@ -37,8 +37,9 @@ import BasfLogo from '../../public/orgs/basf.svg'
 import BayerLogo from '../../public/orgs/bayer.svg'
 import CbreLogo from '../../public/orgs/cbre.svg'
 import DeltekLogo from '../../public/orgs/deltek.svg'
+import SiemensLogo from '../../public/orgs/siemens.svg'
 
-type TrustedLogoId = 'axon' | 'basf' | 'bayer' | 'cbre' | 'deltek'
+type TrustedLogoId = 'axon' | 'basf' | 'bayer' | 'cbre' | 'deltek' | 'siemens'
 type TrustedLogoConfig = {
   name: string
   id: TrustedLogoId
@@ -70,12 +71,14 @@ const LOGO_COMPONENTS = {
   bayer: BayerLogo,
   cbre: CbreLogo,
   deltek: DeltekLogo,
+  siemens: SiemensLogo,
 } satisfies Record<TrustedLogoId, unknown>
 
 const DEFAULT_SECTION: Required<TrustedLogoSection> = {
   kicker: 'Trusted by thousands of teams building critical data products',
   title: 'Companies using RevoGrid',
   logos: [
+    { name: 'Siemens', id: 'siemens' },
     { name: 'Axon', id: 'axon' },
     { name: 'BASF', id: 'basf' },
     { name: 'Bayer', id: 'bayer' },
@@ -138,14 +141,6 @@ const variantClasses = computed(() => ({
   --trusted-strip-inner-width: min(1120px, calc(100% - 48px));
 }
 
-.trusted-logo-strip--trial {
-  --trusted-strip-bg: var(--vp-c-bg);
-  --trusted-strip-accent: var(--vp-c-text-3);
-  --trusted-strip-inner-width: min(1200px, calc(100% - 48px));
-
-  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-}
-
 .trusted-logo-strip__inner {
   display: grid;
   gap: 2.25rem;
@@ -160,10 +155,6 @@ const variantClasses = computed(() => ({
   justify-items: center;
 }
 
-.trusted-logo-strip--trial .trusted-logo-strip__copy {
-  gap: 0;
-}
-
 .trusted-logo-strip__kicker {
   margin: 0;
   color: var(--trusted-strip-accent);
@@ -171,12 +162,6 @@ const variantClasses = computed(() => ({
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-}
-
-.trusted-logo-strip--trial .trusted-logo-strip__kicker {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
 }
 
 .trusted-logo-strip__copy h2 {
@@ -190,14 +175,9 @@ const variantClasses = computed(() => ({
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  color: var(--rg-text);
   justify-content: center;
-  gap: clamp(2.6rem, 7vw, 6.5rem);
-}
-
-.trusted-logo-strip--trial .trusted-logo-strip__logos {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: clamp(1.5rem, 4vw, 4rem);
+  gap: clamp(2.6rem,3vw,4.5rem);
 }
 
 .trusted-logo-strip__logo {
@@ -207,8 +187,7 @@ const variantClasses = computed(() => ({
   align-items: center;
   justify-content: center;
   height: 96px;
-  color: var(--trusted-strip-muted);
-  opacity: 0.78;
+  opacity: 0.9;
   filter: grayscale(1);
   transition:
     opacity 0.2s ease,
@@ -225,12 +204,6 @@ const variantClasses = computed(() => ({
     opacity: 1;
     filter: grayscale(0);
   }
-}
-
-.trusted-logo-strip--trial .trusted-logo-strip__logo {
-  height: 88px;
-  color: var(--vp-c-text-3);
-  opacity: 0.62;
 }
 
 .trusted-logo-strip__logo--axon {
@@ -253,11 +226,15 @@ const variantClasses = computed(() => ({
   --trusted-logo-height: 42px;
 }
 
+.trusted-logo-strip__logo--siemens {
+  --trusted-logo-height: 250px;
+}
+
 .trusted-logo-strip__metrics {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin: 0;
-  padding: 2.4rem 0 0;
+  padding: 4.4rem 0 0;
   border-top: 1px solid var(--trusted-strip-border);
 }
 
@@ -289,10 +266,6 @@ const variantClasses = computed(() => ({
 }
 
 @media (max-width: 800px) {
-  .trusted-logo-strip--trial .trusted-logo-strip__logos {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .trusted-logo-strip__metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -314,19 +287,6 @@ const variantClasses = computed(() => ({
 @media (max-width: 640px) {
   .trusted-logo-strip {
     --trusted-strip-inner-width: min(100% - 32px, 1180px);
-  }
-
-  .trusted-logo-strip--trial {
-    padding: 3.5rem 0;
-  }
-
-  .trusted-logo-strip--trial .trusted-logo-strip__logos {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem 1.5rem;
-  }
-
-  .trusted-logo-strip--trial .trusted-logo-strip__logo {
-    height: 72px;
   }
 
   .trusted-logo-strip__metric {
