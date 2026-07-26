@@ -87,6 +87,13 @@ const benefits = [
 const logoSection = {
   kicker: 'Used by teams at companies including',
   title: '',
+  logos: [
+    { name: 'Axon', id: 'axon' as const },
+    { name: 'BASF', id: 'basf' as const },
+    { name: 'Bayer', id: 'bayer' as const },
+    { name: 'CBRE', id: 'cbre' as const },
+    { name: 'Deltek', id: 'deltek' as const },
+  ],
 }
 
 const metrics = [
