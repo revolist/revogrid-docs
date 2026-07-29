@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.24](README.md) / SortingColumnRender
+[RevoGrid Documentation v4.24.1](README.md) / SortingColumnRender
 
 # Type Alias: SortingColumnRender
 
@@ -14,8 +14,8 @@ Header metadata used to display additive sort priority.
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `sortIndex` | `number` | One-based additive sorting rank. | [src/plugins/sorting/sorting.types.ts:45](https://github.com/revolist/revogrid/blob/378ffaf8d0c296fdd666895c8f50ce7cb8d43e36/src/plugins/sorting/sorting.types.ts#L45) |
+| `sortIndex` | `number` | One-based additive sorting rank. | [src/plugins/sorting/sorting.types.ts:45](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/plugins/sorting/sorting.types.ts#L45) |
 
 ## Defined in
 
-[src/plugins/sorting/sorting.types.ts:41](https://github.com/revolist/revogrid/blob/378ffaf8d0c296fdd666895c8f50ce7cb8d43e36/src/plugins/sorting/sorting.types.ts#L41)
+[src/plugins/sorting/sorting.types.ts:41](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/plugins/sorting/sorting.types.ts#L41)

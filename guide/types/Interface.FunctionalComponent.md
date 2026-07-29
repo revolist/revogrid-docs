@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.24](README.md) / FunctionalComponent
+[RevoGrid Documentation v4.24.1](README.md) / FunctionalComponent
 
 # Interface: FunctionalComponent()\<T\>
 
