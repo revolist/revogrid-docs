@@ -90,7 +90,7 @@ const DEFAULT_SECTION: Required<TrustedLogoSection> = {
 const resolvedSection = computed(() => ({
   ...DEFAULT_SECTION,
   ...props.section,
-  logos: props.section?.logos ?? [],
+  logos: props.section?.logos ?? DEFAULT_SECTION.logos,
 }))
 
 const trustedLogos = computed(() => {

@@ -50,19 +50,6 @@ hero:
 trust:
   kicker: Used by teams at companies including
   title: Companies using RevoGrid
-  logos:
-    - name: Siemens
-      id: siemens
-    - name: Axon
-      id: axon
-    - name: BASF
-      id: basf
-    - name: Bayer
-      id: bayer
-    - name: CBRE
-      id: cbre
-    - name: Deltek
-      id: deltek
 
 # demos:
 #   label: Live demos
