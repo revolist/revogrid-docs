@@ -48,9 +48,11 @@ hero:
       link: /guide/
 
 trust:
-  kicker: Trusted by thousands of teams building critical data products
+  kicker: Used by teams at companies including
   title: Companies using RevoGrid
   logos:
+    - name: Siemens
+      id: siemens
     - name: Axon
       id: axon
     - name: BASF
