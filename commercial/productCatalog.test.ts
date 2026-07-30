@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
 import test from 'node:test'
 import { createStructuredDataHead } from '../.vitepress/configs/structuredData'
 import {
@@ -56,6 +57,23 @@ test('propagates stable, beta, and preview-capable statuses', () => {
 
   const statuses: Array<'stable' | 'beta' | 'preview'> = ['stable', 'beta', 'preview']
   assert.deepEqual(statuses, ['stable', 'beta', 'preview'])
+})
+
+test('keeps the Scheduler alias on the Event Scheduler experience', () => {
+  const scheduler = getProduct('scheduler')
+  const schedulerLanding = readFileSync(new URL('../scheduler.md', import.meta.url), 'utf8')
+
+  assert.equal(scheduler.featureId, 'event-scheduler')
+  assert.equal(scheduler.demoUrl, '/demo/event-scheduler')
+  assert.match(schedulerLanding, /^\s+kind: eventScheduler$/m)
+  assert.doesNotMatch(schedulerLanding, /(?:href|primaryHref): (?:https:\/\/pro\.rv-grid\.com\/guides\/gantt\/|\/demo\/gantt)/)
+})
+
+test('keeps Scheduler-family page chrome full width', () => {
+  const ganttPageLayout = readFileSync(new URL('../gantt/GanttPageLayout.vue', import.meta.url), 'utf8')
+
+  assert.doesNotMatch(ganttPageLayout, /:global\(\.gantt-page-doc\)\s*\{[^}]*max-width/s)
+  assert.match(ganttPageLayout, /:global\(\.gantt-page-doc \.VPDoc \.container\),\s*:global\(\.gantt-page-doc \.VPDoc \.content\)/)
 })
 
 test('defines the approved private npm trial lifecycle', () => {
