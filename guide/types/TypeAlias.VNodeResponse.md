@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.24](README.md) / VNodeResponse
+[RevoGrid Documentation v4.24.1](README.md) / VNodeResponse
 
 # Type Alias: VNodeResponse
 
@@ -12,4 +12,4 @@ JSX is not valid.
 
 ## Defined in
 
-[src/types/interfaces.ts:363](https://github.com/revolist/revogrid/blob/378ffaf8d0c296fdd666895c8f50ce7cb8d43e36/src/types/interfaces.ts#L363)
+[src/types/interfaces.ts:363](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/types/interfaces.ts#L363)

@@ -1,0 +1,32 @@
+[RevoGrid Documentation v4.24.1](README.md) / GroupCellTemplateProp
+
+# Interface: GroupCellTemplateProp
+
+## Extends
+
+- `Omit`\<[`CellTemplateProp`](Interface.CellTemplateProp.md), `"colType"`\>
+
+## Properties
+
+| Property | Type | Description | Inherited from | Defined in |
+| ------ | ------ | ------ | ------ | ------ |
+| `colIndex` | `number` | Virtual index of the column in the viewport | `Omit.colIndex` | [src/types/interfaces.ts:59](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/types/interfaces.ts#L59) |
+| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) \| `"rowHeaders"` | Column viewport type that owns the cell. | - | [src/plugins/groupingRow/grouping.row.types.ts:77](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/plugins/groupingRow/grouping.row.types.ts#L77) |
+| `column` | [`ColumnRegular`](Interface.ColumnRegular.md)\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`DataType`](TypeAlias.DataType.md)\<`any`, [`ColumnProp`](TypeAlias.ColumnProp.md)\>\> | Column data object | `Omit.column` | [src/types/interfaces.ts:51](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/types/interfaces.ts#L51) |
+| `columnItem` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md) | Current virtual column position. Only columns rendered by the viewport are passed to the group cell template. | - | [src/plugins/groupingRow/grouping.row.types.ts:82](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/plugins/groupingRow/grouping.row.types.ts#L82) |
+| `data` | [`DataType`](TypeAlias.DataType.md)\<`any`, [`ColumnProp`](TypeAlias.ColumnProp.md)\>[] | Row models based on viewport | `Omit.data` | [src/types/interfaces.ts:71](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/types/interfaces.ts#L71) |
+| `group` | \{ `canExpand`: `boolean`; `depth`: `number`; `expanded`: `boolean`; `isLabelColumn`: `boolean`; `name`: `string`; `prop`: [`ColumnProp`](TypeAlias.ColumnProp.md); `onExpand`: `void`; \} | Semantic information about the synthetic group row. | - | [src/plugins/groupingRow/grouping.row.types.ts:90](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/plugins/groupingRow/grouping.row.types.ts#L90) |
+| `group.canExpand` | `boolean` | - | - | [src/plugins/groupingRow/grouping.row.types.ts:96](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/plugins/groupingRow/grouping.row.types.ts#L96) |
+| `group.depth` | `number` | - | - | [src/plugins/groupingRow/grouping.row.types.ts:92](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/plugins/groupingRow/grouping.row.types.ts#L92) |
+| `group.expanded` | `boolean` | - | - | [src/plugins/groupingRow/grouping.row.types.ts:93](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/plugins/groupingRow/grouping.row.types.ts#L93) |
+| `group.isLabelColumn` | `boolean` | - | - | [src/plugins/groupingRow/grouping.row.types.ts:95](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/plugins/groupingRow/grouping.row.types.ts#L95) |
+| `group.name` | `string` | - | - | [src/plugins/groupingRow/grouping.row.types.ts:91](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/plugins/groupingRow/grouping.row.types.ts#L91) |
+| `group.prop` | [`ColumnProp`](TypeAlias.ColumnProp.md) | - | - | [src/plugins/groupingRow/grouping.row.types.ts:94](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/plugins/groupingRow/grouping.row.types.ts#L94) |
+| `group.onExpand` | `void` | - | - | [src/plugins/groupingRow/grouping.row.types.ts:97](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/plugins/groupingRow/grouping.row.types.ts#L97) |
+| `model` | [`DataType`](TypeAlias.DataType.md)\<`any`, [`ColumnProp`](TypeAlias.ColumnProp.md)\> | Row data object | `Omit.model` | [src/types/interfaces.ts:47](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/types/interfaces.ts#L47) |
+| `prop` | [`ColumnProp`](TypeAlias.ColumnProp.md) | Column prop used for mapping value to cell from data source model/row | `Omit.prop` | [src/types/interfaces.ts:43](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/types/interfaces.ts#L43) |
+| `providers` | [`Providers`](Interface.Providers.md)\<[`DimensionRows`](TypeAlias.DimensionRows.md)\> | Providers injected into the template Also to get grouping depth | `Omit.providers` | [src/types/interfaces.ts:91](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/types/interfaces.ts#L91) |
+| `rowIndex` | `number` | Virtual index of the row in the viewport | `Omit.rowIndex` | [src/types/interfaces.ts:55](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/types/interfaces.ts#L55) |
+| `rowItem` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md) | Current virtual row position. | - | [src/plugins/groupingRow/grouping.row.types.ts:86](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/plugins/groupingRow/grouping.row.types.ts#L86) |
+| `type` | [`DimensionRows`](TypeAlias.DimensionRows.md) | Row type based on viewport | `Omit.type` | [src/types/interfaces.ts:67](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/types/interfaces.ts#L67) |
+| `value?` | `any` | Current cell data value Mapped from model through column property like model['prop'] | `Omit.value` | [src/types/interfaces.ts:76](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/types/interfaces.ts#L76) |
