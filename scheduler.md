@@ -76,6 +76,17 @@ ganttLanding:
       label: resource lanes
     - value: '5'
       label: framework targets
+  demos:
+    id: scheduler-preview
+    kicker: Product preview
+    title: See the Event Scheduler in action.
+    description: Preview the resource calendar, shift coverage, event editing, and planning workflow, then open the live demo to try it yourself.
+    items:
+      - title: Event Scheduler workspace
+        description: Explore a production-style scheduling surface for resource lanes, employee shifts, availability, conflicts, and direct timeline editing.
+        href: /demo/event-scheduler
+        media: /video/event-scheduler.mp4
+        mediaKind: video
   features:
     id: features
     kicker: Features

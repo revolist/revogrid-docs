@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import test from 'node:test'
 import { createStructuredDataHead } from '../.vitepress/configs/structuredData'
 import {
@@ -62,10 +62,14 @@ test('propagates stable, beta, and preview-capable statuses', () => {
 test('keeps the Scheduler alias on the Event Scheduler experience', () => {
   const scheduler = getProduct('scheduler')
   const schedulerLanding = readFileSync(new URL('../scheduler.md', import.meta.url), 'utf8')
+  const proFeatures = readFileSync(new URL('../pro/features.pro.ts', import.meta.url), 'utf8')
 
   assert.equal(scheduler.featureId, 'event-scheduler')
   assert.equal(scheduler.demoUrl, '/demo/event-scheduler')
   assert.match(schedulerLanding, /^\s+kind: eventScheduler$/m)
+  assert.match(schedulerLanding, /^\s+media: \/video\/event-scheduler\.mp4$/m)
+  assert.match(proFeatures, /title: 'Event Scheduler',[\s\S]*?videoUrl: '\/video\/event-scheduler\.mp4'/)
+  assert.ok(existsSync(new URL('../public/video/event-scheduler.mp4', import.meta.url)))
   assert.doesNotMatch(schedulerLanding, /(?:href|primaryHref): (?:https:\/\/pro\.rv-grid\.com\/guides\/gantt\/|\/demo\/gantt)/)
 })
 

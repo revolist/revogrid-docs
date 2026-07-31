@@ -468,7 +468,7 @@ const featuresProBase = [
     {
         title: 'Event Scheduler',
         thumbnail: '/blog/scheduler.png',
-        videoUrl: '/video/gantt-demo.mp4',
+        videoUrl: '/video/event-scheduler.mp4',
         group: 'Pro Advanced Modules',
         link: '/event-scheduler',
         demoUrl: '/demo/event-scheduler',
