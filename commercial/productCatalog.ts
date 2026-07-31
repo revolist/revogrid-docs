@@ -172,13 +172,11 @@ const plans = {
       boilerplateUrl: TRIAL_BOILERPLATE_URL,
       note: 'The public repository is evaluation boilerplate. Pro packages are delivered through approved private npm access.',
     },
-    billingSummary: '1 developer seat · 1 product/app',
+    billingSummary: '1 developer seat',
     actionLabel: 'Buy Pro Lite',
     pricingHighlights: [
       { text: 'Commercial production use' },
-      { text: 'Production-ready plugins and examples', link: '/pro/' },
-      { text: 'Typed private npm packages' },
-      { text: 'One product or app' },
+      { text: 'Production-ready modules and examples', link: '/pro/' },
       { text: 'One year of updates' },
     ],
   },
@@ -206,10 +204,9 @@ const plans = {
     actionLabel: 'Buy Pro Advanced',
     pricingHighlights: [
       { text: 'Everything in Pro Lite' },
-      { text: 'Unlimited product usage' },
-      { text: 'Original private source repository access' },
       { text: 'Priority support and bug-fix queue' },
-      { text: 'Pivot, Gantt, Scheduler, and Event Scheduler' },
+      { text: 'Original source code access' },
+      { text: 'Pivot, Gantt, Calendar, and Event Scheduler' },
     ],
   },
   enterprise: {
