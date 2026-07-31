@@ -17,6 +17,7 @@ export type DemoId =
   | 'pivot'
   | 'gantt'
   | 'event-scheduler'
+  | 'planning'
 export type CommercialFaqKey =
   | 'developer-licenses'
   | 'deployment-fees'
@@ -405,6 +406,7 @@ const demos = {
   pivot: { id: 'pivot', title: 'Pivot Analytics', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot' },
   gantt: { id: 'gantt', title: 'Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt' },
   'event-scheduler': { id: 'event-scheduler', title: 'Event Scheduler', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
+  planning: { id: 'planning', title: 'Unified Planning Suite', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/planning' },
 } as const satisfies Record<DemoId, CatalogDemo>
 
 export const PRODUCT_CATALOG = {

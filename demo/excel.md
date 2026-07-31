@@ -1,6 +1,6 @@
 ---
-title: Excel Workbench Demo - RevoGrid Pro Spreadsheet Workspace
-description: Explore the RevoGrid Pro Excel Workbench demo for spreadsheet-style editing, formulas, import and export workflows, large datasets, and high-performance workbook interactions.
+title: Excel-Style Spreadsheet Data Grid Demo
+description: Try spreadsheet editing, formulas, validation, formatting, collaboration, and Excel import or export in the RevoGrid Pro workbook demo.
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false
@@ -10,17 +10,8 @@ next: false
 editLink: false
 head:
   - - meta
-    - name: description
-      content: Explore the RevoGrid Pro Excel Workbench demo for spreadsheet-style editing, formulas, import and export workflows, large datasets, and high-performance workbook interactions.
-  - - meta
     - name: keywords
       content: RevoGrid Excel Workbench demo, spreadsheet workbench, Excel data grid, spreadsheet data grid, workbook editor, Excel import export, formulas data grid, JavaScript spreadsheet grid, React spreadsheet grid, Vue spreadsheet grid
-  - - meta
-    - property: og:title
-      content: Excel Workbench Demo - RevoGrid Pro Spreadsheet Workspace
-  - - meta
-    - property: og:description
-      content: Work with spreadsheet-style data inside RevoGrid Pro using Excel-like editing, formulas, import and export workflows, and high-performance grid rendering.
 ---
 
 <script setup>

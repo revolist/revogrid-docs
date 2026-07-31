@@ -197,6 +197,8 @@ Bryntum is one of the strongest scheduler and Gantt vendors in the JavaScript ma
 
 It has a mature scheduling engine, strong documentation, and deep support for project planning concepts. If your top priority is buying a ready-made advanced Gantt engine, Bryntum is hard to ignore.
 
+For a current product-to-product breakdown focused specifically on resource scheduling, see [RevoGrid vs Bryntum Scheduler: 2026 comparison](/blog/revogrid-vs-bryntum-scheduler-2026).
+
 ### Pros
 
 **Very mature Gantt engine**

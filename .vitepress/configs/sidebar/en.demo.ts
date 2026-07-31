@@ -221,27 +221,49 @@ export const sidebarGuideDemosEn: DefaultTheme.SidebarItem[] = [
 
 export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
     {
-        text: demoSidebarText('grid-at-scale'),
-        link: '/demo/',
+        text: 'Core',
+        collapsed: false,
+        items: [
+            {
+                text: demoSidebarText('grid-at-scale'),
+                link: '/demo/',
+            },
+        ],
     },
     {
-        text: demoSidebarText('project-tracker'),
-        link: '/demo/color',
+        text: 'Pro',
+        collapsed: false,
+        items: [
+            {
+                text: demoSidebarText('project-tracker'),
+                link: '/demo/color',
+            },
+            {
+                text: demoSidebarText('excel'),
+                link: '/demo/excel',
+            },
+        ],
     },
     {
-        text: demoSidebarText('excel'),
-        link: '/demo/excel',
-    },
-    {
-        text: demoSidebarText('pivot'),
-        link: '/demo/pivot',
-    },
-    {
-        text: demoSidebarText('gantt'),
-        link: '/demo/gantt',
-    },
-    {
-        text: demoSidebarText('event-scheduler'),
-        link: '/demo/event-scheduler',
+        text: 'Pro Advanced',
+        collapsed: false,
+        items: [
+            {
+                text: demoSidebarText('pivot'),
+                link: '/demo/pivot',
+            },
+            {
+                text: demoSidebarText('gantt'),
+                link: '/demo/gantt',
+            },
+            {
+                text: demoSidebarText('event-scheduler'),
+                link: '/demo/event-scheduler',
+            },
+            {
+                text: demoSidebarText('planning'),
+                link: '/demo/planning',
+            },
+        ],
     },
 ]

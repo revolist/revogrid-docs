@@ -42,15 +42,15 @@ const DEMO_PAGE_CONTENT = {
     guidedActions: ['Change a project status', 'Filter the project list', 'Add a project'],
     featureBadges: [
       { label: 'Row selection', source: 'RowSelectPlugin' },
-      { label: 'Selection filters', source: 'AdvanceFilterPlugin' },
-      { label: 'Header filtering & templates', source: 'FilterHeaderPlugin + filterHeaderTemplate' },
-      { label: 'Column visibility', source: 'ColumnHidePlugin' },
+      { label: 'Excel filters', source: 'AdvanceFilterPlugin' },
+      { label: 'Header filtering & selection', source: 'FilterHeaderPlugin + filterHeaderTemplate' },
+      { label: 'Hide columns', source: 'ColumnHidePlugin' },
       { label: 'Grouping summaries', source: 'Core grouping API + groupLabelTemplate' },
       {
-        label: 'Rich column types',
+        label: 'Advanced column types',
         source: 'Dropdown, multi-select, date, currency, integer, progress, timeline, avatar, and rating',
       },
-      { label: 'Drag row ordering', source: 'RowOrderPlugin' },
+      { label: 'Row reorder', source: 'RowOrderPlugin' },
       { label: 'Context menus', source: 'ContextMenuPlugin' },
     ],
   },
@@ -61,7 +61,7 @@ const DEMO_PAGE_CONTENT = {
     guidedActions: ['Edit a formula', 'Format a cell', 'Export the workbook'],
     featureBadges: [
       {
-        label: 'Formulas',
+        label: 'Formula',
         source: 'FormulaBarPlugin + FormulaDependencyHighlightPlugin + NamedRangesPlugin + FormulaPlugin',
       },
       {
@@ -75,7 +75,7 @@ const DEMO_PAGE_CONTENT = {
         label: 'Row & column controls',
         source: 'RowHeaderPlugin + RowOrderPlugin + ColumnMoveAdvancedPlugin + ColumnCollapsePlugin + ColumnHidePlugin + ColumnStretchPlugin',
       },
-      { label: 'Smart copy & paste', source: 'ClipboardJsonPlugin' },
+      { label: 'Column drilldown', source: 'ColumnCollapsePlugin' },
       { label: 'Context menus', source: 'ContextMenuPlugin' },
       { label: 'Excel export', source: 'ExportExcelPlugin' },
       { label: 'Advanced filters', source: 'AdvanceFilterPlugin + FilterHeaderPlugin' },
@@ -90,7 +90,7 @@ const DEMO_PAGE_CONTENT = {
     featureBadges: [
       { label: 'Pivot analytics', source: 'PivotPlugin' },
       { label: 'Advanced filters', source: 'AdvanceFilterPlugin + FilterHeaderPlugin' },
-      { label: 'Collapsible groups', source: 'ColumnCollapsePlugin' },
+      { label: 'Collapsible columns', source: 'ColumnCollapsePlugin' },
       { label: 'Multi-row headers', source: 'MultiRowHeaderPlugin' },
       { label: 'Same-value merge', source: 'SameValueMergePlugin' },
     ],
@@ -101,14 +101,13 @@ const DEMO_PAGE_CONTENT = {
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-advanced-gantt/src/gantt.vue',
     guidedActions: ['Move a task', 'Resize a timeline item', 'Change the zoom'],
     featureBadges: [
-      { label: 'Gantt planning', source: 'GanttPlugin' },
+      { label: 'Gantt', source: 'GanttPlugin' },
       { label: 'Dependencies & critical path', source: 'GanttDependencyOverlayPlugin + GanttTaskBarsPlugin' },
       { label: 'Task hierarchy', source: 'TreeDataPlugin' },
-      { label: 'Timeline zoom', source: 'GanttTimelineHeaderPlugin + zoomPreset' },
+      { label: 'Zoom', source: 'GanttTimelineHeaderPlugin + zoomPreset' },
       { label: 'Context menus', source: 'ContextMenuPlugin' },
-      { label: 'Working calendars', source: 'GanttPlugin + ganttCalendars' },
+      { label: 'Calendars', source: 'GanttPlugin + ganttCalendars' },
       { label: 'Undo / redo', source: 'HistoryPlugin' },
-      { label: 'Row status', source: 'RowStatusPlugin' },
     ],
   },
   'event-scheduler': {
@@ -117,9 +116,9 @@ const DEMO_PAGE_CONTENT = {
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-advanced-scheduler/src/scheduler.vue',
     guidedActions: ['Create an event', 'Move or resize a shift', 'Change the calendar view'],
     featureBadges: [
-      { label: 'Scheduler views', source: 'EventSchedulerPlugin' },
+      { label: 'Scheduler & Calendar', source: 'EventSchedulerPlugin' },
       { label: 'Event editing', source: 'EventSchedulerPlugin: create, move, resize, delete' },
-      { label: 'Conflict detection', source: 'EventSchedulerPlugin' },
+      { label: 'Conflicts', source: 'EventSchedulerPlugin' },
       { label: 'Context menus', source: 'ContextMenuPlugin' },
       {
         label: 'Working calendars',
@@ -129,6 +128,20 @@ const DEMO_PAGE_CONTENT = {
         label: 'Shifts & blocked time',
         source: 'EventSchedulerPlugin: open shifts, locked events, and closed slots',
       },
+    ],
+  },
+  planning: {
+    title: 'Unified Planning Suite Demo',
+    description: 'Use Data Grid, Gantt, Scheduler, and Calendar together in one integrated planning package.',
+    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-advanced-planning/src/planning.vue',
+    guidedActions: ['Edit a task in the grid', 'Move a task in Gantt', 'Switch between scheduler and calendar views'],
+    featureBadges: [
+      { label: 'Shared model', source: 'Reactive task state shared across every planning view' },
+      { label: 'Data grid', source: 'RevoGrid editing, filtering, sorting, ranges, and column moving' },
+      { label: 'Gantt', source: 'GanttPlugin' },
+      { label: 'Resource scheduling', source: 'EventSchedulerPlugin resourceTimeline view' },
+      { label: 'Calendar', source: 'EventSchedulerPlugin day view' },
+      { label: 'Resource assignments', source: 'Gantt resources and assignments synchronized with scheduler events' },
     ],
   },
 } as const satisfies Record<DemoId, DemoPageContent>

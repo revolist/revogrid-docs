@@ -8,11 +8,27 @@ import {
   getAllDemoPageConfigs,
   getDemoPageConfig,
 } from './demoPageLayout'
+import { sidebarDemonEn } from '../configs/sidebar/en.demo'
 
 const demoSidebarSource = readFileSync(new URL('../configs/sidebar/en.demo.ts', import.meta.url), 'utf8')
+const vitepressConfigSource = readFileSync(new URL('../config.mts', import.meta.url), 'utf8')
 const docsThemeSource = readFileSync(new URL('./style.scss', import.meta.url), 'utf8')
 const demoPageLayoutSource = readFileSync(new URL('./DemoPageLayout.vue', import.meta.url), 'utf8')
 const excelDemoSource = readFileSync(new URL('../../demo/excel.md', import.meta.url), 'utf8')
+const planningDemoStyleSource = readFileSync(
+  new URL('../../revogrid-demos/pro-advanced-planning/src/planning.scss', import.meta.url),
+  'utf8',
+)
+const demoSeoFiles = [
+  'index.md',
+  'hr.md',
+  'color.md',
+  'excel.md',
+  'pivot.md',
+  'gantt.md',
+  'event-scheduler.md',
+  'planning.md',
+] as const
 const pivotHeaderStyleSource = readFileSync(
   new URL('../../revogrid-demos/pro-advanced-pivot/src/financial-pivot-header/financial-pivot-header.scss', import.meta.url),
   'utf8',
@@ -35,13 +51,47 @@ test('provides complete reusable layout content for every catalog demo', () => {
   })
 })
 
+test('keeps every demo page on the shared SEO and social metadata contract', () => {
+  const entries = demoSeoFiles.map((file) => {
+    const source = readFileSync(new URL(`../../demo/${file}`, import.meta.url), 'utf8')
+    const frontmatter = source.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? ''
+    const title = frontmatter.match(/^title:\s*(.+)$/m)?.[1] ?? ''
+    const description = frontmatter.match(/^description:\s*(.+)$/m)?.[1] ?? ''
+
+    assert.ok(title.length >= 20 && title.length <= 60, `${file} needs a concise title`)
+    assert.ok(description.length >= 110 && description.length <= 160, `${file} needs a useful description`)
+    assert.doesNotMatch(title, /RevoGrid/, `${file} should let VitePress append the site name once`)
+    assert.match(frontmatter, /name:\s*keywords\n\s+content:\s*\S+/, `${file} needs search terms`)
+    assert.doesNotMatch(frontmatter, /name:\s*description/, `${file} duplicates its frontmatter description`)
+    assert.doesNotMatch(frontmatter, /property:\s*og:(?:title|description|url)/, `${file} bypasses shared Open Graph tags`)
+
+    return { file, title, description }
+  })
+
+  assert.equal(new Set(entries.map(({ title }) => title)).size, entries.length)
+  assert.equal(new Set(entries.map(({ description }) => description)).size, entries.length)
+
+  for (const tag of ['canonical', 'og:title', 'og:description', 'og:url', 'twitter:title', 'twitter:description']) {
+    assert.match(vitepressConfigSource, new RegExp(tag.replace(':', '\\:')))
+  }
+  assert.match(vitepressConfigSource, /property:\s*'og:image:alt'/)
+  assert.match(vitepressConfigSource, /name:\s*'twitter:image:alt'/)
+
+  const legacyHr = entries.find(({ file }) => file === 'hr.md')
+  assert.ok(legacyHr)
+  assert.match(
+    readFileSync(new URL('../../demo/hr.md', import.meta.url), 'utf8'),
+    /rel:\s*canonical\n\s+href:\s*https:\/\/rv-grid\.com\/demo\//,
+  )
+})
+
 test('provides source-attributed feature badges only for paid demos', () => {
   const configs = getAllDemoPageConfigs()
   const openSource = configs.find(config => config.demo.planId === 'open-source')
   const paid = configs.filter(config => config.demo.planId !== 'open-source')
 
   assert.deepEqual(openSource?.featureBadges, [])
-  assert.equal(paid.length, 5)
+  assert.equal(paid.length, 6)
   paid.forEach((config) => {
     assert.ok(config.featureBadges.length >= 5)
     assert.equal(
@@ -106,12 +156,12 @@ test('describes the requested active Gantt capabilities without an export badge'
   assert.deepEqual(
     getDemoPageConfig('gantt').featureBadges,
     [
-      { label: 'Gantt planning', source: 'GanttPlugin' },
+      { label: 'Gantt', source: 'GanttPlugin' },
       { label: 'Dependencies & critical path', source: 'GanttDependencyOverlayPlugin + GanttTaskBarsPlugin' },
       { label: 'Task hierarchy', source: 'TreeDataPlugin' },
-      { label: 'Timeline zoom', source: 'GanttTimelineHeaderPlugin + zoomPreset' },
+      { label: 'Zoom', source: 'GanttTimelineHeaderPlugin + zoomPreset' },
       { label: 'Context menus', source: 'ContextMenuPlugin' },
-      { label: 'Working calendars', source: 'GanttPlugin + ganttCalendars' },
+      { label: 'Calendars', source: 'GanttPlugin + ganttCalendars' },
       { label: 'Undo / redo', source: 'HistoryPlugin' },
       { label: 'Row status', source: 'RowStatusPlugin' },
     ],
@@ -175,6 +225,25 @@ test('uses the Pro Advanced violet palette for Advanced sidebar badges', () => {
   )
 })
 
+test('groups demo navigation into expanded Core, Pro, and Pro Advanced categories', () => {
+  assert.deepEqual(
+    sidebarDemonEn.map(group => ({
+      text: group.text,
+      collapsed: group.collapsed,
+      links: group.items?.map(item => item.link),
+    })),
+    [
+      { text: 'Core', collapsed: false, links: ['/demo/'] },
+      { text: 'Pro', collapsed: false, links: ['/demo/color', '/demo/excel'] },
+      {
+        text: 'Pro Advanced',
+        collapsed: false,
+        links: ['/demo/pivot', '/demo/gantt', '/demo/event-scheduler', '/demo/planning'],
+      },
+    ],
+  )
+})
+
 test('resolves the requested public plan labels and try-in-project destinations', () => {
   const expected = {
     'grid-at-scale': { plan: 'MIT', destination: '/guide/' },
@@ -232,5 +301,17 @@ test('keeps the embedded Excel workbench flush with the workspace top edge', () 
   assert.match(
     excelDemoSource,
     /\.demo-main-widget\s*\{[\s\S]*?padding-top:\s*0;/,
+  )
+})
+
+test('presents the Unified Planning Suite without an inner frame and insets its switch', () => {
+  assert.equal(PRODUCT_CATALOG.demos.planning.title, 'Unified Planning Suite')
+  assert.match(
+    planningDemoStyleSource,
+    /\.planning-demo__switch\s*\{[\s\S]*?margin:\s*4px 16px 0;/,
+  )
+  assert.match(
+    planningDemoStyleSource,
+    /\.planning-demo__grid\s*\{[\s\S]*?border:\s*0;[\s\S]*?border-radius:\s*0;/,
   )
 })
