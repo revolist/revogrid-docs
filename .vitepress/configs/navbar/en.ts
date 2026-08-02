@@ -87,10 +87,6 @@ export const navbarEn: DefaultTheme.NavItem[] = [
         text: 'Roadmap',
         link: 'https://github.com/users/revolist/projects/3',
       },
-      {
-        text: 'v3.x',
-        link: 'https://v3.rv-grid.com',
-      },
     ],
   },
 ]

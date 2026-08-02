@@ -30,8 +30,11 @@
       <div class="card-price-row">
         <span class="price-currency">$</span>
         <span class="price-num">{{ advUsdYr }}</span>
+        <span v-if="advancedCompareAtUsdYr" class="price-compare">${{ advancedCompareAtUsdYr }}</span>
+        <span v-if="advancedPromotion" class="price-discount">{{ advancedPromotion.discountLabel }}</span>
         <span class="price-period">/ year</span>
       </div>
+      <div v-if="advancedPromotion" class="price-promo">{{ advancedPromotion.label }} discount</div>
       <div class="price-note">1 developer seat · Unlimited production usage</div>
       <a :href="advancedPrice.link" class="card-cta primary" @click="handleStripeClientReferenceClick">Start Pro Advanced</a>
       <div class="card-divider"></div>
@@ -83,6 +86,8 @@ const lightUsdYr = lightPrice.year
 const lightCompareAtUsdYr = lightPrice.compareAtYear
 const lightPromotion = lightPrice.promotion
 const advUsdYr = advancedPrice.year
+const advancedCompareAtUsdYr = advancedPrice.compareAtYear
+const advancedPromotion = advancedPrice.promotion
 </script>
 
 <style lang="scss" scoped>

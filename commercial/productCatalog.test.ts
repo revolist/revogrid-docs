@@ -30,6 +30,16 @@ test('resolves base and promotional prices at the UTC cutoff', () => {
   assert.equal(atCutoff.promotion, undefined)
 })
 
+test('applies the summer sale to Pro Advanced before the cutoff', () => {
+  const beforeCutoff = resolvePlanPrice('pro-advanced', '2026-08-31T23:59:59.999Z')
+  const atCutoff = resolvePlanPrice('pro-advanced', SUMMER_SALE_CUTOFF)
+
+  assert.equal(beforeCutoff.year.USD, 375)
+  assert.equal(beforeCutoff.compareAtYear?.USD, 499)
+  assert.equal(beforeCutoff.promotion?.discountLabel, '25% off')
+  assert.equal(atCutoff.year.USD, 499)
+})
+
 test('resolves currencies and checkout destinations from the catalog', () => {
   const lite = resolvePlanPrice('pro-lite', SUMMER_SALE_CUTOFF)
   const advanced = resolvePlanPrice('pro-advanced', SUMMER_SALE_CUTOFF)
@@ -144,7 +154,7 @@ test('generates route-aware structured-data offers', () => {
   assert.deepEqual(software.offers.map((offer: { price: number, priceCurrency: string }) => ({
     price: offer.price,
     currency: offer.priceCurrency,
-  })), [{ price: 499, currency: 'USD' }])
+  })), [{ price: 375, currency: 'USD' }])
   assert.equal(software.offers[0].url, 'https://rv-grid.com/pricing')
 })
 

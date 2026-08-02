@@ -36,7 +36,7 @@ export interface PeriodPrices {
 
 export interface CatalogPromotion {
   id: 'summer-sale-2026'
-  planId: 'pro-lite'
+  planId: PurchasablePlanId
   startsAt: string
   expiresAt: string
   cutoffAt: string
@@ -251,8 +251,23 @@ const promotions: CatalogPromotion[] = [
     year: { USD: 149 },
     buyUrl: 'https://buy.stripe.com/5kQeVe8N9ef67C29qmew80g',
     label: 'Summer sale',
-    title: '25% off Pro Lite.',
-    description: 'Pro Lite is $149/year for the summer discount, down from $199/year.',
+    title: '25% off Pro plans.',
+    description: '',
+    badge: '25% off summer discount',
+    discountLabel: '25% off',
+    priceValidUntil: '2026-08-31',
+  },
+  {
+    id: 'summer-sale-2026',
+    planId: 'pro-advanced',
+    startsAt: '2026-06-01T00:00:00Z',
+    expiresAt: SUMMER_SALE_EXPIRES_AT,
+    cutoffAt: SUMMER_SALE_CUTOFF,
+    year: { USD: 375 },
+    buyUrl: plans['pro-advanced'].buyUrl,
+    label: 'Summer sale',
+    title: '25% off Pro plans.',
+    description: '',
     badge: '25% off summer discount',
     discountLabel: '25% off',
     priceValidUntil: '2026-08-31',
@@ -500,8 +515,11 @@ export const formatFrameworkPricingNote = (at: PriceTimestamp = new Date()): str
   const lightPriceCopy = lightPrice.compareAtYear?.USD
     ? `$${lightPrice.year.USD}/year sale ($${lightPrice.compareAtYear.USD} regular)`
     : `$${lightPrice.year.USD}/year`
+  const advancedPriceCopy = advancedPrice.compareAtYear?.USD
+    ? `$${advancedPrice.year.USD}/year sale ($${advancedPrice.compareAtYear.USD} regular)`
+    : `$${advancedPrice.year.USD}/year`
 
-  return `Open-source core. ${plans['pro-lite'].name}: ${lightPriceCopy}. ${plans['pro-advanced'].name}: $${advancedPrice.year.USD}/year. Per-developer licensing. No deployment counting.`
+  return `Open-source core. ${plans['pro-lite'].name}: ${lightPriceCopy}. ${plans['pro-advanced'].name}: ${advancedPriceCopy}. Per-developer licensing. No deployment counting.`
 }
 
 export const getCatalogProFeatures = () => proFeatureMarketing.map((feature) => {
