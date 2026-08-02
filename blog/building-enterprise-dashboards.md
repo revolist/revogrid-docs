@@ -1,7 +1,7 @@
 ---
 
 title: Building Powerfull Enterprise Dashboards
-description: "A practical guide to designing data-heavy enterprise dashboards with JavaScript Data Grids: architecture, UX patterns, performance, security, analytics workflows & reports."
+description: "Design enterprise dashboards with JavaScript data grids using practical patterns for UX, performance, security, analytics, and operational workflows."
 category: Dashboards
 date: 2026-06-20
 tags:
@@ -11,7 +11,7 @@ tags:
   - Performance
   - RevoGrid
 image: /blog/e-dashboards.png
-imageAlt: Enterprise Dashboards Preview
+imageAlt: Enterprise dashboard with RevoGrid data grid, charts, and KPI cards
 head:
   - - meta
     - name: keywords
@@ -30,7 +30,7 @@ That is where a high-performance data grid, pivot, gantt, scheduler and event ma
 
 
 
-![RevoGrid review](/blog/v2-demo.png)
+![RevoGrid enterprise data grid dashboard preview](/blog/v2-demo.png)
 
 
 ## The dashboard mistake most teams make

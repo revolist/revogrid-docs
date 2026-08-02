@@ -1,6 +1,6 @@
 ---
-title: JavaScript Gantt Chart Dependencies - FS, SS, FF, SF, Lead/Lag
-description: "Build a JavaScript Gantt chart with dependencies: finish-to-start, start-to-start, finish-to-finish, start-to-finish, lead/lag, dependency validation, and drag-to-edit links."
+title: "JavaScript Gantt Chart Dependencies: FS, SS, FF & SF"
+description: "Learn JavaScript Gantt chart dependencies: FS, SS, FF, SF, lead and lag, validation, auto-scheduling, and interactive link editing."
 outline: deep
 date: 2026-07-09
 author: RevoGrid Team
@@ -19,10 +19,10 @@ head:
       content: JavaScript Gantt dependencies, Gantt chart dependencies JavaScript, FS SS FF SF dependencies, JavaScript Gantt chart, Gantt dependencies, Gantt lead lag, finish-to-start dependency, start-to-start dependency, finish-to-finish dependency, start-to-finish dependency, dependency validation, RevoGrid Gantt, JavaScript project scheduling, React Gantt dependencies, Vue Gantt dependencies, Angular Gantt dependencies, Svelte Gantt dependencies
   - - meta
     - property: og:title
-      content: JavaScript Gantt Chart Dependencies - FS, SS, FF, SF, Lead/Lag
+      content: "JavaScript Gantt Chart Dependencies: FS, SS, FF & SF"
   - - meta
     - property: og:description
-      content: "Learn how Gantt dependencies work in JavaScript: FS, SS, FF, SF, lead/lag, validation, auto scheduling, and interactive dependency editing with RevoGrid Gantt."
+      content: "Learn JavaScript Gantt chart dependencies: FS, SS, FF, SF, lead and lag, validation, auto-scheduling, and interactive link editing."
   - - meta
     - property: og:type
       content: article
@@ -35,8 +35,8 @@ head:
       {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "JavaScript Gantt Chart Dependencies - FS, SS, FF, SF, Lead/Lag",
-        "description": "Build a JavaScript Gantt chart with dependencies: finish-to-start, start-to-start, finish-to-finish, start-to-finish, lead/lag, dependency validation, and drag-to-edit links.",
+        "headline": "JavaScript Gantt Chart Dependencies: FS, SS, FF & SF",
+        "description": "Learn JavaScript Gantt chart dependencies: FS, SS, FF, SF, lead and lag, validation, auto-scheduling, and interactive link editing.",
         "author": {
           "@type": "Organization",
           "name": "RevoGrid"
@@ -96,7 +96,7 @@ head:
       }
 ---
 
-# JavaScript Gantt Chart Dependencies: FS, SS, FF, SF, Lead/Lag
+# JavaScript Gantt Chart Dependencies: FS, SS, FF & SF
 
 ::: tip See dependencies in the full product
 Explore [RevoGrid Gantt](/gantt) for the complete feature set, advanced dependency demo, performance evidence, current pricing, and trial access.

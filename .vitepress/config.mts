@@ -356,7 +356,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
 
-        logo: '/logo.svg?skipsvgo',
+        logo: {
+            src: '/logo.svg?skipsvgo',
+            alt: 'RevoGrid',
+        },
         outline: [2, 3],
         socialLinks: standaloneBuildSource ? [] : [
             // { icon: 'x', link: 'https://x.com/revolist_ou/' },

@@ -1,6 +1,6 @@
 ---
 title: Migrating from Syncfusion Grid to RevoGrid
-description: "A practical Syncfusion Grid to RevoGrid migration guide for JavaScript, React, Vue, Angular, and Svelte teams moving dataSource, columns, templates, editing, filtering, sorting, paging, virtualization, and advanced grid workflows."
+description: "Learn how to migrate from Syncfusion Grid to RevoGrid with API mappings, framework examples, editing, filtering, sorting, paging, and virtualization."
 outline: deep
 date: 2026-06-17
 author: RevoGrid Team
@@ -22,7 +22,7 @@ head:
       content: Migrating from Syncfusion Grid to RevoGrid
   - - meta
     - property: og:description
-      content: A practical developer guide for moving from Syncfusion Grid to RevoGrid with API mapping, JavaScript and framework examples, migration checklist, and common pitfalls.
+      content: "Learn how to migrate from Syncfusion Grid to RevoGrid with API mappings, framework examples, editing, filtering, sorting, paging, and virtualization."
   - - meta
     - property: og:type
       content: article
@@ -36,7 +36,7 @@ head:
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "Migrating from Syncfusion Grid to RevoGrid",
-        "description": "A practical Syncfusion Grid to RevoGrid migration guide for JavaScript, React, Vue, Angular, and Svelte teams moving dataSource, columns, templates, editing, filtering, sorting, paging, virtualization, and advanced grid workflows.",
+        "description": "Learn how to migrate from Syncfusion Grid to RevoGrid with API mappings, framework examples, editing, filtering, sorting, paging, and virtualization.",
         "author": {
           "@type": "Organization",
           "name": "RevoGrid"
