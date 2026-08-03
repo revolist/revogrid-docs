@@ -140,6 +140,16 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
   },
+  planning: {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_planning_data', label: 'Try it with my own planning data' },
+      { code: 'cross_view_sync', label: 'Check synchronization across planning views' },
+      { code: 'app_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
 } as const satisfies Record<DemoId, {
   docsUrl: string
   verificationOptions: readonly { code: string, label: string }[]

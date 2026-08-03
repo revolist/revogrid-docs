@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.24](README.md) / ClipboardConfig
+[RevoGrid Documentation v4.24.3](README.md) / ClipboardConfig
 
 # Interface: ClipboardConfig
 
@@ -8,4 +8,4 @@ Clipboard behavior configuration.
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `rangeFill?` | `boolean` | When true, pasting a single clipboard cell fills the selected range. Requires range selection to be enabled on the grid. | [src/types/interfaces.ts:930](https://github.com/revolist/revogrid/blob/378ffaf8d0c296fdd666895c8f50ce7cb8d43e36/src/types/interfaces.ts#L930) |
+| `rangeFill?` | `boolean` | When true, pasting a single clipboard cell fills the selected range. Requires range selection to be enabled on the grid. | [src/types/interfaces.ts:930](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/interfaces.ts#L930) |

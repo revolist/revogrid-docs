@@ -16,6 +16,19 @@
         @submit.prevent="handleSubmit"
       >
         <div class="form-grid">
+          <label class="form-field form-field-wide" for="trialBusinessEmail">
+            <span>{{ isTrialRequest ? 'Email' : 'Business Email' }} <em>*</em></span>
+            <input
+              id="trialBusinessEmail"
+              v-model.trim="form.businessEmail"
+              type="email"
+              autocomplete="email"
+              :placeholder="isTrialRequest ? 'alex@company.com' : undefined"
+              required
+              :disabled="isSubmitting"
+            />
+          </label>
+
           <label class="form-field" for="trialFullName">
             <span>
               {{ isTrialRequest ? 'First name' : 'Full Name' }}
@@ -49,20 +62,6 @@
               :disabled="isSubmitting"
             />
           </label>
-
-          <label class="form-field form-field-wide" for="trialBusinessEmail">
-            <span>{{ isTrialRequest ? 'Email' : 'Business Email' }} <em>*</em></span>
-            <input
-              id="trialBusinessEmail"
-              v-model.trim="form.businessEmail"
-              type="email"
-              autocomplete="email"
-              :placeholder="isTrialRequest ? 'alex@company.com' : undefined"
-              required
-              :disabled="isSubmitting"
-            />
-          </label>
-
           <label class="form-field form-field-wide" for="trialApplicationInfo">
             <span>
               Tell us more about your application

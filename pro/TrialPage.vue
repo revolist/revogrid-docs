@@ -38,7 +38,6 @@
     <TrustedLogoStrip
       title-id="trial-trust-title"
       variant="trial"
-      :section="logoSection"
       :metrics="metrics"
     />
 
@@ -83,18 +82,6 @@ const benefits = [
   `Evaluate ${litePlan.name} and ${advancedPlan.name} modules`,
   'Guidance for app-level Pro evaluation',
 ]
-
-const logoSection = {
-  kicker: 'Used by teams at companies including',
-  title: '',
-  logos: [
-    { name: 'Axon', id: 'axon' as const },
-    { name: 'BASF', id: 'basf' as const },
-    { name: 'Bayer', id: 'bayer' as const },
-    { name: 'CBRE', id: 'cbre' as const },
-    { name: 'Deltek', id: 'deltek' as const },
-  ],
-}
 
 const metrics = [
   { value: '900K+', label: 'jsDelivr downloads / mo' },

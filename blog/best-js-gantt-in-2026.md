@@ -1,6 +1,6 @@
 ---
 
-title: Best JavaScript Gantt Chart Libraries in 2026 - Top 8 Compared
+title: Best JavaScript Gantt Chart Libraries in 2026
 description: "Compare the best JavaScript Gantt chart libraries in 2026: RevoGrid Gantt, Bryntum, DHTMLX, Syncfusion, Webix, Highcharts, AnyGantt, and Frappe Gantt."
 outline: deep
 date: 2026-07-10
@@ -20,7 +20,7 @@ head:
       content: best JavaScript Gantt chart libraries 2026, JavaScript Gantt chart, JS Gantt chart library, React Gantt chart, Vue Gantt chart, Angular Gantt chart, Svelte Gantt chart, TypeScript Gantt chart, open source Gantt chart, enterprise Gantt component, project management component, Gantt chart with dependencies, Gantt chart with resource management, DHTMLX Gantt alternative, Bryntum Gantt alternative, Syncfusion Gantt alternative, Frappe Gantt alternative, RevoGrid Gantt
   - - meta
     - property: og:title
-      content: Best JavaScript Gantt Chart Libraries in 2026 - Top 8 Compared
+      content: Best JavaScript Gantt Chart Libraries in 2026
   - - meta
     - property: og:description
       content: A practical comparison of the leading JavaScript Gantt libraries for scheduling, editable task data, dependencies, resources, performance, framework support, and product fit.
@@ -36,7 +36,7 @@ head:
       {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Best JavaScript Gantt Chart Libraries in 2026 - Top 8 Compared",
+        "headline": "Best JavaScript Gantt Chart Libraries in 2026",
         "description": "Compare the best JavaScript Gantt chart libraries in 2026: RevoGrid Gantt, Bryntum, DHTMLX, Syncfusion, Webix, Highcharts, AnyGantt, and Frappe Gantt.",
         "author": {
           "@type": "Organization",

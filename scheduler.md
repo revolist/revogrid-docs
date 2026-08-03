@@ -22,7 +22,7 @@ headerNav:
     - RevoGrid Pro
   links:
     - text: Docs
-      href: /guides/gantt
+      href: /guides/event-scheduler
       base: pro
 head:
   - - meta
@@ -45,10 +45,10 @@ ganttLanding:
     description: Embed fast, calendar-style scheduler views for teams, equipment, rooms, shifts, and operational workflows without rebuilding grid editing, virtualization, or framework integrations.
     actions:
       - label: Try the scheduler demo
-        href: /demo/gantt
+        href: /demo/event-scheduler
         arrow: true
       - label: Read Scheduler docs
-        href: https://pro.rv-grid.com/guides/gantt/
+        href: https://pro.rv-grid.com/guides/event-scheduler/
         variant: secondary
         target: _blank
         rel: noopener
@@ -59,6 +59,7 @@ ganttLanding:
       - Framework ready
   preview:
     enabled: true
+    kind: eventScheduler
     title: scheduler-capacity.revogrid.ts
     pills:
       - label: Resource plan
@@ -75,6 +76,17 @@ ganttLanding:
       label: resource lanes
     - value: '5'
       label: framework targets
+  demos:
+    id: scheduler-preview
+    kicker: Product preview
+    title: See the Event Scheduler in action.
+    description: Preview the resource calendar, shift coverage, event editing, and planning workflow, then open the live demo to try it yourself.
+    items:
+      - title: Event Scheduler workspace
+        description: Explore a production-style scheduling surface for resource lanes, employee shifts, availability, conflicts, and direct timeline editing.
+        href: /demo/event-scheduler
+        media: /video/event-scheduler.mp4
+        mediaKind: video
   features:
     id: features
     kicker: Features
@@ -131,7 +143,7 @@ ganttLanding:
   cta:
     title: Ship resource scheduling as a native product feature.
     description: Add scheduler views to your app, keep planning data under your control, and avoid sending users to a separate scheduling tool.
-    primaryHref: /demo/gantt
+    primaryHref: /demo/event-scheduler
     primaryLabel: Try the scheduler demo
     secondaryHref: /pricing
     secondaryLabel: View Pro pricing

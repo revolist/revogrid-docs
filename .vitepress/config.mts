@@ -262,11 +262,14 @@ const config: UserConfig<DefaultTheme.Config> = {
         ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
         ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
         ['meta', { property: 'og:image', content: 'https://rv-grid.com/og-image.jpg' }],
+        ['meta', { property: 'og:image:alt', content: 'RevoGrid data grid interface' }],
         ['meta', { property: 'og:type', content: 'website' }],
         ['meta', { property: 'og:site_name', content: 'RevoGrid Documentation' }],
+        ['meta', { property: 'og:locale', content: 'en_US' }],
 
         ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
         ['meta', { name: 'twitter:image', content: 'https://rv-grid.com/og-image.jpg' }],
+        ['meta', { name: 'twitter:image:alt', content: 'RevoGrid data grid interface' }],
         ['meta', { name: 'twitter:site', content: '@RevoGrid' }],
 
         [
@@ -353,7 +356,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
 
-        logo: '/logo.svg?skipsvgo',
+        logo: {
+            src: '/logo.svg?skipsvgo',
+            alt: 'RevoGrid',
+        },
         outline: [2, 3],
         socialLinks: standaloneBuildSource ? [] : [
             // { icon: 'x', link: 'https://x.com/revolist_ou/' },

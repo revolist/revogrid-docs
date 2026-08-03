@@ -17,6 +17,7 @@ export type DemoId =
   | 'pivot'
   | 'gantt'
   | 'event-scheduler'
+  | 'planning'
 export type CommercialFaqKey =
   | 'developer-licenses'
   | 'deployment-fees'
@@ -35,7 +36,7 @@ export interface PeriodPrices {
 
 export interface CatalogPromotion {
   id: 'summer-sale-2026'
-  planId: 'pro-lite'
+  planId: PurchasablePlanId
   startsAt: string
   expiresAt: string
   cutoffAt: string
@@ -171,13 +172,11 @@ const plans = {
       boilerplateUrl: TRIAL_BOILERPLATE_URL,
       note: 'The public repository is evaluation boilerplate. Pro packages are delivered through approved private npm access.',
     },
-    billingSummary: '1 developer seat · 1 product/app',
+    billingSummary: '1 developer seat',
     actionLabel: 'Buy Pro Lite',
     pricingHighlights: [
       { text: 'Commercial production use' },
-      { text: 'Production-ready plugins and examples', link: '/pro/' },
-      { text: 'Typed private npm packages' },
-      { text: 'One product or app' },
+      { text: 'Production-ready modules and examples', link: '/pro/' },
       { text: 'One year of updates' },
     ],
   },
@@ -205,10 +204,9 @@ const plans = {
     actionLabel: 'Buy Pro Advanced',
     pricingHighlights: [
       { text: 'Everything in Pro Lite' },
-      { text: 'Unlimited product usage' },
-      { text: 'Original private source repository access' },
       { text: 'Priority support and bug-fix queue' },
-      { text: 'Pivot, Gantt, Scheduler, and Event Scheduler' },
+      { text: 'Original source code access' },
+      { text: 'Pivot, Gantt, Calendar, and Event Scheduler' },
     ],
   },
   enterprise: {
@@ -253,8 +251,23 @@ const promotions: CatalogPromotion[] = [
     year: { USD: 149 },
     buyUrl: 'https://buy.stripe.com/5kQeVe8N9ef67C29qmew80g',
     label: 'Summer sale',
-    title: '25% off Pro Lite.',
-    description: 'Pro Lite is $149/year for the summer discount, down from $199/year.',
+    title: '25% off Pro plans.',
+    description: '',
+    badge: '25% off summer discount',
+    discountLabel: '25% off',
+    priceValidUntil: '2026-08-31',
+  },
+  {
+    id: 'summer-sale-2026',
+    planId: 'pro-advanced',
+    startsAt: '2026-06-01T00:00:00Z',
+    expiresAt: SUMMER_SALE_EXPIRES_AT,
+    cutoffAt: SUMMER_SALE_CUTOFF,
+    year: { USD: 375 },
+    buyUrl: plans['pro-advanced'].buyUrl,
+    label: 'Summer sale',
+    title: '25% off Pro plans.',
+    description: '',
     badge: '25% off summer discount',
     discountLabel: '25% off',
     priceValidUntil: '2026-08-31',
@@ -379,9 +392,9 @@ const products = {
     name: 'RevoGrid Scheduler',
     minimumPlan: 'pro-advanced',
     status: 'stable',
-    featureId: 'gantt',
+    featureId: 'event-scheduler',
     pageUrl: '/scheduler',
-    demoUrl: '/demo/gantt',
+    demoUrl: '/demo/event-scheduler',
     trialUrl: TRIAL_REQUEST_URL,
     buyUrl: '/pricing',
   },
@@ -405,6 +418,7 @@ const demos = {
   pivot: { id: 'pivot', title: 'Pivot Analytics', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot' },
   gantt: { id: 'gantt', title: 'Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt' },
   'event-scheduler': { id: 'event-scheduler', title: 'Event Scheduler', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
+  planning: { id: 'planning', title: 'Unified Planning Suite', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/planning' },
 } as const satisfies Record<DemoId, CatalogDemo>
 
 export const PRODUCT_CATALOG = {
@@ -501,8 +515,11 @@ export const formatFrameworkPricingNote = (at: PriceTimestamp = new Date()): str
   const lightPriceCopy = lightPrice.compareAtYear?.USD
     ? `$${lightPrice.year.USD}/year sale ($${lightPrice.compareAtYear.USD} regular)`
     : `$${lightPrice.year.USD}/year`
+  const advancedPriceCopy = advancedPrice.compareAtYear?.USD
+    ? `$${advancedPrice.year.USD}/year sale ($${advancedPrice.compareAtYear.USD} regular)`
+    : `$${advancedPrice.year.USD}/year`
 
-  return `Open-source core. ${plans['pro-lite'].name}: ${lightPriceCopy}. ${plans['pro-advanced'].name}: $${advancedPrice.year.USD}/year. Per-developer licensing. No deployment counting.`
+  return `Open-source core. ${plans['pro-lite'].name}: ${lightPriceCopy}. ${plans['pro-advanced'].name}: ${advancedPriceCopy}. Per-developer licensing. No deployment counting.`
 }
 
 export const getCatalogProFeatures = () => proFeatureMarketing.map((feature) => {

@@ -1,9 +1,13 @@
-[RevoGrid Documentation v4.23.24](README.md) / ThemePackage
+[RevoGrid Documentation v4.24.3](README.md) / ThemePackage
 
 # Interface: ThemePackage
+
+## Extended by
+
+- [`ResolvedTheme`](Interface.ResolvedTheme.md)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `defaultRowSize` | `number` | [src/types/theme.ts:2](https://github.com/revolist/revogrid/blob/378ffaf8d0c296fdd666895c8f50ce7cb8d43e36/src/types/theme.ts#L2) |
+| `defaultRowSize` | `number` | [src/types/theme.ts:2](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/theme.ts#L2) |

@@ -1,5 +1,5 @@
 <template>
-  <TrustedLogoStrip :section="section" title-id="rg-proof-title" variant="home" />
+  <TrustedLogoStrip title-id="rg-proof-title" variant="home" />
 </template>
 
 <script lang="ts" setup>

@@ -48,19 +48,8 @@ hero:
       link: /guide/
 
 trust:
-  kicker: Trusted by thousands of teams building critical data products
+  kicker: Used by teams at companies including
   title: Companies using RevoGrid
-  logos:
-    - name: Axon
-      id: axon
-    - name: BASF
-      id: basf
-    - name: Bayer
-      id: bayer
-    - name: CBRE
-      id: cbre
-    - name: Deltek
-      id: deltek
 
 # demos:
 #   label: Live demos

@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.24](README.md) / FilterLocalization
+[RevoGrid Documentation v4.24.3](README.md) / FilterLocalization
 
 # Interface: FilterLocalization
 
@@ -6,5 +6,5 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `captions` | `Partial`\<[`FilterCaptions`](Interface.FilterCaptions.md)\> | [src/plugins/filter/filter.types.ts:81](https://github.com/revolist/revogrid/blob/378ffaf8d0c296fdd666895c8f50ce7cb8d43e36/src/plugins/filter/filter.types.ts#L81) |
-| `filterNames` | `Record`\< \| `"none"` \| `"empty"` \| `"notEmpty"` \| `"eq"` \| `"notEq"` \| `"begins"` \| `"contains"` \| `"notContains"` \| `"eqN"` \| `"neqN"` \| `"gt"` \| `"gte"` \| `"lt"` \| `"lte"`, `string`\> | [src/plugins/filter/filter.types.ts:82](https://github.com/revolist/revogrid/blob/378ffaf8d0c296fdd666895c8f50ce7cb8d43e36/src/plugins/filter/filter.types.ts#L82) |
+| `captions` | `Partial`\<[`FilterCaptions`](Interface.FilterCaptions.md)\> | [src/plugins/filter/filter.types.ts:81](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/plugins/filter/filter.types.ts#L81) |
+| `filterNames` | `Record`\< \| `"none"` \| `"empty"` \| `"notEmpty"` \| `"eq"` \| `"notEq"` \| `"begins"` \| `"contains"` \| `"notContains"` \| `"eqN"` \| `"neqN"` \| `"gt"` \| `"gte"` \| `"lt"` \| `"lte"`, `string`\> | [src/plugins/filter/filter.types.ts:82](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/plugins/filter/filter.types.ts#L82) |

@@ -1,6 +1,6 @@
 ---
 title: "MS Project Gantt Is Dead — What Now?"
-description: "Microsoft Project is changing. Project for the web has moved into Planner, Project Online is retiring, and product teams need a modern embeddable Gantt and scheduling engine."
+description: "Microsoft Project is changing as Project for the web moves into Planner and Project Online retires. See why teams need an embeddable Gantt and scheduler."
 date: 2026-07-07
 author: "RevoGrid Team"
 tags:
@@ -12,7 +12,7 @@ tags:
   - RevoGrid
 outline: deep
 image: /blog/gantt-msp.png
-imageAlt: JavaScript Gantt preview
+imageAlt: JavaScript Gantt chart preview showing Microsoft Project-style task planning
 head:
   - - meta
     - name: keywords
@@ -29,20 +29,20 @@ Start with the [RevoGrid Gantt product page](/gantt) for live demos, Microsoft P
 [Microsoft states that as of August 2025](https://en.wikipedia.org/wiki/Microsoft_Project), **Project for the web** and the **Project and Roadmap apps in Teams** were retired and users transitioned to **Planner for the web** and **Planner in Teams**. Existing Project for the web work is now accessible in Planner.
 
 
-![JavaScript Gantt MSP preview](/blog/gantt-msp.png)
+![JavaScript Gantt chart preview showing Microsoft Project-style task planning](/blog/gantt-msp.png)
 
 For a long time, when people said “Gantt chart”, many users heard “Microsoft Project”.
 
 
 The classic workflow was familiar: open a project file, define tasks, connect dependencies, check the critical path, level resources, then export the plan for the next meeting. It was not always simple, but it became the mental model for project scheduling.
 
-![Microsoft Project Online](/blog/msp-collaboration.gif)
+![Microsoft Project Online collaboration view](/blog/msp-collaboration.gif)
 
 > Now that model is changing.
 
 Microsoft has moved **Project for the web** into **Microsoft Planner**, and **Project Online** has an official retirement date. The desktop Project product still exists, but the center of gravity for Microsoft cloud project management is clearly moving toward Planner.
 
-![Microsoft Project Planner](/blog/ms-planner-history.png)
+![Microsoft Planner project planning history](/blog/ms-planner-history.png)
 
 ::: warning
 MS Project desktop is not disappearing. But the old cloud Project experience is being folded into Planner, and Project Online is being retired. For many teams, this is the moment to rethink where project scheduling belongs.
@@ -325,13 +325,13 @@ There are already serious JavaScript Gantt options in the market.
 
 ### Bryntum Gantt
 
-![Bryntum Gantt Image](/blog/gantt-bryntum.png)
+![Bryntum Gantt project scheduling interface](/blog/gantt-bryntum.png)
 
 A mature, powerful JavaScript Gantt suite. It positions itself around performance, customization, a strong scheduling engine, dependencies, constraints, scheduling modes, exports, and integration with frameworks such as React, Angular, and Vue.
 
 ### Webix Gantt
 
-![Webix Gantt Image](/blog/gantt-webix.png)
+![Webix Gantt project scheduling interface](/blog/gantt-webix.png)
 
 Another complete JavaScript Gantt component. It focuses on project management applications with tasks, projects, milestones, dependencies, working calendars, critical path, resources, workload visualization, and integration into modern web apps.
 
@@ -339,7 +339,7 @@ Both are valid options, and both show the same market signal: companies still ne
 
 ### RevoGrid Gantt
 
-![RevoGrid Gantt Image](/img/gantt-demo.png)
+![RevoGrid Gantt chart with editable task grid and timeline](/img/gantt-demo.png)
 
 RevoGrid Gantt starts from the grid. That makes it especially interesting when your users already work in a data-heavy application and you want to add Gantt without replacing the user’s workflow.
 
