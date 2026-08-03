@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.24.1](README.md) / EditCell
+[RevoGrid Documentation v4.24.2](README.md) / EditCell
 
 # Type Alias: EditCell
 
@@ -10,4 +10,4 @@ Edit cell info for editor
 
 ## Defined in
 
-[src/types/selection.ts:169](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/types/selection.ts#L169)
+[src/types/selection.ts:169](https://github.com/revolist/revogrid/blob/41e30fc48198c08baf2552eb224ddb438d8ce9f0/src/types/selection.ts#L169)

@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.24.1](README.md) / [JSX](Namespace.JSX.md) / RevogrOverlaySelectionAttributes
+[RevoGrid Documentation v4.24.2](README.md) / [JSX](Namespace.JSX.md) / RevogrOverlaySelectionAttributes
 
 # Interface: RevogrOverlaySelectionAttributes
 
@@ -6,10 +6,10 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `additionalData` | `string` | [src/components.d.ts:2572](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/components.d.ts#L2572) |
-| `applyChangesOnClose` | `boolean` | [src/components.d.ts:2571](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/components.d.ts#L2571) |
-| `canDrag` | `boolean` | [src/components.d.ts:2569](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/components.d.ts#L2569) |
-| `isMobileDevice` | `boolean` | [src/components.d.ts:2573](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/components.d.ts#L2573) |
-| `range` | `boolean` | [src/components.d.ts:2568](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/components.d.ts#L2568) |
-| `readonly` | `boolean` | [src/components.d.ts:2567](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/components.d.ts#L2567) |
-| `useClipboard` | `boolean` \| [`ClipboardConfig`](Interface.ClipboardConfig.md) | [src/components.d.ts:2570](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/components.d.ts#L2570) |
+| `additionalData` | `string` | [src/components.d.ts:2583](https://github.com/revolist/revogrid/blob/41e30fc48198c08baf2552eb224ddb438d8ce9f0/src/components.d.ts#L2583) |
+| `applyChangesOnClose` | `boolean` | [src/components.d.ts:2582](https://github.com/revolist/revogrid/blob/41e30fc48198c08baf2552eb224ddb438d8ce9f0/src/components.d.ts#L2582) |
+| `canDrag` | `boolean` | [src/components.d.ts:2580](https://github.com/revolist/revogrid/blob/41e30fc48198c08baf2552eb224ddb438d8ce9f0/src/components.d.ts#L2580) |
+| `isMobileDevice` | `boolean` | [src/components.d.ts:2584](https://github.com/revolist/revogrid/blob/41e30fc48198c08baf2552eb224ddb438d8ce9f0/src/components.d.ts#L2584) |
+| `range` | `boolean` | [src/components.d.ts:2579](https://github.com/revolist/revogrid/blob/41e30fc48198c08baf2552eb224ddb438d8ce9f0/src/components.d.ts#L2579) |
+| `readonly` | `boolean` | [src/components.d.ts:2578](https://github.com/revolist/revogrid/blob/41e30fc48198c08baf2552eb224ddb438d8ce9f0/src/components.d.ts#L2578) |
+| `useClipboard` | `boolean` \| [`ClipboardConfig`](Interface.ClipboardConfig.md) | [src/components.d.ts:2581](https://github.com/revolist/revogrid/blob/41e30fc48198c08baf2552eb224ddb438d8ce9f0/src/components.d.ts#L2581) |
