@@ -1,6 +1,6 @@
 {
   "name": "revogrid",
-  "version": "4.24.3",
+  "version": "4.25.0",
   "description": "Data Grid Library on steroids - RevoGrid",
   "main": "index.js",
   "scripts": {
@@ -89,7 +89,7 @@
     "@revolist/revogrid-column-select": "^3.1.19",
     "@revolist/revogrid-enterprise": "2.4.1",
     "@revolist/revogrid-pro": "2.4.1",
-    "@revolist/vue3-datagrid": "4.24.3",
+    "@revolist/vue3-datagrid": "4.25.0",
     "@revolist/revogrid-presets": "latest",
     "lodash-es": "^4.18.1",
     "numeral": "^2.0.6",

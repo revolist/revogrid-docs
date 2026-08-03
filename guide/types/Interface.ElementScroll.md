@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.24.2](README.md) / ElementScroll
+[RevoGrid Documentation v4.24.3](README.md) / ElementScroll
 
 # Interface: ElementScroll
 
@@ -6,7 +6,7 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `noHorizontalScrollTransfer?` | `boolean` | [src/types/viewport.interfaces.ts:22](https://github.com/revolist/revogrid/blob/41e30fc48198c08baf2552eb224ddb438d8ce9f0/src/types/viewport.interfaces.ts#L22) |
+| `noHorizontalScrollTransfer?` | `boolean` | [src/types/viewport.interfaces.ts:22](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/viewport.interfaces.ts#L22) |
 
 ## Methods
 
@@ -29,7 +29,7 @@ optional changeScroll(e: ViewPortScrollEvent, silent?: boolean): Promise<undefin
 
 #### Defined in
 
-[src/types/viewport.interfaces.ts:23](https://github.com/revolist/revogrid/blob/41e30fc48198c08baf2552eb224ddb438d8ce9f0/src/types/viewport.interfaces.ts#L23)
+[src/types/viewport.interfaces.ts:23](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/viewport.interfaces.ts#L23)
 
 ***
 
@@ -51,4 +51,4 @@ optional setScroll(e: ViewPortScrollEvent): Promise<void>
 
 #### Defined in
 
-[src/types/viewport.interfaces.ts:27](https://github.com/revolist/revogrid/blob/41e30fc48198c08baf2552eb224ddb438d8ce9f0/src/types/viewport.interfaces.ts#L27)
+[src/types/viewport.interfaces.ts:27](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/viewport.interfaces.ts#L27)

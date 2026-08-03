@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.24.2](README.md) / ColPropertiesFunc
+[RevoGrid Documentation v4.24.3](README.md) / ColPropertiesFunc
 
 # Type Alias: ColPropertiesFunc()
 
@@ -18,4 +18,4 @@ type ColPropertiesFunc: (props: ColumnPropProp) => CellProps | void | undefined;
 
 ## Defined in
 
-[src/types/interfaces.ts:454](https://github.com/revolist/revogrid/blob/41e30fc48198c08baf2552eb224ddb438d8ce9f0/src/types/interfaces.ts#L454)
+[src/types/interfaces.ts:454](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/interfaces.ts#L454)
