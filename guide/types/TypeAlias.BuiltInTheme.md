@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.24.3](README.md) / BuiltInTheme
+[RevoGrid Documentation v4.25.0](README.md) / BuiltInTheme
 
 # Type Alias: BuiltInTheme
 
@@ -13,4 +13,4 @@ type BuiltInTheme:
 
 ## Defined in
 
-[src/types/theme.ts:9](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/theme.ts#L9)
+[src/types/theme.ts:9](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/types/theme.ts#L9)

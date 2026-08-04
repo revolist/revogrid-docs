@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.24.3](README.md) / AllDimensionType
+[RevoGrid Documentation v4.25.0](README.md) / AllDimensionType
 
 # Interface: AllDimensionType
 
@@ -18,5 +18,5 @@ Represents the mapping of dimension types to their corresponding dimension types
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | Represents the dimension type for columns. | [src/types/interfaces.ts:845](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/interfaces.ts#L845) |
-| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | Represents the dimension type for rows. | [src/types/interfaces.ts:840](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/interfaces.ts#L840) |
+| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | Represents the dimension type for columns. | [src/types/interfaces.ts:845](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/types/interfaces.ts#L845) |
+| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | Represents the dimension type for rows. | [src/types/interfaces.ts:840](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/types/interfaces.ts#L840) |

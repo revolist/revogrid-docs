@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.24.3](README.md) / BeforeColumnDragEndEventData
+[RevoGrid Documentation v4.25.0](README.md) / BeforeColumnDragEndEventData
 
 # Type Alias: BeforeColumnDragEndEventData
 
@@ -14,10 +14,10 @@ type BeforeColumnDragEndEventData: StaticData & {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `newItem` | [`ColumnRegular`](Interface.ColumnRegular.md) | [src/plugins/moveColumn/column.drag.plugin.ts:71](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/plugins/moveColumn/column.drag.plugin.ts#L71) |
-| `newPosition` | [`PositionItem`](Interface.PositionItem.md) | [src/plugins/moveColumn/column.drag.plugin.ts:70](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/plugins/moveColumn/column.drag.plugin.ts#L70) |
-| `startPosition` | [`PositionItem`](Interface.PositionItem.md) | [src/plugins/moveColumn/column.drag.plugin.ts:69](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/plugins/moveColumn/column.drag.plugin.ts#L69) |
+| `newItem` | [`ColumnRegular`](Interface.ColumnRegular.md) | [src/plugins/moveColumn/column.drag.plugin.ts:71](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/plugins/moveColumn/column.drag.plugin.ts#L71) |
+| `newPosition` | [`PositionItem`](Interface.PositionItem.md) | [src/plugins/moveColumn/column.drag.plugin.ts:70](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/plugins/moveColumn/column.drag.plugin.ts#L70) |
+| `startPosition` | [`PositionItem`](Interface.PositionItem.md) | [src/plugins/moveColumn/column.drag.plugin.ts:69](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/plugins/moveColumn/column.drag.plugin.ts#L69) |
 
 ## Defined in
 
-[src/plugins/moveColumn/column.drag.plugin.ts:68](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/plugins/moveColumn/column.drag.plugin.ts#L68)
+[src/plugins/moveColumn/column.drag.plugin.ts:68](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/plugins/moveColumn/column.drag.plugin.ts#L68)

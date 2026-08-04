@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.24.3](README.md) / Subscription
+[RevoGrid Documentation v4.25.0](README.md) / Subscription
 
 # Interface: Subscription\<StoreType\>
 
@@ -22,7 +22,7 @@ optional dispose(): void
 
 #### Defined in
 
-[src/utils/store.types.ts:21](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/utils/store.types.ts#L21)
+[src/utils/store.types.ts:21](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/utils/store.types.ts#L21)
 
 ***
 
@@ -50,7 +50,7 @@ optional get<KeyFromStoreType>(key: KeyFromStoreType): void
 
 #### Defined in
 
-[src/utils/store.types.ts:22](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/utils/store.types.ts#L22)
+[src/utils/store.types.ts:22](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/utils/store.types.ts#L22)
 
 ***
 
@@ -66,7 +66,7 @@ optional reset(): void
 
 #### Defined in
 
-[src/utils/store.types.ts:24](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/utils/store.types.ts#L24)
+[src/utils/store.types.ts:24](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/utils/store.types.ts#L24)
 
 ***
 
@@ -99,4 +99,4 @@ optional set<KeyFromStoreType>(
 
 #### Defined in
 
-[src/utils/store.types.ts:23](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/utils/store.types.ts#L23)
+[src/utils/store.types.ts:23](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/utils/store.types.ts#L23)
