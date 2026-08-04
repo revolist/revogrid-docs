@@ -1,6 +1,6 @@
 ---
-title: RevoGrid Event Scheduler - JavaScript Event Scheduling for Web Apps
-description: Build staff schedules, booking calendars, resource timelines, shift planners, and capacity views with the Enterprise Event Scheduler plugin for RevoGrid.
+title: RevoGrid JavaScript Scheduler - JavaScript Event Scheduling for Web Apps
+description: Build staff schedules, booking calendars, resource timelines, shift planners, and capacity views with the Enterprise JavaScript Scheduler plugin for RevoGrid.
 sidebar: false
 aside: false
 editLink: false
@@ -15,10 +15,6 @@ pageClass: gantt-page-doc
 layout: custom
 breadcrumbs: false
 headerNav:
-  hiddenItems:
-    - Product
-    - Links
-    - RevoGrid Pro
   links:
     - text: Docs
       href: /guides/event-scheduler
@@ -26,7 +22,7 @@ headerNav:
 head:
   - - meta
     - name: keywords
-      content: Event Scheduler, JavaScript event scheduler, resource scheduler, shift planning software, booking scheduler, staff scheduler, room booking scheduler, equipment scheduler, workforce scheduling UI, RevoGrid Event Scheduler, React event scheduler, Vue event scheduler, Angular event scheduler
+      content: JavaScript Scheduler, JavaScript event scheduler, resource scheduler, shift planning software, booking scheduler, staff scheduler, room booking scheduler, equipment scheduler, workforce scheduling UI, RevoGrid JavaScript Scheduler, React event scheduler, Vue event scheduler, Angular event scheduler
 ganttLanding:
   catalogProductId: event-scheduler
   colors:
@@ -39,9 +35,9 @@ ganttLanding:
     darkSoft: rgba(167, 139, 250, 0.14)
     darkBorder: rgba(167, 139, 250, 0.28)
   hero:
-    eyebrow: RevoGrid Pro / Event Scheduler
-    title: Build event scheduling into your product.
-    description: EventSchedulerPlugin turns RevoGrid into a commercial scheduling surface for staff rosters, room bookings, equipment plans, field crews, support queues, and team capacity. Keep schedule data, editing, rules, and persistence inside your app.
+    eyebrow: RevoGrid Pro / JavaScript Scheduler
+    title: Build JavaScript Scheduler into your product.
+    description: JavaScript Scheduler turns RevoGrid into a commercial scheduling surface for staff rosters, room bookings, equipment plans, field crews, support queues, and team capacity. Keep schedule data, editing, rules, and persistence inside your app.
     actions:
       - label: View Demo
         href: /demo/event-scheduler
@@ -57,14 +53,14 @@ ganttLanding:
   preview:
     enabled: true
     kind: eventScheduler
-    title: event-scheduler.revogrid.ts
+    title: javascript-scheduler.revogrid.ts
     pills:
       - label: Week view
         active: true
       - label: Resources
       - label: Remote
     liveLabel: Live
-  statsAriaLabel: Event Scheduler product stats
+  statsAriaLabel: JavaScript Scheduler product stats
   stats:
     - value: '4'
       label: scheduler views
@@ -77,7 +73,7 @@ ganttLanding:
   features:
     id: features
     kicker: Features
-    title: Event scheduling features for real product workflows.
+    title: Scheduling features for real product workflows.
     description: Ship calendar and resource planning screens without building a scheduler engine, event editor, conflict layer, and grid interaction model from scratch.
     items:
       - icon: '01'
@@ -107,7 +103,7 @@ ganttLanding:
   integrations:
     id: integrations
     kicker: Integrations
-    title: Event Scheduler for your frontend stack
+    title: JavaScript Scheduler for your frontend stack
     description: Build the same scheduler product surface across JavaScript, Vue, React, Angular, and Svelte with RevoGrid's Web Component foundation.
     items:
       - icon: JS
@@ -126,7 +122,7 @@ ganttLanding:
         name: Svelte
         badge: ''
   advancedCallout:
-    title: Event Scheduler is part of the Pro Advanced bundle.
+    title: JavaScript Scheduler is part of the Pro Advanced bundle.
   cta:
     title: Ship scheduling as a native product feature.
     description: Add event calendars, resource timelines, validation rules, and controlled persistence to your app without sending users to a separate scheduling tool.

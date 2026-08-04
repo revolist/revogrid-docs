@@ -129,7 +129,7 @@ This guide is optimized for developers and product teams searching for:
 - finish-to-finish dependency
 - start-to-finish dependency
 - Gantt lead lag
-- dependency validation in Gantt charts
+- dependency validation in Gantt chart
 
 For implementation details, use the [RevoGrid Gantt documentation](https://pro.rv-grid.com/guides/gantt/), the [dependencies guide](https://pro.rv-grid.com/guides/gantt/concepts/dependencies/), the [dependency editing guide](https://pro.rv-grid.com/guides/gantt/interaction/dependency-editing/), and the [Gantt examples](https://pro.rv-grid.com/guides/gantt/examples/).
 
@@ -666,7 +666,7 @@ The important part is that dependencies stay as ordinary project data. You can l
 
 ## Dependency validation
 
-Dependency validation is where Gantt charts often become product-critical.
+Dependency validation is where Gantt chart often become product-critical.
 
 A dependency graph can be invalid. The most common invalid case is a cycle:
 

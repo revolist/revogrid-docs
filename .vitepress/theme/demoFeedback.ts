@@ -131,7 +131,7 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
     ],
   },
   'event-scheduler': {
-    docsUrl: '/event-scheduler',
+    docsUrl: '/jsscheduler',
     verificationOptions: [
       { code: 'own_event_data', label: 'Try it with my own event data' },
       { code: 'recurring_multi_resource', label: 'Check recurring and multi-resource events' },
@@ -1254,7 +1254,7 @@ export const isDemoFeedbackConversionCta = (href: string, label = ''): boolean =
     }
     if (url.origin !== 'https://rv-grid.com') return false
     return /^\/(trial|pricing)(\/|$)/.test(url.pathname)
-      || /^\/(guide|pro|pivot|gantt|scheduler|event-scheduler)(\/|$)/.test(url.pathname)
+      || /^\/(guide|pro|pivot|gantt|jsscheduler)(\/|$)/.test(url.pathname)
   } catch {
     return false
   }

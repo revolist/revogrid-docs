@@ -111,7 +111,7 @@ const DEMO_PAGE_CONTENT = {
     ],
   },
   'event-scheduler': {
-    title: 'Event Scheduler Demo',
+    title: 'JavaScript Scheduler Demo',
     description: 'Build and adjust resource schedules with event creation, movement, resizing, and calendar views.',
     implementationUrl: 'https://github.com/revolist/scheduler',
     guidedActions: ['Create an event', 'Move or resize a shift', 'Change the calendar view'],

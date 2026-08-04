@@ -1,5 +1,5 @@
 <template>
-  <div class="scheduler-preview" aria-label="Event Scheduler shift planner preview">
+  <div class="scheduler-preview" aria-label="JavaScript Scheduler shift planner preview">
     <div class="scheduler-topbar">
       <div class="window-controls" aria-hidden="true">
         <span class="dot red"></span>

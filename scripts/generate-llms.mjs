@@ -23,8 +23,7 @@ const curatedPages = [
   { text: 'Pro Videos', link: '/pro/videos' },
   { text: 'Pivot Grid', link: '/pivot/' },
   { text: 'Gantt', link: '/gantt' },
-  { text: 'Scheduler', link: '/scheduler' },
-  { text: 'Event Scheduler', link: '/event-scheduler' },
+  { text: 'JavaScript Scheduler', link: '/jsscheduler' },
 ]
 
 const excludedSourcePatterns = [

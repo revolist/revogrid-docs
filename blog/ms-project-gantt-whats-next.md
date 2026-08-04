@@ -182,7 +182,7 @@ But there is one more requirement that many Gantt products miss.
 
 ## The hidden requirement: no context loss
 
-Most business applications are not born as Gantt charts.
+Most business applications are not born as Gantt chart.
 
 They start as tables.
 

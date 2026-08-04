@@ -92,8 +92,7 @@ const structuredProductForPath = (relativePath: string): ProductId | undefined =
     }
     if (relativePath === 'pivot/index.md') return 'pivot'
     if (relativePath === 'gantt.md') return 'gantt'
-    if (relativePath === 'scheduler.md') return 'scheduler'
-    if (relativePath === 'event-scheduler.md') return 'event-scheduler'
+    if (relativePath === 'jsscheduler.md') return 'event-scheduler'
     return undefined
 }
 

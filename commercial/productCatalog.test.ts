@@ -69,16 +69,21 @@ test('propagates stable, beta, and preview-capable statuses', () => {
   assert.deepEqual(statuses, ['stable', 'beta', 'preview'])
 })
 
-test('keeps the Scheduler alias on the Event Scheduler experience', () => {
+test('keeps JavaScript Scheduler products on the canonical landing experience', () => {
   const scheduler = getProduct('scheduler')
-  const schedulerLanding = readFileSync(new URL('../scheduler.md', import.meta.url), 'utf8')
+  const eventScheduler = getProduct('event-scheduler')
+  const schedulerLanding = readFileSync(new URL('../jsscheduler.md', import.meta.url), 'utf8')
   const proFeatures = readFileSync(new URL('../pro/features.pro.ts', import.meta.url), 'utf8')
 
   assert.equal(scheduler.featureId, 'event-scheduler')
+  assert.equal(scheduler.pageUrl, '/jsscheduler')
+  assert.equal(eventScheduler.pageUrl, '/jsscheduler')
   assert.equal(scheduler.demoUrl, '/demo/event-scheduler')
+  assert.match(schedulerLanding, /^\s+catalogProductId: event-scheduler$/m)
   assert.match(schedulerLanding, /^\s+kind: eventScheduler$/m)
-  assert.match(schedulerLanding, /^\s+media: \/video\/event-scheduler\.mp4$/m)
-  assert.match(proFeatures, /title: 'Event Scheduler',[\s\S]*?videoUrl: '\/video\/event-scheduler\.mp4'/)
+  assert.match(schedulerLanding, /^\s+title: Build JavaScript Scheduler into your product\.$/m)
+  assert.match(schedulerLanding, /^\s+href: \/demo\/event-scheduler$/m)
+  assert.match(proFeatures, /title: 'JavaScript Scheduler',[\s\S]*?videoUrl: '\/video\/event-scheduler\.mp4'/)
   assert.ok(existsSync(new URL('../public/video/event-scheduler.mp4', import.meta.url)))
   assert.doesNotMatch(schedulerLanding, /(?:href|primaryHref): (?:https:\/\/pro\.rv-grid\.com\/guides\/gantt\/|\/demo\/gantt)/)
 })

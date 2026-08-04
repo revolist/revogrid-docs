@@ -466,11 +466,11 @@ const featuresProBase = [
         ],
     },
     {
-        title: 'Event Scheduler',
+        title: 'JavaScript Scheduler',
         thumbnail: '/blog/scheduler.png',
         videoUrl: '/video/event-scheduler.mp4',
         group: 'Pro Advanced Modules',
-        link: '/event-scheduler',
+        link: '/jsscheduler',
         demoUrl: '/demo/event-scheduler',
         description: 'Commercial event scheduling for staff rosters, booking calendars, resource timelines, shift planning, availability rules, conflicts, remote data, and scheduler exports.',
         subFeatures: [

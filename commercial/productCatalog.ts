@@ -206,7 +206,7 @@ const plans = {
       { text: 'Everything in Pro Lite' },
       { text: 'Priority support and bug-fix queue' },
       { text: 'Original source code access' },
-      { text: 'Pivot, Gantt, Calendar, and Event Scheduler' },
+      { text: 'Pivot, Gantt, Calendar, and Scheduler' },
     ],
   },
   enterprise: {
@@ -330,7 +330,7 @@ const featureFacts = [
   ['event-manager', 'Event Manager', 'pro-lite', 'stable'],
   ['pivot', 'Pivot Table', 'pro-advanced', 'stable'],
   ['gantt', 'Gantt & Scheduling', 'pro-advanced', 'stable'],
-  ['event-scheduler', 'Event Scheduler', 'pro-advanced', 'stable'],
+  ['event-scheduler', 'JavaScript Scheduler', 'pro-advanced', 'stable'],
   ['collaborative-editing', 'Collaborative Editing', 'pro-lite', 'beta'],
 ] as const satisfies ReadonlyArray<readonly [string, string, PlanId, FeatureStatus]>
 
@@ -389,22 +389,22 @@ const products = {
   },
   scheduler: {
     id: 'scheduler',
-    name: 'RevoGrid Scheduler',
+    name: 'RevoGrid JavaScript Scheduler',
     minimumPlan: 'pro-advanced',
     status: 'stable',
     featureId: 'event-scheduler',
-    pageUrl: '/scheduler',
+    pageUrl: '/jsscheduler',
     demoUrl: '/demo/event-scheduler',
     trialUrl: TRIAL_REQUEST_URL,
     buyUrl: '/pricing',
   },
   'event-scheduler': {
     id: 'event-scheduler',
-    name: 'RevoGrid Event Scheduler',
+    name: 'RevoGrid JavaScript Scheduler',
     minimumPlan: 'pro-advanced',
     status: 'stable',
     featureId: 'event-scheduler',
-    pageUrl: '/event-scheduler',
+    pageUrl: '/jsscheduler',
     demoUrl: '/demo/event-scheduler',
     trialUrl: TRIAL_REQUEST_URL,
     buyUrl: '/pricing',
@@ -417,7 +417,7 @@ const demos = {
   excel: { id: 'excel', title: 'Excel', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/excel' },
   pivot: { id: 'pivot', title: 'Pivot Analytics', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot' },
   gantt: { id: 'gantt', title: 'Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt' },
-  'event-scheduler': { id: 'event-scheduler', title: 'Event Scheduler', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
+  'event-scheduler': { id: 'event-scheduler', title: 'JavaScript Scheduler', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
   planning: { id: 'planning', title: 'Unified Planning Suite', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/planning' },
 } as const satisfies Record<DemoId, CatalogDemo>
 
@@ -640,7 +640,7 @@ export const getPricingDifferenceRows = () => {
           { text: ', ' },
           { text: 'Gantt', href: '/gantt' },
           { text: ' & ' },
-          { text: 'Scheduler', href: '/event-scheduler' },
+          { text: 'JavaScript Scheduler', href: '/jsscheduler' },
         ],
       },
       lite: excluded,
@@ -694,7 +694,7 @@ export const getPricingEvaluationFacts = () => {
         features: [
           `${trialDays}-day private npm access`,
           'Pro plugins and production-ready examples',
-          'Pivot, Gantt, Scheduler, and Event Scheduler',
+          'Pivot, Gantt, Scheduler, and JavaScript Scheduler',
           'Public GitHub repository is setup boilerplate only',
         ],
         action: { label: 'Request Pro Trial', href: advanced.trial.requestUrl! },

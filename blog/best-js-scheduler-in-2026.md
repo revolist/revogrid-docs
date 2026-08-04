@@ -34,7 +34,7 @@ At that point, you are no longer building “a calendar”. You are building a p
 
 This article compares the strongest JavaScript Scheduler and Gantt options in 2026:
 
-* [RevoGrid Scheduler](/scheduler/) / [Gantt](/gantt/)
+* [RevoGrid JavaScript Scheduler](/jsscheduler/) / [Gantt](/gantt/)
 * Bryntum Gantt / Scheduler
 * DHTMLX Gantt / Scheduler
 * DayPilot Scheduler
@@ -71,7 +71,7 @@ A scheduler is not just a widget. It often becomes the center of an ERP, PPM, re
 
 | Scheduler                                | Best for                                          | Main strength                                                                                       | Main limitation                                                         |
 | ---------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| **[RevoGrid Scheduler](/scheduler/)**    | Product teams building data-heavy scheduling apps | Reactive Web Component architecture, grid-first design, smart recombination, framework independence | Newer scheduler/Gantt layer compared with older dedicated Gantt vendors |
+| **[RevoGrid JavaScript Scheduler](/jsscheduler/)** | Product teams building data-heavy scheduling apps | Reactive Web Component architecture, grid-first design, smart recombination, framework independence | Newer scheduler/Gantt layer compared with older dedicated Gantt vendors |
 | **Bryntum**                              | Deep project scheduling engines                   | Very mature Gantt engine with strong project-management semantics                                   | Heavier product and more complex commercial model for some use cases    |
 | **DHTMLX**                               | Mature Gantt apps with many ready-made features   | Strong Gantt feature set and wide adoption                                                          | More traditional widget architecture; customization can become complex  |
 | **DayPilot**                             | Booking, resource calendars, fast prototypes      | Very quick to build a working scheduler                                                             | Less close to Microsoft Project-style planning                          |
@@ -81,7 +81,7 @@ A scheduler is not just a widget. It often becomes the center of an ERP, PPM, re
 
 ## 1. RevoGrid Scheduler
 
-[RevoGrid Scheduler](/scheduler/) is built on top of RevoGrid’s high-performance data grid foundation.
+[RevoGrid JavaScript Scheduler](/jsscheduler/) is built on top of RevoGrid’s high-performance data grid foundation.
 
 That matters because real scheduling interfaces are usually not just timelines. They are grids with a timeline attached.
 
@@ -105,7 +105,7 @@ The timeline is only one part of the experience. The editable structured grid is
 
 RevoGrid approaches this from the grid side first.
 
-The scheduler/Gantt layer sits on top of a reactive Web Component grid engine with virtual scrolling, pinned regions, custom cells, editing, keyboard navigation, and framework-independent usage. You can see the product surface on the [RevoGrid Scheduler page](/scheduler/) or compare it with the [RevoGrid Gantt page](/gantt/) when your use case is more project-plan oriented.
+The scheduler/Gantt layer sits on top of a reactive Web Component grid engine with virtual scrolling, pinned regions, custom cells, editing, keyboard navigation, and framework-independent usage. You can see the product surface on the [RevoGrid JavaScript Scheduler page](/jsscheduler/) or compare it with the [RevoGrid Gantt page](/gantt/) when your use case is more project-plan oriented.
 
 ### Pros
 
@@ -175,7 +175,7 @@ RevoGrid is strongest when you want to build a real planning application. If all
 
 ### Best fit
 
-Choose [RevoGrid Scheduler](/scheduler/) if you are building:
+Choose [RevoGrid JavaScript Scheduler](/jsscheduler/) if you are building:
 
 * project planning software
 * resource planning tools
@@ -189,7 +189,7 @@ Choose [RevoGrid Scheduler](/scheduler/) if you are building:
 
 RevoGrid wins when the scheduler is part of a larger data application.
 
-To validate the fit quickly, open the [scheduler landing page](/scheduler/), try the [live Gantt and scheduler demo](/demo/gantt), or review the [scheduler integration docs](https://pro.rv-grid.com/guides/gantt/).
+To validate the fit quickly, open the [JavaScript Scheduler landing page](/jsscheduler/), try the [live Gantt and scheduler demo](/demo/gantt), or review the [scheduler integration docs](https://pro.rv-grid.com/guides/gantt/).
 
 ## 2. Bryntum Scheduler / Gantt
 
@@ -324,7 +324,7 @@ If your requirements include baselines, complex dependencies, critical path anal
 
 **Not as grid-first**
 
-For spreadsheet-like planning interfaces, [RevoGrid Scheduler](/scheduler/) has a stronger grid foundation.
+For spreadsheet-like planning interfaces, [RevoGrid JavaScript Scheduler](/jsscheduler/) has a stronger grid foundation.
 
 ### Best fit
 
@@ -375,7 +375,7 @@ If you only need a focused scheduler/grid engine, the broader suite may feel hea
 
 **Less natural for spreadsheet-like planning**
 
-For planning interfaces where inline grid editing and timeline data must be tightly integrated, [RevoGrid Scheduler](/scheduler/) has a stronger architectural fit.
+For planning interfaces where inline grid editing and timeline data must be tightly integrated, [RevoGrid JavaScript Scheduler](/jsscheduler/) has a stronger architectural fit.
 
 ### Best fit
 
@@ -485,7 +485,7 @@ Like Syncfusion Scheduler, it is mainly an enterprise calendar scheduler rather 
 
 **Less flexible as a scheduling foundation**
 
-If your product needs a custom scheduler deeply connected to a data grid, [RevoGrid Scheduler](/scheduler/) is a better architectural base.
+If your product needs a custom scheduler deeply connected to a data grid, [RevoGrid JavaScript Scheduler](/jsscheduler/) is a better architectural base.
 
 ### Best fit
 
@@ -540,13 +540,13 @@ That difference is important.
 | Editable task grid      |          Sometimes |              Core feature |
 | MSP-like workflow       |                 No |                       Yes |
 
-This is why [RevoGrid Scheduler](/scheduler/) is strategically interesting.
+This is why [RevoGrid JavaScript Scheduler](/jsscheduler/) is strategically interesting.
 
 It is not trying to be only a calendar. It is closer to the grid + scheduler model that users expect from Microsoft Project-like tools.
 
 ## Why RevoGrid Scheduler wins
 
-[RevoGrid Scheduler](/scheduler/) wins when the scheduler is not an isolated component, but a central part of a data-heavy product.
+[RevoGrid JavaScript Scheduler](/jsscheduler/) wins when the scheduler is not an isolated component, but a central part of a data-heavy product.
 
 That is the difference.
 
@@ -684,7 +684,7 @@ That simplicity matters. It reduces buyer friction and makes adoption easier.
 
 ## Where RevoGrid wins clearly
 
-[RevoGrid Scheduler](/scheduler/) is the strongest choice when you need:
+[RevoGrid JavaScript Scheduler](/jsscheduler/) is the strongest choice when you need:
 
 ### A scheduler inside a data-heavy app
 
@@ -696,7 +696,7 @@ RevoGrid is closer to the MSP-style mental model because it combines a task grid
 
 ### Framework-independent delivery
 
-If you need one scheduler foundation across React, Vue, Angular, Svelte, and vanilla JS, RevoGrid’s Web Component architecture is a major advantage. For framework-free projects, the [RevoGrid Scheduler page](/scheduler) covers the same scheduling direction for plain JavaScript and TypeScript apps.
+If you need one scheduler foundation across React, Vue, Angular, Svelte, and vanilla JS, RevoGrid’s Web Component architecture is a major advantage. For framework-free projects, the [RevoGrid JavaScript Scheduler page](/jsscheduler) covers the same scheduling direction for plain JavaScript and TypeScript apps.
 
 ### AI-assisted development
 
@@ -736,7 +736,7 @@ If you need a calendar, choose a calendar library.
 
 If you need a mature standalone Gantt engine, Bryntum and DHTMLX are strong options.
 
-But if you are building a modern scheduling product — something closer to Microsoft Project, ERP planning, resource planning, PPM, finance planning, operations planning, or a spreadsheet-like scheduling interface — [RevoGrid Scheduler](/scheduler/) has the most interesting foundation.
+But if you are building a modern scheduling product — something closer to Microsoft Project, ERP planning, resource planning, PPM, finance planning, operations planning, or a spreadsheet-like scheduling interface — [RevoGrid JavaScript Scheduler](/jsscheduler/) has the most interesting foundation.
 
 It combines:
 
@@ -757,6 +757,6 @@ RevoGrid Scheduler wins where the scheduler is not just a visual calendar, but t
 
 In other words:
 
-**Use [RevoGrid Scheduler](/scheduler/) when you want to build the scheduler your product actually needs — not just embed someone else’s calendar.**
+**Use [RevoGrid JavaScript Scheduler](/jsscheduler/) when you want to build the scheduler your product actually needs — not just embed someone else’s calendar.**
 
-Next, explore the [RevoGrid Scheduler product page](/scheduler/), compare the [Gantt planning page](/gantt/), or try the [interactive scheduler demo](/demo/gantt).
+Next, explore the [RevoGrid JavaScript Scheduler product page](/jsscheduler/), compare the [Gantt planning page](/gantt/), or try the [interactive scheduler demo](/demo/gantt).
