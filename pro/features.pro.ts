@@ -466,7 +466,7 @@ const featuresProBase = [
         ],
     },
     {
-        title: 'JavaScript Scheduler',
+        title: 'Scheduler JS',
         thumbnail: '/blog/scheduler.png',
         videoUrl: '/video/event-scheduler.mp4',
         group: 'Pro Advanced Modules',

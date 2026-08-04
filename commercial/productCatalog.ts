@@ -330,7 +330,7 @@ const featureFacts = [
   ['event-manager', 'Event Manager', 'pro-lite', 'stable'],
   ['pivot', 'Pivot Table', 'pro-advanced', 'stable'],
   ['gantt', 'Gantt & Scheduling', 'pro-advanced', 'stable'],
-  ['event-scheduler', 'JavaScript Scheduler', 'pro-advanced', 'stable'],
+  ['event-scheduler', 'Scheduler JS', 'pro-advanced', 'stable'],
   ['collaborative-editing', 'Collaborative Editing', 'pro-lite', 'beta'],
 ] as const satisfies ReadonlyArray<readonly [string, string, PlanId, FeatureStatus]>
 
@@ -416,8 +416,8 @@ const demos = {
   'project-tracker': { id: 'project-tracker', title: 'Project Tracker', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/color' },
   excel: { id: 'excel', title: 'Excel', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/excel' },
   pivot: { id: 'pivot', title: 'Pivot Analytics', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot' },
-  gantt: { id: 'gantt', title: 'Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt' },
-  'event-scheduler': { id: 'event-scheduler', title: 'JavaScript Scheduler', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
+  gantt: { id: 'gantt', title: 'Gantt Chart JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt' },
+  'event-scheduler': { id: 'event-scheduler', title: 'Scheduler JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
   planning: { id: 'planning', title: 'Unified Planning Suite', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/planning' },
 } as const satisfies Record<DemoId, CatalogDemo>
 
@@ -640,7 +640,7 @@ export const getPricingDifferenceRows = () => {
           { text: ', ' },
           { text: 'Gantt', href: '/gantt' },
           { text: ' & ' },
-          { text: 'JavaScript Scheduler', href: '/jsscheduler' },
+          { text: 'Scheduler JS', href: '/jsscheduler' },
         ],
       },
       lite: excluded,
