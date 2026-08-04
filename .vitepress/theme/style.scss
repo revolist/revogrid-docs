@@ -633,4 +633,8 @@ revo-grid:not(.skip-style) {
             vertical-align: middle;
         }
     }
+
+    revogrid [hidden]:where(:not([hidden=until-found])) {
+        display: inherit !important;
+    }
 }
