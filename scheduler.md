@@ -1,7 +1,6 @@
 ---
 title: RevoGrid Scheduler - Resource Scheduling Component for Web Apps
 description: Build fast resource scheduling, capacity planning, shift planning, and operations timeline views with the virtualized RevoGrid Scheduler component.
-externalHomeLinks: true
 sidebar: false
 aside: false
 editLink: false

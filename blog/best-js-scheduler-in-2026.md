@@ -696,7 +696,7 @@ RevoGrid is closer to the MSP-style mental model because it combines a task grid
 
 ### Framework-independent delivery
 
-If you need one scheduler foundation across React, Vue, Angular, Svelte, and vanilla JS, RevoGrid’s Web Component architecture is a major advantage. For framework-free projects, the [JSScheduler page](/jsscheduler/) covers the same scheduling direction for plain JavaScript and TypeScript apps.
+If you need one scheduler foundation across React, Vue, Angular, Svelte, and vanilla JS, RevoGrid’s Web Component architecture is a major advantage. For framework-free projects, the [RevoGrid Scheduler page](/scheduler) covers the same scheduling direction for plain JavaScript and TypeScript apps.
 
 ### AI-assisted development
 

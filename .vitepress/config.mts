@@ -93,29 +93,6 @@ const localProPackageAliases = useLocalProPackages
     ]
     : []
 
-const standaloneBuildPages: Record<string, string> = {
-    gantt: 'gantt.md',
-    scheduler: 'scheduler.md',
-    timelinegrid: 'timelinegrid.md',
-    'ops-scheduler': 'ops-scheduler.md',
-    jsscheduler: 'jsscheduler.md',
-    pivot: 'pivot/index.md',
-    pivotio: 'pivotio.md',
-    vue: 'vue.md',
-    angular: 'angular.md',
-    datagridjs: 'datagridjs.md',
-}
-
-const standaloneBuildPage = process.env.DOCS_BUILD_PAGE
-const standaloneBuildSource = standaloneBuildPage ? standaloneBuildPages[standaloneBuildPage] : undefined
-const standaloneBuildSrcDir = process.env.DOCS_STANDALONE_SRC_DIR
-const standaloneBuildRewrites = standaloneBuildSource && !standaloneBuildSrcDir
-    ? {
-        'index.md': '__home.md',
-        [standaloneBuildSource]: 'index.md',
-    }
-    : undefined
-
 const trimTrailingSlash = (value: string): string => value.replace(/\/+$/, '')
 
 const siteUrl = trimTrailingSlash(process.env.DOCS_SITE_URL || 'https://rv-grid.com')
@@ -198,19 +175,12 @@ const archiveControlledHead = (head: HeadConfig[] | undefined): HeadConfig[] | u
 }
 
 const config: UserConfig<DefaultTheme.Config> = {
-    ...((standaloneBuildSource || isArchiveBuild) ? {} : { sitemap: {
+    ...(isArchiveBuild ? {} : { sitemap: {
         hostname: siteUrl,
         transformItems(items) {
             return items.filter((item) => !item.url.includes('pivot/landing'))
         },
     } }),
-    ...(standaloneBuildSrcDir
-        ? {
-            srcDir: standaloneBuildSrcDir,
-            outDir: path.resolve(__dirname, 'dist'),
-            publicDir: path.resolve(__dirname, '../public'),
-        }
-        : {}),
     cleanUrls: true,
     title: 'RevoGrid',
     appearance: 'dark',
@@ -361,7 +331,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             alt: 'RevoGrid',
         },
         outline: [2, 3],
-        socialLinks: standaloneBuildSource ? [] : [
+        socialLinks: [
             // { icon: 'x', link: 'https://x.com/revolist_ou/' },
             {
                 icon: 'github',
@@ -371,7 +341,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         footer: {
             message: `RevoGrid is a powerful data grid library made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. Copyright © 2017-present.`,
-            items: standaloneBuildSource ? [] : [
+            items: [
                 {
                     title: 'Product',
                     links: [
@@ -465,7 +435,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               indexName: 'RevoGrid',
             }
         },
-        nav: standaloneBuildSource ? [] : navbarEn,
+        nav: navbarEn,
 
         sidebar: sidebarEn,
     },
@@ -642,7 +612,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             'guide/plugin/example.md',
             'guide/column/cell.template.md',
         ],
-    rewrites: standaloneBuildRewrites,
     ignoreDeadLinks: true,
 }
 

@@ -712,7 +712,7 @@ const source = [
 
 Pro CTA:
 
-> For dashboards that combine production tables with Gantt timelines or weekly scheduling, evaluate RevoGrid Pro Advanced modules such as [Gantt](/gantt) and [JSScheduler](/jsscheduler).
+> For dashboards that combine production tables with Gantt timelines or weekly scheduling, evaluate RevoGrid Pro Advanced modules such as [Gantt](/gantt) and [Scheduler](/scheduler).
 
 ### Example 5: Logistics and supply-chain dashboard
 
@@ -851,7 +851,7 @@ Recommended features:
 
 Pro CTA:
 
-> If your dashboard includes timelines, portfolio planning, or resource scheduling, check [RevoGrid Gantt](/gantt), [JSScheduler](/jsscheduler), and [RevoGrid Pro](/pro/).
+> If your dashboard includes timelines, portfolio planning, or resource scheduling, check [RevoGrid Gantt](/gantt), [Scheduler](/scheduler), and [RevoGrid Pro](/pro/).
 
 ## Recommended dashboard architecture
 
