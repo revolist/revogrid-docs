@@ -85,7 +85,7 @@ const DEMO_PAGE_CONTENT = {
   pivot: {
     title: 'Pivot Analytics Demo',
     description: 'Analyze data with drag-and-drop fields, multi-level aggregation, filtering, and export.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-advanced-pivot/src/pivot.vue',
+    implementationUrl: 'https://github.com/revolist/pivot',
     guidedActions: ['Change an aggregation', 'Move a field', 'Apply a filter'],
     featureBadges: [
       { label: 'Pivot analytics', source: 'PivotPlugin' },
@@ -98,7 +98,7 @@ const DEMO_PAGE_CONTENT = {
   gantt: {
     title: 'Gantt Chart Demo',
     description: 'Plan tasks, dependencies, milestones, and schedules in an interactive timeline workspace.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-advanced-gantt/src/gantt.vue',
+    implementationUrl: 'https://github.com/revolist/gantt',
     guidedActions: ['Move a task', 'Resize a timeline item', 'Change the zoom'],
     featureBadges: [
       { label: 'Gantt', source: 'GanttPlugin' },
@@ -113,7 +113,7 @@ const DEMO_PAGE_CONTENT = {
   'event-scheduler': {
     title: 'Event Scheduler Demo',
     description: 'Build and adjust resource schedules with event creation, movement, resizing, and calendar views.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-advanced-scheduler/src/scheduler.vue',
+    implementationUrl: 'https://github.com/revolist/scheduler',
     guidedActions: ['Create an event', 'Move or resize a shift', 'Change the calendar view'],
     featureBadges: [
       { label: 'Scheduler & Calendar', source: 'EventSchedulerPlugin' },

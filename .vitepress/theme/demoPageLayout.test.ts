@@ -51,6 +51,19 @@ test('provides complete reusable layout content for every catalog demo', () => {
   })
 })
 
+test('links advanced demos to their standalone implementation repositories', () => {
+  const implementationRepositories = {
+    pivot: 'https://github.com/revolist/pivot',
+    gantt: 'https://github.com/revolist/gantt',
+    'event-scheduler': 'https://github.com/revolist/scheduler',
+  } as const satisfies Partial<Record<DemoId, string>>
+
+  Object.entries(implementationRepositories).forEach(([demoId, repositoryUrl]) => {
+    const implementationUrl = new URL(getDemoPageConfig(demoId as DemoId).implementationUrl)
+    assert.equal(`${implementationUrl.origin}${implementationUrl.pathname}`, repositoryUrl)
+  })
+})
+
 test('keeps every demo page on the shared SEO and social metadata contract', () => {
   const entries = demoSeoFiles.map((file) => {
     const source = readFileSync(new URL(`../../demo/${file}`, import.meta.url), 'utf8')
