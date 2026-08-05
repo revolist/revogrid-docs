@@ -16,6 +16,8 @@ export type DemoId =
   | 'excel'
   | 'pivot'
   | 'gantt'
+  | 'gantt-big-data'
+  | 'kanban'
   | 'event-scheduler'
   | 'planning'
 export type CommercialFaqKey =
@@ -417,8 +419,10 @@ const demos = {
   excel: { id: 'excel', title: 'Excel', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/excel' },
   pivot: { id: 'pivot', title: 'Pivot Analytics', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot' },
   gantt: { id: 'gantt', title: 'Gantt Chart JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt' },
+  'gantt-big-data': { id: 'gantt-big-data', title: '10K-Task Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt-big-data' },
+  kanban: { id: 'kanban', title: 'Kanban Board', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban' },
   'event-scheduler': { id: 'event-scheduler', title: 'Scheduler JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
-  planning: { id: 'planning', title: 'Unified Planning Suite', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/planning' },
+  planning: { id: 'planning', title: 'Grid, Kanban, Gantt & Scheduler', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/planning' },
 } as const satisfies Record<DemoId, CatalogDemo>
 
 export const PRODUCT_CATALOG = {

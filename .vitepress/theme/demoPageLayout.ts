@@ -96,7 +96,7 @@ const DEMO_PAGE_CONTENT = {
     ],
   },
   gantt: {
-    title: 'Gantt Chart Demo',
+    title: 'JavaScript Gantt Chart Demo',
     description: 'Plan tasks, dependencies, milestones, and schedules in an interactive timeline workspace.',
     implementationUrl: 'https://github.com/revolist/gantt',
     guidedActions: ['Move a task', 'Resize a timeline item', 'Change the zoom'],
@@ -108,6 +108,34 @@ const DEMO_PAGE_CONTENT = {
       { label: 'Context menus', source: 'ContextMenuPlugin' },
       { label: 'Calendars', source: 'GanttPlugin + ganttCalendars' },
       { label: 'Undo / redo', source: 'HistoryPlugin' },
+    ],
+  },
+  'gantt-big-data': {
+    title: 'Large Dataset Gantt Demo',
+    description: 'Explore 10,000 virtualized Gantt tasks and 19,796 dependencies across a responsive three-month project timeline.',
+    implementationUrl: 'https://github.com/revolist/gantt',
+    guidedActions: ['Scroll through 10,000 tasks', 'Inspect linked task chains', 'Pan across the three-month timeline'],
+    featureBadges: [
+      { label: 'Gantt timeline', source: 'GanttPlugin' },
+      { label: '10,000 tasks', source: 'createGanttBigDataSet task fixture' },
+      { label: '19,796 dependencies', source: 'createGanttBigDataSet dependency graph' },
+      { label: 'Row virtualization', source: 'RevoGrid virtual row rendering' },
+      { label: 'Day and week scale', source: 'GanttPlugin zoomPreset: day-week' },
+      { label: 'Working calendar', source: 'GanttPlugin ganttCalendars' },
+    ],
+  },
+  kanban: {
+    title: 'Kanban Workflow Demo',
+    description: 'Manage cards across workflow columns and swimlanes with ordering, WIP limits, card rules, and editing.',
+    implementationUrl: 'https://github.com/revolist/kanban',
+    guidedActions: ['Move a card between columns', 'Review a swimlane', 'Test a WIP limit'],
+    featureBadges: [
+      { label: 'Kanban board', source: 'KanbanPlugin' },
+      { label: 'Card movement', source: 'KanbanPlugin source-backed drag and drop' },
+      { label: 'Swimlanes', source: 'KanbanConfig swimlaneField + swimlanes' },
+      { label: 'WIP limits', source: 'KanbanConfig column and swimlane WIP limits' },
+      { label: 'Card rules', source: 'KanbanConfig cardRules' },
+      { label: 'Custom cards', source: 'KanbanConfig customization.cardContent' },
     ],
   },
   'event-scheduler': {
@@ -131,8 +159,8 @@ const DEMO_PAGE_CONTENT = {
     ],
   },
   planning: {
-    title: 'Unified Planning Suite Demo',
-    description: 'Use Data Grid, Gantt, Scheduler, and Calendar together in one integrated planning package.',
+    title: 'Grid, Kanban, Gantt and Scheduler Demo',
+    description: 'Edit one shared task model across synchronized Data Grid, Kanban, Gantt, Scheduler, and Calendar views.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-advanced-planning/src/planning.vue',
     guidedActions: ['Edit a task in the grid', 'Move a task in Gantt', 'Switch between scheduler and calendar views'],
     featureBadges: [

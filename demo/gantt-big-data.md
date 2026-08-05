@@ -1,6 +1,6 @@
 ---
-title: Grid, Kanban, Gantt and Scheduler Demo
-description: Edit one shared task model across synchronized Data Grid, Kanban, Gantt, Scheduler, and Calendar views in RevoGrid Pro Advanced.
+title: Large Dataset Gantt Demo
+description: Explore 10,000 virtualized Gantt tasks and 19,796 dependencies across a three-month project while keeping timeline rendering responsive.
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false
@@ -11,7 +11,7 @@ editLink: false
 head:
   - - meta
     - name: keywords
-      content: RevoGrid planning demo, JavaScript planning grid, Kanban board, Gantt scheduler demo, resource planning, project calendar, synchronized planning views, React planning grid, Vue planning grid, Angular planning grid
+      content: RevoGrid Gantt big data demo, 10000 task Gantt chart, Gantt performance, virtualized Gantt, large project timeline, JavaScript Gantt benchmark, React Gantt, Vue Gantt, Angular Gantt
 ---
 
 <script setup>
@@ -20,14 +20,14 @@ import '@revolist/revogrid-pro/dist/revogrid-pro.css'
 import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
 import { defineAsyncComponent } from 'vue'
 
-const PlanningViews = defineAsyncComponent(() =>
-  import('@revogrid-demos/pro-advanced-planning/src/planning.vue')
+const GanttBigData = defineAsyncComponent(() =>
+  import('@revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.vue')
 )
 </script>
 
-<DemoPageLayout demo-id="planning">
+<DemoPageLayout demo-id="gantt-big-data">
   <div class="demo-main-widget">
-    <PlanningViews />
+    <GanttBigData />
   </div>
 </DemoPageLayout>
 

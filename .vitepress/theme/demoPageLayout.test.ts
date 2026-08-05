@@ -26,6 +26,8 @@ const demoSeoFiles = [
   'excel.md',
   'pivot.md',
   'gantt.md',
+  'gantt-big-data.md',
+  'kanban.md',
   'event-scheduler.md',
   'planning.md',
 ] as const
@@ -55,6 +57,8 @@ test('links advanced demos to their standalone implementation repositories', () 
   const implementationRepositories = {
     pivot: 'https://github.com/revolist/pivot',
     gantt: 'https://github.com/revolist/gantt',
+    'gantt-big-data': 'https://github.com/revolist/gantt',
+    kanban: 'https://github.com/revolist/kanban',
     'event-scheduler': 'https://github.com/revolist/scheduler',
   } as const satisfies Partial<Record<DemoId, string>>
 
@@ -104,7 +108,7 @@ test('provides source-attributed feature badges only for paid demos', () => {
   const paid = configs.filter(config => config.demo.planId !== 'open-source')
 
   assert.deepEqual(openSource?.featureBadges, [])
-  assert.equal(paid.length, 6)
+  assert.equal(paid.length, 8)
   paid.forEach((config) => {
     assert.ok(config.featureBadges.length >= 5)
     assert.equal(
@@ -181,6 +185,10 @@ test('describes the requested active Gantt capabilities without an export badge'
   )
 })
 
+test('uses the JavaScript Gantt Chart demo heading', () => {
+  assert.equal(getDemoPageConfig('gantt').title, 'JavaScript Gantt Chart Demo')
+})
+
 test('describes the requested Scheduler capabilities without filter or history badges', () => {
   assert.deepEqual(
     getDemoPageConfig('event-scheduler').featureBadges,
@@ -238,9 +246,9 @@ test('uses the Pro Advanced violet palette for Advanced sidebar badges', () => {
   )
 })
 
-test('groups demo navigation into expanded Core, Pro, and Pro Advanced categories', () => {
+test('groups demo navigation by plan and Pro Advanced product family', () => {
   assert.deepEqual(
-    sidebarDemonEn.map(group => ({
+    sidebarDemonEn.slice(0, 2).map(group => ({
       text: group.text,
       collapsed: group.collapsed,
       links: group.items?.map(item => item.link),
@@ -248,11 +256,26 @@ test('groups demo navigation into expanded Core, Pro, and Pro Advanced categorie
     [
       { text: 'Core', collapsed: false, links: ['/demo/'] },
       { text: 'Pro', collapsed: false, links: ['/demo/color', '/demo/excel'] },
-      {
-        text: 'Pro Advanced',
-        collapsed: false,
-        links: ['/demo/pivot', '/demo/gantt', '/demo/event-scheduler', '/demo/planning'],
-      },
+    ],
+  )
+
+  const proAdvanced = sidebarDemonEn[2]
+  assert.equal(proAdvanced.text, 'Pro Advanced')
+  assert.equal(proAdvanced.collapsed, false)
+  assert.equal(proAdvanced.items?.[0]?.link, '/demo/planning')
+  assert.match(String(proAdvanced.items?.[0]?.text), /All-in-One Planning/)
+  assert.match(String(proAdvanced.items?.[1]?.items?.[1]?.text), /10K-Task Gantt/)
+  assert.deepEqual(
+    proAdvanced.items?.slice(1, 5).map(group => ({
+      text: group.text,
+      collapsed: group.collapsed,
+      links: group.items?.map(item => item.link),
+    })),
+    [
+      { text: 'Gantt Chart', collapsed: false, links: ['/demo/gantt', '/demo/gantt-big-data'] },
+      { text: 'Scheduler', collapsed: false, links: ['/demo/event-scheduler'] },
+      { text: 'Kanban', collapsed: false, links: ['/demo/kanban'] },
+      { text: 'Pivot', collapsed: false, links: ['/demo/pivot'] },
     ],
   )
 })
@@ -317,8 +340,8 @@ test('keeps the embedded Excel workbench flush with the workspace top edge', () 
   )
 })
 
-test('presents the Unified Planning Suite without an inner frame and insets its switch', () => {
-  assert.equal(PRODUCT_CATALOG.demos.planning.title, 'Unified Planning Suite')
+test('presents the integrated planning views without an inner frame and insets its switch', () => {
+  assert.equal(PRODUCT_CATALOG.demos.planning.title, 'Grid, Kanban, Gantt & Scheduler')
   assert.match(
     planningDemoStyleSource,
     /\.planning-demo__switch\s*\{[\s\S]*?margin:\s*4px 16px 0;/,
