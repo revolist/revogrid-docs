@@ -21,7 +21,7 @@ import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
 import { defineAsyncComponent } from 'vue'
 
 const GanttShowcase = defineAsyncComponent(() =>
-  import('@revogrid-demos/pro-advanced-gantt/src/gantt.vue')
+  import('@revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.vue')
 )
 </script>
 

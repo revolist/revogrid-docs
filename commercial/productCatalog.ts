@@ -623,16 +623,6 @@ export const getPricingDifferenceRows = () => {
     },
     {
       feature: {
-        text: 'Original source repository access',
-        description: 'Private source access through GitHub',
-        icon: 'code',
-      },
-      lite: excluded,
-      advanced: included,
-      enterprise: included,
-    },
-    {
-      feature: {
         text: 'Pivot, Gantt & Scheduler',
         icon: 'calendarDays',
         parts: [
