@@ -6,7 +6,7 @@
           <p class="eyebrow">Evaluate RevoGrid Pro</p>
           <h1>Try Pro before you buy.</h1>
           <p class="lead">
-            Evaluate Pro modules, including Pivot, Gantt, and Scheduler, with
+            Evaluate Pro modules, including the Pivot Table component, Gantt, and Scheduler, with
             {{ trialDuration }} private npm access, live demos, and implementation guidance.
           </p>
 

@@ -10,7 +10,7 @@ export const navbarEn: DefaultTheme.NavItem[] = [
         activeMatch: '^/$',
       },
       {
-        text: 'Pivot Analytics & Charts',
+        text: 'Pivot Table JS',
         link: '/pivot',
         activeMatch: '^/pivot',
       },

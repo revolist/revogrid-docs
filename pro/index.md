@@ -125,7 +125,7 @@ proPage:
         demoUrl: /guide/row/master.pro
       - type: pivot
         tier: Pro Advanced
-        title: "Pivot & Reporting"
+        title: "Pivot Table & Reporting"
         titleSuffix: group, aggregate, and drill down without a BI tool.
         description: Drag dimensions into rows, columns, and values. Aggregations, subtotals, grand totals, drilldown, saved state. Client-side for snappy datasets, server-side for unbounded ones. Same component.
         saves: 3-6

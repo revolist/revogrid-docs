@@ -80,7 +80,7 @@ defineProps<{
 }>()
 
 const demos = [
-  { src: '/video/pivot.mp4', label: 'Pivot & Reporting' },
+  { src: '/video/pivot.mp4', label: 'Pivot Table & Reporting' },
   { src: '/video/demo-color.mp4', label: 'Data Visualization' },
   { src: '/video/spreadhsheet.mp4', label: 'Spreadsheet' },
   { src: '/video/al-demo.mp4', label: 'Audit History' },

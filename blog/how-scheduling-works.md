@@ -9,7 +9,7 @@ tags:
   - Microsoft Project
   - Project Online
   - Planner
-  - RevoGrids
+  - RevoGrid
 
 image: /blog/scheduling.png
 imageAlt: RevoGrid Gantt scheduling logic and project planning preview

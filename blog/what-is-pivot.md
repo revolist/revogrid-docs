@@ -1,5 +1,5 @@
 ---
-title: Beginner's Guide to Pivoting Data & Reporting in 2026
+title: What Is a Pivot Table?
 description: Learn what pivot tables are, how rows, columns, values, filters, and aggregations work, and how RevoGrid Pivot supports embedded analytics in web apps.
 date: 2026-05-25
 author: RevoGrid Team
@@ -18,7 +18,7 @@ head:
 
 # What Is a Pivot Table?
 
-![RevoGrid Pivot table analytics preview](/img/pivot-preview.jpg)
+![RevoGrid Pivot Table analytics preview](/img/pivot-preview.jpg)
 
 A pivot table is a way to turn many rows of raw data into a useful summary.
 
@@ -195,7 +195,7 @@ That matters for SaaS products, finance systems, admin panels, support tools, op
 
 [RevoGrid Pivot](/pivot/) brings this pivot workflow into web applications.
 
-It is a RevoGrid Pro Advanced pivot grid/plugin for embedded analytics. The pivot functionality extends RevoGrid's high-performance grid layer, so the same application can support flat tables, grouped views, and pivot analytics without sending users to a separate reporting tool.
+It is a RevoGrid Pro Advanced JavaScript pivot table component for embedded analytics. Developers may also call this kind of component a pivot grid. The pivot functionality extends RevoGrid's high-performance grid layer, so the same application can support flat tables, grouped views, and pivot analytics without sending users to a separate reporting tool.
 
 RevoGrid Pivot supports:
 
@@ -217,6 +217,8 @@ If you are building a product where users need to slice, group, aggregate, drill
 That is what RevoGrid Pivot is designed for.
 
 Try the [RevoGrid Pivot demo](/demo/pivot) to see how pivot analytics can work inside a web app.
+
+Continue with a runnable large-dataset implementation for [React](/blog/react-pivot-table-large-datasets), [Vue](/blog/vue-pivot-table-large-datasets), [Angular](/blog/angular-pivot-table-large-datasets), or [JavaScript/TypeScript](/blog/javascript-pivot-table-large-datasets). React teams evaluating the commercial package can also review the [React Pivot Table Component](/pivot/react-pivot-table) page.
 
 ## The Short Version
 

@@ -25,7 +25,7 @@
             :column-types="columnTypes"
           />
           <template #fallback>
-            <div class="pivot-grid-fallback">Loading pivot grid...</div>
+            <div class="pivot-grid-fallback">Loading pivot table...</div>
           </template>
         </ClientOnly>
       </div>

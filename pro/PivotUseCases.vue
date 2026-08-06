@@ -4,8 +4,8 @@
       <div class="section-tag">Use Cases</div>
       <h2 class="section-title">What teams build with it.</h2>
       <p class="section-sub">
-        RevoGrid Pivot ships inside BI dashboards, analytics products,
-        financial reporting tools, and data-heavy internal apps.
+        RevoGrid Pivot ships with linked charts for BI dashboards, analytics
+        products, financial reporting tools, and data-heavy internal apps.
       </p>
 
       <div class="usecase-grid">
@@ -31,19 +31,19 @@ const USE_CASES = [
     number: '01',
     title: 'Revenue Analytics',
     description: 'Slice revenue by segment, region, channel, and time period. Drill from quarterly to weekly with nested row grouping.',
-    features: ['Revenue by segment and channel', 'Drill-down grouping', 'YoY comparison columns', 'SUM / percent change / growth agg'],
+    features: ['Revenue by segment and channel', 'Linked revenue charts', 'Drill-down grouping', 'SUM / percent change / growth agg'],
   },
   {
     number: '02',
     title: 'Customer Analytics',
     description: 'Pivot customer data by membership, spend, and behavioral metrics. Heatmap ratings across segments for instant insight.',
-    features: ['Membership tier by city pivot', 'Avg rating heatmap', 'Spend distribution', 'Filter by discount applied'],
+    features: ['Membership tier by city pivot', 'Linked segment charts', 'Avg rating heatmap', 'Filter by discount applied'],
   },
   {
     number: '03',
     title: 'Financial Reporting',
     description: 'P&L, cost center analysis, and budget vs actuals in a live, filterable pivot table embedded in your app.',
-    features: ['Budget vs actual', 'Cost center by department', 'Multi-currency aggregation', 'Export to Excel for finance teams'],
+    features: ['Budget vs actual charts', 'Cost center by department', 'Multi-currency aggregation', 'Export to Excel for finance teams'],
   },
 ] as const
 </script>

@@ -389,7 +389,7 @@ const featuresProBase = [
         videoUrl: '/video/pivot.mp4',
         group: 'Pro Advanced Modules',
         description: `
-        Production-ready Pivot grid for multidimensional analytics, reporting, and OLAP-style workflows. Includes client-side and server-side engines, interactive configuration, drill-down, totals, and advanced layout control.
+        Production-ready JavaScript Pivot Table component for multidimensional analytics, reporting, and OLAP-style workflows. Includes client-side and server-side engines, interactive configuration, drill-down, totals, and advanced layout control.
         `,
         subFeatures: [
             { title: 'Dynamic row, column, and value dimensions' },

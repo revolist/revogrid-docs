@@ -100,12 +100,62 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
   },
-  ecommerce: {
+  'audit-history': {
     docsUrl: '/pro/',
     verificationOptions: [
-      { code: 'own_dataset_performance', label: 'Try it with my own commerce data' },
-      { code: 'advanced_filter_group', label: 'Check advanced filtering and grouping' },
-      { code: 'framework_custom_cells', label: 'See a framework integration example' },
+      { code: 'own_audit_workflow', label: 'Try it with my own audit workflow' },
+      { code: 'retention_restore', label: 'Check retention, comparison and restore' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  'column-collapse': {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_column_groups', label: 'Try it with my own column groups' },
+      { code: 'collapse_filter_behavior', label: 'Check collapse and filter behavior' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  filtering: {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_filter_model', label: 'Try it with my own filter model' },
+      { code: 'operators_presets', label: 'Check operators, presets and cascades' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  'infinity-scroll': {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_remote_data', label: 'Try it with my own remote data' },
+      { code: 'loading_sort_filter', label: 'Check loading, sorting and filtering' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  'row-master': {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_detail_content', label: 'Try it with my own detail content' },
+      { code: 'async_detail_templates', label: 'Check async detail templates' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  'tree-data': {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_hierarchy', label: 'Try it with my own hierarchy' },
+      { code: 'tree_filter_order', label: 'Check filtering, ordering and sticky rows' },
+      { code: 'framework_integration', label: 'See an integration example' },
       { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
@@ -125,6 +175,36 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
     verificationOptions: [
       { code: 'own_project_data', label: 'Try it with my own project data' },
       { code: 'dependencies_scheduling', label: 'Check dependencies and scheduling logic' },
+      { code: 'app_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  'gantt-big-data': {
+    docsUrl: '/gantt',
+    verificationOptions: [
+      { code: 'own_project_scale', label: 'Try it with my own project scale' },
+      { code: 'task_dependency_performance', label: 'Check task and dependency performance' },
+      { code: 'app_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  'gantt-horizontal-big-data': {
+    docsUrl: '/gantt',
+    verificationOptions: [
+      { code: 'own_project_span', label: 'Try it with my own long-range project' },
+      { code: 'horizontal_timeline_performance', label: 'Check horizontal timeline performance' },
+      { code: 'app_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  kanban: {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_workflow_data', label: 'Try it with my own workflow data' },
+      { code: 'movement_wip_rules', label: 'Check movement and WIP rules' },
       { code: 'app_integration', label: 'See an integration example' },
       { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },

@@ -1,6 +1,6 @@
 ---
-title: PivotGrid.io - Excel-like Pivot Tables for React, powered by RevoGrid
-description: Build client-side pivot tables in React with RevoGrid. Drag-and-drop configuration, real-time aggregation, large dataset support. No backend required.
+title: JavaScript Pivot Table Component | PivotGrid.io
+description: Build a client-side JavaScript pivot table component for React, Vue, Angular, Svelte, or vanilla JavaScript with drag-and-drop fields and real-time aggregation.
 sidebar: false
 aside: false
 editLink: false
@@ -26,10 +26,10 @@ head:
       content: website
   - - meta
     - property: og:title
-      content: PivotGrid.io - Client-side Pivot Tables powered by RevoGrid
+      content: JavaScript Pivot Table Component | PivotGrid.io
   - - meta
     - property: og:description
-      content: Build Excel-like pivot grids for React, Vue, Angular, Svelte, and JavaScript with client-side aggregation, grouping, virtual rendering, and no backend.
+      content: Build an Excel-like JavaScript pivot table component and high-performance pivot grid for React, Vue, Angular, Svelte, and vanilla JavaScript.
   - - meta
     - property: og:url
       content: https://pivotgrid.io/
@@ -44,7 +44,7 @@ head:
       content: summary_large_image
   - - meta
     - name: twitter:title
-      content: PivotGrid.io - Excel-like Pivot Tables for Web Apps
+      content: JavaScript Pivot Table Component | PivotGrid.io
   - - meta
     - name: twitter:description
       content: Client-side pivot tables with drag-and-drop fields, real-time aggregation, and large dataset support, powered by RevoGrid Pro.
@@ -60,7 +60,7 @@ head:
         "name": "PivotGrid.io",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
-        "description": "Client-side pivot tables for React, Vue, Angular, Svelte, and JavaScript, powered by RevoGrid Pro.",
+        "description": "A client-side JavaScript pivot table component for React, Vue, Angular, Svelte, and vanilla JavaScript, powered by RevoGrid Pro.",
         "url": "https://pivotgrid.io/",
         "isPartOf": {
           "@type": "SoftwareApplication",

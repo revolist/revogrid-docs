@@ -21,7 +21,7 @@ const curatedPages = [
   { text: 'RevoGrid Pro', link: '/pro/' },
   { text: 'Pro Feature Table', link: '/pro/feature-table' },
   { text: 'Pro Videos', link: '/pro/videos' },
-  { text: 'Pivot Grid', link: '/pivot/' },
+  { text: 'Pivot Table', link: '/pivot/' },
   { text: 'Gantt', link: '/gantt' },
   { text: 'JavaScript Scheduler', link: '/jsscheduler' },
 ]

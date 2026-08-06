@@ -324,7 +324,6 @@ $max-content-width: 1240px;
 .demo-page-feature-badges li {
   margin-top: 0;
   padding: 4px 8px;
-  border: 1px solid color-mix(in srgb, var(--demo-page-green) 24%, var(--vp-c-divider));
   border-radius: 999px;
   background: color-mix(in srgb, var(--demo-page-green) 7%, var(--vp-c-bg));
   color: var(--demo-page-green-dark);
@@ -428,9 +427,8 @@ $max-content-width: 1240px;
   width: 100%;
   margin: 0 auto 14px;
   padding: 10px 14px;
-  border: 1px solid color-mix(in srgb, var(--demo-page-green) 18%, var(--vp-c-divider));
   border-radius: 9px;
-  background: color-mix(in srgb, var(--demo-page-green) 5%, var(--vp-c-bg));
+  background: color-mix(in srgb, var(--demo-page-green) 10%, var(--vp-c-bg));
 }
 
 .demo-page-guide-intro,

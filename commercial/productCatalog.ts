@@ -14,9 +14,16 @@ export type DemoId =
   | 'grid-at-scale'
   | 'project-tracker'
   | 'excel'
+  | 'audit-history'
+  | 'column-collapse'
+  | 'filtering'
+  | 'infinity-scroll'
+  | 'row-master'
+  | 'tree-data'
   | 'pivot'
   | 'gantt'
   | 'gantt-big-data'
+  | 'gantt-horizontal-big-data'
   | 'kanban'
   | 'event-scheduler'
   | 'planning'
@@ -208,7 +215,7 @@ const plans = {
       { text: 'Everything in Pro Lite' },
       { text: 'Priority support and bug-fix queue' },
       { text: 'Original source code access' },
-      { text: 'Pivot, Gantt, Calendar, and Scheduler' },
+      { text: 'Pivot Table, Gantt, Calendar, and Scheduler' },
     ],
   },
   enterprise: {
@@ -417,9 +424,16 @@ const demos = {
   'grid-at-scale': { id: 'grid-at-scale', title: 'Grid at Scale', planId: 'open-source', status: 'stable', pageUrl: '/demo/' },
   'project-tracker': { id: 'project-tracker', title: 'Project Tracker', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/color' },
   excel: { id: 'excel', title: 'Excel', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/excel' },
-  pivot: { id: 'pivot', title: 'Pivot Analytics', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot' },
+  'audit-history': { id: 'audit-history', title: 'Audit History', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/audit-history' },
+  'column-collapse': { id: 'column-collapse', title: 'Column Collapse', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/column-collapse' },
+  filtering: { id: 'filtering', title: 'Advanced Filtering', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/filtering' },
+  'infinity-scroll': { id: 'infinity-scroll', title: 'Infinity Scroll', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/infinity-scroll' },
+  'row-master': { id: 'row-master', title: 'Row Master', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/row-master' },
+  'tree-data': { id: 'tree-data', title: 'Tree Data', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/tree-data' },
+  pivot: { id: 'pivot', title: 'Pivot Table Demo', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot' },
   gantt: { id: 'gantt', title: 'Gantt Chart JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt' },
   'gantt-big-data': { id: 'gantt-big-data', title: '10K-Task Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt-big-data' },
+  'gantt-horizontal-big-data': { id: 'gantt-horizontal-big-data', title: '20Y-Timeline Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt-horizontal-big-data' },
   kanban: { id: 'kanban', title: 'Kanban Board', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban' },
   'event-scheduler': { id: 'event-scheduler', title: 'Scheduler JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
   planning: { id: 'planning', title: 'Grid, Kanban, Gantt & Scheduler', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/planning' },
@@ -560,7 +574,7 @@ export const commercialFaqs: Record<CommercialFaqKey, { q: string, a: string }> 
   },
   'plan-difference': {
     q: 'What is the difference between Pro Lite and Pro Advanced?',
-    a: 'Pro Lite covers one product or app and includes typed Pro packages through private npm. Pro Advanced adds unlimited product usage, original private source repository access, Pivot, Gantt, Scheduler, and priority support.',
+    a: 'Pro Lite covers one product or app and includes typed Pro packages through private npm. Pro Advanced adds unlimited product usage, original private source repository access, the JavaScript Pivot Table component, Gantt, Scheduler, and priority support.',
   },
   'open-source-production': {
     q: 'Can I use the open-source core in production?',
@@ -627,10 +641,10 @@ export const getPricingDifferenceRows = () => {
     },
     {
       feature: {
-        text: 'Pivot, Gantt & Scheduler',
+        text: 'Pivot Table, Gantt & Scheduler',
         icon: 'calendarDays',
         parts: [
-          { text: 'Pivot', href: '/pivot/' },
+          { text: 'Pivot Table', href: '/pivot/' },
           { text: ', ' },
           { text: 'Gantt', href: '/gantt' },
           { text: ' & ' },
@@ -688,7 +702,7 @@ export const getPricingEvaluationFacts = () => {
         features: [
           `${trialDays}-day private npm access`,
           'Pro plugins and production-ready examples',
-          'Pivot, Gantt, Scheduler, and JavaScript Scheduler',
+          'Pivot Table, Gantt, Scheduler, and JavaScript Scheduler',
           'Public GitHub repository is setup boilerplate only',
         ],
         action: { label: 'Request Pro Trial', href: advanced.trial.requestUrl! },

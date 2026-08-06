@@ -38,7 +38,7 @@ let timer: number | undefined
 
 const videos = [
   {
-    label: 'Pivot analytics',
+    label: 'Pivot Table analytics',
     src: '/video/pivot.mp4',
     poster: '/img/pivot-preview.jpg',
   },

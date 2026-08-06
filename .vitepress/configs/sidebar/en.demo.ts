@@ -235,12 +235,36 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         collapsed: false,
         items: [
             {
-                text: demoSidebarText('project-tracker'),
-                link: '/demo/color',
+                text: demoSidebarText('tree-data'),
+                link: '/demo/tree-data',
+            },
+            {
+                text: demoSidebarText('filtering'),
+                link: '/demo/filtering',
+            },
+            {
+                text: demoSidebarText('infinity-scroll', 'Infinity Scroll Remote'),
+                link: '/demo/infinity-scroll',
+            },
+            {
+                text: demoSidebarText('column-collapse'),
+                link: '/demo/column-collapse',
+            },
+            {
+                text: demoSidebarText('row-master'),
+                link: '/demo/row-master',
             },
             {
                 text: demoSidebarText('excel'),
                 link: '/demo/excel',
+            },
+            {
+                text: demoSidebarText('audit-history'),
+                link: '/demo/audit-history',
+            },
+            {
+                text: demoSidebarText('project-tracker'),
+                link: '/demo/color',
             },
         ],
     },
@@ -263,6 +287,10 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
                     {
                         text: demoSidebarText('gantt-big-data'),
                         link: '/demo/gantt-big-data',
+                    },
+                    {
+                        text: demoSidebarText('gantt-horizontal-big-data'),
+                        link: '/demo/gantt-horizontal-big-data',
                     },
                 ],
             },
@@ -287,11 +315,11 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
                 ],
             },
             {
-                text: 'Pivot',
+                text: 'Pivot Table',
                 collapsed: false,
                 items: [
                     {
-                        text: demoSidebarText('pivot'),
+                        text: demoSidebarText('pivot', 'Pivot Table & Charts'),
                         link: '/demo/pivot',
                     },
                 ],

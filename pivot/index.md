@@ -1,10 +1,10 @@
 ---
-title: JavaScript Pivot Table for Embedded Web Analytics | RevoGrid Pivot
-description: Add fast, drag-and-drop pivot table analytics to React, Vue, Angular, Svelte, or vanilla JavaScript apps with client-side grouping, aggregations, filters, heatmaps, and Excel/CSV export.
+title: JavaScript Pivot Table Component
+description: Add a fast JavaScript pivot table component with linked charts to React, Vue, Angular, Svelte, or vanilla JavaScript apps. Includes drag-and-drop fields, filters, heatmaps, and Excel/CSV export.
 head:
   - - meta
     - name: keywords
-      content: JavaScript pivot table, web pivot grid, embedded analytics, React pivot table, Vue pivot table, Angular pivot table, client-side pivot table, data grid pivot, pivot table component, RevoGrid Pivot
+      content: JavaScript pivot table, JavaScript pivot table with charts, pivot chart component, web pivot grid, embedded analytics, React pivot table, Vue pivot table, Angular pivot table, client-side pivot table, data grid pivot, pivot table component, RevoGrid Pivot
 sidebar: false
 aside: false
 editLink: false
@@ -32,10 +32,10 @@ pivotLanding:
     darkSoft: oklch(0.72 0.18 185 / 0.14)
     darkBorder: oklch(0.72 0.18 185 / 0.28)
   hero:
-    eyebrow: RevoGrid Pro / Pivot
-    titleHighlightParts: [Multi, dimensional]
-    titleSuffix: analytics, embedded.
-    description: Ship spreadsheet-style pivot analysis inside your application. Let users group, filter, aggregate, visualize, and export large datasets without leaving the page.
+    eyebrow: RevoGrid Pivot
+    titleHighlightParts: [JavaScript, Pivot Table]
+    titleSuffix: component
+    description: Embed a high-performance pivot table with linked charts in your application. Let users group, filter, aggregate, visualize, drill into, and export large datasets without leaving the page.
     actions:
       - label: View Demo
         href: /demo/pivot
@@ -44,9 +44,23 @@ pivotLanding:
       - label: Request Pro Trial
         href: /trial
         variant: secondary
+    frameworkLinks:
+      - label: React
+        href: /blog/react-pivot-table-large-datasets
+        variant: secondary
+      - label: Vue
+        href: /blog/vue-pivot-table-large-datasets
+        variant: secondary
+      - label: Angular
+        href: /blog/angular-pivot-table-large-datasets
+        variant: secondary
+      - label: JavaScript
+        href: /blog/javascript-pivot-table-large-datasets
+        variant: secondary
     badges:
       - D&D dimensions
       - Multi-level aggregation
+      - Linked Pivot charts
       - Heatmap cells
       - Client-side on 350K+ rows
       - Server-side models
@@ -66,8 +80,8 @@ pivotLanding:
     id: features
     kicker: Features
     title: |
-      A production-ready
-      pivot table for web apps.
+      A production-ready JavaScript
+      pivot table component.
     description: More than a summary panel. RevoGrid Pivot combines a full pivot engine with RevoGrid's high-performance rendering core for interactive product analytics.
     items:
       - icon: DnD
@@ -78,10 +92,10 @@ pivotLanding:
         title: Multi-Level Aggregation
         description: Calculate sum, average, count, min/max, median, or custom metrics. Apply multiple aggregations to the same field.
         tags: [SUM / AVG / CNT, Custom agg fn, Multi-agg]
-      - icon: MAP
-        title: Heatmap Cell Rendering
-        description: Highlight trends and outliers with built-in value-based color coding, configurable thresholds, and custom color scales.
-        tags: [Heatmap cells, Color scales, Threshold config]
+      - icon: CHRT
+        title: Linked Pivot Charts & Heatmaps
+        description: Create interactive column, line, area, pie, and other charts from the active Pivot result. Charts stay linked as fields, filters, and drill state change, while heatmap cells highlight trends and outliers in the grid.
+        tags: [Linked charts, Chart drill-down, Heatmap cells]
       - icon: ROW
         title: Row & Column Grouping
         description: Build nested row and column hierarchies from any dimension field. Subtotals and grand totals are computed automatically.
@@ -101,9 +115,9 @@ pivotLanding:
     title: Pivot is part of the Pro Advanced bundle.
   cta:
     title: |
-      Embed pivot analytics
+      Embed a pivot table component
       in your product.
-    description: Add a client-side pivot table component to React, Vue, Angular, Svelte, or vanilla JavaScript apps. Included in Pro Advanced.
+    description: Add a client-side pivot table component with linked charts to React, Vue, Angular, Svelte, or vanilla JavaScript apps. Included in Pro Advanced.
     primaryHref: https://rv-grid.com/demo/pivot
     primaryLabel: View Demo
     # primaryTarget: _self

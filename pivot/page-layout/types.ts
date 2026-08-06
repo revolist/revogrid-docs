@@ -27,6 +27,7 @@ export type PivotLandingPage = {
     titleSuffix: string
     description: string
     actions: PivotLandingAction[]
+    frameworkLinks: PivotLandingAction[]
     badges: string[]
   }
   preview: {

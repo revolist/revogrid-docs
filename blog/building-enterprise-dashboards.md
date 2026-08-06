@@ -1,6 +1,6 @@
 ---
 
-title: Building Powerfull Enterprise Dashboards
+title: Building Powerful Enterprise Dashboards
 description: "Design enterprise dashboards with JavaScript data grids using practical patterns for UX, performance, security, analytics, and operational workflows."
 category: Dashboards
 date: 2026-06-20

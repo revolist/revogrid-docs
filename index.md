@@ -17,7 +17,7 @@ head:
       content: Build spreadsheet-grade data grids with Vue, React, Angular, Svelte, Dash, Python, and JavaScript apps.
   - - meta
     - name: keywords
-      content: RevoGrid, JavaScript Data Grid, React Data Grid, Vue Data Grid, Angular Data Grid, Svelte Data Grid, Dash Data Grid, Python Data Grid, Virtual Scrolling, Editable Grid, Data Table, Pivot Grid, Gantt Grid, Excel
+      content: RevoGrid, JavaScript Data Grid, React Data Grid, Vue Data Grid, Angular Data Grid, Svelte Data Grid, Dash Data Grid, Python Data Grid, Virtual Scrolling, Editable Grid, Data Table, JavaScript Pivot Table Component, Pivot Grid, Gantt Grid, Excel
 hero:
   eyebrow: High-performance data grid
   title: JavaScript Data Grid for complex web apps

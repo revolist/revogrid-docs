@@ -15,17 +15,24 @@ const DEFAULT_PAGE: PivotLandingPage = {
     darkBorder: 'oklch(0.72 0.18 185 / 0.28)',
   },
   hero: {
-    eyebrow: 'RevoGrid Pro / Pivot',
-    titleHighlightParts: ['Multi', 'dimensional'],
-    titleSuffix: 'analytics, embedded.',
-    description: 'Drag-and-drop pivot tables for web apps. Slice any dataset by rows, columns, aggregations, and filters without leaving the page.',
+    eyebrow: 'RevoGrid Pivot',
+    titleHighlightParts: ['JavaScript', 'Pivot Table'],
+    titleSuffix: 'component',
+    description: 'Embed a high-performance pivot table with linked charts in your application. Let users group, filter, aggregate, visualize, drill into, and export large datasets without leaving the page.',
     actions: [
       { label: 'View Demo', href: 'https://rv-grid.com/demo/pivot', arrow: true },
       { label: 'Request Pro Trial', href: 'https://rv-grid.com/trial', variant: 'secondary' },
     ],
+    frameworkLinks: [
+      { label: 'React', href: '/blog/react-pivot-table-large-datasets', variant: 'secondary' },
+      { label: 'Vue', href: '/blog/vue-pivot-table-large-datasets', variant: 'secondary' },
+      { label: 'Angular', href: '/blog/angular-pivot-table-large-datasets', variant: 'secondary' },
+      { label: 'JavaScript', href: '/blog/javascript-pivot-table-large-datasets', variant: 'secondary' },
+    ],
     badges: [
       'Drag-and-drop dimensions',
       'Multi-level aggregation',
+      'Linked Pivot charts',
       'Heatmap cell rendering',
       'Client-side on 350K+ rows',
     ],
@@ -43,7 +50,7 @@ const DEFAULT_PAGE: PivotLandingPage = {
   features: {
     id: 'features',
     kicker: 'Features',
-    title: 'Everything a production\npivot table needs.',
+    title: 'A production-ready JavaScript\npivot table component.',
     description: 'Not a summary view bolted on top. A full-featured pivot engine built on RevoGrid\'s high-performance rendering core.',
     items: [
       {
@@ -59,10 +66,10 @@ const DEFAULT_PAGE: PivotLandingPage = {
         tags: ['SUM / AVG / CNT', 'Custom agg fn', 'Multi-agg'],
       },
       {
-        icon: 'MAP',
-        title: 'Heatmap Cell Rendering',
-        description: 'Built-in value-based color coding with configurable thresholds and custom color scales for fast outlier detection.',
-        tags: ['Heatmap cells', 'Color scales', 'Threshold config'],
+        icon: 'CHRT',
+        title: 'Linked Pivot Charts & Heatmaps',
+        description: 'Create interactive column, line, area, pie, and other charts from the active Pivot result. Charts stay linked as fields, filters, and drill state change, while heatmap cells highlight trends and outliers in the grid.',
+        tags: ['Linked charts', 'Chart drill-down', 'Heatmap cells'],
       },
       {
         icon: 'ROW',
@@ -92,8 +99,8 @@ const DEFAULT_PAGE: PivotLandingPage = {
     title: 'Pivot is part of the Pro Advanced bundle.',
   },
   cta: {
-    title: 'Embed pivot analytics\nin your product.',
-    description: 'Client-side pivot tables for React, Vue, Angular, Svelte, and vanilla JS. Included in Pro Advanced.',
+    title: 'Embed a pivot table component\nin your product.',
+    description: 'Client-side pivot tables with linked charts for React, Vue, Angular, Svelte, and vanilla JS. Included in Pro Advanced.',
     primaryHref: 'https://rv-grid.com/demo/pivot',
     primaryLabel: 'View Demo',
     secondaryHref: 'https://rv-grid.com/trial',

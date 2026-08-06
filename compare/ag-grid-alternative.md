@@ -388,7 +388,7 @@ RevoGrid is the better fit when the grid needs to be **fast, product-friendly, f
 | Feature | RevoGrid | AG Grid Community | AG Grid Enterprise / Bundle | Notes |
 |---|:---:|:---:|:---:|---|
 | Pivot table | ✅ Pro | — | ✅ | RevoGrid Pro includes Pivot Table; AG Grid Pivoting is Enterprise. |
-| Pivot Grid module | ✅ Pro | — | ✅ | RevoGrid Pro module. |
+| Pivot Table component | ✅ Pro | — | ✅ | RevoGrid Pro Advanced component. |
 | Pivot result columns | ✅ Pro | — | ✅ | AG Grid Enterprise supports pivot result columns. |
 | Pivot column groups | ✅ Pro | — | ✅ | Both cover pivot-style grouped columns. |
 | Pivot totals | ✅ Pro | — | ✅ | AG Grid Enterprise supports pivot totals; RevoGrid Pro includes totals. |

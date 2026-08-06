@@ -24,9 +24,16 @@ const demoSeoFiles = [
   'hr.md',
   'color.md',
   'excel.md',
+  'audit-history.md',
+  'column-collapse.md',
+  'filtering.md',
+  'infinity-scroll.md',
+  'row-master.md',
+  'tree-data.md',
   'pivot.md',
   'gantt.md',
   'gantt-big-data.md',
+  'gantt-horizontal-big-data.md',
   'kanban.md',
   'event-scheduler.md',
   'planning.md',
@@ -58,6 +65,7 @@ test('links advanced demos to their standalone implementation repositories', () 
     pivot: 'https://github.com/revolist/pivot',
     gantt: 'https://github.com/revolist/gantt',
     'gantt-big-data': 'https://github.com/revolist/gantt',
+    'gantt-horizontal-big-data': 'https://github.com/revolist/gantt',
     kanban: 'https://github.com/revolist/kanban',
     'event-scheduler': 'https://github.com/revolist/scheduler',
   } as const satisfies Partial<Record<DemoId, string>>
@@ -108,7 +116,7 @@ test('provides source-attributed feature badges only for paid demos', () => {
   const paid = configs.filter(config => config.demo.planId !== 'open-source')
 
   assert.deepEqual(openSource?.featureBadges, [])
-  assert.equal(paid.length, 8)
+  assert.equal(paid.length, 15)
   paid.forEach((config) => {
     assert.ok(config.featureBadges.length >= 5)
     assert.equal(
@@ -255,7 +263,20 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
     })),
     [
       { text: 'Core', collapsed: false, links: ['/demo/'] },
-      { text: 'Pro', collapsed: false, links: ['/demo/color', '/demo/excel'] },
+      {
+        text: 'Pro',
+        collapsed: false,
+        links: [
+          '/demo/tree-data',
+          '/demo/filtering',
+          '/demo/infinity-scroll',
+          '/demo/column-collapse',
+          '/demo/row-master',
+          '/demo/excel',
+          '/demo/audit-history',
+          '/demo/color',
+        ],
+      },
     ],
   )
 
@@ -265,6 +286,7 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
   assert.equal(proAdvanced.items?.[0]?.link, '/demo/planning')
   assert.match(String(proAdvanced.items?.[0]?.text), /All-in-One Planning/)
   assert.match(String(proAdvanced.items?.[1]?.items?.[1]?.text), /10K-Task Gantt/)
+  assert.match(String(proAdvanced.items?.[1]?.items?.[2]?.text), /20Y-Timeline Gantt/)
   assert.deepEqual(
     proAdvanced.items?.slice(1, 5).map(group => ({
       text: group.text,
@@ -272,10 +294,10 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
       links: group.items?.map(item => item.link),
     })),
     [
-      { text: 'Gantt Chart', collapsed: false, links: ['/demo/gantt', '/demo/gantt-big-data'] },
+      { text: 'Gantt Chart', collapsed: false, links: ['/demo/gantt', '/demo/gantt-big-data', '/demo/gantt-horizontal-big-data'] },
       { text: 'Scheduler', collapsed: false, links: ['/demo/event-scheduler'] },
       { text: 'Kanban', collapsed: false, links: ['/demo/kanban'] },
-      { text: 'Pivot', collapsed: false, links: ['/demo/pivot'] },
+      { text: 'Pivot Table', collapsed: false, links: ['/demo/pivot'] },
     ],
   )
 })
@@ -307,7 +329,7 @@ test('creates stable data-layer events without allowing detail fields to replace
     guided_action_index: 2,
     guided_action_label: 'Move a field',
     event: 'demo_guided_action_complete',
-    demo_name: 'Pivot Analytics',
+    demo_name: 'Pivot Table Demo',
     demo_slug: 'pivot',
     demo_tier: 'pro-advanced',
     demo_layout_version: DEMO_PAGE_LAYOUT_VERSION,

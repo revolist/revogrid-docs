@@ -118,7 +118,7 @@ test('generates commercial FAQs, demo badges, and pricing view facts', () => {
   assert.match(trialFaq.a, /30-day trial/)
   assert.match(trialFaq.a, /boilerplate/)
   assert.deepEqual(pivotBadge, {
-    label: 'Pivot Analytics',
+    label: 'Pivot Table Demo',
     badge: 'Adv',
     className: 'pro-advanced',
     title: 'Pro Advanced',

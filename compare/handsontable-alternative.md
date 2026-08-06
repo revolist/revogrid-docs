@@ -539,7 +539,7 @@ No. Handsontable is stronger when the main requirement is deep spreadsheet fidel
 
 ### Does RevoGrid Pro include Pivot?
 
-Yes. RevoGrid Pro includes the Pivot Grid / Pivot Table module.
+Yes. RevoGrid Pro Advanced includes the JavaScript Pivot Table component.
 
 ### Does RevoGrid Pro include Gantt?
 
