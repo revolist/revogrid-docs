@@ -197,6 +197,26 @@ test('uses the JavaScript Gantt Chart demo heading', () => {
   assert.equal(getDemoPageConfig('gantt').title, 'JavaScript Gantt Chart Demo')
 })
 
+test('does not advertise full-dataset export in the Infinity Scroll header', () => {
+  assert.equal(
+    getDemoPageConfig('infinity-scroll').featureBadges.some(({ label }) => label === 'Full-dataset export'),
+    false,
+  )
+})
+
+test('does not advertise responsive columns in the Row Master header', () => {
+  assert.equal(
+    getDemoPageConfig('row-master').featureBadges.some(({ label }) => label === 'Responsive columns'),
+    false,
+  )
+})
+
+test('uses the concise Calendar badge in the Large Dataset Gantt header', () => {
+  const labels = getDemoPageConfig('gantt-big-data').featureBadges.map(({ label }) => label)
+  assert.ok(labels.includes('Calendar'))
+  assert.ok(!labels.includes('Working calendar'))
+})
+
 test('describes the requested Scheduler capabilities without filter or history badges', () => {
   assert.deepEqual(
     getDemoPageConfig('event-scheduler').featureBadges,
@@ -241,6 +261,11 @@ test('animates the guide target as an accessible CSS pulsar', () => {
     demoPageLayoutSource,
     /@media \(prefers-reduced-motion: reduce\)\s*\{[\s\S]*?\.demo-page-guide-target\s*\{[\s\S]*?animation:\s*none;/,
   )
+})
+
+test('does not repeat the header CTA inside the demo workspace', () => {
+  assert.doesNotMatch(demoPageLayoutSource, /Ready to test this with your own data/)
+  assert.doesNotMatch(demoPageLayoutSource, /demo-page-bottom-cta/)
 })
 
 test('uses the Pro Advanced violet palette for Advanced sidebar badges', () => {

@@ -87,29 +87,6 @@
       <ClientOnly>
         <slot />
       </ClientOnly>
-      <Transition name="demo-page-bottom-cta">
-        <aside v-if="hasInteracted" class="demo-page-bottom-cta" aria-label="Try RevoGrid with your data">
-          <div class="demo-page-bottom-message">
-            <span class="demo-page-bottom-check" aria-hidden="true">✓</span>
-            <span>
-              <strong>Ready to test this with your own data?</strong>
-              <small>You have started exploring {{ config.demo.title }}.</small>
-            </span>
-          </div>
-          <div class="demo-page-bottom-actions">
-            <a
-              class="demo-page-button demo-page-button--primary"
-              :href="config.primaryCtaUrl"
-              @click="trackCta('bottom', 'try_in_project')"
-            >Try in your project</a>
-            <a
-              class="demo-page-button demo-page-button--secondary"
-              :href="config.pricingUrl"
-              @click="trackCta('bottom', 'see_pricing')"
-            >See pricing</a>
-          </div>
-        </aside>
-      </Transition>
     </div>
   </div>
 </template>
@@ -127,7 +104,6 @@ const props = defineProps<{ demoId: DemoId }>()
 const config = computed(() => getDemoPageConfig(props.demoId))
 const workspaceRef = ref<HTMLElement>()
 const completedActionCount = ref(0)
-const hasInteracted = ref(false)
 const interactionCount = ref(0)
 const progressPercent = computed(() =>
   (completedActionCount.value / config.value.guidedActions.length) * 100,
@@ -147,7 +123,7 @@ const pushAnalytics = (event: ReturnType<typeof createDemoPageAnalyticsEvent>) =
   analyticsWindow.dataLayer.push(event)
 }
 
-const trackCta = (location: 'header' | 'bottom', action: 'try_in_project' | 'see_pricing') => {
+const trackCta = (location: 'header', action: 'try_in_project') => {
   pushAnalytics(createDemoPageAnalyticsEvent('demo_cta_click', props.demoId, {
     cta_location: location,
     cta_action: action,
@@ -165,7 +141,6 @@ const recordMeaningfulInteraction = (interactionType: string) => {
   const now = Date.now()
   if (now - lastInteractionAt < 350) return
   lastInteractionAt = now
-  hasInteracted.value = true
   interactionCount.value += 1
 
   pushAnalytics(createDemoPageAnalyticsEvent('demo_meaningful_interaction', props.demoId, {
@@ -188,7 +163,7 @@ const closestElement = (event: Event): Element | null =>
 
 const handleWorkspaceClick = (event: MouseEvent) => {
   const target = closestElement(event)
-  if (!target || target.closest('.demo-page-bottom-cta')) return
+  if (!target) return
   handleUserGesture()
   if (target.closest('button, a, [role="button"], select, input[type="checkbox"], input[type="radio"], input[type="range"]')) {
     recordMeaningfulInteraction('workspace_control')
@@ -363,8 +338,7 @@ $max-content-width: 1240px;
   color: #7c3aed;
 }
 
-.demo-page-header-actions,
-.demo-page-bottom-actions {
+.demo-page-header-actions {
   display: flex;
   flex: 0 0 auto;
   gap: 10px;
@@ -432,41 +406,34 @@ $max-content-width: 1240px;
 }
 
 .demo-page-guide-intro,
-.demo-page-guide-intro > span:last-child,
-.demo-page-bottom-message,
-.demo-page-bottom-message > span:last-child {
+.demo-page-guide-intro > span:last-child {
   display: flex;
   min-width: 0;
 }
 
-.demo-page-guide-intro,
-.demo-page-bottom-message {
+.demo-page-guide-intro {
   align-items: center;
   gap: 10px;
 }
 
-.demo-page-guide-intro > span:last-child,
-.demo-page-bottom-message > span:last-child {
+.demo-page-guide-intro > span:last-child {
   flex-direction: column;
 }
 
-.demo-page-guide-intro strong,
-.demo-page-bottom-message strong {
+.demo-page-guide-intro strong {
   font-size: 0.82rem;
   font-weight: 500;
   line-height: 1.25;
 }
 
-.demo-page-guide-intro small,
-.demo-page-bottom-message small {
+.demo-page-guide-intro small {
   margin-top: 2px;
   color: var(--vp-c-text-2);
   font-size: 0.72rem;
   line-height: 1.3;
 }
 
-.demo-page-guide-target,
-.demo-page-bottom-check {
+.demo-page-guide-target {
   display: inline-grid;
   flex: 0 0 30px;
   width: 30px;
@@ -573,35 +540,6 @@ $max-content-width: 1240px;
   box-shadow: 0 8px 30px color-mix(in srgb, var(--vp-c-text-1) 6%, transparent);
 }
 
-.demo-page-bottom-cta {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  left: 12px;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  margin: 0;
-  padding: 11px 14px;
-  border: 1px solid color-mix(in srgb, var(--demo-page-green) 20%, var(--vp-c-divider));
-  border-radius: 9px;
-  background: color-mix(in srgb, var(--demo-page-green) 5%, var(--vp-c-bg));
-  box-shadow: 0 10px 36px color-mix(in srgb, var(--vp-c-text-1) 12%, transparent);
-}
-
-.demo-page-bottom-cta-enter-active,
-.demo-page-bottom-cta-leave-active {
-  transition: opacity 180ms ease, transform 180ms ease;
-}
-
-.demo-page-bottom-cta-enter-from,
-.demo-page-bottom-cta-leave-to {
-  opacity: 0;
-  transform: translateY(8px);
-}
-
 @media (max-width: 1100px) {
   .demo-page-header {
     align-items: flex-start;
@@ -625,9 +563,7 @@ $max-content-width: 1240px;
   }
 
   .demo-page-title-row,
-  .demo-page-header-actions,
-  .demo-page-bottom-cta,
-  .demo-page-bottom-actions {
+  .demo-page-header-actions {
     align-items: stretch;
     flex-direction: column;
   }
@@ -636,8 +572,7 @@ $max-content-width: 1240px;
     align-items: flex-start;
   }
 
-  .demo-page-header-actions,
-  .demo-page-bottom-actions {
+  .demo-page-header-actions {
     width: 100%;
   }
 
@@ -665,9 +600,7 @@ $max-content-width: 1240px;
   }
 
   .demo-page-button,
-  .demo-page-progress-track > span,
-  .demo-page-bottom-cta-enter-active,
-  .demo-page-bottom-cta-leave-active {
+  .demo-page-progress-track > span {
     transition: none;
   }
 }
