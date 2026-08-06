@@ -9,15 +9,15 @@ description: Install Dash DataGrid and run your first RevoGrid application in Pl
 
 | Distribution | Name | Purpose |
 | --- | --- | --- |
-| PyPI | `dash-datagrid` | Normal installation for a Dash application |
+| [PyPI](https://pypi.org/project/dash-datagrid/) | [`dash-datagrid`](https://github.com/revolist/dash-datagrid) | Python package for a normal Dash application |
 | Python import | `dash_datagrid` | Exports `RevoGrid` |
-| npm | `@revolist/dash-datagrid` | JavaScript distribution used by the generated Dash component |
+| [npm](https://www.npmjs.com/package/@revolist/dash-datagrid) | [`@revolist/dash-datagrid`](https://github.com/revolist/dash-datagrid) | Generated React bridge and bundled RevoGrid custom element |
 
 The Python package supports Python 3.10 or newer and Dash 3.x or 4.x. A normal
-Python application only installs `dash-datagrid`; Dash serves the packaged
+Python application only installs [`dash-datagrid`](https://github.com/revolist/dash-datagrid); Dash serves the packaged
 JavaScript locally, so a separate npm install is not required.
 
-Version 1 covers RevoGrid Core. Pro and Enterprise plugin activation, custom
+The current distributions cover RevoGrid Core. Pro and Enterprise plugin activation, custom
 JavaScript renderers or editors, imperative methods, and synchronous
 client-side cancellation are not exposed through the Python component.
 
@@ -36,16 +36,36 @@ On Windows PowerShell, activate it with:
 .venv\Scripts\Activate.ps1
 ```
 
-### 2. Install Dash DataGrid
+### 2. Install Dash DataGrid with Python
 
 ```bash
 python -m pip install dash-datagrid
 ```
 
-To use the DataFrame examples, install pandas too:
+This installs the official
+[`dash-datagrid` package from PyPI](https://pypi.org/project/dash-datagrid/)
+and its compatible Dash dependency automatically. To use the DataFrame
+examples, install pandas too:
 
 ```bash
 python -m pip install pandas
+```
+
+### npm installation
+
+Use the npm distribution only when consuming or extending the generated
+React/JavaScript bridge directly. A standard Python Dash application does not
+need this step.
+
+```bash
+npm install @revolist/dash-datagrid
+```
+
+The npm package requires Node.js 22 or newer. React and ReactDOM 18.3.1 or newer
+within the React 18 release line are peer dependencies:
+
+```bash
+npm install react@^18.3.1 react-dom@^18.3.1
 ```
 
 ### 3. Create `app.py`
@@ -145,4 +165,3 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 python app.py
 ```
-

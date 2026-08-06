@@ -5,24 +5,24 @@ export const navbarEn: DefaultTheme.NavItem[] = [
     text: 'Product',
     items: [
       {
-        text: 'Data Grid',
+        text: 'Data Grid JS',
         link: '/',
         activeMatch: '^/$',
       },
       {
-        text: 'Pivot Analytics',
+        text: 'Pivot Analytics & Charts',
         link: '/pivot',
         activeMatch: '^/pivot',
       },
       {
-        text: 'Gantt',
+        text: 'Gantt Chart JS',
         link: '/gantt',
         activeMatch: '^/gantt',
       },
       {
-        text: 'Event Scheduler',
-        link: '/event-scheduler',
-        activeMatch: '^/event-scheduler',
+        text: 'Scheduler JS',
+        link: '/jsscheduler',
+        activeMatch: '^/jsscheduler',
       },
       {
         text: 'Frameworks',
@@ -86,10 +86,6 @@ export const navbarEn: DefaultTheme.NavItem[] = [
       {
         text: 'Roadmap',
         link: 'https://github.com/users/revolist/projects/3',
-      },
-      {
-        text: 'v3.x',
-        link: 'https://v3.rv-grid.com',
       },
     ],
   },

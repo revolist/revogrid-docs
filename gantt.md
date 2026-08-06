@@ -23,7 +23,7 @@ ganttLanding:
   hero:
     eyebrow: RevoGrid Pro / Gantt Chart
     title: JavaScript Gantt Chart for SaaS Apps
-    description: Build scheduling into your product with fast editable timelines, dependencies, resources, critical path, and task planning inside your own application.
+    description: Give users a fast, intuitive planning workspace with editable timelines, task dependencies, resource scheduling, and critical path insights—all embedded in your application.
     actions:
       - label: View Demo
         href: /demo/gantt
@@ -79,7 +79,7 @@ ganttLanding:
   features:
     id: features
     kicker: Features
-    title: Scheduling features built for real products.
+    title: Gantt planning features built for real products.
     description: Give customers the planning tools they expect while keeping timeline data, editing, and grid behavior inside your application.
     items:
       - icon: '01'
@@ -145,7 +145,7 @@ ganttLanding:
   evidence:
     id: gantt-performance
     kicker: Performance evidence
-    title: A virtualized grid foundation with measurable scheduler workloads.
+    title: A virtualized grid foundation built for demanding Gantt workloads.
     description: RevoGrid renders only the visible row and column viewports, while the Gantt engine keeps scheduling calculations separate from visual task-bar rendering. The repository includes repeatable scheduler benchmarks for dependency- and resource-heavy projects.
     items:
       - value: 1,000

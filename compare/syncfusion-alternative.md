@@ -187,7 +187,7 @@ RevoGrid is built for that scenario. It focuses on the data surface itself: fast
 | BI-style embedded reporting | ✅ Pro | ⚠️ Separate BI/workflow setup |
 | Pivot charts | ⚠️ Chart integration | ✅ |
 | Gantt chart / scheduling | ✅ Pro | ✅ |
-| Event scheduler / calendar | ✅ Pro | ✅ |
+| JavaScript Scheduler / calendar | ✅ Pro | ✅ |
 | Resource planner | ✅ Pro | ✅ |
 | Gantt task hierarchy / WBS | ✅ Pro | ✅ |
 | Task dependencies | ✅ Pro | ✅ |
@@ -312,7 +312,7 @@ Choose RevoGrid when:
 | Syncfusion Pivot field list | ✅ Pro Pivot Configurator |
 | Syncfusion Pivot drill-down | ✅ Pro row/column drill-down and pivot contracts |
 | Syncfusion Gantt Chart | ✅ Pro Gantt & Scheduling |
-| Syncfusion Scheduler / Calendar | ✅ Pro event scheduler and calendar workflows |
+| Syncfusion Scheduler / Calendar | ✅ Pro JavaScript Scheduler and calendar workflows |
 | Syncfusion resource planning workflows | ✅ Pro resource planner workflows |
 | Syncfusion Gantt dependencies | ✅ Pro dependencies with lead/lag support |
 | Syncfusion Gantt baselines / critical path | ✅ Pro baselines, critical path, slack, and scheduling tools |
@@ -362,7 +362,7 @@ Choose Syncfusion when you want a broad commercial UI suite and need many non-gr
 
 If your team is replacing Syncfusion because the grid experience feels too heavy, too suite-oriented, or too hard to tailor for your product, start with RevoGrid.
 
-RevoGrid gives you the performance-first foundation for complex data screens and the Pro modules needed for enterprise-grade pivot analytics, Gantt scheduling, event scheduler/calendar workflows, resource planning, collaborative mode, PDF export, formulas, editing, validation, and large-dataset workflows.
+RevoGrid gives you the performance-first foundation for complex data screens and the Pro modules needed for enterprise-grade pivot analytics, Gantt scheduling, JavaScript Scheduler and calendar workflows, resource planning, collaborative mode, PDF export, formulas, editing, validation, and large-dataset workflows.
 
 <div class="vp-doc-grid-cta">
 

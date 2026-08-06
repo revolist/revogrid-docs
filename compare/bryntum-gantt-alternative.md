@@ -19,6 +19,10 @@ head:
 See the complete [RevoGrid Gantt product page](/gantt) for live demos, grid-first architecture, performance evidence, pricing, and trial access.
 :::
 
+::: info Comparing resource schedulers instead?
+For resource timelines, event editing, conflicts, availability, and operational planning, read the focused [RevoGrid vs Bryntum Scheduler: 2026 comparison](/blog/revogrid-vs-bryntum-scheduler-2026).
+:::
+
 <script lang="ts" setup>
 import CompareFaq from './CompareFaq.vue'
 import CompareHero from './CompareHero.vue'

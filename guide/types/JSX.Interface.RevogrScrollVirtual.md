@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.23](README.md) / [JSX](Namespace.JSX.md) / RevogrScrollVirtual
+[RevoGrid Documentation v4.25.0](README.md) / [JSX](Namespace.JSX.md) / RevogrScrollVirtual
 
 # Interface: RevogrScrollVirtual
 
@@ -8,8 +8,8 @@ Virtual scroll component
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `clientSize` | `number` | Client size | [src/components.d.ts:2419](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/components.d.ts#L2419) |
-| `dimension?` | [`DimensionType`](TypeAlias.DimensionType.md) | Scroll dimension (`X` - `rgCol` or `Y` - `rgRow`) **Default** `'rgRow'` | [src/components.d.ts:2424](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/components.d.ts#L2424) |
-| `onScrollvirtual?` | (`event`: [`RevogrScrollVirtualCustomEvent`](Interface.RevogrScrollVirtualCustomEvent.md)\<[`ViewPortScrollEvent`](TypeAlias.ViewPortScrollEvent.md)\>) => `void` | Scroll event | [src/components.d.ts:2428](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/components.d.ts#L2428) |
-| `realSize` | `number` | Dimensions | [src/components.d.ts:2432](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/components.d.ts#L2432) |
-| `virtualSize` | `number` | Virtual size | [src/components.d.ts:2436](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/components.d.ts#L2436) |
+| `clientSize` | `number` | Client size | [src/components.d.ts:2439](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/components.d.ts#L2439) |
+| `dimension?` | [`DimensionType`](TypeAlias.DimensionType.md) | Scroll dimension (`X` - `rgCol` or `Y` - `rgRow`) **Default** `'rgRow'` | [src/components.d.ts:2444](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/components.d.ts#L2444) |
+| `onScrollvirtual?` | (`event`: [`RevogrScrollVirtualCustomEvent`](Interface.RevogrScrollVirtualCustomEvent.md)\<[`ViewPortScrollEvent`](TypeAlias.ViewPortScrollEvent.md)\>) => `void` | Scroll event | [src/components.d.ts:2448](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/components.d.ts#L2448) |
+| `realSize` | `number` | Dimensions | [src/components.d.ts:2452](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/components.d.ts#L2452) |
+| `virtualSize` | `number` | Virtual size | [src/components.d.ts:2456](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/components.d.ts#L2456) |

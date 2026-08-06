@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.23](README.md) / [JSX](Namespace.JSX.md) / RevogrViewportScrollAttributes
+[RevoGrid Documentation v4.25.0](README.md) / [JSX](Namespace.JSX.md) / RevogrViewportScrollAttributes
 
 # Interface: RevogrViewportScrollAttributes
 
@@ -6,8 +6,8 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) \| `"rowHeaders"` | [src/components.d.ts:2591](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/components.d.ts#L2591) |
-| `contentHeight` | `number` | [src/components.d.ts:2590](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/components.d.ts#L2590) |
-| `contentWidth` | `number` | [src/components.d.ts:2589](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/components.d.ts#L2589) |
-| `noHorizontalScrollTransfer` | `boolean` | [src/components.d.ts:2592](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/components.d.ts#L2592) |
-| `rowHeader` | `boolean` | [src/components.d.ts:2588](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/components.d.ts#L2588) |
+| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) \| `"rowHeaders"` | [src/components.d.ts:2612](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/components.d.ts#L2612) |
+| `contentHeight` | `number` | [src/components.d.ts:2611](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/components.d.ts#L2611) |
+| `contentWidth` | `number` | [src/components.d.ts:2610](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/components.d.ts#L2610) |
+| `noHorizontalScrollTransfer` | `boolean` | [src/components.d.ts:2613](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/components.d.ts#L2613) |
+| `rowHeader` | `boolean` | [src/components.d.ts:2609](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/components.d.ts#L2609) |

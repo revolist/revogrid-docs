@@ -1,114 +1,114 @@
 ---
-title: JSScheduler - JavaScript Scheduler for Resource Planning
-description: Build fast JavaScript scheduler views with virtualized timelines, resource lanes, editable planning data, and RevoGrid Pro plugin customization.
-head:
-  - - meta
-    - name: keywords
-      content: JavaScript scheduler, JS scheduler, resource scheduler, timeline scheduler, resource planning, scheduling component, RevoGrid Pro, virtualized scheduler
-externalHomeLinks: true
+title: RevoGrid JavaScript Scheduler - JavaScript Event Scheduling for Web Apps
+description: Build staff schedules, booking calendars, resource timelines, shift planners, and capacity views with the Enterprise JavaScript Scheduler plugin for RevoGrid.
 sidebar: false
 aside: false
 editLink: false
 footer: true
 prev: false
 next: false
+commercialFaqKeys:
+  - plan-difference
+  - trial
+  - source-access
 pageClass: gantt-page-doc
 layout: custom
 breadcrumbs: false
 headerNav:
-  hiddenItems:
-    - Product
-    - Links
-    - RevoGrid Pro
   links:
     - text: Docs
-      href: /guides/gantt
+      href: /guides/event-scheduler
       base: pro
+head:
+  - - meta
+    - name: keywords
+      content: JavaScript Scheduler, JavaScript event scheduler, resource scheduler, shift planning software, booking scheduler, staff scheduler, room booking scheduler, equipment scheduler, workforce scheduling UI, RevoGrid JavaScript Scheduler, React event scheduler, Vue event scheduler, Angular event scheduler
 ganttLanding:
+  catalogProductId: event-scheduler
   colors:
-    accent: '#0891b2'
-    accent2: '#22d3ee'
-    soft: rgba(8, 145, 178, 0.09)
-    border: rgba(8, 145, 178, 0.22)
-    darkAccent: '#67e8f9'
-    darkAccent2: '#a5f3fc'
-    darkSoft: rgba(103, 232, 249, 0.14)
-    darkBorder: rgba(103, 232, 249, 0.28)
+    accent: '#7c3aed'
+    accent2: '#14b8a6'
+    soft: rgba(124, 58, 237, 0.09)
+    border: rgba(124, 58, 237, 0.22)
+    darkAccent: '#a78bfa'
+    darkAccent2: '#5eead4'
+    darkSoft: rgba(167, 139, 250, 0.14)
+    darkBorder: rgba(167, 139, 250, 0.28)
   hero:
-    eyebrow: RevoGrid Pro / JSScheduler
-    title: JavaScript scheduler for resource planning at grid scale.
-    description: Build framework-free scheduling experiences with virtualized timelines, resource lanes, editable grid data, and plugin-ready customization.
+    eyebrow: RevoGrid Pro / JavaScript Scheduler
+    title: Build JavaScript Scheduler into your product.
+    description: JavaScript Scheduler turns RevoGrid into a commercial scheduling surface for staff rosters, room bookings, equipment plans, field crews, support queues, and team capacity. Keep schedule data, editing, rules, and persistence inside your app.
     actions:
-      - label: Explore scheduler demo
-        href: /demo/gantt
+      - label: View Demo
+        href: /demo/event-scheduler
         arrow: true
-      - label: Read scheduler docs
-        href: https://pro.rv-grid.com/guides/gantt/
+      - label: Request Pro Trial
+        href: /trial
         variant: secondary
-        target: _blank
-        rel: noopener
     badges:
-      - Vanilla JS
-      - Timeline rows
-      - Resource lanes
-      - Plugin API
+      - Week calendars
+      - Resource timelines
+      - Conflict rules
+      - Remote data
   preview:
     enabled: true
-    title: js-scheduler.revogrid.ts
+    kind: eventScheduler
+    title: javascript-scheduler.revogrid.ts
     pills:
-      - label: Vanilla JS
+      - label: Week view
         active: true
       - label: Resources
+      - label: Remote
     liveLabel: Live
-  statsAriaLabel: JSScheduler product stats
+  statsAriaLabel: JavaScript Scheduler product stats
   stats:
-    - value: 10K+
-      label: scheduled rows at 60fps
-    - value: '0'
-      label: framework lock-in
-    - value: Virtual
-      label: timeline columns
-    - value: Plugin
-      label: customization model
+    - value: '4'
+      label: scheduler views
+    - value: Controlled
+      label: event persistence
+    - value: Built-in
+      label: conflict detection
+    - value: '5'
+      label: framework targets
   features:
     id: features
     kicker: Features
-    title: Production-ready scheduling without a framework dependency.
-    description: JSScheduler helps product teams add timeline scheduling, resource planning, and operational calendar views to plain JavaScript apps.
+    title: Scheduling features for real product workflows.
+    description: Ship calendar and resource planning screens without building a scheduler engine, event editor, conflict layer, and grid interaction model from scratch.
     items:
       - icon: '01'
-        title: Framework-free setup
-        description: Mount scheduler views from JavaScript or TypeScript without forcing your product into Vue, React, Angular, or Svelte.
-        tags: [Vanilla JS, TypeScript, Web apps]
+        title: Calendar and timeline views
+        description: Use day, week, month, and resourceTimeline layouts for shift calendars, booking grids, dispatch boards, machine plans, and team capacity views.
+        tags: [Day, Week, Month, Resource timeline]
       - icon: '02'
-        title: Resource planning lanes
-        description: Map teams, rooms, equipment, vehicles, or assets to scheduler rows and plan work across a shared timeline.
-        tags: [Resources, Assets, Teams]
+        title: Controlled event editing
+        description: Create, move, resize, edit, delete, select, copy, paste, and duplicate events while your app owns the accepted event array and backend persistence.
+        tags: [Create, Move, Resize, Controlled state]
       - icon: '03'
-        title: Virtual timeline rendering
-        description: Keep large schedules responsive with RevoGrid virtualization across resource rows and horizontal time columns.
-        tags: [Virtual rows, Virtual columns, Scale]
+        title: Resource and capacity planning
+        description: Model people, rooms, equipment, vehicles, teams, locations, parent groups, assignments, coverage requirements, and utilization in one scheduler projection.
+        tags: [Resources, Assignments, Utilization]
       - icon: '04'
-        title: Editable schedule data
-        description: Combine timeline bars with grid editing for assignments, status, priority, ownership, and metadata fields.
-        tags: [Editing, Assignment, Metadata]
+        title: Availability and conflict rules
+        description: Combine calendars, working hours, blocked time, holidays, breaks, overlap checks, missing resources, invalid durations, and capacity warnings.
+        tags: [Calendars, Availability, Conflicts]
       - icon: '05'
-        title: Custom scheduler UI
-        description: Adapt labels, colors, event shapes, headers, and interactions so scheduling feels native to your application.
-        tags: [Custom UI, Events, Headers]
+        title: Templates and recurrence
+        description: Speed up repeated scheduling with event templates, recurring event helpers, recurrence-series edits, clipboard workflows, and bulk scheduler actions.
+        tags: [Templates, Recurrence, Bulk actions]
       - icon: '06'
-        title: Plugin extensibility
-        description: Use RevoGrid plugin patterns to extend rendering, data transforms, and scheduler interactions.
-        tags: [Plugin API, Hooks, Rendering]
+        title: Remote-ready customization
+        description: Adapt event bars, headers, labels, context menus, keyboard shortcuts, remote loading, optimistic mutations, rollback, exports, and print views.
+        tags: [Custom renderers, Remote mode, Export]
   integrations:
     id: integrations
     kicker: Integrations
-    title: JSScheduler for plain web apps
-    description: Start with a JavaScript scheduler today and keep a path to Vue, React, Angular, and Svelte integrations as your stack evolves.
+    title: JavaScript Scheduler for your frontend stack
+    description: Build the same scheduler product surface across JavaScript, Vue, React, Angular, and Svelte with RevoGrid's Web Component foundation.
     items:
       - icon: JS
         name: JavaScript
-        badge: Native
+        badge: ''
       - icon: Vue
         name: Vue
         badge: ''
@@ -122,14 +122,14 @@ ganttLanding:
         name: Svelte
         badge: ''
   advancedCallout:
-    title: JSScheduler capabilities are part of the Pro Advanced bundle.
+    title: JavaScript Scheduler is part of the Pro Advanced bundle.
   cta:
-    title: Add a high-performance scheduler to your JavaScript app.
-    description: Deliver interactive resource planning with virtual timelines, editable grid data, and RevoGrid Pro customization.
-    primaryHref: /demo/gantt
-    primaryLabel: Explore scheduler demo
-    secondaryHref: /pricing
-    secondaryLabel: View Pro pricing
+    title: Ship scheduling as a native product feature.
+    description: Add event calendars, resource timelines, validation rules, and controlled persistence to your app without sending users to a separate scheduling tool.
+    primaryHref: /demo/event-scheduler
+    primaryLabel: View Demo
+    secondaryHref: /trial
+    secondaryLabel: Request Pro Trial
 ---
 
 <script lang="ts" setup>
@@ -137,3 +137,71 @@ import GanttPageLayout from './gantt/GanttPageLayout.vue'
 </script>
 
 <GanttPageLayout />
+
+<style scoped>
+.event-scheduler-example {
+  border-top: 1px solid var(--vp-c-divider);
+  padding: 88px 0 96px;
+  background: var(--vp-c-bg);
+}
+
+.event-scheduler-example__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.event-scheduler-example__kicker {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0 12px;
+  color: var(--gantt-accent, var(--vp-c-brand-1));
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.event-scheduler-example h2 {
+  max-width: 720px;
+  margin: 0 0 14px;
+  color: var(--vp-c-text-1);
+  font-size: clamp(30px, 3.4vw, 44px);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.event-scheduler-example p:not(.event-scheduler-example__kicker) {
+  max-width: 720px;
+  margin: 0 0 36px;
+  color: var(--vp-c-text-2);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.event-scheduler-example code {
+  color: var(--gantt-accent, var(--vp-c-brand-1));
+  background: var(--vp-c-bg-soft);
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 0.9em;
+}
+
+:deep(.event-scheduler-example .demo-widget-frame) {
+  min-height: 620px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 18px;
+  box-shadow: var(--pro-doc-shadow-lg, 0 18px 48px rgba(0, 0, 0, 0.1));
+}
+
+@media (max-width: 768px) {
+  .event-scheduler-example {
+    padding: 64px 0 72px;
+  }
+
+  .event-scheduler-example__inner {
+    padding: 0 24px;
+  }
+}
+</style>

@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { existsSync, readFileSync } from 'node:fs'
 import test from 'node:test'
 import { createStructuredDataHead } from '../.vitepress/configs/structuredData'
 import {
@@ -29,6 +30,16 @@ test('resolves base and promotional prices at the UTC cutoff', () => {
   assert.equal(atCutoff.promotion, undefined)
 })
 
+test('applies the summer sale to Pro Advanced before the cutoff', () => {
+  const beforeCutoff = resolvePlanPrice('pro-advanced', '2026-08-31T23:59:59.999Z')
+  const atCutoff = resolvePlanPrice('pro-advanced', SUMMER_SALE_CUTOFF)
+
+  assert.equal(beforeCutoff.year.USD, 375)
+  assert.equal(beforeCutoff.compareAtYear?.USD, 499)
+  assert.equal(beforeCutoff.promotion?.discountLabel, '25% off')
+  assert.equal(atCutoff.year.USD, 499)
+})
+
 test('resolves currencies and checkout destinations from the catalog', () => {
   const lite = resolvePlanPrice('pro-lite', SUMMER_SALE_CUTOFF)
   const advanced = resolvePlanPrice('pro-advanced', SUMMER_SALE_CUTOFF)
@@ -56,6 +67,32 @@ test('propagates stable, beta, and preview-capable statuses', () => {
 
   const statuses: Array<'stable' | 'beta' | 'preview'> = ['stable', 'beta', 'preview']
   assert.deepEqual(statuses, ['stable', 'beta', 'preview'])
+})
+
+test('keeps JavaScript Scheduler products on the canonical landing experience', () => {
+  const scheduler = getProduct('scheduler')
+  const eventScheduler = getProduct('event-scheduler')
+  const schedulerLanding = readFileSync(new URL('../jsscheduler.md', import.meta.url), 'utf8')
+  const proFeatures = readFileSync(new URL('../pro/features.pro.ts', import.meta.url), 'utf8')
+
+  assert.equal(scheduler.featureId, 'event-scheduler')
+  assert.equal(scheduler.pageUrl, '/jsscheduler')
+  assert.equal(eventScheduler.pageUrl, '/jsscheduler')
+  assert.equal(scheduler.demoUrl, '/demo/event-scheduler')
+  assert.match(schedulerLanding, /^\s+catalogProductId: event-scheduler$/m)
+  assert.match(schedulerLanding, /^\s+kind: eventScheduler$/m)
+  assert.match(schedulerLanding, /^\s+title: Build JavaScript Scheduler into your product\.$/m)
+  assert.match(schedulerLanding, /^\s+href: \/demo\/event-scheduler$/m)
+  assert.match(proFeatures, /title: 'JavaScript Scheduler',[\s\S]*?videoUrl: '\/video\/event-scheduler\.mp4'/)
+  assert.ok(existsSync(new URL('../public/video/event-scheduler.mp4', import.meta.url)))
+  assert.doesNotMatch(schedulerLanding, /(?:href|primaryHref): (?:https:\/\/pro\.rv-grid\.com\/guides\/gantt\/|\/demo\/gantt)/)
+})
+
+test('keeps Scheduler-family page chrome full width', () => {
+  const ganttPageLayout = readFileSync(new URL('../gantt/GanttPageLayout.vue', import.meta.url), 'utf8')
+
+  assert.doesNotMatch(ganttPageLayout, /:global\(\.gantt-page-doc\)\s*\{[^}]*max-width/s)
+  assert.match(ganttPageLayout, /:global\(\.gantt-page-doc \.VPDoc \.container\),\s*:global\(\.gantt-page-doc \.VPDoc \.content\)/)
 })
 
 test('defines the approved private npm trial lifecycle', () => {
@@ -98,7 +135,7 @@ test('generates commercial FAQs, demo badges, and pricing view facts', () => {
   assert.equal(evaluation.options[1].action.label, 'Request Pro Trial')
   assert.equal(evaluation.options[1].action.href, '/trial')
   assert.match(evaluation.options[1].features[0], /30-day private npm/)
-  assert.equal(differences.length, 5)
+  assert.equal(differences.length, 4)
   assert.ok(differences.some((row) =>
     typeof row.feature !== 'string' && row.feature.text === 'Priority support'))
   assert.equal(differences.at(-1)?.enterprise.kind, 'included')
@@ -122,7 +159,7 @@ test('generates route-aware structured-data offers', () => {
   assert.deepEqual(software.offers.map((offer: { price: number, priceCurrency: string }) => ({
     price: offer.price,
     currency: offer.priceCurrency,
-  })), [{ price: 499, currency: 'USD' }])
+  })), [{ price: 375, currency: 'USD' }])
   assert.equal(software.offers[0].url, 'https://rv-grid.com/pricing')
 })
 

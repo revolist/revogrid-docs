@@ -31,7 +31,7 @@ head:
 ![RevoGrid data grid preview](/datagrid.png)
 
 When discussing web components, terms like **Data Grid** and **Data Table** often overlap.
-For a hands-on example, open the [live data grid demo](/demo/) or start with the [JavaScript data grid guide](/datagridjs/).
+For a hands-on example, open the [live data grid demo](/demo/) or start with the [JavaScript data grid overview](/).
 
 This confusion arises due to existing web technologies and component behaviors:
 
@@ -122,7 +122,7 @@ It is designed for modern web applications that need efficient and interactive t
 Useful starting points:
 
 - [Try the interactive data grid demo](/demo/)
-- [Build a JavaScript data grid](/datagridjs/)
+- [Build a JavaScript data grid](/)
 - [Use RevoGrid with React](/react-data-grid)
 - [Use RevoGrid with Vue](/vue-data-grid)
 - [Compare RevoGrid with AG Grid](/compare/ag-grid-alternative/)
@@ -134,4 +134,4 @@ Building a custom Data Grid is **time-consuming and complex**. If your use case 
 - **Use a Data Table** for simple tabular data with minimal interactivity.
 - **Use a Data Grid** for performance-heavy, feature-rich applications.
 
-RevoGrid gives developers **the best of both worlds**: a fast, customizable data grid with minimal dependencies and a clear path from basic JavaScript tables to production-grade data workflows. Start with the [live demo](/demo/) or the [DataGridJS overview](/datagridjs/).
+RevoGrid gives developers **the best of both worlds**: a fast, customizable data grid with minimal dependencies and a clear path from basic JavaScript tables to production-grade data workflows. Start with the [live demo](/demo/) or the [JavaScript data grid overview](/).

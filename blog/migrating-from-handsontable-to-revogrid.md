@@ -1,6 +1,6 @@
 ---
-title: "Migrating from Handsontable to RevoGrid"
-description: "A practical Handsontable to RevoGrid migration guide for JavaScript, React, Vue, Angular, and Svelte teams moving data, columns, headers, hooks, renderers, editors, validation, formulas, clipboard, plugins, RevoGrid Pro modules, and advanced spreadsheet-like workflows."
+title: "Handsontable to RevoGrid Guide"
+description: "Migrate from Handsontable to RevoGrid with API mappings, JavaScript and framework examples, workflow guidance, and a practical checklist."
 outline: deep
 date: 2026-06-13
 author: RevoGrid Team
@@ -12,17 +12,17 @@ tags:
   - JavaScript
   - Data Grid
 image: /blog/handsontable.png
-imageAlt: RevoGrid JavaScript data grid migration preview
+imageAlt: Handsontable to RevoGrid migration guide preview
 head:
   - - meta
     - name: keywords
       content: migrate from Handsontable to RevoGrid, Handsontable migration, Handsontable alternative, RevoGrid migration guide, JavaScript data grid migration, React data grid migration, Vue data grid migration, Angular data grid migration, Svelte data grid, RevoGrid Pro, RevoGrid formulas, data source columns colHeaders hooks renderers editors validators formulas HyperFormula
   - - meta
     - property: og:title
-      content: Migrating from Handsontable to RevoGrid
+      content: Handsontable to RevoGrid Guide
   - - meta
     - property: og:description
-      content: A practical developer guide for moving from Handsontable to RevoGrid with API mapping, JavaScript and framework examples, migration checklist, and common pitfalls.
+      content: Migrate from Handsontable to RevoGrid with API mappings, JavaScript and framework examples, workflow guidance, and a practical checklist.
   - - meta
     - property: og:type
       content: article
@@ -35,8 +35,8 @@ head:
       {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Migrating from Handsontable to RevoGrid",
-        "description": "A practical Handsontable to RevoGrid migration guide for JavaScript, React, Vue, Angular, and Svelte teams moving data, columns, headers, hooks, renderers, editors, validation, formulas, clipboard, plugins, RevoGrid Pro modules, and advanced spreadsheet-like workflows.",
+        "headline": "Handsontable to RevoGrid Guide",
+        "description": "Migrate from Handsontable to RevoGrid with API mappings, JavaScript and framework examples, workflow guidance, and a practical checklist.",
         "author": {
           "@type": "Organization",
           "name": "RevoGrid"
@@ -98,7 +98,7 @@ head:
 
 # Migrating from Handsontable to RevoGrid
 
-![RevoGrid JavaScript data grid migration preview](/blog/handsontable.png)
+![RevoGrid JavaScript data grid migration example](/blog/handsontable.png)
 
 Migrating from Handsontable to RevoGrid is usually a migration of **grid configuration and spreadsheet-like workflows**, not a rewrite of your business data.
 

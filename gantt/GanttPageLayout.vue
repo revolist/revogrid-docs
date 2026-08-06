@@ -343,11 +343,6 @@ function resolveLandingLink(href: string) {
   color: var(--rg-text);
 }
 
-:global(.gantt-page-doc) {
-  max-width: 1240px !important;
-  margin: 0 auto;
-}
-
 :global(.gantt-page-doc .VPDoc) {
   padding-left: 0;
   padding-right: 0;
@@ -563,6 +558,8 @@ function resolveLandingLink(href: string) {
   transition: transform 0.18s ease, border-color 0.18s ease;
 
   &:hover { border-color: var(--rg-border-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); }
+
+  &:only-child { grid-column: 1 / -1; }
 }
 
 .demo-media {
@@ -571,7 +568,9 @@ function resolveLandingLink(href: string) {
   overflow: hidden;
   background: var(--rg-bg-3);
 
-  img, video { width: 100%; height: 100%; object-fit: cover; }
+  img, video { width: 100%; height: 100%; }
+  img { object-fit: cover; }
+  video { object-fit: contain; }
 }
 
 .demo-copy {

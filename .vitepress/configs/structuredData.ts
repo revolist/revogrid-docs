@@ -85,20 +85,14 @@ const breadcrumbJsonLd = (
 
 const structuredProductForPath = (relativePath: string): ProductId | undefined => {
     if (relativePath === 'index.md') {
-        const standaloneProduct = {
-            pivot: 'pivot',
-            gantt: 'gantt',
-            scheduler: 'scheduler',
-        }[process.env.DOCS_BUILD_PAGE || ''] as ProductId | undefined
-        return standaloneProduct ?? 'revogrid'
+        return 'revogrid'
     }
     if (['react-data-grid.md', 'vue-data-grid.md', 'angular-data-grid.md', 'svelte-data-grid.md'].includes(relativePath)) {
         return 'revogrid'
     }
     if (relativePath === 'pivot/index.md') return 'pivot'
     if (relativePath === 'gantt.md') return 'gantt'
-    if (relativePath === 'scheduler.md') return 'scheduler'
-    if (relativePath === 'event-scheduler.md') return 'event-scheduler'
+    if (relativePath === 'jsscheduler.md') return 'event-scheduler'
     return undefined
 }
 

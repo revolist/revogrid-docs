@@ -135,7 +135,7 @@ This guide covers:
 
 ## What is RevoGrid for Dash?
 
-`dash-datagrid` is the official RevoGrid component for [Plotly Dash](https://dash.plotly.com/).
+[`dash-datagrid`](https://github.com/revolist/dash-datagrid) is the official RevoGrid component for [Plotly Dash](https://dash.plotly.com/).
 
 Under the hood, it uses the same RevoGrid engine as the JavaScript, React, Vue, Angular, and Svelte integrations. The grid handles rendering and virtualization in the browser, while Dash remains responsible for your Python application and callbacks.
 
@@ -516,7 +516,7 @@ You can start with the MIT-licensed RevoGrid Core. It covers the main grid exper
 | Row grouping and pinned rows | Commercial support and enterprise options |
 | Dash event callbacks | Additional Pro and Enterprise plugin events |
 
-The `dash-datagrid` Python package is the official Core component. It can pass Core, Pro, Enterprise, and custom plugin events into Dash callbacks, but installing the Python package alone does not activate paid modules.
+The [`dash-datagrid`](https://github.com/revolist/dash-datagrid) Python package is the official Core component. It can pass Core, Pro, Enterprise, and custom plugin events into Dash callbacks, but installing the Python package alone does not activate paid modules.
 
 This gives teams a straightforward path:
 

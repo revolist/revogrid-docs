@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.23.23](README.md) / SortingColumnMap
+[RevoGrid Documentation v4.25.0](README.md) / SortingColumnMap
 
 # Type Alias: SortingColumnMap
 
@@ -14,4 +14,4 @@ sorting helper detect the default comparer path without mutating
 
 ## Defined in
 
-[src/plugins/sorting/sorting.types.ts:25](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/plugins/sorting/sorting.types.ts#L25)
+[src/plugins/sorting/sorting.types.ts:25](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/plugins/sorting/sorting.types.ts#L25)

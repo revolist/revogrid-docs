@@ -1,6 +1,6 @@
 ---
 title: Beginner's Guide to Pivoting Data & Reporting in 2026
-description: Learn what a pivot table is, why teams use pivots, how rows, columns, values, filters, and aggregations work, and how RevoGrid Pivot brings pivot analytics into web apps.
+description: Learn what pivot tables are, how rows, columns, values, filters, and aggregations work, and how RevoGrid Pivot supports embedded analytics in web apps.
 date: 2026-05-25
 author: RevoGrid Team
 category: Pivot
@@ -9,7 +9,7 @@ tags:
   - Analytics
   - RevoGrid
 image: /img/pivot-preview.jpg
-imageAlt: RevoGrid Pivot analytics preview
+imageAlt: RevoGrid Pivot analytics guide and embedded dashboard preview
 head:
   - - meta
     - name: keywords
@@ -18,7 +18,7 @@ head:
 
 # What Is a Pivot Table?
 
-![RevoGrid Pivot analytics preview](/img/pivot-preview.jpg)
+![RevoGrid Pivot table analytics preview](/img/pivot-preview.jpg)
 
 A pivot table is a way to turn many rows of raw data into a useful summary.
 

@@ -1,6 +1,6 @@
 ---
-title: Event Scheduler Demo - RevoGrid Enterprise Shift Planning Workspace
-description: Explore the RevoGrid Event Scheduler demo for employee shifts, weekly calendars, resource scheduling, locked events, overlap conflicts, drag creation, move, resize, and delete flows.
+title: JavaScript Scheduler and Shift Planning Demo
+description: Schedule employee shifts and resources with RevoGrid Pro Advanced using calendar views, conflict detection, and drag-to-create, move, or resize.
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false
@@ -10,17 +10,8 @@ next: false
 editLink: false
 head:
   - - meta
-    - name: description
-      content: Explore the RevoGrid Event Scheduler demo for employee shifts, weekly calendars, resource scheduling, locked events, overlap conflicts, drag creation, move, resize, and delete flows.
-  - - meta
     - name: keywords
-      content: RevoGrid Event Scheduler demo, JavaScript event scheduler demo, shift planner demo, employee scheduling demo, resource scheduler demo, weekly scheduler, booking scheduler, workforce scheduler, React event scheduler, Vue event scheduler, Angular event scheduler
-  - - meta
-    - property: og:title
-      content: Event Scheduler Demo - RevoGrid Enterprise Shift Planning Workspace
-  - - meta
-    - property: og:description
-      content: Build shift planning and event scheduling workflows with RevoGrid Event Scheduler, week views, resources, conflicts, and controlled editing.
+      content: JavaScript Scheduler, JavaScript event scheduler demo, shift planner demo, employee scheduling demo, resource scheduler demo, weekly scheduler, booking scheduler, workforce scheduler, React event scheduler, Vue event scheduler, Angular event scheduler
 ---
 
 <script setup>

@@ -75,10 +75,10 @@ const LOGO_COMPONENTS = {
 } satisfies Record<TrustedLogoId, unknown>
 
 const DEFAULT_SECTION: Required<TrustedLogoSection> = {
-  kicker: 'Trusted by thousands of teams building critical data products',
+  kicker: 'Used by teams at companies including',
   title: 'Companies using RevoGrid',
   logos: [
-    { name: 'Siemens', id: 'siemens' },
+    // { name: 'Siemens', id: 'siemens' },
     { name: 'Axon', id: 'axon' },
     { name: 'BASF', id: 'basf' },
     { name: 'Bayer', id: 'bayer' },
@@ -90,7 +90,7 @@ const DEFAULT_SECTION: Required<TrustedLogoSection> = {
 const resolvedSection = computed(() => ({
   ...DEFAULT_SECTION,
   ...props.section,
-  logos: props.section?.logos?.length ? props.section.logos : DEFAULT_SECTION.logos,
+  logos: props.section?.logos ?? DEFAULT_SECTION.logos,
 }))
 
 const trustedLogos = computed(() => {
@@ -187,8 +187,6 @@ const variantClasses = computed(() => ({
   align-items: center;
   justify-content: center;
   height: 96px;
-  opacity: 0.9;
-  filter: grayscale(1);
   transition:
     opacity 0.2s ease,
     filter 0.2s ease;
@@ -227,7 +225,11 @@ const variantClasses = computed(() => ({
 }
 
 .trusted-logo-strip__logo--siemens {
-  --trusted-logo-height: 250px;
+  --trusted-logo-height: 35px;
+}
+
+:global([data-theme="light"]) .trusted-logo-strip__logo--siemens  {
+  --sui-header-logo-color: #009999;
 }
 
 .trusted-logo-strip__metrics {

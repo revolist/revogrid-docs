@@ -14,7 +14,6 @@ const sidebarFiles = [
 
 const curatedPages = [
   { text: 'RevoGrid home', link: '/' },
-  { text: 'JavaScript Data Grid', link: '/datagridjs' },
   { text: 'React Data Grid', link: '/react-data-grid' },
   { text: 'Vue Data Grid', link: '/vue-data-grid' },
   { text: 'Angular Data Grid', link: '/angular-data-grid' },
@@ -24,10 +23,7 @@ const curatedPages = [
   { text: 'Pro Videos', link: '/pro/videos' },
   { text: 'Pivot Grid', link: '/pivot/' },
   { text: 'Gantt', link: '/gantt' },
-  { text: 'Scheduler', link: '/scheduler' },
-  { text: 'Event Scheduler', link: '/event-scheduler' },
-  { text: 'Timeline Grid', link: '/timelinegrid' },
-  { text: 'Operations Scheduler', link: '/ops-scheduler' },
+  { text: 'JavaScript Scheduler', link: '/jsscheduler' },
 ]
 
 const excludedSourcePatterns = [
@@ -374,7 +370,7 @@ function firstHeading(content) {
 }
 
 function pageGroup(page) {
-  if (page.route === '/' || page.route.includes('-data-grid') || page.route === '/datagridjs') {
+  if (page.route === '/' || page.route.includes('-data-grid')) {
     return 'Overview and Framework Landing Pages'
   }
 
@@ -390,7 +386,7 @@ function pageGroup(page) {
     return 'Pivot'
   }
 
-  if (/gantt|scheduler|timelinegrid/.test(page.route)) {
+  if (/gantt|scheduler/.test(page.route)) {
     return 'Scheduling'
   }
 

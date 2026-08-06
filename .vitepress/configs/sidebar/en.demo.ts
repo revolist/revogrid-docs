@@ -1,12 +1,12 @@
 import type { DefaultTheme } from 'vitepress'
 import { getDemoBadge, type DemoId } from '../../../commercial/productCatalog'
 
-const demoSidebarText = (demoId: DemoId) => {
+const demoSidebarText = (demoId: DemoId, label?: string) => {
     const demo = getDemoBadge(demoId)
     const status = demo.status === 'stable'
         ? ''
         : `<span class="demo-sidebar-status" title="${demo.status}">${demo.status}</span>`
-    return `<span class="demo-sidebar-label"><span>${demo.label}</span><span class="demo-sidebar-badge demo-sidebar-badge--${demo.className}" title="${demo.title}">${demo.badge}</span>${status}</span>`
+    return `<span class="demo-sidebar-label"><span>${label ?? demo.label}</span><span class="demo-sidebar-badge demo-sidebar-badge--${demo.className}" title="${demo.title}">${demo.badge}</span>${status}</span>`
 }
 
 export const sidebarReactEn: DefaultTheme.SidebarItem[] = [
@@ -221,27 +221,81 @@ export const sidebarGuideDemosEn: DefaultTheme.SidebarItem[] = [
 
 export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
     {
-        text: demoSidebarText('grid-at-scale'),
-        link: '/demo/',
+        text: 'Core',
+        collapsed: false,
+        items: [
+            {
+                text: demoSidebarText('grid-at-scale'),
+                link: '/demo/',
+            },
+        ],
     },
     {
-        text: demoSidebarText('project-tracker'),
-        link: '/demo/color',
+        text: 'Pro',
+        collapsed: false,
+        items: [
+            {
+                text: demoSidebarText('project-tracker'),
+                link: '/demo/color',
+            },
+            {
+                text: demoSidebarText('excel'),
+                link: '/demo/excel',
+            },
+        ],
     },
     {
-        text: demoSidebarText('excel'),
-        link: '/demo/excel',
-    },
-    {
-        text: demoSidebarText('pivot'),
-        link: '/demo/pivot',
-    },
-    {
-        text: demoSidebarText('gantt'),
-        link: '/demo/gantt',
-    },
-    {
-        text: demoSidebarText('event-scheduler'),
-        link: '/demo/event-scheduler',
+        text: 'Pro Advanced',
+        collapsed: false,
+        items: [
+            {
+                text: demoSidebarText('planning', 'All-in-One Planning'),
+                link: '/demo/planning',
+            },
+            {
+                text: 'Gantt Chart',
+                collapsed: false,
+                items: [
+                    {
+                        text: demoSidebarText('gantt'),
+                        link: '/demo/gantt',
+                    },
+                    {
+                        text: demoSidebarText('gantt-big-data'),
+                        link: '/demo/gantt-big-data',
+                    },
+                ],
+            },
+            {
+                text: 'Scheduler',
+                collapsed: false,
+                items: [
+                    {
+                        text: demoSidebarText('event-scheduler', 'Scheduler & Calendar'),
+                        link: '/demo/event-scheduler',
+                    },
+                ],
+            },
+            {
+                text: 'Kanban',
+                collapsed: false,
+                items: [
+                    {
+                        text: demoSidebarText('kanban'),
+                        link: '/demo/kanban',
+                    },
+                ],
+            },
+            {
+                text: 'Pivot',
+                collapsed: false,
+                items: [
+                    {
+                        text: demoSidebarText('pivot'),
+                        link: '/demo/pivot',
+                    },
+                ],
+            },
+        ],
     },
 ]

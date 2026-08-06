@@ -160,7 +160,7 @@ RevoGrid is built for that scenario. It focuses on the data surface itself: fast
 | BI-style embedded reporting | ✅ Pro | ⚠️ OLAP/chart integration |
 | Pivot charts | ⚠️ Chart integration | ✅ FlexChart / OLAP integration |
 | Gantt chart / scheduling | ✅ Pro | ❌ Not primary Wijmo focus |
-| Event scheduler / calendar | ✅ Pro | ❌ Not primary Wijmo focus |
+| JavaScript Scheduler / calendar | ✅ Pro | ❌ Not primary Wijmo focus |
 | Resource planner | ✅ Pro | ❌ Not primary Wijmo focus |
 | Gantt task hierarchy / WBS | ✅ Pro | ❌ |
 | Task dependencies | ✅ Pro | ❌ |

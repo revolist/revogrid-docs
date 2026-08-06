@@ -131,10 +131,20 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
     ],
   },
   'event-scheduler': {
-    docsUrl: '/event-scheduler',
+    docsUrl: '/jsscheduler',
     verificationOptions: [
       { code: 'own_event_data', label: 'Try it with my own event data' },
       { code: 'recurring_multi_resource', label: 'Check recurring and multi-resource events' },
+      { code: 'app_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  planning: {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_planning_data', label: 'Try it with my own planning data' },
+      { code: 'cross_view_sync', label: 'Check synchronization across planning views' },
       { code: 'app_integration', label: 'See an integration example' },
       { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
@@ -1244,7 +1254,7 @@ export const isDemoFeedbackConversionCta = (href: string, label = ''): boolean =
     }
     if (url.origin !== 'https://rv-grid.com') return false
     return /^\/(trial|pricing)(\/|$)/.test(url.pathname)
-      || /^\/(guide|pro|pivot|gantt|scheduler|event-scheduler)(\/|$)/.test(url.pathname)
+      || /^\/(guide|pro|pivot|gantt|jsscheduler)(\/|$)/.test(url.pathname)
   } catch {
     return false
   }

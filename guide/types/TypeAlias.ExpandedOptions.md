@@ -1,10 +1,12 @@
-[RevoGrid Documentation v4.23.23](README.md) / ExpandedOptions
+[RevoGrid Documentation v4.25.0](README.md) / ExpandedOptions
 
 # Type Alias: ExpandedOptions
 
 ```ts
 type ExpandedOptions: {
+  emptyGroupValue: any;
   expandedAll: boolean;
+  groupCellTemplate: GroupCellTemplateFunc;
   groupLabelTemplate: GroupLabelTemplateFunc;
   prevExpanded: Record<string, boolean>;
   getGroupValue: any;
@@ -15,11 +17,13 @@ type ExpandedOptions: {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `expandedAll` | `boolean` | Is expanded by default | [src/plugins/groupingRow/grouping.row.types.ts:105](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/plugins/groupingRow/grouping.row.types.ts#L105) |
-| `groupLabelTemplate` | [`GroupLabelTemplateFunc`](TypeAlias.GroupLabelTemplateFunc.md) | Custom group label template | [src/plugins/groupingRow/grouping.row.types.ts:114](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/plugins/groupingRow/grouping.row.types.ts#L114) |
-| `prevExpanded` | `Record`\<`string`, `boolean`\> | Currently expanded items. to set expanded: '{ 'a': true, 'a,b': true, 'a,b,c': true }' | [src/plugins/groupingRow/grouping.row.types.ts:100](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/plugins/groupingRow/grouping.row.types.ts#L100) |
-| `getGroupValue` | `any` | Custom group label value parser | [src/plugins/groupingRow/grouping.row.types.ts:110](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/plugins/groupingRow/grouping.row.types.ts#L110) |
+| `emptyGroupValue` | `any` | Replacement group value for `null` and `undefined` keys. Used by the default group value resolver. **Default** `''` | [src/plugins/groupingRow/grouping.row.types.ts:160](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/plugins/groupingRow/grouping.row.types.ts#L160) |
+| `expandedAll` | `boolean` | Is expanded by default | [src/plugins/groupingRow/grouping.row.types.ts:149](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/plugins/groupingRow/grouping.row.types.ts#L149) |
+| `groupCellTemplate` | [`GroupCellTemplateFunc`](TypeAlias.GroupCellTemplateFunc.md) | Custom template for virtualized cells in synthetic group rows. | [src/plugins/groupingRow/grouping.row.types.ts:168](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/plugins/groupingRow/grouping.row.types.ts#L168) |
+| `groupLabelTemplate` | [`GroupLabelTemplateFunc`](TypeAlias.GroupLabelTemplateFunc.md) | Custom group label template | [src/plugins/groupingRow/grouping.row.types.ts:164](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/plugins/groupingRow/grouping.row.types.ts#L164) |
+| `prevExpanded` | `Record`\<`string`, `boolean`\> | Currently expanded items. to set expanded: '{ 'a': true, 'a,b': true, 'a,b,c': true }' | [src/plugins/groupingRow/grouping.row.types.ts:144](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/plugins/groupingRow/grouping.row.types.ts#L144) |
+| `getGroupValue` | `any` | Custom group label value parser | [src/plugins/groupingRow/grouping.row.types.ts:154](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/plugins/groupingRow/grouping.row.types.ts#L154) |
 
 ## Defined in
 
-[src/plugins/groupingRow/grouping.row.types.ts:96](https://github.com/revolist/revogrid/blob/d86bc879402becda10cf23ab9a60c0932f7589d3/src/plugins/groupingRow/grouping.row.types.ts#L96)
+[src/plugins/groupingRow/grouping.row.types.ts:140](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/plugins/groupingRow/grouping.row.types.ts#L140)
