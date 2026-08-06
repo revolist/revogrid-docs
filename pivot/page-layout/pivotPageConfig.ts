@@ -16,18 +16,18 @@ const DEFAULT_PAGE: PivotLandingPage = {
   },
   hero: {
     eyebrow: 'RevoGrid Pivot',
-    titleHighlightParts: ['JavaScript', 'Pivot Table'],
-    titleSuffix: 'component',
+    titleHighlightParts: ['Pivot Table'],
+    titleSuffix: 'component for Web',
     description: 'Embed a high-performance pivot table with linked charts in your application. Let users group, filter, aggregate, visualize, drill into, and export large datasets without leaving the page.',
     actions: [
       { label: 'View Demo', href: 'https://rv-grid.com/demo/pivot', arrow: true },
       { label: 'Request Pro Trial', href: 'https://rv-grid.com/trial', variant: 'secondary' },
     ],
     frameworkLinks: [
-      { label: 'React', href: '/blog/react-pivot-table-large-datasets', variant: 'secondary' },
-      { label: 'Vue', href: '/blog/vue-pivot-table-large-datasets', variant: 'secondary' },
-      { label: 'Angular', href: '/blog/angular-pivot-table-large-datasets', variant: 'secondary' },
-      { label: 'JavaScript', href: '/blog/javascript-pivot-table-large-datasets', variant: 'secondary' },
+      { label: 'React', href: '/pivot/react-pivot-table', variant: 'secondary' },
+      { label: 'Vue', href: '/pivot/vue-pivot-table', variant: 'secondary' },
+      { label: 'Angular', href: '/pivot/angular-pivot-table', variant: 'secondary' },
+      { label: 'JavaScript', href: '/pivot/javascript-pivot-table', variant: 'secondary' },
     ],
     badges: [
       'Drag-and-drop dimensions',
@@ -50,7 +50,7 @@ const DEFAULT_PAGE: PivotLandingPage = {
   features: {
     id: 'features',
     kicker: 'Features',
-    title: 'A production-ready JavaScript\npivot table component.',
+    title: 'A production-ready web\npivot table component.',
     description: 'Not a summary view bolted on top. A full-featured pivot engine built on RevoGrid\'s high-performance rendering core.',
     items: [
       {

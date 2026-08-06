@@ -19,6 +19,10 @@
       :product-id="page.catalogProductId"
     />
 
+    <div class="container pivot-page-faq">
+      <CommercialFaq id="pivot-product-faq" />
+    </div>
+
     <ProCtaBanner
       v-if="page.cta"
       :title="page.cta.title"
@@ -38,6 +42,7 @@
 <script lang="ts" setup>
 import ProAdvancedCallout from '../pro/ProAdvancedCallout.vue'
 import ProCtaBanner from '../pro/ProCtaBanner.vue'
+import CommercialFaq from '../pro/CommercialFaq.vue'
 import ProStatsBar from '../pro/ProStatsBar.vue'
 import PivotUseCases from '../pro/PivotUseCases.vue'
 import PivotFeaturesSection from './page-layout/PivotFeaturesSection.vue'

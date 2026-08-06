@@ -63,6 +63,12 @@
         </div>
       </div>
     </section>
+
+    <div class="trial-faq">
+      <div class="trial-container">
+        <CommercialFaq id="trial-faq" />
+      </div>
+    </div>
   </main>
 </template>
 
@@ -70,6 +76,7 @@
 import FontAwesomeSvgIcon from '../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
 import TrustedLogoStrip from '../.vitepress/theme/TrustedLogoStrip.vue'
 import { getPlan } from '../commercial/productCatalog'
+import CommercialFaq from './CommercialFaq.vue'
 import TrialRequestForm from './TrialRequestForm.vue'
 
 const litePlan = getPlan('pro-lite')
@@ -209,6 +216,11 @@ const steps = [
   border-top: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg-soft);
   padding: clamp(4.5rem, 7vw, 6.5rem) 0 clamp(5rem, 8vw, 7rem);
+}
+
+.trial-faq {
+  border-top: 1px solid var(--vp-c-divider);
+  padding: 1rem 0 3rem;
 }
 
 .steps-heading {

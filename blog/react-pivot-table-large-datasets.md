@@ -2,7 +2,18 @@
 title: React Pivot Table for Large Data
 description: Build a typed React pivot table with drag-and-drop fields, totals, a custom aggregation, a linked chart, Excel-friendly CSV export, saved state, and a 350,000-row benchmark.
 outline: deep
-date: 2026-03-01
+faq:
+  heading: React Pivot Table FAQ
+  items:
+    - q: Can a React Pivot Table handle 350,000 rows in the browser?
+      a: Yes, for data shapes and devices that fit a client-side model. Run the included browser benchmark and use the server engine when measured latency or memory misses your target.
+    - q: How do I export the Pivot result to Excel?
+      a: Generate UTF-8 CSV from the committed Pivot columns, body source, and pinned grand-total rows. Add a native XLSX provider when workbook-specific structure or styling is required.
+    - q: Why not build the Pivot with nested React components?
+      a: React should own the product shell and state while RevoGrid virtualizes the high-frequency analytical viewport, limiting reconciliation and DOM work to the visible grid surface.
+    - q: Does this work with Next.js App Router?
+      a: Yes. Put the grid in a Client Component, keep function-bearing configuration inside that boundary, guard browser storage, and optionally use a client-only dynamic wrapper.
+date: 2026-08-06
 author: RevoGrid Team
 category: Pivot
 tags:
@@ -11,8 +22,8 @@ tags:
   - Large Datasets
   - Excel
   - RevoGrid Pro
-image: /img/pivot-preview.jpg
-imageAlt: React Pivot Table analytics application with field configuration, totals, and chart
+image: /img/react-pivot-table-large-datasets.webp
+imageAlt: RevoGrid React Pivot Table expanded analytics workspace with drag-and-drop fields, grouped sales totals, and filters
 head:
   - - meta
     - name: keywords
@@ -34,10 +45,19 @@ head:
       content: https://rv-grid.com/blog/react-pivot-table-large-datasets
   - - meta
     - property: og:image
-      content: https://rv-grid.com/img/pivot-preview.jpg
+      content: https://rv-grid.com/img/react-pivot-table-large-datasets.webp
+  - - meta
+    - property: og:image:alt
+      content: RevoGrid React Pivot Table expanded analytics workspace with drag-and-drop fields, grouped sales totals, and filters
   - - meta
     - name: twitter:card
       content: summary_large_image
+  - - meta
+    - name: twitter:image
+      content: https://rv-grid.com/img/react-pivot-table-large-datasets.webp
+  - - meta
+    - name: twitter:image:alt
+      content: RevoGrid React Pivot Table expanded analytics workspace with drag-and-drop fields, grouped sales totals, and filters
   - - script
     - type: application/ld+json
     - |
@@ -46,7 +66,7 @@ head:
         "@type": "TechArticle",
         "headline": "How to Build a React Pivot Table for Large Datasets",
         "description": "Build a typed React pivot table with drag-and-drop fields, totals, a custom aggregation, a linked chart, Excel-friendly CSV export, saved state, and a 350,000-row benchmark.",
-        "image": "https://rv-grid.com/img/pivot-preview.jpg",
+        "image": "https://rv-grid.com/img/react-pivot-table-large-datasets.webp",
         "datePublished": "2026-08-06",
         "dateModified": "2026-08-06",
         "author": { "@type": "Organization", "name": "RevoGrid" },
@@ -55,48 +75,16 @@ head:
         "proficiencyLevel": "Intermediate",
         "dependencies": "React, RevoGrid, RevoGrid Pro Advanced"
       }
-  - - script
-    - type: application/ld+json
-    - |
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Can a React pivot table handle 350,000 rows in the browser?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, when the source data, number of unique groups, aggregations, and device memory fit a client-side model. Measure the complete pivot commit on representative devices and switch to the server-side Pivot engine when browser latency or memory exceeds the product target."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I export a React pivot table to Excel?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Export the committed pivot table model as UTF-8 CSV for a reliable file that Excel can open. Use an XLSX provider when the workflow requires workbook-specific styling, worksheets, formulas, or native Excel metadata."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does a React pivot table work with Next.js?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Put the interactive grid in a Client Component, create function-bearing Pivot configuration inside that client boundary, and optionally load the component with SSR disabled when the surrounding application requires a browser-only mount."
-            }
-          }
-        ]
-      }
 ---
 
 <script setup lang="ts">
 import PivotFrameworkNav from '../pivot/PivotFrameworkNav.vue'
+import CommercialFaq from '../pro/CommercialFaq.vue'
 </script>
 
 # How to Build a React Pivot Table for Large Datasets
 
-![React Pivot Table analytics application with field configuration, totals, and chart](/img/pivot-preview.jpg)
+![RevoGrid React Pivot Table expanded analytics workspace with drag-and-drop fields, grouped sales totals, and filters](/img/react-pivot-table-large-datasets.webp)
 
 This tutorial builds one complete sales analytics application. It does not stop at rendering a grid. The finished React Pivot Table lets a user rearrange fields, calculate standard and custom metrics, inspect subtotals and grand totals, keep a chart synchronized with the current Pivot result, export a report that opens in Excel, restore a saved layout, and run the same workflow with 10,000, 100,000, or 350,000 source rows.
 
@@ -681,23 +669,7 @@ Before shipping, verify more than the happy-path screenshot:
 - Move aggregation to the server when data governance, memory, or latency requires it.
 - Destroy linked chart refs and remove event listeners when React unmounts.
 
-## React Pivot Table FAQ
-
-### Can a React Pivot Table handle 350,000 rows in the browser?
-
-Yes, for data shapes and devices that fit a client-side model. The reference configuration completed all 350,000 rows, but its custom `p90` aggregation took about 4.3 seconds in the isolated model benchmark. Capacity is not the same as instant interaction: run the included browser benchmark and use the server engine when the measured experience misses your target.
-
-### How do I export the Pivot result to Excel?
-
-Generate UTF-8 CSV from the current Pivot columns, body source, and pinned grand-total rows. Excel opens that file directly. Add a native XLSX provider only when workbook-specific structure or styling is part of the requirement, and test its Pivot fidelity separately.
-
-### Why not build the Pivot with nested React components?
-
-React should own the product shell and state, while the grid virtualizes the high-frequency tabular viewport. Rendering every analytical cell as an ordinary React subtree increases reconciliation and DOM work without improving the data model. Windowing is a standard large-list strategy; the web.dev guide to [virtualizing large lists](https://web.dev/articles/virtualize-long-lists-react-window) explains why keeping only the visible window rendered improves scrolling and DOM cost.
-
-### Does this work with Next.js App Router?
-
-Yes. Put the grid in a Client Component, keep function-bearing configuration inside that boundary, guard local storage during initialization, and optionally use `next/dynamic` with `ssr: false` from a client wrapper.
+<CommercialFaq id="react-pivot-tutorial-faq" />
 
 ## Next steps
 

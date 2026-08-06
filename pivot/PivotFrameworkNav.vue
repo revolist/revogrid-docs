@@ -1,6 +1,6 @@
 <template>
-  <nav class="pivot-framework-nav" aria-label="Pivot implementation guides by framework">
-    <span class="pivot-framework-nav__label">Build with</span>
+  <nav class="pivot-framework-nav" aria-label="Pivot Table Component pages by framework">
+    <span class="pivot-framework-nav__label">Choose framework</span>
     <div class="pivot-framework-nav__actions">
       <ProDocButton
         v-for="framework in frameworks"
@@ -23,10 +23,10 @@ defineProps<{
 }>()
 
 const frameworks = [
-  { id: 'react', label: 'React', href: '/blog/react-pivot-table-large-datasets' },
-  { id: 'vue', label: 'Vue', href: '/blog/vue-pivot-table-large-datasets' },
-  { id: 'angular', label: 'Angular', href: '/blog/angular-pivot-table-large-datasets' },
-  { id: 'javascript', label: 'JavaScript', href: '/blog/javascript-pivot-table-large-datasets' },
+  { id: 'react', label: 'React', href: '/pivot/react-pivot-table' },
+  { id: 'vue', label: 'Vue', href: '/pivot/vue-pivot-table' },
+  { id: 'angular', label: 'Angular', href: '/pivot/angular-pivot-table' },
+  { id: 'javascript', label: 'JavaScript', href: '/pivot/javascript-pivot-table' },
 ] as const
 </script>
 

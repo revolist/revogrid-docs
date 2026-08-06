@@ -218,7 +218,7 @@ That is what RevoGrid Pivot is designed for.
 
 Try the [RevoGrid Pivot demo](/demo/pivot) to see how pivot analytics can work inside a web app.
 
-Continue with a runnable large-dataset implementation for [React](/blog/react-pivot-table-large-datasets), [Vue](/blog/vue-pivot-table-large-datasets), [Angular](/blog/angular-pivot-table-large-datasets), or [JavaScript/TypeScript](/blog/javascript-pivot-table-large-datasets). React teams evaluating the commercial package can also review the [React Pivot Table Component](/pivot/react-pivot-table) page.
+Evaluate the framework-specific Pivot Table Component for [React](/pivot/react-pivot-table), [Vue](/pivot/vue-pivot-table), [Angular](/pivot/angular-pivot-table), or [JavaScript/TypeScript](/pivot/javascript-pivot-table). React developers who want the complete runnable walkthrough can continue with [How to Build a React Pivot Table for Large Datasets](/blog/react-pivot-table-large-datasets).
 
 ## The Short Version
 

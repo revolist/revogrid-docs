@@ -2,6 +2,23 @@
 title: React Pivot Table Component
 description: Add a production-ready React Pivot Table Component with drag-and-drop fields, custom aggregations, totals, linked charts, export, saved layouts, and client- or server-side data models.
 outline: deep
+commercialFaqKeys:
+  - plan-difference
+  - trial
+  - source-access
+faq:
+  heading: React Pivot Table Component FAQ
+  items:
+    - q: Does RevoGrid Pivot work with React?
+      a: Yes. Use <code>@revolist/react-datagrid</code> for property and ref integration, then install Pivot through the normal RevoGrid plugin contract.
+    - q: Can users drag fields between Rows, Columns, Values, and Filters?
+      a: Yes. Enable the Pivot configurator or field panel and persist controlled changes from <code>pivot-config-update</code>.
+    - q: Does it support custom aggregations and repeated measures?
+      a: Yes. Dimensions can register application-defined aggregator functions, and a field can appear more than once in Values with a stable measure ID.
+    - q: Can the React component export to Excel?
+      a: The Pivot helper produces Excel-friendly CSV from the committed analytical model. Use the Pro Excel layer when native XLSX workbook features are required.
+    - q: Can it use a server-side analytical engine?
+      a: Yes. RevoGrid Pivot exposes server-side contracts for application-owned analytical APIs, warehouses, OLAP services, and custom backends.
 head:
   - - meta
     - name: keywords
@@ -41,34 +58,11 @@ head:
         "softwareHelp": "https://pro.rv-grid.com/guides/pivot/",
         "isPartOf": { "@type": "SoftwareApplication", "name": "RevoGrid Pro Advanced" }
       }
-  - - script
-    - type: application/ld+json
-    - |
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Does RevoGrid Pivot work with React?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. RevoGrid provides a typed React wrapper while Pivot uses the same grid and analytical engine across React, Vue, Angular, Svelte, and vanilla JavaScript applications." }
-          },
-          {
-            "@type": "Question",
-            "name": "Can the React Pivot Table use server-side data?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Applications can use the in-browser Pivot engine or connect the server-side Pivot contracts to an analytical API, warehouse, OLAP service, or custom backend." }
-          },
-          {
-            "@type": "Question",
-            "name": "Is RevoGrid Pivot included in the open-source grid?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No. RevoGrid Core is MIT licensed, while Pivot is a commercial module included in the RevoGrid Pro Advanced package." }
-          }
-        ]
-      }
 ---
 
 <script setup lang="ts">
 import PivotFrameworkNav from './PivotFrameworkNav.vue'
+import CommercialFaq from '../pro/CommercialFaq.vue'
 </script>
 
 # React Pivot Table Component
@@ -212,31 +206,7 @@ RevoGrid Pivot is included in **RevoGrid Pro Advanced**. RevoGrid Core remains t
 
 Use the [request-based trial](/trial) to validate your real dataset, browser targets, Next.js boundary, chart workflow, export requirements, and server architecture before purchasing. Review the [Pivot product overview](/pivot/), [pricing](/pricing/), [live demo](https://pivot.rv-grid.com/demo/), and [complete example repository](https://github.com/revolist/pivot).
 
-## React Pivot Table Component FAQ
-
-### Does RevoGrid Pivot work with React?
-
-Yes. Use `@revolist/react-datagrid` for property and ref integration, then install Pivot through the normal RevoGrid plugin contract. The same analytical engine is available across the other supported framework wrappers.
-
-### Can users drag fields between Rows, Columns, Values, and Filters?
-
-Yes. Enable the Pivot configurator or compact field panel and allow field dragging. Changes can be controlled through React state and persisted from `pivot-config-update`.
-
-### Does it support custom aggregations and repeated measures?
-
-Yes. A dimension can register application-defined aggregator functions, and a field can appear more than once in Values with a stable measure ID and different aggregators or labels.
-
-### Can the component export to Excel?
-
-The Pivot export helper produces Excel-friendly CSV from the committed analytical result. Use the Pro Excel export layer when the workflow requires native XLSX workbook features, and validate the exact Pivot headers, totals, formatting, and worksheet structure required by your users.
-
-### Can it use a server-side analytical engine?
-
-Yes. RevoGrid Pivot exposes server-side request, response, capability, cache, paging, filter, saved-view, and drill-down contracts for application-owned backends.
-
-### Is Pivot included in the open-source grid?
-
-No. Pivot is part of RevoGrid Pro Advanced. The grid foundation is open source, while the analytical module and its commercial workflows require a Pro license or trial.
+<CommercialFaq id="react-pivot-faq" />
 
 ## Evaluate the React Pivot Table
 

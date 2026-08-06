@@ -1,10 +1,10 @@
 ---
-title: JavaScript Pivot Table Component
-description: Add a fast JavaScript pivot table component with linked charts to React, Vue, Angular, Svelte, or vanilla JavaScript apps. Includes drag-and-drop fields, filters, heatmaps, and Excel/CSV export.
+title: Pivot Table Component for Web Applications
+description: Add a fast Pivot Table Component with linked charts to React, Vue, Angular, or vanilla JavaScript applications. Includes drag-and-drop fields, filters, heatmaps, and Excel/CSV export.
 head:
   - - meta
     - name: keywords
-      content: JavaScript pivot table, JavaScript pivot table with charts, pivot chart component, web pivot grid, embedded analytics, React pivot table, Vue pivot table, Angular pivot table, client-side pivot table, data grid pivot, pivot table component, RevoGrid Pivot
+      content: pivot table component, pivot table with charts, pivot chart component, web pivot grid, embedded analytics, client-side pivot table, data grid pivot, RevoGrid Pivot
 sidebar: false
 aside: false
 editLink: false
@@ -33,8 +33,8 @@ pivotLanding:
     darkBorder: oklch(0.72 0.18 185 / 0.28)
   hero:
     eyebrow: RevoGrid Pivot
-    titleHighlightParts: [JavaScript, Pivot Table]
-    titleSuffix: component
+    titleHighlightParts: [Pivot Table]
+    titleSuffix: component for Web
     description: Embed a high-performance pivot table with linked charts in your application. Let users group, filter, aggregate, visualize, drill into, and export large datasets without leaving the page.
     actions:
       - label: View Demo
@@ -46,16 +46,16 @@ pivotLanding:
         variant: secondary
     frameworkLinks:
       - label: React
-        href: /blog/react-pivot-table-large-datasets
+        href: /pivot/react-pivot-table
         variant: secondary
       - label: Vue
-        href: /blog/vue-pivot-table-large-datasets
+        href: /pivot/vue-pivot-table
         variant: secondary
       - label: Angular
-        href: /blog/angular-pivot-table-large-datasets
+        href: /pivot/angular-pivot-table
         variant: secondary
       - label: JavaScript
-        href: /blog/javascript-pivot-table-large-datasets
+        href: /pivot/javascript-pivot-table
         variant: secondary
     badges:
       - D&D dimensions
@@ -80,7 +80,7 @@ pivotLanding:
     id: features
     kicker: Features
     title: |
-      A production-ready JavaScript
+      A production-ready web
       pivot table component.
     description: More than a summary panel. RevoGrid Pivot combines a full pivot engine with RevoGrid's high-performance rendering core for interactive product analytics.
     items:
