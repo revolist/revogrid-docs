@@ -86,6 +86,7 @@ grid.filter = {
   include: ['contains', 'eq', 'notEmpty', 'gt', 'gte', 'lt', 'lte'],
   disableDynamicFiltering: true,
   closeFilterPanelOnOutsideClick: false,
+  allowDuplicateOperators: false,
 };
 ```
 
@@ -101,6 +102,12 @@ Important options:
 | `localization` | Replaces filter captions and operation names. |
 | `disableDynamicFiltering` | Applies changes only when the user confirms. |
 | `closeFilterPanelOnOutsideClick` | Controls whether outside clicks close the filter panel. |
+| `allowDuplicateOperators` | Allows the same operator to be selected more than once per column. Defaults to `true`; set to `false` to make visible operators mutually exclusive in the panel. |
+
+When `allowDuplicateOperators` is `false`, the filter panel hides operators
+already used by the current column from the **Add condition** dropdown. Existing
+conditions remain editable, and programmatically supplied duplicate
+`multiFilterItems` are preserved.
 
 [<Badge type="tip">ColumnFilterConfig</Badge>](/guide/types/Interface.ColumnFilterConfig)
 [<Badge type="tip">FilterCollectionItem</Badge>](/guide/types/TypeAlias.FilterCollectionItem)
