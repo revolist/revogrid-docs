@@ -251,6 +251,10 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
                 link: '/demo/column-collapse',
             },
             {
+                text: demoSidebarText('context-menu'),
+                link: '/demo/context-menu',
+            },
+            {
                 text: demoSidebarText('row-master'),
                 link: '/demo/row-master',
             },
@@ -311,6 +315,10 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
                     {
                         text: demoSidebarText('kanban'),
                         link: '/demo/kanban',
+                    },
+                    {
+                        text: demoSidebarText('kanban-performance'),
+                        link: '/demo/kanban-performance',
                     },
                 ],
             },

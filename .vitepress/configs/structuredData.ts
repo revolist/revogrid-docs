@@ -91,6 +91,7 @@ const structuredProductForPath = (relativePath: string): ProductId | undefined =
         return 'revogrid'
     }
     if (relativePath === 'pivot/index.md') return 'pivot'
+    if (relativePath === 'kanban.md') return 'kanban'
     if (relativePath === 'gantt.md') return 'gantt'
     if (relativePath === 'jsscheduler.md') return 'event-scheduler'
     return undefined

@@ -1,6 +1,7 @@
 <template>
   <section
     v-if="faq.items.length"
+    :id="id"
     class="commercial-faq"
     :aria-labelledby="headingId"
   >

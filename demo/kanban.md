@@ -21,7 +21,7 @@ import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
 import { defineAsyncComponent } from 'vue'
 
 const KanbanShowcase = defineAsyncComponent(() =>
-  import('@revogrid-demos/pro-advanced-kanban/src/kanban.vue')
+  import('@revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.vue')
 )
 </script>
 

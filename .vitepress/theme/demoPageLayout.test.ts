@@ -26,6 +26,7 @@ const demoSeoFiles = [
   'excel.md',
   'audit-history.md',
   'column-collapse.md',
+  'context-menu.md',
   'filtering.md',
   'infinity-scroll.md',
   'row-master.md',
@@ -35,6 +36,7 @@ const demoSeoFiles = [
   'gantt-big-data.md',
   'gantt-horizontal-big-data.md',
   'kanban.md',
+  'kanban-performance.md',
   'event-scheduler.md',
   'planning.md',
 ] as const
@@ -67,6 +69,7 @@ test('links advanced demos to their standalone implementation repositories', () 
     'gantt-big-data': 'https://github.com/revolist/gantt',
     'gantt-horizontal-big-data': 'https://github.com/revolist/gantt',
     kanban: 'https://github.com/revolist/kanban',
+    'kanban-performance': 'https://github.com/revolist/kanban',
     'event-scheduler': 'https://github.com/revolist/scheduler',
   } as const satisfies Partial<Record<DemoId, string>>
 
@@ -116,7 +119,7 @@ test('provides source-attributed feature badges only for paid demos', () => {
   const paid = configs.filter(config => config.demo.planId !== 'open-source')
 
   assert.deepEqual(openSource?.featureBadges, [])
-  assert.equal(paid.length, 15)
+  assert.equal(paid.length, 17)
   paid.forEach((config) => {
     assert.ok(config.featureBadges.length >= 5)
     assert.equal(
@@ -217,6 +220,10 @@ test('uses the concise Calendar badge in the Large Dataset Gantt header', () => 
   assert.ok(!labels.includes('Working calendar'))
 })
 
+test('uses the 50K-Task title for the Kanban performance example', () => {
+  assert.equal(getDemoPageConfig('kanban-performance').title, '50K-Task Kanban Performance Demo')
+})
+
 test('describes the requested Scheduler capabilities without filter or history badges', () => {
   assert.deepEqual(
     getDemoPageConfig('event-scheduler').featureBadges,
@@ -296,6 +303,7 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
           '/demo/filtering',
           '/demo/infinity-scroll',
           '/demo/column-collapse',
+          '/demo/context-menu',
           '/demo/row-master',
           '/demo/excel',
           '/demo/audit-history',
@@ -321,7 +329,7 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
     [
       { text: 'Gantt Chart', collapsed: false, links: ['/demo/gantt', '/demo/gantt-big-data', '/demo/gantt-horizontal-big-data'] },
       { text: 'Scheduler', collapsed: false, links: ['/demo/event-scheduler'] },
-      { text: 'Kanban', collapsed: false, links: ['/demo/kanban'] },
+      { text: 'Kanban', collapsed: false, links: ['/demo/kanban', '/demo/kanban-performance'] },
       { text: 'Pivot Table', collapsed: false, links: ['/demo/pivot'] },
     ],
   )

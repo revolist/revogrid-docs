@@ -6,9 +6,13 @@
       :resolve-link="resolvePivotLink"
     />
 
-    <ProStatsBar v-if="page.stats.length" :items="page.stats" :aria-label="page.statsAriaLabel" />
-
     <PivotFeaturesSection :features="page.features" />
+
+    <GanttIntegrations
+      v-if="page.integrations.items.length"
+      :integrations="page.integrations"
+      :resolve-link="resolvePivotLink"
+    />
 
     <PivotUseCases v-if="page.useCases.enabled" />
 
@@ -45,6 +49,7 @@ import ProCtaBanner from '../pro/ProCtaBanner.vue'
 import CommercialFaq from '../pro/CommercialFaq.vue'
 import ProStatsBar from '../pro/ProStatsBar.vue'
 import PivotUseCases from '../pro/PivotUseCases.vue'
+import GanttIntegrations from '../gantt/GanttIntegrations.vue'
 import PivotFeaturesSection from './page-layout/PivotFeaturesSection.vue'
 import PivotHeroSection from './page-layout/PivotHeroSection.vue'
 import { usePivotPage } from './page-layout/usePivotPage'

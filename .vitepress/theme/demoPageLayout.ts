@@ -110,6 +110,21 @@ const DEMO_PAGE_CONTENT = {
       { label: 'Alternating rows', source: 'RowOddPlugin' },
     ],
   },
+  'context-menu': {
+    title: 'Context Menu & Formatting Demo',
+    description: 'Use selection-aware commands and rich formatting across cells, rows, columns, and grouped headers.',
+    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-data-grid-context-menu/src/data-grid-context-menu.vue',
+    guidedActions: ['Open a cell context menu', 'Format the selected cells', 'Inspect a grouped column header'],
+    featureBadges: [
+      { label: 'Context menu', source: 'DataGridContextMenuPlugin' },
+      { label: 'Format cells editor', source: 'DataGridContextMenuPlugin formatting runtime' },
+      { label: 'Surface-aware actions', source: 'DataGridContextMenuConfig items + getItems' },
+      { label: 'Multi-range selection', source: 'MultiRangeSelectionPlugin' },
+      { label: 'Advanced filters', source: 'AdvanceFilterPlugin' },
+      { label: 'Automatic column sizing', source: 'AutoSizeColumnPlugin' },
+      { label: 'Excel export', source: 'ExportExcelPlugin' },
+    ],
+  },
   filtering: {
     title: 'Advanced Filtering Demo',
     description: 'Presets, quick search, expression filters, selection cascades, date rules, and numeric sliders.',
@@ -233,6 +248,20 @@ const DEMO_PAGE_CONTENT = {
       { label: 'WIP limits', source: 'KanbanConfig column and swimlane WIP limits' },
       { label: 'Card rules', source: 'KanbanConfig cardRules' },
       { label: 'Custom cards', source: 'KanbanConfig customization.cardContent' },
+    ],
+  },
+  'kanban-performance': {
+    title: '50K-Task Kanban Performance Demo',
+    description: 'Virtualize 50,000 tasks across ten workflow columns and two team swimlanes.',
+    implementationUrl: 'https://github.com/revolist/kanban',
+    guidedActions: ['Scroll through 50,000 tasks', 'Pan across ten workflow columns', 'Collapse a team swimlane'],
+    featureBadges: [
+      { label: 'Kanban board', source: 'KanbanPlugin' },
+      { label: '50,000 tasks', source: 'createKanbanBoardRows performance fixture' },
+      { label: 'Ten workflow columns', source: 'createKanbanBoardConfig columns' },
+      { label: 'Team swimlanes', source: 'KanbanConfig swimlaneField + swimlanes' },
+      { label: 'Row virtualization', source: 'RevoGrid virtual row rendering' },
+      { label: 'Column virtualization', source: 'RevoGrid virtual column rendering' },
     ],
   },
   'event-scheduler': {

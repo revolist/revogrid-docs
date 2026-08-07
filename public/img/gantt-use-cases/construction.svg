@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Construction project Gantt planning preview</title>
+  <desc id="desc">Conceptual construction planning workspace with a phase and crew grid, timeline bars, handoff dependencies, an inspection milestone, and visible weather, supply, and permit risks.</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#17362a" flood-opacity="0.12"/>
+    </filter>
+    <linearGradient id="summary" x1="0" x2="1">
+      <stop offset="0" stop-color="#147b52"/>
+      <stop offset="1" stop-color="#20ad70"/>
+    </linearGradient>
+    <pattern id="weekend" width="190" height="452" patternUnits="userSpaceOnUse">
+      <rect x="152" width="38" height="452" fill="#f1f3f2"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" fill="#eef2ef"/>
+  <g filter="url(#shadow)">
+    <rect x="30" y="30" width="1140" height="615" rx="20" fill="#ffffff"/>
+  </g>
+
+  <!-- Application header -->
+  <path d="M50 30h1100a20 20 0 0 1 20 20v70H30V50a20 20 0 0 1 20-20z" fill="#fbfcfb"/>
+  <line x1="30" y1="120" x2="1170" y2="120" stroke="#dce3de"/>
+  <rect x="58" y="53" width="38" height="38" rx="10" fill="#179b63"/>
+  <path d="M68 76l7 7 13-17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="112" y="72" fill="#17211c" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="700">Riverside Learning Center</text>
+  <text x="112" y="96" fill="#627069" font-family="Inter, Arial, sans-serif" font-size="14">Field coordination · Updated 08:42</text>
+
+  <rect x="775" y="54" width="132" height="38" rx="19" fill="#edf8f2" stroke="#c5e7d4"/>
+  <circle cx="797" cy="73" r="6" fill="#179b63"/>
+  <text x="812" y="78" fill="#176b4a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">On schedule</text>
+  <rect x="920" y="54" width="202" height="38" rx="19" fill="#fff6e8" stroke="#f2d5a5"/>
+  <path d="M941 64l9 17h-18z" fill="#dd8421"/>
+  <circle cx="941" cy="77" r="1.5" fill="#ffffff"/>
+  <text x="961" y="78" fill="#8b5517" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">2 risks to review</text>
+
+  <!-- Left task grid -->
+  <rect x="30" y="120" width="410" height="525" fill="#ffffff"/>
+  <rect x="30" y="120" width="410" height="72" fill="#f7f9f7"/>
+  <line x1="270" y1="120" x2="270" y2="645" stroke="#e1e7e3"/>
+  <line x1="350" y1="120" x2="350" y2="645" stroke="#e1e7e3"/>
+  <line x1="440" y1="120" x2="440" y2="645" stroke="#cfd8d2"/>
+  <text x="58" y="151" fill="#17211c" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Phase / handoff</text>
+  <text x="58" y="174" fill="#738079" font-family="Inter, Arial, sans-serif" font-size="12">6 activities</text>
+  <text x="288" y="158" fill="#56635c" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">CREW</text>
+  <text x="365" y="158" fill="#56635c" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">STATUS</text>
+
+  <!-- Timeline header -->
+  <rect x="440" y="120" width="730" height="72" fill="#f7f9f7"/>
+  <text x="462" y="146" fill="#738079" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1">MAY 2026</text>
+  <text x="462" y="174" fill="#38463f" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">11 Mon</text>
+  <text x="557" y="174" fill="#38463f" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">18 Mon</text>
+  <text x="652" y="174" fill="#38463f" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">25 Mon</text>
+  <text x="747" y="174" fill="#38463f" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">01 Jun</text>
+  <text x="842" y="174" fill="#38463f" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">08 Mon</text>
+  <text x="937" y="174" fill="#38463f" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">15 Mon</text>
+  <text x="1032" y="174" fill="#38463f" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">22 Mon</text>
+
+  <!-- Rows and timeline grid -->
+  <rect x="440" y="192" width="730" height="453" fill="url(#weekend)"/>
+  <g stroke="#e7ece8">
+    <line x1="30" y1="192" x2="1170" y2="192"/>
+    <line x1="30" y1="267" x2="1170" y2="267"/>
+    <line x1="30" y1="342" x2="1170" y2="342"/>
+    <line x1="30" y1="417" x2="1170" y2="417"/>
+    <line x1="30" y1="492" x2="1170" y2="492"/>
+    <line x1="30" y1="567" x2="1170" y2="567"/>
+    <line x1="30" y1="645" x2="1170" y2="645"/>
+    <line x1="535" y1="120" x2="535" y2="645"/>
+    <line x1="630" y1="120" x2="630" y2="645"/>
+    <line x1="725" y1="120" x2="725" y2="645"/>
+    <line x1="820" y1="120" x2="820" y2="645"/>
+    <line x1="915" y1="120" x2="915" y2="645"/>
+    <line x1="1010" y1="120" x2="1010" y2="645"/>
+    <line x1="1105" y1="120" x2="1105" y2="645"/>
+  </g>
+
+  <!-- Left-side task labels -->
+  <circle cx="58" cy="230" r="12" fill="#eaf7f0"/>
+  <path d="M53 230h10M58 225v10" stroke="#179b63" stroke-width="2" stroke-linecap="round"/>
+  <text x="82" y="226" fill="#17211c" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Site preparation</text>
+  <text x="82" y="247" fill="#738079" font-family="Inter, Arial, sans-serif" font-size="12">Mobilize and clear</text>
+  <text x="286" y="234" fill="#38463f" font-family="Inter, Arial, sans-serif" font-size="13">Earth</text>
+  <rect x="365" y="215" width="67" height="26" rx="13" fill="#edf8f2"/>
+  <text x="378" y="233" fill="#176b4a" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">DONE</text>
+
+  <text x="58" y="301" fill="#17211c" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Permit release</text>
+  <text x="58" y="322" fill="#738079" font-family="Inter, Arial, sans-serif" font-size="12">City approval</text>
+  <text x="286" y="309" fill="#38463f" font-family="Inter, Arial, sans-serif" font-size="13">PM</text>
+  <rect x="365" y="290" width="67" height="26" rx="13" fill="#fff6e8"/>
+  <text x="374" y="308" fill="#955b16" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">AT RISK</text>
+
+  <text x="58" y="376" fill="#17211c" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Foundations</text>
+  <text x="58" y="397" fill="#738079" font-family="Inter, Arial, sans-serif" font-size="12">Form, pour, cure</text>
+  <text x="286" y="384" fill="#38463f" font-family="Inter, Arial, sans-serif" font-size="13">Concrete</text>
+  <rect x="365" y="365" width="67" height="26" rx="13" fill="#eef5fb"/>
+  <text x="375" y="383" fill="#32688b" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">ACTIVE</text>
+
+  <text x="58" y="451" fill="#17211c" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Steel structure</text>
+  <text x="58" y="472" fill="#738079" font-family="Inter, Arial, sans-serif" font-size="12">Frame and deck</text>
+  <text x="286" y="459" fill="#38463f" font-family="Inter, Arial, sans-serif" font-size="13">Ironwork</text>
+  <rect x="365" y="440" width="67" height="26" rx="13" fill="#f1f3f2"/>
+  <text x="371" y="458" fill="#66736c" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">QUEUED</text>
+
+  <text x="58" y="526" fill="#17211c" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Frame inspection</text>
+  <text x="58" y="547" fill="#738079" font-family="Inter, Arial, sans-serif" font-size="12">Authority sign-off</text>
+  <text x="286" y="534" fill="#38463f" font-family="Inter, Arial, sans-serif" font-size="13">Inspector</text>
+  <rect x="365" y="515" width="67" height="26" rx="13" fill="#f1f3f2"/>
+  <text x="375" y="533" fill="#66736c" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">BOOKED</text>
+
+  <text x="58" y="601" fill="#17211c" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Building envelope</text>
+  <text x="58" y="622" fill="#738079" font-family="Inter, Arial, sans-serif" font-size="12">Roof and glazing</text>
+  <text x="286" y="609" fill="#38463f" font-family="Inter, Arial, sans-serif" font-size="13">Envelope</text>
+  <rect x="365" y="590" width="67" height="26" rx="13" fill="#f1f3f2"/>
+  <text x="371" y="608" fill="#66736c" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">QUEUED</text>
+
+  <!-- Timeline bars -->
+  <rect x="463" y="217" width="186" height="25" rx="7" fill="url(#summary)"/>
+  <rect x="463" y="217" width="151" height="25" rx="7" fill="#166f4c" opacity="0.45"/>
+  <text x="477" y="234" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Site ready</text>
+
+  <rect x="488" y="292" width="116" height="25" rx="7" fill="#f5b45b"/>
+  <rect x="488" y="292" width="83" height="25" rx="7" fill="#d98220"/>
+  <text x="500" y="309" fill="#512e08" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Permit</text>
+  <rect x="613" y="287" width="110" height="34" rx="17" fill="#fff6e8" stroke="#edc17e"/>
+  <text x="627" y="308" fill="#8b5517" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Permit +2d</text>
+
+  <rect x="633" y="367" width="187" height="25" rx="7" fill="#7db7db"/>
+  <rect x="633" y="367" width="92" height="25" rx="7" fill="#397fa8"/>
+  <text x="648" y="384" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Foundations 49%</text>
+  <rect x="708" y="397" width="136" height="31" rx="15" fill="#eef5fb" stroke="#bdd7e8"/>
+  <path d="M724 407c5 0 8 4 8 8h-16c0-4 3-8 8-8zm-4-4h8" fill="none" stroke="#397fa8" stroke-width="2" stroke-linecap="round"/>
+  <text x="739" y="418" fill="#32688b" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Rain watch</text>
+
+  <rect x="829" y="442" width="172" height="25" rx="7" fill="#74c59d"/>
+  <text x="845" y="459" fill="#104b35" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Steel structure</text>
+  <rect x="895" y="472" width="154" height="31" rx="15" fill="#fff6e8" stroke="#edc17e"/>
+  <path d="M911 481h12v12h-12zM914 478h6" fill="none" stroke="#b26716" stroke-width="2"/>
+  <text x="930" y="493" fill="#8b5517" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Steel ETA +1d</text>
+
+  <!-- Inspection milestone and final bar -->
+  <path d="M1018 518l13 13-13 13-13-13z" fill="#179b63" stroke="#ffffff" stroke-width="3"/>
+  <text x="1040" y="535" fill="#176b4a" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">INSPECTION</text>
+  <rect x="1035" y="592" width="103" height="25" rx="7" fill="#74c59d"/>
+  <text x="1048" y="609" fill="#104b35" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Envelope</text>
+
+  <!-- Handoff dependencies -->
+  <g fill="none" stroke="#59675f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M649 230h14v74h-59"/>
+    <path d="M604 304h18v75h11"/>
+    <path d="M820 379h18v75h-9"/>
+    <path d="M1001 454h17v64"/>
+    <path d="M1018 544v60h17"/>
+  </g>
+  <g fill="#59675f">
+    <path d="M604 304l8-5v10z"/>
+    <path d="M633 379l-8-5v10z"/>
+    <path d="M829 454l8-5v10z"/>
+    <path d="M1018 518l-5-8h10z"/>
+    <path d="M1035 604l-8-5v10z"/>
+  </g>
+
+  <!-- Today line -->
+  <line x1="782" y1="192" x2="782" y2="645" stroke="#179b63" stroke-width="2" stroke-dasharray="5 5"/>
+  <rect x="753" y="197" width="58" height="22" rx="11" fill="#179b63"/>
+  <text x="767" y="212" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">TODAY</text>
+</svg>

@@ -1,6 +1,6 @@
 ---
-title: RevoGrid JavaScript Scheduler - JavaScript Event Scheduling for Web Apps
-description: Build staff schedules, booking calendars, resource timelines, shift planners, and capacity views with the Enterprise JavaScript Scheduler plugin for RevoGrid.
+title: JavaScript Scheduler & Event Calendar
+description: Build staff schedules, booking calendars, resource timelines, shift planners, and capacity views.
 sidebar: false
 aside: false
 editLink: false
@@ -37,7 +37,7 @@ ganttLanding:
   hero:
     eyebrow: RevoGrid Pro / JavaScript Scheduler
     title: Build JavaScript Scheduler into your product.
-    description: JavaScript Scheduler turns RevoGrid into a commercial scheduling surface for staff rosters, room bookings, equipment plans, field crews, support queues, and team capacity. Keep schedule data, editing, rules, and persistence inside your app.
+    description: Commercial scheduling surface for staff rosters, room bookings, equipment plans, field crews, support queues, and team capacity.
     actions:
       - label: View Demo
         href: /demo/event-scheduler
@@ -107,18 +107,23 @@ ganttLanding:
     description: Build the same scheduler product surface across JavaScript, Vue, React, Angular, and Svelte with RevoGrid's Web Component foundation.
     items:
       - icon: JS
+        iconSrc: /js.svg
         name: JavaScript
         badge: ''
       - icon: Vue
+        iconSrc: /vuejs.svg
         name: Vue
         badge: ''
       - icon: React
+        iconSrc: /react.svg
         name: React
         badge: ''
       - icon: Ng
+        iconSrc: /angular.svg
         name: Angular
         badge: ''
       - icon: Sv
+        iconSrc: /svelte.svg
         name: Svelte
         badge: ''
   advancedCallout:

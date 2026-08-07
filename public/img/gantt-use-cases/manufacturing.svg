@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="manufacturing-title manufacturing-desc">
+  <title id="manufacturing-title">Conceptual manufacturing Gantt for a production order</title>
+  <desc id="manufacturing-desc">A production planning workspace with an operational grid for order steps, machines, materials, and status beside a linked timeline showing machining, a fixture changeover, inspection, a delivery milestone, and a machine capacity warning.</desc>
+  <defs>
+    <filter id="manufacturing-shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#17382c" flood-opacity="0.11"/>
+    </filter>
+    <clipPath id="manufacturing-app-clip">
+      <rect x="30" y="24" width="1140" height="627" rx="22"/>
+    </clipPath>
+    <linearGradient id="manufacturing-summary" x1="0" x2="1">
+      <stop offset="0" stop-color="#147b52"/>
+      <stop offset="1" stop-color="#22aa70"/>
+    </linearGradient>
+    <linearGradient id="manufacturing-blue" x1="0" x2="1">
+      <stop offset="0" stop-color="#3f78b6"/>
+      <stop offset="1" stop-color="#69a5d2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="#eff4f1"/>
+  <circle cx="1130" cy="64" r="126" fill="#ddf3e8" opacity="0.78"/>
+  <circle cx="76" cy="640" r="112" fill="#e5edf8" opacity="0.72"/>
+
+  <g filter="url(#manufacturing-shadow)">
+    <rect x="30" y="24" width="1140" height="627" rx="22" fill="#ffffff" stroke="#dce5e0"/>
+  </g>
+
+  <g clip-path="url(#manufacturing-app-clip)" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <!-- Product header -->
+    <rect x="30" y="24" width="1140" height="72" fill="#fbfcfb"/>
+    <path d="M30 96H1170" stroke="#dce5e0"/>
+    <rect x="54" y="44" width="34" height="34" rx="9" fill="#15865d"/>
+    <path d="M63 55h16v13H63zM67 51v4M75 51v4M67 62h8" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="102" y="61" fill="#16231e" font-size="18" font-weight="720">Atlas production</text>
+    <text x="102" y="80" fill="#74817b" font-size="12">Plant 02 · Shift A · Updated 09:18</text>
+
+    <rect x="708" y="43" width="146" height="36" rx="18" fill="#eaf7f1" stroke="#cce9da"/>
+    <circle cx="730" cy="61" r="6" fill="#169465"/>
+    <text x="744" y="66" fill="#295648" font-size="13" font-weight="650">4 jobs on plan</text>
+    <rect x="866" y="43" width="164" height="36" rx="18" fill="#fff4df" stroke="#efd29a"/>
+    <path d="M887 51l9 18h-18z" fill="#d98719"/>
+    <path d="M887 57v5M887 65h.1" stroke="#ffffff" stroke-width="1.7" stroke-linecap="round"/>
+    <text x="906" y="66" fill="#7b520e" font-size="13" font-weight="700">1 constraint</text>
+    <rect x="1042" y="43" width="104" height="36" rx="9" fill="#15865d"/>
+    <text x="1094" y="66" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Review plan</text>
+
+    <!-- Order context -->
+    <rect x="30" y="97" width="1140" height="57" fill="#ffffff"/>
+    <text x="56" y="122" fill="#17241f" font-size="17" font-weight="720">WO-8472 · Pump housing batch</text>
+    <text x="56" y="141" fill="#728079" font-size="12">48 units · Meridian Pumps · promised 29 May</text>
+    <rect x="901" y="109" width="106" height="32" rx="8" fill="#f4f7f5" stroke="#dce5e0"/>
+    <path d="M917 117v15M912 122h10" stroke="#61716a" stroke-width="1.6" stroke-linecap="round"/>
+    <text x="932" y="130" fill="#53635c" font-size="12">All cells</text>
+    <rect x="1019" y="109" width="127" height="32" rx="8" fill="#f4f7f5" stroke="#dce5e0"/>
+    <circle cx="1036" cy="125" r="5" fill="none" stroke="#61716a" stroke-width="1.5"/>
+    <path d="m1040 129 4 4" stroke="#61716a" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="1051" y="130" fill="#53635c" font-size="12">Find order</text>
+
+    <!-- Grid and timeline headers -->
+    <rect x="30" y="154" width="530" height="497" fill="#fbfcfb"/>
+    <rect x="560" y="154" width="610" height="497" fill="#ffffff"/>
+    <path d="M560 154V651" stroke="#cad6d0" stroke-width="2"/>
+    <rect x="30" y="154" width="1140" height="64" fill="#f4f7f5"/>
+    <path d="M30 218H1170" stroke="#dce5e0"/>
+
+    <g fill="#627069" font-size="11" font-weight="750" letter-spacing="0.55">
+      <text x="56" y="193">ORDER / OPERATION</text>
+      <text x="297" y="193">MACHINE</text>
+      <text x="382" y="193">MATERIAL</text>
+      <text x="477" y="193">STATUS</text>
+      <text x="582" y="176">MAY 2026</text>
+    </g>
+    <g fill="#4c5c55" font-size="12" font-weight="650" text-anchor="middle">
+      <text x="602" y="204">18 Mon</text>
+      <text x="689" y="204">20 Wed</text>
+      <text x="776" y="204">22 Fri</text>
+      <text x="863" y="204">25 Mon</text>
+      <text x="950" y="204">27 Wed</text>
+      <text x="1037" y="204">29 Fri</text>
+      <text x="1124" y="204">01 Jun</text>
+    </g>
+
+    <!-- Grid guides and non-working bands -->
+    <g stroke="#e4eae7">
+      <path d="M276 154V651M364 154V651M462 154V651"/>
+      <path d="M30 290H1170M30 362H1170M30 434H1170M30 506H1170M30 578H1170"/>
+      <path d="M646 154V651M733 154V651M820 154V651M907 154V651M994 154V651M1081 154V651"/>
+    </g>
+    <rect x="733" y="218" width="87" height="433" fill="#f7f9f8"/>
+    <rect x="1081" y="218" width="87" height="433" fill="#f7f9f8"/>
+    <rect x="30" y="218" width="1140" height="72" fill="#eef7f3"/>
+
+    <!-- Operational grid rows -->
+    <path d="m56 249 5 5 5-5" fill="none" stroke="#607069" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="78" y="248" fill="#17241f" font-size="14" font-weight="720">WO-8472 · Pump housing</text>
+    <text x="78" y="268" fill="#728079" font-size="11">48 units · finish 29 May</text>
+    <text x="297" y="258" fill="#53635c" font-size="12">3 cells</text>
+    <text x="382" y="258" fill="#53635c" font-size="12">A356</text>
+    <rect x="477" y="241" width="70" height="25" rx="12.5" fill="#e6f6ee"/>
+    <text x="512" y="258" text-anchor="middle" fill="#147552" font-size="11" font-weight="800">ON PLAN</text>
+
+    <g fill="#23322c" font-size="13" font-weight="620">
+      <text x="78" y="329">Prepare tooling</text>
+      <text x="78" y="401">Rough machining</text>
+      <text x="78" y="473">Fixture B changeover</text>
+      <text x="78" y="545">Finish machining</text>
+      <text x="78" y="617">Inspect and release</text>
+    </g>
+    <g fill="#97a29d" font-size="11" font-weight="700">
+      <text x="56" y="329">10</text>
+      <text x="56" y="401">20</text>
+      <text x="56" y="473">30</text>
+      <text x="56" y="545">40</text>
+      <text x="56" y="617">50</text>
+    </g>
+    <g fill="#53635c" font-size="12">
+      <text x="297" y="329">Tool crib</text>
+      <text x="297" y="401">CNC-02</text>
+      <text x="297" y="473">CNC-02</text>
+      <text x="297" y="545">CNC-02</text>
+      <text x="297" y="617">CMM-01</text>
+      <text x="382" y="329">Fixture B</text>
+      <text x="382" y="401">A356 ready</text>
+      <text x="382" y="473">Tools ready</text>
+      <text x="382" y="545">A356 ready</text>
+      <text x="382" y="617">Sample 1/5</text>
+    </g>
+    <g font-size="11" font-weight="800" text-anchor="middle">
+      <rect x="477" y="312" width="70" height="24" rx="12" fill="#e6f6ee"/>
+      <text x="512" y="328" fill="#147552">READY</text>
+      <rect x="477" y="384" width="70" height="24" rx="12" fill="#e9f2fb"/>
+      <text x="512" y="400" fill="#376d9e">ACTIVE</text>
+      <rect x="477" y="456" width="70" height="24" rx="12" fill="#fff3df"/>
+      <text x="512" y="472" fill="#8a5a13">SETUP</text>
+      <rect x="472" y="528" width="80" height="24" rx="12" fill="#fff0d5"/>
+      <text x="512" y="544" fill="#895710">CAPACITY</text>
+      <rect x="477" y="600" width="70" height="24" rx="12" fill="#eff2f0"/>
+      <text x="512" y="616" fill="#63716b">BOOKED</text>
+    </g>
+
+    <!-- Timeline bars -->
+    <rect x="585" y="243" width="458" height="19" rx="7" fill="url(#manufacturing-summary)"/>
+    <rect x="585" y="243" width="236" height="19" rx="7" fill="#0f6645" opacity="0.42"/>
+    <text x="597" y="257" fill="#ffffff" font-size="11" font-weight="750">Order progress 52%</text>
+
+    <rect x="584" y="313" width="103" height="22" rx="6" fill="#77acd2"/>
+    <text x="596" y="328" fill="#173f5e" font-size="11" font-weight="700">Tooling</text>
+    <rect x="665" y="385" width="152" height="22" rx="6" fill="url(#manufacturing-blue)"/>
+    <rect x="665" y="385" width="86" height="22" rx="6" fill="#2f679d" opacity="0.72"/>
+    <text x="678" y="400" fill="#ffffff" font-size="11" font-weight="700">Rough cut · 56%</text>
+
+    <rect x="814" y="454" width="84" height="28" rx="7" fill="#f1ad45"/>
+    <path d="M826 460v16M832 460v16M838 460v16" stroke="#8a570d" stroke-width="2" opacity="0.55"/>
+    <text x="846" y="472" fill="#5f3a08" font-size="11" font-weight="800">45 MIN</text>
+    <text x="815" y="494" fill="#8a570d" font-size="11" font-weight="750">CHANGEOVER</text>
+
+    <rect x="892" y="529" width="143" height="22" rx="6" fill="#62bd8e"/>
+    <text x="906" y="544" fill="#104f36" font-size="11" font-weight="700">Finish machining</text>
+    <rect x="1008" y="601" width="84" height="22" rx="6" fill="#6f9fc7"/>
+    <text x="1023" y="616" fill="#173f5e" font-size="11" font-weight="700">Inspect</text>
+
+    <!-- Dependencies between production handoffs -->
+    <g fill="none" stroke="#718079" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M687 324h14v72h-36"/>
+      <path d="M817 396h14v72h-17"/>
+      <path d="M898 468h13v72h-19"/>
+      <path d="M1035 540h14v72h-41"/>
+      <path d="M1092 612h20"/>
+    </g>
+    <g fill="#718079">
+      <path d="M665 396l8-5v10z"/>
+      <path d="M814 468l8-5v10z"/>
+      <path d="M892 540l8-5v10z"/>
+      <path d="M1008 612l8-5v10z"/>
+      <path d="M1112 612l-8-5v10z"/>
+    </g>
+
+    <!-- Capacity warning tied to the machine operation -->
+    <rect x="882" y="562" width="212" height="31" rx="15.5" fill="#fff4df" stroke="#efcf92"/>
+    <path d="M901 569l8 16h-16z" fill="#d98719"/>
+    <path d="M901 574v4M901 581h.1" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="918" y="582" fill="#7b520e" font-size="11" font-weight="750">CNC-02 over by 2h · review</text>
+
+    <!-- Delivery milestone and today marker -->
+    <path d="M1126 599l13 13-13 13-13-13z" fill="#15865d" stroke="#ffffff" stroke-width="3"/>
+    <text x="1126" y="640" text-anchor="middle" fill="#126a4a" font-size="11" font-weight="800">DELIVERY</text>
+
+    <path d="M778 218V651" stroke="#d15b70" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.8"/>
+    <rect x="752" y="224" width="52" height="21" rx="10.5" fill="#fff0f3"/>
+    <text x="778" y="239" text-anchor="middle" fill="#b3495d" font-size="11" font-weight="800">TODAY</text>
+  </g>
+</svg>

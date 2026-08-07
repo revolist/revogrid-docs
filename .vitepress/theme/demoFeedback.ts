@@ -210,6 +210,16 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
   },
+  'kanban-performance': {
+    docsUrl: '/kanban',
+    verificationOptions: [
+      { code: 'own_board_scale', label: 'Try it with my own board scale' },
+      { code: 'virtualization_performance', label: 'Check row and column virtualization' },
+      { code: 'app_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
   'event-scheduler': {
     docsUrl: '/jsscheduler',
     verificationOptions: [

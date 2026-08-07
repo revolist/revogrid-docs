@@ -28,25 +28,12 @@
             {{ action.label }}
           </ProDocButton>
         </div>
-        <div v-if="hero.frameworkLinks.length" class="hero-frameworks fade-up-4">
-          <span class="hero-frameworks-label">Build with</span>
-          <div class="hero-framework-actions">
-            <ProDocButton
-              v-for="framework in hero.frameworkLinks"
-              :key="framework.label"
-              :href="resolveLink(framework.href)"
-              variant="secondary"
-            >
-              {{ framework.label }}
-            </ProDocButton>
-          </div>
-        </div>
         <div v-if="hero.badges.length" class="hero-badges fade-up-4">
           <span v-for="badge in hero.badges" :key="badge">{{ badge }}</span>
         </div>
       </div>
 
-      <div v-if="previewEnabled" class="fade-up-3">
+      <div v-if="previewEnabled" class="hero-preview fade-up-3">
         <PivotDemo />
       </div>
     </div>

@@ -1,0 +1,333 @@
+---
+title: Kanban on steroids
+description: Virtualized JavaScript Kanban board on the same data that powers your app, with no fixed card limit beyond your users' hardware.
+head:
+  - - meta
+    - name: keywords
+      content: JavaScript Kanban board, Kanban component, workflow board, React Kanban, Vue Kanban, Angular Kanban, Kanban swimlanes, WIP limits, drag and drop Kanban, RevoGrid Kanban
+sidebar: false
+aside: false
+editLink: false
+footer: true
+prev: false
+next: false
+pageClass: gantt-page-doc
+layout: custom
+breadcrumbs: false
+headerNav:
+  links:
+    - text: Docs
+      href: /guides/kanban
+      base: pro
+commercialFaqKeys:
+  - trial
+  - source-access
+  - application-limits
+ganttLanding:
+  catalogProductId: kanban
+  colors:
+    accent: '#4f63d8'
+    accent2: '#7c5ce7'
+    soft: rgba(79, 99, 216, 0.09)
+    border: rgba(79, 99, 216, 0.22)
+    darkAccent: '#8fa5ff'
+    darkAccent2: '#b79aff'
+    darkSoft: rgba(143, 165, 255, 0.14)
+    darkBorder: rgba(143, 165, 255, 0.28)
+  hero:
+    eyebrow: RevoGrid Pro / Kanban Board
+    title: Kanban on steroids
+    description: Production workflow board with drag-and-drop ordering, swimlanes, WIP policies, card editing, history, and hardware-bound virtualized scale.
+    actions:
+      - label: Try Interactive Demo
+        href: /demo/kanban
+        arrow: true
+      - label: Request Pro Trial
+        href: /trial
+        variant: secondary
+    badges:
+      - Source-backed drag and drop
+      - Swimlanes
+      - WIP rules
+      - Card editing
+  preview:
+    enabled: true
+    kind: kanban
+    title: kanban-workflow.revogrid.ts
+    pills:
+      - label: Workflow
+        active: true
+      - label: Swimlanes
+      - label: WIP rules
+    liveLabel: Live
+  statsAriaLabel: Kanban product stats
+  stats:
+    - value: No fixed limit
+      label: hardware-bound scale
+    - value: 2-axis
+      label: grid virtualization
+    - value: '4'
+      label: framework examples
+    - value: '1'
+      label: canonical data source
+  demos:
+    id: kanban-demonstrations
+    kicker: Product demonstrations
+    title: See real workflow behavior, not a static board mockup.
+    description: Move work between stages, focus large boards with collapsible swimlanes, and inspect the delivery detail carried by each source-backed card.
+    items:
+      - title: Complete Kanban walkthrough
+        description: Watch source-backed movement, swimlane collapse, WIP context, and detailed custom cards in the production-style showcase.
+        href: /demo/kanban
+        media: /video/kanban-demo.mp4
+        mediaKind: video
+        poster: /img/kanban/overview.webp
+        mediaFit: contain
+      - title: 50K-Task Kanban
+        description: Explore 50,000 source-backed tasks across ten virtualized workflow columns and two collapsible team swimlanes.
+        href: /demo/kanban-performance
+        media: /img/kanban/workflow.webp
+        mediaFit: contain
+      - title: Collapsible swimlanes
+        description: Group work by team and collapse a lane without creating a separate board-only state model or nested scrolling surface.
+        href: /demo/kanban
+        media: /img/kanban/details.webp
+        mediaFit: contain
+  positioning:
+    id: why-revogrid-kanban
+    kicker: Why RevoGrid Kanban?
+    title: A workflow view over product data
+    description: RevoGrid Kanban projects ordinary source rows into workflow columns and card rows. Your product keeps the canonical records, business rules, persistence, and surrounding UI.
+    items:
+      - title: One source, multiple views
+        description: Keep cards in grid.source, enable Kanban for workflow work, and restore the latest source and table columns when the board is disabled.
+      - title: Grid-backed interaction
+        description: RevoGrid providers own projected rows, columns, dimensions, focus, viewport state, filtering, and plugin coordination.
+      - title: Product-owned policy
+        description: Validate transitions, permissions, WIP behavior, custom content, and persistence without moving users into a separate project-management application.
+  features:
+    id: kanban-features
+    kicker: Features
+    title: Kanban capabilities for operational products.
+    description: Give users familiar board interaction while keeping workflow identity, rules, and persistence connected to the same data model as the rest of your application.
+    items:
+      - icon: '01'
+        title: Source-backed movement
+        description: Reorder cards or move them across columns and swimlanes with pointer, touch, keyboard, context-menu, or public API workflows.
+        tags: [Pointer and touch, Keyboard movement, Multi-card moves]
+      - icon: '02'
+        title: Workflow columns and swimlanes
+        description: Define ordered stages, team or product lanes, lane-specific presentation, and independent column, lane, or lane-label collapse behavior.
+        tags: [Custom columns, Team lanes, Collapse controls]
+      - icon: '03'
+        title: WIP and transition rules
+        description: Warn or block when capacity is exceeded, restrict allowed origins, and compose application permissions with ordered visual card rules.
+        tags: [Warn or block, Permissions, Rule badges]
+      - icon: '04'
+        title: Editing, context menus, and history
+        description: Use the packaged schema-driven card editor, validation lifecycle, CRUD requests, shared context menu, and atomic undo or redo operations.
+        tags: [Card editor, Validation, Undo and redo]
+      - icon: '05'
+        title: Product-grade customization
+        description: Replace card content, workflow headers, lane headers, empty states, and drag previews while the managed shell preserves focus and movement semantics.
+        tags: [Render hooks, Themes, Localization]
+      - icon: '06'
+        title: Filtering and application state
+        description: Combine RevoGrid filters with Kanban search, persist exact changed-card batches, control selection, and switch between board and table views.
+        tags: [Search, Persistence events, Table switch]
+  integrations:
+    id: kanban-integrations
+    kicker: Integrations
+    title: One Kanban product surface across frontend stacks.
+    description: Use the same Enterprise Kanban plugin from JavaScript and TypeScript or through RevoGrid's React, Vue, Angular, and Web Component integrations.
+    items:
+      - icon: JS
+        iconSrc: /js.svg
+        name: JavaScript
+        badge: Web Component
+        href: https://pro.rv-grid.com/guides/kanban/examples/
+      - icon: React
+        iconSrc: /react.svg
+        name: React
+        badge: Reference app
+        href: https://github.com/revolist/kanban
+      - icon: Vue
+        iconSrc: /vuejs.svg
+        name: Vue
+        badge: Reference app
+        href: https://github.com/revolist/kanban
+      - icon: Ng
+        iconSrc: /angular.svg
+        name: Angular
+        badge: Reference app
+        href: https://github.com/revolist/kanban
+      - icon: Sv
+        iconSrc: /svelte.svg
+        name: Svelte
+        badge: Web Component
+        href: https://pro.rv-grid.com/guides/kanban/examples/
+  evidence:
+    id: kanban-performance
+    kicker: Performance evidence
+    title: Native row and column virtualization for dense workflow boards.
+    description: Each projected cell contains at most one card, so RevoGrid virtualizes workflow columns and card rows directly instead of mounting nested board scrollers.
+    items:
+      - value: No fixed limit
+        title: Hardware-bound capacity
+        description: Row and column virtualization keeps dense workflow boards responsive without mounting every card at once; practical capacity depends on user hardware and card complexity.
+      - value: 1 card
+        title: Per projected cell
+        description: Card focus, drag targets, and row ownership stay aligned with the RevoGrid provider model.
+      - value: 2-axis
+        title: Virtualized viewport
+        description: Workflow columns and card rows inherit RevoGrid's horizontal and vertical viewport behavior.
+      - value: Local
+        title: Canonical source
+        description: Keep the complete canonical card collection in grid.source while your application owns persistence and data loading.
+    links:
+      - label: Accessibility and performance guide
+        href: https://pro.rv-grid.com/guides/kanban/accessibility-performance/
+      - label: Open the 50K-task performance demo
+        href: /demo/kanban-performance
+  featureComparison:
+    id: kanban-capabilities
+    kicker: Capability guide
+    title: What product teams get from RevoGrid Kanban.
+    description: Evaluate the workflow, state, customization, and interaction capabilities that usually turn a simple board into maintained product infrastructure.
+    columns: [Capability, RevoGrid Kanban, Product value]
+    rows:
+      - feature: Canonical data model
+        revogrid: Cards remain ordinary grid.source records
+        note: Avoid synchronizing a separate board-only state tree.
+      - feature: Card movement
+        revogrid: Pointer, touch, keyboard, context-menu, and API movement
+        note: Serve mouse, touch, keyboard, and automated product workflows through one validation path.
+      - feature: Multi-selection
+        revogrid: Toggle, range, and atomic multi-card moves
+        note: Let users reorganize related work without partial commits.
+      - feature: Swimlanes
+        revogrid: Explicit or derived lanes with collapse and lane WIP limits
+        note: Split every workflow stage by team, release, product area, or class of service.
+      - feature: Workflow policy
+        revogrid: WIP warn or block behavior, transitions, permissions, and rules
+        note: Reflect business constraints directly in the board interaction.
+      - feature: Card editing
+        revogrid: Schema-driven editor, validation events, CRUD requests, and replacement UI hooks
+        note: Start with a packaged form while preserving application-owned persistence.
+      - feature: History and persistence
+        revogrid: Atomic ID-based history and exact changed-card event batches
+        note: Persist only the records affected by movement, CRUD, or rank rebalancing.
+      - feature: Accessibility
+        revogrid: Focusable cards, keyboard pickup, live announcements, and reduced-motion styles
+        note: Keep core interaction available without depending on pointer dragging.
+      - feature: Custom presentation
+        revogrid: Cards, headers, lanes, empty states, previews, CSS tokens, labels, and locale
+        note: Match the board to your product without replacing the managed interaction shell.
+  useCases:
+    id: kanban-use-cases
+    kicker: Use cases
+    title: Where teams embed RevoGrid Kanban.
+    description: Use Kanban when workflow state belongs beside editable product data, business rules, reporting, and alternate grid or planning views.
+    items:
+      - title: Product delivery
+        description: Track discovery, design, engineering, review, release, ownership, progress, and story-point context in one workflow surface.
+      - title: Support operations
+        description: Move cases through triage, investigation, customer response, escalation, and resolution with team or priority swimlanes.
+      - title: Sales and onboarding
+        description: Organize opportunities, implementation stages, customer owners, due dates, and handoffs without building a separate pipeline UI.
+      - title: Content and approvals
+        description: Coordinate briefs, production, legal review, localization, publishing, and campaign work with explicit transition rules.
+      - title: Quality and manufacturing
+        description: Manage defects, inspections, work orders, approvals, and team capacity while preserving operational record fields.
+      - title: Internal workflows
+        description: Build focused boards for finance, compliance, hiring, procurement, IT, and other processes that already live in data-heavy applications.
+  faq:
+    id: kanban-faq
+    kicker: FAQ
+    title: RevoGrid Kanban questions
+    items:
+      - q: Does Kanban use a separate data model?
+        a: No. Kanban projects canonical RevoGrid source rows into workflow columns and card rows. Your application continues to own the records and persistence.
+      - q: Can users switch between table and Kanban views?
+        a: Yes. Set grid.kanban to a configuration to activate the board and set it to false to restore the latest canonical source and table columns.
+      - q: Can WIP limits block a move?
+        a: Yes. WIP behavior can warn while permitting the move or block the complete proposed move. Column limits can be refined by swimlane-specific limits.
+      - q: Does Kanban include card editing?
+        a: Yes. The companion card-editor plugin supplies a schema-driven form, validation, CRUD, and history integration. It can be customized, disabled, intercepted, or replaced.
+      - q: Can it handle large boards?
+        a: Yes. Kanban uses RevoGrid row and column virtualization with bounded rendered DOM, so there is no fixed card limit. Practical capacity depends on the user's hardware, card templates, and surrounding application workload.
+      - q: Does it support React, Vue, and Angular?
+        a: Yes. The public showcase includes TypeScript, React, Vue, and Angular reference applications. The underlying Web Component can also be integrated with other frontend stacks.
+      - q: Is Kanban included in Pro Advanced?
+        a: Yes. RevoGrid Kanban is part of the Pro Advanced bundle.
+  evaluation:
+    id: kanban-pricing-trial
+    kicker: Pricing and trial
+    title: Evaluate Kanban inside your own product workflow.
+    description: RevoGrid Kanban is included in Pro Advanced with per-developer licensing and no runtime royalties or deployment counting.
+    priceLabel: Pro Advanced current USD price
+    items:
+      - title: 30-day trial
+        description: Request approved private npm access and validate the board with your data, policies, templates, and persistence layer.
+      - title: Unlimited production usage
+        description: Licensed applications can deploy Kanban without per-deployment or per-end-user charges, subject to the license terms.
+      - title: Full Advanced bundle
+        description: Use Kanban alongside Pivot, Gantt, Scheduler, advanced grid plugins, original source access, and priority support.
+    actions:
+      - label: Request Pro Trial
+        href: /trial
+      - label: Review all pricing
+        href: /pricing
+        variant: secondary
+  linkSections:
+    id: kanban-resources
+    kicker: Documentation and source
+    title: Continue from the product page into implementation details.
+    description: Use the focused guides for exact configuration, movement, editing, persistence, accessibility, and performance.
+    sections:
+      - title: Start here
+        items:
+          - label: Kanban overview
+            href: https://pro.rv-grid.com/guides/kanban/
+          - label: Data model
+            href: https://pro.rv-grid.com/guides/kanban/data-model/
+          - label: Framework examples
+            href: https://pro.rv-grid.com/guides/kanban/examples/
+      - title: Workflow behavior
+        items:
+          - label: Drag, drop, and selection
+            href: https://pro.rv-grid.com/guides/kanban/interaction/
+          - label: Swimlanes, WIP, and rules
+            href: https://pro.rv-grid.com/guides/kanban/swimlanes-wip-rules/
+          - label: Filtering, history, and state
+            href: https://pro.rv-grid.com/guides/kanban/filtering-history-state/
+      - title: Product integration
+        items:
+          - label: Card editor
+            href: https://pro.rv-grid.com/guides/kanban/card-editor/
+          - label: Events and methods
+            href: https://pro.rv-grid.com/guides/kanban/events-methods/
+          - label: Customization and i18n
+            href: https://pro.rv-grid.com/guides/kanban/customization-i18n/
+      - title: Validation and source
+        items:
+          - label: Accessibility and performance
+            href: https://pro.rv-grid.com/guides/kanban/accessibility-performance/
+          - label: Kanban showcase repository
+            href: https://github.com/revolist/kanban
+  advancedCallout:
+    title: Kanban is part of the Pro Advanced bundle.
+  cta:
+    title: Ship a workflow board without creating another data silo.
+    description: Project your RevoGrid source into Kanban, adapt the board to your product, and keep workflow policy and persistence under application control.
+    primaryHref: /demo/kanban
+    primaryLabel: Try Interactive Demo
+    secondaryHref: /trial
+    secondaryLabel: Request Pro Trial
+---
+
+<script lang="ts" setup>
+import GanttPageLayout from './gantt/GanttPageLayout.vue'
+</script>
+
+<GanttPageLayout />

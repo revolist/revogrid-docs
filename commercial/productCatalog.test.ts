@@ -55,11 +55,14 @@ test('preserves plan inheritance and feature ownership', () => {
   assert.equal(planIncludesFeature('pro-lite', 'pivot'), false)
   assert.equal(planIncludesFeature('pro-advanced', 'pivot'), true)
   assert.equal(planIncludesFeature('enterprise', 'pivot'), true)
+  assert.equal(planIncludesFeature('pro-lite', 'kanban'), false)
+  assert.equal(planIncludesFeature('pro-advanced', 'kanban'), true)
+  assert.equal(planIncludesFeature('enterprise', 'kanban'), true)
   assert.equal(planIncludesFeature('open-source', 'charts'), false)
 })
 
 test('propagates stable, beta, and preview-capable statuses', () => {
-  for (const productId of ['pivot', 'gantt', 'scheduler', 'event-scheduler'] as const) {
+  for (const productId of ['pivot', 'kanban', 'gantt', 'scheduler', 'event-scheduler'] as const) {
     assert.equal(getProduct(productId).status, 'stable')
   }
   assert.equal(getFeature('collaborative-editing')?.status, 'beta')
@@ -67,6 +70,26 @@ test('propagates stable, beta, and preview-capable statuses', () => {
 
   const statuses: Array<'stable' | 'beta' | 'preview'> = ['stable', 'beta', 'preview']
   assert.deepEqual(statuses, ['stable', 'beta', 'preview'])
+})
+
+test('defines Kanban as a stable Pro Advanced product and offer', () => {
+  const kanban = getProduct('kanban')
+  const feature = getFeature('kanban')
+  const advanced = getPlan('pro-advanced')
+
+  assert.equal(kanban.minimumPlan, 'pro-advanced')
+  assert.equal(kanban.status, 'stable')
+  assert.equal(kanban.featureId, 'kanban')
+  assert.equal(kanban.pageUrl, '/kanban')
+  assert.equal(kanban.demoUrl, '/demo/kanban')
+  assert.equal(kanban.trialUrl, '/trial')
+  assert.equal(feature?.minimumPlan, 'pro-advanced')
+  assert.equal(feature?.docsUrl, '/kanban')
+  assert.equal(feature?.demoUrl, '/demo/kanban')
+  assert.ok(advanced.pricingHighlights.some(({ text }) => text.includes('Kanban')))
+  assert.equal(PRODUCT_CATALOG.demos['kanban-performance'].pageUrl, '/demo/kanban-performance')
+  assert.equal(PRODUCT_CATALOG.demos['kanban-performance'].planId, 'pro-advanced')
+  assert.equal(PRODUCT_CATALOG.demos['kanban-performance'].title, '50K-Task Kanban')
 })
 
 test('keeps JavaScript Scheduler products on the canonical landing experience', () => {
@@ -161,6 +184,22 @@ test('generates route-aware structured-data offers', () => {
     currency: offer.priceCurrency,
   })), [{ price: 375, currency: 'USD' }])
   assert.equal(software.offers[0].url, 'https://rv-grid.com/pricing')
+
+  const kanbanHead = createStructuredDataHead({
+    siteUrl: 'https://rv-grid.com',
+    relativePath: 'kanban.md',
+    title: 'RevoGrid Kanban',
+  })
+  const kanbanSoftwareEntry = kanbanHead.find(([, attrs]) => attrs?.id === 'software-application-json-ld')
+
+  assert.ok(kanbanSoftwareEntry)
+  const kanbanSoftware = JSON.parse(String(kanbanSoftwareEntry[2]))
+  assert.equal(kanbanSoftware.name, 'RevoGrid Kanban')
+  assert.equal(kanbanSoftware.url, 'https://rv-grid.com/kanban')
+  assert.deepEqual(kanbanSoftware.offers.map((offer: { price: number, priceCurrency: string }) => ({
+    price: offer.price,
+    currency: offer.priceCurrency,
+  })), [{ price: 375, currency: 'USD' }])
 })
 
 test('keeps catalog object IDs aligned with their keys', () => {

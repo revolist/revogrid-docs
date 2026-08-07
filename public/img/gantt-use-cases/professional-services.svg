@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Professional services project portfolio in a grid and Gantt timeline</title>
+  <desc id="desc">Conceptual application preview showing a client delivery plan with project tasks, consultants, budget health, weekly timeline bars, dependencies, a milestone, and a workload warning.</desc>
+
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#19372e" flood-opacity="0.10"/>
+    </filter>
+    <clipPath id="appClip">
+      <rect x="30" y="24" width="1140" height="627" rx="22"/>
+    </clipPath>
+    <linearGradient id="summaryBar" x1="0" x2="1">
+      <stop offset="0" stop-color="#188766"/>
+      <stop offset="1" stop-color="#20aa7f"/>
+    </linearGradient>
+    <linearGradient id="blueBar" x1="0" x2="1">
+      <stop offset="0" stop-color="#5967d9"/>
+      <stop offset="1" stop-color="#7481ee"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="#eef4f1"/>
+  <circle cx="1120" cy="52" r="135" fill="#dff2eb" opacity="0.7"/>
+  <circle cx="62" cy="642" r="126" fill="#e8e9fa" opacity="0.65"/>
+
+  <g filter="url(#shadow)">
+    <rect x="30" y="24" width="1140" height="627" rx="22" fill="#ffffff"/>
+  </g>
+
+  <g clip-path="url(#appClip)" font-family="Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <rect x="30" y="24" width="1140" height="72" fill="#ffffff"/>
+    <path d="M30 96H1170" stroke="#dce5e1"/>
+    <rect x="54" y="45" width="32" height="32" rx="9" fill="#168762"/>
+    <path d="M63 55h14M63 61h14M63 67h9" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+    <text x="98" y="62" fill="#16231f" font-size="18" font-weight="700">Client delivery</text>
+    <text x="98" y="80" fill="#75817d" font-size="12">Northstar · CRM transformation</text>
+
+    <rect x="654" y="42" width="160" height="38" rx="19" fill="#f3f5fb"/>
+    <circle cx="676" cy="61" r="7" fill="#6370dc"/>
+    <text x="691" y="66" fill="#48535f" font-size="13" font-weight="600">Capacity 82%</text>
+    <rect x="826" y="42" width="170" height="38" rx="19" fill="#edf8f4"/>
+    <circle cx="848" cy="61" r="7" fill="#18a277"/>
+    <text x="863" y="66" fill="#355149" font-size="13" font-weight="600">Budget 68% used</text>
+    <rect x="1008" y="42" width="138" height="38" rx="10" fill="#168762"/>
+    <text x="1077" y="66" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Update plan</text>
+
+    <rect x="30" y="97" width="507" height="554" fill="#fbfcfc"/>
+    <rect x="537" y="97" width="633" height="554" fill="#ffffff"/>
+    <path d="M537 97V651" stroke="#cfdad5" stroke-width="1.5"/>
+
+    <rect x="30" y="97" width="507" height="54" fill="#f4f7f6"/>
+    <text x="59" y="130" fill="#65736e" font-size="12" font-weight="700" letter-spacing="0.7">CLIENT / DELIVERABLE</text>
+    <text x="340" y="130" fill="#65736e" font-size="12" font-weight="700" letter-spacing="0.7">LEAD</text>
+    <text x="439" y="130" fill="#65736e" font-size="12" font-weight="700" letter-spacing="0.7">BUDGET</text>
+    <path d="M324 97V651M422 97V651" stroke="#e5ebe8"/>
+
+    <rect x="537" y="97" width="633" height="54" fill="#f4f7f6"/>
+    <text x="582" y="119" fill="#7a8581" font-size="11" font-weight="700">JUN 01</text>
+    <text x="680" y="119" fill="#7a8581" font-size="11" font-weight="700">JUN 08</text>
+    <text x="778" y="119" fill="#7a8581" font-size="11" font-weight="700">JUN 15</text>
+    <text x="876" y="119" fill="#7a8581" font-size="11" font-weight="700">JUN 22</text>
+    <text x="974" y="119" fill="#7a8581" font-size="11" font-weight="700">JUN 29</text>
+    <text x="1072" y="119" fill="#7a8581" font-size="11" font-weight="700">JUL 06</text>
+    <path d="M635 97V651M733 97V651M831 97V651M929 97V651M1027 97V651M1125 97V651" stroke="#e8eeeb"/>
+    <path d="M537 151H1170" stroke="#dce5e1"/>
+
+    <rect x="30" y="151" width="1140" height="62" fill="#f1f8f5"/>
+    <path d="M30 213H1170" stroke="#dce5e1"/>
+    <path d="M61 177l5 5 5-5" fill="none" stroke="#63716c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="85" y="177" fill="#182621" font-size="14" font-weight="700">Northstar rollout</text>
+    <text x="85" y="196" fill="#71807a" font-size="12">6 deliverables · target Jul 10</text>
+    <circle cx="361" cy="181" r="16" fill="#dfe5fb"/>
+    <text x="361" y="186" text-anchor="middle" fill="#5362c8" font-size="11" font-weight="800">AM</text>
+    <text x="439" y="178" fill="#30413b" font-size="13" font-weight="700">$86k</text>
+    <text x="439" y="196" fill="#188763" font-size="11" font-weight="700">On track</text>
+    <rect x="566" y="174" width="492" height="15" rx="7.5" fill="url(#summaryBar)"/>
+    <rect x="566" y="174" width="334" height="15" rx="7.5" fill="#126d51" opacity="0.42"/>
+    <circle cx="1058" cy="181.5" r="4" fill="#ffffff"/>
+
+    <g fill="#ffffff">
+      <rect x="30" y="213" width="1140" height="62"/>
+      <rect x="30" y="275" width="1140" height="62"/>
+      <rect x="30" y="337" width="1140" height="62"/>
+      <rect x="30" y="399" width="1140" height="62"/>
+      <rect x="30" y="461" width="1140" height="62"/>
+      <rect x="30" y="523" width="1140" height="62"/>
+    </g>
+    <g stroke="#e5ebe8">
+      <path d="M30 275H1170M30 337H1170M30 399H1170M30 461H1170M30 523H1170M30 585H1170"/>
+    </g>
+
+    <g fill="#23312c" font-size="13" font-weight="600">
+      <text x="86" y="246">Discovery workshops</text>
+      <text x="86" y="308">Process blueprint</text>
+      <text x="86" y="370">Integration build</text>
+      <text x="86" y="432">Data migration rehearsal</text>
+      <text x="86" y="494">Client acceptance</text>
+      <text x="86" y="556">Go-live readiness</text>
+    </g>
+    <g fill="#89938f" font-size="11">
+      <text x="59" y="246">01</text>
+      <text x="59" y="308">02</text>
+      <text x="59" y="370">03</text>
+      <text x="59" y="432">04</text>
+      <text x="59" y="494">05</text>
+      <text x="59" y="556">◆</text>
+    </g>
+
+    <g font-size="10" font-weight="800" text-anchor="middle">
+      <circle cx="350" cy="244" r="15" fill="#f4ddf7"/><text x="350" y="248" fill="#91509d">NP</text>
+      <circle cx="373" cy="244" r="15" fill="#dfe5fb"/><text x="373" y="248" fill="#5362c8">AM</text>
+      <circle cx="350" cy="306" r="15" fill="#dff2eb"/><text x="350" y="310" fill="#187c5f">JS</text>
+      <circle cx="350" cy="368" r="15" fill="#dfe5fb"/><text x="350" y="372" fill="#5362c8">AM</text>
+      <circle cx="373" cy="368" r="15" fill="#fbe6d9"/><text x="373" y="372" fill="#a76032">LK</text>
+      <circle cx="350" cy="430" r="15" fill="#fbe6d9"/><text x="350" y="434" fill="#a76032">LK</text>
+      <circle cx="350" cy="492" r="15" fill="#f4ddf7"/><text x="350" y="496" fill="#91509d">NP</text>
+      <circle cx="350" cy="554" r="15" fill="#dff2eb"/><text x="350" y="558" fill="#187c5f">JS</text>
+    </g>
+
+    <g font-size="12" font-weight="700">
+      <text x="439" y="248" fill="#34433e">$8.4k</text>
+      <text x="439" y="310" fill="#34433e">$12.7k</text>
+      <text x="439" y="372" fill="#34433e">$31.6k</text>
+      <text x="439" y="434" fill="#34433e">$18.2k</text>
+      <text x="439" y="496" fill="#a85c30">$14.1k</text>
+      <text x="439" y="558" fill="#63716c">—</text>
+    </g>
+    <rect x="476" y="479" width="48" height="20" rx="10" fill="#fff0e6"/>
+    <text x="500" y="493" text-anchor="middle" fill="#a85c30" font-size="10" font-weight="800">WATCH</text>
+
+    <g>
+      <rect x="566" y="233" width="112" height="20" rx="6" fill="#6775df"/>
+      <rect x="580" y="239" width="63" height="8" rx="4" fill="#ffffff" opacity="0.25"/>
+      <rect x="654" y="295" width="139" height="20" rx="6" fill="url(#blueBar)"/>
+      <rect x="761" y="357" width="181" height="20" rx="6" fill="#1b9a72"/>
+      <rect x="872" y="419" width="140" height="20" rx="6" fill="#6775df"/>
+      <rect x="970" y="481" width="105" height="20" rx="6" fill="#8a63d2"/>
+      <path d="M1089 535l13 13-13 13-13-13z" fill="#168762"/>
+    </g>
+
+    <g fill="none" stroke="#98a5a0" stroke-width="1.5">
+      <path d="M678 243h14v62h-38"/>
+      <path d="M793 305h17v62h-49"/>
+      <path d="M942 367h17v62h-87"/>
+      <path d="M1012 429h16v62h-58"/>
+      <path d="M1075 491h14v44"/>
+    </g>
+    <g fill="#98a5a0">
+      <path d="M654 305l7-4v8z"/>
+      <path d="M761 367l7-4v8z"/>
+      <path d="M872 429l7-4v8z"/>
+      <path d="M970 491l7-4v8z"/>
+      <path d="M1089 535l-4-7h8z"/>
+    </g>
+
+    <path d="M831 151V585" stroke="#d95c72" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.75"/>
+    <rect x="806" y="157" width="50" height="20" rx="10" fill="#fff0f3"/>
+    <text x="831" y="171" text-anchor="middle" fill="#bd4b61" font-size="10" font-weight="800">TODAY</text>
+
+    <rect x="30" y="585" width="1140" height="66" fill="#f7f9f8"/>
+    <text x="59" y="611" fill="#6d7974" font-size="11" font-weight="700" letter-spacing="0.6">TEAM LOAD THIS WEEK</text>
+    <circle cx="350" cy="625" r="8" fill="#dfe5fb"/>
+    <text x="366" y="630" fill="#46534e" font-size="12" font-weight="700">Architecture</text>
+    <rect x="449" y="618" width="86" height="13" rx="6.5" fill="#e1e7e4"/>
+    <rect x="449" y="618" width="72" height="13" rx="6.5" fill="#e5844a"/>
+    <text x="548" y="629" fill="#9a542c" font-size="11" font-weight="800">108%</text>
+    <text x="602" y="629" fill="#77827e" font-size="12">Shift review by 2 days to protect delivery.</text>
+    <rect x="1017" y="604" width="129" height="32" rx="9" fill="#ffffff" stroke="#d4ded9"/>
+    <text x="1081" y="625" text-anchor="middle" fill="#34433e" font-size="12" font-weight="700">Review capacity</text>
+  </g>
+</svg>

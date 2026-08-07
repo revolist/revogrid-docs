@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="internal-tools-title internal-tools-desc">
+  <title id="internal-tools-title">Cross-functional internal operations plan in a grid and Gantt timeline</title>
+  <desc id="internal-tools-desc">Conceptual product preview showing operations, finance, support, marketing, and engineering work with owners, systems, statuses, connected handoffs, and a release-readiness milestone.</desc>
+
+  <defs>
+    <filter id="panel-shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#17382f" flood-opacity="0.11"/>
+    </filter>
+    <clipPath id="internal-app-clip">
+      <rect x="30" y="24" width="1140" height="627" rx="22"/>
+    </clipPath>
+    <linearGradient id="green-summary" x1="0" x2="1">
+      <stop offset="0" stop-color="#16835f"/>
+      <stop offset="1" stop-color="#20a67c"/>
+    </linearGradient>
+    <marker id="handoff-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 8 4 0 8Z" fill="#7b8a84"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="675" fill="#eff5f2"/>
+  <circle cx="1115" cy="58" r="132" fill="#dff3eb" opacity="0.78"/>
+  <circle cx="68" cy="640" r="120" fill="#e9e7f8" opacity="0.64"/>
+
+  <g filter="url(#panel-shadow)">
+    <rect x="30" y="24" width="1140" height="627" rx="22" fill="#ffffff"/>
+  </g>
+
+  <g clip-path="url(#internal-app-clip)" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <rect x="30" y="24" width="1140" height="76" fill="#ffffff"/>
+    <path d="M30 100H1170" stroke="#dce6e1"/>
+
+    <rect x="56" y="47" width="32" height="32" rx="9" fill="#16835f"/>
+    <path d="M65 57h14M65 63h10M65 69h14" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+    <text x="101" y="64" fill="#17251f" font-size="18" font-weight="750">Launch readiness</text>
+    <text x="101" y="82" fill="#74817b" font-size="12">Cross-functional operating plan · Release 4.8</text>
+
+    <rect x="731" y="44" width="126" height="38" rx="19" fill="#eef8f4"/>
+    <circle cx="751" cy="63" r="6" fill="#19a176"/>
+    <text x="765" y="68" fill="#35554a" font-size="12" font-weight="700">12 on track</text>
+    <rect x="868" y="44" width="118" height="38" rx="19" fill="#fff5de"/>
+    <circle cx="888" cy="63" r="6" fill="#d99416"/>
+    <text x="902" y="68" fill="#76520e" font-size="12" font-weight="700">2 need input</text>
+    <rect x="998" y="44" width="146" height="38" rx="10" fill="#16835f"/>
+    <text x="1071" y="68" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="750">Review changes</text>
+
+    <rect x="30" y="100" width="526" height="551" fill="#fbfcfc"/>
+    <rect x="556" y="100" width="614" height="551" fill="#ffffff"/>
+    <path d="M556 100V651" stroke="#cbd8d2" stroke-width="1.5"/>
+
+    <rect x="30" y="100" width="1140" height="65" fill="#f4f7f6"/>
+    <g fill="#65736d" font-size="12" font-weight="750" letter-spacing="0.45">
+      <text x="58" y="139">WORKSTREAM / TASK</text>
+      <text x="326" y="139">OWNER</text>
+      <text x="389" y="139">STATUS</text>
+      <text x="478" y="139">SYSTEM</text>
+    </g>
+    <g fill="#67756f" font-size="11" font-weight="750" text-anchor="middle">
+      <text x="599" y="123">AUG 10</text>
+      <text x="689" y="123">AUG 17</text>
+      <text x="779" y="123">AUG 24</text>
+      <text x="869" y="123">AUG 31</text>
+      <text x="959" y="123">SEP 07</text>
+      <text x="1049" y="123">SEP 14</text>
+      <text x="1139" y="123">SEP 21</text>
+    </g>
+    <g stroke="#e5ece8">
+      <path d="M308 100V651M374 100V651M466 100V651"/>
+      <path d="M646 100V651M736 100V651M826 100V651M916 100V651M1006 100V651M1096 100V651"/>
+      <path d="M30 165H1170" stroke="#d9e3de"/>
+    </g>
+
+    <rect x="30" y="165" width="1140" height="62" fill="#eef7f3"/>
+    <path d="M30 227H1170" stroke="#d9e3de"/>
+    <path d="M59 189l5 5 5-5" fill="none" stroke="#64736d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="84" y="193" fill="#17251f" font-size="14" font-weight="750">Release 4.8 readiness</text>
+    <text x="84" y="212" fill="#73807a" font-size="12">5 teams · target Sep 18</text>
+    <circle cx="341" cy="196" r="16" fill="#dff1ea"/>
+    <text x="341" y="201" text-anchor="middle" fill="#187a5d" font-size="11" font-weight="800">AK</text>
+    <rect x="389" y="184" width="65" height="24" rx="12" fill="#e5f6ef"/>
+    <text x="421.5" y="200" text-anchor="middle" fill="#087b55" font-size="11" font-weight="750">ON TRACK</text>
+    <text x="478" y="200" fill="#55635d" font-size="12" font-weight="650">Portfolio</text>
+    <rect x="584" y="188" width="490" height="16" rx="8" fill="#cfe8df"/>
+    <rect x="584" y="188" width="320" height="16" rx="8" fill="url(#green-summary)"/>
+    <text x="1086" y="201" fill="#4c5c55" font-size="11" font-weight="750">65%</text>
+
+    <g fill="#ffffff">
+      <rect x="30" y="227" width="1140" height="62"/>
+      <rect x="30" y="289" width="1140" height="62"/>
+      <rect x="30" y="351" width="1140" height="62"/>
+      <rect x="30" y="413" width="1140" height="62"/>
+      <rect x="30" y="475" width="1140" height="62"/>
+      <rect x="30" y="537" width="1140" height="62"/>
+    </g>
+    <g stroke="#e5ece8">
+      <path d="M30 289H1170M30 351H1170M30 413H1170M30 475H1170M30 537H1170M30 599H1170"/>
+    </g>
+
+    <g fill="#27352f" font-size="13" font-weight="650">
+      <text x="58" y="255">Operations · runbook review</text>
+      <text x="58" y="317">Finance · billing rules sign-off</text>
+      <text x="58" y="379">Engineering · production deploy</text>
+      <text x="58" y="441">Support · launch playbook</text>
+      <text x="58" y="503">Onboarding · customer cohort</text>
+      <text x="58" y="565">Marketing · release campaign</text>
+    </g>
+    <g fill="#82908a" font-size="11">
+      <text x="58" y="273">Incident paths and rollback owners</text>
+      <text x="58" y="335">Pricing, tax, and invoice checks</text>
+      <text x="58" y="397">Feature flags and monitoring</text>
+      <text x="58" y="459">Escalation and response guidance</text>
+      <text x="58" y="521">Training, access, and first value</text>
+      <text x="58" y="583">Docs, email, and launch page</text>
+    </g>
+
+    <g font-size="10.5" font-weight="800" text-anchor="middle">
+      <circle cx="341" cy="258" r="15" fill="#dff1ea"/><text x="341" y="262" fill="#187a5d">AK</text>
+      <circle cx="341" cy="320" r="15" fill="#fff0d3"/><text x="341" y="324" fill="#96620d">MR</text>
+      <circle cx="341" cy="382" r="15" fill="#e1eafa"/><text x="341" y="386" fill="#4067a8">JL</text>
+      <circle cx="341" cy="444" r="15" fill="#eae3f8"/><text x="341" y="448" fill="#7552a2">SN</text>
+      <circle cx="341" cy="506" r="15" fill="#dff3f5"/><text x="341" y="510" fill="#277984">DT</text>
+      <circle cx="341" cy="568" r="15" fill="#f4e1ed"/><text x="341" y="572" fill="#965170">EP</text>
+    </g>
+
+    <g font-size="10.5" font-weight="750" text-anchor="middle">
+      <rect x="389" y="246" width="65" height="23" rx="11.5" fill="#e5f6ef"/><text x="421.5" y="261.5" fill="#087b55">READY</text>
+      <rect x="389" y="308" width="65" height="23" rx="11.5" fill="#fff5de"/><text x="421.5" y="323.5" fill="#8a5a0c">REVIEW</text>
+      <rect x="389" y="370" width="65" height="23" rx="11.5" fill="#edf2fb"/><text x="421.5" y="385.5" fill="#4067a8">PLANNED</text>
+      <rect x="389" y="432" width="65" height="23" rx="11.5" fill="#e5f6ef"/><text x="421.5" y="447.5" fill="#087b55">READY</text>
+      <rect x="389" y="494" width="65" height="23" rx="11.5" fill="#eef2f0"/><text x="421.5" y="509.5" fill="#5c6963">DRAFT</text>
+      <rect x="389" y="556" width="65" height="23" rx="11.5" fill="#fff5de"/><text x="421.5" y="571.5" fill="#8a5a0c">REVIEW</text>
+    </g>
+
+    <g fill="#55635d" font-size="11.5" font-weight="650">
+      <text x="478" y="262">Ops Hub</text>
+      <text x="478" y="324">ERP</text>
+      <text x="478" y="386">Git</text>
+      <text x="478" y="448">Helpdesk</text>
+      <text x="478" y="510">CRM</text>
+      <text x="478" y="572">CMS</text>
+    </g>
+
+    <g>
+      <rect x="588" y="246" width="150" height="23" rx="7" fill="#1b9870"/>
+      <rect x="690" y="308" width="126" height="23" rx="7" fill="#e2a331"/>
+      <rect x="828" y="370" width="142" height="23" rx="7" fill="#4b89d1"/>
+      <rect x="914" y="432" width="112" height="23" rx="7" fill="#8061bf"/>
+      <rect x="974" y="494" width="110" height="23" rx="7" fill="#36a7b3"/>
+      <rect x="922" y="556" width="153" height="23" rx="7" fill="#b86f91"/>
+    </g>
+
+    <g fill="none" stroke="#7b8a84" stroke-width="1.7" marker-end="url(#handoff-arrow)">
+      <path d="M738 257.5h18v62h-61"/>
+      <path d="M816 319.5h20v62h-8"/>
+      <path d="M970 381.5h18v62h-74"/>
+      <path d="M1026 443.5h22v62h-74"/>
+      <path d="M1084 505.5h20v62h-29"/>
+    </g>
+
+    <path d="M1098 545l14 14-14 14-14-14z" fill="#16835f" stroke="#0d6f50" stroke-width="2"/>
+    <text x="1098" y="536" text-anchor="middle" fill="#0d6f50" font-size="11" font-weight="800">READY</text>
+    <path d="M1006 165V599" stroke="#d96572" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.78"/>
+    <rect x="980" y="172" width="52" height="22" rx="11" fill="#fff0f2"/>
+    <text x="1006" y="187" text-anchor="middle" fill="#b54a5a" font-size="11" font-weight="800">TODAY</text>
+
+    <rect x="30" y="599" width="1140" height="52" fill="#f7f9f8"/>
+    <circle cx="61" cy="625" r="8" fill="#e2a331"/>
+    <text x="78" y="630" fill="#46544e" font-size="12" font-weight="700">Finance sign-off gates deployment</text>
+    <text x="302" y="630" fill="#7b8782" font-size="12">The handoff and owner stay visible beside the work.</text>
+    <rect x="1000" y="609" width="144" height="32" rx="9" fill="#ffffff" stroke="#d2ddd7"/>
+    <text x="1072" y="630" text-anchor="middle" fill="#33443d" font-size="12" font-weight="700">Open dependency</text>
+  </g>
+</svg>

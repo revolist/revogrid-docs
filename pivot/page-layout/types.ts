@@ -7,6 +7,26 @@ export type PivotLandingAction = {
   arrow?: boolean
 }
 
+export type PivotFeatureMedia = {
+  src: string
+  alt: string
+  caption: string
+  width: number
+  height: number
+  position?: string
+}
+
+export type PivotFeatureItem = {
+  icon: string
+  title: string
+  description: string
+  tags: string[]
+  media?: PivotFeatureMedia
+  href?: string
+  cta?: string
+  featured?: boolean
+}
+
 export type PivotLandingPage = {
   catalogProductId: 'pivot'
   colors: {
@@ -27,7 +47,6 @@ export type PivotLandingPage = {
     titleSuffix: string
     description: string
     actions: PivotLandingAction[]
-    frameworkLinks: PivotLandingAction[]
     badges: string[]
   }
   preview: {
@@ -40,7 +59,14 @@ export type PivotLandingPage = {
     kicker: string
     title: string
     description: string
-    items: { icon: string, title: string, description: string, tags: string[], codeExample?: string }[]
+    items: PivotFeatureItem[]
+  }
+  integrations: {
+    id: string
+    kicker: string
+    title: string
+    description: string
+    items: { icon: string, name: string, badge?: string, href?: string }[]
   }
   useCases: {
     enabled: boolean

@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="erp-title erp-desc">
+  <title id="erp-title">Conceptual ERP Gantt planning workspace</title>
+  <desc id="erp-desc">A clean application preview with ERP work orders, customers, statuses, and machines in an operational grid beside a weekly Gantt timeline with task bars, dependencies, a blocker, and a delivery milestone.</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#16352a" flood-opacity="0.11"/>
+    </filter>
+    <clipPath id="app-clip">
+      <rect x="32" y="28" width="1136" height="619" rx="22"/>
+    </clipPath>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 8 4 0 8Z" fill="#60716a"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="675" fill="#f3f7f5"/>
+  <circle cx="1128" cy="80" r="118" fill="#dff6eb" opacity="0.75"/>
+  <circle cx="64" cy="626" r="92" fill="#e5eefc" opacity="0.7"/>
+
+  <g filter="url(#shadow)">
+    <rect x="32" y="28" width="1136" height="619" rx="22" fill="#ffffff" stroke="#dfe7e2"/>
+  </g>
+
+  <g clip-path="url(#app-clip)" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <rect x="32" y="28" width="1136" height="72" fill="#fbfcfb"/>
+    <path d="M32 100H1168" stroke="#dfe7e2"/>
+
+    <g transform="translate(58 50)">
+      <rect width="30" height="30" rx="8" fill="#10b981"/>
+      <path d="M8 9h14M8 15h9M8 21h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+      <text x="44" y="14" fill="#17231e" font-size="15" font-weight="700">Northstar ERP</text>
+      <text x="44" y="30" fill="#75837d" font-size="12">Production planning</text>
+    </g>
+
+    <g transform="translate(704 48)" font-size="12" font-weight="650">
+      <rect width="126" height="34" rx="17" fill="#eff5f2"/>
+      <circle cx="18" cy="17" r="5" fill="#10b981"/>
+      <text x="31" y="21" fill="#42534c">18 active orders</text>
+      <rect x="138" width="102" height="34" rx="17" fill="#fff6df"/>
+      <circle cx="156" cy="17" r="5" fill="#e5a11a"/>
+      <text x="169" y="21" fill="#76520c">2 at risk</text>
+      <rect x="252" width="152" height="34" rx="17" fill="#eaf2ff"/>
+      <path d="M269 11v12M264 16h10" stroke="#3779d6" stroke-width="2" stroke-linecap="round"/>
+      <text x="282" y="21" fill="#285c9f">New work order</text>
+    </g>
+
+    <rect x="32" y="100" width="1136" height="54" fill="#ffffff"/>
+    <text x="58" y="133" fill="#17231e" font-size="18" font-weight="720">Customer commitments</text>
+    <g transform="translate(875 112)" font-size="12" fill="#53645c">
+      <rect width="102" height="30" rx="8" fill="#f4f7f5" stroke="#dfe7e2"/>
+      <path d="M14 9v12M9 14h10" stroke="#60716a" stroke-width="1.5"/>
+      <text x="28" y="19">All plants</text>
+      <rect x="112" width="145" height="30" rx="8" fill="#f4f7f5" stroke="#dfe7e2"/>
+      <circle cx="128" cy="15" r="5" fill="none" stroke="#60716a" stroke-width="1.5"/>
+      <path d="m132 19 4 4" stroke="#60716a" stroke-width="1.5" stroke-linecap="round"/>
+      <text x="143" y="19">Search orders</text>
+    </g>
+
+    <rect x="32" y="154" width="530" height="493" fill="#fbfcfb"/>
+    <rect x="562" y="154" width="606" height="493" fill="#ffffff"/>
+    <path d="M562 154V647" stroke="#cad6d0" stroke-width="2"/>
+
+    <rect x="32" y="154" width="1136" height="66" fill="#f5f8f6"/>
+    <path d="M32 220H1168" stroke="#dfe7e2"/>
+    <g fill="#60716a" font-size="12" font-weight="700" letter-spacing="0.4">
+      <text x="58" y="194">WORK ORDER</text>
+      <text x="268" y="194">CUSTOMER</text>
+      <text x="366" y="194">STATUS</text>
+      <text x="474" y="194">MACHINE</text>
+      <text x="590" y="175">MAY</text>
+      <text x="903" y="175">JUNE</text>
+    </g>
+    <g fill="#53645c" font-size="12" font-weight="650" text-anchor="middle">
+      <text x="605" y="205">13</text>
+      <text x="683" y="205">20</text>
+      <text x="761" y="205">27</text>
+      <text x="839" y="205">3</text>
+      <text x="917" y="205">10</text>
+      <text x="995" y="205">17</text>
+      <text x="1073" y="205">24</text>
+      <text x="1145" y="205">1</text>
+    </g>
+
+    <g stroke="#edf1ef">
+      <path d="M32 282H1168M32 344H1168M32 406H1168M32 468H1168M32 530H1168M32 592H1168"/>
+      <path d="M250 154V647M350 154V647M460 154V647"/>
+      <path d="M644 154V647M722 154V647M800 154V647M878 154V647M956 154V647M1034 154V647M1112 154V647"/>
+    </g>
+    <g fill="#f8faf9">
+      <rect x="644" y="220" width="78" height="427"/>
+      <rect x="800" y="220" width="78" height="427"/>
+      <rect x="956" y="220" width="78" height="427"/>
+      <rect x="1112" y="220" width="56" height="427"/>
+    </g>
+
+    <g font-size="13" fill="#27372f">
+      <g font-weight="720">
+        <path d="m58 248 5 5 5-5" fill="none" stroke="#60716a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="79" y="257">WO-2418 · Retail rollout</text>
+      </g>
+      <text x="268" y="257" fill="#53645c">Nova Health</text>
+      <g transform="translate(366 238)">
+        <rect width="72" height="25" rx="12.5" fill="#fff1d2"/>
+        <circle cx="13" cy="12.5" r="4" fill="#e5a11a"/>
+        <text x="24" y="17" fill="#76520c" font-size="12" font-weight="650">At risk</text>
+      </g>
+      <text x="474" y="257" fill="#8a9691">—</text>
+
+      <circle cx="71" cy="313" r="3" fill="#a7b3ad"/>
+      <text x="86" y="318" font-weight="620">Cut aluminum frames</text>
+      <text x="268" y="318" fill="#53645c">Nova Health</text>
+      <g transform="translate(366 300)">
+        <rect width="82" height="25" rx="12.5" fill="#e5f7ef"/>
+        <text x="12" y="17" fill="#087d55" font-size="12" font-weight="650">In progress</text>
+      </g>
+      <text x="474" y="318" fill="#53645c">CNC-04</text>
+
+      <circle cx="71" cy="375" r="3" fill="#a7b3ad"/>
+      <text x="86" y="380" font-weight="620">Powder-coat batch</text>
+      <text x="268" y="380" fill="#53645c">Nova Health</text>
+      <g transform="translate(366 362)">
+        <rect width="68" height="25" rx="12.5" fill="#f0f2f1"/>
+        <text x="12" y="17" fill="#596861" font-size="12" font-weight="650">Waiting</text>
+      </g>
+      <text x="474" y="380" fill="#53645c">Line-2</text>
+
+      <circle cx="71" cy="437" r="3" fill="#a7b3ad"/>
+      <text x="86" y="442" font-weight="620">Final assembly</text>
+      <text x="268" y="442" fill="#53645c">Nova Health</text>
+      <g transform="translate(366 424)">
+        <rect width="67" height="25" rx="12.5" fill="#eaf2ff"/>
+        <text x="12" y="17" fill="#285c9f" font-size="12" font-weight="650">Planned</text>
+      </g>
+      <text x="474" y="442" fill="#53645c">Cell-A</text>
+
+      <circle cx="71" cy="499" r="3" fill="#a7b3ad"/>
+      <text x="86" y="504" font-weight="620">Quality inspection</text>
+      <text x="268" y="504" fill="#53645c">Nova Health</text>
+      <g transform="translate(366 486)">
+        <rect width="69" height="25" rx="12.5" fill="#ffebe7"/>
+        <text x="12" y="17" fill="#a33b2b" font-size="12" font-weight="650">Blocked</text>
+      </g>
+      <text x="474" y="504" fill="#53645c">QA-1</text>
+
+      <circle cx="71" cy="561" r="3" fill="#a7b3ad"/>
+      <text x="86" y="566" font-weight="620">Ship customer order</text>
+      <text x="268" y="566" fill="#53645c">Nova Health</text>
+      <g transform="translate(366 548)">
+        <rect width="78" height="25" rx="12.5" fill="#e5f7ef"/>
+        <text x="12" y="17" fill="#087d55" font-size="12" font-weight="650">Committed</text>
+      </g>
+      <text x="474" y="566" fill="#53645c">Dock-3</text>
+
+      <g font-weight="720">
+        <path d="m58 620 5-5 5 5" fill="none" stroke="#60716a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="79" y="624">WO-2421 · Service units</text>
+      </g>
+      <text x="268" y="624" fill="#53645c">FieldWorks</text>
+      <g transform="translate(366 606)">
+        <rect width="67" height="25" rx="12.5" fill="#eaf2ff"/>
+        <text x="12" y="17" fill="#285c9f" font-size="12" font-weight="650">Planned</text>
+      </g>
+      <text x="474" y="624" fill="#8a9691">—</text>
+    </g>
+
+    <g>
+      <rect x="610" y="243" width="450" height="14" rx="7" fill="#cfe9df"/>
+      <rect x="610" y="243" width="273" height="14" rx="7" fill="#158562"/>
+      <text x="1073" y="257" fill="#53645c" font-size="12" font-weight="650">61%</text>
+
+      <rect x="616" y="301" width="170" height="24" rx="7" fill="#12aa78"/>
+      <rect x="616" y="301" width="114" height="24" rx="7" fill="#087d55"/>
+      <text x="630" y="318" fill="#ffffff" font-size="12" font-weight="700">67% complete</text>
+
+      <rect x="810" y="363" width="120" height="24" rx="7" fill="#e9ad34"/>
+      <text x="824" y="380" fill="#563a08" font-size="12" font-weight="700">Material hold</text>
+
+      <rect x="942" y="425" width="94" height="24" rx="7" fill="#4c8edf"/>
+      <rect x="1048" y="487" width="57" height="24" rx="7" fill="#e07261"/>
+
+      <path d="M786 313H798V375H806" fill="none" stroke="#60716a" stroke-width="2" marker-end="url(#arrow)"/>
+      <path d="M930 375H936V437H938" fill="none" stroke="#60716a" stroke-width="2" marker-end="url(#arrow)"/>
+      <path d="M1036 437H1042V499H1044" fill="none" stroke="#60716a" stroke-width="2" marker-end="url(#arrow)"/>
+      <path d="M1105 499H1118V555H1128" fill="none" stroke="#60716a" stroke-width="2" marker-end="url(#arrow)"/>
+
+      <path d="M1141 548 1152 559 1141 570 1130 559Z" fill="#10b981" stroke="#087d55" stroke-width="2"/>
+      <text x="1141" y="541" text-anchor="middle" fill="#087d55" font-size="12" font-weight="750">SHIP</text>
+    </g>
+
+    <g>
+      <path d="M969 220V647" stroke="#e07261" stroke-width="2" stroke-dasharray="5 5"/>
+      <rect x="941" y="226" width="56" height="23" rx="11.5" fill="#fff0ed"/>
+      <text x="969" y="242" text-anchor="middle" fill="#a33b2b" font-size="12" font-weight="700">TODAY</text>
+    </g>
+
+    <g transform="translate(756 582)">
+      <rect width="276" height="45" rx="10" fill="#fffaf0" stroke="#efcf8e"/>
+      <circle cx="20" cy="22" r="8" fill="#e5a11a"/>
+      <text x="20" y="26" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="800">!</text>
+      <text x="38" y="19" fill="#563a08" font-size="12" font-weight="720">Material ETA affects assembly</text>
+      <text x="38" y="35" fill="#76520c" font-size="12">Review the June 3 commitment</text>
+    </g>
+  </g>
+</svg>
