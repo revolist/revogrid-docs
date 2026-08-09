@@ -1,8 +1,8 @@
 ---
 title: Professional Services Gantt for Client Delivery
 description: Plan client projects, consultants, milestones, delivery capacity, and budget boundaries in one editable professional services Gantt view.
-image: /img/gantt-use-cases/professional-services.svg
-imageAlt: Conceptual professional services Gantt with client deliverables, consultant assignments, budget health, workload, dependencies, and a go-live milestone
+image: /img/gantt-use-cases/professional-services.webp?v=20260808-polished
+imageAlt: Real RevoGrid professional services Gantt with client engagements, consultant assignments, commercial context, dependencies, milestones, and capacity risk
 outline: deep
 head:
   - - meta
@@ -20,15 +20,18 @@ faq:
 
 <script setup lang="ts">
 import GanttClusterCta from './GanttClusterCta.vue'
+import GanttUseCaseMedia from './GanttUseCaseMedia.vue'
 </script>
 
 # Professional Services Gantt for Client Delivery
 
 Client delivery is a human coordination problem before it is a scheduling problem. A project lead needs to know what was promised, who can do the work, what must happen first, and where a small delay will put a client conversation at risk.
 
-![Conceptual professional services Gantt with client deliverables, consultant assignments, budget health, workload, dependencies, and a go-live milestone](/img/gantt-use-cases/professional-services.svg)
-
-*A conceptual preview of a client-delivery workspace: the plan, the people, and the commercial signals stay visible together. It illustrates a possible product experience rather than a live RevoGrid screenshot.*
+<GanttUseCaseMedia
+  slug="professional-services"
+  alt="Real RevoGrid professional services Gantt with client engagements, consultant assignments, commercial context, dependencies, milestones, and capacity risk"
+  caption="Captured from the production-shaped Helio PSA example: client promises, consultant assignments, delivery phases, budget context, and an overlapping specialist decision remain visible together."
+/>
 
 <GanttClusterCta />
 
@@ -85,6 +88,8 @@ Not every field has to be editable. Contract value, approved rates, posted time,
 ## Keep capacity and budget boundaries honest
 
 A colored workload bar is only useful after the product defines capacity. Decide whether 100% means a person's full working calendar, their billable target, or the portion available for project work. Account for part-time schedules, internal responsibilities, leave, and shared assignments. RevoGrid Gantt can display resource utilization and over-allocation diagnostics, but your domain rules determine what counts as a conflict and who may resolve it. See [resource planning](/gantt/resource-planning) and [resource scheduling](/gantt/resource-scheduling) for the modeling details.
+
+For consultant appointments, rota-style availability, or calendar-slot booking without a project dependency chain, compare the [JavaScript Scheduler](/jsscheduler).
 
 Budget needs the same care. Task and resource costs can provide planning context, but a schedule is not a replacement for timesheets, rate cards, invoices, write-offs, or revenue recognition. State which currency and cost basis the view uses, how frequently actuals refresh, and whether the displayed amount is planned cost, consumed budget, forecast at completion, or a simple warning threshold. Avoid blending those measures into one unexplained percentage.
 

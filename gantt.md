@@ -92,7 +92,8 @@ ganttLanding:
         title: Dependencies with lead and lag
         description: Model finish-to-start, start-to-start, finish-to-finish, and start-to-finish links, then validate and edit their lead or lag directly in the plan.
         tags: [FS / SS / FF / SF, Lead and lag, Validation]
-        media: /img/gantt-features/dependencies.webp
+        media: /img/gantt-features/dependencies.webp?v=20260808-chart
+        mediaAspect: 1256 / 275
         mediaAlt: Advanced RevoGrid Gantt dependency example with multiple connector types
         href: https://demo.rv-grid.com/gantt-dependencies-advanced/ts?theme=light
         cta: Try advanced dependencies
@@ -100,7 +101,8 @@ ganttLanding:
         title: Critical path and total slack
         description: Highlight the chain that controls the finish date and expose early dates, late dates, and total slack alongside noncritical work.
         tags: [Critical path, Total slack, Schedule risk]
-        media: /img/gantt-features/critical-path.webp
+        media: /img/gantt-features/critical-path.webp?v=20260808-chart
+        mediaAspect: 1256 / 275
         mediaAlt: RevoGrid Gantt critical path analysis with critical and parallel tasks
         href: https://demo.rv-grid.com/gantt-critical-path-analysis/ts?theme=light
         cta: Inspect critical-path analysis
@@ -116,7 +118,8 @@ ganttLanding:
         title: Resources, capacity, and cost
         description: Assign multiple resources, calculate assignment cost, reveal over-allocation, and switch to a capacity view with deterministic auto-leveling.
         tags: [Assignments, Capacity, Auto-leveling]
-        media: /img/gantt-features/resources.webp
+        media: /img/gantt-features/resources.webp?v=20260808-chart
+        mediaAspect: 1256 / 230
         mediaAlt: RevoGrid Gantt resource load view with capacity and over-allocation bars
         href: https://demo.rv-grid.com/gantt-resource-planning/ts?theme=light
         cta: Explore resource planning
@@ -124,7 +127,8 @@ ganttLanding:
         title: Constraints and deadlines
         description: Combine start and finish constraints with deadline markers and warnings so the schedule explains when authored dates cannot be satisfied.
         tags: [Eight constraint types, Deadlines, Diagnostics]
-        media: /img/gantt-features/constraints.webp
+        media: /img/gantt-features/constraints.webp?v=20260808-chart
+        mediaAspect: 1256 / 430
         mediaAlt: RevoGrid Gantt constraint windows, deadline markers, and warning states
         href: https://demo.rv-grid.com/gantt-constraints-deadlines/ts?theme=light
         cta: Test constraint handling
@@ -132,7 +136,8 @@ ganttLanding:
         title: Progress, actuals, and effort modes
         description: Track actual dates and remaining duration with fixed-duration, fixed-work, and fixed-units scheduling behavior.
         tags: [Actuals, Remaining work, Effort modes]
-        media: /img/gantt-features/progress-work.webp
+        media: /img/gantt-features/progress-work.webp?v=20260808-chart
+        mediaAspect: 1256 / 275
         mediaAlt: RevoGrid Gantt progress and work example with fixed scheduling modes
         href: https://demo.rv-grid.com/gantt-progress-work/ts?theme=light
         cta: Open progress and work
@@ -140,7 +145,8 @@ ganttLanding:
         title: Split-task scheduling
         description: Pause and resume work inside one task span while preserving planned working duration and dependency-aware scheduling.
         tags: [Split ranges, Working time, Dependencies]
-        media: /img/gantt-features/split-tasks.webp
+        media: /img/gantt-features/split-tasks.webp?v=20260808-chart
+        mediaAspect: 1256 / 270
         mediaAlt: RevoGrid Gantt task bars split into multiple working ranges
         href: https://demo.rv-grid.com/gantt-split-tasks/ts?theme=light
         cta: Try split tasks
@@ -156,7 +162,8 @@ ganttLanding:
         title: Product controls and export
         description: Combine undo and redo, read-only or locked tasks, localized dates, custom visuals, JSON project snapshots, and grid export workflows.
         tags: [History, Permissions, JSON / Excel / CSV]
-        media: /img/gantt-features/production.png
+        media: /img/gantt-features/production.png?v=20260808-chart
+        mediaAspect: 2920 / 1400
         mediaAlt: RevoGrid Gantt production patterns with read-only, localization, export, and large-project controls
         href: https://demo.rv-grid.com/gantt-production-patterns/ts?theme=light
         cta: Review production patterns
@@ -263,43 +270,43 @@ ganttLanding:
     title: Where teams embed RevoGrid Gantt.
     description: Use RevoGrid Gantt when planning belongs inside an operational product, not in a separate project-management tab.
     benefits:
-      label: See what a shared visual plan changes for people
-      href: /gantt/benefits-of-gantt-chart
+      label: Explore the complete Gantt use-case library
+      href: /gantt/use-cases
     items:
       - title: ERP
         description: Add work orders, production plans, delivery milestones, and dependency-aware timelines to enterprise resource planning screens.
-        media: /img/gantt-use-cases/erp.svg
-        mediaAlt: Conceptual ERP planning workspace with work orders, operational status fields, a dependency-aware timeline, and a delivery milestone
+        media: /img/gantt-use-cases/erp.webp?v=20260808-polished
+        mediaAlt: Real RevoGrid ERP Gantt with work orders, production status, linked operations, an approved baseline, and delivery commitments
         href: /gantt/erp-gantt
         cta: Explore ERP planning
       - title: PSA
         description: Plan client projects, consultants, milestones, budgets, and delivery capacity inside professional services software.
-        media: /img/gantt-use-cases/professional-services.svg
-        mediaAlt: Conceptual professional services workspace with client deliverables, consultant assignments, budget context, and project milestones
+        media: /img/gantt-use-cases/professional-services.webp?v=20260808-polished
+        mediaAlt: Real RevoGrid professional services Gantt with client engagements, consultant assignments, budget context, milestones, and capacity risk
         href: /gantt/professional-services-gantt
         cta: Explore services delivery
       - title: Construction
         description: Coordinate crews, phases, inspections, suppliers, and handoffs with project schedules tied to live business data.
-        media: /img/gantt-use-cases/construction.svg
-        mediaAlt: Conceptual construction schedule with project phases, crews, inspection milestones, supplier risk, and connected handoffs
+        media: /img/gantt-use-cases/construction.webp?v=20260808-exact
+        mediaAlt: Real RevoGrid construction Gantt with work packages, trade crews, inspections, supplier risk, and connected site handoffs
         href: /gantt/construction-gantt
         cta: Explore construction planning
       - title: Manufacturing
         description: Schedule jobs, machines, materials, changeovers, and dependencies while keeping planning fields editable in the grid.
-        media: /img/gantt-use-cases/manufacturing.svg
-        mediaAlt: Conceptual manufacturing schedule with production orders, machines, material status, changeovers, and dependency-linked operations
+        media: /img/gantt-use-cases/manufacturing.webp?v=20260808-polished
+        mediaAlt: Real RevoGrid manufacturing Gantt with production orders, machines, material gates, changeovers, quality releases, and shipment risk
         href: /gantt/manufacturing-gantt
         cta: Explore production planning
       - title: Resource planning
         description: Assign people, teams, rooms, equipment, or production lines and expose workload context next to task dates.
-        media: /img/gantt-use-cases/resource-planning.svg
-        mediaAlt: Conceptual resource planning workspace with task assignments, capacity indicators, workload warnings, and a shared schedule
+        media: /img/gantt-use-cases/resource-planning.webp?v=20260808-polished
+        mediaAlt: Real RevoGrid resource planning Gantt with assignments, allocation units, shared facilities, workload conflicts, and release milestones
         href: /gantt/resource-planning
         cta: Explore capacity planning
       - title: Internal tools
         description: Build planning views for operations, finance, support, onboarding, marketing, and engineering workflows.
-        media: /img/gantt-use-cases/internal-tools.svg
-        mediaAlt: Conceptual internal operations workspace with cross-functional work, owners, status fields, milestones, and a coordinated timeline
+        media: /img/gantt-use-cases/internal-tools.webp?v=20260808-polished
+        mediaAlt: Real RevoGrid internal operations Gantt with cross-functional owners, source systems, approvals, handoffs, and a release-readiness gate
         href: /gantt/internal-tools-gantt
         cta: Explore internal planning
   faq:
@@ -376,6 +383,8 @@ ganttLanding:
             href: /compare/syncfusion-gantt-alternative
       - title: Industry solutions
         items:
+          - label: All Gantt Use Cases
+            href: /gantt/use-cases
           - label: Gantt for SaaS
             href: /gantt/saas-gantt
           - label: Gantt for ERP

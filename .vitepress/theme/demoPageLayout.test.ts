@@ -37,6 +37,7 @@ const demoSeoFiles = [
   'gantt-horizontal-big-data.md',
   'kanban.md',
   'kanban-performance.md',
+  'kanban-server-loading.md',
   'event-scheduler.md',
   'planning.md',
 ] as const
@@ -70,6 +71,7 @@ test('links advanced demos to their standalone implementation repositories', () 
     'gantt-horizontal-big-data': 'https://github.com/revolist/gantt',
     kanban: 'https://github.com/revolist/kanban',
     'kanban-performance': 'https://github.com/revolist/kanban',
+    'kanban-server-loading': 'https://github.com/revolist/kanban',
     'event-scheduler': 'https://github.com/revolist/scheduler',
   } as const satisfies Partial<Record<DemoId, string>>
 
@@ -119,7 +121,7 @@ test('provides source-attributed feature badges only for paid demos', () => {
   const paid = configs.filter(config => config.demo.planId !== 'open-source')
 
   assert.deepEqual(openSource?.featureBadges, [])
-  assert.equal(paid.length, 17)
+  assert.equal(paid.length, 18)
   paid.forEach((config) => {
     assert.ok(config.featureBadges.length >= 5)
     assert.equal(
@@ -222,6 +224,13 @@ test('uses the concise Calendar badge in the Large Dataset Gantt header', () => 
 
 test('uses the 50K-Task title for the Kanban performance example', () => {
   assert.equal(getDemoPageConfig('kanban-performance').title, '50K-Task Kanban Performance Demo')
+})
+
+test('describes the 100K Kanban server-loading example', () => {
+  const config = getDemoPageConfig('kanban-server-loading')
+  assert.equal(config.title, '100K Kanban Server-Loading Demo')
+  assert.ok(config.featureBadges.some(({ label }) => label === 'Server loading'))
+  assert.ok(config.featureBadges.some(({ label }) => label === 'Loading placeholders'))
 })
 
 test('describes the requested Scheduler capabilities without filter or history badges', () => {
@@ -329,7 +338,7 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
     [
       { text: 'Gantt Chart', collapsed: false, links: ['/demo/gantt', '/demo/gantt-big-data', '/demo/gantt-horizontal-big-data'] },
       { text: 'Scheduler', collapsed: false, links: ['/demo/event-scheduler'] },
-      { text: 'Kanban', collapsed: false, links: ['/demo/kanban', '/demo/kanban-performance'] },
+      { text: 'Kanban', collapsed: false, links: ['/demo/kanban', '/demo/kanban-performance', '/demo/kanban-server-loading'] },
       { text: 'Pivot Table', collapsed: false, links: ['/demo/pivot'] },
     ],
   )

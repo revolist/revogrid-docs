@@ -88,6 +88,11 @@ ganttLanding:
         href: /demo/kanban-performance
         media: /img/kanban/workflow.webp
         mediaFit: contain
+      - title: 100K server-loaded Kanban
+        description: Page through 100,000 remote cards in small chunks with loading placeholders, accurate totals, and visible request status.
+        href: /demo/kanban-server-loading
+        media: /img/kanban/overview.webp
+        mediaFit: contain
       - title: Collapsible swimlanes
         description: Group work by team and collapse a lane without creating a separate board-only state model or nested scrolling surface.
         href: /demo/kanban
@@ -231,16 +236,58 @@ ganttLanding:
     items:
       - title: Product delivery
         description: Track discovery, design, engineering, review, release, ownership, progress, and story-point context in one workflow surface.
+        media: /blog/kanban-product-development-polished.png
+        mediaKind: image
+        poster: /blog/kanban-product-development-polished.png
+        mediaAlt: Product delivery Kanban board with Product and Platform swimlanes, five workflow stages, release context, ownership, progress, and a visible build WIP warning
+        theme: product-delivery
+        href: /kanban/use-cases/product-delivery
+        cta: Explore product delivery
       - title: Support operations
         description: Move cases through triage, investigation, customer response, escalation, and resolution with team or priority swimlanes.
+        media: /blog/kanban-support-operations-polished.png
+        mediaKind: image
+        poster: /blog/kanban-support-operations-polished.png
+        mediaAlt: Support operations Kanban board with Enterprise and Digital swimlanes, customer and SLA context, investigation WIP limits, and an urgent P1 case
+        theme: support-operations
+        href: /kanban/use-cases/support-operations
+        cta: Explore support operations
       - title: Sales and onboarding
         description: Organize opportunities, implementation stages, customer owners, due dates, and handoffs without building a separate pipeline UI.
+        media: /blog/kanban-sales-pipeline-polished.png
+        mediaKind: image
+        poster: /blog/kanban-sales-pipeline-polished.png
+        mediaAlt: Sales and onboarding Kanban board with account-first cards, ARR and go-live context, implementation WIP limits, and a blocked customer handoff
+        theme: sales-onboarding
+        href: /kanban/use-cases/sales-onboarding
+        cta: Explore sales and onboarding
       - title: Content and approvals
         description: Coordinate briefs, production, legal review, localization, publishing, and campaign work with explicit transition rules.
+        media: /blog/kanban-editorial-calendar-polished.png
+        mediaKind: image
+        poster: /blog/kanban-editorial-calendar-polished.png
+        mediaAlt: Content and approvals Kanban board with editorial proof cards, legal and localization context, publishing dates, and an overloaded approval queue
+        theme: content-approvals
+        href: /kanban/use-cases/content-approvals
+        cta: Explore content and approvals
       - title: Quality and manufacturing
         description: Manage defects, inspections, work orders, approvals, and team capacity while preserving operational record fields.
+        media: /blog/kanban-manufacturing-quality-polished.png
+        mediaKind: image
+        poster: /blog/kanban-manufacturing-quality-polished.png
+        mediaAlt: Quality and manufacturing Kanban board with two production-line swimlanes, work-order and material-lot context, a containment bottleneck, and 1,240 units on hold
+        theme: quality-manufacturing
+        href: /kanban/use-cases/quality-manufacturing
+        cta: Explore quality and manufacturing
       - title: Internal workflows
         description: Build focused boards for finance, compliance, hiring, procurement, IT, and other processes that already live in data-heavy applications.
+        media: /blog/kanban-internal-workflow-polished.png
+        mediaKind: image
+        poster: /blog/kanban-internal-workflow-polished.png
+        mediaAlt: Internal workflows Kanban board with request-category cards, finance and procurement approvals, accountable owners, and an urgent supplier payment
+        theme: internal-workflows
+        href: /kanban/use-cases/internal-workflows
+        cta: Explore internal workflows
   faq:
     id: kanban-faq
     kicker: FAQ

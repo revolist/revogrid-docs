@@ -2,8 +2,8 @@
 title: Manufacturing Gantt Chart for Production Scheduling
 description: Build manufacturing Gantt and production scheduling views for jobs, machines, materials, changeovers, dependencies, capacity, baselines, and work orders.
 outline: deep
-image: /img/gantt-use-cases/manufacturing.svg
-imageAlt: Conceptual manufacturing Gantt with production operations, machines, materials, status, a fixture changeover, dependency links, a machine capacity warning, and a delivery milestone
+image: /img/gantt-use-cases/manufacturing.webp?v=20260808-polished
+imageAlt: Real RevoGrid manufacturing Gantt with production orders, machines, materials, changeovers, dependencies, quality gates, and shipment milestones
 head:
   - - meta
     - name: keywords
@@ -18,6 +18,7 @@ faq:
 
 <script setup lang="ts">
 import GanttClusterCta from './GanttClusterCta.vue'
+import GanttUseCaseMedia from './GanttUseCaseMedia.vue'
 </script>
 
 # Manufacturing Gantt for Production Scheduling
@@ -26,10 +27,11 @@ A production planner rarely needs another isolated schedule. They need to see th
 
 A manufacturing Gantt brings those commitments, constraints, and handoffs into one working view. Planners can see when jobs run, what blocks them, which resource owns each operation, and how a proposed change may affect delivery.
 
-<figure>
-  <img src="/img/gantt-use-cases/manufacturing.svg" alt="Conceptual manufacturing Gantt with production operations, machines, materials, status, a fixture changeover, dependency links, a machine capacity warning, and a delivery milestone" width="1200" height="675" />
-  <figcaption>A conceptual production view: the planner can follow one order from tooling through machining and inspection, see the changeover between operations, and discuss a capacity warning before the delivery promise moves.</figcaption>
-</figure>
+<GanttUseCaseMedia
+  slug="manufacturing"
+  alt="Real RevoGrid manufacturing Gantt with production orders, machines, materials, changeovers, dependencies, quality gates, and shipment milestones"
+  caption="Captured from the production-shaped Nexus MES example: production orders, machine assignments, material readiness, the CNC chain, inspection, and shipment commitments remain connected."
+/>
 
 <GanttClusterCta />
 
@@ -73,7 +75,7 @@ Test with a production-shaped slice rather than a tidy sample. Include the large
 
 Treat the schedule as part of a wider production workflow. Decide which system owns released orders, inventory, routing, machine state, labor availability, quality status, approved baselines, and delivery promises. Then define which changes the Gantt may make directly, which need validation, and which must remain read-only.
 
-Review [resource scheduling](/gantt/resource-scheduling), [critical path](/gantt/critical-path), [baselines](/gantt/baselines), and the [ERP Gantt guide](/gantt/erp-gantt). Then open the [RevoGrid Gantt demo](/demo/gantt) and request a [trial](/trial) for production-shaped testing.
+Review [resource scheduling](/gantt/resource-scheduling), [critical path](/gantt/critical-path), [baselines](/gantt/baselines), and the [ERP Gantt guide](/gantt/erp-gantt). If the main interaction is placing crews, machines, or maintenance windows into calendar slots, also compare the [JavaScript Scheduler](/jsscheduler). Then open the [RevoGrid Gantt demo](/demo/gantt) and request a [trial](/trial) for production-shaped testing.
 
 ## Manufacturing Gantt FAQ
 

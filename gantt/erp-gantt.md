@@ -2,8 +2,8 @@
 title: Gantt Chart Component for ERP Software
 description: Embed Gantt scheduling in ERP software for work orders, projects, materials, resources, dependencies, production dates, custom fields, and large editable datasets.
 outline: deep
-image: /img/gantt-use-cases/erp.svg
-imageAlt: Conceptual ERP planning workspace with work orders, customers, statuses, machines, dependencies, and a delivery milestone beside a Gantt timeline
+image: /img/gantt-use-cases/erp.webp?v=20260808-polished
+imageAlt: Real RevoGrid ERP Gantt with production work orders, operational status, dependencies, approved baseline bars, and delivery commitments
 head:
   - - meta
     - name: keywords
@@ -18,16 +18,18 @@ faq:
 
 <script setup lang="ts">
 import GanttClusterCta from './GanttClusterCta.vue'
+import GanttUseCaseMedia from './GanttUseCaseMedia.vue'
 </script>
 
 # Gantt Chart Component for ERP Software
 
 ERP planning is not a standalone project file. Dates are connected to work orders, customers, materials, machines, warehouses, costs, approvals, and delivery commitments. Planners need to see those operational details beside the schedule so they can spot a blocker before it becomes a missed promise—not reconcile the same work across separate tools after the fact.
 
-<figure>
-  <img src="/img/gantt-use-cases/erp.svg" alt="Conceptual ERP planning workspace with work orders, customers, statuses, machines, dependencies, and a delivery milestone beside a Gantt timeline" width="1200" height="675" />
-  <figcaption>A conceptual ERP planning view: customer commitments, shop-floor status, dependencies, and delivery timing stay in one conversation.</figcaption>
-</figure>
+<GanttUseCaseMedia
+  slug="erp"
+  alt="Real RevoGrid ERP Gantt with production work orders, operational status, dependencies, approved baseline bars, and delivery commitments"
+  caption="Captured from the production-shaped Northwind ERP example: work orders, shop-floor status, dependency impact, baseline variance, and the customer commitment stay in one working view."
+/>
 
 <GanttClusterCta />
 

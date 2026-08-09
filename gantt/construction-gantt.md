@@ -2,8 +2,8 @@
 title: Construction Gantt Chart for Field Coordination
 description: Coordinate phases, crews, inspections, suppliers, permits, and handoffs with an embedded construction Gantt connected to live project data.
 outline: deep
-image: /img/gantt-use-cases/construction.svg
-imageAlt: Conceptual construction Gantt with phases and crews beside a timeline, linked handoffs, an inspection milestone, and permit, weather, and supply risk signals
+image: /img/gantt-use-cases/construction.webp?v=20260808-exact
+imageAlt: Real RevoGrid construction Gantt with project phases, crews, inspections, suppliers, dependencies, and a switchgear delivery risk
 head:
   - - meta
     - name: keywords
@@ -20,6 +20,7 @@ faq:
 
 <script setup lang="ts">
 import GanttClusterCta from './GanttClusterCta.vue'
+import GanttUseCaseMedia from './GanttUseCaseMedia.vue'
 </script>
 
 # Construction Gantt for Field Coordination
@@ -28,9 +29,11 @@ A construction plan becomes useful when it helps people answer the next practica
 
 RevoGrid Gantt can place those scheduling relationships beside the operational fields already used in a construction application. Superintendents, project managers, coordinators, and trade partners get one shared view of dates and handoffs without turning the Gantt into the system of record for every part of the project.
 
-![Conceptual construction planning workspace showing site preparation, permit release, foundations, steel structure, a frame inspection milestone, and the building envelope across a linked timeline. Visible signals call out permit, rain, and steel-delivery risks.](/img/gantt-use-cases/construction.svg)
-
-*A conceptual product preview: the field team can see who owns each phase, what must happen next, and which outside conditions need a conversation before work moves.*
+<GanttUseCaseMedia
+  slug="construction"
+  alt="Real RevoGrid construction Gantt with project phases, crews, inspections, suppliers, dependencies, and a switchgear delivery risk"
+  caption="Captured from the production-shaped Riverside Clinic example: phases, field crews, inspection gates, supplier commitments, and the switchgear risk stay visible in one coordination view."
+/>
 
 <GanttClusterCta />
 
@@ -88,6 +91,7 @@ Use representative work rather than a tidy demonstration schedule. A useful eval
 - Verify what happens when the backend rejects an edit or a newer field update arrives.
 - Compare current dates with an approved baseline and inspect the [critical path](/gantt/critical-path) after a material change.
 - Check crew and equipment overlaps in the [resource-planning view](/gantt/resource-planning) without assuming that a warning is automatic resource leveling.
+- If dispatching crews, equipment, or inspections into calendar slots is the primary workflow, compare the [JavaScript Scheduler](/jsscheduler) with the dependency-driven Gantt view.
 - Benchmark realistic row counts, hierarchy depth, custom cells, dependency density, and repeated edits on the devices used in the office and field.
 - Test keyboard access, focus visibility, non-color risk cues, long activity names, narrow screens, and read-only roles.
 - Agree on the acceptance criteria for persistence, permissions, audit history, offline behavior, and concurrent changes in the host application.

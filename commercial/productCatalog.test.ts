@@ -90,6 +90,9 @@ test('defines Kanban as a stable Pro Advanced product and offer', () => {
   assert.equal(PRODUCT_CATALOG.demos['kanban-performance'].pageUrl, '/demo/kanban-performance')
   assert.equal(PRODUCT_CATALOG.demos['kanban-performance'].planId, 'pro-advanced')
   assert.equal(PRODUCT_CATALOG.demos['kanban-performance'].title, '50K-Task Kanban')
+  assert.equal(PRODUCT_CATALOG.demos['kanban-server-loading'].pageUrl, '/demo/kanban-server-loading')
+  assert.equal(PRODUCT_CATALOG.demos['kanban-server-loading'].planId, 'pro-advanced')
+  assert.equal(PRODUCT_CATALOG.demos['kanban-server-loading'].title, '100K Server-Loaded Kanban')
 })
 
 test('keeps JavaScript Scheduler products on the canonical landing experience', () => {

@@ -2,8 +2,8 @@
 title: Gantt Chart for Resource Planning and Capacity
 description: Plan people, crews, rooms, machines, and equipment with a Gantt chart that connects tasks, assignments, calendars, workload, dependencies, and capacity context.
 outline: deep
-image: /img/gantt-use-cases/resource-planning.svg
-imageAlt: Conceptual resource planning workspace with tasks, assigned people and roles, allocation percentages, timeline bars, workload signals, one overload warning, and a release milestone
+image: /img/gantt-use-cases/resource-planning.webp?v=20260808-polished
+imageAlt: Real RevoGrid resource-planning Gantt with assigned people, shared facilities, allocation percentages, dependencies, milestones, and visible overloads
 head:
   - - meta
     - name: keywords
@@ -18,16 +18,18 @@ faq:
 
 <script setup lang="ts">
 import GanttClusterCta from './GanttClusterCta.vue'
+import GanttUseCaseMedia from './GanttUseCaseMedia.vue'
 </script>
 
 # Gantt Chart for Resource Planning
 
 Resource planning starts with a human question: can the people, rooms, machines, crews, or equipment behind the dates realistically support the plan? The goal is to make pressure visible early enough for a useful conversation—not to turn a capacity warning into a judgment about someone's performance.
 
-<figure>
-  <img src="/img/gantt-use-cases/resource-planning.svg" alt="Conceptual resource planning workspace with tasks, assigned people and roles, allocation percentages, timeline bars, workload signals, one overload warning, and a release milestone" width="1200" height="675" />
-  <figcaption>A conceptual planning view: assignments, timing, and capacity sit together so the team can discuss one overload before it becomes invisible overtime or a missed commitment.</figcaption>
-</figure>
+<GanttUseCaseMedia
+  slug="resource-planning"
+  alt="Real RevoGrid resource-planning Gantt with assigned people, shared facilities, allocation percentages, dependencies, milestones, and visible overloads"
+  caption="Captured from the production-shaped Pace Capacity example: work, assignments, and timing expose a 150% architect allocation and 175% shared-lab load early enough for a human planning conversation."
+/>
 
 <GanttClusterCta />
 
@@ -46,6 +48,8 @@ Typical applications include:
 - field-service teams and vehicles;
 - portfolio capacity across product or engineering teams.
 
+Use Gantt when task hierarchy, duration, dependencies, and delivery impact lead the workflow. When the primary interaction is assigning people, rooms, equipment, or crews into calendar time slots, compare the [JavaScript Scheduler and resource timeline](/jsscheduler) instead.
+
 ## Capacity is more than a colored warning
 
 Define the unit of capacity, working calendar, part-time availability, assignment demand, and what an overload means before showing a percentage. A 100% label might mean a full working calendar, the share available to project work, a crew's shift, or a machine's usable time. Without that shared definition, a precise-looking warning can create blame instead of clarity.
@@ -58,7 +62,7 @@ Keep the product boundary explicit:
 
 The best default depends on the work. A planning team may welcome a suggested move; a construction crew, regulated lab, or customer commitment may require an explicit approval before any date changes.
 
-For an implementation-focused explanation, read [Gantt resource scheduling](/gantt/resource-scheduling). For manufacturing-specific boundaries, see [manufacturing Gantt](/gantt/manufacturing-gantt).
+For an implementation-focused explanation, read [Gantt resource scheduling](/gantt/resource-scheduling). For calendar-first shifts, bookings, and appointments, see the [JavaScript Scheduler](/jsscheduler). For manufacturing-specific boundaries, see [manufacturing Gantt](/gantt/manufacturing-gantt).
 
 ## Evaluate with real allocation patterns
 

@@ -2,8 +2,8 @@
 title: Gantt Chart for Internal Tools and Operations
 description: Build an internal Gantt planning view that keeps cross-functional work, owners, dependencies, readiness, and operational data in one understandable workspace.
 outline: deep
-image: /img/gantt-use-cases/internal-tools.svg
-imageAlt: Conceptual internal operations Gantt with cross-functional tasks, owners, systems, statuses, connected handoffs, and a release-readiness milestone
+image: /img/gantt-use-cases/internal-tools.webp?v=20260808-polished
+imageAlt: Real RevoGrid internal-operations Gantt with cross-functional owners, source systems, approvals, dependencies, and release-readiness milestones
 head:
   - - meta
     - name: keywords
@@ -20,6 +20,7 @@ faq:
 
 <script setup lang="ts">
 import GanttClusterCta from './GanttClusterCta.vue'
+import GanttUseCaseMedia from './GanttUseCaseMedia.vue'
 </script>
 
 # Gantt Chart for Internal Tools and Operations
@@ -28,10 +29,11 @@ Internal work rarely belongs to one team. A release can depend on an engineering
 
 An embedded Gantt gives people a common view of timing and handoffs without asking every team to abandon the systems they already trust. The grid carries the operational context; the timeline explains when work overlaps, what must happen first, and which commitment is at risk.
 
-<figure>
-  <img src="/img/gantt-use-cases/internal-tools.svg" alt="Conceptual internal operations Gantt with cross-functional tasks, owners, systems, statuses, connected handoffs, and a release-readiness milestone" width="1200" height="675" />
-  <figcaption>A conceptual internal planning workspace: cross-functional owners, source systems, handoffs, and release readiness stay in one conversation. It illustrates a possible product experience rather than a live RevoGrid screenshot.</figcaption>
-</figure>
+<GanttUseCaseMedia
+  slug="internal-tools"
+  alt="Real RevoGrid internal-operations Gantt with cross-functional owners, source systems, approvals, dependencies, and release-readiness milestones"
+  caption="Captured from the production-shaped Relay Ops example: authoritative source systems, owners, approvals, onboarding, and the billing gate remain part of the same release conversation."
+/>
 
 <GanttClusterCta />
 

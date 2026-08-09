@@ -27,6 +27,7 @@ export type DemoId =
   | 'gantt-horizontal-big-data'
   | 'kanban'
   | 'kanban-performance'
+  | 'kanban-server-loading'
   | 'event-scheduler'
   | 'planning'
 export type CommercialFaqKey =
@@ -451,6 +452,7 @@ const demos = {
   'gantt-horizontal-big-data': { id: 'gantt-horizontal-big-data', title: '20Y-Timeline Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt-horizontal-big-data' },
   kanban: { id: 'kanban', title: 'Kanban Board', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban' },
   'kanban-performance': { id: 'kanban-performance', title: '50K-Task Kanban', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban-performance' },
+  'kanban-server-loading': { id: 'kanban-server-loading', title: '100K Server-Loaded Kanban', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban-server-loading' },
   'event-scheduler': { id: 'event-scheduler', title: 'Scheduler JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
   planning: { id: 'planning', title: 'Grid, Kanban, Gantt & Scheduler', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/planning' },
 } as const satisfies Record<DemoId, CatalogDemo>

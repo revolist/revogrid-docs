@@ -320,6 +320,10 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
                         text: demoSidebarText('kanban-performance'),
                         link: '/demo/kanban-performance',
                     },
+                    {
+                        text: demoSidebarText('kanban-server-loading'),
+                        link: '/demo/kanban-server-loading',
+                    },
                 ],
             },
             {

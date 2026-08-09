@@ -4,6 +4,7 @@ import { existsSync, readFileSync } from 'node:fs'
 
 const pageSource = readFileSync(new URL('../gantt.md', import.meta.url), 'utf8')
 const componentSource = readFileSync(new URL('../pro/ProFeatureGrid.vue', import.meta.url), 'utf8')
+const pageLayoutSource = readFileSync(new URL('./GanttPageLayout.vue', import.meta.url), 'utf8')
 const configSource = readFileSync(new URL('./ganttLanding.ts', import.meta.url), 'utf8')
 const featureSection = pageSource.match(/  features:\n([\s\S]*?)\n  positioning:/)?.[1] ?? ''
 const integrationsSection = pageSource.match(/  integrations:\n([\s\S]*?)\n  featureComparison:/)?.[1] ?? ''
@@ -34,8 +35,9 @@ test('keeps every local Gantt feature asset available from VitePress public', ()
 
   assert.ok(localMedia.length >= 11)
   for (const mediaPath of localMedia) {
+    const filePath = mediaPath.split('?')[0]
     assert.ok(
-      existsSync(new URL(`../public${mediaPath}`, import.meta.url)),
+      existsSync(new URL(`../public${filePath}`, import.meta.url)),
       `Missing public asset: ${mediaPath}`,
     )
   }
@@ -44,10 +46,13 @@ test('keeps every local Gantt feature asset available from VitePress public', ()
 test('renders optional feature media without changing the text-only contract', () => {
   assert.match(componentSource, /feature-grid--visual/)
   assert.match(componentSource, /feature\.mediaKind === 'video'/)
+  assert.match(componentSource, /feature\.mediaAspect/)
+  assert.match(componentSource, /aspectRatio: feature\.mediaAspect/)
   assert.match(componentSource, /loading="lazy"/)
   assert.match(componentSource, /v-if="feature\.href" class="feature-link"/)
   assert.match(configSource, /media\?: string/)
   assert.match(configSource, /featured\?: boolean/)
+  assert.match(pageLayoutSource, /<ProFeatureGrid :features="page\.features\.items" :show-icons="false" \/>/)
 })
 
 test('uses the shared framework SVG assets in Gantt integration cards', () => {

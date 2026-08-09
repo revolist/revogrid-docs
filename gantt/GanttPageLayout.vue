@@ -74,7 +74,7 @@
           {{ page.features.description }}
         </p>
 
-        <ProFeatureGrid :features="page.features.items" />
+        <ProFeatureGrid :features="page.features.items" :show-icons="false" />
       </div>
     </section>
 
@@ -111,7 +111,11 @@
       </div>
     </section>
 
-    <section v-if="page.useCases" :id="page.useCases.id" class="content-section">
+    <section
+      v-if="page.useCases"
+      :id="page.useCases.id"
+      :class="['content-section', page.useCases.items.some((item) => item.theme) ? 'use-cases-section--themed' : '']"
+    >
       <div class="container">
         <div class="section-kicker">{{ page.useCases.kicker }}</div>
         <h2 class="section-title">{{ page.useCases.title }}</h2>
@@ -132,11 +136,25 @@
             v-for="item in page.useCases.items"
             :key="item.title"
             :href="item.href ? resolveLandingLink(item.href) : undefined"
-            class="use-case-card"
+            :class="['use-case-card', item.theme ? `use-case-card--${item.theme}` : '']"
           >
             <div v-if="item.media" class="use-case-media">
-              <img
+              <video
+                v-if="item.mediaKind === 'video'"
+                class="use-case-media__video"
                 :src="item.media"
+                :poster="item.poster"
+                muted
+                autoplay
+                loop
+                playsinline
+                preload="metadata"
+                aria-hidden="true"
+              ></video>
+              <img
+                v-if="item.mediaKind !== 'video' || item.poster"
+                :class="{ 'use-case-media__poster': item.mediaKind === 'video' }"
+                :src="item.mediaKind === 'video' ? item.poster : item.media"
                 :alt="item.mediaAlt || ''"
                 width="1200"
                 height="675"
@@ -435,6 +453,26 @@ function resolveLandingLink(href: string) {
   }
 }
 
+.gantt-page .use-cases-section--themed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.gantt-page .use-cases-section--themed > .container {
+  width: min(1600px, calc(100% - 48px));
+  max-width: 1600px !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.use-cases-section--themed .use-case-copy {
+  padding: 20px;
+
+  p {
+    line-height: 1.55;
+  }
+}
+
 @media (max-width: 640px) {
   #gantt-use-cases > .container {
     width: calc(100% - 32px);
@@ -490,11 +528,31 @@ function resolveLandingLink(href: string) {
   border-bottom: 1px solid var(--rg-border);
   background: #f4f7f6;
 
-  img {
+  img,
+  video {
+    display: block;
     width: 100%;
     height: 100%;
     margin: 0;
     object-fit: cover;
+  }
+}
+
+.use-case-media__poster {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .use-case-media__video {
+    display: none !important;
+  }
+
+  .use-case-media__poster {
+    display: block !important;
+  }
+
+  .use-case-card {
+    transition: none;
   }
 }
 
@@ -521,6 +579,55 @@ function resolveLandingLink(href: string) {
     color: var(--gantt-accent);
     font-size: 13px;
   }
+}
+
+.use-case-card--product-delivery,
+.use-case-card--sales-onboarding,
+.use-case-card--quality-manufacturing {
+  border-color: #30364f;
+  background: #111522;
+
+  .use-case-media { border-bottom-color: #30364f; }
+  .use-case-copy h3 { color: #f8fafc; }
+  .use-case-copy p { color: #b7bfd0; }
+}
+
+.use-case-card--product-delivery {
+  background: #0d122c;
+
+  .use-case-copy strong { color: #a99cff; }
+}
+
+.use-case-card--sales-onboarding {
+  border-color: #343b2b;
+  background: #10130e;
+
+  .use-case-copy strong { color: #b8e24c; }
+}
+
+.use-case-card--content-approvals {
+  border-color: #d9c8ba;
+  background: #faf2e8;
+
+  .use-case-copy h3 { color: #2b1b18; font-family: Georgia, 'Times New Roman', serif; }
+  .use-case-copy p { color: #735f57; }
+  .use-case-copy strong { color: #a23838; }
+}
+
+.use-case-card--quality-manufacturing {
+  border-color: #42474e;
+  background: #202327;
+
+  .use-case-copy strong { color: #ffbd3f; }
+}
+
+.use-case-card--internal-workflows {
+  border-color: #c7bde3;
+  background: #f4f0ff;
+
+  .use-case-copy h3 { color: #30284b; }
+  .use-case-copy p { color: #6b6280; }
+  .use-case-copy strong { color: #177d5b; }
 }
 
 .content-card,

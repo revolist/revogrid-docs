@@ -9,7 +9,11 @@
         'feature-card--featured': feature.featured,
       }"
     >
-      <div v-if="feature.media" class="feature-media">
+      <div
+        v-if="feature.media"
+        class="feature-media"
+        :style="feature.mediaAspect ? { aspectRatio: feature.mediaAspect } : undefined"
+      >
         <video
           v-if="feature.mediaKind === 'video'"
           :src="feature.media"
@@ -67,6 +71,7 @@ interface ProFeatureItem {
   mediaAlt?: string
   mediaWidth?: number
   mediaHeight?: number
+  mediaAspect?: string
   mediaFit?: 'cover' | 'contain'
   mediaPosition?: string
   poster?: string

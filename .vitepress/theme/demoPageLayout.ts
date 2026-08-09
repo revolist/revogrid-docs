@@ -264,6 +264,20 @@ const DEMO_PAGE_CONTENT = {
       { label: 'Column virtualization', source: 'RevoGrid virtual column rendering' },
     ],
   },
+  'kanban-server-loading': {
+    title: '100K Kanban Server-Loading Demo',
+    description: 'Load a 100,000-card Kanban board from a remote offset stream in small, virtualized chunks.',
+    implementationUrl: 'https://github.com/revolist/kanban',
+    guidedActions: ['Watch the first remote page load', 'Scroll to request another card range', 'Inspect loading placeholders and totals'],
+    featureBadges: [
+      { label: 'Kanban board', source: 'KanbanPlugin' },
+      { label: '100,000 cards', source: 'KanbanConfig remote.total' },
+      { label: 'Server loading', source: 'KanbanConfig remote.loadData' },
+      { label: 'Chunked requests', source: 'KanbanConfig remote.chunkSize' },
+      { label: 'Loading placeholders', source: 'KanbanConfig remote.placeholder' },
+      { label: 'Remote status', source: 'KanbanPlugin getRemoteState' },
+    ],
+  },
   'event-scheduler': {
     title: 'JavaScript Scheduler Demo',
     description: 'Build resource schedules with events, movement, resizing, and calendar views.',
