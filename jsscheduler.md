@@ -74,7 +74,7 @@ ganttLanding:
   hero:
     eyebrow: Resource Scheduler
     title: 'JavaScript Scheduler & Calendar'
-    description: A JavaScript and TypeScript scheduler component for staff rosters, room bookings, equipment plans, field crews, support queues, and team capacity.
+    description: Scheduler component for staff rosters, room bookings, equipment plans, field crews, support queues, and resource capacity.
     actions:
       - label: View Demo
         href: /demo/event-scheduler

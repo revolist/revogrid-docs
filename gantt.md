@@ -23,7 +23,7 @@ ganttLanding:
   hero:
     eyebrow: Powerful Gantt Chart
     title: "Fastest JavaScript Gantt Chart"
-    description: RevoGrid Gantt is a JavaScript Gantt chart component for large project plans, with an editable task grid, virtualized timeline, dependencies, resources, and critical path analysis.
+    description: Gantt chart component for large project plans, with an editable data grid, virtualized timeline, dependencies, resources, and critical path analysis.
     actions:
       - label: View Demo
         href: /demo/gantt

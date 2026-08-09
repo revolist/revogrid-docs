@@ -47,7 +47,6 @@
 import ProAdvancedCallout from '../pro/ProAdvancedCallout.vue'
 import ProCtaBanner from '../pro/ProCtaBanner.vue'
 import CommercialFaq from '../pro/CommercialFaq.vue'
-import ProStatsBar from '../pro/ProStatsBar.vue'
 import PivotUseCases from '../pro/PivotUseCases.vue'
 import GanttIntegrations from '../gantt/GanttIntegrations.vue'
 import PivotFeaturesSection from './page-layout/PivotFeaturesSection.vue'

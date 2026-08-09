@@ -73,8 +73,8 @@ ganttLanding:
     darkBorder: rgba(143, 165, 255, 0.28)
   hero:
     eyebrow: Reactive Kanban
-    title: 'JavaScript Kanban for your product.'
-    description: A production-ready JavaScript Kanban board component with drag-and-drop ordering, swimlanes, WIP policies, card editing, history, and hardware-bound virtualized scale.
+    title: 'JavaScript Kanban Board'
+    description: JavaScript Kanban board component with drag-and-drop ordering, swimlanes, WIP policies, card editing, history, and hardware-bound virtualized scale.
     actions:
       - label: Try Interactive Demo
         href: /demo/kanban

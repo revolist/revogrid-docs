@@ -16,9 +16,9 @@ const DEFAULT_PAGE: PivotLandingPage = {
   },
   hero: {
     eyebrow: 'RevoGrid Pivot',
-    titleHighlightParts: ['JavaScript Pivot Table'],
-    titleSuffix: 'component for Web',
-    description: 'High-performance JavaScript Pivot Table with linked charts. Group, filter, aggregate, visualize, drill into, and export large datasets without leaving the page.',
+    titleHighlightParts: ['JavaScript'],
+    titleSuffix: 'Pivot Table',
+    description: 'Feature-rich JavaScript Pivot Table with linked charts. Group, filter, aggregate, visualize, drill into, and export large datasets without leaving the page.',
     actions: [
       { label: 'View Demo', href: 'https://rv-grid.com/demo/pivot', arrow: true },
       { label: 'Request Pro Trial', href: 'https://rv-grid.com/trial', variant: 'secondary' },
