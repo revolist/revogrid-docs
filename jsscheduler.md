@@ -72,8 +72,8 @@ ganttLanding:
     darkSoft: rgba(167, 139, 250, 0.14)
     darkBorder: rgba(167, 139, 250, 0.28)
   hero:
-    eyebrow: RevoGrid Scheduler
-    title: 'RevoGrid Scheduler: JavaScript Scheduler for your product.'
+    eyebrow: Resource Scheduler
+    title: 'JavaScript Scheduler & Calendar'
     description: A JavaScript and TypeScript scheduler component for staff rosters, room bookings, equipment plans, field crews, support queues, and team capacity.
     actions:
       - label: View Demo

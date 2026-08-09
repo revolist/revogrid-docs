@@ -72,8 +72,8 @@ ganttLanding:
     darkSoft: rgba(143, 165, 255, 0.14)
     darkBorder: rgba(143, 165, 255, 0.28)
   hero:
-    eyebrow: RevoGrid Kanban
-    title: 'RevoGrid Kanban: JavaScript Kanban for your product.'
+    eyebrow: Reactive Kanban
+    title: 'JavaScript Kanban for your product.'
     description: A production-ready JavaScript Kanban board component with drag-and-drop ordering, swimlanes, WIP policies, card editing, history, and hardware-bound virtualized scale.
     actions:
       - label: Try Interactive Demo
