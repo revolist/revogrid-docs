@@ -204,7 +204,7 @@ Try it on the [Pivot demo page](/demo/pivot/) or read more on the [Pivot product
 
 ## Gantt and Scheduling Move Into the Grid
 
-[RevoGantt](/gantt/) brings scheduling and timeline planning into the same product family as the grid.
+[RevoGrid Gantt](/gantt/) brings scheduling and timeline planning into the same product family as the grid.
 
 The key idea is that Gantt should not feel like a disconnected widget bolted onto the page. It should share the same application data mindset: editable rows, configurable columns, task hierarchy, custom rendering, and product-controlled behavior.
 

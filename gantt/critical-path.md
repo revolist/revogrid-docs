@@ -10,8 +10,8 @@ faq:
   items:
     - q: What is the critical path in a Gantt chart?
       a: It is the chain of dependent tasks that currently controls the project finish date. Delaying a zero-float critical task can delay the project unless another scheduling condition changes.
-    - q: Does RevoGantt show critical tasks?
-      a: Yes. RevoGantt includes critical-path calculation and visual state so critical tasks and related scheduling context can be surfaced in the planning view.
+    - q: Does RevoGrid Gantt show critical tasks?
+      a: Yes. RevoGrid Gantt includes critical-path calculation and visual state so critical tasks and related scheduling context can be surfaced in the planning view.
 ---
 
 <script setup lang="ts">
@@ -28,7 +28,7 @@ Critical path analysis turns a Gantt from a visual timeline into a delivery-risk
 
 The result is only as trustworthy as the scheduling model. A component needs correct task durations, dependency types and lag, working calendars, constraints, milestones, and project boundaries. Changes to any of these can alter the critical path.
 
-RevoGantt supports common dependency types, calendars, constraints, scheduling calculations, critical-path visual state, and task-table fields that can expose float or diagnostics beside the timeline.
+RevoGrid Gantt supports common dependency types, calendars, constraints, scheduling calculations, critical-path visual state, and task-table fields that can expose float or diagnostics beside the timeline.
 
 ## Critical does not mean important
 
@@ -47,7 +47,7 @@ Useful critical-path UX includes:
 
 Test summary tasks, milestones, lead/lag, non-working time, manually constrained tasks, deadlines, disconnected networks, and resource-leveling changes. Compare the calculated finish and float against a trusted planning example before relying on it for production decisions.
 
-Open the [live Gantt workspace](/demo/gantt) to toggle the critical-path overlay. Then review [Gantt baselines](/gantt/baselines), [resource scheduling](/gantt/resource-scheduling), and the [complete RevoGantt feature page](/gantt).
+Open the [live Gantt workspace](/demo/gantt) to toggle the critical-path overlay. Then review [Gantt baselines](/gantt/baselines), [resource scheduling](/gantt/resource-scheduling), and the [complete RevoGrid Gantt feature page](/gantt).
 
 ## Critical path FAQ
 

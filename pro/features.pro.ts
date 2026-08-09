@@ -440,7 +440,7 @@ const featuresProBase = [
         group: 'Pro Advanced Modules',
         link: '/kanban',
         demoUrl: '/demo/kanban',
-        description: 'RevoKanban is a virtualized JavaScript Kanban board component built on RevoGrid for product workflows, delivery planning, operations queues, and high-volume task management.',
+        description: 'RevoGrid Kanban is a virtualized JavaScript Kanban board component built on RevoGrid for product workflows, delivery planning, operations queues, and high-volume task management.',
         subFeatures: [
             { title: 'Pointer, touch, and keyboard card movement' },
             { title: 'Multi-card selection and movement' },

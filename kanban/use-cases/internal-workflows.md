@@ -3,7 +3,7 @@ title: Internal Workflow Kanban for Approvals and Requests
 description: Coordinate finance, compliance, procurement, people, and IT requests in an embedded Kanban with accountable decisions.
 outline: deep
 image: /blog/kanban-internal-workflow-polished.png
-imageAlt: Real RevoKanban internal workflow board with request, approval, and fulfillment cards
+imageAlt: Real RevoGrid Kanban internal workflow board with request, approval, and fulfillment cards
 head:
   - - meta
     - name: keywords
@@ -23,7 +23,7 @@ This board works like a request and decision inbox. Intake cards ask for an owne
 <KanbanUseCaseMedia
   title="Internal workflows"
   slug="internal-workflows"
-  alt="Real RevoKanban internal workflow board with request routing, approval decisions, values, owners, and deadlines"
+  alt="Real RevoGrid Kanban internal workflow board with request routing, approval decisions, values, owners, and deadlines"
   caption="Captured from the real internal-operations board: requester, department, decision, amount or scope, owner, and deadline remain visible together."
   live-href="https://kanban.rv-grid.com/?example=internal-workflows"
 />
@@ -47,4 +47,4 @@ The host application continues to own request records, policy, separation of dut
 - Test an overloaded approval stage and a move into fulfillment.
 - Verify permissions, audit records, and backend conflict handling.
 
-Related guidance: [RevoKanban](/kanban), [workflow columns](/kanban/workflow-columns), and [Pro trial access](/trial).
+Related guidance: [RevoGrid Kanban](/kanban), [workflow columns](/kanban/workflow-columns), and [Pro trial access](/trial).

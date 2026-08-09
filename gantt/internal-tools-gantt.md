@@ -3,7 +3,7 @@ title: Gantt Chart for Internal Tools and Operations
 description: Build an internal Gantt planning view that keeps cross-functional work, owners, dependencies, readiness, and operational data in one understandable workspace.
 outline: deep
 image: /img/gantt-use-cases/internal-tools.webp?v=20260808-polished
-imageAlt: Real RevoGantt internal-operations plan with cross-functional owners, source systems, approvals, dependencies, and release-readiness milestones
+imageAlt: Real RevoGrid Gantt internal-operations plan with cross-functional owners, source systems, approvals, dependencies, and release-readiness milestones
 head:
   - - meta
     - name: keywords
@@ -31,7 +31,7 @@ An embedded Gantt gives people a common view of timing and handoffs without aski
 
 <GanttUseCaseMedia
   slug="internal-tools"
-  alt="Real RevoGantt internal-operations plan with cross-functional owners, source systems, approvals, dependencies, and release-readiness milestones"
+  alt="Real RevoGrid Gantt internal-operations plan with cross-functional owners, source systems, approvals, dependencies, and release-readiness milestones"
   caption="Captured from the production-shaped Relay Ops example: authoritative source systems, owners, approvals, onboarding, and the billing gate remain part of the same release conversation."
   live-href="https://gantt.rv-grid.com/?use-case=industry-internal-tools"
 />
@@ -50,7 +50,7 @@ That makes routine questions easier to answer:
 - What moves if finance needs two more days to review billing rules?
 - Which release milestone has changed since the plan was agreed?
 
-RevoGantt combines an editable, virtualized grid with a synchronized timeline. It can represent task hierarchy, dependencies, milestones, assignments, calendars, workload context, progress, and baselines. Your application decides which of those capabilities belong in the workflow and which source provides each field.
+RevoGrid Gantt combines an editable, virtualized grid with a synchronized timeline. It can represent task hierarchy, dependencies, milestones, assignments, calendars, workload context, progress, and baselines. Your application decides which of those capabilities belong in the workflow and which source provides each field.
 
 ## A practical cross-functional workflow
 
@@ -127,7 +127,7 @@ Test the idea with one real workflow and the people who coordinate it:
 - Confirm keyboard access, focus visibility, readable labels, and narrow-screen behavior.
 - Ask whether the view removes status-chasing or merely creates one more place to update.
 
-Open the [live Gantt demo](/demo/gantt) to explore the interaction, review the [main RevoGantt page](/gantt) for the implemented feature set, and request a [trial](/trial) to evaluate your real data shape, permissions, and workflow boundaries.
+Open the [live Gantt demo](/demo/gantt) to explore the interaction, review the [main RevoGrid Gantt page](/gantt) for the implemented feature set, and request a [trial](/trial) to evaluate your real data shape, permissions, and workflow boundaries.
 
 ## Internal tools Gantt FAQ
 

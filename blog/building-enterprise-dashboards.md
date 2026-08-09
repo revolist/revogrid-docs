@@ -851,7 +851,7 @@ Recommended features:
 
 Pro CTA:
 
-> If your dashboard includes timelines, portfolio planning, or resource scheduling, check [RevoGantt](/gantt), [JavaScript Scheduler](/jsscheduler), and [RevoGrid Pro](/pro/).
+> If your dashboard includes timelines, portfolio planning, or resource scheduling, check [RevoGrid Gantt](/gantt), [JavaScript Scheduler](/jsscheduler), and [RevoGrid Pro](/pro/).
 
 ## Recommended dashboard architecture
 

@@ -3,7 +3,7 @@ title: Product Delivery Kanban for Software Teams
 description: Embed a product delivery Kanban with discovery, design, build, review, release, WIP limits, ownership, and customer context.
 outline: deep
 image: /blog/kanban-product-development-polished.png
-imageAlt: Real RevoKanban product delivery board with product and platform swimlanes
+imageAlt: Real RevoGrid Kanban product delivery board with product and platform swimlanes
 head:
   - - meta
     - name: keywords
@@ -23,7 +23,7 @@ This board keeps the question, release, owner, review gate, and next handoff tog
 <KanbanUseCaseMedia
   title="Product delivery"
   slug="product-delivery"
-  alt="Real RevoKanban product delivery board with five workflow stages, two workstreams, release context, and a visible build WIP warning"
+  alt="Real RevoGrid Kanban product delivery board with five workflow stages, two workstreams, release context, and a visible build WIP warning"
   caption="Captured from the real product-delivery board: discovery questions, design handoffs, build progress, release checks, and shipped evidence use stage-specific cards."
   live-href="https://kanban.rv-grid.com/?example=product-delivery"
 />
@@ -34,7 +34,7 @@ A useful delivery board explains why work exists, not only where it sits. Discov
 
 ## Use WIP to improve flow, not judge people
 
-Column and swimlane limits should start a conversation about finishing work, missing decisions, or overloaded specialists. They should not become a score for individuals. RevoKanban lets the surrounding product decide whether a limit warns or blocks a move.
+Column and swimlane limits should start a conversation about finishing work, missing decisions, or overloaded specialists. They should not become a score for individuals. RevoGrid Kanban lets the surrounding product decide whether a limit warns or blocks a move.
 
 ## Keep system ownership clear
 
@@ -47,4 +47,4 @@ Your product remains the system of record for issues, permissions, validation, r
 - Test an overloaded build lane and a blocked review decision.
 - Confirm keyboard movement, persistence conflicts, and permissions with your own integration.
 
-Related guidance: [RevoKanban](/kanban), [Gantt for product planning](/gantt), and [requesting a Pro trial](/trial).
+Related guidance: [RevoGrid Kanban](/kanban), [Gantt for product planning](/gantt), and [requesting a Pro trial](/trial).

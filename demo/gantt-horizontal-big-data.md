@@ -11,7 +11,7 @@ editLink: false
 head:
   - - meta
     - name: keywords
-      content: RevoGantt long timeline Gantt demo, 20 year Gantt chart, horizontal Gantt performance, multi-year project timeline, JavaScript Gantt, React Gantt, Vue Gantt, Angular Gantt
+      content: RevoGrid Gantt long timeline Gantt demo, 20 year Gantt chart, horizontal Gantt performance, multi-year project timeline, JavaScript Gantt, React Gantt, Vue Gantt, Angular Gantt
 ---
 
 <script setup>

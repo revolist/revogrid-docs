@@ -32,7 +32,7 @@
           <div class="feature-body">
             <img v-if="feature.type === 'pivot'" src="/img/pivot-feature.png" alt="Pivot" class="sheet-img" />
             <img v-else-if="feature.type === 'gantt'" src="/img/gantt-demo.png" alt="Gantt" class="sheet-img" />
-            <img v-else-if="feature.type === 'kanban'" src="/blog/kanban-product-development-polished.png" alt="RevoKanban JavaScript Kanban board" class="sheet-img" />
+            <img v-else-if="feature.type === 'kanban'" src="/blog/kanban-product-development-polished.png" alt="RevoGrid Kanban JavaScript Kanban board" class="sheet-img" />
             <img v-else-if="feature.type === 'sheet'" src="/img/spreadsheet.png" alt="Spreadsheet" class="sheet-img" />
             <img v-else-if="feature.type === 'tree'" src="/img/hierarchy-master.png" alt="Hierarchy" class="sheet-img" />
             <img v-else-if="feature.type === 'server'" src="/img/server-grouping.png" alt="Server grouping" class="sheet-img" />

@@ -3,7 +3,7 @@ title: The Human Benefits of an Embedded Gantt Chart
 description: See how a shared visual schedule helps teams understand the plan, spot risk earlier, coordinate handoffs, protect focus, and make calmer decisions inside operational software.
 outline: deep
 image: /img/gantt-preview.png
-imageAlt: RevoGantt workspace with an editable task grid and synchronized project timeline
+imageAlt: RevoGrid Gantt workspace with an editable task grid and synchronized project timeline
 head:
   - - meta
     - name: keywords
@@ -37,7 +37,7 @@ A useful Gantt chart does more than draw bars. It gives a team one visual explan
 
 <GanttClusterCta />
 
-![RevoGantt workspace combining editable task data with a synchronized timeline](/img/gantt-preview.png)
+![RevoGrid Gantt workspace combining editable task data with a synchronized timeline](/img/gantt-preview.png)
 
 *The grid explains the work; the timeline explains time and sequence. Keeping both together reduces the effort required to understand the plan.*
 
@@ -106,7 +106,7 @@ That reduces duplicate entry and the uncertainty of asking, “Which version is 
 
 Scale is a human concern as much as a technical one. A plan with thousands of tasks is useless if scrolling, editing, or finding the relevant branch breaks the user's train of thought.
 
-RevoGantt is built on a virtualized grid and timeline, so the browser renders the visible working area rather than every row and time cell at once. Product teams should still test realistic hierarchies, dependencies, custom cells, calculations, and target hardware. Performance claims matter only when the actual planner can move through the schedule without waiting on the interface.
+RevoGrid Gantt is built on a virtualized grid and timeline, so the browser renders the visible working area rather than every row and time cell at once. Product teams should still test realistic hierarchies, dependencies, custom cells, calculations, and target hardware. Performance claims matter only when the actual planner can move through the schedule without waiting on the interface.
 
 ## What different people gain
 
@@ -140,4 +140,4 @@ Choose one real planning flow and ask the people who perform it to work through 
 
 Then test the technical shape: realistic task volume, hierarchy, dependency density, custom columns, resource assignments, permissions, backend rejection, and the devices users actually have.
 
-Explore the [live RevoGantt demos](/demo/gantt), review the focused guides for [ERP](/gantt/erp-gantt), [professional services](/gantt/professional-services-gantt), [construction](/gantt/construction-gantt), [manufacturing](/gantt/manufacturing-gantt), [resource planning](/gantt/resource-planning), and [internal tools](/gantt/internal-tools-gantt), or [request a Pro Advanced trial](/trial) with a production-shaped plan.
+Explore the [live RevoGrid Gantt demos](/demo/gantt), review the focused guides for [ERP](/gantt/erp-gantt), [professional services](/gantt/professional-services-gantt), [construction](/gantt/construction-gantt), [manufacturing](/gantt/manufacturing-gantt), [resource planning](/gantt/resource-planning), and [internal tools](/gantt/internal-tools-gantt), or [request a Pro Advanced trial](/trial) with a production-shaped plan.

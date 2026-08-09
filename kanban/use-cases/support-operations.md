@@ -3,7 +3,7 @@ title: Support Operations Kanban for Customer Service
 description: Coordinate support intake, triage, investigation, customer replies, SLAs, and resolution in an embedded Kanban.
 outline: deep
 image: /blog/kanban-support-operations-polished.png
-imageAlt: Real RevoKanban support operations board with customer, SLA, queue, and ownership context
+imageAlt: Real RevoGrid Kanban support operations board with customer, SLA, queue, and ownership context
 head:
   - - meta
     - name: keywords
@@ -23,7 +23,7 @@ This service view puts the customer identity first. New cases emphasize first re
 <KanbanUseCaseMedia
   title="Support operations"
   slug="support-operations"
-  alt="Real RevoKanban support operations board with five service stages, two teams, customer identity, SLA clocks, and an investigation WIP warning"
+  alt="Real RevoGrid Kanban support operations board with five service stages, two teams, customer identity, SLA clocks, and an investigation WIP warning"
   caption="Captured from the real support board: customer, channel, severity, SLA state, queue, and next action stay visible without generic progress bars."
   live-href="https://kanban.rv-grid.com/?example=support-operations"
 />
@@ -47,4 +47,4 @@ The host application should continue to own customer records, entitlements, SLAs
 - Test lane collapse and a move into an overloaded investigation column.
 - Verify keyboard announcements and the language used when a move is blocked.
 
-Related guidance: [RevoKanban](/kanban), [card customization](/kanban/card-customization), and [Pro trial access](/trial).
+Related guidance: [RevoGrid Kanban](/kanban), [card customization](/kanban/card-customization), and [Pro trial access](/trial).

@@ -1,6 +1,6 @@
 ---
 title: RevoGrid Comparisons
-description: Compare RevoGrid Data Grid, RevoGantt, RevoScheduler, and Pivot with JavaScript alternatives for pricing, licensing, framework support, and advanced product workflows.
+description: Compare RevoGrid Data Grid, RevoGrid Gantt, RevoGrid Scheduler, and Pivot with JavaScript alternatives for pricing, licensing, framework support, and advanced product workflows.
 sidebar: false
 aside: false
 editLink: false
@@ -102,7 +102,7 @@ Compare RevoGrid with popular JavaScript data grid, spreadsheet, table, and ente
 
 ## Gantt And Scheduler Comparisons
 
-Find RevoGantt and Scheduler guides for planning, resource scheduling, Microsoft Project-style migration, and embedded scheduling workflows.
+Find RevoGrid Gantt and Scheduler guides for planning, resource scheduling, Microsoft Project-style migration, and embedded scheduling workflows.
 
 <div class="compare-index-grid compare-index-grid--compact">
   <a class="compare-index-card" href="/compare/microsoft-project-gantt-alternative">
@@ -120,7 +120,7 @@ Find RevoGantt and Scheduler guides for planning, resource scheduling, Microsoft
     </div>
     <span class="compare-index-label">Grid-native Gantt comparison</span>
     <span class="compare-index-title">Bryntum Gantt Alternative</span>
-    <p>Compare RevoGantt with Bryntum Gantt for scheduling, dependencies, resources, customization, framework support, licensing, and migration.</p>
+    <p>Compare RevoGrid Gantt with Bryntum Gantt for scheduling, dependencies, resources, customization, framework support, licensing, and migration.</p>
   </a>
 
   <a class="compare-index-card" href="/compare/dhtmlx-gantt-alternative">
@@ -129,7 +129,7 @@ Find RevoGantt and Scheduler guides for planning, resource scheduling, Microsoft
     </div>
     <span class="compare-index-label">Grid-first Gantt comparison</span>
     <span class="compare-index-title">DHTMLX Gantt Alternative</span>
-    <p>Compare RevoGantt with DHTMLX Gantt for dependencies, baselines, critical path, resources, TypeScript, licensing, and product workflows.</p>
+    <p>Compare RevoGrid Gantt with DHTMLX Gantt for dependencies, baselines, critical path, resources, TypeScript, licensing, and product workflows.</p>
   </a>
 
   <a class="compare-index-card" href="/compare/syncfusion-gantt-alternative">
@@ -138,16 +138,16 @@ Find RevoGantt and Scheduler guides for planning, resource scheduling, Microsoft
     </div>
     <span class="compare-index-label">Grid-native Gantt comparison</span>
     <span class="compare-index-title">Syncfusion Gantt Alternative</span>
-    <p>Compare RevoGantt with Syncfusion Gantt for scheduling, dependencies, resources, framework support, licensing, and product workflows.</p>
+    <p>Compare RevoGrid Gantt with Syncfusion Gantt for scheduling, dependencies, resources, framework support, licensing, and product workflows.</p>
   </a>
 
   <a class="compare-index-card" href="/blog/best-js-scheduler-in-2026">
     <div class="compare-index-preview">
-      <img src="/blog/scheduler.png" alt="RevoScheduler and RevoGantt planning preview" loading="lazy">
+      <img src="/blog/scheduler.png" alt="RevoGrid Scheduler and RevoGrid Gantt planning preview" loading="lazy">
     </div>
     <span class="compare-index-label">Gantt and scheduler comparison</span>
     <span class="compare-index-title">Best JavaScript Scheduler and Gantt Libraries</span>
-    <p>Compare RevoScheduler and RevoGantt with Bryntum, DHTMLX, DayPilot, Syncfusion, FullCalendar, and Kendo for planning-heavy web apps.</p>
+    <p>Compare RevoGrid Scheduler and RevoGrid Gantt with Bryntum, DHTMLX, DayPilot, Syncfusion, FullCalendar, and Kendo for planning-heavy web apps.</p>
   </a>
 </div>
 

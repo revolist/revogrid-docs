@@ -3,7 +3,7 @@ title: Gantt Chart for Resource Planning and Capacity
 description: Plan people, crews, rooms, machines, and equipment with a Gantt chart that connects tasks, assignments, calendars, workload, dependencies, and capacity context.
 outline: deep
 image: /img/gantt-use-cases/resource-planning.webp?v=20260808-polished
-imageAlt: Real RevoGantt resource-planning view with assigned people, shared facilities, allocation percentages, dependencies, milestones, and visible overloads
+imageAlt: Real RevoGrid Gantt resource-planning view with assigned people, shared facilities, allocation percentages, dependencies, milestones, and visible overloads
 head:
   - - meta
     - name: keywords
@@ -27,7 +27,7 @@ Resource planning starts with a human question: can the people, rooms, machines,
 
 <GanttUseCaseMedia
   slug="resource-planning"
-  alt="Real RevoGantt resource-planning view with assigned people, shared facilities, allocation percentages, dependencies, milestones, and visible overloads"
+  alt="Real RevoGrid Gantt resource-planning view with assigned people, shared facilities, allocation percentages, dependencies, milestones, and visible overloads"
   caption="Captured from the production-shaped Pace Capacity example: work, assignments, and timing expose a 150% architect allocation and 175% shared-lab load early enough for a human planning conversation."
   live-href="https://gantt.rv-grid.com/?use-case=industry-resource-planning"
 />
@@ -38,7 +38,7 @@ Resource planning starts with a human question: can the people, rooms, machines,
 
 A useful model separates the task from the resource and the assignment between them. That lets one task have multiple assignees, one resource contribute across tasks, and the application attach units, cost, role, or allocation metadata to the relationship. It also keeps the conversation specific: the plan can show that an assignment overlaps another commitment without labeling the person as the problem.
 
-RevoGantt supports resources and assignments alongside tasks, calendars, dependencies, resource-planning views, capacity display, and over-allocation diagnostics. Product teams can place assignment fields and workload context in the same editable grid used for the schedule, while the host application keeps ownership of approval, staffing, and communication workflows.
+RevoGrid Gantt supports resources and assignments alongside tasks, calendars, dependencies, resource-planning views, capacity display, and over-allocation diagnostics. Product teams can place assignment fields and workload context in the same editable grid used for the schedule, while the host application keeps ownership of approval, staffing, and communication workflows.
 
 Typical applications include:
 
@@ -59,7 +59,7 @@ Keep the product boundary explicit:
 
 - **Warn:** show the conflicting dates, assignments, and capacity assumption without changing the plan.
 - **Suggest:** offer understandable options—move work, change allocation, add capacity, or accept the risk—while leaving the decision with an authorized person.
-- **Auto-level:** move eligible work according to configured rules. RevoGantt supports off, warning, and automatic resource-leveling modes, but automatic leveling can change task dates, downstream dependencies, and the critical path. Treat it as an opt-in scheduling policy with a reviewable result and a clear recovery or approval path in the surrounding product.
+- **Auto-level:** move eligible work according to configured rules. RevoGrid Gantt supports off, warning, and automatic resource-leveling modes, but automatic leveling can change task dates, downstream dependencies, and the critical path. Treat it as an opt-in scheduling policy with a reviewable result and a clear recovery or approval path in the surrounding product.
 
 The best default depends on the work. A planning team may welcome a suggested move; a construction crew, regulated lab, or customer commitment may require an explicit approval before any date changes.
 

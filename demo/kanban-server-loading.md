@@ -1,6 +1,6 @@
 ---
-title: 100K JavaScript Kanban Demo | RevoKanban
-description: Page through 100,000 remote cards in RevoKanban by RevoGrid with virtualized loading, accurate totals, and request status.
+title: 100K JavaScript Kanban Demo | RevoGrid Kanban
+description: Page through 100,000 remote cards in RevoGrid Kanban with virtualized loading, accurate totals, and request status.
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false
@@ -11,7 +11,7 @@ editLink: false
 head:
   - - meta
     - name: keywords
-      content: RevoKanban server loading demo, RevoGrid Kanban server loading demo, RevoKanban JS, remote Kanban data, 100000 card Kanban, virtualized JavaScript Kanban board, offset pagination
+      content: RevoGrid Kanban server loading demo, RevoGrid Kanban JS, remote Kanban data, 100000 card Kanban, virtualized JavaScript Kanban board, offset pagination
 ---
 
 <script setup>

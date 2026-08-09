@@ -3,7 +3,7 @@ title: Manufacturing Gantt Chart for Production Scheduling
 description: Build manufacturing Gantt and production scheduling views for jobs, machines, materials, changeovers, dependencies, capacity, baselines, and work orders.
 outline: deep
 image: /img/gantt-use-cases/manufacturing.webp?v=20260808-polished
-imageAlt: Real RevoGantt manufacturing schedule with production orders, machines, materials, changeovers, dependencies, quality gates, and shipment milestones
+imageAlt: Real RevoGrid Gantt manufacturing schedule with production orders, machines, materials, changeovers, dependencies, quality gates, and shipment milestones
 head:
   - - meta
     - name: keywords
@@ -29,7 +29,7 @@ A manufacturing Gantt brings those commitments, constraints, and handoffs into o
 
 <GanttUseCaseMedia
   slug="manufacturing"
-  alt="Real RevoGantt manufacturing schedule with production orders, machines, materials, changeovers, dependencies, quality gates, and shipment milestones"
+  alt="Real RevoGrid Gantt manufacturing schedule with production orders, machines, materials, changeovers, dependencies, quality gates, and shipment milestones"
   caption="Captured from the production-shaped Nexus MES example: production orders, machine assignments, material readiness, the CNC chain, inspection, and shipment commitments remain connected."
   live-href="https://gantt.rv-grid.com/?use-case=industry-manufacturing"
 />
@@ -40,7 +40,7 @@ A manufacturing Gantt brings those commitments, constraints, and handoffs into o
 
 Manufacturing screens need more than task name, start, and finish. The useful conversation starts when dates sit beside the fields people already use to run production: order, operation, item, quantity, work center, machine, setup family, material status, crew, shift, progress, and due date.
 
-RevoGantt keeps those fields in an editable task grid synchronized with the timeline. Planning features can then add:
+RevoGrid Gantt keeps those fields in an editable task grid synchronized with the timeline. Planning features can then add:
 
 - operation hierarchy and production milestones;
 - dependency links between operations;
@@ -76,7 +76,7 @@ Test with a production-shaped slice rather than a tidy sample. Include the large
 
 Treat the schedule as part of a wider production workflow. Decide which system owns released orders, inventory, routing, machine state, labor availability, quality status, approved baselines, and delivery promises. Then define which changes the Gantt may make directly, which need validation, and which must remain read-only.
 
-Review [resource scheduling](/gantt/resource-scheduling), [critical path](/gantt/critical-path), [baselines](/gantt/baselines), and the [ERP Gantt guide](/gantt/erp-gantt). If the main interaction is placing crews, machines, or maintenance windows into calendar slots, also compare the [JavaScript Scheduler](/jsscheduler). Then open the [RevoGantt demo](/demo/gantt) and request a [trial](/trial) for production-shaped testing.
+Review [resource scheduling](/gantt/resource-scheduling), [critical path](/gantt/critical-path), [baselines](/gantt/baselines), and the [ERP Gantt guide](/gantt/erp-gantt). If the main interaction is placing crews, machines, or maintenance windows into calendar slots, also compare the [JavaScript Scheduler](/jsscheduler). Then open the [RevoGrid Gantt demo](/demo/gantt) and request a [trial](/trial) for production-shaped testing.
 
 ## Manufacturing Gantt FAQ
 

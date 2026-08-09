@@ -8,7 +8,7 @@ head:
       content: JavaScript Gantt large datasets, high performance Gantt chart, virtualized Gantt, Gantt thousands of tasks, large project Gantt component
 faq:
   items:
-    - q: Can RevoGantt handle thousands of tasks?
+    - q: Can RevoGrid Gantt handle thousands of tasks?
       a: RevoGrid provides row and column virtualization and the repository includes scheduler benchmark cases for 1,000 and 3,000 tasks. Production capacity still depends on hierarchy, dependency density, resources, custom cells, and browser targets.
     - q: Is virtualization enough for a very large Gantt project?
       a: No. Rendering virtualization helps the viewport, but scheduling calculation cost, dependency graphs, resource leveling, data transfer, and application updates must also be measured.
@@ -28,7 +28,7 @@ import GanttClusterCta from './GanttClusterCta.vue'
 
 First, the browser must render and update an editable task table and a time-scaled chart. RevoGrid addresses the task-table side with row and column viewport virtualization, so the full dataset is not mounted as DOM cells.
 
-Second, the scheduling engine must calculate dates, dependencies, constraints, progress, warnings, and resources. The checked-in RevoGantt benchmark suite includes two explicit workloads:
+Second, the scheduling engine must calculate dates, dependencies, constraints, progress, warnings, and resources. The checked-in RevoGrid Gantt benchmark suite includes two explicit workloads:
 
 | Benchmark case | Included work |
 | --- | --- |
@@ -52,11 +52,11 @@ Use production-shaped data, not evenly spaced synthetic bars. Measure:
 
 Also test slower client hardware and the browsers your customers actually use. For very large portfolios, consider project partitioning, lazy-loading detail, and server-owned summaries even when the UI is virtualized.
 
-Open the [live Gantt demo](/demo/gantt) for interaction quality, then request a [Pro Advanced trial](/trial) to profile your own project. See [critical path](/gantt/critical-path), [resource scheduling](/gantt/resource-scheduling), and the full [RevoGantt performance evidence](/gantt#gantt-performance).
+Open the [live Gantt demo](/demo/gantt) for interaction quality, then request a [Pro Advanced trial](/trial) to profile your own project. See [critical path](/gantt/critical-path), [resource scheduling](/gantt/resource-scheduling), and the full [RevoGrid Gantt performance evidence](/gantt#gantt-performance).
 
 ## Large-data Gantt FAQ
 
-### Can RevoGantt handle thousands of tasks?
+### Can RevoGrid Gantt handle thousands of tasks?
 
 The architecture and benchmark cases are designed for large workloads, but your real capacity must be tested with your scheduling rules and product customizations.
 

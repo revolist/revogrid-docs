@@ -3,7 +3,7 @@ title: Sales and Customer Onboarding Kanban
 description: Embed a customer journey Kanban with opportunities, ARR, commercial decisions, implementation handoffs, and go-live dates.
 outline: deep
 image: /blog/kanban-sales-pipeline-polished.png
-imageAlt: Real RevoKanban sales and onboarding board with account-first opportunity cards
+imageAlt: Real RevoGrid Kanban sales and onboarding board with account-first opportunity cards
 head:
   - - meta
     - name: keywords
@@ -23,7 +23,7 @@ This board treats every card as an account, not a generic task. ARR, the custome
 <KanbanUseCaseMedia
   title="Sales and onboarding"
   slug="sales-onboarding"
-  alt="Real RevoKanban sales and onboarding board with account monograms, ARR, next customer actions, and go-live dates"
+  alt="Real RevoGrid Kanban sales and onboarding board with account monograms, ARR, next customer actions, and go-live dates"
   caption="Captured from the real customer-journey board: opportunity, contract, implementation, and live cards use different decision panels."
   live-href="https://kanban.rv-grid.com/?example=sales-onboarding"
 />
@@ -47,4 +47,4 @@ Your application owns accounts, contacts, forecasts, commercial permissions, imp
 - Test a blocked implementation handoff and an over-capacity stage.
 - Decide which fields can move with a card and which require server validation.
 
-Related guidance: [RevoKanban](/kanban), [workflow columns](/kanban/workflow-columns), and [Pro trial access](/trial).
+Related guidance: [RevoGrid Kanban](/kanban), [workflow columns](/kanban/workflow-columns), and [Pro trial access](/trial).

@@ -30,7 +30,7 @@ This page focuses on resource-aware tasks inside a dependency-driven Gantt. If u
 
 A resource entity describes capacity and calendar. An assignment links a resource to a task and can carry units, role, effort, cost, or other allocation data. Keeping these concepts separate supports many-to-many planning without duplicating resource details across tasks.
 
-RevoGantt supports resources, assignments, calendars, workload diagnostics, and resource-leveling modes alongside dependency-aware scheduling.
+RevoGrid Gantt supports resources, assignments, calendars, workload diagnostics, and resource-leveling modes alongside dependency-aware scheduling.
 
 ## Warn, suggest, or level automatically
 

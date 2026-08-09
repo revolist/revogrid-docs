@@ -391,7 +391,7 @@ const products = {
   },
   kanban: {
     id: 'kanban',
-    name: 'RevoKanban by RevoGrid',
+    name: 'RevoGrid Kanban',
     minimumPlan: 'pro-advanced',
     status: 'stable',
     featureId: 'kanban',
@@ -402,7 +402,7 @@ const products = {
   },
   gantt: {
     id: 'gantt',
-    name: 'RevoGantt by RevoGrid',
+    name: 'RevoGrid Gantt',
     minimumPlan: 'pro-advanced',
     status: 'stable',
     featureId: 'gantt',
@@ -413,7 +413,7 @@ const products = {
   },
   scheduler: {
     id: 'scheduler',
-    name: 'RevoScheduler by RevoGrid',
+    name: 'RevoGrid Scheduler',
     minimumPlan: 'pro-advanced',
     status: 'stable',
     featureId: 'event-scheduler',
@@ -424,7 +424,7 @@ const products = {
   },
   'event-scheduler': {
     id: 'event-scheduler',
-    name: 'RevoScheduler by RevoGrid',
+    name: 'RevoGrid Scheduler',
     minimumPlan: 'pro-advanced',
     status: 'stable',
     featureId: 'event-scheduler',

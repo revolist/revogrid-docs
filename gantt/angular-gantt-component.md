@@ -1,16 +1,16 @@
 ---
 title: Angular Gantt Chart Component for Enterprise Apps
-description: Evaluate RevoGantt, a JavaScript Gantt chart component for Angular with editable tasks, dependencies, resources, baselines, critical path, and large datasets.
+description: Evaluate RevoGrid Gantt, a JavaScript Gantt chart component for Angular with editable tasks, dependencies, resources, baselines, critical path, and large datasets.
 outline: deep
 head:
   - - meta
     - name: keywords
-      content: RevoGantt Angular, Angular Gantt component, Angular Gantt chart library, JavaScript Gantt chart Angular, Angular project scheduling, Angular resource planning, enterprise Angular Gantt
+      content: RevoGrid Gantt Angular, Angular Gantt component, Angular Gantt chart library, JavaScript Gantt chart Angular, Angular project scheduling, Angular resource planning, enterprise Angular Gantt
 faq:
   items:
-    - q: Can RevoGantt be embedded in Angular?
+    - q: Can RevoGrid Gantt be embedded in Angular?
       a: Yes. RevoGrid provides an Angular wrapper around its Web Component foundation, and the Gantt examples include Angular variants for major planning workflows.
-    - q: Is RevoGantt suited to Angular enterprise applications?
+    - q: Is RevoGrid Gantt suited to Angular enterprise applications?
       a: It is designed for data-heavy products such as ERP, operations, manufacturing, and resource-planning systems where a programmable task grid and schedule must work together.
 ---
 
@@ -44,13 +44,13 @@ The examples repository includes Angular versions of the basic Gantt, baselines,
 
 Dedicated Gantt widgets frequently treat the task table as supporting chrome. In enterprise applications, that table is often the main workspace: users edit work orders, status, owners, cost codes, quantities, materials, and custom fields before or alongside dates.
 
-RevoGantt keeps those fields on a programmable, virtualized grid foundation. The timeline adds scheduling context to the same records rather than creating a separate mini-application with different editing behavior.
+RevoGrid Gantt keeps those fields on a programmable, virtualized grid foundation. The timeline adds scheduling context to the same records rather than creating a separate mini-application with different editing behavior.
 
 For adjacent buying questions, review [Gantt for ERP](/gantt/erp-gantt), [manufacturing Gantt](/gantt/manufacturing-gantt), and [resource scheduling](/gantt/resource-scheduling). Current Pro Advanced pricing and 30-day trial terms are summarized on the [main Gantt page](/gantt#gantt-pricing-trial).
 
 ## Angular Gantt FAQ
 
-### Can RevoGantt be embedded in Angular?
+### Can RevoGrid Gantt be embedded in Angular?
 
 Yes. Use the Angular wrapper to bind RevoGrid and the Gantt properties, while your Angular components own the surrounding product experience.
 

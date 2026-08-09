@@ -3,7 +3,7 @@ title: Gantt Chart Component for ERP Software
 description: Embed Gantt scheduling in ERP software for work orders, projects, materials, resources, dependencies, production dates, custom fields, and large editable datasets.
 outline: deep
 image: /img/gantt-use-cases/erp.webp?v=20260808-polished
-imageAlt: Real RevoGantt ERP view with production work orders, operational status, dependencies, approved baseline bars, and delivery commitments
+imageAlt: Real RevoGrid Gantt ERP view with production work orders, operational status, dependencies, approved baseline bars, and delivery commitments
 head:
   - - meta
     - name: keywords
@@ -27,7 +27,7 @@ ERP planning is not a standalone project file. Dates are connected to work order
 
 <GanttUseCaseMedia
   slug="erp"
-  alt="Real RevoGantt ERP view with production work orders, operational status, dependencies, approved baseline bars, and delivery commitments"
+  alt="Real RevoGrid Gantt ERP view with production work orders, operational status, dependencies, approved baseline bars, and delivery commitments"
   caption="Captured from the production-shaped Northwind ERP example: work orders, shop-floor status, dependency impact, baseline variance, and the customer commitment stay in one working view."
   live-href="https://gantt.rv-grid.com/?use-case=industry-erp"
 />
@@ -47,7 +47,7 @@ A useful ERP Gantt should let planners work with business fields beside task dat
 - baseline-versus-current delivery analysis;
 - filters and views for a plant, department, portfolio, or order.
 
-RevoGantt adds scheduling to a virtualized, editable grid foundation. ERP teams can keep domain columns and product actions in the task table, giving planners one place to understand the commitment, the work behind it, and what needs attention next.
+RevoGrid Gantt adds scheduling to a virtualized, editable grid foundation. ERP teams can keep domain columns and product actions in the task table, giving planners one place to understand the commitment, the work behind it, and what needs attention next.
 
 ## Integration boundaries to validate
 
@@ -55,7 +55,7 @@ The ERP should remain the system of record. Define which scheduling fields can b
 
 For scale, benchmark a real project hierarchy with representative dependencies and custom cells. Rendering virtualization does not eliminate the cost of resource leveling, dependency propagation, API updates, or cross-project portfolio calculations. See the [large-dataset Gantt guide](/gantt/javascript-gantt-large-datasets) for a practical test plan.
 
-Related evaluation pages cover [manufacturing Gantt](/gantt/manufacturing-gantt), [resource planning](/gantt/resource-planning), [baselines](/gantt/baselines), and [critical path](/gantt/critical-path). The [main RevoGantt page](/gantt) contains live demos, supported features, pricing, and trial access.
+Related evaluation pages cover [manufacturing Gantt](/gantt/manufacturing-gantt), [resource planning](/gantt/resource-planning), [baselines](/gantt/baselines), and [critical path](/gantt/critical-path). The [main RevoGrid Gantt page](/gantt) contains live demos, supported features, pricing, and trial access.
 
 ## ERP Gantt FAQ
 

@@ -1,6 +1,6 @@
 ---
 title: "React Gantt Chart Component: Build vs Buy in 2026"
-description: "Compare building a React Gantt chart with buying a React Gantt chart component. See where RevoGantt, Syncfusion, and SVAR fit."
+description: "Compare building a React Gantt chart with buying a React Gantt chart component. See where RevoGrid Gantt, Syncfusion, and SVAR fit."
 outline: deep
 date: 2026-07-09
 author: RevoGrid Team
@@ -13,20 +13,20 @@ tags:
   - RevoGrid Pro
   - JavaScript
 image: /blog/gantt-build-buy.png
-imageAlt: RevoGantt React planning surface preview
+imageAlt: RevoGrid Gantt React planning surface preview
 head:
   - - meta
     - name: keywords
-      content: "React Gantt chart component, React Gantt chart library, build React Gantt chart, React project planning component, React scheduling component, editable Gantt chart React, React Gantt chart with dependencies, React Gantt chart with resources, React Gantt chart alternative, Syncfusion React Gantt alternative, SVAR React Gantt alternative, RevoGantt"
+      content: "React Gantt chart component, React Gantt chart library, build React Gantt chart, React project planning component, React scheduling component, editable Gantt chart React, React Gantt chart with dependencies, React Gantt chart with resources, React Gantt chart alternative, Syncfusion React Gantt alternative, SVAR React Gantt alternative, RevoGrid Gantt"
   - - link
     - rel: canonical
       href: "https://rv-grid.com/blog/react-gantt-chart-component-build-vs-buy"
   - - meta
     - property: og:title
-      content: "React Gantt Chart Component: Build vs Buy - RevoGantt"
+      content: "React Gantt Chart Component: Build vs Buy - RevoGrid Gantt"
   - - meta
     - property: og:description
-      content: "Should React teams build a Gantt chart from scratch or buy a product-grade editable planning surface? Compare RevoGantt, Syncfusion, SVAR, and custom development."
+      content: "Should React teams build a Gantt chart from scratch or buy a product-grade editable planning surface? Compare RevoGrid Gantt, Syncfusion, SVAR, and custom development."
   - - meta
     - property: og:type
       content: "article"
@@ -43,7 +43,7 @@ head:
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "React Gantt Chart Component: Build vs Buy in 2026",
-        "description": "Compare building a React Gantt chart with buying a React Gantt chart component. See where RevoGantt, Syncfusion, and SVAR fit.",
+        "description": "Compare building a React Gantt chart with buying a React Gantt chart component. See where RevoGrid Gantt, Syncfusion, and SVAR fit.",
         "author": {
           "@type": "Organization",
           "name": "RevoGrid"
@@ -72,7 +72,7 @@ head:
             "name": "What is the best React Gantt chart component for product teams?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "RevoGantt is a strong choice for product teams that need an editable planning surface with task hierarchy, dependencies, scheduling logic, resources, baselines, critical path, grid editing, and React integration on top of the RevoGrid data-grid foundation."
+              "text": "RevoGrid Gantt is a strong choice for product teams that need an editable planning surface with task hierarchy, dependencies, scheduling logic, resources, baselines, critical path, grid editing, and React integration on top of the RevoGrid data-grid foundation."
             }
           },
           {
@@ -85,18 +85,18 @@ head:
           },
           {
             "@type": "Question",
-            "name": "Is RevoGantt a Syncfusion React Gantt alternative?",
+            "name": "Is RevoGrid Gantt a Syncfusion React Gantt alternative?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. RevoGantt is a Syncfusion React Gantt alternative for teams that want Gantt and scheduling workflows connected to a fast grid-first data surface instead of adopting a broad UI component suite."
+              "text": "Yes. RevoGrid Gantt is a Syncfusion React Gantt alternative for teams that want Gantt and scheduling workflows connected to a fast grid-first data surface instead of adopting a broad UI component suite."
             }
           },
           {
             "@type": "Question",
-            "name": "How is RevoGantt different from SVAR React Gantt?",
+            "name": "How is RevoGrid Gantt different from SVAR React Gantt?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "SVAR emphasizes a native React Gantt component. RevoGantt emphasizes a product-grade planning surface built on the same grid engine used for data grids, with framework integrations and Pro planning workflows."
+              "text": "SVAR emphasizes a native React Gantt component. RevoGrid Gantt emphasizes a product-grade planning surface built on the same grid engine used for data grids, with framework integrations and Pro planning workflows."
             }
           }
         ]
@@ -104,12 +104,12 @@ head:
 ---
 # React Gantt Chart Component: Build vs Buy
 
-::: tip Evaluate RevoGantt
-Compare the full [RevoGantt product surface](/gantt), then use the focused [React Gantt component guide](/gantt/react-gantt-component) for integration and buying criteria.
+::: tip Evaluate RevoGrid Gantt
+Compare the full [RevoGrid Gantt product surface](/gantt), then use the focused [React Gantt component guide](/gantt/react-gantt-component) for integration and buying criteria.
 
 :::
 
-![RevoGantt React planning surface preview](/blog/gantt-pr2.png)
+![RevoGrid Gantt React planning surface preview](/blog/gantt-pr2.png)
 
 React teams usually start the Gantt question with a simple requirement:
 
@@ -125,7 +125,7 @@ The better question is:
 
 That distinction matters for React SaaS products, internal planning tools, operations platforms, construction dashboards, professional-services portals, product roadmaps, manufacturing schedules, resource planning systems, and any application where the Gantt chart becomes part of daily work.
 
-This guide compares whether you should build a React Gantt chart yourself or buy a React Gantt chart library, and where [RevoGantt](/gantt/) fits against popular React-specific options such as Syncfusion React Gantt and SVAR React Gantt.
+This guide compares whether you should build a React Gantt chart yourself or buy a React Gantt chart library, and where [RevoGrid Gantt](/gantt/) fits against popular React-specific options such as Syncfusion React Gantt and SVAR React Gantt.
 
 Last reviewed: July 9, 2026. Vendor pricing, packaging, and feature availability can change. Always verify official vendor pages before procurement.
 
@@ -143,9 +143,9 @@ This guide is optimized for those who is searching for:
 * React project planning component
 * Syncfusion React Gantt alternative
 * SVAR React Gantt alternative
-* RevoGantt
+* RevoGrid Gantt
 
-For implementation details after the comparison, explore [RevoGrid Pro](/pro/), the [Gantt product page](/gantt/), the [React data grid guide](/guide/react/), the [comparison hub](/compare/), and the full [RevoGantt documentation](https://pro.rv-grid.com/guides/gantt/).
+For implementation details after the comparison, explore [RevoGrid Pro](/pro/), the [Gantt product page](/gantt/), the [React data grid guide](/guide/react/), the [comparison hub](/compare/), and the full [RevoGrid Gantt documentation](https://pro.rv-grid.com/guides/gantt/).
 
 
 ## The short verdict
@@ -156,9 +156,9 @@ For implementation details after the comparison, explore [RevoGrid Pro](/pro/), 
 | You need task editing, dependencies, resources, calendars, baselines, and planning logic | Buy a React Gantt chart component |
 | You want a broad UI suite with a standalone Gantt control | Consider Syncfusion |
 | You want a native React-only Gantt component | Consider SVAR |
-| You want Gantt scheduling built on a fast editable grid surface | Choose **RevoGantt** |
+| You want Gantt scheduling built on a fast editable grid surface | Choose **RevoGrid Gantt** |
 
-**RevoGantt is the strongest fit when the Gantt is not a decorative chart, but a data-heavy planning workspace.**
+**RevoGrid Gantt is the strongest fit when the Gantt is not a decorative chart, but a data-heavy planning workspace.**
 
 It is built as a RevoGrid Enterprise plugin layered on top of the base grid. The grid foundation owns rendering, virtualization, editing, selection, and keyboard behavior. Gantt adds task timeline projection, dependency links, scheduling rules, resources and assignments, critical path, baselines, and timeline tools.
 
@@ -210,7 +210,7 @@ This is why the build-vs-buy decision is not only about React. It is about wheth
 
 ## Build vs buy: the practical decision matrix
 
-| Requirement | Build custom React Gantt | Buy React Gantt chart library | RevoGantt fit |
+| Requirement | Build custom React Gantt | Buy React Gantt chart library | RevoGrid Gantt fit |
 | --- | --- | --- | --- |
 | Static visual timeline | ✅ Good fit | ✅ Good fit | ✅ Works, but may be more than needed |
 | Read-only roadmap | ✅ Good fit | ✅ Good fit | ✅ Works well |
@@ -257,7 +257,7 @@ If you build it yourself, you either:
 * embed another data grid and synchronize it with your timeline;
 * accept limited editing and table behavior.
 
-RevoGantt avoids that split because the Gantt module is built on top of the same RevoGrid data-grid foundation.
+RevoGrid Gantt avoids that split because the Gantt module is built on top of the same RevoGrid data-grid foundation.
 
 ### 2. Timeline math gets complicated quickly
 
@@ -284,7 +284,7 @@ Dependency lines look visual, but the product behavior is logical.
 
 A dependency must affect task movement, validation, automatic scheduling, critical path, slack, and diagnostics. It also has to survive drag-and-drop editing, zoom changes, virtual scrolling, filtering, collapsed groups, and task reordering.
 
-RevoGantt supports the standard dependency relationships used in project planning: finish-to-start, start-to-start, finish-to-finish, and start-to-finish. It also supports lead and lag time, dependency validation, and dependency editing workflows.
+RevoGrid Gantt supports the standard dependency relationships used in project planning: finish-to-start, start-to-start, finish-to-finish, and start-to-finish. It also supports lead and lag time, dependency validation, and dependency editing workflows.
 
 ### 4. Editing needs a transaction model
 
@@ -307,12 +307,12 @@ Large projects create dense UI surfaces. The task grid, timeline headers, bars, 
 
 A custom React implementation can perform well if the team is disciplined, but it must solve virtualization, layout caching, pointer interactions, timeline projection, and scroll synchronization. Those are infrastructure problems.
 
-RevoGantt starts from a virtualized grid foundation, so React does not need to own every visible cell, row, and timeline interaction as application-level component state.
+RevoGrid Gantt starts from a virtualized grid foundation, so React does not need to own every visible cell, row, and timeline interaction as application-level component state.
 
 
-## What RevoGantt gives React teams
+## What RevoGrid Gantt gives React teams
 
-[RevoGantt](/gantt/) is designed for teams that need a Gantt surface inside a real product, not just a standalone visual widget.
+[RevoGrid Gantt](/gantt/) is designed for teams that need a Gantt surface inside a real product, not just a standalone visual widget.
 
 It combines:
 
@@ -327,9 +327,9 @@ It combines:
 * timeline tooling;
 * React integration through the RevoGrid React wrapper.
 
-### RevoGantt feature overview
+### RevoGrid Gantt feature overview
 
-| Feature group | RevoGantt capability |
+| Feature group | RevoGrid Gantt capability |
 | --- | --- |
 | Task model | Task tree, WBS codes, summary tasks, regular tasks, milestones, collapsible groups, parent-child rollups |
 | Dependencies | Finish-to-start, start-to-start, finish-to-finish, start-to-finish, lead/lag, validation, drag/link editing |
@@ -345,12 +345,12 @@ It combines:
 | Import/export | JSON project snapshot helpers, REST and GraphQL persistence examples, PostgreSQL recipe, CSV export through core grid export, Excel workflows through RevoGrid Pro |
 | Product controls | Toolbar helpers, context menu recipes, read-only mode, locked tasks, task editor dialog patterns |
 
-The important point is not that RevoGantt has a long checklist. The important point is that the checklist sits on a grid surface your users can actually edit.
+The important point is not that RevoGrid Gantt has a long checklist. The important point is that the checklist sits on a grid surface your users can actually edit.
 
 
-## React example: RevoGantt as a planning surface
+## React example: RevoGrid Gantt as a planning surface
 
-A RevoGantt setup in React uses the RevoGrid React wrapper and the Pro Advanced `GanttPlugin`.
+A RevoGrid Gantt setup in React uses the RevoGrid React wrapper and the Pro Advanced `GanttPlugin`.
 
 ```tsx
 import React, { useMemo, useRef } from 'react';
@@ -467,7 +467,7 @@ export default function ProjectPlanGantt() {
 }
 ```
 
-This is the strategic difference between RevoGantt and a custom timeline. You are not starting from canvas math or div positioning. You are starting from an editable grid foundation and adding scheduling behavior through a Gantt plugin.
+This is the strategic difference between RevoGrid Gantt and a custom timeline. You are not starting from canvas math or div positioning. You are starting from an editable grid foundation and adding scheduling behavior through a Gantt plugin.
 
 
 ## RevoGrid vs building your own React Gantt chart
@@ -485,7 +485,7 @@ A custom build can make sense when the requirements are intentionally narrow:
 
 In those cases, a React component built with CSS, SVG, Canvas, or a charting layer may be enough.
 
-### Choose RevoGantt when users will work inside the chart
+### Choose RevoGrid Gantt when users will work inside the chart
 
 Buy instead of build when users need to edit the plan.
 
@@ -504,10 +504,10 @@ That means:
 * exporting or persisting project state;
 * using the Gantt as part of a wider data-heavy product.
 
-Once users are actively planning inside the component, the Gantt becomes an application surface. That is where RevoGantt is designed to fit.
+Once users are actively planning inside the component, the Gantt becomes an application surface. That is where RevoGrid Gantt is designed to fit.
 
 
-## RevoGantt vs Syncfusion React Gantt
+## RevoGrid Gantt vs Syncfusion React Gantt
 
 [Syncfusion React Gantt](https://www.syncfusion.com/react-components/react-gantt-chart) is a mature commercial React Gantt chart component inside the broader Syncfusion UI suite. Syncfusion’s messaging focuses on project planning, task scheduling, hierarchy, dependencies, drag-and-drop editing, resource allocation, data binding, exporting, accessibility, touch support, browser support, AI tooling, and broad framework availability.
 
@@ -533,9 +533,9 @@ RevoGrid is stronger when the buying question is:
 
 > Which planning surface keeps our data-heavy product fast, editable, customizable, and maintainable?
 
-RevoGantt is built from the grid surface upward. That matters when your users treat the Gantt like a spreadsheet-like project workspace rather than a standalone widget.
+RevoGrid Gantt is built from the grid surface upward. That matters when your users treat the Gantt like a spreadsheet-like project workspace rather than a standalone widget.
 
-| Decision point | RevoGantt | Syncfusion React Gantt |
+| Decision point | RevoGrid Gantt | Syncfusion React Gantt |
 | --- | --- | --- |
 | Product philosophy | Focused grid-first planning surface | Broad commercial UI suite component |
 | Core advantage | Editable data-grid foundation plus Gantt scheduling | Mature standalone React Gantt control |
@@ -544,14 +544,14 @@ RevoGantt is built from the grid surface upward. That matters when your users tr
 | Task table editing | Natural fit because Gantt builds on RevoGrid | Supported inside Syncfusion Gantt |
 | Dependencies | FS, SS, FF, SF, lead/lag, validation, editing | Strong dependency and scheduling feature set |
 | Resources | Assignments, utilization, workload view, capacity diagnostics | Resource allocation features |
-| Baselines and critical path | Supported in RevoGantt | Supported in Syncfusion Gantt |
+| Baselines and critical path | Supported in RevoGrid Gantt | Supported in Syncfusion Gantt |
 | Export workflows | JSON project helpers, grid CSV export, Pro Excel workflows, print/PDF recipes | Excel, CSV, and PDF export |
 | Best fit | SaaS products where Gantt is a custom data workspace | Teams standardizing on a broad UI suite |
 
 For a wider vendor comparison, read the [Syncfusion alternative guide](/compare/syncfusion-alternative/).
 
 
-## RevoGantt vs SVAR React Gantt
+## RevoGrid Gantt vs SVAR React Gantt
 
 [SVAR React Gantt](https://svar.dev/react/gantt/) positions itself as a native React Gantt chart library: pure React, no JavaScript wrappers, TypeScript support, Vite and Next.js compatibility, backend integration, live demos, and AI-assisted development through an MCP server.
 
@@ -577,7 +577,7 @@ RevoGrid is stronger when the Gantt is part of a wider data-grid product archite
 
 The difference is not “React versus not React.” RevoGrid works in React. The difference is whether your team wants a React-only component or a planning surface built on the same grid engine that can also support other data-heavy modules and framework integrations.
 
-| Decision point | RevoGantt | SVAR React Gantt |
+| Decision point | RevoGrid Gantt | SVAR React Gantt |
 | --- | --- | --- |
 | Product philosophy | Grid-powered planning platform | Native React Gantt component |
 | React story | React wrapper around RevoGrid Web Component and Pro Advanced Gantt plugin | Pure React component with no JavaScript wrappers |
@@ -715,7 +715,7 @@ A React-only library can be ideal for a React-only product. A framework-agnostic
 
 ## Feature comparison: RevoGrid, Syncfusion, SVAR, and custom build
 
-| Capability | RevoGantt | Syncfusion React Gantt | SVAR React Gantt | Custom React build |
+| Capability | RevoGrid Gantt | Syncfusion React Gantt | SVAR React Gantt | Custom React build |
 | --- | --- | --- | --- | --- |
 | React support | ✅ | ✅ | ✅ | ✅ |
 | Task hierarchy | ✅ | ✅ | ✅ | ⚠️ Build yourself |
@@ -783,7 +783,7 @@ That usually means:
 A good React Gantt chart library is not just a UI shortcut. It is a way to avoid owning years of scheduling and interaction edge cases.
 
 
-## Where RevoGantt wins
+## Where RevoGrid Gantt wins
 
 ### 1. The Gantt is built on a real data grid
 
@@ -800,11 +800,11 @@ That matters because planning users spend a lot of time in the task table:
 * comparing baseline variance;
 * navigating with the keyboard.
 
-RevoGantt is a better fit when the task table is not an afterthought.
+RevoGrid Gantt is a better fit when the task table is not an afterthought.
 
 ### 2. Scheduling behavior is part of the product surface
 
-RevoGantt supports the planning concepts teams expect from professional project management tools: dependencies, lead/lag, constraints, calendars, deadlines, critical path, slack, baselines, progress tracking, resources, workload, and capacity diagnostics.
+RevoGrid Gantt supports the planning concepts teams expect from professional project management tools: dependencies, lead/lag, constraints, calendars, deadlines, critical path, slack, baselines, progress tracking, resources, workload, and capacity diagnostics.
 
 That gives developers a stronger starting point than a visual-only Gantt chart.
 
@@ -841,7 +841,7 @@ Instead of stitching together unrelated widgets, you can build around one grid-f
 
 SaaS products need predictable architecture. A Gantt should not become a separate mini-application with its own incompatible data model, editing rules, styling conventions, and lifecycle assumptions.
 
-RevoGantt is strongest when you want the planning surface to feel like part of your product, not a heavy third-party project management app embedded inside it.
+RevoGrid Gantt is strongest when you want the planning surface to feel like part of your product, not a heavy third-party project management app embedded inside it.
 
 
 ## Where another option may be better
@@ -883,14 +883,14 @@ For suite procurement, evaluate Syncfusion.
 
 For a React-only Gantt component, evaluate SVAR.
 
-For a product-grade editable planning surface connected to a high-performance grid foundation, choose RevoGantt.
+For a product-grade editable planning surface connected to a high-performance grid foundation, choose RevoGrid Gantt.
 
 
-## Migration map: from custom or competitor Gantt to RevoGantt
+## Migration map: from custom or competitor Gantt to RevoGrid Gantt
 
-| Existing concept | RevoGantt direction |
+| Existing concept | RevoGrid Gantt direction |
 | --- | --- |
-| Custom React task array | RevoGantt task rows with typed task fields |
+| Custom React task array | RevoGrid Gantt task rows with typed task fields |
 | Custom parent/child nesting | Task tree with `parentId` and WBS projection |
 | Custom SVG bars | Gantt timeline projection and task bar rendering |
 | Custom dependency arrows | `ganttDependencies` with typed dependency relationships |
@@ -911,7 +911,7 @@ This is the main migration advantage: you can replace scattered custom timeline 
 
 ### What is the best React Gantt chart component for product teams?
 
-RevoGantt is a strong choice for product teams that need more than a visual timeline. It is designed for editable planning surfaces with task hierarchy, dependencies, scheduling logic, resources, baselines, critical path, grid editing, and React integration.
+RevoGrid Gantt is a strong choice for product teams that need more than a visual timeline. It is designed for editable planning surfaces with task hierarchy, dependencies, scheduling logic, resources, baselines, critical path, grid editing, and React integration.
 
 ### What is the difference between a React Gantt chart component and a React Gantt chart library?
 
@@ -923,41 +923,41 @@ For production planning tools, evaluate the full library, not only the rendered 
 
 Build a React Gantt chart from scratch only when your requirements are simple, mostly read-only, or highly specialized. If users need editing, dependencies, resources, baselines, calendars, critical path, exports, validation, undo behavior, or long-term maintainability, buying a component is usually the better engineering decision.
 
-### Is RevoGantt a Syncfusion React Gantt alternative?
+### Is RevoGrid Gantt a Syncfusion React Gantt alternative?
 
-Yes. RevoGantt is a Syncfusion React Gantt alternative for teams that want Gantt and scheduling workflows connected to a fast grid-first data surface instead of adopting a broad UI component suite. Syncfusion is still a good choice when suite breadth is the main buying requirement.
+Yes. RevoGrid Gantt is a Syncfusion React Gantt alternative for teams that want Gantt and scheduling workflows connected to a fast grid-first data surface instead of adopting a broad UI component suite. Syncfusion is still a good choice when suite breadth is the main buying requirement.
 
-### Is RevoGantt an SVAR React Gantt alternative?
+### Is RevoGrid Gantt an SVAR React Gantt alternative?
 
-Yes. RevoGantt is an SVAR React Gantt alternative for teams that want a product-grade planning surface built on a grid foundation. SVAR is attractive for React-only teams that prefer a pure React Gantt component. RevoGrid is stronger when grid editing, cross-framework reuse, and wider data-surface architecture matter.
+Yes. RevoGrid Gantt is an SVAR React Gantt alternative for teams that want a product-grade planning surface built on a grid foundation. SVAR is attractive for React-only teams that prefer a pure React Gantt component. RevoGrid is stronger when grid editing, cross-framework reuse, and wider data-surface architecture matter.
 
-### Does RevoGantt support dependencies?
+### Does RevoGrid Gantt support dependencies?
 
-Yes. RevoGantt supports standard dependency relationships such as finish-to-start, start-to-start, finish-to-finish, and start-to-finish. It also supports lead and lag time, dependency validation, and dependency editing workflows.
+Yes. RevoGrid Gantt supports standard dependency relationships such as finish-to-start, start-to-start, finish-to-finish, and start-to-finish. It also supports lead and lag time, dependency validation, and dependency editing workflows.
 
-### Does RevoGantt support baselines and critical path?
+### Does RevoGrid Gantt support baselines and critical path?
 
-Yes. RevoGantt supports baseline snapshots and baseline bars for comparing planned versus live schedules. It also supports critical path calculation, critical path highlighting, and total slack projection.
+Yes. RevoGrid Gantt supports baseline snapshots and baseline bars for comparing planned versus live schedules. It also supports critical path calculation, critical path highlighting, and total slack projection.
 
-### Does RevoGantt support resource planning?
+### Does RevoGrid Gantt support resource planning?
 
-Yes. RevoGantt includes resource entities, assignments, workload view, utilization and capacity display, resource calendars, and over-allocation diagnostics.
+Yes. RevoGrid Gantt includes resource entities, assignments, workload view, utilization and capacity display, resource calendars, and over-allocation diagnostics.
 
-### Does RevoGantt work in React?
+### Does RevoGrid Gantt work in React?
 
-Yes. RevoGantt can be used in React through the RevoGrid React wrapper with the Pro Advanced `GanttPlugin`. It also follows the broader RevoGrid architecture, which supports React, Vue, Angular, Svelte, TypeScript, and plain JavaScript usage through the same grid foundation.
+Yes. RevoGrid Gantt can be used in React through the RevoGrid React wrapper with the Pro Advanced `GanttPlugin`. It also follows the broader RevoGrid architecture, which supports React, Vue, Angular, Svelte, TypeScript, and plain JavaScript usage through the same grid foundation.
 
-### Can I export data from RevoGantt?
+### Can I export data from RevoGrid Gantt?
 
-Yes. RevoGantt provides JSON project snapshot helpers and integration recipes for persistence workflows. RevoGrid core supports CSV export, and RevoGrid Pro supports Excel import/export workflows. Print-oriented PDF recipes can be wired for reporting use cases.
+Yes. RevoGrid Gantt provides JSON project snapshot helpers and integration recipes for persistence workflows. RevoGrid core supports CSV export, and RevoGrid Pro supports Excel import/export workflows. Print-oriented PDF recipes can be wired for reporting use cases.
 
-### Is RevoGantt open source?
+### Is RevoGrid Gantt open source?
 
 RevoGrid core is MIT-licensed. Gantt is a Pro Advanced workflow. That means teams can start with the open grid foundation and move into Pro modules when they need production planning features such as Gantt, pivot, scheduler, advanced export, formulas, validation, and enterprise workflows.
 
-### When is a custom React Gantt chart better than RevoGantt?
+### When is a custom React Gantt chart better than RevoGrid Gantt?
 
-A custom React Gantt chart can be better when you only need a small visual timeline, a read-only roadmap, or a specialized visualization that does not require standard planning behavior. RevoGantt is better when users need to edit and manage real project schedules.
+A custom React Gantt chart can be better when you only need a small visual timeline, a read-only roadmap, or a specialized visualization that does not require standard planning behavior. RevoGrid Gantt is better when users need to edit and manage real project schedules.
 
 
 ## Final recommendation
@@ -980,6 +980,6 @@ If your company wants a broad UI suite, compare Syncfusion.
 
 If your team wants a native React-only component, compare SVAR.
 
-If your product needs a **React Gantt chart component that behaves like a product-grade editable planning surface**, start with **RevoGantt**.
+If your product needs a **React Gantt chart component that behaves like a product-grade editable planning surface**, start with **RevoGrid Gantt**.
 
-Explore [RevoGantt](/gantt/), review [RevoGrid Pro](/pro/), compare broader vendors in the [Syncfusion alternative guide](/compare/syncfusion-alternative/), or go directly to the [RevoGantt documentation](https://pro.rv-grid.com/guides/gantt/).
+Explore [RevoGrid Gantt](/gantt/), review [RevoGrid Pro](/pro/), compare broader vendors in the [Syncfusion alternative guide](/compare/syncfusion-alternative/), or go directly to the [RevoGrid Gantt documentation](https://pro.rv-grid.com/guides/gantt/).

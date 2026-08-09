@@ -1,6 +1,6 @@
 ---
 title: Microsoft Project Gantt Alternative
-description: Learn how to replace Microsoft Project-style Gantt workflows with embedded RevoGantt scheduling, migration steps, data mapping, resources, dependencies, and critical path planning.
+description: Learn how to replace Microsoft Project-style Gantt workflows with embedded RevoGrid Gantt scheduling, migration steps, data mapping, resources, dependencies, and critical path planning.
 outline: deep
 aside: true
 editLink: false
@@ -12,11 +12,11 @@ tags:
   - gantt
   - scheduler
 image: /blog/gantt-abstract.png
-imageAlt: RevoGantt and project scheduling preview
+imageAlt: RevoGrid Gantt and project scheduling preview
 head:
   - - meta
     - name: keywords
-      content: "Microsoft Project replacement, Microsoft Project Gantt replacement, Microsoft Project migration, Project Online retirement, RevoGantt, JavaScript Gantt, TypeScript Gantt, embedded Gantt chart, project scheduling component, critical path scheduling"
+      content: "Microsoft Project replacement, Microsoft Project Gantt replacement, Microsoft Project migration, Project Online retirement, RevoGrid Gantt, JavaScript Gantt, TypeScript Gantt, embedded Gantt chart, project scheduling component, critical path scheduling"
   - - meta
     - property: og:title
       content: "Microsoft Project Gantt Replacement Guide: Move Planning Into Your Product"
@@ -30,8 +30,8 @@ head:
 
 # Microsoft Project Gantt Alternative
 
-::: tip RevoGantt product hub
-Review the full [RevoGantt feature set, live demos, framework support, pricing, and trial path](/gantt) before comparing migration options.
+::: tip RevoGrid Gantt product hub
+Review the full [RevoGrid Gantt feature set, live demos, framework support, pricing, and trial path](/gantt) before comparing migration options.
 :::
 
 <script lang="ts" setup>
@@ -40,28 +40,28 @@ import CompareHero from './CompareHero.vue'
 
 const faqItems = [
   {
-    title: 'Can RevoGantt replace Microsoft Project?',
-    description: 'RevoGantt can replace Microsoft Project-style Gantt workflows inside a custom application. It is not a full Microsoft Project clone or Project Server replacement.',
+    title: 'Can RevoGrid Gantt replace Microsoft Project?',
+    description: 'RevoGrid Gantt can replace Microsoft Project-style Gantt workflows inside a custom application. It is not a full Microsoft Project clone or Project Server replacement.',
   },
   {
-    title: 'Is RevoGantt only a visual Gantt chart?',
-    description: 'No. RevoGantt includes scheduling logic, dependencies, calendars, constraints, resource assignments, resource leveling, baselines, deadlines, total slack, and critical path support.',
+    title: 'Is RevoGrid Gantt only a visual Gantt chart?',
+    description: 'No. RevoGrid Gantt includes scheduling logic, dependencies, calendars, constraints, resource assignments, resource leveling, baselines, deadlines, total slack, and critical path support.',
   },
   {
-    title: 'Can RevoGantt support Microsoft Project-style dependencies?',
-    description: 'Yes. RevoGantt supports FS, SS, FF, and SF dependencies, including positive lag and negative lead.',
+    title: 'Can RevoGrid Gantt support Microsoft Project-style dependencies?',
+    description: 'Yes. RevoGrid Gantt supports FS, SS, FF, and SF dependencies, including positive lag and negative lead.',
   },
   {
     title: 'Can users switch between table and Gantt views?',
-    description: 'Yes. RevoGantt builds on the same grid foundation. Users can work with data as a table and view the same rows as a Gantt timeline without losing row context.',
+    description: 'Yes. RevoGrid Gantt builds on the same grid foundation. Users can work with data as a table and view the same rows as a Gantt timeline without losing row context.',
   },
   {
     title: 'Should migration start with import/export or the data model?',
     description: 'Start with the data model. Import/export is useful, but the replacement succeeds when tasks, dependencies, calendars, resources, permissions, and diagnostics become first-class product data.',
   },
   {
-    title: 'What makes RevoGantt useful for SaaS migrations?',
-    description: 'SaaS products usually need more than a chart. They need custom fields, permissions, validation, backend integration, domain-specific workflows, and fast table editing. RevoGantt is designed for that kind of embedded product experience.',
+    title: 'What makes RevoGrid Gantt useful for SaaS migrations?',
+    description: 'SaaS products usually need more than a chart. They need custom fields, permissions, validation, backend integration, domain-specific workflows, and fast table editing. RevoGrid Gantt is designed for that kind of embedded product experience.',
   },
 ]
 </script>
@@ -70,7 +70,7 @@ const faqItems = [
   competitor-name="Microsoft Project"
   competitor-summary="a Microsoft project-management product family whose cloud workflow is shifting toward Planner while Project Online approaches retirement"
   use-cases="Project Online migration, Microsoft Project-style Gantt replacement, embedded project scheduling, task planning, resource planning, critical path workflows, and SaaS planning tools"
-  revo-summary="RevoGantt is a grid-first Gantt and scheduling foundation for teams migrating Microsoft Project-style planning workflows into their own web applications."
+  revo-summary="RevoGrid Gantt is a grid-first Gantt and scheduling foundation for teams migrating Microsoft Project-style planning workflows into their own web applications."
 />
 
 ![Microsoft Project and Planner transition](/blog/gantt-abstract.png)
@@ -123,7 +123,7 @@ to:
 
 ![Microsoft Project Online collaboration workflow](/blog/msp-collaboration.gif)
 
-That is where RevoGantt fits: not as a full Microsoft Project clone, but as a Gantt and scheduling foundation for rebuilding the planning workflow inside your own product.
+That is where RevoGrid Gantt fits: not as a full Microsoft Project clone, but as a Gantt and scheduling foundation for rebuilding the planning workflow inside your own product.
 
 ## What to migrate from Microsoft Project
 
@@ -145,19 +145,19 @@ Start by separating Microsoft Project concepts from Microsoft Project product be
 | Critical path | Visibility into the tasks and dependencies that control project finish |
 | Diagnostics | Clear explanations when dates, constraints, calendars, or resources conflict |
 
-## How RevoGantt replaces the workflow
+## How RevoGrid Gantt replaces the workflow
 
 ### 1. Move planning into the product
 
-RevoGantt is designed for teams building scheduling into their own product. The Gantt is not a separate application that users leave your product to maintain. It can sit next to your existing records, permissions, backend workflows, and domain-specific actions.
+RevoGrid Gantt is designed for teams building scheduling into their own product. The Gantt is not a separate application that users leave your product to maintain. It can sit next to your existing records, permissions, backend workflows, and domain-specific actions.
 
 That matters when the schedule is connected to orders, jobs, sites, resources, materials, invoices, approvals, or operational statuses.
 
-![RevoGantt product interface](/img/gantt-demo.png)
+![RevoGrid Gantt product interface](/img/gantt-demo.png)
 
 ### 2. Keep the task table as the source of truth
 
-Many Gantt components start with the chart. RevoGantt starts with the grid.
+Many Gantt components start with the chart. RevoGrid Gantt starts with the grid.
 
 The same rows can support:
 
@@ -173,7 +173,7 @@ This is useful when the Gantt view is one part of a larger operational interface
 
 ### 3. Replace the scheduling model, not only the screen
 
-RevoGantt includes deterministic CPM-style scheduling logic. At a high level, the engine can validate task, dependency, calendar, resource, and assignment data; build an active dependency graph; run forward or backward scheduling; apply constraints; roll up summary tasks; emit diagnostics; and calculate critical path.
+RevoGrid Gantt includes deterministic CPM-style scheduling logic. At a high level, the engine can validate task, dependency, calendar, resource, and assignment data; build an active dependency graph; run forward or backward scheduling; apply constraints; roll up summary tasks; emit diagnostics; and calculate critical path.
 
 For users coming from Microsoft Project, the mental model remains familiar: tasks, durations, calendars, dependencies, constraints, resources, slack, and critical path.
 
@@ -206,9 +206,9 @@ This is the part most replacement plans miss. A good migration is not only a Gan
 | 6. Replace file handoffs | Reduce `.mpp` context switching | Import/export, audit history, reports, comments, permissions, and backend integrations |
 | 7. Validate with real projects | Avoid surprises before rollout | Compare migrated plans against known schedules and review conflicts with project owners |
 
-## Microsoft Project to RevoGantt migration map
+## Microsoft Project to RevoGrid Gantt migration map
 
-| Microsoft Project concept | RevoGantt replacement direction |
+| Microsoft Project concept | RevoGrid Gantt replacement direction |
 |---|---|
 | Project plan rows | RevoGrid task rows |
 | Gantt chart view | ✅ Pro Gantt timeline |
@@ -253,7 +253,7 @@ The better target is a focused Microsoft Project-style planning experience that 
 
 ## Replacement recommendation
 
-Use RevoGantt when you are replacing Microsoft Project-style planning with an embedded workflow and need:
+Use RevoGrid Gantt when you are replacing Microsoft Project-style planning with an embedded workflow and need:
 
 - a powerful editable data grid;
 - a Gantt timeline connected to the same data;
@@ -264,7 +264,7 @@ Use RevoGantt when you are replacing Microsoft Project-style planning with an em
 
 <div class="vp-doc-grid-cta">
 
-**Build embedded project scheduling with RevoGantt.**
+**Build embedded project scheduling with RevoGrid Gantt.**
 
 [Explore RevoGrid Pro](/pro/) · [Compare Pro features](/pro/feature-table) · [Read the Gantt page](/gantt/)
 
@@ -274,7 +274,7 @@ Use RevoGantt when you are replacing Microsoft Project-style planning with an em
 
 - [Microsoft Planner product page](https://www.microsoft.com/en-us/microsoft-365/planner/microsoft-planner)
 - [Microsoft Project plans and pricing](https://www.microsoft.com/en-us/microsoft-365/project/project-management-software)
-- [RevoGantt documentation](https://pro.rv-grid.com/guides/gantt/)
+- [RevoGrid Gantt documentation](https://pro.rv-grid.com/guides/gantt/)
 
 ---
 

@@ -70,7 +70,7 @@ head:
             "name": "How do I build a React Kanban board with drag-and-drop?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Use a typed flat array of card records, define workflow columns, enable the RevoGrid Kanban plugin, and persist the changedCards batch emitted after every move. The board handles pointer, touch, and keyboard movement while the React application remains the owner of state."
+              "text": "Use a typed flat array of card records, create a RevoGrid Planning model, define workflow columns, and enable the Planning and Kanban plugins. The board handles pointer, touch, and keyboard movement while the Planning model remains the canonical state owner."
             }
           },
           {
@@ -148,7 +148,7 @@ Our board has four workflow stages:
 
 Each card is an ordinary TypeScript object with an ID, title, description, workflow status, numeric order, priority, story points, assignees, tags, and a due date.
 
-The important architectural decision is that we will **not** store a separate array inside every column. The application owns one canonical flat array:
+The important architectural decision is that we will **not** store a separate array inside every column. A RevoGrid Planning model owns one canonical flat array:
 
 ```ts
 TaskCard[]
@@ -171,7 +171,7 @@ For a maintained product, you still need to decide:
 - how the board behaves with thousands of cards;
 - how board state stays consistent with a table or another view.
 
-RevoGrid Kanban treats the board as a workflow projection over `grid.source`. Pointer, touch, keyboard, context-menu, and programmatic moves pass through the same board rules. Your React application remains responsible for the canonical records and persistence rather than surrendering state ownership to a closed task-management model.
+RevoGrid Kanban treats the board as a workflow projection over a shared Planning model. `PlanningPlugin` synchronizes that model with the grid, while `KanbanPlugin` owns the board projection and interactions. Pointer, touch, keyboard, context-menu, and programmatic moves pass through the same board rules. Your React application still controls model creation and persistence rather than surrendering its records to a closed task-management model.
 
 That distinction is especially useful when the Kanban board belongs inside an operational application rather than being the entire application.
 
@@ -207,11 +207,13 @@ Install the RevoGrid core, React wrapper, Pro trial package, and Enterprise tria
 
 ```bash
 npm install \
-  @revolist/revogrid \
-  @revolist/react-datagrid \
-  @revolist/rv-pro-trial \
-  @revolist/rv-enterprise-trial
+  @revolist/revogrid@4.25.1 \
+  @revolist/react-datagrid@4.25.1 \
+  @revolist/rv-pro-trial@latest \
+  @revolist/rv-enterprise-trial@latest
 ```
+
+This tutorial targets the Planning-model Kanban API. Keep the Pro and Enterprise trial packages on the same release and verify that `@revolist/rv-enterprise-trial` exports `createPlanningModel` and `PlanningPlugin`. Earlier direct-source Kanban releases use a different ownership API and should not be mixed with this example.
 
 The React wrapper renders the same RevoGrid core used by other framework integrations. Kanban is supplied by the Enterprise plugin package, while its visual styles are loaded from the Pro and Enterprise stylesheets.
 
@@ -219,13 +221,13 @@ For a licensed project, replace the trial package imports with `@revolist/revogr
 
 ## Step 2: Model cards as canonical TypeScript records
 
-A card needs three workflow fields at minimum:
+A Kanban card needs three workflow fields:
 
 - a stable ID;
 - a column value;
 - a numeric order value.
 
-RevoGrid uses `id`, `status`, and `order` by default, although all three field names are configurable.
+The shared Planning model also requires a title and a valid start/end interval so the same records can power Kanban, Gantt, Scheduler, and grid views. The field names are configured once in `PlanningModel.fields`.
 
 ```ts
 import type { DataType } from '@revolist/revogrid';
@@ -245,6 +247,8 @@ export type TaskCard = DataType & {
   assignees: string[];
   dueDate: string;
   color: string;
+  start: string;
+  end: string;
 };
 ```
 
@@ -268,6 +272,8 @@ const INITIAL_CARDS: TaskCard[] = [
     assignees: ['Maya'],
     dueDate: '2026-08-14',
     color: '#7c3aed',
+    start: '2026-08-10T09:00:00.000Z',
+    end: '2026-08-14T17:00:00.000Z',
   },
   {
     id: 'TASK-102',
@@ -281,6 +287,8 @@ const INITIAL_CARDS: TaskCard[] = [
     assignees: ['Jon'],
     dueDate: '2026-08-12',
     color: '#2563eb',
+    start: '2026-08-09T09:00:00.000Z',
+    end: '2026-08-12T17:00:00.000Z',
   },
 ];
 ```
@@ -289,10 +297,11 @@ This flat source is simpler to persist than a nested object such as `{ backlog: 
 
 ## Step 3: Define data-grid columns and workflow columns
 
-RevoGrid Kanban uses two related column definitions:
+RevoGrid Kanban uses two related column definitions plus one canonical field map:
 
 1. `grid.columns` describes the canonical fields for table mode, editing, and the underlying source schema.
 2. `kanban.columns` describes workflow stages displayed by the board.
+3. `planning.fields` maps domain fields to shared planning concepts such as identity, title, schedule, status, order, and color.
 
 The data-grid columns can remain useful even when the board is active:
 
@@ -315,9 +324,6 @@ Now define the workflow:
 import type { KanbanConfig } from '@revolist/rv-enterprise-trial';
 
 const KANBAN_CONFIG: KanbanConfig<TaskCard> = {
-  idField: 'id',
-  columnField: 'status',
-  orderField: 'order',
   columns: [
     { prop: 'backlog', name: 'Backlog', size: 300 },
     {
@@ -336,13 +342,11 @@ const KANBAN_CONFIG: KanbanConfig<TaskCard> = {
   ],
   wipBehavior: 'block',
   card: {
-    titleField: 'title',
     descriptionField: 'description',
     priorityField: 'priority',
     tagsField: 'tags',
     assigneeField: 'assignees',
     dueDateField: 'dueDate',
-    colorField: 'color',
   },
   labels: {
     emptyColumn: 'Drop a task here',
@@ -351,40 +355,81 @@ const KANBAN_CONFIG: KanbanConfig<TaskCard> = {
 };
 ```
 
-The card mapping keeps domain field names under your control. You do not need to rename your API model to match a fixed visual component schema.
+The Planning field map and optional card metadata map keep domain field names under your control. You do not need to rename your API model to match a fixed visual component schema.
 
-## Step 4: Enable the Kanban and card-editor plugins
+## Step 4: Create the Planning model and enable Kanban
 
-The board itself is enabled by `KanbanPlugin`. The packaged editor is enabled by `KanbanCardEditorDialogPlugin`.
+The current Kanban architecture has two explicit owners:
+
+- `PlanningPlugin` connects the canonical `PlanningModel` to RevoGrid;
+- `KanbanPlugin` projects those records into workflow columns and owns board interaction.
+
+`KanbanPlugin` automatically installs the packaged `KanbanCardEditorDialogPlugin`. You only register the editor explicitly when you need to control its plugin instance yourself.
 
 ```ts
 import {
-  KanbanCardEditorDialogPlugin,
+  createPlanningModel,
   KanbanPlugin,
+  PlanningPlugin,
 } from '@revolist/rv-enterprise-trial';
 
-const KANBAN_PLUGINS = [
-  KanbanPlugin,
-  KanbanCardEditorDialogPlugin,
-];
+const KANBAN_PLUGINS = [PlanningPlugin, KanbanPlugin];
+
+const planning = createPlanningModel<TaskCard>({
+  items: cards,
+  fields: {
+    id: 'id',
+    title: 'title',
+    start: 'start',
+    end: 'end',
+    status: 'status',
+    order: 'order',
+    color: 'color',
+  },
+});
 ```
 
-Keep plugin, source, column, and configuration references stable. Recreating large configuration objects on every React render can cause avoidable work and, with some controlled props, repeated updates.
+Keep plugin, model, column, and configuration references stable. Recreating a Planning model or large configuration objects on every React render discards model history and causes avoidable work.
 
 Module-level constants are ideal for static configuration. Use `useMemo` when configuration depends on component props.
 
-The minimal React Kanban component now looks like this:
+The generated React wrapper types contain core grid properties, but they do not currently include properties contributed by Enterprise plugins. Assign `planning` and `kanban` through the typed underlying element instead of suppressing TypeScript errors on JSX props:
 
 ```tsx
+import { useEffect, useRef } from 'react';
 import { RevoGrid } from '@revolist/react-datagrid';
 
 export function TaskBoard({ cards }: { cards: TaskCard[] }) {
+  const gridRef = useRef<HTMLRevoGridElement | null>(null);
+
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+
+    const planning = createPlanningModel<TaskCard>({
+      items: cards,
+      fields: {
+        id: 'id', title: 'title', start: 'start', end: 'end',
+        status: 'status', order: 'order', color: 'color',
+      },
+    });
+
+    grid.planning = planning;
+    grid.kanban = KANBAN_CONFIG;
+    grid.plugins = KANBAN_PLUGINS;
+
+    return () => {
+      grid.kanban = false;
+      grid.plugins = [];
+      grid.planning = undefined;
+      planning.destroy();
+    };
+  }, [cards]);
+
   return (
     <RevoGrid
-      source={cards}
+      ref={gridRef}
       columns={GRID_COLUMNS}
-      plugins={KANBAN_PLUGINS}
-      kanban={KANBAN_CONFIG}
       theme="compact"
       resize
     />
@@ -392,7 +437,7 @@ export function TaskBoard({ cards }: { cards: TaskCard[] }) {
 }
 ```
 
-At this point, cards render in their workflow columns and can be reordered or moved across columns.
+At this point, cards render in their workflow columns and can be reordered or moved across columns. For a long-lived controlled component, keep the model stable and call `planning.replace(nextCards)` when an external owner supplies a new canonical dataset; the complete example below shows the stable lifecycle.
 
 ## Step 5: Handle drag-and-drop without rebuilding card order yourself
 
@@ -402,25 +447,13 @@ Many drag-and-drop Kanban React tutorials perform three manual steps after a dro
 2. insert it into a new array;
 3. renumber every card in one or both columns.
 
-RevoGrid emits a canonical move result instead. Listen for `kanbancardmove` and persist `event.detail.changedCards`.
+RevoGrid emits a canonical move result instead. `PlanningPlugin` applies it to the Planning model automatically. Listen for the exported `KANBAN_CARD_MOVE_EVENT` when you also need a move-specific API call, audit record, or analytics event.
 
 ```ts
-interface CardMoveDetail {
-  changedCards: readonly TaskCard[];
-}
-
-function mergeChangedCards(
-  current: TaskCard[],
-  changedCards: readonly TaskCard[],
-): TaskCard[] {
-  const changedById = new Map(
-    changedCards.map((card) => [card.id, card]),
-  );
-
-  return current.map(
-    (card) => changedById.get(card.id) ?? card,
-  );
-}
+import {
+  KANBAN_CARD_MOVE_EVENT,
+  type KanbanCardMoveDetail,
+} from '@revolist/rv-enterprise-trial';
 ```
 
 The event batch matters because a move can change more than the card under the pointer. When fractional ranks are rebalanced, every affected card appears in `changedCards`. Persisting only the visibly moved card can leave the backend with a different order from the UI.
@@ -428,26 +461,26 @@ The event batch matters because a move can change more than the card under the p
 In React, attach the custom event to the wrapped grid element through a ref:
 
 ```tsx
-const gridRef = useRef<any>(null);
+const gridRef = useRef<HTMLRevoGridElement | null>(null);
 
 useEffect(() => {
-  const grid = gridRef.current as EventTarget | null;
+  const grid = gridRef.current;
   if (!grid) return;
 
   const onMove = (event: Event) => {
     const { changedCards } = (
-      event as CustomEvent<CardMoveDetail>
+      event as CustomEvent<KanbanCardMoveDetail<TaskCard>>
     ).detail;
 
-    setCards((current) =>
-      mergeChangedCards(current, changedCards),
-    );
+    void persistMove(changedCards);
   };
 
-  grid.addEventListener('kanbancardmove', onMove);
-  return () => grid.removeEventListener('kanbancardmove', onMove);
+  grid.addEventListener(KANBAN_CARD_MOVE_EVENT, onMove);
+  return () => grid.removeEventListener(KANBAN_CARD_MOVE_EVENT, onMove);
 }, []);
 ```
+
+Do not merge the same batch into separate React-owned card state. The Planning model has already committed the canonical mutation before the public event is observed.
 
 The same move pipeline is used for pointer, touch, keyboard, context-menu, and public API movement. That prevents business rules from being applied only to mouse dragging.
 
@@ -480,30 +513,32 @@ const EDITOR_CONFIG: KanbanCardEditorDialogOptions<TaskCard> = {
     },
   ],
   createCardId: () => `TASK-${crypto.randomUUID()}`,
-  createDraft: () => ({
-    title: '',
-    description: '',
-    priority: 'Medium',
-    points: 3,
-    tags: ['New'],
-    assignees: [],
-    dueDate: new Date(Date.now() + 7 * 86_400_000)
-      .toISOString()
-      .slice(0, 10),
-    color: '#2563eb',
-  }),
+  createDraft: () => {
+    const start = new Date();
+    const end = new Date(start.getTime() + 7 * 86_400_000);
+
+    return {
+      title: '',
+      description: '',
+      priority: 'Medium',
+      points: 3,
+      tags: ['New'],
+      assignees: [],
+      dueDate: end.toISOString().slice(0, 10),
+      color: '#2563eb',
+      start: start.toISOString(),
+      end: end.toISOString(),
+    };
+  },
   confirmDelete: true,
   confirmDiscard: true,
 };
 ```
 
-Pass it to the React wrapper:
+Assign it through the same typed grid ref used for `planning` and `kanban`:
 
-```tsx
-<RevoGrid
-  kanbanCardEditorDialog={EDITOR_CONFIG}
-  // other props
-/>
+```ts
+grid.kanbanCardEditorDialog = EDITOR_CONFIG;
 ```
 
 The editor applies the mutation to the board and emits canonical CRUD events:
@@ -512,7 +547,7 @@ The editor applies the mutation to the board and emits canonical CRUD events:
 - `kanbancardupdate`;
 - `kanbancarddelete`.
 
-Listen to those events to update React state and send the same mutations to your backend.
+`PlanningPlugin` applies those mutations to the Planning model. Subscribe to the model for canonical state and use the events only when you need operation-specific side effects.
 
 ## Step 7: Enforce WIP limits
 
@@ -549,12 +584,22 @@ See the [Kanban workflow documentation](https://pro.rv-grid.com/guides/kanban/) 
 
 ## Step 8: Persist the React Kanban board
 
-For the runnable tutorial, we will use `localStorage`. The same event handlers can later call an API.
+For the runnable tutorial, we will use `localStorage`. Persist model snapshots rather than maintaining a second independently mutated card collection.
 
 Load state lazily so storage is read only during initial state creation:
 
 ```ts
-const STORAGE_KEY = 'revogrid-react-kanban-cards';
+const STORAGE_KEY = 'revogrid-react-kanban-cards-v2';
+
+const PLANNING_FIELDS = {
+  id: 'id',
+  title: 'title',
+  start: 'start',
+  end: 'end',
+  status: 'status',
+  order: 'order',
+  color: 'color',
+} as const;
 
 function loadCards(): TaskCard[] {
   if (typeof window === 'undefined') return cloneInitialCards();
@@ -571,17 +616,21 @@ function loadCards(): TaskCard[] {
 }
 ```
 
-Then persist whenever React state changes:
+Subscribe to the Planning model and mirror its canonical snapshot into React for storage or surrounding UI:
 
 ```ts
 const [cards, setCards] = useState<TaskCard[]>(loadCards);
+
+const unsubscribe = planning.subscribe((_change, snapshot) => {
+  setCards([...snapshot.items]);
+});
 
 useEffect(() => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
 }, [cards]);
 ```
 
-`localStorage` is appropriate for a tutorial and a personal board. A multi-user product should persist event payloads to a server and return versioned canonical records.
+Call `unsubscribe()` during teardown. `localStorage` is appropriate for a tutorial and a personal board. A multi-user product should use a Planning adapter or persist typed event payloads to a server and return versioned canonical records.
 
 ## Complete runnable React Kanban board example
 
@@ -591,7 +640,6 @@ The following files form a complete Vite application.
 
 ```tsx
 import {
-  useCallback,
   useEffect,
   useRef,
   useState,
@@ -602,10 +650,14 @@ import type {
   DataType,
 } from '@revolist/revogrid';
 import {
-  KanbanCardEditorDialogPlugin,
+  createPlanningModel,
+  KANBAN_CARD_MOVE_EVENT,
   KanbanPlugin,
+  PlanningPlugin,
   type KanbanCardEditorDialogOptions,
+  type KanbanCardMoveDetail,
   type KanbanConfig,
+  type PlanningModel,
 } from '@revolist/rv-enterprise-trial';
 
 type TaskStatus =
@@ -628,26 +680,11 @@ type TaskCard = DataType & {
   assignees: string[];
   dueDate: string;
   color: string;
+  start: string;
+  end: string;
 };
 
-type CardMoveDetail = {
-  changedCards: readonly TaskCard[];
-};
-
-type CardCreateDetail = {
-  card: TaskCard;
-  sourceIndex: number;
-};
-
-type CardUpdateDetail = {
-  card: TaskCard;
-};
-
-type CardDeleteDetail = {
-  cardIds: readonly string[];
-};
-
-const STORAGE_KEY = 'revogrid-react-kanban-cards';
+const STORAGE_KEY = 'revogrid-react-kanban-cards-v2';
 
 const INITIAL_CARDS: TaskCard[] = [
   {
@@ -662,6 +699,8 @@ const INITIAL_CARDS: TaskCard[] = [
     assignees: ['Maya'],
     dueDate: '2026-08-14',
     color: '#7c3aed',
+    start: '2026-08-10T09:00:00.000Z',
+    end: '2026-08-14T17:00:00.000Z',
   },
   {
     id: 'TASK-102',
@@ -675,6 +714,8 @@ const INITIAL_CARDS: TaskCard[] = [
     assignees: ['Ari'],
     dueDate: '2026-08-18',
     color: '#64748b',
+    start: '2026-08-11T09:00:00.000Z',
+    end: '2026-08-18T17:00:00.000Z',
   },
   {
     id: 'TASK-103',
@@ -688,6 +729,8 @@ const INITIAL_CARDS: TaskCard[] = [
     assignees: ['Jon'],
     dueDate: '2026-08-12',
     color: '#2563eb',
+    start: '2026-08-09T09:00:00.000Z',
+    end: '2026-08-12T17:00:00.000Z',
   },
   {
     id: 'TASK-104',
@@ -701,6 +744,8 @@ const INITIAL_CARDS: TaskCard[] = [
     assignees: ['Nora'],
     dueDate: '2026-08-13',
     color: '#0891b2',
+    start: '2026-08-09T10:00:00.000Z',
+    end: '2026-08-13T17:00:00.000Z',
   },
   {
     id: 'TASK-105',
@@ -714,6 +759,8 @@ const INITIAL_CARDS: TaskCard[] = [
     assignees: ['Iris'],
     dueDate: '2026-08-11',
     color: '#d97706',
+    start: '2026-08-08T09:00:00.000Z',
+    end: '2026-08-11T17:00:00.000Z',
   },
   {
     id: 'TASK-106',
@@ -727,6 +774,8 @@ const INITIAL_CARDS: TaskCard[] = [
     assignees: ['Theo'],
     dueDate: '2026-08-08',
     color: '#059669',
+    start: '2026-08-04T09:00:00.000Z',
+    end: '2026-08-08T17:00:00.000Z',
   },
 ];
 
@@ -740,9 +789,6 @@ const GRID_COLUMNS: ColumnRegular[] = [
 ];
 
 const KANBAN_CONFIG: KanbanConfig<TaskCard> = {
-  idField: 'id',
-  columnField: 'status',
-  orderField: 'order',
   columns: [
     { prop: 'backlog', name: 'Backlog', size: 300 },
     {
@@ -761,13 +807,11 @@ const KANBAN_CONFIG: KanbanConfig<TaskCard> = {
   ],
   wipBehavior: 'block',
   card: {
-    titleField: 'title',
     descriptionField: 'description',
     priorityField: 'priority',
     tagsField: 'tags',
     assigneeField: 'assignees',
     dueDateField: 'dueDate',
-    colorField: 'color',
   },
   labels: {
     emptyColumn: 'Drop a task here',
@@ -793,26 +837,28 @@ const EDITOR_CONFIG: KanbanCardEditorDialogOptions<TaskCard> = {
     },
   ],
   createCardId: () => `TASK-${crypto.randomUUID()}`,
-  createDraft: () => ({
-    title: '',
-    description: '',
-    priority: 'Medium',
-    points: 3,
-    tags: ['New'],
-    assignees: [],
-    dueDate: new Date(Date.now() + 7 * 86_400_000)
-      .toISOString()
-      .slice(0, 10),
-    color: '#2563eb',
-  }),
+  createDraft: () => {
+    const start = new Date();
+    const end = new Date(start.getTime() + 7 * 86_400_000);
+
+    return {
+      title: '',
+      description: '',
+      priority: 'Medium',
+      points: 3,
+      tags: ['New'],
+      assignees: [],
+      dueDate: end.toISOString().slice(0, 10),
+      color: '#2563eb',
+      start: start.toISOString(),
+      end: end.toISOString(),
+    };
+  },
   confirmDelete: true,
   confirmDiscard: true,
 };
 
-const KANBAN_PLUGINS = [
-  KanbanPlugin,
-  KanbanCardEditorDialogPlugin,
-];
+const KANBAN_PLUGINS = [PlanningPlugin, KanbanPlugin];
 
 function cloneInitialCards(): TaskCard[] {
   return INITIAL_CARDS.map((card) => ({
@@ -838,100 +884,62 @@ function loadCards(): TaskCard[] {
   }
 }
 
-function mergeChangedCards(
-  current: TaskCard[],
-  changedCards: readonly TaskCard[],
-): TaskCard[] {
-  const changedById = new Map(
-    changedCards.map((card) => [card.id, card]),
-  );
-
-  return current.map(
-    (card) => changedById.get(card.id) ?? card,
-  );
-}
-
-function insertCard(
-  current: TaskCard[],
-  card: TaskCard,
-  sourceIndex: number,
-): TaskCard[] {
-  const next = current.filter((item) => item.id !== card.id);
-  const safeIndex = Math.max(0, Math.min(sourceIndex, next.length));
-  next.splice(safeIndex, 0, card);
-  return next;
-}
-
 export default function App() {
-  const gridRef = useRef<any>(null);
+  const gridRef = useRef<HTMLRevoGridElement | null>(null);
+  const planningRef = useRef<PlanningModel<TaskCard> | null>(null);
   const [cards, setCards] = useState<TaskCard[]>(loadCards);
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
   }, [cards]);
 
-  const handleMove = useCallback((event: Event) => {
-    const detail = (
-      event as CustomEvent<CardMoveDetail>
-    ).detail;
-
-    setCards((current) =>
-      mergeChangedCards(current, detail.changedCards),
-    );
-  }, []);
-
-  const handleCreate = useCallback((event: Event) => {
-    const detail = (
-      event as CustomEvent<CardCreateDetail>
-    ).detail;
-
-    setCards((current) =>
-      insertCard(current, detail.card, detail.sourceIndex),
-    );
-  }, []);
-
-  const handleUpdate = useCallback((event: Event) => {
-    const detail = (
-      event as CustomEvent<CardUpdateDetail>
-    ).detail;
-
-    setCards((current) =>
-      current.map((card) =>
-        card.id === detail.card.id ? detail.card : card,
-      ),
-    );
-  }, []);
-
-  const handleDelete = useCallback((event: Event) => {
-    const detail = (
-      event as CustomEvent<CardDeleteDetail>
-    ).detail;
-    const deletedIds = new Set(detail.cardIds);
-
-    setCards((current) =>
-      current.filter((card) => !deletedIds.has(card.id)),
-    );
-  }, []);
-
   useEffect(() => {
-    const grid = gridRef.current as EventTarget | null;
+    const grid = gridRef.current;
     if (!grid) return;
 
-    grid.addEventListener('kanbancardmove', handleMove);
-    grid.addEventListener('kanbancardcreate', handleCreate);
-    grid.addEventListener('kanbancardupdate', handleUpdate);
-    grid.addEventListener('kanbancarddelete', handleDelete);
+    const planning = createPlanningModel<TaskCard>({
+      items: cards,
+      fields: PLANNING_FIELDS,
+    });
+    planningRef.current = planning;
+
+    const unsubscribe = planning.subscribe((_change, snapshot) => {
+      setCards([...snapshot.items]);
+    });
+
+    const handleMove = (event: Event) => {
+      const detail = (
+        event as CustomEvent<KanbanCardMoveDetail<TaskCard>>
+      ).detail;
+      console.info('Kanban move committed', detail.changedCards);
+    };
+
+    grid.planning = planning;
+    grid.kanban = KANBAN_CONFIG;
+    grid.kanbanCardEditorDialog = EDITOR_CONFIG;
+    grid.plugins = KANBAN_PLUGINS;
+    grid.addEventListener(KANBAN_CARD_MOVE_EVENT, handleMove);
 
     return () => {
-      grid.removeEventListener('kanbancardmove', handleMove);
-      grid.removeEventListener('kanbancardcreate', handleCreate);
-      grid.removeEventListener('kanbancardupdate', handleUpdate);
-      grid.removeEventListener('kanbancarddelete', handleDelete);
+      grid.removeEventListener(KANBAN_CARD_MOVE_EVENT, handleMove);
+      grid.kanbanCardEditorDialog = false;
+      grid.kanban = false;
+      grid.plugins = [];
+      grid.planning = undefined;
+      unsubscribe();
+      planningRef.current = null;
+      planning.destroy();
     };
-  }, [handleCreate, handleDelete, handleMove, handleUpdate]);
+  }, []);
 
   const resetBoard = () => {
-    setCards(cloneInitialCards());
+    const planning = planningRef.current;
+    if (planning) {
+      planning.replace(cloneInitialCards(), {
+        origin: 'api',
+        resetHistory: true,
+      });
+    }
   };
 
   return (
@@ -954,11 +962,7 @@ export default function App() {
         <RevoGrid
           ref={gridRef}
           className="kanban-grid"
-          source={cards}
           columns={GRID_COLUMNS}
-          plugins={KANBAN_PLUGINS}
-          kanban={KANBAN_CONFIG}
-          kanbanCardEditorDialog={EDITOR_CONFIG}
           theme="compact"
           resize
         />
@@ -1104,7 +1108,42 @@ Open the local Vite URL, move cards between columns, and refresh the page. The l
 
 ## How persistence should work with a real API
 
-Replacing `localStorage` does not require replacing the board. The main change is what your event handlers do after receiving canonical mutation payloads.
+Replacing `localStorage` does not require replacing the board. Add a `PlanningAdapter` when the backend accepts the model's typed transactions, or listen to a specific Kanban event when an existing endpoint expects a specialized payload.
+
+### Prefer a Planning adapter for complete persistence
+
+An adapter receives moves, creates, edits, deletes, undo, and other model transactions through one optimistic persistence pipeline:
+
+```ts
+import type {
+  PlanningAdapter,
+  PlanningRemoteCommitResult,
+} from '@revolist/rv-enterprise-trial';
+
+const adapter: PlanningAdapter<TaskCard> = {
+  async commit(transaction): Promise<PlanningRemoteCommitResult<TaskCard>> {
+    const response = await fetch('/api/planning/commit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(transaction),
+    });
+
+    if (!response.ok) {
+      return { accepted: false, message: 'Could not persist the change.' };
+    }
+
+    return response.json();
+  },
+};
+
+const planning = createPlanningModel<TaskCard>({
+  items: initialCards,
+  fields: PLANNING_FIELDS,
+  adapter,
+});
+```
+
+The server can accept the transaction or return a canonical correction. The model owns optimistic state, pending records, rollback/rebase behavior, and remote status while React observes snapshots.
 
 ### Persist a card move
 
@@ -1130,15 +1169,15 @@ A production endpoint should update the batch atomically. Otherwise, another cli
 
 ### Use optimistic updates carefully
 
-The board has already committed the move by the time `kanbancardmove` fires, so updating React state immediately gives users an optimistic experience.
+The board and Planning model have already committed the move by the time `kanbancardmove` fires. Do not apply it to a second React-owned collection.
 
 For a robust server workflow:
 
-1. merge `changedCards` into local state;
-2. send the whole batch with a board or record version;
+1. let the Planning model apply the optimistic transaction;
+2. send the transaction or complete `changedCards` batch with a version;
 3. let the server validate permissions and concurrency;
-4. replace local records with the canonical server response;
-5. restore or refetch state when the request fails.
+4. return a canonical correction or replace the model from the response;
+5. let the adapter roll back/rebase, or explicitly refetch after a specialized endpoint fails.
 
 For rules that must stop the UI before it moves, use a synchronous `beforekanbancardmove` listener or configure Kanban rules in the board. Server-only authorization must still be enforced on the backend.
 
@@ -1156,18 +1195,14 @@ const moveMutation = useMutation({
 
 const handleMove = (event: Event) => {
   const { changedCards } = (
-    event as CustomEvent<CardMoveDetail>
+    event as CustomEvent<KanbanCardMoveDetail<TaskCard>>
   ).detail;
-
-  setCards((current) =>
-    mergeChangedCards(current, changedCards),
-  );
 
   moveMutation.mutate(changedCards);
 };
 ```
 
-This keeps RevoGrid responsible for board interaction and TanStack Query responsible for remote state lifecycle.
+This keeps the Planning model responsible for canonical local state and TanStack Query responsible for that move endpoint's remote lifecycle. On success, replace the model with canonical server records when they differ; on failure, invalidate and replace the model from the refetched query.
 
 ## Add workflow transition rules
 
@@ -1267,7 +1302,7 @@ Do not define `columns`, `plugins`, or a large `kanban` object inline unless the
 Use module constants:
 
 ```ts
-const KANBAN_PLUGINS = [KanbanPlugin];
+const KANBAN_PLUGINS = [PlanningPlugin, KanbanPlugin];
 ```
 
 or memoize dynamic configuration:
@@ -1279,9 +1314,9 @@ const kanban = useMemo(
 );
 ```
 
-### Keep the source canonical
+### Keep the Planning model canonical
 
-Do not maintain both `cards` and a separately grouped `cardsByColumn` state object. Derive secondary views from the canonical source when needed.
+Do not maintain independently mutable `cards`, `grid.source`, and `cardsByColumn` stores. Subscribe to the Planning model and derive React or grouped views from its snapshots.
 
 ### Persist changed records, not the whole board
 
@@ -1348,7 +1383,7 @@ Use one flat array of typed card records. Give every card a stable ID, workflow 
 
 ### How do I build drag and drop Kanban in React without manual array management?
 
-Use a React Kanban component that emits canonical move results. With RevoGrid, listen for `kanbancardmove` and merge `event.detail.changedCards` into application state. You do not need to manually remove, insert, and renumber nested column arrays.
+Use a React Kanban component backed by a canonical model. With RevoGrid, `PlanningPlugin` applies `kanbancardmove` results to the Planning model, so React can subscribe to snapshots instead of manually removing, inserting, and renumbering nested column arrays.
 
 ### Can a React Kanban component enforce WIP limits?
 
@@ -1360,7 +1395,7 @@ Persist the full `changedCards` array emitted after a move. Each record contains
 
 ### Can users create and edit cards inside the board?
 
-Yes. Add `KanbanCardEditorDialogPlugin` and pass `kanbanCardEditorDialog` options. The packaged editor supports standard fields, custom fields, validation, create defaults, deletion confirmation, and CRUD events.
+Yes. `KanbanPlugin` auto-installs `KanbanCardEditorDialogPlugin`. Assign `kanbanCardEditorDialog` options through the underlying grid element to configure standard fields, custom fields, validation, create defaults, deletion confirmation, and CRUD events.
 
 ### Does the board support keyboard and touch interaction?
 
@@ -1368,7 +1403,7 @@ Yes. RevoGrid Kanban supports pointer input for mouse, pen, and touch, plus keyb
 
 ### Can I switch between a React data grid and Kanban view?
 
-Yes. Both views use the same canonical `source` records. Enable the Kanban configuration for workflow work and disable it to return to the data-grid representation without maintaining a second board-only data model.
+Yes. Both views use the same canonical Planning records. Enable the Kanban configuration for workflow work and disable it to return to the data-grid representation without maintaining a second board-only data model.
 
 ### Is RevoGrid Kanban open source?
 

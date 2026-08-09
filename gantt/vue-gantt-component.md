@@ -1,16 +1,16 @@
 ---
 title: Vue Gantt Chart Component for SaaS and Planning Apps
-description: "Build Vue planning workflows with RevoGantt, a JavaScript Gantt chart component with editable tasks, dependencies, critical path, resources, and virtualization."
+description: "Build Vue planning workflows with RevoGrid Gantt, a JavaScript Gantt chart component with editable tasks, dependencies, critical path, resources, and virtualization."
 outline: deep
 head:
   - - meta
     - name: keywords
-      content: RevoGantt Vue, Vue Gantt component, Vue 3 Gantt chart, JavaScript Gantt chart Vue, Vue Gantt library, Vue project scheduling, Vue resource planning component
+      content: RevoGrid Gantt Vue, Vue Gantt component, Vue 3 Gantt chart, JavaScript Gantt chart Vue, Vue Gantt library, Vue project scheduling, Vue resource planning component
 faq:
   items:
-    - q: Does RevoGantt support Vue 3?
+    - q: Does RevoGrid Gantt support Vue 3?
       a: Yes. RevoGrid has Vue 3 integration and Gantt examples for the core and advanced planning workflows.
-    - q: Can Vue components be used around a RevoGantt?
+    - q: Can Vue components be used around a RevoGrid Gantt?
       a: Yes. Vue can own the toolbar, filters, forms, dialogs, and application state while RevoGrid owns the virtualized task and timeline surface.
 ---
 
@@ -20,7 +20,7 @@ import GanttClusterCta from './GanttClusterCta.vue'
 
 # Vue Gantt Chart Component for Embedded Planning
 
-Vue makes it quick to compose product UI, but a production Gantt still needs a scheduling model, task hierarchy, dependency propagation, calendars, resources, baselines, editing, and performance engineering. RevoGantt supplies that planning surface without forcing the entire application into a dedicated project-management UI.
+Vue makes it quick to compose product UI, but a production Gantt still needs a scheduling model, task hierarchy, dependency propagation, calendars, resources, baselines, editing, and performance engineering. RevoGrid Gantt supplies that planning surface without forcing the entire application into a dedicated project-management UI.
 
 <GanttClusterCta />
 
@@ -42,7 +42,7 @@ Vue examples exist for basic scheduling, dependency editing, resources, baseline
 
 ## When RevoGrid is a better fit than a chart-only Vue library
 
-A chart-only library can be ideal for a small read-only timeline. RevoGantt is aimed at products where the task grid is equally important: SaaS planning tools, ERP modules, manufacturing schedules, and resource-planning screens.
+A chart-only library can be ideal for a small read-only timeline. RevoGrid Gantt is aimed at products where the task grid is equally important: SaaS planning tools, ERP modules, manufacturing schedules, and resource-planning screens.
 
 That grid-first foundation gives you domain columns and spreadsheet-like editing beside the schedule. It also reduces architectural drift when your product already uses RevoGrid for other operational screens.
 
@@ -50,7 +50,7 @@ Explore [Gantt for SaaS](/gantt/saas-gantt), [resource planning](/gantt/resource
 
 ## Vue Gantt FAQ
 
-### Does RevoGantt support Vue 3?
+### Does RevoGrid Gantt support Vue 3?
 
 Yes. Vue 3 integration uses the RevoGrid wrapper and property bindings while preserving the framework-independent Gantt engine.
 

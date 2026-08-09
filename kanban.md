@@ -1,13 +1,14 @@
 ---
-title: JavaScript Kanban Board Component
-description: RevoKanban is a virtualized JavaScript Kanban board component for drag-and-drop workflows, swimlanes, WIP limits, custom cards, and large task datasets.
+title: "JavaScript Kanban Board Component"
+titleTemplate: false
+description: RevoGrid Kanban is a virtualized JavaScript Kanban board component for drag-and-drop workflows, swimlanes, WIP limits, custom cards, and large task datasets.
 head:
   - - link
     - rel: canonical
       href: https://rv-grid.com/kanban
   - - meta
     - name: keywords
-      content: RevoKanban, RevoKanban JS, JavaScript Kanban board, JavaScript Kanban component, Kanban Board JS, workflow board component, React Kanban, Vue Kanban, Angular Kanban, Kanban swimlanes, WIP limits, drag and drop Kanban
+      content: RevoGrid Kanban, RevoGrid Kanban JS, JavaScript Kanban board, JavaScript Kanban component, Kanban Board JS, workflow board component, React Kanban, Vue Kanban, Angular Kanban, Kanban swimlanes, WIP limits, drag and drop Kanban
   - - meta
     - name: robots
       content: index, follow, max-image-preview:large
@@ -16,7 +17,7 @@ head:
       content: website
   - - meta
     - property: og:title
-      content: RevoKanban – JavaScript Kanban Board Component
+      content: RevoGrid Kanban – JavaScript Kanban Board Component
   - - meta
     - property: og:description
       content: Build virtualized workflow boards with drag-and-drop cards, swimlanes, WIP limits, custom templates, and framework-ready JavaScript integrations.
@@ -34,7 +35,7 @@ head:
       content: summary_large_image
   - - meta
     - name: twitter:title
-      content: RevoKanban – JavaScript Kanban Board Component
+      content: RevoGrid Kanban – JavaScript Kanban Board Component
   - - meta
     - name: twitter:description
       content: A JavaScript Kanban board component for virtualized workflows, drag-and-drop cards, swimlanes, WIP policies, and custom board experiences.
@@ -71,8 +72,8 @@ ganttLanding:
     darkSoft: rgba(143, 165, 255, 0.14)
     darkBorder: rgba(143, 165, 255, 0.28)
   hero:
-    eyebrow: RevoKanban
-    title: 'RevoKanban: JavaScript Kanban for your product.'
+    eyebrow: RevoGrid Kanban
+    title: 'RevoGrid Kanban: JavaScript Kanban for your product.'
     description: A production-ready JavaScript Kanban board component with drag-and-drop ordering, swimlanes, WIP policies, card editing, history, and hardware-bound virtualized scale.
     actions:
       - label: Try Interactive Demo
@@ -96,7 +97,7 @@ ganttLanding:
       - label: Swimlanes
       - label: WIP rules
     liveLabel: Live
-  statsAriaLabel: RevoKanban product stats
+  statsAriaLabel: RevoGrid Kanban product stats
   stats:
     - value: No fixed limit
       label: hardware-bound scale
@@ -135,10 +136,10 @@ ganttLanding:
         media: /img/kanban/details.webp
         mediaFit: contain
   positioning:
-    id: why-revokanban
-    kicker: Why RevoKanban?
+    id: why-revogrid-kanban
+    kicker: Why RevoGrid Kanban?
     title: A workflow view over product data
-    description: RevoKanban projects ordinary RevoGrid source rows into workflow columns and card rows. Your product keeps the canonical records, business rules, persistence, and surrounding UI.
+    description: RevoGrid Kanban projects ordinary RevoGrid source rows into workflow columns and card rows. Your product keeps the canonical records, business rules, persistence, and surrounding UI.
     items:
       - title: One source, multiple views
         description: Keep cards in grid.source, enable Kanban for workflow work, and restore the latest source and table columns when the board is disabled.
@@ -174,12 +175,12 @@ ganttLanding:
         tags: [Render hooks, Themes, Localization]
       - icon: '06'
         title: Filtering and application state
-        description: Combine RevoGrid filters with RevoKanban search, persist exact changed-card batches, control selection, and switch between board and table views.
+        description: Combine RevoGrid filters with RevoGrid Kanban search, persist exact changed-card batches, control selection, and switch between board and table views.
         tags: [Search, Persistence events, Table switch]
   integrations:
     id: kanban-integrations
     kicker: Integrations
-    title: One RevoKanban component across frontend stacks.
+    title: One RevoGrid Kanban component across frontend stacks.
     description: Use the same JavaScript Kanban board component from JavaScript and TypeScript or through RevoGrid's React, Vue, Angular, and Web Component integrations.
     items:
       - icon: JS
@@ -233,9 +234,9 @@ ganttLanding:
   featureComparison:
     id: kanban-capabilities
     kicker: Capability guide
-    title: What product teams get from RevoKanban.
+    title: What product teams get from RevoGrid Kanban.
     description: Evaluate the workflow, state, customization, and interaction capabilities that usually turn a simple board into maintained product infrastructure.
-    columns: [Capability, RevoKanban, Product value]
+    columns: [Capability, RevoGrid Kanban, Product value]
     rows:
       - feature: Canonical data model
         revogrid: Cards remain ordinary grid.source records
@@ -267,7 +268,7 @@ ganttLanding:
   useCases:
     id: kanban-use-cases
     kicker: Use cases
-    title: Where teams embed RevoKanban.
+    title: Where teams embed RevoGrid Kanban.
     description: Use Kanban when workflow state belongs beside editable product data, business rules, reporting, and alternate grid or planning views.
     items:
       - title: Product delivery
@@ -327,7 +328,7 @@ ganttLanding:
   faq:
     id: kanban-faq
     kicker: FAQ
-    title: RevoKanban questions
+    title: RevoGrid Kanban questions
     items:
       - q: Does Kanban use a separate data model?
         a: No. Kanban projects canonical RevoGrid source rows into workflow columns and card rows. Your application continues to own the records and persistence.
@@ -342,12 +343,12 @@ ganttLanding:
       - q: Does it support React, Vue, and Angular?
         a: Yes. The public showcase includes TypeScript, React, Vue, and Angular reference applications. The underlying Web Component can also be integrated with other frontend stacks.
       - q: Is Kanban included in Pro Advanced?
-        a: Yes. RevoKanban is part of the Pro Advanced bundle.
+        a: Yes. RevoGrid Kanban is part of the Pro Advanced bundle.
   evaluation:
     id: kanban-pricing-trial
     kicker: Pricing and trial
     title: Evaluate Kanban inside your own product workflow.
-    description: RevoKanban is included in Pro Advanced with per-developer licensing and no runtime royalties or deployment counting.
+    description: RevoGrid Kanban is included in Pro Advanced with per-developer licensing and no runtime royalties or deployment counting.
     priceLabel: Pro Advanced current USD price
     items:
       - title: 30-day trial
@@ -399,10 +400,10 @@ ganttLanding:
           - label: Kanban showcase repository
             href: https://github.com/revolist/kanban
   advancedCallout:
-    title: RevoKanban is part of the Pro Advanced bundle.
+    title: RevoGrid Kanban is part of the Pro Advanced bundle.
   cta:
     title: Ship a workflow board without creating another data silo.
-    description: Project your RevoGrid source into RevoKanban, adapt the JavaScript Kanban board to your product, and keep workflow policy and persistence under application control.
+    description: Project your RevoGrid source into RevoGrid Kanban, adapt the JavaScript Kanban board to your product, and keep workflow policy and persistence under application control.
     primaryHref: /demo/kanban
     primaryLabel: Try Interactive Demo
     secondaryHref: /trial

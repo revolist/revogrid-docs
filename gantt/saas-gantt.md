@@ -28,7 +28,7 @@ An embedded SaaS Gantt must feel like part of your product—not an iframe, a di
 
 Customers quickly ask for task hierarchy, dependencies, milestones, progress, resources, baselines, critical path, filters, bulk editing, imports, exports, and product-specific fields. Product teams also need permissions, validation, audit hooks, persistence, theming, and predictable licensing.
 
-RevoGantt is grid-first: the task table remains a programmable data surface while the timeline adds planning behavior to the same records. That makes it suitable for vertical SaaS where the schedule must include domain fields such as client, location, cost, stage, machine, order, risk, or approval status.
+RevoGrid Gantt is grid-first: the task table remains a programmable data surface while the timeline adds planning behavior to the same records. That makes it suitable for vertical SaaS where the schedule must include domain fields such as client, location, cost, stage, machine, order, risk, or approval status.
 
 ## SaaS architecture and commercial fit
 

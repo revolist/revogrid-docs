@@ -9,9 +9,9 @@ const configSource = readFileSync(new URL('./ganttLanding.ts', import.meta.url),
 const featureSection = pageSource.match(/  features:\n([\s\S]*?)\n  positioning:/)?.[1] ?? ''
 const integrationsSection = pageSource.match(/  integrations:\n([\s\S]*?)\n  featureComparison:/)?.[1] ?? ''
 
-test('lets VitePress append the RevoGrid site title to the Gantt product title', () => {
-  assert.match(pageSource, /^title: "JavaScript Gantt Chart Component \| RevoGantt"$/m)
-  assert.doesNotMatch(pageSource, /^titleTemplate: false$/m)
+test('keeps the exact category-first RevoGrid Gantt product title', () => {
+  assert.match(pageSource, /^title: "JavaScript Gantt Chart Component \| RevoGrid Gantt"$/m)
+  assert.match(pageSource, /^titleTemplate: false$/m)
 })
 
 test('presents ten real Gantt workflows with visual media and live examples', () => {

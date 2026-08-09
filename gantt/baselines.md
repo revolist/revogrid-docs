@@ -28,7 +28,7 @@ A baseline preserves the approved plan so users can see what changed after work 
 
 At minimum, store planned start and finish for each task. Depending on the product, a baseline may also preserve duration, work, cost, milestone dates, or summary values. The current schedule stays editable; the baseline remains a comparison snapshot until an authorized user deliberately replaces it.
 
-RevoGantt supports baseline data and overlays so planned bars can appear alongside current task bars. The editable grid can also expose planned dates and calculated variance as columns.
+RevoGrid Gantt supports baseline data and overlays so planned bars can appear alongside current task bars. The editable grid can also expose planned dates and calculated variance as columns.
 
 ## Design baseline workflows, not only baseline bars
 
@@ -48,7 +48,7 @@ Avoid silently overwriting planned dates when users drag the current task bar. T
 
 Baseline variance says the schedule moved; critical path analysis helps explain whether the movement affects completion. Progress and actual dates show what has happened in execution. Used together, these views help teams distinguish harmless resequencing from delivery risk.
 
-Try the baseline toggle in the [live RevoGantt demo](/demo/gantt). Continue with [critical path analysis](/gantt/critical-path), [resource scheduling](/gantt/resource-scheduling), or the full [Gantt product and pricing page](/gantt).
+Try the baseline toggle in the [live RevoGrid Gantt demo](/demo/gantt). Continue with [critical path analysis](/gantt/critical-path), [resource scheduling](/gantt/resource-scheduling), or the full [Gantt product and pricing page](/gantt).
 
 ## Gantt baseline FAQ
 

@@ -12,11 +12,11 @@ tags:
   - Scheduling
   - RevoGrid Pro
 image: /img/gantt-demo.png
-imageAlt: RevoGantt JavaScript Gantt chart with task dependencies
+imageAlt: RevoGrid Gantt JavaScript Gantt chart with task dependencies
 head:
   - - meta
     - name: keywords
-      content: JavaScript Gantt dependencies, Gantt chart dependencies JavaScript, FS SS FF SF dependencies, JavaScript Gantt chart, Gantt dependencies, Gantt lead lag, finish-to-start dependency, start-to-start dependency, finish-to-finish dependency, start-to-finish dependency, dependency validation, RevoGantt, JavaScript project scheduling, React Gantt dependencies, Vue Gantt dependencies, Angular Gantt dependencies, Svelte Gantt dependencies
+      content: JavaScript Gantt dependencies, Gantt chart dependencies JavaScript, FS SS FF SF dependencies, JavaScript Gantt chart, Gantt dependencies, Gantt lead lag, finish-to-start dependency, start-to-start dependency, finish-to-finish dependency, start-to-finish dependency, dependency validation, RevoGrid Gantt, JavaScript project scheduling, React Gantt dependencies, Vue Gantt dependencies, Angular Gantt dependencies, Svelte Gantt dependencies
   - - meta
     - property: og:title
       content: "JavaScript Gantt Chart Dependencies: FS, SS, FF & SF"
@@ -70,10 +70,10 @@ head:
           },
           {
             "@type": "Question",
-            "name": "Does RevoGantt support FS, SS, FF, and SF dependencies?",
+            "name": "Does RevoGrid Gantt support FS, SS, FF, and SF dependencies?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. RevoGantt supports finish-to-start, start-to-start, finish-to-finish, and start-to-finish dependency types, plus lead and lag, dependency validation, dependency diagnostics, and interactive dependency editing."
+              "text": "Yes. RevoGrid Gantt supports finish-to-start, start-to-start, finish-to-finish, and start-to-finish dependency types, plus lead and lag, dependency validation, dependency diagnostics, and interactive dependency editing."
             }
           },
           {
@@ -89,7 +89,7 @@ head:
             "name": "Can users edit Gantt dependencies visually in JavaScript?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. RevoGantt supports drag-to-create links from dependency handles, hover and select states, inline delete UI, keyboard delete on selected links, and allowed dependency type filtering."
+              "text": "Yes. RevoGrid Gantt supports drag-to-create links from dependency handles, hover and select states, inline delete UI, keyboard delete on selected links, and allowed dependency type filtering."
             }
           }
         ]
@@ -99,10 +99,10 @@ head:
 # JavaScript Gantt Chart Dependencies: FS, SS, FF & SF
 
 ::: tip See dependencies in the full product
-Explore [RevoGantt](/gantt) for the complete feature set, advanced dependency demo, performance evidence, current pricing, and trial access.
+Explore [RevoGrid Gantt](/gantt) for the complete feature set, advanced dependency demo, performance evidence, current pricing, and trial access.
 :::
 
-![RevoGantt JavaScript Gantt chart with task dependencies](/blog/gantt-dependencies.png)
+![RevoGrid Gantt JavaScript Gantt chart with task dependencies](/blog/gantt-dependencies.png)
 
 A JavaScript Gantt chart becomes useful when it does more than draw bars on a timeline.
 
@@ -110,7 +110,7 @@ Real project planning needs task relationships. A build cannot start before desi
 
 This guide explains how to model Gantt chart dependencies in JavaScript with **finish-to-start**, **start-to-start**, **finish-to-finish**, and **start-to-finish** relationships, plus **lead/lag**, **validation**, and **interactive dependency editing**.
 
-For a runnable example, open the [RevoGantt live demo](/demo/gantt) or the [advanced dependency demo](https://demo.rv-grid.com/gantt-dependencies-advanced/ts).
+For a runnable example, open the [RevoGrid Gantt live demo](/demo/gantt) or the [advanced dependency demo](https://demo.rv-grid.com/gantt-dependencies-advanced/ts).
 
 ## Target keywords for this guide
 
@@ -131,7 +131,7 @@ This guide is optimized for developers and product teams searching for:
 - Gantt lead lag
 - dependency validation in Gantt chart
 
-For implementation details, use the [RevoGantt documentation](https://pro.rv-grid.com/guides/gantt/), the [dependencies guide](https://pro.rv-grid.com/guides/gantt/concepts/dependencies/), the [dependency editing guide](https://pro.rv-grid.com/guides/gantt/interaction/dependency-editing/), and the [Gantt examples](https://pro.rv-grid.com/guides/gantt/examples/).
+For implementation details, use the [RevoGrid Gantt documentation](https://pro.rv-grid.com/guides/gantt/), the [dependencies guide](https://pro.rv-grid.com/guides/gantt/concepts/dependencies/), the [dependency editing guide](https://pro.rv-grid.com/guides/gantt/interaction/dependency-editing/), and the [Gantt examples](https://pro.rv-grid.com/guides/gantt/examples/).
 
 ---
 
@@ -170,7 +170,7 @@ Most project scheduling systems use four dependency types.
 | `FF` | Finish-to-Finish | Successor finishes no earlier than predecessor finishes. | Documentation finishes when implementation finishes. |
 | `SF` | Start-to-Finish | Successor finishes no earlier than predecessor starts. | Handover finishes when replacement shift starts. |
 
-RevoGantt supports all four dependency types:
+RevoGrid Gantt supports all four dependency types:
 
 ```ts
 const dependencies = [
@@ -369,7 +369,7 @@ Build:              ┌───────────────────
                     └───────────────────┘
 ```
 
-In RevoGantt, lead and lag are represented with `lagDays`:
+In RevoGrid Gantt, lead and lag are represented with `lagDays`:
 
 ```ts
 const dependencies = [
@@ -406,7 +406,7 @@ Common examples:
 
 ## Inline dependency syntax
 
-RevoGantt also supports MSP-style dependency tokens in predecessor and successor cells.
+RevoGrid Gantt also supports MSP-style dependency tokens in predecessor and successor cells.
 
 ```text
 1FS
@@ -679,7 +679,7 @@ Setup load balancer ──▶ Configure firewall
 
 A cycle means there is no valid order for automatic scheduling. The scheduler cannot place each task after the task that depends on it, because the chain loops back to the beginning.
 
-RevoGantt reports circular dependency chains as dependency diagnostics and rejects new dependency edits that would create a cycle before they change the Gantt store.
+RevoGrid Gantt reports circular dependency chains as dependency diagnostics and rejects new dependency edits that would create a cycle before they change the Gantt store.
 
 ```ts
 const cycle = schedulerResult.issues.find(
@@ -710,7 +710,7 @@ Recommended validation UX:
 
 A dependency-aware Gantt should support both data-driven and visual editing.
 
-RevoGantt supports:
+RevoGrid Gantt supports:
 
 - drag-to-create dependency links from dependency handles;
 - allowed dependency type filtering with `gantt.allowedDependencyTypes`;
@@ -821,7 +821,7 @@ Discovery ──▶ Design ──▶ Build ──▶ QA ──▶ Launch
 
 In this example, `Docs` may have slack if it can move without changing the launch date. `Discovery → Design → Build → QA → Launch` may be critical if each task controls the final finish.
 
-RevoGantt can compute and highlight critical path after scheduling rules are applied.
+RevoGrid Gantt can compute and highlight critical path after scheduling rules are applied.
 
 ```ts
 grid.gantt = {
@@ -841,7 +841,7 @@ When comparing JavaScript Gantt components, do not stop at "draw arrows".
 
 A production Gantt dependency system should cover the full scheduling workflow.
 
-| Capability | Why it matters | RevoGantt |
+| Capability | Why it matters | RevoGrid Gantt |
 | --- | --- | --- |
 | FS dependencies | Most common sequential task rule. | ✅ |
 | SS dependencies | Enables parallel starts. | ✅ |
@@ -867,7 +867,7 @@ Several JavaScript Gantt libraries support dependencies. The right choice depend
 
 | Library | Dependency support | Best fit | Trade-off |
 | --- | --- | --- | --- |
-| **RevoGantt** | FS, SS, FF, SF, lead/lag, validation, diagnostics, drag editing, auto/manual scheduling. | Data-heavy SaaS apps that need Gantt inside an editable grid. | Smaller public ecosystem than older Gantt vendors. |
+| **RevoGrid Gantt** | FS, SS, FF, SF, lead/lag, validation, diagnostics, drag editing, auto/manual scheduling. | Data-heavy SaaS apps that need Gantt inside an editable grid. | Smaller public ecosystem than older Gantt vendors. |
 | **Syncfusion Gantt** | Strong task dependency feature set with FS/SS/FF/SF, offsets, connector customization, and validation modes. | Teams already buying the Syncfusion UI suite. | Broader suite dependency when you only need grid-first planning. |
 | **Bryntum Gantt** | Mature scheduling engine with dependencies, constraints, calendars, resources, and framework integrations. | Advanced standalone Gantt and scheduling use cases. | Commercial Gantt suite with its own data and UI model. |
 | **DHTMLX Gantt** | Supports dependency link types, lag/lead, and auto scheduling in Pro. | Teams that want a long-running standalone JS Gantt. | More separate from a grid-first data surface. |
@@ -880,9 +880,9 @@ The RevoGrid positioning is different:
 
 That is valuable when your users already live in tables, task lists, operations dashboards, ERP screens, financial planning tools, construction schedules, implementation workspaces, or internal SaaS workflows.
 
-## When RevoGantt is the right fit
+## When RevoGrid Gantt is the right fit
 
-Choose RevoGantt when your product needs:
+Choose RevoGrid Gantt when your product needs:
 
 - a JavaScript Gantt chart embedded in an application, not a separate project management tool;
 - editable task rows and a timeline in the same surface;
@@ -957,7 +957,7 @@ Use this article as the main feature-intent page for dependency searches. Recomm
 | Anchor | Target |
 | --- | --- |
 | JavaScript Gantt chart | [/gantt](/gantt) |
-| RevoGantt live demo | [/demo/gantt](/demo/gantt) |
+| RevoGrid Gantt live demo | [/demo/gantt](/demo/gantt) |
 | RevoGrid Pro | [/pro](/pro) |
 | React data grid | [/guide/react/](/guide/react/) |
 | Vue data grid | [/guide/vue3/](/guide/vue3/) |
@@ -985,33 +985,33 @@ These comparison pages should link back to this dependency article whenever they
 
 FS, SS, FF, and SF are the four common Gantt dependency types. FS means finish-to-start, SS means start-to-start, FF means finish-to-finish, and SF means start-to-finish.
 
-### Does RevoGantt support all four dependency types?
+### Does RevoGrid Gantt support all four dependency types?
 
-Yes. RevoGantt supports finish-to-start, start-to-start, finish-to-finish, and start-to-finish dependencies.
+Yes. RevoGrid Gantt supports finish-to-start, start-to-start, finish-to-finish, and start-to-finish dependencies.
 
-### Does RevoGantt support lead and lag?
+### Does RevoGrid Gantt support lead and lag?
 
-Yes. RevoGantt supports positive lag and negative lead through `lagDays`. Positive values delay the successor. Negative values allow overlap.
+Yes. RevoGrid Gantt supports positive lag and negative lead through `lagDays`. Positive values delay the successor. Negative values allow overlap.
 
 ### Can users edit dependencies visually?
 
-Yes. RevoGantt supports drag-to-create dependency links, hover and select states, inline delete UI, keyboard delete, and allowed dependency type filtering.
+Yes. RevoGrid Gantt supports drag-to-create dependency links, hover and select states, inline delete UI, keyboard delete, and allowed dependency type filtering.
 
 ### What happens when a dependency would create a cycle?
 
-A circular dependency is invalid schedule data. RevoGantt reports cycle diagnostics and rejects new dependency edits that would create a cycle before they change the Gantt store.
+A circular dependency is invalid schedule data. RevoGrid Gantt reports cycle diagnostics and rejects new dependency edits that would create a cycle before they change the Gantt store.
 
 ### Can manual tasks violate dependencies?
 
 Manual tasks can preserve authored dates even when a dependency would schedule them differently. A good product should surface that as a warning so the user can decide whether to keep the manual date or resolve the conflict.
 
-### Is RevoGantt only for React?
+### Is RevoGrid Gantt only for React?
 
 No. RevoGrid is built as a Web Component and supports JavaScript, React, Vue, Angular, and Svelte.
 
-### When should I choose RevoGantt over a standalone Gantt suite?
+### When should I choose RevoGrid Gantt over a standalone Gantt suite?
 
-Choose RevoGantt when the Gantt is part of a larger editable data application and you want scheduling, dependencies, task rows, custom columns, validation, and timeline UX to share one grid-first foundation.
+Choose RevoGrid Gantt when the Gantt is part of a larger editable data application and you want scheduling, dependencies, task rows, custom columns, validation, and timeline UX to share one grid-first foundation.
 
 ## Final recommendation
 
@@ -1019,9 +1019,9 @@ A JavaScript Gantt chart with dependencies should do more than render arrows.
 
 For real project planning, you need FS, SS, FF, and SF relationships; lead and lag; validation; diagnostics; editable links; automatic scheduling; manual task warnings; calendars; resources; baselines; and critical path.
 
-RevoGantt gives product teams that dependency-aware scheduling layer inside the same high-performance grid foundation used for data-heavy applications.
+RevoGrid Gantt gives product teams that dependency-aware scheduling layer inside the same high-performance grid foundation used for data-heavy applications.
 
-Start with the [RevoGantt product page](/gantt), open the [live Gantt demo](/demo/gantt), then test the [advanced dependency demo](https://demo.rv-grid.com/gantt-dependencies-advanced/ts).
+Start with the [RevoGrid Gantt product page](/gantt), open the [live Gantt demo](/demo/gantt), then test the [advanced dependency demo](https://demo.rv-grid.com/gantt-dependencies-advanced/ts).
 
 ---
 

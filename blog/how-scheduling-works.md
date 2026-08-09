@@ -1,6 +1,6 @@
 ---
 title: How Gantt Scheduling Works
-description: A business-focused guide to automatic scheduling, calendars, dependency logic, critical path, resource capacity, and planning use cases in RevoGantt.
+description: A business-focused guide to automatic scheduling, calendars, dependency logic, critical path, resource capacity, and planning use cases in RevoGrid Gantt.
 date: 2026-07-08
 author: "RevoGrid Team"
 tags:
@@ -12,19 +12,19 @@ tags:
   - RevoGrid
 
 image: /blog/scheduling.png
-imageAlt: RevoGantt scheduling logic and project planning preview
+imageAlt: RevoGrid Gantt scheduling logic and project planning preview
 
 
 head:
   - - meta
     - name: keywords
-      content: "Microsoft Project, Project Online retirement, Project for the web, Microsoft Planner, Gantt chart, JavaScript Gantt, RevoGantt, project scheduler"
+      content: "Microsoft Project, Project Online retirement, Project for the web, Microsoft Planner, Gantt chart, JavaScript Gantt, RevoGrid Gantt, project scheduler"
 ---
 
 # How Gantt Scheduling Works
 
-::: tip RevoGantt hub
-Evaluating a component? See the complete [RevoGantt feature set, live demos, framework support, performance evidence, pricing, and trial details](/gantt).
+::: tip RevoGrid Gantt hub
+Evaluating a component? See the complete [RevoGrid Gantt feature set, live demos, framework support, performance evidence, pricing, and trial details](/gantt).
 :::
 
 > Given the work, relationships, calendars, constraints, progress, and resources, when can each task realistically happen?
@@ -283,7 +283,7 @@ Operational changes often need cutover windows, staffing coverage, training, rol
 
 A schedule is trustworthy when users can understand why dates moved.
 
-RevoGantt provides that by separating inputs from calculated results and by surfacing schedule origins, warnings, conflicts, resource issues, and critical path signals.
+RevoGrid Gantt provides that by separating inputs from calculated results and by surfacing schedule origins, warnings, conflicts, resource issues, and critical path signals.
 
 For business users, the most important questions are:
 
@@ -298,9 +298,9 @@ When those answers are visible, the Gantt chart becomes an explanation of the pl
 
 ## How This Relates to Microsoft Project
 
-RevoGantt follows familiar Microsoft Project-style scheduling concepts where they make sense for a web grid:
+RevoGrid Gantt follows familiar Microsoft Project-style scheduling concepts where they make sense for a web grid:
 
-| Planning concept | RevoGantt behavior |
+| Planning concept | RevoGrid Gantt behavior |
 |---|---|
 | Manual and automatic tasks | Manual dates can stay visible while automatic tasks move with the plan. |
 | Forward and backward scheduling | Projects can schedule from a start date or from a required finish date. |
