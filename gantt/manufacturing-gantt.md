@@ -31,6 +31,7 @@ A manufacturing Gantt brings those commitments, constraints, and handoffs into o
   slug="manufacturing"
   alt="Real RevoGantt manufacturing schedule with production orders, machines, materials, changeovers, dependencies, quality gates, and shipment milestones"
   caption="Captured from the production-shaped Nexus MES example: production orders, machine assignments, material readiness, the CNC chain, inspection, and shipment commitments remain connected."
+  live-href="https://gantt.rv-grid.com/?use-case=industry-manufacturing"
 />
 
 <GanttClusterCta />

@@ -1,6 +1,6 @@
 ---
-title: Kanban Workflow Board Demo
-description: Manage cards across configurable workflow columns and swimlanes with drag-and-drop ordering, WIP limits, rules, and inline editing.
+title: JavaScript Kanban Board Demo
+description: Try the RevoKanban JavaScript Kanban board component with configurable workflow columns, swimlanes, drag-and-drop ordering, WIP limits, rules, and inline editing.
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false
@@ -11,7 +11,7 @@ editLink: false
 head:
   - - meta
     - name: keywords
-      content: RevoGrid Kanban demo, JavaScript Kanban board, workflow board, swimlanes, WIP limits, drag and drop cards, React Kanban, Vue Kanban, Angular Kanban
+      content: RevoKanban demo, RevoKanban JS, JavaScript Kanban board, JavaScript Kanban component, workflow board, swimlanes, WIP limits, drag and drop cards, React Kanban, Vue Kanban, Angular Kanban
 ---
 
 <script setup>

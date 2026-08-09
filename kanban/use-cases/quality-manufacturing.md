@@ -3,7 +3,7 @@ title: Quality and Manufacturing Kanban
 description: Embed a quality workflow with work orders, lots, inspections, containment, CAPA, verification, and closure evidence.
 outline: deep
 image: /blog/kanban-manufacturing-quality-polished.png
-imageAlt: Real RevoGrid manufacturing quality Kanban with traceable inspection records
+imageAlt: Real RevoKanban manufacturing quality board with traceable inspection records
 head:
   - - meta
     - name: keywords
@@ -23,7 +23,7 @@ This quality console uses inspection records rather than project cards. Detected
 <KanbanUseCaseMedia
   title="Quality and manufacturing"
   slug="quality-manufacturing"
-  alt="Real RevoGrid quality Kanban with work orders, lots, stations, inspection results, containment impact, and closure evidence"
+  alt="Real RevoKanban quality board with work orders, lots, stations, inspection results, containment impact, and closure evidence"
   caption="Captured from the real plant-quality board: traceability, measured result, affected material, current decision, and owner stay in one record."
   live-href="https://kanban.rv-grid.com/?example=quality-manufacturing"
 />
@@ -47,4 +47,4 @@ The host product owns quality records, specifications, approvals, electronic sig
 - Test containment overload, verification evidence, and closure approval.
 - Validate audit, permission, and conflict behavior against your QMS policies.
 
-Related guidance: [RevoGrid Kanban](/kanban), [large boards](/kanban/performance), and [Pro trial access](/trial).
+Related guidance: [RevoKanban](/kanban), [large boards](/kanban/performance), and [Pro trial access](/trial).

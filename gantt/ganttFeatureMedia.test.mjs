@@ -9,6 +9,11 @@ const configSource = readFileSync(new URL('./ganttLanding.ts', import.meta.url),
 const featureSection = pageSource.match(/  features:\n([\s\S]*?)\n  positioning:/)?.[1] ?? ''
 const integrationsSection = pageSource.match(/  integrations:\n([\s\S]*?)\n  featureComparison:/)?.[1] ?? ''
 
+test('lets VitePress append the RevoGrid site title to the Gantt product title', () => {
+  assert.match(pageSource, /^title: "Fast JavaScript Gantt Chart for Web Apps"$/m)
+  assert.doesNotMatch(pageSource, /^titleTemplate: false$/m)
+})
+
 test('presents ten real Gantt workflows with visual media and live examples', () => {
   assert.equal(featureSection.match(/^      - icon: '\d{2}'$/gm)?.length, 10)
   assert.equal(featureSection.match(/^        media: /gm)?.length, 10)

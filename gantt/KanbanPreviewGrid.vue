@@ -1,5 +1,5 @@
 <template>
-  <ProductPreviewFrame :preview="preview" aria-label="Interactive RevoGrid Kanban workflow preview">
+  <ProductPreviewFrame :preview="preview" aria-label="Interactive RevoKanban JavaScript Kanban board preview">
     <div class="kanban-grid-stage">
       <KanbanShowcase />
     </div>

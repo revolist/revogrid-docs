@@ -1,11 +1,11 @@
 ---
 title: Angular Gantt Chart Component for Enterprise Apps
-description: Evaluate RevoGantt for Angular applications that need editable task grids, project scheduling, dependencies, resources, baselines, critical path, and large datasets.
+description: Evaluate RevoGantt, a JavaScript Gantt chart component for Angular with editable tasks, dependencies, resources, baselines, critical path, and large datasets.
 outline: deep
 head:
   - - meta
     - name: keywords
-      content: Angular Gantt component, Angular Gantt chart library, Angular project scheduling, Angular resource planning, enterprise Angular Gantt
+      content: RevoGantt Angular, Angular Gantt component, Angular Gantt chart library, JavaScript Gantt chart Angular, Angular project scheduling, Angular resource planning, enterprise Angular Gantt
 faq:
   items:
     - q: Can RevoGantt be embedded in Angular?

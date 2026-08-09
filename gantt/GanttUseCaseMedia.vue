@@ -3,6 +3,7 @@ defineProps<{
   slug: string
   alt: string
   caption: string
+  liveHref: string
 }>()
 
 const mediaRevisions: Readonly<Record<string, string>> = {
@@ -26,7 +27,10 @@ const mediaRevisions: Readonly<Record<string, string>> = {
         loading="eager"
         decoding="async"
       >
-      <figcaption>{{ caption }}</figcaption>
+      <figcaption class="gantt-use-case-media__caption">
+        <span>{{ caption }}</span>
+        <a :href="liveHref" target="_blank" rel="noopener noreferrer">Open the interactive plan ↗</a>
+      </figcaption>
     </figure>
   </div>
 </template>
@@ -50,12 +54,45 @@ figure {
     margin: 0;
   }
 
-  figcaption {
+  .gantt-use-case-media__caption {
+    display: flex;
+    gap: 18px;
     padding: 13px 16px;
+    align-items: center;
+    justify-content: space-between;
     border-top: 1px solid var(--vp-c-divider);
     color: var(--vp-c-text-2);
     font-size: 13px;
     line-height: 1.55;
+
+    span { min-width: 0; }
+
+    a {
+      flex: 0 0 auto;
+      color: var(--vp-c-brand-1);
+      font-size: 12px;
+      font-weight: 500;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      &:focus-visible {
+        border-radius: 4px;
+        outline: 2px solid var(--vp-c-brand-1);
+        outline-offset: 3px;
+      }
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  figure .gantt-use-case-media__caption {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
   }
 }
 

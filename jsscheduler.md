@@ -1,6 +1,6 @@
 ---
 title: JavaScript Scheduler & Event Calendar
-description: Build staff schedules, booking calendars, resource timelines, shift planners, and capacity views.
+description: RevoScheduler is a JavaScript Scheduler and event calendar for resource timelines, staff shifts, bookings, availability, and capacity planning.
 sidebar: false
 aside: false
 editLink: false
@@ -20,9 +20,45 @@ headerNav:
       href: /guides/event-scheduler
       base: pro
 head:
+  - - link
+    - rel: canonical
+      href: https://rv-grid.com/jsscheduler
   - - meta
     - name: keywords
-      content: JavaScript Scheduler, JavaScript event scheduler, resource scheduler, shift planning software, booking scheduler, staff scheduler, room booking scheduler, equipment scheduler, workforce scheduling UI, RevoScheduler, React event scheduler, Vue event scheduler, Angular event scheduler
+      content: RevoScheduler, RevoScheduler JS, JavaScript Scheduler, Scheduler JS, JavaScript scheduler component, JavaScript event scheduler, resource scheduler, shift planning software, booking scheduler, staff scheduler, room booking scheduler, equipment scheduler, workforce scheduling UI, React scheduler, Vue scheduler, Angular scheduler
+  - - meta
+    - name: robots
+      content: index, follow, max-image-preview:large
+  - - meta
+    - property: og:type
+      content: website
+  - - meta
+    - property: og:title
+      content: RevoScheduler – JavaScript Scheduler & Event Calendar
+  - - meta
+    - property: og:description
+      content: Build resource timelines, staff schedules, booking calendars, shift planners, and capacity views with RevoScheduler for JavaScript and TypeScript.
+  - - meta
+    - property: og:url
+      content: https://rv-grid.com/jsscheduler
+  - - meta
+    - property: og:site_name
+      content: RevoGrid
+  - - meta
+    - property: og:image
+      content: https://rv-grid.com/blog/scheduler.png
+  - - meta
+    - name: twitter:card
+      content: summary_large_image
+  - - meta
+    - name: twitter:title
+      content: RevoScheduler – JavaScript Scheduler & Event Calendar
+  - - meta
+    - name: twitter:description
+      content: A JavaScript scheduler component for resource timelines, staff shifts, bookings, availability, and capacity planning.
+  - - meta
+    - name: twitter:image
+      content: https://rv-grid.com/blog/scheduler.png
 ganttLanding:
   catalogProductId: event-scheduler
   colors:
@@ -36,8 +72,8 @@ ganttLanding:
     darkBorder: rgba(167, 139, 250, 0.28)
   hero:
     eyebrow: RevoScheduler
-    title: Build JavaScript Scheduler into your product.
-    description: Commercial scheduling surface for staff rosters, room bookings, equipment plans, field crews, support queues, and team capacity.
+    title: 'RevoScheduler: JavaScript Scheduler for your product.'
+    description: A JavaScript and TypeScript scheduler component for staff rosters, room bookings, equipment plans, field crews, support queues, and team capacity.
     actions:
       - label: View Demo
         href: /demo/event-scheduler

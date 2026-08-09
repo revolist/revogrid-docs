@@ -1,11 +1,11 @@
 ---
 title: React Gantt Chart Component for Data-Heavy Apps
-description: Evaluate RevoGrid as a React Gantt component with editable task data, dependencies, resources, critical path, baselines, virtualization, demos, pricing, and trial access.
+description: Evaluate RevoGantt, a JavaScript Gantt chart component for React with editable tasks, dependencies, resources, critical path, baselines, and virtualization.
 outline: deep
 head:
   - - meta
     - name: keywords
-      content: React Gantt component, React Gantt chart library, React project scheduling component, React Gantt dependencies, React resource planning
+      content: RevoGantt React, React Gantt component, React Gantt chart library, JavaScript Gantt chart React, React project scheduling component, React Gantt dependencies, React resource planning
 faq:
   items:
     - q: Does RevoGantt work with React?

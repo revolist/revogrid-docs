@@ -31,6 +31,7 @@ Client delivery is a human coordination problem before it is a scheduling proble
   slug="professional-services"
   alt="Real RevoGantt professional-services view with client engagements, consultant assignments, commercial context, dependencies, milestones, and capacity risk"
   caption="Captured from the production-shaped Helio PSA example: client promises, consultant assignments, delivery phases, budget context, and an overlapping specialist decision remain visible together."
+  live-href="https://gantt.rv-grid.com/?use-case=industry-professional-services"
 />
 
 <GanttClusterCta />

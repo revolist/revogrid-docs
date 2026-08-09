@@ -33,6 +33,7 @@ RevoGantt can place those scheduling relationships beside the operational fields
   slug="construction"
   alt="Real RevoGantt construction schedule with project phases, crews, inspections, suppliers, dependencies, and a switchgear delivery risk"
   caption="Captured from the production-shaped Riverside Clinic example: phases, field crews, inspection gates, supplier commitments, and the switchgear risk stay visible in one coordination view."
+  live-href="https://gantt.rv-grid.com/?use-case=industry-construction"
 />
 
 <GanttClusterCta />

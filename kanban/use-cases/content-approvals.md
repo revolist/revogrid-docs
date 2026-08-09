@@ -3,7 +3,7 @@ title: Content Approval Kanban for Editorial Workflows
 description: Coordinate briefs, creation, editorial review, legal approval, localization, and publishing in an embedded Kanban.
 outline: deep
 image: /blog/kanban-editorial-calendar-polished.png
-imageAlt: Real RevoGrid editorial Kanban with campaign, channel, locale, reviewer, and publish timing
+imageAlt: Real RevoKanban editorial board with campaign, channel, locale, reviewer, and publish timing
 head:
   - - meta
     - name: keywords
@@ -23,7 +23,7 @@ This editorial proof desk changes the card with the stage: briefs read like brie
 <KanbanUseCaseMedia
   title="Content and approvals"
   slug="content-approvals"
-  alt="Real RevoGrid content approval Kanban with editorial stages, campaign context, reviewer state, locale, and publish timing"
+  alt="Real RevoKanban content approval board with editorial stages, campaign context, reviewer state, locale, and publish timing"
   caption="Captured from the real content desk: channel, locale, reviewer, publish slot, and the approval question stay visible together."
   live-href="https://kanban.rv-grid.com/?example=content-approvals"
 />
@@ -38,7 +38,7 @@ Warm neutral surfaces let headlines and proof states carry the hierarchy. Stage 
 
 ## Keep publishing governance in the host product
 
-The surrounding application owns assets, permissions, approvals, audit history, localization rules, and publishing. RevoGrid Kanban keeps those fields together in the workflow and reports proposed movement.
+The surrounding application owns assets, permissions, approvals, audit history, localization rules, and publishing. RevoKanban keeps those fields together in the workflow and reports proposed movement.
 
 ## Evaluate with one real campaign
 
@@ -47,4 +47,4 @@ The surrounding application owns assets, permissions, approvals, audit history, 
 - Test reviewer ownership and a move into an overloaded approval queue.
 - Confirm audit and publishing rules on the server before persisting changes.
 
-Related guidance: [RevoGrid Kanban](/kanban), [card rules](/kanban/card-rules), and [Pro trial access](/trial).
+Related guidance: [RevoKanban](/kanban), [card rules](/kanban/card-rules), and [Pro trial access](/trial).

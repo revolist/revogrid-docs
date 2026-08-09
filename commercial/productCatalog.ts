@@ -391,7 +391,7 @@ const products = {
   },
   kanban: {
     id: 'kanban',
-    name: 'RevoGrid Kanban',
+    name: 'RevoKanban',
     minimumPlan: 'pro-advanced',
     status: 'stable',
     featureId: 'kanban',

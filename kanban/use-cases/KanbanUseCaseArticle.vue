@@ -14,7 +14,7 @@ defineProps<{
 <template>
   <main :class="`kanban-story kanban-story--${theme}`">
     <header class="kanban-story__hero">
-      <a class="kanban-story__back" href="/kanban">← RevoGrid Kanban</a>
+      <a class="kanban-story__back" href="/kanban">← RevoKanban</a>
       <div class="kanban-story__eyebrow">{{ eyebrow }}</div>
       <h1>{{ title }}</h1>
       <p>{{ introduction }}</p>

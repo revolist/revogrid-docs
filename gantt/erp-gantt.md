@@ -29,6 +29,7 @@ ERP planning is not a standalone project file. Dates are connected to work order
   slug="erp"
   alt="Real RevoGantt ERP view with production work orders, operational status, dependencies, approved baseline bars, and delivery commitments"
   caption="Captured from the production-shaped Northwind ERP example: work orders, shop-floor status, dependency impact, baseline variance, and the customer commitment stay in one working view."
+  live-href="https://gantt.rv-grid.com/?use-case=industry-erp"
 />
 
 <GanttClusterCta />

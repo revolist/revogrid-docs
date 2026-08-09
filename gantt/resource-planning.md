@@ -29,6 +29,7 @@ Resource planning starts with a human question: can the people, rooms, machines,
   slug="resource-planning"
   alt="Real RevoGantt resource-planning view with assigned people, shared facilities, allocation percentages, dependencies, milestones, and visible overloads"
   caption="Captured from the production-shaped Pace Capacity example: work, assignments, and timing expose a 150% architect allocation and 175% shared-lab load early enough for a human planning conversation."
+  live-href="https://gantt.rv-grid.com/?use-case=industry-resource-planning"
 />
 
 <GanttClusterCta />

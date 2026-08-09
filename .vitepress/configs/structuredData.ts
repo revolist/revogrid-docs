@@ -135,6 +135,10 @@ const softwareApplicationJsonLd = (
     productId: ProductId,
 ): JsonLdData => {
     const product = getProduct(productId)
+    const isScheduler = productId === 'scheduler' || productId === 'event-scheduler'
+    const isGantt = productId === 'gantt'
+    const isKanban = productId === 'kanban'
+    const isDedicatedProduct = isScheduler || isGantt || isKanban
     const pagePath = relativePath === 'index.md' && productId !== 'revogrid'
         ? product.pageUrl
         : cleanPagePath(relativePath)
@@ -142,17 +146,68 @@ const softwareApplicationJsonLd = (
     return {
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
-        '@id': `${siteUrl}/#software`,
+        '@id': isDedicatedProduct ? `${siteUrl}${pagePath}#software` : `${siteUrl}/#software`,
         name: product.name,
-        alternateName: productId === 'revogrid' ? 'RevoGrid Data Grid' : undefined,
+        alternateName: productId === 'revogrid'
+            ? 'RevoGrid Data Grid'
+            : isScheduler
+                ? ['RevoScheduler JS', 'JavaScript Scheduler', 'Scheduler JS']
+                : isGantt
+                    ? ['RevoGantt JS', 'JavaScript Gantt Chart', 'Gantt Chart JS']
+                    : isKanban
+                        ? ['RevoKanban JS', 'JavaScript Kanban Board', 'Kanban Board JS']
+                    : undefined,
         applicationCategory: 'DeveloperApplication',
-        applicationSubCategory: 'JavaScript Data Grid',
-        operatingSystem: 'Any',
+        applicationSubCategory: isScheduler
+            ? 'JavaScript Scheduler and Event Calendar'
+            : isGantt
+                ? 'JavaScript Gantt Chart and Project Scheduling Component'
+                : isKanban
+                    ? 'JavaScript Kanban Board Component'
+                : 'JavaScript Data Grid',
+        operatingSystem: isDedicatedProduct ? 'Web' : 'Any',
         url: `${siteUrl}${pagePath === '/' ? '' : pagePath}`,
-        image: `${siteUrl}/og-image.jpg`,
+        image: isScheduler
+            ? `${siteUrl}/blog/scheduler.png`
+            : isGantt
+                ? `${siteUrl}/img/gantt-preview.png`
+                : isKanban
+                    ? `${siteUrl}/blog/kanban-product-development-polished.png`
+                : `${siteUrl}/og-image.jpg`,
         description: productId === 'revogrid'
             ? 'A high-performance JavaScript data grid for Vue, React, Angular, Svelte, and JavaScript applications.'
-            : `${product.name} is an embeddable commercial module for data-heavy web applications.`,
+            : isScheduler
+                ? 'RevoScheduler is a JavaScript scheduler component for resource timelines, staff shifts, bookings, availability, conflict handling, and capacity planning.'
+                : isGantt
+                    ? 'RevoGantt is an embeddable JavaScript Gantt chart component for editable project timelines, dependencies, resources, baselines, critical path, and large task datasets.'
+                    : isKanban
+                        ? 'RevoKanban is an embeddable JavaScript Kanban board component for virtualized workflows, drag-and-drop cards, swimlanes, WIP limits, custom templates, and large task datasets.'
+                    : `${product.name} is an embeddable commercial module for data-heavy web applications.`,
+        featureList: isScheduler
+            ? [
+                'Resource timeline and event calendar views',
+                'Staff, room, equipment, and workforce scheduling',
+                'Event editing, drag and drop, resizing, and recurrence',
+                'Availability, overlap, conflict, and capacity rules',
+                'JavaScript, TypeScript, React, Vue, Angular, and Svelte support',
+            ]
+            : isGantt
+                ? [
+                    'Editable task grid and virtualized Gantt timeline',
+                    'Task dependencies, milestones, calendars, and constraints',
+                    'Resources, assignments, capacity, and workload planning',
+                    'Baselines, critical path, progress, and schedule variance',
+                    'JavaScript, TypeScript, React, Vue, Angular, and Svelte support',
+                ]
+                : isKanban
+                    ? [
+                        'Virtualized workflow columns and card rows',
+                        'Drag-and-drop ordering and validated card movement',
+                        'Swimlanes, WIP limits, transition rules, and permissions',
+                        'Custom cards, headers, editors, empty states, and themes',
+                        'JavaScript, TypeScript, React, Vue, Angular, and Svelte support',
+                    ]
+                : undefined,
         author: {
             '@type': 'Organization',
             name: 'Revolist OU',

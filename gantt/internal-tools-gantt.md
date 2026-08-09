@@ -33,6 +33,7 @@ An embedded Gantt gives people a common view of timing and handoffs without aski
   slug="internal-tools"
   alt="Real RevoGantt internal-operations plan with cross-functional owners, source systems, approvals, dependencies, and release-readiness milestones"
   caption="Captured from the production-shaped Relay Ops example: authoritative source systems, owners, approvals, onboarding, and the billing gate remain part of the same release conversation."
+  live-href="https://gantt.rv-grid.com/?use-case=industry-internal-tools"
 />
 
 <GanttClusterCta />

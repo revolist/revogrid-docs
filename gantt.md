@@ -1,10 +1,10 @@
 ---
-title: Fast JavaScript Gantt Chart for Large Data
-description: Embed a fast JavaScript Gantt chart for Web Apps with two-axis virtualization, a live 10,000-task demo, dependencies, resource planning, and framework support.
+title: "Fast JavaScript Gantt Chart for Web Apps"
+description: RevoGantt is a fast JavaScript Gantt chart for data-heavy web apps, with virtualization, dependencies, resources, critical path, and a live 10,000-task demo.
 head:
   - - meta
     - name: keywords
-      content: JavaScript Gantt chart, fast Gantt chart, high performance Gantt chart, virtualized Gantt, Gantt chart large datasets, Gantt thousands of tasks, SaaS Gantt component, React Gantt chart, Vue Gantt chart, Angular Gantt chart, RevoGantt
+      content: RevoGantt, RevoGantt JavaScript Gantt chart, JavaScript Gantt chart, Gantt chart JS, JavaScript Gantt chart library, fast Gantt chart, high performance Gantt chart, virtualized Gantt, Gantt chart large datasets, Gantt thousands of tasks, SaaS Gantt component, React Gantt chart, Vue Gantt chart, Angular Gantt chart
 sidebar: false
 aside: false
 editLink: false
@@ -21,9 +21,9 @@ commercialFaqKeys:
 ganttLanding:
   catalogProductId: gantt
   hero:
-    eyebrow: RevoGantt
-    title: Fast JavaScript Gantt Chart
-    description: Handle large project plans in a virtualized workspace. Editable task grid, fast timeline navigation, dependencies, resources, and critical path analysis.
+    eyebrow: RevoGantt · Gantt Chart JS
+    title: "RevoGantt: Fast JavaScript Gantt Chart"
+    description: RevoGantt is a JavaScript Gantt chart component for large project plans, with an editable task grid, virtualized timeline, dependencies, resources, and critical path analysis.
     actions:
       - label: View Demo
         href: /demo/gantt
@@ -42,7 +42,7 @@ ganttLanding:
     kind: image
     lightSrc: /img/gantt-preview.png
     darkSrc: /img/gantt-preview.png
-    alt: RevoGantt project timeline with editable task rows, assignees, progress, and scheduling bars
+    alt: RevoGantt JavaScript Gantt chart with editable task rows, assignees, progress, dependencies, and scheduling bars
     title: gantt-planning.revogrid.ts
     pills:
       - label: Basic plan
@@ -52,7 +52,7 @@ ganttLanding:
     id: live-gantt-demos
     kicker: Live demos
     title: See complete planning workflows in action.
-    description: Explore Gantt examples for the core project view, dependency editing, and resource-aware scheduling. Each demo is built on the same grid-first Gantt module.
+    description: Explore live RevoGantt JavaScript Gantt chart examples for project planning, dependency editing, large datasets, and resource-aware scheduling.
     items:
       - title: Complete Gantt workspace
         description: Edit task data, expand the hierarchy, move bars, inspect milestones, and switch critical-path and baseline overlays.
@@ -314,6 +314,8 @@ ganttLanding:
     kicker: FAQ
     title: RevoGantt questions
     items:
+      - q: What is RevoGantt?
+        a: RevoGantt is an embeddable JavaScript Gantt chart component for building editable project-planning and scheduling workflows in web applications. It supports TypeScript, React, Vue, Angular, Svelte, and plain JavaScript integrations.
       - q: Is RevoGantt a full Microsoft Project clone?
         a: No. RevoGantt supports familiar Microsoft Project-style planning concepts, but it is designed as an embeddable, grid-first web component for SaaS applications rather than a full desktop Project clone.
       - q: Does it support React?

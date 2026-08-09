@@ -22,7 +22,7 @@ const curatedPages = [
   { text: 'Pro Feature Table', link: '/pro/feature-table' },
   { text: 'Pro Videos', link: '/pro/videos' },
   { text: 'Pivot Table', link: '/pivot/' },
-  { text: 'Kanban', link: '/kanban' },
+  { text: 'RevoKanban', link: '/kanban' },
   { text: 'Gantt', link: '/gantt' },
   { text: 'JavaScript Scheduler', link: '/jsscheduler' },
 ]
@@ -46,7 +46,7 @@ const titleFallbacks = new Map([
   ['/demo', 'RevoGrid Demos'],
   ['/pro', 'RevoGrid Pro'],
   ['/pivot', 'RevoGrid Pivot'],
-  ['/kanban', 'RevoGrid Kanban'],
+  ['/kanban', 'RevoKanban JavaScript Kanban Board'],
 ])
 
 function normalizeRoute(link) {

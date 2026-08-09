@@ -105,20 +105,24 @@ test('keeps the custom use-case hero balanced at laptop widths', () => {
 
 test('uses only the real screenshot in every human-oriented article', () => {
   const articles = {
-    erp: './erp-gantt.md',
-    'professional-services': './professional-services-gantt.md',
-    construction: './construction-gantt.md',
-    manufacturing: './manufacturing-gantt.md',
-    'resource-planning': './resource-planning.md',
-    'internal-tools': './internal-tools-gantt.md',
+    erp: { path: './erp-gantt.md', useCase: 'industry-erp' },
+    'professional-services': { path: './professional-services-gantt.md', useCase: 'industry-professional-services' },
+    construction: { path: './construction-gantt.md', useCase: 'industry-construction' },
+    manufacturing: { path: './manufacturing-gantt.md', useCase: 'industry-manufacturing' },
+    'resource-planning': { path: './resource-planning.md', useCase: 'industry-resource-planning' },
+    'internal-tools': { path: './internal-tools-gantt.md', useCase: 'industry-internal-tools' },
   }
 
   for (const slug of slugs) {
-    const articleSource = readFileSync(new URL(articles[slug], import.meta.url), 'utf8')
+    const article = articles[slug]
+    const articleSource = readFileSync(new URL(article.path, import.meta.url), 'utf8')
     assert.match(articleSource, new RegExp(`image: /img/gantt-use-cases/${slug}\\.webp(?:\\?v=[^\\s]+)?`))
     assert.match(articleSource, /import GanttUseCaseMedia from '\.\/GanttUseCaseMedia\.vue'/)
     assert.match(articleSource, new RegExp(`slug="${slug}"`))
-    assert.doesNotMatch(articleSource, /live-href=/)
+    assert.match(
+      articleSource,
+      new RegExp(`live-href="https://gantt\\.rv-grid\\.com/\\?use-case=${article.useCase}"`),
+    )
     assert.doesNotMatch(articleSource, /\/video\/gantt-use-cases\//)
     assert.doesNotMatch(articleSource, /\?example=industry-/)
     assert.doesNotMatch(articleSource, /Conceptual|conceptual product preview|conceptual planning view/)
@@ -145,6 +149,10 @@ test('keeps the shared Gantt article media component image-only', () => {
 
   assert.match(articleMediaSource, /\/img\/gantt-use-cases\/\$\{slug\}\.webp/)
   assert.match(articleMediaSource, /mediaRevisions\[slug\]/)
+  assert.match(articleMediaSource, /liveHref: string/)
+  assert.match(articleMediaSource, /<a :href="liveHref" target="_blank" rel="noopener noreferrer">Open the interactive plan ↗<\/a>/)
+  assert.match(articleMediaSource, /&:focus-visible/)
+  assert.match(articleMediaSource, /@media \(max-width: 620px\)/)
   assert.doesNotMatch(articleMediaSource, /<video|\/video\/gantt-use-cases\//)
 })
 
