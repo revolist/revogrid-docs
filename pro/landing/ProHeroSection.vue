@@ -84,6 +84,8 @@ const demos = [
   { src: '/video/demo-color.mp4', label: 'Data Visualization' },
   { src: '/video/spreadhsheet.mp4', label: 'Spreadsheet' },
   { src: '/video/al-demo.mp4', label: 'Audit History' },
+  { src: '/video/kanban-demo.mp4', label: 'Kanban' },
+  { src: '/video/event-scheduler.mp4', label: 'Scheduler' },
 ]
 
 const demoOpen = ref(false)

@@ -10,7 +10,7 @@ const featureSection = pageSource.match(/  features:\n([\s\S]*?)\n  positioning:
 const integrationsSection = pageSource.match(/  integrations:\n([\s\S]*?)\n  featureComparison:/)?.[1] ?? ''
 
 test('lets VitePress append the RevoGrid site title to the Gantt product title', () => {
-  assert.match(pageSource, /^title: "Fast JavaScript Gantt Chart for Web Apps"$/m)
+  assert.match(pageSource, /^title: "JavaScript Gantt Chart Component \| RevoGantt"$/m)
   assert.doesNotMatch(pageSource, /^titleTemplate: false$/m)
 })
 

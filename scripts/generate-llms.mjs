@@ -22,9 +22,9 @@ const curatedPages = [
   { text: 'Pro Feature Table', link: '/pro/feature-table' },
   { text: 'Pro Videos', link: '/pro/videos' },
   { text: 'Pivot Table', link: '/pivot/' },
-  { text: 'RevoKanban', link: '/kanban' },
-  { text: 'Gantt', link: '/gantt' },
-  { text: 'JavaScript Scheduler', link: '/jsscheduler' },
+  { text: 'RevoKanban by RevoGrid', link: '/kanban' },
+  { text: 'RevoGantt by RevoGrid', link: '/gantt' },
+  { text: 'RevoScheduler by RevoGrid', link: '/jsscheduler' },
 ]
 
 const excludedSourcePatterns = [
@@ -46,7 +46,7 @@ const titleFallbacks = new Map([
   ['/demo', 'RevoGrid Demos'],
   ['/pro', 'RevoGrid Pro'],
   ['/pivot', 'RevoGrid Pivot'],
-  ['/kanban', 'RevoKanban JavaScript Kanban Board'],
+  ['/kanban', 'RevoKanban by RevoGrid JavaScript Kanban Board'],
 ])
 
 function normalizeRoute(link) {

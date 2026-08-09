@@ -77,7 +77,7 @@ test('defines Kanban as a stable Pro Advanced product and offer', () => {
   const feature = getFeature('kanban')
   const advanced = getPlan('pro-advanced')
 
-  assert.equal(kanban.name, 'RevoKanban')
+  assert.equal(kanban.name, 'RevoKanban by RevoGrid')
   assert.equal(kanban.minimumPlan, 'pro-advanced')
   assert.equal(kanban.status, 'stable')
   assert.equal(kanban.featureId, 'kanban')
@@ -106,11 +106,13 @@ test('keeps JavaScript Scheduler products on the canonical landing experience', 
   assert.equal(scheduler.pageUrl, '/jsscheduler')
   assert.equal(eventScheduler.pageUrl, '/jsscheduler')
   assert.equal(scheduler.demoUrl, '/demo/event-scheduler')
-  assert.match(schedulerLanding, /^title: JavaScript Scheduler & Event Calendar$/m)
+  assert.match(schedulerLanding, /^title: JavaScript Scheduler Component \| RevoScheduler$/m)
   assert.doesNotMatch(schedulerLanding, /^titleTemplate: false$/m)
   assert.match(schedulerLanding, /^\s+catalogProductId: event-scheduler$/m)
   assert.match(schedulerLanding, /^\s+kind: eventScheduler$/m)
-  assert.match(schedulerLanding, /^\s+title: 'RevoScheduler: JavaScript Scheduler for your product\.'$/m)
+  assert.match(schedulerLanding, /^\s+eyebrow: RevoScheduler by RevoGrid$/m)
+  assert.match(schedulerLanding, /^\s+title: JavaScript Scheduler & Event Calendar Component$/m)
+  assert.match(schedulerLanding, /formerly known as RevoGrid Scheduler/i)
   assert.match(schedulerLanding, /^\s+href: \/demo\/event-scheduler$/m)
   assert.match(proFeatures, /title: 'Scheduler JS',[\s\S]*?videoUrl: '\/video\/event-scheduler\.mp4'/)
   assert.ok(existsSync(new URL('../public/video/event-scheduler.mp4', import.meta.url)))
@@ -194,14 +196,14 @@ test('generates route-aware structured-data offers', () => {
   const kanbanHead = createStructuredDataHead({
     siteUrl: 'https://rv-grid.com',
     relativePath: 'kanban.md',
-    title: 'JavaScript Kanban Board Component',
+    title: 'JavaScript Kanban Board Component | RevoKanban',
   })
   const kanbanSoftwareEntry = kanbanHead.find(([, attrs]) => attrs?.id === 'software-application-json-ld')
 
   assert.ok(kanbanSoftwareEntry)
   const kanbanSoftware = JSON.parse(String(kanbanSoftwareEntry[2]))
-  assert.equal(kanbanSoftware.name, 'RevoKanban')
-  assert.deepEqual(kanbanSoftware.alternateName, ['RevoKanban JS', 'JavaScript Kanban Board', 'Kanban Board JS'])
+  assert.equal(kanbanSoftware.name, 'RevoKanban by RevoGrid')
+  assert.deepEqual(kanbanSoftware.alternateName, ['RevoKanban', 'RevoGrid Kanban'])
   assert.equal(kanbanSoftware.applicationSubCategory, 'JavaScript Kanban Board Component')
   assert.equal(kanbanSoftware['@id'], 'https://rv-grid.com/kanban#software')
   assert.equal(kanbanSoftware.url, 'https://rv-grid.com/kanban')
@@ -218,14 +220,14 @@ test('classifies RevoScheduler as a JavaScript Scheduler in structured data', ()
   const head = createStructuredDataHead({
     siteUrl: 'https://rv-grid.com',
     relativePath: 'jsscheduler.md',
-    title: 'JavaScript Scheduler & Event Calendar',
+    title: 'JavaScript Scheduler Component | RevoScheduler',
   })
   const softwareEntry = head.find(([, attrs]) => attrs?.id === 'software-application-json-ld')
 
   assert.ok(softwareEntry)
   const software = JSON.parse(String(softwareEntry[2]))
-  assert.equal(software.name, 'RevoScheduler')
-  assert.deepEqual(software.alternateName, ['RevoScheduler JS', 'JavaScript Scheduler', 'Scheduler JS'])
+  assert.equal(software.name, 'RevoScheduler by RevoGrid')
+  assert.deepEqual(software.alternateName, ['RevoScheduler', 'RevoGrid Scheduler', 'RevoGrid JavaScript Scheduler'])
   assert.equal(software.applicationSubCategory, 'JavaScript Scheduler and Event Calendar')
   assert.equal(software.url, 'https://rv-grid.com/jsscheduler')
   assert.equal(software.image, 'https://rv-grid.com/blog/scheduler.png')
@@ -237,14 +239,14 @@ test('classifies RevoGantt as a JavaScript Gantt chart in structured data', () =
   const head = createStructuredDataHead({
     siteUrl: 'https://rv-grid.com',
     relativePath: 'gantt.md',
-    title: 'Fast JavaScript Gantt Chart for Web Apps',
+    title: 'JavaScript Gantt Chart Component | RevoGantt',
   })
   const softwareEntry = head.find(([, attrs]) => attrs?.id === 'software-application-json-ld')
 
   assert.ok(softwareEntry)
   const software = JSON.parse(String(softwareEntry[2]))
-  assert.equal(software.name, 'RevoGantt')
-  assert.deepEqual(software.alternateName, ['RevoGantt JS', 'JavaScript Gantt Chart', 'Gantt Chart JS'])
+  assert.equal(software.name, 'RevoGantt by RevoGrid')
+  assert.deepEqual(software.alternateName, ['RevoGantt', 'RevoGrid Gantt'])
   assert.equal(software.applicationSubCategory, 'JavaScript Gantt Chart and Project Scheduling Component')
   assert.equal(software.url, 'https://rv-grid.com/gantt')
   assert.equal(software.image, 'https://rv-grid.com/img/gantt-preview.png')

@@ -44,19 +44,17 @@ const brandedSources = [
   readFileSync(new URL('../scripts/generate-llms.mjs', import.meta.url), 'utf8'),
 ]
 
-test('brands the JavaScript Kanban board component consistently as RevoKanban', () => {
-  const oldProductName = ['RevoGrid', 'Kanban'].join(' ')
-
-  for (const source of brandedSources) {
-    assert.doesNotMatch(source, new RegExp(oldProductName, 'i'))
-  }
-
-  assert.match(pageSource, /^title: JavaScript Kanban Board Component$/m)
+test('brands the JavaScript Kanban board as RevoKanban while preserving the RevoGrid relationship', () => {
+  assert.ok(brandedSources.some((source) => /RevoKanban by RevoGrid/i.test(source)))
+  assert.ok(brandedSources.some((source) => /RevoGrid Kanban/i.test(source)))
+  assert.match(pageSource, /^title: JavaScript Kanban Board Component \| RevoKanban$/m)
   assert.doesNotMatch(pageSource, /^titleTemplate: false$/m)
-  assert.match(pageSource, /^description: RevoKanban is a virtualized JavaScript Kanban board component/m)
+  assert.match(pageSource, /^description: RevoKanban by RevoGrid is a virtualized JavaScript Kanban board component/m)
   assert.match(pageSource, /href: https:\/\/rv-grid\.com\/kanban/)
-  assert.match(pageSource, /content: RevoKanban – JavaScript Kanban Board Component/)
-  assert.match(pageSource, /title: 'RevoKanban: JavaScript Kanban for your product\.'/)
+  assert.match(pageSource, /content: RevoKanban by RevoGrid – JavaScript Kanban Board Component/)
+  assert.match(pageSource, /eyebrow: RevoKanban by RevoGrid/)
+  assert.match(pageSource, /title: JavaScript Kanban Board Component for Web Apps/)
+  assert.match(pageSource, /formerly known as RevoGrid Kanban/i)
 })
 
 test('presents six linked Kanban use cases with the supplied polished images', () => {

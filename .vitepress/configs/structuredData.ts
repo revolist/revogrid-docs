@@ -151,11 +151,11 @@ const softwareApplicationJsonLd = (
         alternateName: productId === 'revogrid'
             ? 'RevoGrid Data Grid'
             : isScheduler
-                ? ['RevoScheduler JS', 'JavaScript Scheduler', 'Scheduler JS']
+                ? ['RevoScheduler', 'RevoGrid Scheduler', 'RevoGrid JavaScript Scheduler']
                 : isGantt
-                    ? ['RevoGantt JS', 'JavaScript Gantt Chart', 'Gantt Chart JS']
+                    ? ['RevoGantt', 'RevoGrid Gantt']
                     : isKanban
-                        ? ['RevoKanban JS', 'JavaScript Kanban Board', 'Kanban Board JS']
+                        ? ['RevoKanban', 'RevoGrid Kanban']
                     : undefined,
         applicationCategory: 'DeveloperApplication',
         applicationSubCategory: isScheduler
@@ -177,11 +177,11 @@ const softwareApplicationJsonLd = (
         description: productId === 'revogrid'
             ? 'A high-performance JavaScript data grid for Vue, React, Angular, Svelte, and JavaScript applications.'
             : isScheduler
-                ? 'RevoScheduler is a JavaScript scheduler component for resource timelines, staff shifts, bookings, availability, conflict handling, and capacity planning.'
+                ? 'RevoScheduler by RevoGrid is a JavaScript scheduler component for resource timelines, staff shifts, bookings, availability, conflict handling, and capacity planning.'
                 : isGantt
-                    ? 'RevoGantt is an embeddable JavaScript Gantt chart component for editable project timelines, dependencies, resources, baselines, critical path, and large task datasets.'
+                    ? 'RevoGantt by RevoGrid is an embeddable JavaScript Gantt chart component for editable project timelines, dependencies, resources, baselines, critical path, and large task datasets.'
                     : isKanban
-                        ? 'RevoKanban is an embeddable JavaScript Kanban board component for virtualized workflows, drag-and-drop cards, swimlanes, WIP limits, custom templates, and large task datasets.'
+                        ? 'RevoKanban by RevoGrid is an embeddable JavaScript Kanban board component for virtualized workflows, drag-and-drop cards, swimlanes, WIP limits, custom templates, and large task datasets.'
                     : `${product.name} is an embeddable commercial module for data-heavy web applications.`,
         featureList: isScheduler
             ? [

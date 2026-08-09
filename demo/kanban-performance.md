@@ -1,6 +1,6 @@
 ---
-title: RevoKanban 50K-Task Performance Demo
-description: Explore 50,000 virtualized tasks in the RevoKanban JavaScript Kanban board component across ten workflow columns and two team swimlanes.
+title: 50K-Task JavaScript Kanban Demo | RevoKanban
+description: Explore 50,000 virtualized tasks in RevoKanban by RevoGrid across ten workflow columns and two team swimlanes.
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false
@@ -11,7 +11,7 @@ editLink: false
 head:
   - - meta
     - name: keywords
-      content: RevoKanban performance demo, RevoKanban JS, 50000 task Kanban, virtualized JavaScript Kanban board, large workflow board, JavaScript Kanban benchmark
+      content: RevoKanban performance demo, RevoGrid Kanban performance demo, RevoKanban JS, 50000 task Kanban, virtualized JavaScript Kanban board, large workflow board, JavaScript Kanban benchmark
 ---
 
 <script setup>
