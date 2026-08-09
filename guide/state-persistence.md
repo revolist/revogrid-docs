@@ -307,4 +307,4 @@ Do not mix persisted workspace state with editable business data. For example, G
 - [Programmatic Grid Control](/guide/programmatic-control)
 - [Understanding Viewports](/guide/viewports)
 - [RevoGrid Pivot](/pivot/)
-- [RevoGrid Gantt](/gantt/)
+- [RevoGantt](/gantt/)

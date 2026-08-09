@@ -402,7 +402,7 @@ const products = {
   },
   gantt: {
     id: 'gantt',
-    name: 'RevoGrid Gantt',
+    name: 'RevoGantt',
     minimumPlan: 'pro-advanced',
     status: 'stable',
     featureId: 'gantt',
@@ -413,7 +413,7 @@ const products = {
   },
   scheduler: {
     id: 'scheduler',
-    name: 'RevoGrid JavaScript Scheduler',
+    name: 'RevoScheduler',
     minimumPlan: 'pro-advanced',
     status: 'stable',
     featureId: 'event-scheduler',
@@ -424,7 +424,7 @@ const products = {
   },
   'event-scheduler': {
     id: 'event-scheduler',
-    name: 'RevoGrid JavaScript Scheduler',
+    name: 'RevoScheduler',
     minimumPlan: 'pro-advanced',
     status: 'stable',
     featureId: 'event-scheduler',

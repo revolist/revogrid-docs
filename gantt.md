@@ -4,7 +4,7 @@ description: Embed a fast JavaScript Gantt chart for Web Apps with two-axis virt
 head:
   - - meta
     - name: keywords
-      content: JavaScript Gantt chart, fast Gantt chart, high performance Gantt chart, virtualized Gantt, Gantt chart large datasets, Gantt thousands of tasks, SaaS Gantt component, React Gantt chart, Vue Gantt chart, Angular Gantt chart, RevoGrid Gantt
+      content: JavaScript Gantt chart, fast Gantt chart, high performance Gantt chart, virtualized Gantt, Gantt chart large datasets, Gantt thousands of tasks, SaaS Gantt component, React Gantt chart, Vue Gantt chart, Angular Gantt chart, RevoGantt
 sidebar: false
 aside: false
 editLink: false
@@ -21,7 +21,7 @@ commercialFaqKeys:
 ganttLanding:
   catalogProductId: gantt
   hero:
-    eyebrow: RevoGrid Pro / Gantt Chart
+    eyebrow: RevoGantt
     title: Fast JavaScript Gantt Chart
     description: Handle large project plans in a virtualized workspace. Editable task grid, fast timeline navigation, dependencies, resources, and critical path analysis.
     actions:
@@ -42,7 +42,7 @@ ganttLanding:
     kind: image
     lightSrc: /img/gantt-preview.png
     darkSrc: /img/gantt-preview.png
-    alt: RevoGrid Gantt project timeline with editable task rows, assignees, progress, and scheduling bars
+    alt: RevoGantt project timeline with editable task rows, assignees, progress, and scheduling bars
     title: gantt-planning.revogrid.ts
     pills:
       - label: Basic plan
@@ -75,7 +75,7 @@ ganttLanding:
     id: features
     kicker: Visual product tour
     title: See the planning workflows your users can run.
-    description: Every visual below comes from a working RevoGrid Gantt example. Open the live demo to edit the schedule, inspect the data model, and test the interaction in your browser.
+    description: Every visual below comes from a working RevoGantt example. Open the live demo to edit the schedule, inspect the data model, and test the interaction in your browser.
     items:
       - icon: '01'
         title: Complete planning workspace
@@ -84,7 +84,7 @@ ganttLanding:
         media: /video/gantt-walkthrough.mp4
         mediaKind: video
         poster: /img/gantt-features/workspace-poster.webp
-        mediaAlt: RevoGrid Gantt walkthrough showing an editable project hierarchy and synchronized timeline
+        mediaAlt: RevoGantt walkthrough showing an editable project hierarchy and synchronized timeline
         href: https://demo.rv-grid.com/gantt-showcase/ts?theme=light
         cta: Open the full showcase
         featured: true
@@ -94,7 +94,7 @@ ganttLanding:
         tags: [FS / SS / FF / SF, Lead and lag, Validation]
         media: /img/gantt-features/dependencies.webp?v=20260808-chart
         mediaAspect: 1256 / 275
-        mediaAlt: Advanced RevoGrid Gantt dependency example with multiple connector types
+        mediaAlt: Advanced RevoGantt dependency example with multiple connector types
         href: https://demo.rv-grid.com/gantt-dependencies-advanced/ts?theme=light
         cta: Try advanced dependencies
       - icon: '03'
@@ -103,7 +103,7 @@ ganttLanding:
         tags: [Critical path, Total slack, Schedule risk]
         media: /img/gantt-features/critical-path.webp?v=20260808-chart
         mediaAspect: 1256 / 275
-        mediaAlt: RevoGrid Gantt critical path analysis with critical and parallel tasks
+        mediaAlt: RevoGantt critical path analysis with critical and parallel tasks
         href: https://demo.rv-grid.com/gantt-critical-path-analysis/ts?theme=light
         cta: Inspect critical-path analysis
       - icon: '04'
@@ -111,7 +111,7 @@ ganttLanding:
         description: Capture an approved plan, overlay baseline bars, and compare start, finish, duration, and progress variance as the live schedule changes.
         tags: [Approved plans, Variance, Baseline bars]
         media: /img/gantt-features/baselines.webp
-        mediaAlt: RevoGrid Gantt comparing the current schedule with an approved baseline
+        mediaAlt: RevoGantt comparing the current schedule with an approved baseline
         href: https://demo.rv-grid.com/gantt-baseline/ts?theme=light
         cta: Compare a baseline
       - icon: '05'
@@ -120,7 +120,7 @@ ganttLanding:
         tags: [Assignments, Capacity, Auto-leveling]
         media: /img/gantt-features/resources.webp?v=20260808-chart
         mediaAspect: 1256 / 230
-        mediaAlt: RevoGrid Gantt resource load view with capacity and over-allocation bars
+        mediaAlt: RevoGantt resource load view with capacity and over-allocation bars
         href: https://demo.rv-grid.com/gantt-resource-planning/ts?theme=light
         cta: Explore resource planning
       - icon: '06'
@@ -129,7 +129,7 @@ ganttLanding:
         tags: [Eight constraint types, Deadlines, Diagnostics]
         media: /img/gantt-features/constraints.webp?v=20260808-chart
         mediaAspect: 1256 / 430
-        mediaAlt: RevoGrid Gantt constraint windows, deadline markers, and warning states
+        mediaAlt: RevoGantt constraint windows, deadline markers, and warning states
         href: https://demo.rv-grid.com/gantt-constraints-deadlines/ts?theme=light
         cta: Test constraint handling
       - icon: '07'
@@ -138,7 +138,7 @@ ganttLanding:
         tags: [Actuals, Remaining work, Effort modes]
         media: /img/gantt-features/progress-work.webp?v=20260808-chart
         mediaAspect: 1256 / 275
-        mediaAlt: RevoGrid Gantt progress and work example with fixed scheduling modes
+        mediaAlt: RevoGantt progress and work example with fixed scheduling modes
         href: https://demo.rv-grid.com/gantt-progress-work/ts?theme=light
         cta: Open progress and work
       - icon: '08'
@@ -147,7 +147,7 @@ ganttLanding:
         tags: [Split ranges, Working time, Dependencies]
         media: /img/gantt-features/split-tasks.webp?v=20260808-chart
         mediaAspect: 1256 / 270
-        mediaAlt: RevoGrid Gantt task bars split into multiple working ranges
+        mediaAlt: RevoGantt task bars split into multiple working ranges
         href: https://demo.rv-grid.com/gantt-split-tasks/ts?theme=light
         cta: Try split tasks
       - icon: '09'
@@ -155,7 +155,7 @@ ganttLanding:
         description: Use the packaged task dialog for general fields, predecessors, resources, advanced scheduling, notes, and application-defined tabs.
         tags: [Editor schema, Assignments, Custom tabs]
         media: /img/gantt-features/task-editor.webp
-        mediaAlt: RevoGrid Gantt task editor dialog with schedule fields and color choices
+        mediaAlt: RevoGantt task editor dialog with schedule fields and color choices
         href: https://demo.rv-grid.com/gantt-task-editor-form/ts?theme=light
         cta: Open the task editor
       - icon: '10'
@@ -164,14 +164,14 @@ ganttLanding:
         tags: [History, Permissions, JSON / Excel / CSV]
         media: /img/gantt-features/production.png?v=20260808-chart
         mediaAspect: 2920 / 1400
-        mediaAlt: RevoGrid Gantt production patterns with read-only, localization, export, and large-project controls
+        mediaAlt: RevoGantt production patterns with read-only, localization, export, and large-project controls
         href: https://demo.rv-grid.com/gantt-production-patterns/ts?theme=light
         cta: Review production patterns
   positioning:
     id: gantt-performance
     kicker: Performance at scale
     title: A fast JavaScript Gantt chart built for large datasets.
-    description: RevoGrid Gantt uses row and column virtualization to keep browser rendering focused on the visible viewport. Test the live 10,000-task, 19,796-dependency demo, then benchmark your own hierarchy, scheduling rules, and custom cells.
+    description: RevoGantt uses row and column virtualization to keep browser rendering focused on the visible viewport. Test the live 10,000-task, 19,796-dependency demo, then benchmark your own hierarchy, scheduling rules, and custom cells.
     items:
       - title: Two-axis virtualization
         description: Render the visible task rows and timeline columns instead of mounting the entire project surface in the DOM.
@@ -214,7 +214,7 @@ ganttLanding:
     kicker: Feature comparison
     title: Gantt capabilities for embedded planning software.
     description: Compare the core scheduling features product teams usually need before choosing a JavaScript Gantt chart component.
-    columns: [Feature, RevoGrid Gantt, Product value]
+    columns: [Feature, RevoGantt, Product value]
     rows:
       - feature: Hierarchy and milestones
         revogrid: Task trees, summaries, rollups, and milestone task types
@@ -267,8 +267,8 @@ ganttLanding:
   useCases:
     id: gantt-use-cases
     kicker: Use cases
-    title: Where teams embed RevoGrid Gantt.
-    description: Use RevoGrid Gantt when planning belongs inside an operational product, not in a separate project-management tab.
+    title: Where teams embed RevoGantt.
+    description: Use RevoGantt when planning belongs inside an operational product, not in a separate project-management tab.
     benefits:
       label: Explore the complete Gantt use-case library
       href: /gantt/use-cases
@@ -276,54 +276,54 @@ ganttLanding:
       - title: ERP
         description: Add work orders, production plans, delivery milestones, and dependency-aware timelines to enterprise resource planning screens.
         media: /img/gantt-use-cases/erp.webp?v=20260808-polished
-        mediaAlt: Real RevoGrid ERP Gantt with work orders, production status, linked operations, an approved baseline, and delivery commitments
+        mediaAlt: Real RevoGantt ERP view with work orders, production status, linked operations, an approved baseline, and delivery commitments
         href: /gantt/erp-gantt
         cta: Explore ERP planning
       - title: PSA
         description: Plan client projects, consultants, milestones, budgets, and delivery capacity inside professional services software.
         media: /img/gantt-use-cases/professional-services.webp?v=20260808-polished
-        mediaAlt: Real RevoGrid professional services Gantt with client engagements, consultant assignments, budget context, milestones, and capacity risk
+        mediaAlt: Real RevoGantt professional-services view with client engagements, consultant assignments, budget context, milestones, and capacity risk
         href: /gantt/professional-services-gantt
         cta: Explore services delivery
       - title: Construction
         description: Coordinate crews, phases, inspections, suppliers, and handoffs with project schedules tied to live business data.
         media: /img/gantt-use-cases/construction.webp?v=20260808-exact
-        mediaAlt: Real RevoGrid construction Gantt with work packages, trade crews, inspections, supplier risk, and connected site handoffs
+        mediaAlt: Real RevoGantt construction schedule with work packages, trade crews, inspections, supplier risk, and connected site handoffs
         href: /gantt/construction-gantt
         cta: Explore construction planning
       - title: Manufacturing
         description: Schedule jobs, machines, materials, changeovers, and dependencies while keeping planning fields editable in the grid.
         media: /img/gantt-use-cases/manufacturing.webp?v=20260808-polished
-        mediaAlt: Real RevoGrid manufacturing Gantt with production orders, machines, material gates, changeovers, quality releases, and shipment risk
+        mediaAlt: Real RevoGantt manufacturing schedule with production orders, machines, material gates, changeovers, quality releases, and shipment risk
         href: /gantt/manufacturing-gantt
         cta: Explore production planning
       - title: Resource planning
         description: Assign people, teams, rooms, equipment, or production lines and expose workload context next to task dates.
         media: /img/gantt-use-cases/resource-planning.webp?v=20260808-polished
-        mediaAlt: Real RevoGrid resource planning Gantt with assignments, allocation units, shared facilities, workload conflicts, and release milestones
+        mediaAlt: Real RevoGantt resource-planning view with assignments, allocation units, shared facilities, workload conflicts, and release milestones
         href: /gantt/resource-planning
         cta: Explore capacity planning
       - title: Internal tools
         description: Build planning views for operations, finance, support, onboarding, marketing, and engineering workflows.
         media: /img/gantt-use-cases/internal-tools.webp?v=20260808-polished
-        mediaAlt: Real RevoGrid internal operations Gantt with cross-functional owners, source systems, approvals, handoffs, and a release-readiness gate
+        mediaAlt: Real RevoGantt internal-operations plan with cross-functional owners, source systems, approvals, handoffs, and a release-readiness gate
         href: /gantt/internal-tools-gantt
         cta: Explore internal planning
   faq:
     id: gantt-faq
     kicker: FAQ
-    title: RevoGrid Gantt questions
+    title: RevoGantt questions
     items:
-      - q: Is RevoGrid Gantt a full Microsoft Project clone?
-        a: No. RevoGrid Gantt supports familiar Microsoft Project-style planning concepts, but it is designed as an embeddable, grid-first web component for SaaS applications rather than a full desktop Project clone.
+      - q: Is RevoGantt a full Microsoft Project clone?
+        a: No. RevoGantt supports familiar Microsoft Project-style planning concepts, but it is designed as an embeddable, grid-first web component for SaaS applications rather than a full desktop Project clone.
       - q: Does it support React?
-        a: Yes. RevoGrid Gantt can be used in React applications and also supports JavaScript, Vue, Angular, and Svelte projects.
+        a: Yes. RevoGantt can be used in React applications and also supports JavaScript, Vue, Angular, and Svelte projects.
       - q: Does it support dependencies?
-        a: Yes. RevoGrid Gantt supports task dependencies including finish-to-start, start-to-start, finish-to-finish, and start-to-finish relationships.
+        a: Yes. RevoGantt supports task dependencies including finish-to-start, start-to-start, finish-to-finish, and start-to-finish relationships.
       - q: Can it handle large task lists?
-        a: Yes. RevoGrid Gantt uses row and column virtualization for large editable task tables and wide timelines. The live large-data demo contains 10,000 tasks and 19,796 dependencies; production performance still depends on hierarchy, scheduling rules, custom cells, and target hardware.
+        a: Yes. RevoGantt uses row and column virtualization for large editable task tables and wide timelines. The live large-data demo contains 10,000 tasks and 19,796 dependencies; production performance still depends on hierarchy, scheduling rules, custom cells, and target hardware.
       - q: Is it included in Pro Advanced?
-        a: Yes. RevoGrid Gantt is part of the Pro Advanced bundle.
+        a: Yes. RevoGantt is part of the Pro Advanced bundle.
   evaluation:
     id: gantt-pricing-trial
     kicker: Pricing and trial
@@ -411,7 +411,7 @@ ganttLanding:
     title: Gantt is part of the Pro Advanced bundle.
   cta:
     title: Add fast, large-scale Gantt scheduling without building it from scratch.
-    description: Embed RevoGrid Gantt, validate it with the 10,000-task demo, customize it for your product UI, and keep every scheduling interaction under your control.
+    description: Embed RevoGantt, validate it with the 10,000-task demo, customize it for your product UI, and keep every scheduling interaction under your control.
     primaryHref: /demo/gantt
     primaryLabel: View Demo
     secondaryHref: /trial

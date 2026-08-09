@@ -1,12 +1,12 @@
 <template>
-  <aside class="gantt-cluster-cta" aria-label="Explore RevoGrid Gantt">
+  <aside class="gantt-cluster-cta" aria-label="Explore RevoGantt">
     <div>
-      <span>RevoGrid Gantt</span>
+      <span>RevoGantt</span>
       <h2>See the complete grid-first Gantt component.</h2>
       <p>Review features, live demos, framework support, performance evidence, pricing, and trial terms on the main Gantt page.</p>
     </div>
     <div class="actions">
-      <ProDocButton href="/gantt">Explore RevoGrid Gantt</ProDocButton>
+      <ProDocButton href="/gantt">Explore RevoGantt</ProDocButton>
       <ProDocButton href="/demo/gantt" variant="secondary">Open live demo</ProDocButton>
       <ProDocButton href="/trial" variant="secondary">Request Pro Trial</ProDocButton>
     </div>

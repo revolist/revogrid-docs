@@ -1,6 +1,6 @@
 ---
 title: Bryntum Gantt Alternative — RevoGrid vs Bryntum
-description: Compare RevoGrid Gantt with Bryntum Gantt for JavaScript, React, Vue, Angular, and Svelte applications. Review scheduling, dependencies, resources, customization, licensing, pricing, and migration.
+description: Compare RevoGantt with Bryntum Gantt for JavaScript, React, Vue, Angular, and Svelte applications. Review scheduling, dependencies, resources, customization, licensing, pricing, and migration.
 head:
   - - meta
     - name: keywords
@@ -10,17 +10,17 @@ head:
       content: RevoGrid vs Bryntum Gantt — A Grid-Native Alternative
   - - meta
     - property: og:description
-      content: An honest comparison of RevoGrid Gantt and Bryntum Gantt for teams embedding project scheduling into modern data-heavy applications.
+      content: An honest comparison of RevoGantt and Bryntum Gantt for teams embedding project scheduling into modern data-heavy applications.
 ---
 
 # Bryntum Gantt Alternative
 
-::: tip Evaluate RevoGrid Gantt directly
-See the complete [RevoGrid Gantt product page](/gantt) for live demos, grid-first architecture, performance evidence, pricing, and trial access.
+::: tip Evaluate RevoGantt directly
+See the complete [RevoGantt product page](/gantt) for live demos, grid-first architecture, performance evidence, pricing, and trial access.
 :::
 
 ::: info Comparing resource schedulers instead?
-For resource timelines, event editing, conflicts, availability, and operational planning, read the focused [RevoGrid vs Bryntum Scheduler: 2026 comparison](/blog/revogrid-vs-bryntum-scheduler-2026).
+For resource timelines, event editing, conflicts, availability, and operational planning, read the focused [RevoScheduler vs Bryntum Scheduler: 2026 comparison](/blog/revogrid-vs-bryntum-scheduler-2026).
 :::
 
 <script lang="ts" setup>
@@ -30,30 +30,30 @@ import CompareHero from './CompareHero.vue'
 const faqItems = [
   {
     title: 'Is RevoGrid a Bryntum Gantt alternative?',
-    description: 'Yes. RevoGrid Gantt supports task trees, WBS, summary tasks, milestones, dependencies, lead and lag, automatic and manual scheduling, calendars, constraints, baselines, critical path, resources, assignments, timeline editing, and zoom. It is best evaluated as a grid-native alternative rather than a drop-in API replacement.',
+    description: 'Yes. RevoGantt supports task trees, WBS, summary tasks, milestones, dependencies, lead and lag, automatic and manual scheduling, calendars, constraints, baselines, critical path, resources, assignments, timeline editing, and zoom. It is best evaluated as a grid-native alternative rather than a drop-in API replacement.',
   },
   {
-    title: 'Which is better: RevoGrid Gantt or Bryntum Gantt?',
+    title: 'Which is better: RevoGantt or Bryntum Gantt?',
     description: 'Choose RevoGrid when the Gantt must be deeply embedded in a custom, data-heavy product and you want one grid foundation across scheduling and non-scheduling screens. Choose Bryntum when you want a mature specialist Gantt with a headless scheduling engine and more turnkey project-management tooling.',
   },
   {
-    title: 'Is RevoGrid Gantt cheaper than Bryntum Gantt?',
+    title: 'Is RevoGantt cheaper than Bryntum Gantt?',
     description: 'Based on public prices reviewed in July 2026, RevoGrid Pro Advanced starts at $499 per developer per year, while Bryntum Gantt starts at $940. The final cost depends on developer count, number of products, support, and the license terms your application requires. Always verify current vendor pricing.',
   },
   {
     title: 'Does RevoGrid support all four dependency types?',
-    description: 'Yes. RevoGrid Gantt supports finish-to-start, start-to-start, finish-to-finish, and start-to-finish dependencies, along with lead/lag, dependency validation, and dependency editing.',
+    description: 'Yes. RevoGantt supports finish-to-start, start-to-start, finish-to-finish, and start-to-finish dependencies, along with lead/lag, dependency validation, and dependency editing.',
   },
   {
-    title: 'Does RevoGrid Gantt support resources and critical path?',
+    title: 'Does RevoGantt support resources and critical path?',
     description: 'Yes. RevoGrid documents resources, assignments, resource planning, leveling and overload diagnostics, as well as critical-path calculation, slack, and baselines. Teams needing a specific utilization histogram or cost workflow should validate it in a proof of concept.',
   },
   {
-    title: 'Can I use RevoGrid Gantt with React, Vue, Angular, or Svelte?',
+    title: 'Can I use RevoGantt with React, Vue, Angular, or Svelte?',
     description: 'Yes. RevoGrid uses a Web Component core and provides integrations for React, Vue, Angular, Svelte, JavaScript, and TypeScript projects.',
   },
   {
-    title: 'Is RevoGrid Gantt open source?',
+    title: 'Is RevoGantt open source?',
     description: 'The RevoGrid core data grid is MIT-licensed. Gantt is a commercial module included in RevoGrid Pro Advanced.',
   },
   {
@@ -75,11 +75,11 @@ const faqItems = [
   competitor-name="Bryntum Gantt"
   competitor-summary="a mature commercial JavaScript Gantt component with a dedicated scheduling engine, project-management features, framework wrappers, and a broad API surface"
   use-cases="ERP and PPM products, project planning tools, manufacturing schedules, portfolio views, resource planning, operations software, and data-heavy SaaS applications"
-  revo-summary="RevoGrid Gantt is a grid-native scheduling module for teams that want an editable Gantt to behave like part of their product rather than a separate project-management application."
+  revo-summary="RevoGantt is a grid-native scheduling module for teams that want an editable Gantt to behave like part of their product rather than a separate project-management application."
 />
 
 ::: tip Best fit
-Choose **RevoGrid Gantt** when the timeline must live inside a highly customized data workflow, your product already depends on grid-style editing, or you want transparent per-developer pricing without deployment counting.
+Choose **RevoGantt** when the timeline must live inside a highly customized data workflow, your product already depends on grid-style editing, or you want transparent per-developer pricing without deployment counting.
 :::
 
 ::: info Short answer
@@ -104,9 +104,9 @@ In these products, the important question is not simply, “Can the component re
 
 That is where RevoGrid takes a different approach. RevoGrid starts with an editable, virtualized data grid and adds scheduling to the same foundation. The task table remains a real product surface: teams can use custom columns, cell renderers, editors, validation, context actions, plugins, and application-owned persistence alongside the timeline.
 
-## RevoGrid Gantt vs Bryntum Gantt at a glance
+## RevoGantt vs Bryntum Gantt at a glance
 
-| Decision point | RevoGrid Gantt | Bryntum Gantt |
+| Decision point | RevoGantt | Bryntum Gantt |
 |---|---|---|
 | Best for | Embedded scheduling inside data-heavy products | A mature, dedicated project-management component |
 | Product architecture | Grid-native Gantt module on the RevoGrid foundation | Dedicated Gantt UI plus project model and scheduling engine |
@@ -122,7 +122,7 @@ That is where RevoGrid takes a different approach. RevoGrid starts with an edita
 | Deployment model | Royalty-free; no deployment or server license | Commercial licensing; confirm the appropriate tier for your team |
 | Main tradeoff | Newer Gantt ecosystem; more application composition | Higher cost and a more self-contained product architecture |
 
-Pricing and packaging can change. Confirm current terms on the [RevoGrid Gantt page](/gantt) and [Bryntum pricing page](https://bryntum.com/products/gantt/#pricing) before purchasing.
+Pricing and packaging can change. Confirm current terms on the [RevoGantt page](/gantt) and [Bryntum pricing page](https://bryntum.com/products/gantt/#pricing) before purchasing.
 
 ## The main architectural difference
 
@@ -152,7 +152,7 @@ Instead of making the team maintain one set of interaction patterns for tables a
 
 **Legend:** ✅ supported, ⚠️ available but implementation depth or workflow differs, ❌ not a primary focus.
 
-| Feature / capability | RevoGrid Gantt | Bryntum Gantt |
+| Feature / capability | RevoGantt | Bryntum Gantt |
 |---|---|---|
 | Regular tasks | ✅ | ✅ |
 | Summary tasks | ✅ | ✅ |
@@ -227,7 +227,7 @@ Instead of making the team maintain one set of interaction patterns for tables a
 
 The table shows broad functional overlap, but it should not be read as API equivalence. The products expose different models and different levels of built-in workflow. A proof of concept with real data is still the best way to compare them.
 
-## Where RevoGrid Gantt is stronger
+## Where RevoGantt is stronger
 
 ### 1. The task grid can remain part of your product
 
@@ -291,9 +291,9 @@ RevoGrid is more composable, but composability means the application may own mor
 
 Both vendors position their products for large or complex project data. However, public evidence is not symmetrical.
 
-RevoGrid publishes a reproducible grid benchmark using **100,000 rows and 100 columns**, including initial-render, scrolling, memory, and DOM measurements. This is useful evidence of the virtualized grid foundation beneath RevoGrid Gantt. Bryntum documents performance-oriented architecture and a scheduling engine designed for substantial projects, but the public pages reviewed did not provide an equivalent apples-to-apples Gantt benchmark with the same dataset and metrics.
+RevoGrid publishes a reproducible grid benchmark using **100,000 rows and 100 columns**, including initial-render, scrolling, memory, and DOM measurements. This is useful evidence of the virtualized grid foundation beneath RevoGantt. Bryntum documents performance-oriented architecture and a scheduling engine designed for substantial projects, but the public pages reviewed did not provide an equivalent apples-to-apples Gantt benchmark with the same dataset and metrics.
 
-That does **not** prove RevoGrid Gantt is faster than Bryntum Gantt. A grid benchmark is not automatically a scheduling-engine benchmark. Scheduling performance depends on task hierarchy, dependency density, calendars, constraints, resources, custom renderers, and the number of recalculations triggered by an edit.
+That does **not** prove RevoGantt is faster than Bryntum Gantt. A grid benchmark is not automatically a scheduling-engine benchmark. Scheduling performance depends on task hierarchy, dependency density, calendars, constraints, resources, custom renderers, and the number of recalculations triggered by an edit.
 
 For a useful proof of concept, test:
 
@@ -314,7 +314,7 @@ Migrating from Bryntum to RevoGrid is concept mapping, not renaming props. The t
 
 | Bryntum concept | RevoGrid direction |
 |---|---|
-| `ProjectModel` | Application-owned project state plus RevoGrid Gantt task and entity inputs |
+| `ProjectModel` | Application-owned project state plus RevoGantt task and entity inputs |
 | Task store | Task rows in the RevoGrid source model |
 | Dependency store | Gantt dependency collection |
 | Resource store | Gantt resource collection |
@@ -323,7 +323,7 @@ Migrating from Bryntum to RevoGrid is concept mapping, not renaming props. The t
 | Task tree | `parentId`, WBS, summary-task, and hierarchy configuration |
 | Scheduling direction and constraints | Recreate with RevoGrid scheduling options, task constraints, and calendars |
 | `TaskEdit` / task editor | RevoGrid task editor dialog, inline editing, or a custom application form |
-| Gantt columns | RevoGrid Gantt column presets plus custom grid columns |
+| Gantt columns | RevoGantt column presets plus custom grid columns |
 | Features and toolbar actions | RevoGrid plugin hooks, toolbar SDK, events, and context-menu items |
 | Task renderer / styling | Task-bar content, color, marker, tooltip, and cell-renderer hooks |
 | State persistence | Application state plus JSON, REST, GraphQL, or database persistence recipe |
@@ -374,7 +374,7 @@ For these cases, build a narrow proof of concept around the hardest project rath
 
 Bryntum Gantt is a strong choice when your team wants a mature, self-contained project-planning component and is comfortable building around its scheduling architecture and commercial model.
 
-RevoGrid Gantt is the better fit when the schedule must feel native to a larger data product. It combines task hierarchy, dependencies, resources, baselines, critical path, timeline editing, and scheduling with the same grid foundation used for custom operational screens.
+RevoGantt is the better fit when the schedule must feel native to a larger data product. It combines task hierarchy, dependencies, resources, baselines, critical path, timeline editing, and scheduling with the same grid foundation used for custom operational screens.
 
 The practical distinction is simple:
 
@@ -384,7 +384,7 @@ The practical distinction is simple:
 
 **Build scheduling into your product—not beside it.**
 
-[Explore RevoGrid Gantt](/gantt) · [View Gantt documentation](https://pro.rv-grid.com/guides/gantt/) · [Request Pro Trial](/trial)
+[Explore RevoGantt](/gantt) · [View Gantt documentation](https://pro.rv-grid.com/guides/gantt/) · [Request Pro Trial](/trial)
 
 </div>
 
@@ -392,8 +392,8 @@ The practical distinction is simple:
 
 This comparison was reviewed against official product materials available in July 2026. Product features, packaging, and prices can change.
 
-- [RevoGrid Gantt product page](/gantt)
-- [RevoGrid Gantt documentation](https://pro.rv-grid.com/guides/gantt/)
+- [RevoGantt product page](/gantt)
+- [RevoGantt documentation](https://pro.rv-grid.com/guides/gantt/)
 - [RevoGrid Pro](/pro/)
 - [RevoGrid GitHub repository](https://github.com/revolist/revogrid)
 - [Bryntum Gantt product page](https://bryntum.com/products/gantt/)

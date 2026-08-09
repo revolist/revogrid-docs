@@ -73,7 +73,7 @@ const heroImageSrc = computed(() => {
     : props.preview.lightSrc || props.preview.darkSrc || ''
 })
 
-const heroImageAlt = computed(() => props.preview.alt || 'RevoGrid Gantt preview')
+const heroImageAlt = computed(() => props.preview.alt || 'RevoGantt preview')
 </script>
 
 <style lang="scss" scoped>

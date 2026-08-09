@@ -1,6 +1,6 @@
 ---
-title: RevoGrid Gantt Use Cases
-description: Explore production-shaped RevoGrid Gantt workflows for ERP, professional services, construction, manufacturing, resource planning, and internal operations.
+title: RevoGantt Use Cases
+description: Explore production-shaped RevoGantt workflows for ERP, professional services, construction, manufacturing, resource planning, and internal operations.
 sidebar: false
 aside: false
 editLink: false

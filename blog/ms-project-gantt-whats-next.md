@@ -16,13 +16,13 @@ imageAlt: JavaScript Gantt chart preview showing Microsoft Project-style task pl
 head:
   - - meta
     - name: keywords
-      content: "Microsoft Project, Project Online retirement, Project for the web, Microsoft Planner, Gantt chart, JavaScript Gantt, RevoGrid Gantt, project scheduler"
+      content: "Microsoft Project, Project Online retirement, Project for the web, Microsoft Planner, Gantt chart, JavaScript Gantt, RevoGantt, project scheduler"
 ---
 
 # MS Project Gantt Is Dead — What Now?
 
 ::: tip Build planning into your product
-Start with the [RevoGrid Gantt product page](/gantt) for live demos, Microsoft Project-style planning features, framework support, pricing, and trial access.
+Start with the [RevoGantt product page](/gantt) for live demos, Microsoft Project-style planning features, framework support, pricing, and trial access.
 :::
 
 
@@ -212,9 +212,9 @@ A better approach is:
 
 > Keep the table. Add scheduling intelligence and timeline projection on top.
 
-This is the core idea behind **RevoGrid Gantt**.
+This is the core idea behind **RevoGantt**.
 
-RevoGrid Gantt is included in Pro Advanced and built as a plugin on top of the base RevoGrid data grid. RevoGrid owns rendering, virtualization, editing, keyboard interaction, selection, and scrolling. Gantt adds timeline projection, task bars, dependency links, scheduling rules, resources, assignments, baselines, critical path, and timeline tools.
+RevoGantt is included in Pro Advanced and built as a plugin on top of the base RevoGrid data grid. RevoGrid owns rendering, virtualization, editing, keyboard interaction, selection, and scrolling. Gantt adds timeline projection, task bars, dependency links, scheduling rules, resources, assignments, baselines, critical path, and timeline tools.
 
 In other words: the Gantt view does not replace the grid.
 
@@ -252,7 +252,7 @@ But modern SaaS users also expect something MS Project was not designed around:
 - framework-friendly implementation
 - predictable JSON data ownership
 
-This is the gap RevoGrid Gantt is trying to fill.
+This is the gap RevoGantt is trying to fill.
 
 Not a heavyweight MSP clone.
 
@@ -262,9 +262,9 @@ A lightweight, understandable, developer-friendly Gantt and scheduler that fits 
 
 
 
-## RevoGrid Gantt: table-first planning with real scheduling
+## RevoGantt: table-first planning with real scheduling
 
-The important part of RevoGrid Gantt is not only that it renders task bars.
+The important part of RevoGantt is not only that it renders task bars.
 
 The important part is that the scheduling logic behaves like a deterministic CPM-style engine.
 
@@ -337,18 +337,18 @@ Another complete JavaScript Gantt component. It focuses on project management ap
 
 Both are valid options, and both show the same market signal: companies still need serious Gantt functionality after the Microsoft Project transition.
 
-### RevoGrid Gantt
+### RevoGantt
 
-![RevoGrid Gantt chart with editable task grid and timeline](/img/gantt-demo.png)
+![RevoGantt chart with editable task grid and timeline](/img/gantt-demo.png)
 
-RevoGrid Gantt starts from the grid. That makes it especially interesting when your users already work in a data-heavy application and you want to add Gantt without replacing the user’s workflow.
+RevoGantt starts from the grid. That makes it especially interesting when your users already work in a data-heavy application and you want to add Gantt without replacing the user’s workflow.
 
 | Product direction | Best fit |
 | --- | --- |
 | Microsoft Planner | Teams already committed to Microsoft 365 work management |
 | Bryntum Gantt | Full-featured advanced JavaScript Gantt requirements |
 | Webix Gantt | Ready-made enterprise Gantt widget with broad UI toolkit integration |
-| RevoGrid Gantt | Table-first products that need Gantt and scheduling without context loss |
+| RevoGantt | Table-first products that need Gantt and scheduling without context loss |
 
 This is not about saying one tool wins every use case.
 
@@ -364,7 +364,7 @@ If you need a Gantt inside your product, attached to your own rows, columns, edi
 
 It is important to be honest here.
 
-RevoGrid Gantt is close to Microsoft Project in core scheduling concepts, but it is not a bit-for-bit Microsoft Project clone.
+RevoGantt is close to Microsoft Project in core scheduling concepts, but it is not a bit-for-bit Microsoft Project clone.
 
 That is intentional.
 
@@ -506,7 +506,7 @@ Some will choose advanced standalone Gantt suites.
 
 Some will build planning directly into their own products.
 
-For that last group, RevoGrid Gantt offers a strong direction:
+For that last group, RevoGantt offers a strong direction:
 
 > Keep the grid. Add the timeline. Preserve the context. Schedule deterministically.
 
@@ -519,11 +519,11 @@ That is the next Gantt users will actually enjoy.
 - [Microsoft Support: Frequently asked questions about Microsoft Planner][planner-faq]
 - [Microsoft Planner product page][planner-product]
 - [Microsoft Project plans and pricing][project-plans]
-- [RevoGrid Gantt Overview][revogrid-overview]
-- [RevoGrid Gantt MSP Compatibility][revogrid-msp]
-- [RevoGrid Gantt Engine Logic][revogrid-engine]
-- [RevoGrid Gantt Critical Path and Slack][revogrid-critical-path]
-- [RevoGrid Gantt Resource Leveling][revogrid-leveling]
+- [RevoGantt Overview][revogrid-overview]
+- [RevoGantt MSP Compatibility][revogrid-msp]
+- [RevoGantt Engine Logic][revogrid-engine]
+- [RevoGantt Critical Path and Slack][revogrid-critical-path]
+- [RevoGantt Resource Leveling][revogrid-leveling]
 - [Bryntum Gantt][bryntum-gantt]
 - [Webix Gantt][webix-gantt]
 

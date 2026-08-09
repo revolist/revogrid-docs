@@ -3,7 +3,7 @@ title: Construction Gantt Chart for Field Coordination
 description: Coordinate phases, crews, inspections, suppliers, permits, and handoffs with an embedded construction Gantt connected to live project data.
 outline: deep
 image: /img/gantt-use-cases/construction.webp?v=20260808-exact
-imageAlt: Real RevoGrid construction Gantt with project phases, crews, inspections, suppliers, dependencies, and a switchgear delivery risk
+imageAlt: Real RevoGantt construction schedule with project phases, crews, inspections, suppliers, dependencies, and a switchgear delivery risk
 head:
   - - meta
     - name: keywords
@@ -27,11 +27,11 @@ import GanttUseCaseMedia from './GanttUseCaseMedia.vue'
 
 A construction plan becomes useful when it helps people answer the next practical question: can the right crew start, is the site ready for them, and will the inspection or delivery they depend on happen in time?
 
-RevoGrid Gantt can place those scheduling relationships beside the operational fields already used in a construction application. Superintendents, project managers, coordinators, and trade partners get one shared view of dates and handoffs without turning the Gantt into the system of record for every part of the project.
+RevoGantt can place those scheduling relationships beside the operational fields already used in a construction application. Superintendents, project managers, coordinators, and trade partners get one shared view of dates and handoffs without turning the Gantt into the system of record for every part of the project.
 
 <GanttUseCaseMedia
   slug="construction"
-  alt="Real RevoGrid construction Gantt with project phases, crews, inspections, suppliers, dependencies, and a switchgear delivery risk"
+  alt="Real RevoGantt construction schedule with project phases, crews, inspections, suppliers, dependencies, and a switchgear delivery risk"
   caption="Captured from the production-shaped Riverside Clinic example: phases, field crews, inspection gates, supplier commitments, and the switchgear risk stay visible in one coordination view."
 />
 
@@ -69,7 +69,7 @@ The best columns depend on the product and project. A focused construction view 
 | Calendar, shift, and working window | Keeps date calculations consistent with the crew or project calendar. |
 | Baseline variance and critical state | Helps people distinguish ordinary resequencing from a change that may affect completion. |
 
-RevoGrid Gantt supports task hierarchy, milestones, common dependency types, working calendars, progress, actual dates, baselines, critical-path state, resource assignments, and editable grid fields. Product-specific concepts such as RFIs, submittals, permit records, cost codes, safety holds, and delivery confirmations remain application data and workflows that you connect to the planning surface.
+RevoGantt supports task hierarchy, milestones, common dependency types, working calendars, progress, actual dates, baselines, critical-path state, resource assignments, and editable grid fields. Product-specific concepts such as RFIs, submittals, permit records, cost codes, safety holds, and delivery confirmations remain application data and workflows that you connect to the planning surface.
 
 ## Coordination and authority boundaries
 
@@ -78,7 +78,7 @@ An embedded Gantt should clarify responsibility, not blur it. Before implementat
 - **Source of truth:** decide whether the construction management platform, ERP, procurement service, document system, or scheduling backend owns each field. Do not let two systems silently overwrite the same date.
 - **Permission to change:** define who may move work, edit dependencies, confirm an inspection, replace a baseline, or accept an externally suggested delay. A read-only view can still be valuable for crews and clients.
 - **Validation:** use the host application's rules and cancellable change handling to reject an invalid move—for example, work starting before permit release or a locked contractual milestone moving without approval.
-- **Audit and communication:** RevoGrid Gantt provides planning interactions and history support, but the surrounding product remains responsible for durable audit records, approvals, notifications, comments, and conflict resolution between users or services.
+- **Audit and communication:** RevoGantt provides planning interactions and history support, but the surrounding product remains responsible for durable audit records, approvals, notifications, comments, and conflict resolution between users or services.
 
 Construction-specific calculations also need a clear owner. RevoGrid can calculate calendar- and dependency-aware dates, but weather productivity models, finite crew optimization, material lead-time logic, cost forecasting, and contractual delay analysis may belong in specialized services. Feed their results into the view as transparent inputs rather than presenting an unexplained automatic answer.
 
@@ -118,4 +118,4 @@ Yes. Resources and assignments can represent people or non-human capacity, inclu
 
 ## See the planning surface
 
-Explore the full [RevoGrid Gantt overview](/gantt), open the [interactive demo](/demo/gantt), or [request a trial](/trial) with a representative construction schedule.
+Explore the full [RevoGantt overview](/gantt), open the [interactive demo](/demo/gantt), or [request a trial](/trial) with a representative construction schedule.

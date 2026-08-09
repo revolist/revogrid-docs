@@ -178,7 +178,7 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
     darkBorder: 'color-mix(in srgb, var(--vp-c-brand-2) 28%, transparent)',
   },
   hero: {
-    eyebrow: 'RevoGrid Pro / Gantt',
+    eyebrow: 'RevoGantt',
     title: 'The interactive Gantt your app deserves.',
     description: 'Production-ready project scheduling for SaaS, ERP, and operations platforms. Drag-to-reschedule tasks, assign owners, track progress, and embed it as a native product feature.',
     actions: [
@@ -265,7 +265,7 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
   },
   cta: {
     title: 'Ship Gantt as a feature, not a project.',
-    description: 'Embed RevoGrid Gantt in your product and keep the scheduling experience under your control.',
+    description: 'Embed RevoGantt in your product and keep the scheduling experience under your control.',
     primaryHref: 'https://rv-grid.com/demo/gantt',
     primaryLabel: 'View Demo',
     secondaryHref: '/trial',

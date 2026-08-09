@@ -449,13 +449,13 @@ RevoGrid is the better fit when the grid needs to be **fast, product-friendly, f
 |---|:---:|:---:|:---:|---|
 | Gantt chart module | ✅ Pro | — | — | RevoGrid Pro has Gantt & Scheduling Beta; AG Grid is not positioned as a Gantt product. |
 | Task tree | ✅ Pro | — | ⚠️ Tree data only | AG Grid can show tree data but not a dedicated Gantt scheduler. |
-| Dependencies | ✅ Pro | — | — | RevoGrid Gantt positioning includes dependencies. |
-| Auto scheduling | ✅ Pro | — | — | Dedicated RevoGrid Gantt capability. |
-| Manual scheduling | ✅ Pro | — | — | Dedicated RevoGrid Gantt capability. |
-| Baselines | ✅ Pro | — | — | Dedicated RevoGrid Gantt capability. |
-| Resources | ✅ Pro | — | — | Dedicated RevoGrid Gantt capability. |
-| Critical path | ✅ Pro | — | — | Dedicated RevoGrid Gantt capability. |
-| Capacity warnings | ✅ Pro | — | — | Dedicated RevoGrid Gantt capability. |
+| Dependencies | ✅ Pro | — | — | RevoGantt positioning includes dependencies. |
+| Auto scheduling | ✅ Pro | — | — | Dedicated RevoGantt capability. |
+| Manual scheduling | ✅ Pro | — | — | Dedicated RevoGantt capability. |
+| Baselines | ✅ Pro | — | — | Dedicated RevoGantt capability. |
+| Resources | ✅ Pro | — | — | Dedicated RevoGantt capability. |
+| Critical path | ✅ Pro | — | — | Dedicated RevoGantt capability. |
+| Capacity warnings | ✅ Pro | — | — | Dedicated RevoGantt capability. |
 | MS Project-style task editor | ✅ Pro | — | — | Strong differentiator versus AG Grid. |
 | Timeline editor | ✅ Pro | ⚠️ Custom editor | ⚠️ Custom editor | RevoGrid Pro lists Timeline Editor separately from Gantt. |
 

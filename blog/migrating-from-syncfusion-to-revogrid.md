@@ -987,7 +987,7 @@ If your Syncfusion implementation uses advanced features, migrate by user workfl
 | Hierarchy / detail template | Master-detail pattern, custom renderers, or Pro modules. |
 | TreeGrid | Core tree pattern or Pro TreeDataPlugin for richer hierarchy controls. |
 | Pivot analytics | [RevoGrid Pivot](/pivot/) and Pivot docs. |
-| Gantt or scheduling | [RevoGrid Gantt](/gantt/) and scheduler pages. |
+| Gantt or scheduling | [RevoGantt](/gantt/) and scheduler pages. |
 | Excel import/export | RevoGrid Pro import/export workflows. |
 | Audit history | RevoGrid Pro audit history. |
 | Server-side data | Remote pagination, infinite scroll, server-side grouping, or Pivot server-side contracts. |

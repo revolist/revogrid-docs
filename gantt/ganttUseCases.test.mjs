@@ -68,7 +68,7 @@ test('uses the canonical Gantt content width without repeated screenshot badges'
   assert.match(libraryPageSource, /\.Layout\.gantt-use-cases-doc/)
   assert.match(libraryPageSource, /max-width: none !important/)
   assert.match(libraryPageSource, /width: min\(1200px, calc\(100% - 48px\)\)/)
-  assert.doesNotMatch(libraryPageSource, /real-demo-badge|Real RevoGrid Gantt/)
+  assert.doesNotMatch(libraryPageSource, /real-demo-badge|Real RevoGantt/)
 })
 
 test('keeps use-case screenshots wider than copy on both alternating card layouts', () => {
@@ -86,7 +86,7 @@ test('reuses the canonical Pro Advanced pricing module instead of a custom closi
   assert.match(libraryPageSource, /import ProAdvancedCallout from '\.\.\/pro\/ProAdvancedCallout\.vue'/)
   assert.match(
     libraryPageSource,
-    /<ProAdvancedCallout\s+title="RevoGrid Gantt is part of the Pro Advanced bundle\."\s+product-id="gantt"\s*\/>/,
+    /<ProAdvancedCallout\s+title="RevoGantt is part of the Pro Advanced bundle\."\s+product-id="gantt"\s*\/>/,
   )
   assert.doesNotMatch(libraryPageSource, /closing-cta|Start with one real plan|Request Pro Trial/)
 })

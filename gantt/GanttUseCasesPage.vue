@@ -88,11 +88,11 @@ const useCases: GanttUseCase[] = [
     <section class="use-cases-hero">
       <div class="use-cases-shell use-cases-hero__layout">
         <div>
-          <a class="back-link" href="/gantt">← RevoGrid Gantt</a>
+          <a class="back-link" href="/gantt">← RevoGantt</a>
           <p class="eyebrow">Embedded planning use cases</p>
           <h1>Put the plan where people do the work.</h1>
           <p class="hero-copy">
-            These are production-shaped RevoGrid Gantt examples, not conceptual mockups. Each one keeps operational context beside the timeline so people can understand a constraint, discuss the tradeoff, and act from a shared plan.
+            These are production-shaped RevoGantt examples, not conceptual mockups. Each one keeps operational context beside the timeline so people can understand a constraint, discuss the tradeoff, and act from a shared plan.
           </p>
           <div class="hero-actions">
             <a class="button button--primary" href="#industry-use-cases">Explore six workflows</a>
@@ -102,7 +102,7 @@ const useCases: GanttUseCase[] = [
         <aside class="hero-principle" aria-label="Use-case design principle">
           <span>One planning surface</span>
           <strong>Operational data + time + dependencies</strong>
-          <p>The host product keeps ownership of records, permissions, validation, and persistence. RevoGrid Gantt makes the schedule understandable and editable in context.</p>
+          <p>The host product keeps ownership of records, permissions, validation, and persistence. RevoGantt makes the schedule understandable and editable in context.</p>
         </aside>
       </div>
     </section>
@@ -124,7 +124,7 @@ const useCases: GanttUseCase[] = [
             <div class="use-case-panel__media">
               <img
                 :src="item.image"
-                :alt="`${item.title} shown in a real RevoGrid Gantt workspace`"
+                :alt="`${item.title} shown in a real RevoGantt workspace`"
                 width="1200"
                 height="675"
                 loading="lazy"
@@ -174,7 +174,7 @@ const useCases: GanttUseCase[] = [
     </section>
 
     <ProAdvancedCallout
-      title="RevoGrid Gantt is part of the Pro Advanced bundle."
+      title="RevoGantt is part of the Pro Advanced bundle."
       product-id="gantt"
     />
   </main>

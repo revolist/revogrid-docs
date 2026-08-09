@@ -15,8 +15,8 @@ head:
 
 # DHTMLX Gantt Alternative
 
-::: tip Evaluate RevoGrid Gantt directly
-See the complete [RevoGrid Gantt product page](/gantt) for live demos, supported planning features, performance evidence, pricing, and trial access.
+::: tip Evaluate RevoGantt directly
+See the complete [RevoGantt product page](/gantt) for live demos, supported planning features, performance evidence, pricing, and trial access.
 :::
 
 <script lang="ts" setup>
@@ -34,7 +34,7 @@ const faqItems = [
   },
   {
     title: 'Does RevoGrid support critical path, slack, and baselines?',
-    description: 'Yes. RevoGrid Gantt calculates and highlights the critical path, projects total slack, and supports baseline snapshots with start, finish, duration, and progress variance. A separate free-slack field is not currently implemented.',
+    description: 'Yes. RevoGantt calculates and highlights the critical path, projects total slack, and supports baseline snapshots with start, finish, duration, and progress variance. A separate free-slack field is not currently implemented.',
   },
   {
     title: 'Does RevoGrid support resources and assignments?',
@@ -46,7 +46,7 @@ const faqItems = [
   },
   {
     title: 'Is RevoGrid TypeScript-friendly?',
-    description: 'Yes. RevoGrid’s Gantt engine, configuration, entities, events, and projected task rows are typed. The documentation includes examples for TypeScript, JavaScript, React, Vue, Angular, and Svelte.',
+    description: 'Yes. RevoGantt engine, configuration, entities, events, and projected task rows are typed. The documentation includes examples for TypeScript, JavaScript, React, Vue, Angular, and Svelte.',
   },
   {
     title: 'Can RevoGrid replace DHTMLX in React, Vue, Angular, or Svelte?',
@@ -75,15 +75,15 @@ const faqItems = [
   competitor-name="DHTMLX Gantt"
   competitor-summary="a mature standalone JavaScript Gantt component with deep project-planning features, framework integrations, backend guides, and commercial PRO editions"
   use-cases="ERP and CRM systems, PMO tools, operations platforms, resource-planning products, project-management SaaS, and grid-first enterprise applications"
-  revo-summary="RevoGrid Gantt is a grid-native planning module that adds timelines, dependencies, scheduling, resources, critical path, and baselines to the same editable data surface."
+  revo-summary="RevoGantt is a grid-native planning module that adds timelines, dependencies, scheduling, resources, critical path, and baselines to the same editable data surface."
 />
 
 ::: tip Best fit
-Choose **RevoGrid Gantt** when the timeline must stay inside the same editable, filterable, customizable grid workflow as the rest of your product.
+Choose **RevoGantt** when the timeline must stay inside the same editable, filterable, customizable grid workflow as the rest of your product.
 :::
 
 ::: tip See it in action
-Explore the [RevoGrid Gantt product page](/gantt), read the [Gantt documentation](https://pro.rv-grid.com/guides/gantt/), or open the [Gantt examples](https://pro.rv-grid.com/guides/gantt/examples/).
+Explore the [RevoGantt product page](/gantt), read the [Gantt documentation](https://pro.rv-grid.com/guides/gantt/), or open the [Gantt examples](https://pro.rv-grid.com/guides/gantt/examples/).
 :::
 
 ## Why teams look for a DHTMLX Gantt alternative
@@ -117,7 +117,7 @@ Both DHTMLX and RevoGrid cover this core model. The architectural difference is 
 
 ## DHTMLX Gantt vs RevoGrid at a glance
 
-| Decision point | RevoGrid Gantt | DHTMLX Gantt | Notes |
+| Decision point | RevoGantt | DHTMLX Gantt | Notes |
 |---|---|---|---|
 | Best for | ✅ Grid-first data products | ✅ Standalone project planning | RevoGrid fits products where the task table is part of a larger editable workflow. |
 | Product architecture | ✅ Gantt layered on RevoGrid | ✅ Dedicated Gantt component | The right model depends on whether planning is one view of a broader data workflow. |
@@ -135,7 +135,7 @@ Both DHTMLX and RevoGrid cover this core model. The architectural difference is 
 
 **Legend:** ✅ supported, ✅ Pro available in RevoGrid Pro or DHTMLX PRO, ⚠️ partial or setup-dependent, ❌ not currently provided as a built-in capability.
 
-| Feature / capability | RevoGrid Gantt | DHTMLX Gantt |
+| Feature / capability | RevoGantt | DHTMLX Gantt |
 |---|---|---|
 | Editable task grid | ✅ Pro | ✅ |
 | Timeline task bars | ✅ Pro | ✅ |
@@ -210,13 +210,13 @@ Both DHTMLX and RevoGrid cover this core model. The architectural difference is 
 | Open-source edition | ✅ MIT grid core | ✅ MIT Community |
 | Commercial advanced Gantt | ✅ RevoGrid Pro | ✅ DHTMLX PRO |
 
-## Where RevoGrid Gantt is stronger
+## Where RevoGantt is stronger
 
 ### 1. Gantt is part of the data grid, not a separate product surface
 
 In many business applications, the timeline is only one way to work with the same underlying data. A task may also contain status, owner, cost, priority, customer, approval state, tags, risk, or product-specific fields.
 
-RevoGrid Gantt reads tasks from the grid's source rows and connects them to typed collections for dependencies, resources, assignments, calendars, and baselines. The task table and timeline therefore remain part of one component architecture.
+RevoGantt reads tasks from the grid's source rows and connects them to typed collections for dependencies, resources, assignments, calendars, and baselines. The task table and timeline therefore remain part of one component architecture.
 
 This is especially useful for:
 
@@ -288,7 +288,7 @@ That limitation should be part of an honest evaluation. If those capabilities ar
 | DHTMLX calendars | `ganttCalendars` project, task, and resource calendars |
 | DHTMLX grid columns | RevoGrid columns and packaged Gantt column presets |
 | DHTMLX templates | RevoGrid cell renderers and Gantt rendering hooks |
-| DHTMLX lightbox | RevoGrid Gantt task editor dialog or a custom host form |
+| DHTMLX lightbox | RevoGantt task editor dialog or a custom host form |
 | DHTMLX inline editors | RevoGrid editors and Gantt task mutations |
 | DHTMLX auto scheduling | RevoGrid dependency-aware scheduling engine |
 | DHTMLX constraints | RevoGrid task constraint fields and diagnostics |
@@ -296,7 +296,7 @@ That limitation should be part of an honest evaluation. If those capabilities ar
 | DHTMLX baselines | RevoGrid baseline snapshots and variance fields |
 | DHTMLX resource panel | RevoGrid resource-planning mode and load summaries |
 | DHTMLX markers | RevoGrid today line, project line, milestone lines, task markers, and time ranges |
-| DHTMLX undo extension | RevoGrid Gantt history snapshots |
+| DHTMLX undo extension | RevoGantt history snapshots |
 | DHTMLX DataProcessor / REST | Host-owned REST, GraphQL, or database integration |
 | DHTMLX framework wrapper | RevoGrid JavaScript, React, Vue, Angular, or Svelte integration |
 | DHTMLX PRO licensing | RevoGrid Pro developer licensing |
@@ -324,7 +324,7 @@ With RevoGrid, the task table, custom fields, editing, validation, resources, de
 
 **Build planning into the data workflow your users already know.**
 
-[Explore RevoGrid Gantt](/gantt) · [Read the Gantt docs](https://pro.rv-grid.com/guides/gantt/) · [Compare Pro features](/pro/feature-table)
+[Explore RevoGantt](/gantt) · [Read the Gantt docs](https://pro.rv-grid.com/guides/gantt/) · [Compare Pro features](/pro/feature-table)
 
 </div>
 

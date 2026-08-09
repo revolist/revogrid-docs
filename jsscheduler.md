@@ -22,7 +22,7 @@ headerNav:
 head:
   - - meta
     - name: keywords
-      content: JavaScript Scheduler, JavaScript event scheduler, resource scheduler, shift planning software, booking scheduler, staff scheduler, room booking scheduler, equipment scheduler, workforce scheduling UI, RevoGrid JavaScript Scheduler, React event scheduler, Vue event scheduler, Angular event scheduler
+      content: JavaScript Scheduler, JavaScript event scheduler, resource scheduler, shift planning software, booking scheduler, staff scheduler, room booking scheduler, equipment scheduler, workforce scheduling UI, RevoScheduler, React event scheduler, Vue event scheduler, Angular event scheduler
 ganttLanding:
   catalogProductId: event-scheduler
   colors:
@@ -35,7 +35,7 @@ ganttLanding:
     darkSoft: rgba(167, 139, 250, 0.14)
     darkBorder: rgba(167, 139, 250, 0.28)
   hero:
-    eyebrow: RevoGrid Pro / JavaScript Scheduler
+    eyebrow: RevoScheduler
     title: Build JavaScript Scheduler into your product.
     description: Commercial scheduling surface for staff rosters, room bookings, equipment plans, field crews, support queues, and team capacity.
     actions:

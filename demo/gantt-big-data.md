@@ -11,7 +11,7 @@ editLink: false
 head:
   - - meta
     - name: keywords
-      content: RevoGrid Gantt big data demo, 10000 task Gantt chart, Gantt performance, virtualized Gantt, large project timeline, JavaScript Gantt benchmark, React Gantt, Vue Gantt, Angular Gantt
+      content: RevoGantt big data demo, 10000 task Gantt chart, Gantt performance, virtualized Gantt, large project timeline, JavaScript Gantt benchmark, React Gantt, Vue Gantt, Angular Gantt
 ---
 
 <script setup>

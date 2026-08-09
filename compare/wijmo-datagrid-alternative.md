@@ -292,7 +292,7 @@ Choose RevoGrid when:
 | Wijmo TreeGrid | RevoGrid tree / hierarchical row workflows |
 | Wijmo PivotGrid / OLAP | RevoGrid Pro Pivot and Pivot Configurator |
 | Wijmo FlexChart integration | RevoGrid chart integrations, inline charts, and BI-style reporting surfaces |
-| Separate Gantt control or custom timeline | RevoGrid Pro Gantt & Scheduling |
+| Separate Gantt control or custom timeline | RevoGantt & Scheduling |
 | Wijmo export modules | RevoGrid CSV export and Pro Excel import/export |
 | Wijmo suite dependency | Focused RevoGrid dependency with optional Pro modules |
 

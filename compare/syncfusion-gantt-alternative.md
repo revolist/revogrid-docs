@@ -1,22 +1,22 @@
 ---
 title: Syncfusion Gantt Alternative
-description: Compare RevoGrid Gantt with Syncfusion Gantt for JavaScript, React, Vue, Angular, and enterprise scheduling applications.
+description: Compare RevoGantt with Syncfusion Gantt for JavaScript, React, Vue, Angular, and enterprise scheduling applications.
 head:
   - - meta
     - name: keywords
       content: syncfusion gantt alternative, syncfusion gantt chart alternative, revogrid vs syncfusion gantt, javascript gantt chart, react gantt chart, angular gantt chart, vue gantt chart, enterprise gantt component, gantt scheduling library
   - - meta
     - property: og:title
-      content: RevoGrid Gantt vs Syncfusion Gantt
+      content: RevoGantt vs Syncfusion Gantt
   - - meta
     - property: og:description
-      content: An in-depth comparison of RevoGrid Gantt and Syncfusion Gantt for teams building editable project planning and scheduling workflows.
+      content: An in-depth comparison of RevoGantt and Syncfusion Gantt for teams building editable project planning and scheduling workflows.
 ---
 
 # Syncfusion Gantt Alternative
 
-::: tip Evaluate RevoGrid Gantt directly
-See the complete [RevoGrid Gantt product page](/gantt) for live demos, framework guides, feature coverage, pricing, and trial access.
+::: tip Evaluate RevoGantt directly
+See the complete [RevoGantt product page](/gantt) for live demos, framework guides, feature coverage, pricing, and trial access.
 :::
 
 <script lang="ts" setup>
@@ -27,11 +27,11 @@ import CompareHero from './CompareHero.vue'
   competitor-name="Syncfusion Gantt"
   competitor-summary="a mature project planning component within the broader Syncfusion Essential Studio UI suite"
   use-cases="project management products, ERP and MRP systems, construction planning, resource scheduling, operations software, internal planning tools, and data-heavy SaaS applications"
-  revo-summary="RevoGrid Gantt is a grid-native planning component built on the same virtualized, editable data surface as RevoGrid."
+  revo-summary="RevoGantt is a grid-native planning component built on the same virtualized, editable data surface as RevoGrid."
 />
 
 ::: tip Best fit
-Choose **RevoGrid Gantt** when the Gantt must behave like an editable part of your product—not a separate project-management application embedded beside your data grid.
+Choose **RevoGantt** when the Gantt must behave like an editable part of your product—not a separate project-management application embedded beside your data grid.
 :::
 
 ::: tip Short answer
@@ -52,11 +52,11 @@ That breadth can be valuable. It can also be more than a product team needs when
 - avoid deployment, tenant, or runtime royalty calculations;
 - keep procurement predictable as the product grows.
 
-RevoGrid Gantt is designed around this narrower problem. RevoGrid owns the virtualized rows and columns, editing, selection, and keyboard foundation. The Gantt plugin adds scheduling logic, task bars, dependencies, resources, assignments, baselines, critical path, calendars, and timeline controls.
+RevoGantt is designed around this narrower problem. RevoGrid owns the virtualized rows and columns, editing, selection, and keyboard foundation. The Gantt plugin adds scheduling logic, task bars, dependencies, resources, assignments, baselines, critical path, calendars, and timeline controls.
 
-## RevoGrid Gantt vs Syncfusion Gantt at a glance
+## RevoGantt vs Syncfusion Gantt at a glance
 
-| Decision point | RevoGrid Gantt | Syncfusion Gantt | What it means |
+| Decision point | RevoGantt | Syncfusion Gantt | What it means |
 |---|---|---|---|
 | Product model | ✅ Grid-native Gantt plugin | ✅ Standalone Gantt control | RevoGrid keeps planning on the same grid foundation; Syncfusion provides a dedicated suite component. |
 | Best fit | ✅ Data-heavy product workflows | ✅ General enterprise UI suite | RevoGrid is strongest when the planning surface is part of a larger operational product. |
@@ -82,7 +82,7 @@ RevoGrid Gantt is designed around this narrower problem. RevoGrid owns the virtu
 
 **Legend:** ✅ supported, ⚠️ supported with setup or a narrower scope, ❌ not currently a primary capability.
 
-| Feature / capability | RevoGrid Gantt | Syncfusion Gantt |
+| Feature / capability | RevoGantt | Syncfusion Gantt |
 |---|---|---|
 | Editable task grid and timeline | ✅ | ✅ |
 | Task hierarchy / work breakdown structure | ✅ | ✅ |
@@ -158,13 +158,13 @@ RevoGrid Gantt is designed around this narrower problem. RevoGrid owns the virtu
 | Vanilla JavaScript | ✅ | ✅ |
 | TypeScript-first models | ✅ | ✅ |
 
-## Where RevoGrid Gantt is stronger
+## Where RevoGantt is stronger
 
 ### 1. The task table and timeline share one grid foundation
 
 A Gantt is not only a chart. In a production planning tool, users spend much of their time in the task table: editing dates, changing owners, filtering work, reviewing status, copying values, navigating hierarchy, and scanning custom fields.
 
-RevoGrid Gantt starts with that reality. The left-side task table is RevoGrid, so the Gantt can reuse the same virtualization, cell rendering, editing, columns, filtering, selection, and theming model as the rest of your application.
+RevoGantt starts with that reality. The left-side task table is RevoGrid, so the Gantt can reuse the same virtualization, cell rendering, editing, columns, filtering, selection, and theming model as the rest of your application.
 
 This architecture is especially useful for:
 
@@ -178,7 +178,7 @@ With Syncfusion, the DataGrid and Gantt are separate controls. That is not inher
 
 ### 2. The host application keeps ownership of data and persistence
 
-RevoGrid Gantt supplies typed task, dependency, resource, assignment, calendar, and baseline models. Your application decides how those models are stored and synchronized.
+RevoGantt supplies typed task, dependency, resource, assignment, calendar, and baseline models. Your application decides how those models are stored and synchronized.
 
 The documentation includes patterns for:
 
@@ -218,7 +218,7 @@ Syncfusion offers a free Community License to eligible small organizations and c
 
 ### 5. Scheduling depth without positioning itself as a full UI suite
 
-RevoGrid Gantt includes the project-planning capabilities most product teams expect:
+RevoGantt includes the project-planning capabilities most product teams expect:
 
 - WBS hierarchy, summaries, and milestones;
 - FS, SS, FF, and SF dependencies with lead and lag;
@@ -255,7 +255,7 @@ Migration has a cost. If a product already relies on Syncfusion themes, DataMana
 
 ### 5. You prefer a longer-established Gantt vendor surface
 
-RevoGrid Gantt is the newer product. Its scheduling engine is substantial, but Syncfusion has a broader public documentation history, more packaged enterprise examples, and a larger vendor support organization. Teams that value vendor maturity above architectural fit may reasonably remain with Syncfusion.
+RevoGantt is the newer product. Its scheduling engine is substantial, but Syncfusion has a broader public documentation history, more packaged enterprise examples, and a larger vendor support organization. Teams that value vendor maturity above architectural fit may reasonably remain with Syncfusion.
 
 ## Architecture: separate control or grid-native planning surface?
 
@@ -274,7 +274,7 @@ This works well when you want:
 
 ### RevoGrid approach
 
-RevoGrid Gantt extends the existing grid foundation. The task table remains a first-class editable data surface, and the scheduling engine projects the same project data onto the timeline.
+RevoGantt extends the existing grid foundation. The task table remains a first-class editable data surface, and the scheduling engine projects the same project data onto the timeline.
 
 This works well when you want:
 
@@ -286,7 +286,7 @@ This works well when you want:
 
 ## Syncfusion Gantt to RevoGrid migration map
 
-| Syncfusion Gantt concept | RevoGrid Gantt direction |
+| Syncfusion Gantt concept | RevoGantt direction |
 |---|---|
 | `dataSource` | RevoGrid `source` task rows |
 | `taskFields.id` | Task `id` |
@@ -311,9 +311,9 @@ This works well when you want:
 | Gantt PDF export | Print/reporting recipe or host reporting pipeline |
 | Excel / CSV export | RevoGrid Pro Excel and core CSV export for grid data |
 
-## Example: RevoGrid Gantt setup
+## Example: RevoGantt setup
 
-The following example shows the shape of a framework-neutral RevoGrid Gantt setup. Exact package exports may vary by installed Pro version, so use the matching version of the [Gantt documentation](https://pro.rv-grid.com/guides/gantt/) when implementing it.
+The following example shows the shape of a framework-neutral RevoGantt setup. Exact package exports may vary by installed Pro version, so use the matching version of the [Gantt documentation](https://pro.rv-grid.com/guides/gantt/) when implementing it.
 
 ```ts
 import { defineCustomElements } from '@revolist/revogrid/loader'
@@ -492,7 +492,7 @@ For both products, treat the vendor's current license agreement as authoritative
 
 ## Which Gantt should you choose?
 
-### Choose RevoGrid Gantt when
+### Choose RevoGantt when
 
 - the Gantt is part of a larger data-heavy SaaS or enterprise product;
 - users need a powerful editable task table, not only a visual timeline;
@@ -516,25 +516,25 @@ For both products, treat the vendor's current license agreement as authoritative
 
 ### Is RevoGrid a Syncfusion Gantt alternative?
 
-Yes. RevoGrid Gantt supports editable task hierarchies, milestones, dependencies, automatic and manual scheduling, calendars, constraints, critical path, baselines, resources, assignments, capacity diagnostics, timeline zoom, taskbar editing, and framework integrations. It is particularly well suited to grid-centric products.
+Yes. RevoGantt supports editable task hierarchies, milestones, dependencies, automatic and manual scheduling, calendars, constraints, critical path, baselines, resources, assignments, capacity diagnostics, timeline zoom, taskbar editing, and framework integrations. It is particularly well suited to grid-centric products.
 
-### Does RevoGrid Gantt support all four dependency types?
+### Does RevoGantt support all four dependency types?
 
 Yes. RevoGrid supports Finish-to-Start, Start-to-Start, Finish-to-Finish, and Start-to-Finish relationships, including lead and lag values, validation, and visual dependency editing.
 
-### Does RevoGrid Gantt support critical path and baselines?
+### Does RevoGantt support critical path and baselines?
 
 Yes. It can calculate and highlight the critical path, project slack, render baseline bars, and expose baseline variance for planned-versus-current comparisons.
 
-### Can RevoGrid Gantt schedule resources?
+### Can RevoGantt schedule resources?
 
 Yes. RevoGrid models resources and assignments separately, supports multiple resource assignments, resource calendars, resource planning views, capacity summaries, over-allocation diagnostics, and resource-leveling workflows.
 
-### Is RevoGrid Gantt open source?
+### Is RevoGantt open source?
 
 The RevoGrid core data grid is MIT licensed and remains free. Gantt is a Pro Advanced feature available under a commercial license.
 
-### Can I use RevoGrid Gantt in React, Vue, Angular, or Svelte?
+### Can I use RevoGantt in React, Vue, Angular, or Svelte?
 
 Yes. RevoGrid uses a framework-neutral Web Component core and provides integration paths for React, Vue, Angular, Svelte, and vanilla JavaScript.
 
@@ -558,15 +558,15 @@ Usually, yes. Start with one representative project view, map task and dependenc
 
 Syncfusion Gantt remains a credible choice for teams that want a mature standalone Gantt inside a broad commercial UI suite. Its strongest advantages are packaged export, formal accessibility materials, documentation breadth, and vendor scale.
 
-RevoGrid Gantt is the more compelling alternative when the planning surface must feel native to a data-heavy product. It combines an editable virtualized grid with task hierarchy, dependencies, scheduling, resources, baselines, critical path, and timeline interaction—while leaving persistence and domain workflows under your control.
+RevoGantt is the more compelling alternative when the planning surface must feel native to a data-heavy product. It combines an editable virtualized grid with task hierarchy, dependencies, scheduling, resources, baselines, critical path, and timeline interaction—while leaving persistence and domain workflows under your control.
 
 The practical decision is not simply which product has more checkmarks. It is whether your team needs **a Gantt control from a UI suite** or **a grid-native scheduling foundation for your product**.
 
 <div class="vp-doc-grid-cta">
 
-**Build scheduling into your product with RevoGrid Gantt.**
+**Build scheduling into your product with RevoGantt.**
 
-[Explore RevoGrid Gantt](/gantt) · [View the Gantt docs](https://pro.rv-grid.com/guides/gantt/) · [Compare Pro features](/pro/feature-table) · [Request Pro Trial](/trial)
+[Explore RevoGantt](/gantt) · [View the Gantt docs](https://pro.rv-grid.com/guides/gantt/) · [Compare Pro features](/pro/feature-table) · [Request Pro Trial](/trial)
 
 </div>
 

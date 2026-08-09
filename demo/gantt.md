@@ -1,6 +1,6 @@
 ---
 title: Gantt Chart Project Planning Demo
-description: Plan tasks in RevoGrid Pro Gantt with dependencies, milestones, drag-and-resize scheduling, resources, working calendars, and critical paths.
+description: Plan tasks in RevoGantt with dependencies, milestones, drag-and-resize scheduling, resources, working calendars, and critical paths.
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false
@@ -11,7 +11,7 @@ editLink: false
 head:
   - - meta
     - name: keywords
-      content: RevoGrid Gantt demo, JavaScript Gantt chart, project planning grid, task timeline, scheduling grid, dependencies, milestones, resource planning, React Gantt grid, Vue Gantt grid, Angular Gantt grid
+      content: RevoGantt demo, JavaScript Gantt chart, project planning grid, task timeline, scheduling grid, dependencies, milestones, resource planning, React Gantt grid, Vue Gantt grid, Angular Gantt grid
 ---
 
 <script setup>

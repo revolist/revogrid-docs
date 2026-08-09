@@ -2,7 +2,7 @@
 title: Professional Services Gantt for Client Delivery
 description: Plan client projects, consultants, milestones, delivery capacity, and budget boundaries in one editable professional services Gantt view.
 image: /img/gantt-use-cases/professional-services.webp?v=20260808-polished
-imageAlt: Real RevoGrid professional services Gantt with client engagements, consultant assignments, commercial context, dependencies, milestones, and capacity risk
+imageAlt: Real RevoGantt professional-services view with client engagements, consultant assignments, commercial context, dependencies, milestones, and capacity risk
 outline: deep
 head:
   - - meta
@@ -29,7 +29,7 @@ Client delivery is a human coordination problem before it is a scheduling proble
 
 <GanttUseCaseMedia
   slug="professional-services"
-  alt="Real RevoGrid professional services Gantt with client engagements, consultant assignments, commercial context, dependencies, milestones, and capacity risk"
+  alt="Real RevoGantt professional-services view with client engagements, consultant assignments, commercial context, dependencies, milestones, and capacity risk"
   caption="Captured from the production-shaped Helio PSA example: client promises, consultant assignments, delivery phases, budget context, and an overlapping specialist decision remain visible together."
 />
 
@@ -39,7 +39,7 @@ Client delivery is a human coordination problem before it is a scheduling proble
 
 In many services businesses, the account team sees commitments in a CRM, consultants see assignments elsewhere, finance watches budget in a PSA, and the project plan lives in another tab. People spend time reconciling those views precisely when they should be resolving a delivery risk.
 
-An embedded Gantt brings the working plan into the operational product. The left-side grid can carry client and business fields; the timeline adds sequence, duration, milestones, and dependency context. RevoGrid Gantt supports task hierarchy, dependencies, assignments, calendars, workload diagnostics, milestones, costs, baselines, and progress. Your application decides which of those fields users can change and how accepted changes return to the systems of record.
+An embedded Gantt brings the working plan into the operational product. The left-side grid can carry client and business fields; the timeline adds sequence, duration, milestones, and dependency context. RevoGantt supports task hierarchy, dependencies, assignments, calendars, workload diagnostics, milestones, costs, baselines, and progress. Your application decides which of those fields users can change and how accepted changes return to the systems of record.
 
 That shared view helps people answer practical questions:
 
@@ -87,7 +87,7 @@ Not every field has to be editable. Contract value, approved rates, posted time,
 
 ## Keep capacity and budget boundaries honest
 
-A colored workload bar is only useful after the product defines capacity. Decide whether 100% means a person's full working calendar, their billable target, or the portion available for project work. Account for part-time schedules, internal responsibilities, leave, and shared assignments. RevoGrid Gantt can display resource utilization and over-allocation diagnostics, but your domain rules determine what counts as a conflict and who may resolve it. See [resource planning](/gantt/resource-planning) and [resource scheduling](/gantt/resource-scheduling) for the modeling details.
+A colored workload bar is only useful after the product defines capacity. Decide whether 100% means a person's full working calendar, their billable target, or the portion available for project work. Account for part-time schedules, internal responsibilities, leave, and shared assignments. RevoGantt can display resource utilization and over-allocation diagnostics, but your domain rules determine what counts as a conflict and who may resolve it. See [resource planning](/gantt/resource-planning) and [resource scheduling](/gantt/resource-scheduling) for the modeling details.
 
 For consultant appointments, rota-style availability, or calendar-slot booking without a project dependency chain, compare the [JavaScript Scheduler](/jsscheduler).
 
@@ -107,7 +107,7 @@ Use one real engagement—not a tidy sample project—to evaluate the fit:
 - Confirm that keyboard access, focus states, and narrow-screen layouts remain usable.
 - Decide which edits require validation, approval, audit, or read-only presentation.
 
-Open the [live Gantt demo](/demo/gantt) to inspect the planning interaction, then request a [trial](/trial) to test your actual data shape, calendars, policies, and performance expectations. The [main RevoGrid Gantt page](/gantt) summarizes the implemented feature set and related examples.
+Open the [live Gantt demo](/demo/gantt) to inspect the planning interaction, then request a [trial](/trial) to test your actual data shape, calendars, policies, and performance expectations. The [main RevoGantt page](/gantt) summarizes the implemented feature set and related examples.
 
 ## Professional services Gantt FAQ
 
