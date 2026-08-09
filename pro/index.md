@@ -1,6 +1,6 @@
 ---
 title: RevoGrid Pro
-description: Ship pivot analytics, gantt scheduling, spreadsheet formulas, master-detail grids, audit history, and advanced data-grid workflows without building the data layer from scratch.
+description: JavaScript Kanban, Pivot, Gantt, Scheduling, Spreadsheet formulas, master-detail grids, and audit history without building the data layer from scratch.
 sidebar: false
 aside: false
 editLink: false
@@ -33,7 +33,7 @@ proPage:
       prefix: Ship the data layer in
       highlight: days
       suffix: not quarters.
-    subtitle: Advanced layouts, reports & analytics, charts, master-detail, and audit trails — production-ready modules that drop into the grid you already use.
+    subtitle: Advanced layouts, Kanban workflows, reports & analytics, charts, master-detail, and audit trails — production-ready modules that drop into the grid you already use.
     actions:
       primary:
         label: Get Pro
@@ -146,6 +146,18 @@ proPage:
         replaces: Sentry-for-data, custom undo stacks, manual edit logs
         demoLabel: Watch preview
         demoUrl: /guide/events-guide
+        wide: true
+      - type: kanban
+        tier: Pro Advanced
+        title: Kanban
+        titleSuffix: workflow boards, ready to ship.
+        description: A virtualized JavaScript Kanban board component with drag-and-drop cards, swimlanes, WIP limits, transition rules, editing, history, and fully custom card and header templates. It stays connected to the same RevoGrid source, events, filters, and persistence model as the rest of your product.
+        saves: 3-6
+        unit: months
+        savesAgainst: vs custom workflow board
+        replaces: Generic task-board embeds, custom drag-and-drop, in-house Kanban UI
+        demoLabel: Watch preview
+        demoUrl: /demo/kanban
         wide: true
       - type: gantt
         tier: Pro Advanced
