@@ -321,7 +321,7 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
                         link: '/demo/kanban-performance',
                     },
                     {
-                        text: demoSidebarText('kanban-server-loading'),
+                        text: demoSidebarText('kanban-server-loading', '100K Remote Kanban'),
                         link: '/demo/kanban-server-loading',
                     },
                 ],
