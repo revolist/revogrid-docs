@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.25.0](README.md) / ViewportProperties
+[RevoGrid Documentation v4.25.1](README.md) / ViewportProperties
 
 # Type Alias: ViewportProperties
 
@@ -12,8 +12,8 @@ type ViewportProperties: RevogrViewportScroll & {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `noHorizontalScrollTransfer` | `boolean` | [src/types/viewport.interfaces.ts:35](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/types/viewport.interfaces.ts#L35) |
+| `noHorizontalScrollTransfer` | `boolean` | [src/types/viewport.interfaces.ts:35](https://github.com/revolist/revogrid/blob/d06ea5b7beb9764dab968fd781d3f71fda941337/src/types/viewport.interfaces.ts#L35) |
 
 ## Defined in
 
-[src/types/viewport.interfaces.ts:33](https://github.com/revolist/revogrid/blob/a6a858841b6179f71d79deffde996e3ef6220356/src/types/viewport.interfaces.ts#L33)
+[src/types/viewport.interfaces.ts:33](https://github.com/revolist/revogrid/blob/d06ea5b7beb9764dab968fd781d3f71fda941337/src/types/viewport.interfaces.ts#L33)
