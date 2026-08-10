@@ -111,6 +111,7 @@ export type GanttLandingPage = {
     title: string
     description: string
     items: { title: string, description: string }[]
+    actions?: GanttLandingAction[]
   }
   featureComparison?: {
     id: string

@@ -55,6 +55,14 @@
           <p class="section-sub">
             {{ page.positioning.description }}
           </p>
+          <div v-if="page.positioning.actions?.length" class="positioning-actions">
+            <ProDocButton
+              v-for="action in page.positioning.actions"
+              :key="action.href"
+              :href="resolveLandingLink(action.href)"
+              :variant="action.variant"
+            >{{ action.label }}</ProDocButton>
+          </div>
         </div>
 
         <div class="positioning-grid">
@@ -438,6 +446,12 @@ function resolveLandingLink(href: string) {
 
 .positioning-grid {
   grid-template-columns: 1fr;
+}
+
+.positioning-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .use-case-grid,

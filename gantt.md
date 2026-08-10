@@ -172,6 +172,15 @@ ganttLanding:
     kicker: Performance at scale
     title: A fast JavaScript Gantt chart built for large datasets.
     description: RevoGrid Gantt uses row and column virtualization to keep browser rendering focused on the visible viewport. Test the live 10,000-task, 19,796-dependency demo, then benchmark your own hierarchy, scheduling rules, and custom cells.
+    actions:
+      - label: Open 10,000-task demo
+        href: /demo/gantt-big-data
+      - label: Run browser benchmark
+        href: https://gantt.rv-grid.com/?example=benchmark
+        variant: secondary
+      - label: View methodology and results
+        href: /benchmarks/gantt
+        variant: secondary
     items:
       - title: Two-axis virtualization
         description: Render the visible task rows and timeline columns instead of mounting the entire project surface in the DOM.
