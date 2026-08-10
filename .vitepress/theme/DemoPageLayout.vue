@@ -49,7 +49,6 @@
         <span class="demo-page-guide-target" aria-hidden="true">◎</span>
         <span>
           <strong id="demo-page-guide-title">Try {{ config.demo.title }}</strong>
-          <small>Complete a few actions in the workspace</small>
         </span>
       </div>
 
@@ -400,7 +399,7 @@ $max-content-width: 1240px;
   max-width: $max-content-width;
   width: 100%;
   margin: 0 auto 14px;
-  padding: 10px 14px;
+  padding: 6px 14px;
   border-radius: 9px;
   background: color-mix(in srgb, var(--demo-page-green) 10%, var(--vp-c-bg));
 }
@@ -424,13 +423,6 @@ $max-content-width: 1240px;
   font-size: 0.82rem;
   font-weight: 500;
   line-height: 1.25;
-}
-
-.demo-page-guide-intro small {
-  margin-top: 2px;
-  color: var(--vp-c-text-2);
-  font-size: 0.72rem;
-  line-height: 1.3;
 }
 
 .demo-page-guide-target {

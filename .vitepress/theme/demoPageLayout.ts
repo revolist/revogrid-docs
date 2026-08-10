@@ -50,7 +50,7 @@ const DEMO_PAGE_CONTENT = {
     title: 'Project Portfolio Demo',
     description: 'Delivery portfolio with two-level row grouping, progress indicators, sorting, and filtering.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/core-project-portfolio/src/project-portfolio.vue',
-    guidedActions: ['Expand or collapse all groups', 'Open a department and status group', 'Sort or filter a project column'],
+    guidedActions: ['Expand or collapse all groups', 'Open any group', 'Sort or filter a project column'],
     featureBadges: [
       { label: 'Row grouping', source: 'RevoGrid Core grouping API' },
       { label: 'Custom cells', source: 'Core cellTemplate renderers' },
@@ -110,8 +110,8 @@ const DEMO_PAGE_CONTENT = {
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-audit-history/src/audit-history.vue',
     guidedActions: ['Edit an invoice field', 'Inspect the new audit record', 'Restore an earlier value'],
     featureBadges: [
-      { label: 'Attributed change log', source: 'AuditHistoryPlugin' },
-      { label: 'Audit side panel', source: 'defineAuditHistoryPanel' },
+      { label: 'Change log', source: 'AuditHistoryPlugin' },
+      { label: 'Audit panel', source: 'defineAuditHistoryPanel' },
       { label: 'Compare revisions', source: 'AuditHistoryPanelOptions.allowCompare' },
       { label: 'Export audit records', source: 'AuditHistoryPanelOptions.allowExport' },
       { label: 'Restore changes', source: 'AuditHistoryPanelOptions.restoreActions' },
@@ -134,16 +134,14 @@ const DEMO_PAGE_CONTENT = {
   },
   'context-menu': {
     title: 'Context Menu & Formatting Demo',
-    description: 'Use selection-aware commands and rich formatting across cells, rows, columns, and grouped headers.',
+    description: 'Selection-aware commands and rich formatting across cells, rows, columns, and headers.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-data-grid-context-menu/src/data-grid-context-menu.vue',
-    guidedActions: ['Open a cell context menu', 'Format the selected cells', 'Inspect a grouped column header'],
+    guidedActions: ['Open a cell context menu', 'Format the selected cells', 'Inspect a grouped column'],
     featureBadges: [
       { label: 'Context menu', source: 'DataGridContextMenuPlugin' },
-      { label: 'Format cells editor', source: 'DataGridContextMenuPlugin formatting runtime' },
-      { label: 'Surface-aware actions', source: 'DataGridContextMenuConfig items + getItems' },
+      { label: 'Cell formats', source: 'DataGridContextMenuPlugin formatting runtime' },
       { label: 'Multi-range selection', source: 'MultiRangeSelectionPlugin' },
-      { label: 'Advanced filters', source: 'AdvanceFilterPlugin' },
-      { label: 'Automatic column sizing', source: 'AutoSizeColumnPlugin' },
+      { label: 'Context filters', source: 'AdvanceFilterPlugin' },
       { label: 'Excel export', source: 'ExportExcelPlugin' },
     ],
   },
@@ -196,7 +194,7 @@ const DEMO_PAGE_CONTENT = {
       { label: 'Hierarchical rows', source: 'TreeDataPlugin' },
       { label: 'Sticky parents', source: 'StickyCellsPlugin + TreeConfig.stickyParents' },
       { label: 'Animated expansion', source: 'DimensionAnimationPlugin' },
-      { label: 'Drag row ordering', source: 'RowOrderPlugin' },
+      { label: 'Reorder rows', source: 'RowOrderPlugin' },
       { label: 'Advanced filters', source: 'AdvanceFilterPlugin' },
       { label: 'Row selection', source: 'RowSelectPlugin' },
       { label: 'Excel export', source: 'ExportExcelPlugin' },
@@ -234,7 +232,7 @@ const DEMO_PAGE_CONTENT = {
     title: 'Large Dataset Gantt Demo',
     description: '10,000 virtualized Gantt tasks and 19,796 dependencies.',
     implementationUrl: 'https://github.com/revolist/gantt',
-    guidedActions: ['Scroll through 10,000 tasks', 'Inspect linked task chains', 'Pan across the three-month timeline'],
+    guidedActions: ['Scroll through 10,000 tasks', 'Inspect linked task chains', 'Pan across the timeline'],
     featureBadges: [
       { label: 'Gantt timeline', source: 'GanttPlugin' },
       { label: '10,000 tasks', source: 'createGanttBigDataSet task fixture' },
@@ -248,7 +246,7 @@ const DEMO_PAGE_CONTENT = {
     title: '20Y-Timeline Gantt Demo',
     description: 'Linked tasks across a twenty-year program with month-and-quarter scaling.',
     implementationUrl: 'https://github.com/revolist/gantt',
-    guidedActions: ['Pan across the twenty-year timeline', 'Inspect linked task chains', 'Compare month and quarter periods'],
+    guidedActions: ['Pan across the 20Y timeline', 'Inspect linked task chains', 'Compare periods'],
     featureBadges: [
       { label: 'Gantt timeline', source: 'GanttPlugin' },
       { label: '20-year range', source: '2026–2045 horizontal big-data fixture' },
@@ -274,9 +272,9 @@ const DEMO_PAGE_CONTENT = {
   },
   'kanban-performance': {
     title: '50K-Task Kanban Performance Demo',
-    description: 'Virtualize 50,000 tasks across ten workflow columns and two team swimlanes.',
+    description: 'Virtualize 50K tasks across ten workflow columns and two team swimlanes.',
     implementationUrl: 'https://github.com/revolist/kanban',
-    guidedActions: ['Scroll through 50,000 tasks', 'Pan across ten workflow columns', 'Collapse a team swimlane'],
+    guidedActions: ['Scroll through 50K tasks', 'Pan across workflow columns', 'Collapse a team swimlane'],
     featureBadges: [
       { label: 'Kanban board', source: 'KanbanPlugin' },
       { label: '50,000 tasks', source: 'createKanbanBoardRows performance fixture' },
@@ -290,7 +288,7 @@ const DEMO_PAGE_CONTENT = {
     title: '100K Kanban Server-Loading Demo',
     description: 'Load a 100,000-card Kanban board from a remote offset stream in small, virtualized chunks.',
     implementationUrl: 'https://github.com/revolist/kanban',
-    guidedActions: ['Watch the first remote page load', 'Scroll to request another card range', 'Inspect loading placeholders and totals'],
+    guidedActions: ['Watch the first remote load', 'Scroll to request another range', 'Inspect loading placeholders'],
     featureBadges: [
       { label: 'Kanban board', source: 'KanbanPlugin' },
       { label: '100,000 cards', source: 'KanbanConfig remote.total' },
@@ -324,7 +322,7 @@ const DEMO_PAGE_CONTENT = {
     title: 'Grid, Kanban, Gantt and Scheduler Demo',
     description: 'One shared model across synchronized Data Grid, Kanban, Gantt, Scheduler & Calendar views.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-advanced-planning/src/planning.vue',
-    guidedActions: ['Edit a task in the grid', 'Move a task in Gantt', 'Switch between scheduler and calendar views'],
+    guidedActions: ['Edit a task in the grid', 'Move a task in Gantt', 'Switch between views'],
     featureBadges: [
       { label: 'Shared model', source: 'Reactive task state shared across every planning view' },
       { label: 'Data grid', source: 'RevoGrid editing, filtering, sorting, ranges, and column moving' },

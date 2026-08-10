@@ -190,6 +190,52 @@ test('describes the requested Excel collaboration, filtering, merge, and reorder
   )
 })
 
+test('uses the requested Context Menu & Formatting feature badges', () => {
+  assert.equal(
+    getDemoPageConfig('context-menu').description,
+    'Selection-aware commands and rich formatting across cells, rows, columns, and headers.',
+  )
+  assert.deepEqual(
+    getDemoPageConfig('context-menu').featureBadges,
+    [
+      { label: 'Context menu', source: 'DataGridContextMenuPlugin' },
+      { label: 'Cell formats', source: 'DataGridContextMenuPlugin formatting runtime' },
+      { label: 'Multi-range selection', source: 'MultiRangeSelectionPlugin' },
+      { label: 'Context filters', source: 'AdvanceFilterPlugin' },
+      { label: 'Excel export', source: 'ExportExcelPlugin' },
+    ],
+  )
+})
+
+test('uses the requested Audit History feature badges', () => {
+  assert.deepEqual(
+    getDemoPageConfig('audit-history').featureBadges,
+    [
+      { label: 'Change log', source: 'AuditHistoryPlugin' },
+      { label: 'Audit panel', source: 'defineAuditHistoryPanel' },
+      { label: 'Compare revisions', source: 'AuditHistoryPanelOptions.allowCompare' },
+      { label: 'Export audit records', source: 'AuditHistoryPanelOptions.allowExport' },
+      { label: 'Restore changes', source: 'AuditHistoryPanelOptions.restoreActions' },
+      { label: 'Change highlighting', source: 'CellFlashPlugin' },
+    ],
+  )
+})
+
+test('uses the requested Tree Data feature badges', () => {
+  assert.deepEqual(
+    getDemoPageConfig('tree-data').featureBadges,
+    [
+      { label: 'Hierarchical rows', source: 'TreeDataPlugin' },
+      { label: 'Sticky parents', source: 'StickyCellsPlugin + TreeConfig.stickyParents' },
+      { label: 'Animated expansion', source: 'DimensionAnimationPlugin' },
+      { label: 'Reorder rows', source: 'RowOrderPlugin' },
+      { label: 'Advanced filters', source: 'AdvanceFilterPlugin' },
+      { label: 'Row selection', source: 'RowSelectPlugin' },
+      { label: 'Excel export', source: 'ExportExcelPlugin' },
+    ],
+  )
+})
+
 test('describes the requested active Gantt capabilities without an export badge', () => {
   assert.deepEqual(
     getDemoPageConfig('gantt').featureBadges,
