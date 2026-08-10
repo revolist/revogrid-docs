@@ -16,6 +16,8 @@ import BenchmarkLiveDemo from './.vitepress/theme/BenchmarkLiveDemo.vue'
 
 # RevoGrid Benchmarks
 
+Looking for scheduling measurements? See the [RevoGrid Gantt browser benchmark](/benchmarks/gantt), including the full 100/1K/5K/10K task matrix, dependency densities, raw JSON/CSV, screenshot, video, and live workload.
+
 This page records a reproducible local RevoGrid benchmark run. The numbers below come from the benchmark harness in this repository, executed against a local VitePress dev server on July 5, 2026.
 
 Benchmark numbers are environment-dependent. Treat these as a published run with its machine, browser, dataset, and renderer setup documented, not as a universal guarantee for every application.
