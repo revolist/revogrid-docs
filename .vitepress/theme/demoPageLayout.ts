@@ -22,7 +22,7 @@ export interface DemoPageContent {
 
 export interface DemoPageConfig extends DemoPageContent {
   demo: CatalogDemo
-  planLabel: 'MIT' | 'Pro Lite' | 'Pro Advanced'
+  planLabel: 'Core' | 'Pro Lite' | 'Pro Advanced'
   primaryCtaUrl: string
   pricingUrl: string
 }
@@ -34,6 +34,28 @@ const DEMO_PAGE_CONTENT = {
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/core-free/src/hr.vue',
     guidedActions: ['Change the dataset size', 'Edit an employee', 'Sort or filter a column'],
     featureBadges: [],
+  },
+  'ai-prompt-library': {
+    title: 'AI Prompt Library Demo',
+    description: 'Search, filter, and edit a practical prompt catalog that loads instantly from bundled local data.',
+    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/core-ai-prompts/src/prompt-library.vue',
+    guidedActions: ['Search for a prompt', 'Filter by category', 'Double-click a prompt to edit it'],
+    featureBadges: [
+      { label: 'Multiline editing', source: 'Core TextEditor extension' },
+      { label: 'Local data', source: 'Bundled typed prompt catalog' },
+      { label: 'Filtering & sorting', source: 'RevoGrid Core APIs' },
+    ],
+  },
+  'project-portfolio': {
+    title: 'Project Portfolio Demo',
+    description: 'Delivery portfolio with two-level row grouping, progress indicators, sorting, and filtering.',
+    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/core-project-portfolio/src/project-portfolio.vue',
+    guidedActions: ['Expand or collapse all groups', 'Open a department and status group', 'Sort or filter a project column'],
+    featureBadges: [
+      { label: 'Row grouping', source: 'RevoGrid Core grouping API' },
+      { label: 'Custom cells', source: 'Core cellTemplate renderers' },
+      { label: 'Filtering & sorting', source: 'RevoGrid Core APIs' },
+    ],
   },
   'project-tracker': {
     title: 'Project Tracker Demo',
@@ -315,7 +337,7 @@ const DEMO_PAGE_CONTENT = {
 } as const satisfies Record<DemoId, DemoPageContent>
 
 const PLAN_LABELS = {
-  'open-source': 'MIT',
+  'open-source': 'Core',
   'pro-lite': 'Pro Lite',
   'pro-advanced': 'Pro Advanced',
 } as const satisfies Partial<Record<PlanId, DemoPageConfig['planLabel']>>

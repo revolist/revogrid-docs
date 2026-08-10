@@ -22,7 +22,7 @@ hero:
   eyebrow: High-performance data grid
   title: JavaScript Data Grid for complex web apps
   emphasis: JavaScript Data Grid
-  tagline: The world's fastest JavaScript data grid. Inline editing, virtual scroll, and custom cells for every major framework. 
+  tagline: The world's fastest JavaScript data grid. 60fps, 3x less memory. Inline editing, virtual scroll, and custom cells for every major framework.
   primaryAction:
     text: View demos
     link: /demo/

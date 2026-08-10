@@ -67,7 +67,14 @@ const heroTitle = computed(() => {
   return escapeHtml(title).replace(escapeHtml(emphasis), `<em>${escapeHtml(emphasis)}</em>`)
 })
 
-const heroTagline = computed(() => linkProductMentions(props.hero?.tagline, linkOf))
+const performanceClaim = '60fps, 3x less memory.'
+const heroTagline = computed(() => {
+  const tagline = linkProductMentions(props.hero?.tagline, linkOf)
+  const label = escapeHtml(performanceClaim)
+  const href = escapeHtml(linkOf('/benchmarks'))
+
+  return tagline.replace(label, `<a class="rg-product-link" href="${href}">${label}</a>`)
+})
 const installCopied = ref(false)
 
 async function copyInstallCommand() {

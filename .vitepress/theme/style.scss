@@ -171,11 +171,10 @@
     --rg-grid-line: rgba(0, 0, 0, 0.05);
 }
 
-.demo-sidebar-label {
+.demo-sidebar-group-label {
     display: inline-flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 4px 6px;
+    gap: 6px;
     min-width: 0;
     line-height: 18px;
     vertical-align: middle;
@@ -207,6 +206,7 @@
 }
 
 .demo-sidebar-badge--pro-advanced {
+    border-color: color-mix(in srgb, #8b5cf6 28%, transparent);
     background: color-mix(in srgb, #8b5cf6 14%, transparent);
     color: #7c3aed;
 }
@@ -499,6 +499,13 @@ header.VPFeatures {
     .VPContent,
     .content {
         padding-bottom: 0 !important;
+    }
+}
+
+@media (min-width: 960px) {
+    .benchmarks-page .VPDoc:not(.has-sidebar) .container,
+    .benchmarks-page .VPDoc:not(.has-sidebar) .content {
+        max-width: 1088px;
     }
 }
 

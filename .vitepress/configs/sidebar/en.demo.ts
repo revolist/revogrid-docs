@@ -1,12 +1,14 @@
 import type { DefaultTheme } from 'vitepress'
-import { getDemoBadge, type DemoId } from '../../../commercial/productCatalog'
+import { getDemoBadge, getPlan, type DemoId, type PlanId } from '../../../commercial/productCatalog'
 
 const demoSidebarText = (demoId: DemoId, label?: string) => {
     const demo = getDemoBadge(demoId)
-    const status = demo.status === 'stable'
-        ? ''
-        : `<span class="demo-sidebar-status" title="${demo.status}">${demo.status}</span>`
-    return `<span class="demo-sidebar-label"><span>${label ?? demo.label}</span><span class="demo-sidebar-badge demo-sidebar-badge--${demo.className}" title="${demo.title}">${demo.badge}</span>${status}</span>`
+    return label ?? demo.label
+}
+
+const demoSidebarGroupText = (label: string, planId: PlanId) => {
+    const plan = getPlan(planId)
+    return `<span class="demo-sidebar-group-label"><span>${label}</span><span class="demo-sidebar-badge demo-sidebar-badge--${plan.badgeClass}" title="${plan.name}" aria-hidden="true">${plan.badge}</span></span>`
 }
 
 export const sidebarReactEn: DefaultTheme.SidebarItem[] = [
@@ -221,17 +223,25 @@ export const sidebarGuideDemosEn: DefaultTheme.SidebarItem[] = [
 
 export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
     {
-        text: 'Core',
+        text: demoSidebarGroupText('Core', 'open-source'),
         collapsed: false,
         items: [
             {
                 text: demoSidebarText('grid-at-scale'),
                 link: '/demo/',
             },
+            {
+                text: demoSidebarText('ai-prompt-library'),
+                link: '/demo/ai-prompts',
+            },
+            {
+                text: demoSidebarText('project-portfolio'),
+                link: '/demo/project-portfolio',
+            },
         ],
     },
     {
-        text: 'Pro',
+        text: demoSidebarGroupText('Pro', 'pro-lite'),
         collapsed: false,
         items: [
             {
@@ -273,7 +283,7 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         ],
     },
     {
-        text: 'Pro Advanced',
+        text: demoSidebarGroupText('Pro Advanced', 'pro-advanced'),
         collapsed: false,
         items: [
             {

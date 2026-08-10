@@ -80,6 +80,26 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
   },
+  'ai-prompt-library': {
+    docsUrl: '/guide/',
+    verificationOptions: [
+      { code: 'prompt_editing', label: 'Try multiline prompt editing' },
+      { code: 'search_filtering', label: 'Check search and category filtering' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  'project-portfolio': {
+    docsUrl: '/guide/row-grouping/',
+    verificationOptions: [
+      { code: 'row_grouping', label: 'Try grouped project data' },
+      { code: 'custom_cells', label: 'Check progress and status cells' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
   'project-tracker': {
     docsUrl: '/pro/',
     verificationOptions: [

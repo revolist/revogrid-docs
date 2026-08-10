@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import { existsSync, readFileSync } from 'node:fs'
 import test from 'node:test'
+import type { DefaultTheme } from 'vitepress'
 import { PRODUCT_CATALOG, type DemoId } from '../../commercial/productCatalog'
 import {
   DEMO_PAGE_LAYOUT_VERSION,
@@ -61,6 +62,13 @@ test('provides complete reusable layout content for every catalog demo', () => {
     assert.match(config.implementationUrl, new RegExp(`[?&]demo=${config.demo.id}(?:&|$)`))
     assert.match(config.pricingUrl, /^\/pricing\?source=demo-page/)
   })
+})
+
+test('uses the concise Project Portfolio description', () => {
+  assert.equal(
+    getDemoPageConfig('project-portfolio').description,
+    'Delivery portfolio with two-level row grouping, progress indicators, sorting, and filtering.',
+  )
 })
 
 test('links advanced demos to their standalone implementation repositories', () => {
@@ -295,15 +303,30 @@ test('uses the Pro Advanced violet palette for Advanced sidebar badges', () => {
   )
 })
 
+test('shows plan badges once on top-level demo groups instead of every demo row', () => {
+  const topLevelText = sidebarDemonEn.map(group => String(group.text))
+  assert.equal(topLevelText.filter(text => text.includes('demo-sidebar-badge')).length, 3)
+  assert.match(topLevelText[0], />Core<\/span>[\s\S]*>Core<\/span>/)
+  assert.match(topLevelText[1], />Pro<\/span>[\s\S]*>Lite<\/span>/)
+  assert.match(topLevelText[2], />Pro Advanced<\/span>[\s\S]*>Adv<\/span>/)
+  topLevelText.forEach(text => assert.match(text, /aria-hidden="true"/))
+
+  const itemText = (items: DefaultTheme.SidebarItem[] = []): string[] => items.flatMap(item => [
+    String(item.text ?? ''),
+    ...itemText(item.items ?? []),
+  ])
+  assert.equal(itemText(sidebarDemonEn.flatMap(group => group.items ?? [])).some(text => text.includes('demo-sidebar-badge')), false)
+})
+
 test('groups demo navigation by plan and Pro Advanced product family', () => {
   assert.deepEqual(
     sidebarDemonEn.slice(0, 2).map(group => ({
-      text: group.text,
+      text: String(group.text).match(/<span>([^<]+)<\/span>/)?.[1] ?? String(group.text),
       collapsed: group.collapsed,
       links: group.items?.map(item => item.link),
     })),
     [
-      { text: 'Core', collapsed: false, links: ['/demo/'] },
+      { text: 'Core', collapsed: false, links: ['/demo/', '/demo/ai-prompts', '/demo/project-portfolio'] },
       {
         text: 'Pro',
         collapsed: false,
@@ -323,7 +346,7 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
   )
 
   const proAdvanced = sidebarDemonEn[2]
-  assert.equal(proAdvanced.text, 'Pro Advanced')
+  assert.match(String(proAdvanced.text), />Pro Advanced<\/span>/)
   assert.equal(proAdvanced.collapsed, false)
   assert.equal(proAdvanced.items?.[0]?.link, '/demo/planning')
   assert.match(String(proAdvanced.items?.[0]?.text), /All-in-One Planning/)
@@ -346,7 +369,7 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
 
 test('resolves the requested public plan labels and try-in-project destinations', () => {
   const expected = {
-    'grid-at-scale': { plan: 'MIT', destination: '/guide/' },
+    'grid-at-scale': { plan: 'Core', destination: '/guide/' },
     'project-tracker': { plan: 'Pro Lite', destination: 'https://rv-grid.com/trial' },
     pivot: { plan: 'Pro Advanced', destination: 'https://rv-grid.com/trial' },
   } as const satisfies Partial<Record<DemoId, { plan: string, destination: string }>>

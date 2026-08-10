@@ -12,6 +12,8 @@ export type TrialDeliveryMethod = 'none' | 'private-npm' | 'sales-assisted'
 export type ProductId = 'revogrid' | 'pivot' | 'kanban' | 'gantt' | 'scheduler' | 'event-scheduler'
 export type DemoId =
   | 'grid-at-scale'
+  | 'ai-prompt-library'
+  | 'project-portfolio'
   | 'project-tracker'
   | 'excel'
   | 'audit-history'
@@ -437,6 +439,8 @@ const products = {
 
 const demos = {
   'grid-at-scale': { id: 'grid-at-scale', title: 'Grid at Scale', planId: 'open-source', status: 'stable', pageUrl: '/demo/' },
+  'ai-prompt-library': { id: 'ai-prompt-library', title: 'AI Prompt Library', planId: 'open-source', status: 'stable', pageUrl: '/demo/ai-prompts' },
+  'project-portfolio': { id: 'project-portfolio', title: 'Project Portfolio', planId: 'open-source', status: 'stable', pageUrl: '/demo/project-portfolio' },
   'project-tracker': { id: 'project-tracker', title: 'Project Tracker', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/color' },
   excel: { id: 'excel', title: 'Excel', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/excel' },
   'audit-history': { id: 'audit-history', title: 'Audit History', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/audit-history' },
