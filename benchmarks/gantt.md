@@ -20,7 +20,7 @@ import GanttBenchmarkResults from '../.vitepress/theme/GanttBenchmarkResults.vue
 
 This is a reproducible Gantt benchmark, not a claim that RevoGrid is universally the fastest. It measures the same deterministic workload repeatedly on one documented browser and machine, publishes every raw sample, and reports the median of five measured runs after one discarded warm-up.
 
-[Open the interactive benchmark](https://gantt.rv-grid.com/?example=benchmark) · [Raw JSON](https://gantt.rv-grid.com/benchmarks/latest.json) · [Raw CSV](https://gantt.rv-grid.com/benchmarks/latest.csv) · [Dataset generator](https://github.com/revolist/gantt/blob/main/src/examples/benchmark/gantt-benchmark-data.ts) · [Playwright runner](https://github.com/revolist/gantt/blob/main/scripts/run-gantt-benchmark.mjs)
+[Open the interactive benchmark](https://gantt.rv-grid.com/?example=benchmark) · [Raw JSON](/benchmarks/gantt/latest.json) · [Raw CSV](/benchmarks/gantt/latest.csv) · [Dataset generator](https://github.com/revolist/gantt/blob/main/src/examples/benchmark/gantt-benchmark-data.ts) · [Playwright runner](https://github.com/revolist/gantt/blob/main/scripts/run-gantt-benchmark.mjs)
 
 <ClientOnly>
   <GanttBenchmarkResults />
@@ -62,10 +62,10 @@ Run these commands from the [standalone Gantt repository](https://github.com/rev
 
 ## Reference image and video
 
-![RevoGrid Gantt browser benchmark with 10,000 tasks, exact dependency count, live metrics, and virtualized timeline](https://gantt.rv-grid.com/benchmarks/gantt-benchmark-reference.png)
+![RevoGrid Gantt browser benchmark with 10,000 tasks, exact dependency count, live metrics, and virtualized timeline](/benchmarks/gantt/gantt-benchmark-reference.png)
 
-<video controls muted playsinline preload="metadata" poster="https://gantt.rv-grid.com/benchmarks/gantt-benchmark-reference.png" style="width: 100%; border-radius: 12px;">
-  <source src="https://gantt.rv-grid.com/benchmarks/gantt-benchmark-walkthrough.webm" type="video/webm">
+<video controls muted playsinline preload="metadata" poster="/benchmarks/gantt/gantt-benchmark-reference.png" style="width: 100%; border-radius: 12px;">
+  <source src="/benchmarks/gantt/gantt-benchmark-walkthrough.webm" type="video/webm">
 </video>
 
 ## Known limitations

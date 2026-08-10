@@ -13,7 +13,7 @@
         <thead><tr><th>Tasks</th><th>Density</th><th>Dependencies</th><th>Apply → interactive</th><th>Navigation → interactive</th><th>Initial heap</th><th>Interaction heap</th><th>Rows / cells / bars / links</th></tr></thead>
         <tbody>
           <tr v-for="entry in rows" :key="`${entry.caseId}-initial`">
-            <td>{{ formatInteger(entry.taskCount) }}</td><td>{{ entry.density }}</td><td>{{ formatInteger(entry.dependencyCount) }}</td>
+            <td>{{ formatInteger(entry.taskCount) }}</td><td>{{ entry.density }}</td><td>{{ formatInteger(entry.dependencyTarget) }}</td>
             <td>{{ milliseconds(entry.initial, 'applyToInteractiveMs') }}</td><td>{{ milliseconds(entry.initial, 'navigationToInteractiveMs') }}</td>
             <td>{{ mebibytes(entry.memory, 'heapInitialMedianBytes') }}</td><td>{{ mebibytes(entry.memory, 'heapAfterInteractionMedianBytes') }}</td>
             <td>{{ count(entry.initial, 'dom.uniqueMountedRows') }} / {{ count(entry.initial, 'dom.mountedCells') }} / {{ count(entry.initial, 'dom.taskBars') }} / {{ count(entry.initial, 'dom.dependencyElements') }}</td>
@@ -58,6 +58,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
+import { withBase } from 'vitepress'
 
 type Metric = { median: number; p95: number; samples: number[] }
 type BenchmarkCase = { id: string; taskCount: number; density: string; dependencyTarget: number }
@@ -72,7 +73,7 @@ const loadError = ref(false)
 
 onMounted(async () => {
   try {
-    const response = await fetch('https://gantt.rv-grid.com/benchmarks/latest.json')
+    const response = await fetch(withBase('/benchmarks/gantt/latest.json'))
     if (!response.ok) throw new Error(`Benchmark result returned ${response.status}`)
     result.value = await response.json() as Result
   } catch {
