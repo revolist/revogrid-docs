@@ -569,16 +569,7 @@ $max-content-width: 1240px;
   }
 
   .demo-page-guide {
-    grid-template-columns: 1fr;
-  }
-
-  .demo-page-guide-actions {
-    grid-column: 1;
-    grid-template-columns: 1fr;
-  }
-
-  .demo-page-progress {
-    justify-content: flex-start;
+    display: none;
   }
 
   .demo-page-workspace {

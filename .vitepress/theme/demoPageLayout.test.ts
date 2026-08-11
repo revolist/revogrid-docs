@@ -333,6 +333,13 @@ test('animates the guide target as an accessible CSS pulsar', () => {
   )
 })
 
+test('hides the guided stepper on mobile', () => {
+  assert.match(
+    demoPageLayoutSource,
+    /@media \(max-width: 700px\)\s*\{[\s\S]*?\.demo-page-guide\s*\{[\s\S]*?display:\s*none;/,
+  )
+})
+
 test('does not repeat the header CTA inside the demo workspace', () => {
   assert.doesNotMatch(demoPageLayoutSource, /Ready to test this with your own data/)
   assert.doesNotMatch(demoPageLayoutSource, /demo-page-bottom-cta/)
