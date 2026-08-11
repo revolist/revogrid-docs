@@ -120,7 +120,7 @@ import RevoGrid from '@revolist/vue3-datagrid';
 import {
   PivotPlugin,
   type PivotConfig,
-} from '@revolist/revogrid-enterprise';
+} from '@revolist/pivot';
 
 const props = defineProps<{ source: Record<string, unknown>[] }>();
 const rows = shallowRef(props.source);

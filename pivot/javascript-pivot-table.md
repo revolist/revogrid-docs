@@ -104,7 +104,7 @@ import { defineCustomElements } from '@revolist/revogrid/loader';
 import {
   PivotPlugin,
   type PivotConfig,
-} from '@revolist/revogrid-enterprise';
+} from '@revolist/pivot';
 
 defineCustomElements();
 

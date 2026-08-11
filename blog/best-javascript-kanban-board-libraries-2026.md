@@ -345,7 +345,7 @@ The [Kanban implementation guide](https://pro.rv-grid.com/guides/kanban/) starts
 import {
   KanbanPlugin,
   type KanbanConfig,
-} from '@revolist/revogrid-enterprise';
+} from '@revolist/kanban';
 
 const kanban: KanbanConfig = {
   columns: [

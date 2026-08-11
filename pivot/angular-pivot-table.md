@@ -110,7 +110,7 @@ import { RevoGrid } from '@revolist/angular-datagrid';
 import {
   PivotPlugin,
   type PivotConfig,
-} from '@revolist/revogrid-enterprise';
+} from '@revolist/pivot';
 
 @Component({
   selector: 'revenue-pivot',

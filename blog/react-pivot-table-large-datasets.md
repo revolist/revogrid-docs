@@ -116,18 +116,18 @@ The field model intentionally follows Excel. Microsoft's PivotTable documentatio
 
 ## 1. Install RevoGrid and Pivot
 
-Create a React TypeScript application, configure access to your licensed or trial RevoGrid Pro packages, then install the grid, React wrapper, Pro foundation, and Enterprise package:
+Create a React TypeScript application, configure access to your licensed or trial RevoGrid Pro packages, then install the grid, React wrapper, Pro foundation, and standalone Pivot package:
 
 ```bash
 pnpm add @revolist/revogrid @revolist/react-datagrid \
-  @revolist/revogrid-pro @revolist/revogrid-enterprise
+  @revolist/revogrid-pro @revolist/pivot
 ```
 
 Import the commercial styles once in your application entry point:
 
 ```ts
 import '@revolist/revogrid-pro/dist/revogrid-pro.css';
-import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css';
+import '@revolist/pivot/styles.css';
 ```
 
 The [complete repository](https://github.com/revolist/pivot) uses exact package versions and trial aliases so a reproducible checkout does not silently change underneath a benchmark. Follow the [official trial installation guide](https://pro.rv-grid.com/guides/installation-npm-trial/) before running it; never commit a registry token.
@@ -141,7 +141,7 @@ import { commonAggregators } from '@revolist/revogrid-pro';
 import type {
   PivotConfigDimension,
   PivotConfigValue,
-} from '@revolist/revogrid-enterprise';
+} from '@revolist/pivot';
 
 export type SalesRow = {
   id: number;
@@ -234,7 +234,7 @@ Excel makes the same data-quality point: source data should be organized in colu
 Create the initial report as typed configuration:
 
 ```ts
-import type { PivotConfig } from '@revolist/revogrid-enterprise';
+import type { PivotConfig } from '@revolist/pivot';
 
 export function createPivotConfig(): PivotConfig {
   return {
@@ -329,7 +329,7 @@ import {
   type PivotChartRef,
   type PivotChartsConfig,
   type PivotConfig,
-} from '@revolist/revogrid-enterprise';
+} from '@revolist/pivot';
 import { createPivotConfig, dimensions } from './pivot-config';
 import { generateSalesRows, type SalesRow } from './sales-data';
 

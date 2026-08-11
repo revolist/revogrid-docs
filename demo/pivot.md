@@ -17,7 +17,7 @@ head:
 <script setup>
 import 'virtual:uno.css'
 import '@revolist/revogrid-pro/dist/revogrid-pro.css'
-import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
+import '@revolist/pivot/styles.css'
 
 import PivotShowcase from '@revogrid-demos/pro-advanced-pivot/src/pivot.vue'
 </script>

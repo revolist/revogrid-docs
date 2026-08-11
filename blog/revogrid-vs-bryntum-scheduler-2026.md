@@ -172,7 +172,7 @@ That is a real RevoGrid component, but it is the project-planning component.
 The current resource and event scheduler uses a different plugin:
 
 ```ts
-import { EventSchedulerPlugin } from '@revolist/revogrid-enterprise';
+import { EventSchedulerPlugin } from '@revolist/scheduler';
 
 grid.plugins = [EventSchedulerPlugin];
 ```
@@ -212,7 +212,7 @@ The validation repository places both RevoGrid surfaces over the same neutral so
 A minimal current resource-timeline setup looks like this:
 
 ```ts
-import { EventSchedulerPlugin } from '@revolist/revogrid-enterprise';
+import { EventSchedulerPlugin } from '@revolist/scheduler';
 
 grid.plugins = [EventSchedulerPlugin];
 

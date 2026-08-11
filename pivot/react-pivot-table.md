@@ -117,7 +117,7 @@ import type { DataType } from '@revolist/revogrid';
 import {
   PivotPlugin,
   type PivotConfig,
-} from '@revolist/revogrid-enterprise';
+} from '@revolist/pivot';
 
 const initialPivot = {
   dimensions: [

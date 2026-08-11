@@ -76,7 +76,7 @@ Use stable primitive identifiers and numeric order values. Spaced seed ranks suc
 The column array controls the visible workflow order, labels, widths, and optional capacity rules:
 
 ```ts
-import type { KanbanConfig } from '@revolist/revogrid-enterprise';
+import type { KanbanConfig } from '@revolist/kanban';
 
 const kanban: KanbanConfig<WorkItem> = {
   columns: [

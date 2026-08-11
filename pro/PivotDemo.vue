@@ -38,10 +38,10 @@ import { computed, ref } from 'vue'
 import { useData } from 'vitepress'
 import NumberColumnType from '@revolist/revogrid-column-numeral'
 import RevoGrid, { type DataType, type GridPlugin } from '@revolist/vue3-datagrid'
-import { PivotPlugin, type PivotConfig } from '../.vitepress/revogrid-enterprise-pivot-shim'
+import { PivotPlugin, type PivotConfig } from '../.vitepress/revogrid-pivot-shim'
 import { AdvanceFilterPlugin, RowOddPlugin, commonAggregators } from '../.vitepress/revogrid-pro-shim'
 import '@revolist/revogrid-pro/dist/revogrid-pro.css'
-import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
+import '@revolist/pivot/styles.css'
 
 const { isDark } = useData()
 

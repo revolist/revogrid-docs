@@ -67,7 +67,7 @@ const revogridProWorkspaceRoot = path.resolve(__dirname, '../../..')
 const revogridDemosRoot = path.resolve(__dirname, '../revogrid-demos')
 const revogridDemoDataSuffix = '.revogrid-demo-source.ts'
 const localProPackageRoot = path.resolve(revogridProWorkspaceRoot, 'packages/pro')
-const localEnterprisePackageRoot = path.resolve(revogridProWorkspaceRoot, 'packages/enterprise')
+const standaloneProductNames = ['gantt', 'kanban', 'pivot', 'scheduler'] as const
 const useLocalProPackages =
     process.env.npm_lifecycle_event === 'dev' ||
     process.env.npm_lifecycle_script?.includes('vitepress dev') ||
@@ -79,17 +79,23 @@ const localProPackageAliases = useLocalProPackages
             replacement: path.resolve(localProPackageRoot, 'dist/revogrid-pro.css'),
         },
         {
-            find: /^@revolist\/revogrid-enterprise\/dist\/revogrid-enterprise\.css$/,
-            replacement: path.resolve(localEnterprisePackageRoot, 'dist/revogrid-enterprise.css'),
-        },
-        {
             find: /^@revolist\/revogrid-pro$/,
             replacement: path.resolve(localProPackageRoot, 'dist/revogrid-pro.js'),
         },
-        {
-            find: /^@revolist\/revogrid-enterprise$/,
-            replacement: path.resolve(localEnterprisePackageRoot, 'dist/revogrid-enterprise.js'),
-        },
+        ...standaloneProductNames.flatMap((productName) => {
+            const packageRoot = path.resolve(revogridProWorkspaceRoot, `packages/${productName}`)
+
+            return [
+                {
+                    find: new RegExp(`^@revolist/${productName}/styles\\.css$`),
+                    replacement: path.resolve(packageRoot, `dist/${productName}.css`),
+                },
+                {
+                    find: new RegExp(`^@revolist/${productName}$`),
+                    replacement: path.resolve(packageRoot, `dist/${productName}.js`),
+                },
+            ]
+        }),
     ]
     : []
 
@@ -502,7 +508,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             noExternal: [
                 'element-plus',
                 '@revolist/revogrid-pro',
-                '@revolist/revogrid-enterprise',
+                '@revolist/gantt',
+                '@revolist/kanban',
+                '@revolist/pivot',
+                '@revolist/scheduler',
                 '@revolist/revogrid-column-date',
                 '@revolist/revogrid-column-numeral',
                 '@revolist/revogrid-column-select',
@@ -518,7 +527,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         ? []
                         : [
                             '@revolist/revogrid-pro',
-                            '@revolist/revogrid-enterprise',
+                            '@revolist/gantt',
+                            '@revolist/kanban',
+                            '@revolist/pivot',
+                            '@revolist/scheduler',
                         ]
                 ),
                 '@braintree/sanitize-url',
@@ -532,7 +544,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 ? {
                     exclude: [
                         '@revolist/revogrid-pro',
-                        '@revolist/revogrid-enterprise',
+                        '@revolist/gantt',
+                        '@revolist/kanban',
+                        '@revolist/pivot',
+                        '@revolist/scheduler',
                     ],
                 }
                 : {}),

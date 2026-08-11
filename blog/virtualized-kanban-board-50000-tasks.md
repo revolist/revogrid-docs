@@ -229,7 +229,7 @@ import {
   KanbanCardEditorDialogPlugin,
   KanbanPlugin,
   type KanbanConfig,
-} from '@revolist/revogrid-enterprise';
+} from '@revolist/kanban';
 
 type WorkflowStatus =
   | 'backlog'
@@ -522,7 +522,7 @@ import {
   KANBAN_CARD_MOVE_EVENT,
   type KanbanBeforeCardMoveDetail,
   type KanbanCardMoveDetail,
-} from '@revolist/revogrid-enterprise';
+} from '@revolist/kanban';
 
 grid.addEventListener(
   BEFORE_KANBAN_CARD_MOVE_EVENT,

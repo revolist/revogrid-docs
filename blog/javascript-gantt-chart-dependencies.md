@@ -446,7 +446,7 @@ import {
   type DependencyEntity,
   type GanttTaskSourceRow,
   type TaskTableColumnProp,
-} from '@revolist/revogrid-enterprise';
+} from '@revolist/gantt';
 
 defineCustomElements();
 
@@ -604,7 +604,7 @@ RevoGrid is built on Web Components, with framework wrappers for React, Vue, Ang
 ```tsx
 import React, { useMemo, useRef } from 'react';
 import { RevoGrid } from '@revolist/react-datagrid';
-import { GanttPlugin } from '@revolist/revogrid-enterprise';
+import { GanttPlugin } from '@revolist/gantt';
 
 export function ProjectGantt() {
   const gridRef = useRef<HTMLRevoGridElement>(null);

@@ -217,7 +217,7 @@ This tutorial targets the Planning-model Kanban API. Keep the Pro and Enterprise
 
 The React wrapper renders the same RevoGrid core used by other framework integrations. Kanban is supplied by the Enterprise plugin package, while its visual styles are loaded from the Pro and Enterprise stylesheets.
 
-For a licensed project, replace the trial package imports with `@revolist/revogrid-pro` and `@revolist/revogrid-enterprise` according to the production installation guide.
+For a licensed project, use `@revolist/revogrid-pro` and the standalone `@revolist/kanban` package according to the production installation guide.
 
 ## Step 2: Model cards as canonical TypeScript records
 

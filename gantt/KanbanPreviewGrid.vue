@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 import '@revolist/revogrid-pro/dist/revogrid-pro.css'
-import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
+import '@revolist/kanban/styles.css'
 import { defineAsyncComponent } from 'vue'
 import type { GanttLandingPage } from './ganttLanding'
 import ProductPreviewFrame from './ProductPreviewFrame.vue'

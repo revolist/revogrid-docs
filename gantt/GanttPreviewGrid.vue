@@ -21,11 +21,11 @@
 <script lang="ts" setup>
 import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 import RevoGrid from '@revolist/vue3-datagrid'
-import { GanttPlugin } from '@revolist/revogrid-enterprise'
+import { GanttPlugin } from '@revolist/gantt'
 import { assignments, calendars, columns, ganttConfig, resources, tasks } from './ganttPreviewData'
 import type { GanttLandingPage } from './ganttLanding'
 import ProductPreviewFrame from './ProductPreviewFrame.vue'
-import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
+import '@revolist/gantt/styles.css'
 
 defineProps<{
   preview: GanttLandingPage['preview']
