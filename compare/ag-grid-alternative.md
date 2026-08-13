@@ -110,7 +110,7 @@ const comparisonProductVisuals = [
   use-cases="a new product or an AG Grid migration"
 />
 
-## AG Grid vs RevoGrid: the short answer
+## Short answer: which grid fits? {#AG-Grid-vs-RevoGrid-the-short-answer}
 
 Both grids can power serious data-heavy applications. The better choice depends on what your team is optimizing for.
 
@@ -133,12 +133,12 @@ Both grids can power serious data-heavy applications. The better choice depends 
 
 <CompareProductVisuals
   id="ag-grid-revogrid-interface-examples"
-  heading="AG Grid and RevoGrid interface examples"
+  heading="See both product interfaces"
   description="Use these product snapshots to compare the interaction style before you work through the detailed feature and licensing matrix."
   :products="comparisonProductVisuals"
 />
 
-## AG Grid vs RevoGrid: quick comparison
+## Quick comparison {#AG-Grid-vs-RevoGrid-quick-comparison}
 
 | Category | AG Grid | RevoGrid |
 |---|---|---|
@@ -152,7 +152,7 @@ Both grids can power serious data-heavy applications. The better choice depends 
 | Upgrade path | Community to Enterprise | MIT core to Pro/Pro Advanced without changing the grid foundation |
 | Best for | Enterprise teams already standardized on AG Grid | SaaS, product teams, internal tools, and engineering teams that want speed, flexibility, and simpler scaling |
 
-## Why teams compare AG Grid alternatives
+## Why teams evaluate AG Grid alternatives {#Why-teams-compare-AG-Grid-alternatives}
 
 AG Grid is capable, but another grid can be a better fit when your product needs:
 
@@ -165,7 +165,7 @@ AG Grid is capable, but another grid can be a better fit when your product needs
 
 If these are not your priorities and AG Grid already works well for your team, staying with AG Grid may be the lower-risk choice.
 
-## AG Grid vs RevoGrid: Advanced Feature Support Matrix
+## Advanced feature support matrix {#AG-Grid-vs-RevoGrid-Advanced-Feature-Support-Matrix}
 
 > **Legend:**  
 > ✅ = built-in / officially supported  
@@ -528,7 +528,7 @@ If these are not your priorities and AG Grid already works well for your team, s
 
 ---
 
-## 1. RevoGrid starts with an MIT-licensed core
+## 1. Open-source licensing and upgrade path {#_1-RevoGrid-starts-with-an-MIT-licensed-core}
 
 A good AG Grid alternative should not force your team into an enterprise licence before you know whether the grid fits your product.
 
@@ -550,7 +550,7 @@ You do not need to replace the grid to upgrade the product.
 
 ---
 
-## 2. RevoGrid works across modern frontend frameworks
+## 2. Framework portability {#_2-RevoGrid-works-across-modern-frontend-frameworks}
 
 Data grids are rarely isolated widgets. They become deeply integrated with your application state, design system, permission model, routing, validation, and backend APIs.
 
@@ -584,7 +584,7 @@ RevoGrid is especially useful when your organization wants a reusable grid archi
 
 ---
 
-## 3. RevoGrid is built for large datasets
+## 3. Large-dataset performance {#_3-RevoGrid-is-built-for-large-datasets}
 
 Basic table components work until your data gets large.
 
@@ -624,7 +624,7 @@ You need a grid engine.
 
 ---
 
-## 4. RevoGrid gives users spreadsheet-like UX inside your app
+## 4. Spreadsheet-like editing and workflows {#_4-RevoGrid-gives-users-spreadsheet-like-UX-inside-your-app}
 
 Many business users already understand spreadsheets.
 
@@ -684,7 +684,7 @@ Start with a fast editable grid. Add spreadsheet and analytics workflows when yo
 
 ---
 
-## 5. RevoGrid avoids deployment-counting friction
+## 5. Deployment and licensing model {#_5-RevoGrid-avoids-deployment-counting-friction}
 
 Licensing is one of the most important reasons teams compare AG Grid alternatives.
 
@@ -718,7 +718,7 @@ RevoGrid is a strong AG Grid alternative for SaaS teams because commercial usage
 
 ---
 
-## 6. RevoGrid is simpler for product teams
+## 6. Implementation complexity {#_6-RevoGrid-is-simpler-for-product-teams}
 
 A data grid should help your team ship faster.
 
@@ -744,7 +744,7 @@ With RevoGrid, those features can grow from the same grid foundation.
 
 ---
 
-## 7. RevoGrid is a practical AG Grid alternative for SaaS
+## 7. SaaS product fit {#_7-RevoGrid-is-a-practical-AG-Grid-alternative-for-SaaS}
 
 SaaS products have different constraints from traditional enterprise software.
 
@@ -767,7 +767,7 @@ It is the one that keeps product, engineering, and commercial teams aligned.
 
 ---
 
-## 8. RevoGrid is not just a cheaper AG Grid alternative
+## 8. Value beyond the license price {#_8-RevoGrid-is-not-just-a-cheaper-AG-Grid-alternative}
 
 Choosing a grid only because it is cheaper is risky.
 
@@ -807,7 +807,7 @@ It makes RevoGrid a product infrastructure choice.
 
 ---
 
-## 9. Use RevoGrid when the grid is part of your product
+## 9. Best-fit product use cases {#_9-Use-RevoGrid-when-the-grid-is-part-of-your-product}
 
 Some applications only need to display a simple list.
 
@@ -900,7 +900,7 @@ Test dependencies, baselines, resources, and critical-path planning in the [live
 
 ---
 
-## 10. When AG Grid may still be the right choice
+## 10. When AG Grid is the right choice {#_10-When-AG-Grid-may-still-be-the-right-choice}
 
 A fair comparison should be honest: AG Grid is a strong data grid.
 
@@ -921,7 +921,7 @@ But if you are starting a new product, reviewing licensing, consolidating fronte
 
 ---
 
-## 11. When RevoGrid is the better AG Grid alternative
+## 11. When to choose RevoGrid {#_11-When-RevoGrid-is-the-better-AG-Grid-alternative}
 
 RevoGrid is usually the better fit when your team wants:
 
@@ -942,7 +942,7 @@ In other words, choose RevoGrid when you want the grid to support product growth
 
 ---
 
-## 12. Migration checklist: evaluating RevoGrid as an AG Grid replacement
+## 12. Migration checklist {#_12-Migration-checklist-evaluating-RevoGrid-as-an-AG-Grid-replacement}
 
 If you are comparing RevoGrid and AG Grid for an existing application, use this checklist.
 
@@ -997,7 +997,7 @@ If deployment counting, end-user ambiguity, or framework fragmentation are conce
 
 ---
 
-## 13. RevoGrid vs building your own data grid
+## 13. Build vs buy {#_13-RevoGrid-vs-building-your-own-data-grid}
 
 Some teams consider building their own grid instead of choosing AG Grid, RevoGrid, or another JavaScript data grid.
 
@@ -1040,7 +1040,7 @@ RevoGrid gives you the grid foundation so your team can focus on what makes your
 
 ---
 
-## 14. RevoGrid as an AG Grid alternative for AI-assisted development
+## 14. AI-assisted development {#_14-RevoGrid-as-an-AG-Grid-alternative-for-AI-assisted-development}
 
 Modern teams increasingly use AI coding tools to generate components, wire up APIs, and build interface variations.
 
@@ -1058,7 +1058,7 @@ RevoGrid provides the actual grid engine.
 
 ---
 
-## 15. Recommended decision framework
+## 15. Decision framework {#_15-Recommended-decision-framework}
 
 Use this framework if your team is deciding between AG Grid and RevoGrid.
 

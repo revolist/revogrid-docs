@@ -41,6 +41,13 @@ function advantageTier(row) {
   return 3
 }
 
+function parseH2Headings(source) {
+  return source
+    .split('\n')
+    .filter(line => line.startsWith('## '))
+    .map(line => line.slice(3).replace(/\s+\{#[^}]+\}$/, ''))
+}
+
 test('opens the AG Grid comparison with a clear search and decision promise', () => {
   assert.match(articleSource, /^title: "AG Grid Alternative: RevoGrid vs AG Grid \(2026\)"$/m)
   assert.match(articleSource, /^description: Compare RevoGrid vs AG Grid on licensing, pricing,/m)
@@ -48,7 +55,10 @@ test('opens the AG Grid comparison with a clear search and decision promise', ()
   assert.match(articleSource, /"@id": "https:\/\/rv-grid\.com\/compare\/ag-grid-alternative"/)
   assert.match(articleSource, /"dateModified": "2026-08-13"/)
   assert.match(articleSource, /^# AG Grid Alternative: RevoGrid vs AG Grid \(2026\)$/m)
-  assert.match(articleSource, /^## AG Grid vs RevoGrid: the short answer$/m)
+  assert.match(
+    articleSource,
+    /^## Short answer: which grid fits\? \{#AG-Grid-vs-RevoGrid-the-short-answer\}$/m,
+  )
   assert.match(articleSource, /\| Choose RevoGrid when you need \| Choose AG Grid when you need \|/)
 })
 
@@ -57,10 +67,10 @@ test('preserves the indexed URL, search coverage, and long-form comparison', () 
   assert.ok(articleSource.split(/\s+/).length > 9_000)
 
   for (const heading of [
-    '## AG Grid vs RevoGrid: Advanced Feature Support Matrix',
-    '## 1. RevoGrid starts with an MIT-licensed core',
-    '## 10. When AG Grid may still be the right choice',
-    '## 15. Recommended decision framework',
+    '## Advanced feature support matrix',
+    '## 1. Open-source licensing and upgrade path',
+    '## 10. When AG Grid is the right choice',
+    '## 15. Decision framework',
   ]) {
     assert.ok(articleSource.includes(heading), `Missing protected section: ${heading}`)
   }
@@ -85,7 +95,7 @@ test('routes research-stage visitors to a useful next action before purchase', (
   assert.match(articleSource, /\[Review RevoGrid licensing\]\(\/guide\/licensing\)/)
 
   const goalRouterIndex = articleSource.indexOf('### Start with your goal')
-  const featureMatrixIndex = articleSource.indexOf('## AG Grid vs RevoGrid: Advanced Feature Support Matrix')
+  const featureMatrixIndex = articleSource.indexOf('## Advanced feature support matrix')
 
   assert.ok(goalRouterIndex > -1)
   assert.ok(featureMatrixIndex > goalRouterIndex)
@@ -94,7 +104,7 @@ test('routes research-stage visitors to a useful next action before purchase', (
 test('shows real RevoGrid and AG Grid interfaces with accessible reusable figures', () => {
   assert.match(articleSource, /import CompareProductVisuals from '\.\/CompareProductVisuals\.vue'/)
   assert.match(articleSource, /<CompareProductVisuals\n\s+id="ag-grid-revogrid-interface-examples"/)
-  assert.match(articleSource, /heading="AG Grid and RevoGrid interface examples"/)
+  assert.match(articleSource, /heading="See both product interfaces"/)
   assert.match(articleSource, /src: '\/img\/pro-demo\.png'/)
   assert.match(articleSource, /src: '\/blog\/aggrid-demo\.png'/)
   assert.match(articleSource, /alt: 'RevoGrid data grid showing grouped project rows,/)
@@ -106,7 +116,7 @@ test('shows real RevoGrid and AG Grid interfaces with accessible reusable figure
 
   const visualIndex = articleSource.indexOf('<CompareProductVisuals')
   assert.ok(visualIndex > articleSource.indexOf('### Start with your goal'))
-  assert.ok(visualIndex < articleSource.indexOf('## AG Grid vs RevoGrid: quick comparison'))
+  assert.ok(visualIndex < articleSource.indexOf('## Quick comparison'))
 
   assert.match(productVisualsSource, /<figure\n\s+v-for="product in products"/)
   assert.match(productVisualsSource, /<figcaption>/)
@@ -117,6 +127,39 @@ test('shows real RevoGrid and AG Grid interfaces with accessible reusable figure
   assert.match(productVisualsSource, /decoding="async"/)
   assert.match(productVisualsSource, /'noopener noreferrer'/)
   assert.match(productVisualsSource, /@container \(min-width: 760px\)/)
+})
+
+test('uses reader-focused section labels while preserving every legacy fragment', () => {
+  const headings = new Map([
+    ['Short answer: which grid fits?', 'AG-Grid-vs-RevoGrid-the-short-answer'],
+    ['Quick comparison', 'AG-Grid-vs-RevoGrid-quick-comparison'],
+    ['Why teams evaluate AG Grid alternatives', 'Why-teams-compare-AG-Grid-alternatives'],
+    ['Advanced feature support matrix', 'AG-Grid-vs-RevoGrid-Advanced-Feature-Support-Matrix'],
+    ['1. Open-source licensing and upgrade path', '_1-RevoGrid-starts-with-an-MIT-licensed-core'],
+    ['2. Framework portability', '_2-RevoGrid-works-across-modern-frontend-frameworks'],
+    ['3. Large-dataset performance', '_3-RevoGrid-is-built-for-large-datasets'],
+    ['4. Spreadsheet-like editing and workflows', '_4-RevoGrid-gives-users-spreadsheet-like-UX-inside-your-app'],
+    ['5. Deployment and licensing model', '_5-RevoGrid-avoids-deployment-counting-friction'],
+    ['6. Implementation complexity', '_6-RevoGrid-is-simpler-for-product-teams'],
+    ['7. SaaS product fit', '_7-RevoGrid-is-a-practical-AG-Grid-alternative-for-SaaS'],
+    ['8. Value beyond the license price', '_8-RevoGrid-is-not-just-a-cheaper-AG-Grid-alternative'],
+    ['9. Best-fit product use cases', '_9-Use-RevoGrid-when-the-grid-is-part-of-your-product'],
+    ['10. When AG Grid is the right choice', '_10-When-AG-Grid-may-still-be-the-right-choice'],
+    ['11. When to choose RevoGrid', '_11-When-RevoGrid-is-the-better-AG-Grid-alternative'],
+    ['12. Migration checklist', '_12-Migration-checklist-evaluating-RevoGrid-as-an-AG-Grid-replacement'],
+    ['13. Build vs buy', '_13-RevoGrid-vs-building-your-own-data-grid'],
+    ['14. AI-assisted development', '_14-RevoGrid-as-an-AG-Grid-alternative-for-AI-assisted-development'],
+    ['15. Decision framework', '_15-Recommended-decision-framework'],
+  ])
+
+  for (const [label, id] of headings) {
+    assert.ok(articleSource.includes(`## ${label} {#${id}}`), `Missing preserved heading ID: ${id}`)
+  }
+
+  const visibleHeadings = parseH2Headings(articleSource)
+  assert.equal(visibleHeadings.filter(heading => /^(?:\d+\.\s+)?RevoGrid\b/.test(heading)).length, 0)
+  assert.doesNotMatch(visibleHeadings.join('\n'), /RevoGrid (starts|works|is built|gives|avoids|is simpler)/)
+  assert.match(articleSource, /\[Jump to the feature matrix\]\(#AG-Grid-vs-RevoGrid-Advanced-Feature-Support-Matrix\)/)
 })
 
 test('keeps shared commercial CTA defaults for other comparison pages', () => {
@@ -194,25 +237,25 @@ test('distinguishes Core last-column stretch from Advanced Column Stretching', (
 
 test('cross-links each major evaluation topic to a relevant internal resource', () => {
   const sectionLinks = new Map([
-    ['## 1. RevoGrid starts with an MIT-licensed core', ['/pro/feature-table']],
-    ['## 2. RevoGrid works across modern frontend frameworks', ['/guide/data-sync']],
-    ['## 3. RevoGrid is built for large datasets', ['/guide/performance']],
-    ['## 4. RevoGrid gives users spreadsheet-like UX inside your app', [
+    ['## 1. Open-source licensing and upgrade path', ['/pro/feature-table']],
+    ['## 2. Framework portability', ['/guide/data-sync']],
+    ['## 3. Large-dataset performance', ['/guide/performance']],
+    ['## 4. Spreadsheet-like editing and workflows', [
       '/guide/editing',
       '/guide/clipboard',
       '/guide/data-grid-export-excel',
     ]],
-    ['## 7. RevoGrid is a practical AG Grid alternative for SaaS', ['/blog/building-enterprise-dashboards']],
-    ['## 8. RevoGrid is not just a cheaper AG Grid alternative', ['/guide/patterns']],
-    ['## 9. Use RevoGrid when the grid is part of your product', [
+    ['## 7. SaaS product fit', ['/blog/building-enterprise-dashboards']],
+    ['## 8. Value beyond the license price', ['/guide/patterns']],
+    ['## 9. Best-fit product use cases', [
       '/guide/realtime-updates',
       '/guide/filters',
       '/guide/server-side-data',
       '/demo/pivot',
       '/demo/gantt',
     ]],
-    ['## 10. When AG Grid may still be the right choice', ['/blog/best-js-datagrid-in-2026']],
-    ['## 14. RevoGrid as an AG Grid alternative for AI-assisted development', [
+    ['## 10. When AG Grid is the right choice', ['/blog/best-js-datagrid-in-2026']],
+    ['## 14. AI-assisted development', [
       '/guide/mcp',
       '/demo/ai-prompts',
     ]],
