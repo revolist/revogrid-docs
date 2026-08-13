@@ -12,7 +12,12 @@
       for {{ useCases }}.
     </p>
 
-    <CompareCta />
+    <CompareCta
+      :primary-href="primaryCtaHref"
+      :primary-label="primaryCtaLabel"
+      :secondary-href="secondaryCtaHref"
+      :secondary-label="secondaryCtaLabel"
+    />
 
     <p class="compare-note">
       Last reviewed: {{ reviewedDate }}. Vendor pricing, license terms, and feature
@@ -29,13 +34,21 @@ withDefaults(defineProps<{
   competitorSummary: string
   useCases: string
   eyebrow?: string
+  primaryCtaHref?: string
+  primaryCtaLabel?: string
   revoSummary?: string
   reviewedDate?: string
+  secondaryCtaHref?: string
+  secondaryCtaLabel?: string
 }>(), {
   eyebrow: 'Deep technical comparison for product teams',
+  primaryCtaHref: '/trial',
+  primaryCtaLabel: 'Request Pro Trial',
   revoSummary:
     'RevoGrid Core and RevoGrid Pro are best understood as a fast data-grid foundation plus optional advanced workflow modules.',
   reviewedDate: 'June 4, 2026',
+  secondaryCtaHref: '/pricing#pro-advanced',
+  secondaryCtaLabel: 'Buy Pro',
 })
 </script>
 

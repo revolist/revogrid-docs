@@ -27,6 +27,15 @@ The comparison pages focus on practical buying and implementation questions: lic
 Compare RevoGrid with popular JavaScript data grid, spreadsheet, table, and enterprise UI suite alternatives.
 
 <div class="compare-index-grid">
+  <a class="compare-index-card" href="/compare/ag-grid-alternatives">
+    <div class="compare-index-preview">
+      <img src="/blog/aggrid.png" alt="Open-source AG Grid alternatives comparison" loading="lazy">
+    </div>
+    <span class="compare-index-label">Open-source grid shortlist</span>
+    <span class="compare-index-title">Open-Source AG Grid Alternatives</span>
+    <p>Compare six open-source grids from the start: filtering, range selection, copy and paste, editing, virtualization, frameworks, export, accessibility, and license boundaries.</p>
+  </a>
+
   <a class="compare-index-card" href="/compare/ag-grid-alternative">
     <div class="compare-index-preview">
       <img src="/blog/aggrid.png" alt="AG Grid logo" loading="lazy">
