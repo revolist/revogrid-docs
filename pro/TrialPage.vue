@@ -38,7 +38,6 @@
     <TrustedLogoStrip
       title-id="trial-trust-title"
       variant="trial"
-      :metrics="metrics"
     />
 
     <section class="trial-steps" aria-labelledby="trial-steps-title">
@@ -88,13 +87,6 @@ const benefits = [
   'Public boilerplate repository and live demos',
   `Evaluate ${litePlan.name} and ${advancedPlan.name} modules`,
   'Guidance for app-level Pro evaluation',
-]
-
-const metrics = [
-  { value: '900K+', label: 'jsDelivr downloads / mo' },
-  { value: '3.4K+', label: 'GitHub stars' },
-  { value: `${litePlan.trial.durationDays} days`, label: 'to evaluate Pro' },
-  { value: '< 1 day', label: 'typical access time' },
 ]
 
 const steps = [

@@ -6,6 +6,7 @@
     <HomeDemoGallery v-if="data.demos" :section="data.demos" />
     <HomeCapabilities :section="data.capabilities" />
     <HomeDeveloperSection :section="data.developer" />
+    <HomeFeedbackCloud :section="data.feedback" />
     <HomeAdvancedModules :section="data.advanced" />
     <HomeUseCases v-if="data.useCases" :section="data.useCases" />
     <HomeComparison :section="data.comparison" />
@@ -26,6 +27,7 @@ import HomeComparison from './home-v2/HomeComparison.vue'
 import HomeDemoGallery from './home-v2/HomeDemoGallery.vue'
 import HomeDeveloperSection from './home-v2/HomeDeveloperSection.vue'
 import HomeFaq from './home-v2/HomeFaq.vue'
+import HomeFeedbackCloud from './home-v2/HomeFeedbackCloud.vue'
 import HomeFinalCta from './home-v2/HomeFinalCta.vue'
 import HomeHeroSection from './home-v2/HomeHeroSection.vue'
 import HomeStatsTrust from './home-v2/HomeStatsTrust.vue'

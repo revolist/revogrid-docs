@@ -236,6 +236,79 @@ developer:
 
         __LT__RevoGrid {source} {columns} /__GT__
 
+feedback:
+  label: What builders say
+  title: Built into products. Praised in practice.
+  description: From open-source adopters to Pro teams, builders call out the speed, flexibility, value, and people behind RevoGrid.
+  items:
+    - quote: One of the best value grid solutions compared to other grid libraries, especially in terms of pricing, performance, and large dataset handling.
+      attribution: RevoGrid Pro customer
+      source: Customer email
+      size: featured
+      tone: green
+    - quote: Thank you for this amazing library, we are really impressed about the performance of the grid component.
+      attribution: RevoGrid user
+      source: GitHub
+      link: https://github.com/revolist/revogrid/issues/141
+      size: wide
+      tone: blue
+    - quote: Makes development a lot easier.
+      attribution: RevoGrid Advanced customer
+      source: Customer email
+      size: compact
+      tone: violet
+    - quote: I have to add my voice that it is truly wonderful. Building it with StencilJS was a very smart strategy!
+      attribution: RevoGrid user
+      source: GitHub
+      link: https://github.com/revolist/revogrid/issues/193
+      size: medium
+      tone: amber
+    - quote: We are VERY happy with the PivotGrid.
+      attribution: PivotGrid customer
+      source: Customer email
+      size: compact
+      tone: green
+    - quote: Thank you for this great revolutionary grid.
+      attribution: RevoGrid user
+      source: GitHub
+      link: https://github.com/revolist/revogrid/issues/211
+      size: medium
+      tone: blue
+    - quote: Very happy I upgraded, happy to support companies that listen and implement feedback.
+      attribution: RevoGrid Advanced customer
+      source: Customer email
+      size: wide
+      tone: violet
+    - quote: Thanks for all the hard work on this great component!
+      attribution: RevoGrid user
+      source: GitHub
+      link: https://github.com/revolist/revogrid/issues/129
+      size: medium
+      tone: amber
+    - quote: Everything works great.
+      attribution: RevoGrid user
+      source: GitHub
+      link: https://github.com/revolist/revogrid/issues/344
+      size: compact
+      tone: green
+    - quote: You have a great product, RevoGrid.
+      attribution: RevoGrid Pro customer
+      source: Customer email
+      size: medium
+      tone: blue
+    - quote: Awesome library!!
+      attribution: RevoGrid user
+      source: GitHub
+      link: https://github.com/revolist/revogrid/issues/52
+      size: compact
+      tone: violet
+    - quote: Congratulations for RevoGrid. It's really amazing.
+      attribution: RevoGrid user
+      source: GitHub
+      link: https://github.com/revolist/revogrid/issues/172
+      size: medium
+      tone: amber
+
 advanced:
   label: Advanced modules
   title: Same grid engine. Bigger product surfaces.
