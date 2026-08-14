@@ -48,8 +48,25 @@ hero:
       link: /guide/
 
 trust:
-  kicker: Used by teams at companies including
+  kicker: Used by teams at
   title: Companies using RevoGrid
+
+recommended:
+  title: Engineered for
+  details: Every Challenge.
+  features:
+    - title: Individuals
+      icon:
+        src: individual.svg
+      details: Quickly build elegant and efficient data grids. Lightweight yet powerful architecture lets you easily scale as your needs grow.
+    - title: Startups and Innovators
+      icon:
+        src: startup.svg
+      details: Rapid prototyping with intuitive and extendable codebase. Agility to build robust data-driven applications in no time.
+    - title: Enterprise Solutions
+      icon:
+        src: org.svg
+      details: For large organizations managing massive datasets. Performance and scalability to handle even the most complex data tables.
 
 # demos:
 #   label: Live demos
@@ -85,103 +102,38 @@ trust:
 #       type: realtime
 
 capabilities:
-  label: Core capabilities
-  title: A grid engine, not a fixed component
-  description: RevoGrid is built for applications that outgrow simple table libraries.
+  title: Build data products people love to use.
+  emphasis: people love
+  description: Create focused tools, customer-facing apps, and enterprise platforms with spreadsheet-grade editing, advanced filtering, rich formatting, and flexible hierarchy.
   items:
-    - title: Performance at scale
-      icon: pulse
-      link: "/guide/performance"
-      description: Renders millions of rows at 60 fps. Virtual scrolling, frozen columns, and pinned rows — no pagination required.
-    - title: Spreadsheet-grade editing
-      icon: grid
+    - id: editing
+      title: Spreadsheet-grade editing
+      icon: edit
       link: "/guide/editing"
-      description: Range selection, keyboard navigation, copy/paste, and inline editing. The UX your users already know.
-    - title: Advanced filtering and sorting
-      icon: tool
-      link: "/guide/filters"
-      description: AND/OR condition trees across multiple filters per column. Additive multi-column sorting. All built into the core.
-    - title: Grouping and row ordering
-      icon: app
-      link: "/guide/row/grouping"
-      description: Group rows by any column. Drag to reorder. Full tree and nested data support included.
-    - title: Custom cells and editors
-      icon: star
-      link: "/guide/cell/renderer"
-      description: Any Vue, React, Angular, or Svelte component becomes a cell. Build pickers, badges, sparklines — whatever you need.
-    - title: Plugin architecture
-      icon: plugin
-      link: "/guide/plugin/"
-      description: Add column menus, export, history, or build your own. Extend without forking.
-
-nativeCells:
-  label: No context switch
-  title: Full native framework support
-  description: RevoGrid supports React, Vue, Angular, and Svelte at the core JavaScript DataGrid level, so developers can build data-heavy apps with native components, familiar framework patterns, and virtualized grid rendering.
-  links:
-    - text: React cells
-      href: /react-data-grid
-    - text: Vue cells
-      href: /vue-data-grid
-    - text: Angular cells
-      href: /angular-data-grid
-    - text: Svelte cells
-      href: /svelte-data-grid
-  examples:
-    - framework: React
-      color: '#61DAFB'
-      lang: tsx
-      code: |
-        const Cell = ({ value }) => (
-          __LT__strong__GT__{value}__LT__/strong__GT__
-        )
-
-        const columns = [
-          { prop: 'value', cellTemplate: Template(Cell) },
-        ]
-
-        __LT__RevoGrid columns={columns} source={rows} /__GT__
-    - framework: Vue
-      color: '#4FC08D'
-      lang: vue
-      code: |
-        __LT__script setup__GT__
-        import Cell from './Cell.vue'
-        const columns = [{
-          prop: 'value',
-          cellTemplate: VGridVueTemplate(Cell),
-        }]
-        __LT__/script__GT__
-
-        __LT__template__GT__
-          __LT__RevoGrid :columns="columns" :source="rows" /__GT__
-        __LT__/template__GT__
-    - framework: Angular
-      color: '#DD0031'
-      lang: ts
-      code: |
-        @Component({
-          template: '{{ props.model.value }}',
-        })
-        class CellComponent {}
-
-        columns = [
-          { prop: 'value', cellTemplate: Template(CellComponent) },
-        ]
-    - framework: Svelte
-      color: '#FF3E00'
-      lang: svelte
-      code: |
-        __LT__script lang="ts"__GT__
-          import Cell from './Cell.svelte'
-          import { RevoGrid, Template } from '@revolist/svelte-datagrid'
-
-          const columns = [
-            { prop: 'value', cellTemplate: Template(Cell) },
-          ]
-        __LT__/script__GT__
-
-        __LT__RevoGrid {columns} source={rows} /__GT__
+      description: Familiar inline editing, selection, navigation, and paste.
+    - id: control
+      title: Data control built in
+      icon: columns
+      link: "/guide/column/"
+      description: Sorting, resizing, selection, and column movement.
+    - id: filtering
+      title: Advanced filtering
+      tag: Pro
+      icon: filter
+      link: "/demo/filtering"
+      description: Owner selection, formatted cells, and spreadsheet actions.
+    - id: formatting
+      title: Spreadsheet formatting
+      tag: Pro
+      icon: palette
+      link: "/demo/context-menu"
+      description: Progress bars, currency, and reusable presentation rules.
+    - id: tree
+      title: Tree data
+      tag: Pro
+      icon: tree
+      link: "/demo/tree-data"
+      description: Filterable hierarchy with persistent parent context.
 
 developer:
   label: For developers

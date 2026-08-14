@@ -24,11 +24,15 @@ import industryIcon from '@fortawesome/fontawesome-free/svgs/solid/industry.svg?
 import linkIcon from '@fortawesome/fontawesome-free/svgs/solid/link.svg?raw'
 import listCheckIcon from '@fortawesome/fontawesome-free/svgs/solid/list-check.svg?raw'
 import lockIcon from '@fortawesome/fontawesome-free/svgs/solid/lock.svg?raw'
+import paletteIcon from '@fortawesome/fontawesome-free/svgs/solid/palette.svg?raw'
+import penToSquareIcon from '@fortawesome/fontawesome-free/svgs/solid/pen-to-square.svg?raw'
 import puzzlePieceIcon from '@fortawesome/fontawesome-free/svgs/solid/puzzle-piece.svg?raw'
 import rectangleListIcon from '@fortawesome/fontawesome-free/svgs/solid/rectangle-list.svg?raw'
 import scaleBalancedIcon from '@fortawesome/fontawesome-free/svgs/solid/scale-balanced.svg?raw'
 import screwdriverWrenchIcon from '@fortawesome/fontawesome-free/svgs/solid/screwdriver-wrench.svg?raw'
 import shieldIcon from '@fortawesome/fontawesome-free/svgs/solid/shield.svg?raw'
+import sitemapIcon from '@fortawesome/fontawesome-free/svgs/solid/sitemap.svg?raw'
+import tableColumnsIcon from '@fortawesome/fontawesome-free/svgs/solid/table-columns.svg?raw'
 import tabletScreenButtonIcon from '@fortawesome/fontawesome-free/svgs/solid/tablet-screen-button.svg?raw'
 import usersIcon from '@fortawesome/fontawesome-free/svgs/solid/users.svg?raw'
 import userTieIcon from '@fortawesome/fontawesome-free/svgs/solid/user-tie.svg?raw'
@@ -45,6 +49,10 @@ const icons: Record<string, string> = {
   arrowDown: arrowDownIcon,
   pulse: gaugeHighIcon,
   grid: borderAllIcon,
+  edit: penToSquareIcon,
+  columns: tableColumnsIcon,
+  palette: paletteIcon,
+  tree: sitemapIcon,
   star: wandMagicSparklesIcon,
   plugin: puzzlePieceIcon,
   scaleBalanced: scaleBalancedIcon,

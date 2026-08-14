@@ -52,7 +52,7 @@
 import { computed, ref } from 'vue'
 import HomeChevron from './HomeChevron.vue'
 import HomeHero from '../home/HomeHero.vue'
-import { escapeHtml, linkProductMentions, type HomeV2Record, useHomeV2Links } from './homeV2Utils'
+import { emphasizeText, escapeHtml, linkProductMentions, type HomeV2Record, useHomeV2Links } from './homeV2Utils'
 
 const props = defineProps<{
   hero?: HomeV2Record
@@ -60,12 +60,7 @@ const props = defineProps<{
 
 const { linkOf } = useHomeV2Links()
 
-const heroTitle = computed(() => {
-  const title = props.hero?.title ?? ''
-  const emphasis = props.hero?.emphasis
-  if (!emphasis || !title.includes(emphasis)) return escapeHtml(title)
-  return escapeHtml(title).replace(escapeHtml(emphasis), `<em>${escapeHtml(emphasis)}</em>`)
-})
+const heroTitle = computed(() => emphasizeText(props.hero?.title, props.hero?.emphasis))
 
 const performanceClaim = '60fps, 3x less memory.'
 const heroTagline = computed(() => {
