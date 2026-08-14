@@ -181,7 +181,6 @@ const catalogStatus = (item: HomeV2Record) => catalogFacts(item)?.status ?? 'sta
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: var(--rg-bg-2);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 
   &:hover {

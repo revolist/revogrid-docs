@@ -718,7 +718,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   border-radius: 16px;
   position: relative;
   overflow: hidden;
-  background: var(--rg-bg-2);
   color: inherit;
   text-decoration: none;
 
