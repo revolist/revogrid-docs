@@ -109,9 +109,9 @@ Compare RevoGrid with popular JavaScript data grid, spreadsheet, table, and ente
   </a>
 </div>
 
-## Gantt And Scheduler Comparisons
+## Gantt Charts and Event Scheduler Comparisons
 
-Find RevoGrid Gantt and Scheduler guides for planning, resource scheduling, Microsoft Project-style migration, and embedded scheduling workflows.
+Find RevoGrid Gantt Charts and Event Scheduler guides for planning, resource scheduling, Microsoft Project-style migration, and embedded scheduling workflows.
 
 <div class="compare-index-grid compare-index-grid--compact">
   <a class="compare-index-card" href="/compare/microsoft-project-gantt-alternative">
@@ -184,7 +184,7 @@ When evaluating JavaScript Data Grid, Gantt, and Pivot frameworks, start with th
 - Virtual scrolling and large dataset performance
 - Editing, clipboard, formulas, validation, and spreadsheet-like workflows
 - Filtering, grouping, server-side data, and export/import behavior
-- Gantt and Scheduler support for task hierarchy, dependencies, baselines, resources, and project planning
+- Gantt Charts and Event Scheduler support for task hierarchy, dependencies, baselines, resources, and project planning
 - Pivot support for dimensions, measures, aggregations, subtotals, drill-down, saved state, and server-side analytics
 - Advanced product modules such as master-detail, charts, audit workflows, formulas, and custom renderers
 - Support model, procurement fit, security review, and roadmap access

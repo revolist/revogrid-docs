@@ -1,27 +1,50 @@
 <template>
-  <div class="rg-module-preview" :class="{ 'is-flipped': flipped }" @click.stop="toggle">
+  <div
+    class="rg-module-preview"
+    :class="[`rg-module-preview--${type}`, { 'is-playing': playing }]"
+  >
     <div class="rg-module-preview-inner">
-      <div class="rg-module-front">
+      <div v-show="!playing" class="rg-module-front">
         <img v-if="thumbnail" :src="thumbnail" :alt="title" />
-        <span v-if="videoUrl" class="rg-module-play">▶</span>
+        <button
+          v-if="videoUrl"
+          class="rg-module-play"
+          type="button"
+          :aria-label="`Play ${title} demo`"
+          @click.stop="play"
+        >
+          <svg aria-hidden="true" viewBox="0 0 16 16">
+            <path d="M5 3.6v8.8L12 8 5 3.6Z" />
+          </svg>
+        </button>
       </div>
-      <div v-if="videoUrl" class="rg-module-back">
+      <div v-if="videoUrl" v-show="playing" class="rg-module-back">
         <video
           ref="videoEl"
           :src="videoUrl"
+          :poster="thumbnail"
           loop
           muted
           playsinline
-          autoplay
+          preload="metadata"
         />
-        <span class="rg-module-close">✕</span>
+        <button
+          class="rg-module-close"
+          type="button"
+          :aria-label="`Close ${title} demo`"
+          @click.stop="close"
+        >
+          <svg aria-hidden="true" viewBox="0 0 16 16">
+            <path d="m4 4 8 8m0-8-8 8" />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
+import { nextTick, onBeforeUnmount, ref } from 'vue'
 
 const props = defineProps<{
   type: string
@@ -30,36 +53,36 @@ const props = defineProps<{
   videoUrl?: string
 }>()
 
-const flipped = ref(false)
+const playing = ref(false)
 const videoEl = ref<HTMLVideoElement | null>(null)
 
-function toggle() {
+async function play() {
   if (!props.videoUrl) return
-  flipped.value = !flipped.value
+  playing.value = true
+  await nextTick()
+  if (!videoEl.value) return
+  videoEl.value.currentTime = 0
+  await videoEl.value.play().catch(() => {
+    playing.value = false
+  })
 }
 
-watch(flipped, (val) => {
+function close() {
+  playing.value = false
   if (!videoEl.value) return
-  if (val) {
-    videoEl.value.currentTime = 0
-    videoEl.value.play()
-  } else {
-    videoEl.value.pause()
-  }
-})
+  videoEl.value.pause()
+}
+
+onBeforeUnmount(close)
 </script>
 
 <style lang="scss" scoped>
 .rg-module-preview {
   position: relative;
   width: 100%;
-  height: 200px;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  cursor: pointer;
-
-  &:not(:has(.rg-module-play)) {
-    cursor: default;
-  }
+  background: #fff;
 }
 
 .rg-module-preview-inner {
@@ -78,6 +101,8 @@ watch(flipped, (val) => {
 }
 
 .rg-module-front {
+  background: #fff;
+
   img {
     width: 100%;
     height: 100%;
@@ -90,7 +115,7 @@ watch(flipped, (val) => {
 .rg-module-back {
   opacity: 0;
   pointer-events: none;
-  background: #000;
+  background: #0c1117;
 
   video {
     width: 100%;
@@ -101,7 +126,7 @@ watch(flipped, (val) => {
   }
 }
 
-.is-flipped {
+.is-playing {
   .rg-module-front {
     opacity: 0;
     pointer-events: none;
@@ -115,33 +140,81 @@ watch(flipped, (val) => {
 
 .rg-module-play {
   position: absolute;
-  bottom: 8px;
-  right: 8px;
-  width: 28px;
-  height: 28px;
+  right: 16px;
+  bottom: 16px;
+  width: 42px;
+  height: 42px;
+  border: 0;
   border-radius: 50%;
-  background: var(--vp-c-brand-1, #1b47c1);
+  background: var(--rg-green, #0aa66f);
   color: #fff;
-  font-size: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
-  padding-left: 2px;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: 0 7px 20px rgba(2, 122, 82, 0.24);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    background: var(--rg-green-hover, #078b5d);
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--rg-green, #0aa66f) 42%, white);
+    outline-offset: 3px;
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
 }
 
 .rg-module-close {
   position: absolute;
-  bottom: 8px;
-  right: 8px;
-  width: 28px;
-  height: 28px;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.62);
   color: #fff;
-  font-size: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+
+  &:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.7);
+    outline-offset: 2px;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-width: 1.8;
+  }
+}
+
+.rg-module-preview--audit .rg-module-front img {
+  object-fit: contain;
+  padding: 7%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rg-module-front,
+  .rg-module-back,
+  .rg-module-play {
+    transition: none;
+  }
 }
 </style>

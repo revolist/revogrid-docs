@@ -453,7 +453,7 @@ const featuresProBase = [
         ],
     },
     {
-        title: 'Gantt & Scheduling',
+        title: 'Gantt Charts',
         thumbnail: '/img/gantt.png',
         videoUrl: '/video/gantt-demo.mp4',
         group: 'Pro Advanced Modules',

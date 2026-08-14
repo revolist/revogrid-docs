@@ -56,7 +56,7 @@ RevoGrid is built for that scenario. It focuses on the data surface itself: fast
 | Product philosophy | ✅ Focused grid engine | ✅ Broad component suite | RevoGrid centers the grid foundation; Wijmo spans grid, charting, OLAP, input controls, and other UI modules. |
 | Grid performance focus | ✅ | ✅ | Both target large data scenarios; RevoGrid is designed as a lightweight virtualized grid-first surface. |
 | BI / pivot approach | ✅ Pro | ✅ OLAP/PivotGrid modules | RevoGrid keeps pivot analytics close to the grid foundation; Wijmo uses surrounding OLAP/PivotGrid components. |
-| Gantt approach | ✅ Pro | ⚠️ Adjacent/custom workflow | RevoGrid Pro includes Gantt & Scheduling on the grid foundation; Wijmo is stronger as a general UI toolkit than as a Gantt-first stack. |
+| Gantt approach | ✅ Pro | ⚠️ Adjacent/custom workflow | RevoGrid Pro includes Gantt Charts on the grid foundation; Wijmo is stronger as a general UI toolkit than as a Gantt-first stack. |
 | Framework strategy | ✅ | ✅ | RevoGrid uses a Web Component core with wrappers; Wijmo supports JavaScript, Angular, React, Vue, and Web Components. |
 | Data operation model | ✅ Grid/plugin/app data layer | ✅ `CollectionView` ecosystem | Wijmo apps often depend on `CollectionView`; RevoGrid keeps data flows closer to grid events and application state. |
 | Licensing posture | ✅ | ✅ | RevoGrid uses MIT core plus Pro modules; Wijmo uses commercial developer and deployment-hostname licensing. |
@@ -230,7 +230,7 @@ That makes RevoGrid useful for:
 
 Wijmo is broad, but it is not primarily a Gantt/scheduling product. If your data product needs task tables, timelines, resource assignments, dependencies, baselines, critical path, or project scheduling workflows, you will likely need another control or a custom integration.
 
-RevoGrid Pro includes Gantt & Scheduling modules on top of the same data-grid foundation. That is useful when your product combines:
+RevoGrid Pro includes Gantt Charts on top of the same data-grid foundation. That is useful when your product combines:
 
 - task lists and timeline planning;
 - resource planning and capacity views;
@@ -292,7 +292,7 @@ Choose RevoGrid when:
 | Wijmo TreeGrid | RevoGrid tree / hierarchical row workflows |
 | Wijmo PivotGrid / OLAP | RevoGrid Pro Pivot and Pivot Configurator |
 | Wijmo FlexChart integration | RevoGrid chart integrations, inline charts, and BI-style reporting surfaces |
-| Separate Gantt control or custom timeline | RevoGrid Gantt & Scheduling |
+| Separate Gantt control or custom timeline | RevoGrid Gantt Charts |
 | Wijmo export modules | RevoGrid CSV export and Pro Excel import/export |
 | Wijmo suite dependency | Focused RevoGrid dependency with optional Pro modules |
 

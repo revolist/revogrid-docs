@@ -1,5 +1,5 @@
 ---
-title: Grid, Kanban, Gantt and Scheduler Demo
+title: Grid, Kanban, Gantt Charts & Event Scheduler Demo
 description: Edit one shared task model across synchronized Data Grid, Kanban, Gantt, Scheduler, and Calendar views in RevoGrid Pro Advanced.
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc

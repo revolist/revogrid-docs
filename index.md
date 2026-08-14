@@ -238,33 +238,75 @@ developer:
 
 advanced:
   label: Advanced modules
-  title: Start with the core-grid. Add modules when you need them.
-  description: RevoGrid scales from a fast editable grid to advanced product workflows without switching tools or rewriting integrations.
+  title: Same grid engine. Bigger product surfaces.
+  description: Extend one typed data model into analytics, workflow, scheduling, and spreadsheet-grade tools.
   action:
-    text: Explore advanced modules
+    text: Explore modules
     link: /pro/#catalog
   items:
-    - title: Advanced Reporting
+    - title: Spreadsheet Formatting
+      catalogFeatureId: multi-cell-formatting
+      type: spreadsheet
+      link: /demo/excel
+      thumbnail: /img/spreadsheet.png
+      videoUrl: /video/spreadhsheet.mp4
+      description: Present live data with formats, progress bars, status styles, ranges, and spreadsheet-grade selection.
+    - title: Master Detail
+      catalogFeatureId: master-detail
+      type: master-detail
+      link: /demo/row-master
+      thumbnail: /img/master-detail.png
+      videoUrl: /video/master-detail.mp4
+      description: Expand any row into a nested grid, form, or custom product view.
+    - title: Formula Engine
+      catalogFeatureId: formula
+      type: formula
+      link: /guide/cell/formula
+      thumbnail: /img/formula.png
+      videoUrl: /video/formula.mp4
+      description: Evaluate spreadsheet formulas and grouping aggregations over live grid data.
+    - title: History
+      catalogFeatureId: history
+      type: history
+      link: /pro/
+      thumbnail: /img/history-undo.png
+      videoUrl: /video/history.mp4
+      description: Add dependable undo and redo across cell edits and multi-cell operations.
+    - title: Advanced Filter
+      catalogFeatureId: advanced-selection-filtering
+      type: filter
+      link: /demo/filtering
+      thumbnail: /img/advanced-filter.png
+      videoUrl: /video/filter-advance.mp4
+      description: Combine value selection and conditions in one fast, scalable filtering workflow.
+    - title: Pivot Table
       catalogProductId: pivot
       type: pivot
       link: /pivot
       thumbnail: /img/pivot.png
       videoUrl: /video/pivot.mp4
-      description: Pivot, aggregate, and summarize complex datasets directly inside your app. Drag-and-drop dimensions, drill-down, and totals — no BI tool required.
-    - title: Master Detail
-      catalogFeatureId: master-detail
-      type: master-detail
-      link: /pro/
-      thumbnail: /img/master-detail.png
-      videoUrl: /video/master-detail.mp4
-      description: Expand any row into a nested grid, form, or custom view. The UX pattern your customers already expect in real product interfaces.
-    - title: Audit Trail
-      catalogFeatureId: audit-trail-history
-      type: audit
-      link: /pro/
-      thumbnail: /img/audit-log.png
-      videoUrl: /video/al-demo.mp4
-      description: Record every cell change with who, what, and when. Filter, review, and export the full history. No DIY work required.
+      description: Analyze live grid data with drag-and-drop dimensions, aggregation, drill-down, filters, and totals.
+    - title: Event Scheduler
+      catalogProductId: scheduler
+      type: scheduler
+      link: /jsscheduler
+      thumbnail: /img/event-scheduler.png
+      videoUrl: /video/event-scheduler.mp4
+      description: Schedule people, rooms, and equipment with resource timelines, conflicts, and drag-to-reschedule.
+    - title: Kanban Board
+      catalogProductId: kanban
+      type: kanban
+      link: /kanban
+      thumbnail: /blog/kanban-product-development-polished.png
+      videoUrl: /video/kanban-demo.mp4
+      description: Project shared data into virtualized workflow columns, swimlanes, and WIP rules.
+    - title: Gantt Charts
+      catalogProductId: gantt
+      type: gantt
+      link: /gantt
+      thumbnail: /img/gantt-preview.png
+      videoUrl: /video/gantt-demo.mp4
+      description: Coordinate timelines, dependencies, milestones, and resources on the same data model.
 
 comparison:
   label: Why RevoGrid

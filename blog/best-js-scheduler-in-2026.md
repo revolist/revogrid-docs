@@ -3,7 +3,7 @@
 title: Best JavaScript Scheduler in 2026 - Bryntum, DHTMLX & RevoGrid
 description: A practical comparison of JavaScript Scheduler and Gantt libraries, including RevoGrid Scheduler, Bryntum, DHTMLX, DayPilot, Syncfusion, FullCalendar, and Kendo.
 date: 2026-05-01
-category: Gantt & Scheduler
+category: Scheduler
 tags:
   - Scheduler
   - Gantt

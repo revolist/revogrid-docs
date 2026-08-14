@@ -467,7 +467,7 @@ Legend:
 | Internal tool with Excel-like editing but no Pivot/Gantt | Depends | Handsontable if spreadsheet fidelity is central; RevoGrid Pro if licensing and workflow breadth matter more |
 | Formula-heavy spreadsheet replacement | Handsontable | Stronger formula breadth and spreadsheet-first positioning |
 | Product analytics embedded in app | RevoGrid Pro | Dedicated Pivot module and remote analytics direction |
-| Project planning / scheduling app | RevoGrid Pro | Dedicated Gantt & Scheduling module tied to grid data model |
+| Project planning / scheduling app | RevoGrid Pro | Dedicated Gantt Charts module tied to the grid data model |
 | Regulated editing workflow | RevoGrid Pro | Audit trail, validation, event manager, history, range previews, flash highlights |
 | Multi-framework product suite | RevoGrid | Web component foundation plus React, Angular, Vue, Svelte, JS/TS usage |
 | Enterprise spreadsheet component procurement | Handsontable or RevoGrid Enterprise | Handsontable has mature commercial support; RevoGrid Enterprise fits teams wanting custom terms and roadmap collaboration |
@@ -543,7 +543,7 @@ Yes. RevoGrid Pro Advanced includes the JavaScript Pivot Table component.
 
 ### Does RevoGrid Pro include Gantt?
 
-Yes. RevoGrid Pro includes Gantt & Scheduling / Gantt Chart. The reviewed pricing feature table marks Gantt & Scheduling as Beta, so validate production readiness for your use case during trial.
+Yes. RevoGrid Pro includes Gantt Charts. Validate production readiness for your use case during the trial.
 
 ### Does Handsontable include Pivot or Gantt?
 

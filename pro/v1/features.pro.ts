@@ -418,7 +418,7 @@ const featuresProBase = [
         ],
     },
     {
-        title: 'Gantt & Scheduling',
+        title: 'Gantt Charts',
         thumbnail: '/img/gantt.png',
         group: 'Pro Advanced Modules',
         description: 'Production-ready Gantt chart and scheduling view for project planning, dependency management, resource allocation, and timeline analysis.',

@@ -2,7 +2,7 @@
 title: "RevoGrid Scheduler vs Bryntum Scheduler: 2026 Comparison"
 description: Compare RevoGrid Scheduler 2.4.0 with Bryntum Scheduler Pro 7.3.4 across resource timelines, editing, conflicts, architecture, and product fit.
 date: 2026-07-31
-category: Gantt & Scheduler
+category: Scheduler
 tags:
   - Scheduler
   - Bryntum

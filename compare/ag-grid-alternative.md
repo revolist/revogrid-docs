@@ -450,7 +450,7 @@ If these are not your priorities and AG Grid already works well for your team, s
 
 | Feature | RevoGrid | AG Grid Community | AG Grid Enterprise / Bundle | Notes |
 |---|:---:|:---:|:---:|---|
-| Gantt chart module | ✅ Pro | — | — | RevoGrid Pro has Gantt & Scheduling Beta; AG Grid is not positioned as a Gantt product. |
+| Gantt chart module | ✅ Pro | — | — | RevoGrid Pro has Gantt Charts; AG Grid is not positioned as a Gantt product. |
 | Dependencies | ✅ Pro | — | — | RevoGrid Gantt positioning includes dependencies. |
 | Auto scheduling | ✅ Pro | — | — | Dedicated RevoGrid Gantt capability. |
 | Manual scheduling | ✅ Pro | — | — | Dedicated RevoGrid Gantt capability. |

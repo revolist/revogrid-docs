@@ -5,7 +5,7 @@ description: "Compare the best JavaScript Gantt chart libraries in 2026: RevoGri
 outline: deep
 date: 2026-07-10
 author: RevoGrid Team
-category: Gantt & Scheduler
+category: Gantt Charts
 tags:
   - Gantt
   - JavaScript

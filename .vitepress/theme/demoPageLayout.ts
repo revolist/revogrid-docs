@@ -319,7 +319,7 @@ const DEMO_PAGE_CONTENT = {
     ],
   },
   planning: {
-    title: 'Grid, Kanban, Gantt and Scheduler Demo',
+    title: 'Grid, Kanban, Gantt Charts & Event Scheduler Demo',
     description: 'One shared model across synchronized Data Grid, Kanban, Gantt, Scheduler & Calendar views.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-advanced-planning/src/planning.vue',
     guidedActions: ['Edit a task in the grid', 'Move a task in Gantt', 'Switch between views'],

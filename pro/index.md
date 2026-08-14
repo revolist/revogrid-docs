@@ -161,7 +161,7 @@ proPage:
         wide: true
       - type: gantt
         tier: Pro Advanced
-        title: Gantt & Scheduling
+        title: Gantt Charts
         titleSuffix: project planning, not a project.
         description: Task trees, dependencies, auto and manual scheduling, baselines, resources, critical path, capacity warnings. MS Project-style task editor included. All of it driven by the same grid data model.
         saves: 4-9

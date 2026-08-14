@@ -202,7 +202,7 @@ That makes Pivot useful for product analytics, financial reports, operational da
 
 Try it on the [Pivot demo page](/demo/pivot/) or read more on the [Pivot product page](/pivot/).
 
-## Gantt and Scheduling Move Into the Grid
+## Gantt Charts Move Into the Grid
 
 [RevoGrid Gantt](/gantt/) brings scheduling and timeline planning into the same product family as the grid.
 

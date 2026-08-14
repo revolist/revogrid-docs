@@ -344,7 +344,7 @@ const featureFacts = [
   ['event-manager', 'Event Manager', 'pro-lite', 'stable'],
   ['pivot', 'Pivot Table', 'pro-advanced', 'stable'],
   ['kanban', 'Kanban', 'pro-advanced', 'stable'],
-  ['gantt', 'Gantt & Scheduling', 'pro-advanced', 'stable'],
+  ['gantt', 'Gantt Charts', 'pro-advanced', 'stable'],
   ['event-scheduler', 'Scheduler JS', 'pro-advanced', 'stable'],
   ['collaborative-editing', 'Collaborative Editing', 'pro-lite', 'beta'],
 ] as const satisfies ReadonlyArray<readonly [string, string, PlanId, FeatureStatus]>
@@ -458,7 +458,7 @@ const demos = {
   'kanban-performance': { id: 'kanban-performance', title: '50K-Task Kanban', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban-performance' },
   'kanban-server-loading': { id: 'kanban-server-loading', title: '100K Server-Loaded Kanban', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban-server-loading' },
   'event-scheduler': { id: 'event-scheduler', title: 'Scheduler JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
-  planning: { id: 'planning', title: 'Grid, Kanban, Gantt & Scheduler', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/planning' },
+  planning: { id: 'planning', title: 'Grid, Kanban, Gantt Charts & Event Scheduler', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/planning' },
 } as const satisfies Record<DemoId, CatalogDemo>
 
 export const PRODUCT_CATALOG = {
@@ -663,7 +663,7 @@ export const getPricingDifferenceRows = () => {
     },
     {
       feature: {
-        text: 'Pivot Table, Kanban, Gantt & Scheduler',
+        text: 'Pivot Table, Kanban, Gantt Charts & Event Scheduler',
         icon: 'calendarDays',
         parts: [
           { text: 'Pivot Table', href: '/pivot/' },
