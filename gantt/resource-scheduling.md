@@ -22,6 +22,8 @@ import GanttClusterCta from './GanttClusterCta.vue'
 
 Resource scheduling connects project logic to capacity. It answers not only when a task could happen from its dependencies, but whether the assigned people, crews, rooms, machines, or equipment are available to do it.
 
+This page focuses on resource-aware tasks inside a dependency-driven Gantt. If users mainly place shifts, bookings, appointments, or reservations into calendar slots, evaluate the [JavaScript Scheduler](/jsscheduler) alongside it.
+
 <GanttClusterCta />
 
 ## Model resources separately from assignments
@@ -46,7 +48,7 @@ Test part-time calendars, multiple assignments, units below or above 100%, locke
 
 For production architecture, keep the backend authoritative when assignments affect payroll, inventory, machine availability, or customer commitments. The Gantt can provide fast planning interaction while your service validates domain-specific constraints.
 
-Open the [resource-planning demo from the main Gantt page](/gantt#live-gantt-demos). Related pages cover [resource planning use cases](/gantt/resource-planning), [manufacturing Gantt](/gantt/manufacturing-gantt), [critical path](/gantt/critical-path), and [large datasets](/gantt/javascript-gantt-large-datasets).
+Open the [resource-planning demo from the main Gantt page](/gantt#live-gantt-demos). Related pages cover [resource planning use cases](/gantt/resource-planning), the calendar-first [JavaScript Scheduler](/jsscheduler), [manufacturing Gantt](/gantt/manufacturing-gantt), [critical path](/gantt/critical-path), and [large datasets](/gantt/javascript-gantt-large-datasets).
 
 ## Resource scheduling FAQ
 
@@ -57,4 +59,3 @@ It resolves over-allocation by adjusting eligible task timing or assignments und
 ### Should leveling always be automatic?
 
 No. Start with transparent warnings or suggestions when moving work could change important dates or commitments.
-

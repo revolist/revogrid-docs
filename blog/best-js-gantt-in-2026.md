@@ -5,7 +5,7 @@ description: "Compare the best JavaScript Gantt chart libraries in 2026: RevoGri
 outline: deep
 date: 2026-07-10
 author: RevoGrid Team
-category: Gantt & Scheduler
+category: Gantt Charts
 tags:
   - Gantt
   - JavaScript
@@ -13,7 +13,7 @@ tags:
   - Scheduler
   - RevoGrid
 image: /blog/gantt-pr2.png
-imageAlt: RevoGrid JavaScript Gantt chart with an editable task grid and project timeline
+imageAlt: RevoGrid Gantt JavaScript Gantt chart with an editable task grid and project timeline
 head:
   - - meta
     - name: keywords
@@ -144,7 +144,7 @@ const faqItems = [
 Go from comparison to evaluation on the [RevoGrid Gantt page](/gantt): complete features, live demos, frameworks, performance evidence, pricing, and trial terms.
 :::
 
-![RevoGrid JavaScript Gantt chart with an editable task grid and project timeline](/blog/gantt-pr4.png)
+![RevoGrid Gantt JavaScript Gantt chart with an editable task grid and project timeline](/blog/gantt-pr4.png)
 
 Choosing a JavaScript Gantt chart in 2026 is not just a question of drawing task bars on a timeline.
 

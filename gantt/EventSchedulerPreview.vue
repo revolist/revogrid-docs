@@ -1,5 +1,5 @@
 <template>
-  <div class="scheduler-preview" aria-label="Event Scheduler shift planner preview">
+  <div class="scheduler-preview" aria-label="JavaScript Scheduler shift planner preview">
     <div class="scheduler-topbar">
       <div class="window-controls" aria-hidden="true">
         <span class="dot red"></span>
@@ -43,10 +43,10 @@ import {
   type EventSchedulerConfig,
   type EventSchedulerEventEntity,
   type EventSchedulerResourceEntity,
-} from '@revolist/revogrid-enterprise'
+} from '@revolist/scheduler'
 
 import '@revolist/revogrid-pro/dist/revogrid-pro.css'
-import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
+import '@revolist/scheduler/styles.css'
 
 const { isDark } = useData()
 const plugins = ref<unknown[]>([])
@@ -204,8 +204,8 @@ function syncEvents(event: Event) {
 
 onMounted(async () => {
   await nextTick()
-  const enterprise = await import('@revolist/revogrid-enterprise')
-  plugins.value = [enterprise.EventSchedulerPlugin]
+  const scheduler = await import('@revolist/scheduler')
+  plugins.value = [scheduler.EventSchedulerPlugin]
   await nextTick()
   applyFrame = requestAnimationFrame(applySchedulerProperties)
 

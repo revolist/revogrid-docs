@@ -1,0 +1,79 @@
+{
+  "capturedAt": "2026-08-12",
+  "timeWindow": "Not visible in the supplied screenshots",
+  "page": {
+    "url": "https://rv-grid.com/compare/ag-grid-alternative",
+    "clicks": 44,
+    "impressions": 4473,
+    "ctr": 0.009836798569192935
+  },
+  "visibleQueryAggregate": {
+    "clicks": 7,
+    "impressions": 454,
+    "ctr": 0.015418502202643172,
+    "impressionShare": 0.10149787614576347,
+    "clickShare": 0.1590909090909091
+  },
+  "queries": [
+    {
+      "query": "ag grid alternatives",
+      "clicks": 4,
+      "impressions": 137,
+      "ctr": 0.029197080291970802
+    },
+    {
+      "query": "ag grid alternative",
+      "clicks": 0,
+      "impressions": 52,
+      "ctr": 0
+    },
+    {
+      "query": "ag-grid.com",
+      "clicks": 0,
+      "impressions": 46,
+      "ctr": 0
+    },
+    {
+      "query": "ag grid community",
+      "clicks": 0,
+      "impressions": 44,
+      "ctr": 0
+    },
+    {
+      "query": "research data grid libraries with an excel-like user experience. compare the available options in terms of licensing, pricing, support, documentation, and customization capabilities",
+      "clicks": 0,
+      "impressions": 36,
+      "ctr": 0
+    },
+    {
+      "query": "ag-grid alternatives",
+      "clicks": 0,
+      "impressions": 31,
+      "ctr": 0
+    },
+    {
+      "query": "ag grid community vs enterprise",
+      "clicks": 0,
+      "impressions": 30,
+      "ctr": 0
+    },
+    {
+      "query": "ag grid alternatives open source",
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0
+    },
+    {
+      "query": "ag grid open source alternatives",
+      "clicks": 3,
+      "impressions": 26,
+      "ctr": 0.11538461538461539
+    },
+    {
+      "query": "i need to do a research because i need to find a data grid component that supports inline editing. can you give me the best options",
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0
+    }
+  ]
+}

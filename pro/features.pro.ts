@@ -405,7 +405,7 @@ const featuresProBase = [
         videoUrl: '/video/pivot.mp4',
         group: 'Pro Advanced Modules',
         description: `
-        Production-ready Pivot grid for multidimensional analytics, reporting, and OLAP-style workflows. Includes client-side and server-side engines, interactive configuration, drill-down, totals, and advanced layout control.
+        Production-ready JavaScript Pivot Table component for multidimensional analytics, reporting, and OLAP-style workflows. Includes client-side and server-side engines, interactive configuration, drill-down, totals, and advanced layout control.
         `,
         subFeatures: [
             { title: 'Dynamic row, column, and value dimensions' },
@@ -434,7 +434,26 @@ const featuresProBase = [
         ],
     },
     {
-        title: 'Gantt & Scheduling',
+        title: 'Kanban',
+        thumbnail: '/img/kanban/overview.webp',
+        videoUrl: '/video/kanban-demo.mp4',
+        group: 'Pro Advanced Modules',
+        link: '/kanban',
+        demoUrl: '/demo/kanban',
+        description: 'RevoGrid Kanban is a virtualized JavaScript Kanban board component built on RevoGrid for product workflows, delivery planning, operations queues, and high-volume task management.',
+        subFeatures: [
+            { title: 'Pointer, touch, and keyboard card movement' },
+            { title: 'Multi-card selection and movement' },
+            { title: 'Collapsible swimlanes with independent row and column virtualization' },
+            { title: 'WIP limits with warning and blocking modes' },
+            { title: 'Cancelable movement rules and destination validation' },
+            { title: 'Inline card editing with undo and redo history' },
+            { title: 'Custom cards, columns, context menus, and board styling' },
+            { title: 'Text, assignee, and label filters with serializable board state' },
+        ],
+    },
+    {
+        title: 'Gantt Charts',
         thumbnail: '/img/gantt.png',
         videoUrl: '/video/gantt-demo.mp4',
         group: 'Pro Advanced Modules',
@@ -466,11 +485,11 @@ const featuresProBase = [
         ],
     },
     {
-        title: 'Event Scheduler',
+        title: 'Scheduler JS',
         thumbnail: '/blog/scheduler.png',
         videoUrl: '/video/event-scheduler.mp4',
         group: 'Pro Advanced Modules',
-        link: '/event-scheduler',
+        link: '/jsscheduler',
         demoUrl: '/demo/event-scheduler',
         description: 'Commercial event scheduling for staff rosters, booking calendars, resource timelines, shift planning, availability rules, conflicts, remote data, and scheduler exports.',
         subFeatures: [

@@ -1,6 +1,6 @@
 ---
 
-title: Building Powerfull Enterprise Dashboards
+title: Building Powerful Enterprise Dashboards
 description: "Design enterprise dashboards with JavaScript data grids using practical patterns for UX, performance, security, analytics, and operational workflows."
 category: Dashboards
 date: 2026-06-20
@@ -712,7 +712,7 @@ const source = [
 
 Pro CTA:
 
-> For dashboards that combine production tables with Gantt timelines or weekly scheduling, evaluate RevoGrid Pro Advanced modules such as [Gantt](/gantt) and [JSScheduler](/jsscheduler).
+> For dashboards that combine production tables with Gantt timelines or weekly scheduling, evaluate RevoGrid Pro Advanced modules such as [Gantt](/gantt) and [JavaScript Scheduler](/jsscheduler).
 
 ### Example 5: Logistics and supply-chain dashboard
 
@@ -851,7 +851,7 @@ Recommended features:
 
 Pro CTA:
 
-> If your dashboard includes timelines, portfolio planning, or resource scheduling, check [RevoGrid Gantt](/gantt), [JSScheduler](/jsscheduler), and [RevoGrid Pro](/pro/).
+> If your dashboard includes timelines, portfolio planning, or resource scheduling, check [RevoGrid Gantt](/gantt), [JavaScript Scheduler](/jsscheduler), and [RevoGrid Pro](/pro/).
 
 ## Recommended dashboard architecture
 
@@ -1287,7 +1287,7 @@ If you are building a first enterprise dashboard with RevoGrid, do not try to in
 - Pivot Table.
 - Server-side grouping and remote analytics.
 - Gantt planning.
-- Event Scheduler.
+- JavaScript Scheduler.
 - Collaborative workflows.
 - Custom dashboard builder.
 - Multi-tenant saved views.
@@ -1323,7 +1323,7 @@ Use Pro Advanced when you need:
 
 - Pivot Table.
 - Gantt.
-- Event Scheduler.
+- JavaScript Scheduler.
 - Planning dashboards.
 - Resource scheduling.
 - Analytical workspaces inside your product.

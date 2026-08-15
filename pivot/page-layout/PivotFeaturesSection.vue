@@ -9,16 +9,27 @@
         </p>
       </div>
 
-      <ProFeatureGrid :features="features.items" />
+      <ProFeatureGrid :features="featureCards" :show-icons="false" />
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
 import ProFeatureGrid from '../../pro/ProFeatureGrid.vue'
 import type { PivotLandingPage } from './types'
 
-defineProps<{
+const props = defineProps<{
   features: PivotLandingPage['features']
 }>()
+
+const featureCards = computed(() => props.features.items.map(feature => ({
+  ...feature,
+  media: feature.media?.src,
+  mediaAlt: feature.media?.alt,
+  mediaWidth: feature.media?.width,
+  mediaHeight: feature.media?.height,
+  mediaFit: feature.media ? 'contain' as const : undefined,
+  mediaPosition: feature.media?.position,
+})))
 </script>

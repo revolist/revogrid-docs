@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.24.3](README.md) / ThemeTokenName
+[RevoGrid Documentation v4.25.1](README.md) / ThemeTokenName
 
 # Type Alias: ThemeTokenName
 
@@ -8,4 +8,4 @@ type ThemeTokenName: keyof typeof themeTokenCssVariables;
 
 ## Defined in
 
-[src/types/theme.ts:88](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/theme.ts#L88)
+[src/types/theme.ts:86](https://github.com/revolist/revogrid/blob/d06ea5b7beb9764dab968fd781d3f71fda941337/src/types/theme.ts#L86)

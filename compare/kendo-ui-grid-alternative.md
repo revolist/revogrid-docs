@@ -54,7 +54,7 @@ RevoGrid is built for that scenario. It focuses on the data grid itself: virtual
 | Large dataset workflows | ✅ | ✅ | Both support virtualization; benchmark with real custom cells, editors, grouping, and pinned areas. |
 | Spreadsheet-style UX | ✅ | ✅ | RevoGrid keeps spreadsheet-like behavior near the grid; Kendo often separates spreadsheet-specific workflows into other suite components. |
 | Pivot approach | ✅ Pro | ✅ | RevoGrid uses a Pivot module on the grid foundation; Kendo uses separate PivotGrid components. |
-| Gantt / scheduler approach | ✅ Pro | ✅ | RevoGrid extends grid-first Gantt, event scheduler, calendar, and resource planner workflows; Kendo offers separate planning/scheduling components in the wider ecosystem. |
+| Gantt / scheduler approach | ✅ Pro | ✅ | RevoGrid extends grid-first Gantt Chart JS, Scheduler JS, calendar, and resource planner workflows; Kendo offers separate planning/scheduling components in the wider ecosystem. |
 | Theming ecosystem | ✅ | ✅ | Kendo has the stronger suite-level theming toolchain; RevoGrid is lighter and easier to shape inside product UI. |
 | Licensing posture | ✅ | ✅ | RevoGrid uses MIT core plus Pro modules; Kendo uses commercial suite subscriptions. |
 | Best migration reason | ✅ | ✅ | Choose RevoGrid to replace a suite-heavy grid dependency; keep Kendo if the wider Progress/Telerik ecosystem is the priority. |
@@ -176,7 +176,7 @@ RevoGrid is built for that scenario. It focuses on the data grid itself: virtual
 | BI-style embedded reporting | ✅ Pro | ⚠️ Separate BI/workflow setup |
 | Pivot charts | ⚠️ Chart integration | ✅ |
 | Gantt chart / scheduling | ✅ Pro | ✅ |
-| Event scheduler / calendar | ✅ Pro | ✅ |
+| JavaScript Scheduler / calendar | ✅ Pro | ✅ |
 | Resource planner | ✅ Pro | ✅ |
 | Gantt task hierarchy / WBS | ✅ Pro | ✅ |
 | Task dependencies | ✅ Pro | ✅ |
@@ -296,7 +296,7 @@ Choose RevoGrid when:
 | Kendo Excel/PDF export | RevoGrid export plus ✅ Pro Excel import/export and PDF export workflows |
 | Kendo Spreadsheet formulas | ✅ Pro formulas and spreadsheet-style workflows |
 | Kendo PivotGrid | ✅ Pro Pivot |
-| Kendo Gantt / Scheduler | ✅ Pro Gantt, event scheduler, calendar, and resource planner workflows |
+| Kendo Gantt / Scheduler | ✅ Pro Gantt, JavaScript Scheduler, calendar, and resource planner workflows |
 | Kendo ThemeBuilder workflow | RevoGrid themes, CSS customization, and product design-system integration |
 | Kendo framework-native packages | RevoGrid Web Component core with framework integrations |
 | Kendo suite dependency | Focused RevoGrid dependency with optional Pro modules |
@@ -332,7 +332,7 @@ RevoGrid Pro supports formula-oriented spreadsheet workflows. Kendo has spreadsh
 
 ### Does RevoGrid have Pivot or Gantt features?
 
-Yes. RevoGrid Pro includes Pivot analytics plus Gantt, event scheduler, calendar, and resource planner workflows. Kendo also has PivotGrid, Gantt, and scheduling components in its broader ecosystem. The main difference is whether you want those workflows close to one grid-centered data surface or as separate suite components.
+Yes. RevoGrid Pro includes Pivot analytics plus Gantt, JavaScript Scheduler, calendar, and resource planner workflows. Kendo also has PivotGrid, Gantt, and scheduling components in its broader ecosystem. The main difference is whether you want those workflows close to one grid-centered data surface or as separate suite components.
 
 ### Which grid is better for SaaS products?
 
@@ -350,7 +350,7 @@ Choose Kendo UI Grid when you already use Telerik/Progress products, want many U
 
 If your team is replacing Kendo UI Grid because the grid experience feels too suite-oriented, too framework-specific, or too hard to tailor as product infrastructure, start with RevoGrid.
 
-RevoGrid gives you the performance-first foundation for complex data screens and the Pro modules needed for formulas, pivot analytics, Gantt scheduling, event scheduler/calendar workflows, resource planning, collaborative mode, editing, validation, Excel/PDF workflows, and large-dataset applications.
+RevoGrid gives you the performance-first foundation for complex data screens and the Pro modules needed for formulas, pivot analytics, Gantt scheduling, JavaScript Scheduler and calendar workflows, resource planning, collaborative mode, editing, validation, Excel/PDF workflows, and large-dataset applications.
 
 <div class="vp-doc-grid-cta">
 

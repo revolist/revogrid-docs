@@ -12,7 +12,7 @@ tags:
   - Scheduling
   - RevoGrid Pro
 image: /img/gantt-demo.png
-imageAlt: RevoGrid JavaScript Gantt chart with task dependencies
+imageAlt: RevoGrid Gantt JavaScript Gantt chart with task dependencies
 head:
   - - meta
     - name: keywords
@@ -102,7 +102,7 @@ head:
 Explore [RevoGrid Gantt](/gantt) for the complete feature set, advanced dependency demo, performance evidence, current pricing, and trial access.
 :::
 
-![RevoGrid JavaScript Gantt chart with task dependencies](/blog/gantt-dependencies.png)
+![RevoGrid Gantt JavaScript Gantt chart with task dependencies](/blog/gantt-dependencies.png)
 
 A JavaScript Gantt chart becomes useful when it does more than draw bars on a timeline.
 
@@ -129,7 +129,7 @@ This guide is optimized for developers and product teams searching for:
 - finish-to-finish dependency
 - start-to-finish dependency
 - Gantt lead lag
-- dependency validation in Gantt charts
+- dependency validation in Gantt chart
 
 For implementation details, use the [RevoGrid Gantt documentation](https://pro.rv-grid.com/guides/gantt/), the [dependencies guide](https://pro.rv-grid.com/guides/gantt/concepts/dependencies/), the [dependency editing guide](https://pro.rv-grid.com/guides/gantt/interaction/dependency-editing/), and the [Gantt examples](https://pro.rv-grid.com/guides/gantt/examples/).
 
@@ -446,7 +446,7 @@ import {
   type DependencyEntity,
   type GanttTaskSourceRow,
   type TaskTableColumnProp,
-} from '@revolist/revogrid-enterprise';
+} from '@revolist/gantt';
 
 defineCustomElements();
 
@@ -604,7 +604,7 @@ RevoGrid is built on Web Components, with framework wrappers for React, Vue, Ang
 ```tsx
 import React, { useMemo, useRef } from 'react';
 import { RevoGrid } from '@revolist/react-datagrid';
-import { GanttPlugin } from '@revolist/revogrid-enterprise';
+import { GanttPlugin } from '@revolist/gantt';
 
 export function ProjectGantt() {
   const gridRef = useRef<HTMLRevoGridElement>(null);
@@ -666,7 +666,7 @@ The important part is that dependencies stay as ordinary project data. You can l
 
 ## Dependency validation
 
-Dependency validation is where Gantt charts often become product-critical.
+Dependency validation is where Gantt chart often become product-critical.
 
 A dependency graph can be invalid. The most common invalid case is a cycle:
 

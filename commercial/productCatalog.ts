@@ -9,13 +9,27 @@ export type SupportLevel = 'community' | 'self-service' | 'priority' | 'dedicate
 export type ApplicationLimit = 'unlimited-mit' | 'one-product' | 'unlimited-products' | 'custom'
 export type SourceAccess = 'public-source' | 'typed-private-packages' | 'original-private-source'
 export type TrialDeliveryMethod = 'none' | 'private-npm' | 'sales-assisted'
-export type ProductId = 'revogrid' | 'pivot' | 'gantt' | 'scheduler' | 'event-scheduler'
+export type ProductId = 'revogrid' | 'pivot' | 'kanban' | 'gantt' | 'scheduler' | 'event-scheduler'
 export type DemoId =
   | 'grid-at-scale'
+  | 'ai-prompt-library'
+  | 'project-portfolio'
   | 'project-tracker'
   | 'excel'
+  | 'audit-history'
+  | 'column-collapse'
+  | 'context-menu'
+  | 'filtering'
+  | 'infinity-scroll'
+  | 'row-master'
+  | 'tree-data'
   | 'pivot'
   | 'gantt'
+  | 'gantt-big-data'
+  | 'gantt-horizontal-big-data'
+  | 'kanban'
+  | 'kanban-performance'
+  | 'kanban-server-loading'
   | 'event-scheduler'
   | 'planning'
 export type CommercialFaqKey =
@@ -206,7 +220,7 @@ const plans = {
       { text: 'Everything in Pro Lite' },
       { text: 'Priority support and bug-fix queue' },
       { text: 'Original source code access' },
-      { text: 'Pivot, Gantt, Calendar, and Event Scheduler' },
+      { text: 'Pivot Table, Kanban, Gantt, Calendar, and Scheduler' },
     ],
   },
   enterprise: {
@@ -329,8 +343,9 @@ const featureFacts = [
   ['timeline-editor', 'Timeline Editor', 'pro-lite', 'stable'],
   ['event-manager', 'Event Manager', 'pro-lite', 'stable'],
   ['pivot', 'Pivot Table', 'pro-advanced', 'stable'],
-  ['gantt', 'Gantt & Scheduling', 'pro-advanced', 'stable'],
-  ['event-scheduler', 'Event Scheduler', 'pro-advanced', 'stable'],
+  ['kanban', 'Kanban', 'pro-advanced', 'stable'],
+  ['gantt', 'Gantt Charts', 'pro-advanced', 'stable'],
+  ['event-scheduler', 'Scheduler JS', 'pro-advanced', 'stable'],
   ['collaborative-editing', 'Collaborative Editing', 'pro-lite', 'beta'],
 ] as const satisfies ReadonlyArray<readonly [string, string, PlanId, FeatureStatus]>
 
@@ -376,6 +391,17 @@ const products = {
     trialUrl: TRIAL_REQUEST_URL,
     buyUrl: '/pricing',
   },
+  kanban: {
+    id: 'kanban',
+    name: 'RevoGrid Kanban',
+    minimumPlan: 'pro-advanced',
+    status: 'stable',
+    featureId: 'kanban',
+    pageUrl: '/kanban',
+    demoUrl: '/demo/kanban',
+    trialUrl: TRIAL_REQUEST_URL,
+    buyUrl: '/pricing',
+  },
   gantt: {
     id: 'gantt',
     name: 'RevoGrid Gantt',
@@ -393,18 +419,18 @@ const products = {
     minimumPlan: 'pro-advanced',
     status: 'stable',
     featureId: 'event-scheduler',
-    pageUrl: '/scheduler',
+    pageUrl: '/jsscheduler',
     demoUrl: '/demo/event-scheduler',
     trialUrl: TRIAL_REQUEST_URL,
     buyUrl: '/pricing',
   },
   'event-scheduler': {
     id: 'event-scheduler',
-    name: 'RevoGrid Event Scheduler',
+    name: 'RevoGrid Scheduler',
     minimumPlan: 'pro-advanced',
     status: 'stable',
     featureId: 'event-scheduler',
-    pageUrl: '/event-scheduler',
+    pageUrl: '/jsscheduler',
     demoUrl: '/demo/event-scheduler',
     trialUrl: TRIAL_REQUEST_URL,
     buyUrl: '/pricing',
@@ -413,12 +439,26 @@ const products = {
 
 const demos = {
   'grid-at-scale': { id: 'grid-at-scale', title: 'Grid at Scale', planId: 'open-source', status: 'stable', pageUrl: '/demo/' },
+  'ai-prompt-library': { id: 'ai-prompt-library', title: 'AI Prompt Library', planId: 'open-source', status: 'stable', pageUrl: '/demo/ai-prompts' },
+  'project-portfolio': { id: 'project-portfolio', title: 'Project Portfolio', planId: 'open-source', status: 'stable', pageUrl: '/demo/project-portfolio' },
   'project-tracker': { id: 'project-tracker', title: 'Project Tracker', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/color' },
   excel: { id: 'excel', title: 'Excel', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/excel' },
-  pivot: { id: 'pivot', title: 'Pivot Analytics', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot' },
-  gantt: { id: 'gantt', title: 'Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt' },
-  'event-scheduler': { id: 'event-scheduler', title: 'Event Scheduler', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
-  planning: { id: 'planning', title: 'Unified Planning Suite', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/planning' },
+  'audit-history': { id: 'audit-history', title: 'Audit History', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/audit-history' },
+  'column-collapse': { id: 'column-collapse', title: 'Column Collapse', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/column-collapse' },
+  'context-menu': { id: 'context-menu', title: 'Context Menu & Formatting', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/context-menu' },
+  filtering: { id: 'filtering', title: 'Advanced Filtering', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/filtering' },
+  'infinity-scroll': { id: 'infinity-scroll', title: 'Infinity Scroll', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/infinity-scroll' },
+  'row-master': { id: 'row-master', title: 'Row Master', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/row-master' },
+  'tree-data': { id: 'tree-data', title: 'Tree Data', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/tree-data' },
+  pivot: { id: 'pivot', title: 'Pivot Table Demo', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot' },
+  gantt: { id: 'gantt', title: 'Gantt Chart JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt' },
+  'gantt-big-data': { id: 'gantt-big-data', title: '10K-Task Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt-big-data' },
+  'gantt-horizontal-big-data': { id: 'gantt-horizontal-big-data', title: '20Y-Timeline Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt-horizontal-big-data' },
+  kanban: { id: 'kanban', title: 'Kanban Board', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban' },
+  'kanban-performance': { id: 'kanban-performance', title: '50K-Task Kanban', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban-performance' },
+  'kanban-server-loading': { id: 'kanban-server-loading', title: '100K Server-Loaded Kanban', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban-server-loading' },
+  'event-scheduler': { id: 'event-scheduler', title: 'Scheduler JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
+  planning: { id: 'planning', title: 'Grid, Kanban, Gantt Charts & Event Scheduler', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/planning' },
 } as const satisfies Record<DemoId, CatalogDemo>
 
 export const PRODUCT_CATALOG = {
@@ -556,7 +596,7 @@ export const commercialFaqs: Record<CommercialFaqKey, { q: string, a: string }> 
   },
   'plan-difference': {
     q: 'What is the difference between Pro Lite and Pro Advanced?',
-    a: 'Pro Lite covers one product or app and includes typed Pro packages through private npm. Pro Advanced adds unlimited product usage, original private source repository access, Pivot, Gantt, Scheduler, and priority support.',
+    a: 'Pro Lite covers one product or app and includes typed Pro packages through private npm. Pro Advanced adds unlimited product usage, original private source repository access, the JavaScript Pivot Table, Kanban, Gantt, Scheduler, and priority support.',
   },
   'open-source-production': {
     q: 'Can I use the open-source core in production?',
@@ -623,24 +663,16 @@ export const getPricingDifferenceRows = () => {
     },
     {
       feature: {
-        text: 'Original source repository access',
-        description: 'Private source access through GitHub',
-        icon: 'code',
-      },
-      lite: excluded,
-      advanced: included,
-      enterprise: included,
-    },
-    {
-      feature: {
-        text: 'Pivot, Gantt & Scheduler',
+        text: 'Pivot Table, Kanban, Gantt Charts & Event Scheduler',
         icon: 'calendarDays',
         parts: [
-          { text: 'Pivot', href: '/pivot/' },
+          { text: 'Pivot Table', href: '/pivot/' },
+          { text: ', ' },
+          { text: 'Kanban', href: '/kanban' },
           { text: ', ' },
           { text: 'Gantt', href: '/gantt' },
           { text: ' & ' },
-          { text: 'Scheduler', href: '/event-scheduler' },
+          { text: 'Scheduler JS', href: '/jsscheduler' },
         ],
       },
       lite: excluded,
@@ -694,7 +726,7 @@ export const getPricingEvaluationFacts = () => {
         features: [
           `${trialDays}-day private npm access`,
           'Pro plugins and production-ready examples',
-          'Pivot, Gantt, Scheduler, and Event Scheduler',
+          'Pivot Table, Kanban, Gantt, and JavaScript Scheduler',
           'Public GitHub repository is setup boilerplate only',
         ],
         action: { label: 'Request Pro Trial', href: advanced.trial.requestUrl! },

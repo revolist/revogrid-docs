@@ -2,8 +2,8 @@
   <section
     class="trusted-logo-strip"
     :class="variantClasses"
-    :aria-labelledby="resolvedSection.title ? titleId : undefined"
-    :aria-label="resolvedSection.title ? undefined : resolvedSection.kicker"
+    :aria-labelledby="resolvedSection.title && props.variant !== 'home' ? titleId : undefined"
+    :aria-label="resolvedSection.title && props.variant !== 'home' ? undefined : resolvedSection.kicker"
   >
     <div class="trusted-logo-strip__inner">
       <div class="trusted-logo-strip__copy">
@@ -129,7 +129,9 @@ const variantClasses = computed(() => ({
   --trusted-strip-text: var(--rg-text, var(--vp-c-text-1));
   --trusted-strip-muted: var(--rg-text-2, var(--vp-c-text-2));
   --trusted-strip-accent: var(--rg-font-green, var(--vp-c-brand-1));
-  --trusted-strip-inner-width: min(1200px, calc(100% - 48px));
+  --trusted-strip-inner-width: min(1152px, calc(100% - 48px));
+
+  padding: 1.55rem 0;
 }
 
 .trusted-logo-strip--pivot {
@@ -171,6 +173,37 @@ const variantClasses = computed(() => ({
   line-height: 1.08;
 }
 
+.trusted-logo-strip--home .trusted-logo-strip__inner {
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+  gap: clamp(1.75rem, 4vw, 4rem);
+  align-items: center;
+  text-align: left;
+}
+
+.trusted-logo-strip--home .trusted-logo-strip__copy {
+  justify-items: start;
+}
+
+.trusted-logo-strip--home .trusted-logo-strip__copy h2 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.trusted-logo-strip--home .trusted-logo-strip__kicker {
+  color: var(--trusted-strip-muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+}
+
 .trusted-logo-strip__logos {
   display: flex;
   flex-wrap: wrap;
@@ -202,6 +235,42 @@ const variantClasses = computed(() => ({
     opacity: 1;
     filter: grayscale(0);
   }
+}
+
+.trusted-logo-strip--home .trusted-logo-strip__logos {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+  color: var(--trusted-strip-muted);
+}
+
+.trusted-logo-strip--home .trusted-logo-strip__logo {
+  height: 64px;
+  opacity: 0.62;
+}
+
+.trusted-logo-strip--home .trusted-logo-strip__logo:hover {
+  opacity: 0.9;
+}
+
+.trusted-logo-strip--home .trusted-logo-strip__logo--axon {
+  --trusted-logo-height: 108px;
+}
+
+.trusted-logo-strip--home .trusted-logo-strip__logo--basf {
+  --trusted-logo-height: 30px;
+}
+
+.trusted-logo-strip--home .trusted-logo-strip__logo--bayer {
+  --trusted-logo-height: 36px;
+}
+
+.trusted-logo-strip--home .trusted-logo-strip__logo--cbre {
+  --trusted-logo-height: 27px;
+}
+
+.trusted-logo-strip--home .trusted-logo-strip__logo--deltek {
+  --trusted-logo-height: 30px;
 }
 
 .trusted-logo-strip__logo--axon {
@@ -268,6 +337,15 @@ const variantClasses = computed(() => ({
 }
 
 @media (max-width: 800px) {
+  .trusted-logo-strip--home {
+    padding: 1.75rem 0;
+  }
+
+  .trusted-logo-strip--home .trusted-logo-strip__inner {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
   .trusted-logo-strip__metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -293,6 +371,20 @@ const variantClasses = computed(() => ({
 
   .trusted-logo-strip__metric {
     padding-inline: 0.75rem;
+  }
+
+  .trusted-logo-strip--home .trusted-logo-strip__logos {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.75rem 0.5rem;
+  }
+
+  .trusted-logo-strip--home .trusted-logo-strip__logo {
+    grid-column: span 2;
+    height: 52px;
+  }
+
+  .trusted-logo-strip--home .trusted-logo-strip__logo:nth-child(4) {
+    grid-column: 2 / span 2;
   }
 }
 </style>

@@ -17,7 +17,6 @@ head:
 <script setup>
 import 'virtual:uno.css'
 import '@revolist/revogrid-pro/dist/revogrid-pro.css'
-import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
 import { defineAsyncComponent } from 'vue'
 
 const ProjectTable = defineAsyncComponent(() =>

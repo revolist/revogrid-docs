@@ -1,14 +1,28 @@
 <template>
-  <div class="compare-cta" :class="{ 'compare-cta-inline': inline }">
-    <a class="rg-btn" href="/trial">Request Pro Trial</a>
-    <a class="rg-btn rg-btn-secondary" href="/pricing#pro-advanced">Buy Pro</a>
+  <div
+    class="compare-cta"
+    :class="{ 'compare-cta-inline': inline }"
+    role="group"
+    aria-label="Comparison actions"
+  >
+    <a class="rg-btn" :href="primaryHref">{{ primaryLabel }}</a>
+    <a class="rg-btn rg-btn-secondary" :href="secondaryHref">{{ secondaryLabel }}</a>
   </div>
 </template>
 
 <script lang="ts" setup>
-defineProps<{
+withDefaults(defineProps<{
   inline?: boolean
-}>()
+  primaryHref?: string
+  primaryLabel?: string
+  secondaryHref?: string
+  secondaryLabel?: string
+}>(), {
+  primaryHref: '/trial',
+  primaryLabel: 'Request Pro Trial',
+  secondaryHref: '/pricing#pro-advanced',
+  secondaryLabel: 'Buy Pro',
+})
 </script>
 
 <style scoped>

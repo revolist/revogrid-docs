@@ -25,6 +25,13 @@ export function escapeHtml(value: string) {
     .replace(/"/g, '&quot;')
 }
 
+export function emphasizeText(value: string | undefined, emphasis?: string) {
+  const text = value ?? ''
+  if (!emphasis || !text.includes(emphasis)) return escapeHtml(text)
+
+  return escapeHtml(text).replace(escapeHtml(emphasis), `<em>${escapeHtml(emphasis)}</em>`)
+}
+
 export function linkProductMentions(value: string | undefined, linkOf: (href?: string) => string) {
   if (!value) return ''
 

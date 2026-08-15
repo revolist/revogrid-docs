@@ -46,7 +46,7 @@ const faqItems = [
   },
   {
     title: 'Is RevoGrid TypeScript-friendly?',
-    description: 'Yes. RevoGrid’s Gantt engine, configuration, entities, events, and projected task rows are typed. The documentation includes examples for TypeScript, JavaScript, React, Vue, Angular, and Svelte.',
+    description: 'Yes. RevoGrid Gantt engine, configuration, entities, events, and projected task rows are typed. The documentation includes examples for TypeScript, JavaScript, React, Vue, Angular, and Svelte.',
   },
   {
     title: 'Can RevoGrid replace DHTMLX in React, Vue, Angular, or Svelte?',

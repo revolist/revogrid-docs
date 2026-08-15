@@ -6,7 +6,7 @@
           <p class="eyebrow">Evaluate RevoGrid Pro</p>
           <h1>Try Pro before you buy.</h1>
           <p class="lead">
-            Evaluate Pro modules, including Pivot, Gantt, and Scheduler, with
+            Evaluate Pro modules, including Pivot Table, Kanban, Gantt, and Scheduler, with
             {{ trialDuration }} private npm access, live demos, and implementation guidance.
           </p>
 
@@ -38,7 +38,6 @@
     <TrustedLogoStrip
       title-id="trial-trust-title"
       variant="trial"
-      :metrics="metrics"
     />
 
     <section class="trial-steps" aria-labelledby="trial-steps-title">
@@ -63,6 +62,12 @@
         </div>
       </div>
     </section>
+
+    <div class="trial-faq">
+      <div class="trial-container">
+        <CommercialFaq id="trial-faq" />
+      </div>
+    </div>
   </main>
 </template>
 
@@ -70,6 +75,7 @@
 import FontAwesomeSvgIcon from '../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
 import TrustedLogoStrip from '../.vitepress/theme/TrustedLogoStrip.vue'
 import { getPlan } from '../commercial/productCatalog'
+import CommercialFaq from './CommercialFaq.vue'
 import TrialRequestForm from './TrialRequestForm.vue'
 
 const litePlan = getPlan('pro-lite')
@@ -81,13 +87,6 @@ const benefits = [
   'Public boilerplate repository and live demos',
   `Evaluate ${litePlan.name} and ${advancedPlan.name} modules`,
   'Guidance for app-level Pro evaluation',
-]
-
-const metrics = [
-  { value: '900K+', label: 'jsDelivr downloads / mo' },
-  { value: '3.4K+', label: 'GitHub stars' },
-  { value: `${litePlan.trial.durationDays} days`, label: 'to evaluate Pro' },
-  { value: '< 1 day', label: 'typical access time' },
 ]
 
 const steps = [
@@ -209,6 +208,11 @@ const steps = [
   border-top: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg-soft);
   padding: clamp(4.5rem, 7vw, 6.5rem) 0 clamp(5rem, 8vw, 7rem);
+}
+
+.trial-faq {
+  border-top: 1px solid var(--vp-c-divider);
+  padding: 1rem 0 3rem;
 }
 
 .steps-heading {

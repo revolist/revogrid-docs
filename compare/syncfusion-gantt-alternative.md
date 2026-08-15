@@ -317,7 +317,7 @@ The following example shows the shape of a framework-neutral RevoGrid Gantt setu
 
 ```ts
 import { defineCustomElements } from '@revolist/revogrid/loader'
-import { GanttPlugin } from '@revolist/revogrid-enterprise'
+import { GanttPlugin } from '@revolist/gantt'
 
 defineCustomElements()
 

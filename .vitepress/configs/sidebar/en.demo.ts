@@ -1,12 +1,14 @@
 import type { DefaultTheme } from 'vitepress'
-import { getDemoBadge, type DemoId } from '../../../commercial/productCatalog'
+import { getDemoBadge, getPlan, type DemoId, type PlanId } from '../../../commercial/productCatalog'
 
-const demoSidebarText = (demoId: DemoId) => {
+const demoSidebarText = (demoId: DemoId, label?: string) => {
     const demo = getDemoBadge(demoId)
-    const status = demo.status === 'stable'
-        ? ''
-        : `<span class="demo-sidebar-status" title="${demo.status}">${demo.status}</span>`
-    return `<span class="demo-sidebar-label"><span>${demo.label}</span><span class="demo-sidebar-badge demo-sidebar-badge--${demo.className}" title="${demo.title}">${demo.badge}</span>${status}</span>`
+    return label ?? demo.label
+}
+
+const demoSidebarGroupText = (label: string, planId: PlanId) => {
+    const plan = getPlan(planId)
+    return `<span class="demo-sidebar-group-label"><span>${label}</span><span class="demo-sidebar-badge demo-sidebar-badge--${plan.badgeClass}" title="${plan.name}" aria-hidden="true">${plan.badge}</span></span>`
 }
 
 export const sidebarReactEn: DefaultTheme.SidebarItem[] = [
@@ -221,48 +223,128 @@ export const sidebarGuideDemosEn: DefaultTheme.SidebarItem[] = [
 
 export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
     {
-        text: 'Core',
+        text: demoSidebarGroupText('Core', 'open-source'),
         collapsed: false,
         items: [
             {
                 text: demoSidebarText('grid-at-scale'),
                 link: '/demo/',
             },
+            {
+                text: demoSidebarText('ai-prompt-library'),
+                link: '/demo/ai-prompts',
+            },
+            {
+                text: demoSidebarText('project-portfolio'),
+                link: '/demo/project-portfolio',
+            },
         ],
     },
     {
-        text: 'Pro',
+        text: demoSidebarGroupText('Pro', 'pro-lite'),
         collapsed: false,
         items: [
             {
-                text: demoSidebarText('project-tracker'),
-                link: '/demo/color',
+                text: demoSidebarText('tree-data'),
+                link: '/demo/tree-data',
+            },
+            {
+                text: demoSidebarText('filtering'),
+                link: '/demo/filtering',
+            },
+            {
+                text: demoSidebarText('infinity-scroll', 'Infinity Scroll Remote'),
+                link: '/demo/infinity-scroll',
+            },
+            {
+                text: demoSidebarText('column-collapse'),
+                link: '/demo/column-collapse',
+            },
+            {
+                text: demoSidebarText('context-menu'),
+                link: '/demo/context-menu',
+            },
+            {
+                text: demoSidebarText('row-master'),
+                link: '/demo/row-master',
             },
             {
                 text: demoSidebarText('excel'),
                 link: '/demo/excel',
             },
+            {
+                text: demoSidebarText('audit-history'),
+                link: '/demo/audit-history',
+            },
+            {
+                text: demoSidebarText('project-tracker'),
+                link: '/demo/color',
+            },
         ],
     },
     {
-        text: 'Pro Advanced',
+        text: demoSidebarGroupText('Pro Advanced', 'pro-advanced'),
         collapsed: false,
         items: [
             {
-                text: demoSidebarText('pivot'),
-                link: '/demo/pivot',
-            },
-            {
-                text: demoSidebarText('gantt'),
-                link: '/demo/gantt',
-            },
-            {
-                text: demoSidebarText('event-scheduler'),
-                link: '/demo/event-scheduler',
-            },
-            {
-                text: demoSidebarText('planning'),
+                text: demoSidebarText('planning', 'All-in-One Planning'),
                 link: '/demo/planning',
+            },
+            {
+                text: 'Gantt Chart',
+                collapsed: false,
+                items: [
+                    {
+                        text: demoSidebarText('gantt'),
+                        link: '/demo/gantt',
+                    },
+                    {
+                        text: demoSidebarText('gantt-big-data'),
+                        link: '/demo/gantt-big-data',
+                    },
+                    {
+                        text: demoSidebarText('gantt-horizontal-big-data'),
+                        link: '/demo/gantt-horizontal-big-data',
+                    },
+                ],
+            },
+            {
+                text: 'Scheduler',
+                collapsed: false,
+                items: [
+                    {
+                        text: demoSidebarText('event-scheduler', 'Scheduler & Calendar'),
+                        link: '/demo/event-scheduler',
+                    },
+                ],
+            },
+            {
+                text: 'Kanban',
+                collapsed: false,
+                items: [
+                    {
+                        text: demoSidebarText('kanban'),
+                        link: '/demo/kanban',
+                    },
+                    {
+                        text: demoSidebarText('kanban-performance'),
+                        link: '/demo/kanban-performance',
+                    },
+                    {
+                        text: demoSidebarText('kanban-server-loading', '100K Remote Kanban'),
+                        link: '/demo/kanban-server-loading',
+                    },
+                ],
+            },
+            {
+                text: 'Pivot Table',
+                collapsed: false,
+                items: [
+                    {
+                        text: demoSidebarText('pivot', 'Pivot Table & Charts'),
+                        link: '/demo/pivot',
+                    },
+                ],
             },
         ],
     },

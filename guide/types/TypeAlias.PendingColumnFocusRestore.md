@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.24.3](README.md) / PendingColumnFocusRestore
+[RevoGrid Documentation v4.25.1](README.md) / PendingColumnFocusRestore
 
 # Type Alias: PendingColumnFocusRestore
 
@@ -21,13 +21,13 @@ column prop after the column moves between rgCol, colPinStart, or colPinEnd.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `colIndex` | [`ColIndex`](TypeAlias.ColIndex.md) | [src/types/selection.ts:90](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/selection.ts#L90) |
-| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | [src/types/selection.ts:89](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/selection.ts#L89) |
-| `prevStoreX` | [`ColIndex`](TypeAlias.ColIndex.md) | [src/types/selection.ts:91](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/selection.ts#L91) |
-| `prop` | [`ColumnProp`](TypeAlias.ColumnProp.md) | [src/types/selection.ts:88](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/selection.ts#L88) |
-| `rowIndex` | [`RowIndex`](TypeAlias.RowIndex.md) | [src/types/selection.ts:93](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/selection.ts#L93) |
-| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/types/selection.ts:92](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/selection.ts#L92) |
+| `colIndex` | [`ColIndex`](TypeAlias.ColIndex.md) | [src/types/selection.ts:90](https://github.com/revolist/revogrid/blob/d06ea5b7beb9764dab968fd781d3f71fda941337/src/types/selection.ts#L90) |
+| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | [src/types/selection.ts:89](https://github.com/revolist/revogrid/blob/d06ea5b7beb9764dab968fd781d3f71fda941337/src/types/selection.ts#L89) |
+| `prevStoreX` | [`ColIndex`](TypeAlias.ColIndex.md) | [src/types/selection.ts:91](https://github.com/revolist/revogrid/blob/d06ea5b7beb9764dab968fd781d3f71fda941337/src/types/selection.ts#L91) |
+| `prop` | [`ColumnProp`](TypeAlias.ColumnProp.md) | [src/types/selection.ts:88](https://github.com/revolist/revogrid/blob/d06ea5b7beb9764dab968fd781d3f71fda941337/src/types/selection.ts#L88) |
+| `rowIndex` | [`RowIndex`](TypeAlias.RowIndex.md) | [src/types/selection.ts:93](https://github.com/revolist/revogrid/blob/d06ea5b7beb9764dab968fd781d3f71fda941337/src/types/selection.ts#L93) |
+| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/types/selection.ts:92](https://github.com/revolist/revogrid/blob/d06ea5b7beb9764dab968fd781d3f71fda941337/src/types/selection.ts#L92) |
 
 ## Defined in
 
-[src/types/selection.ts:87](https://github.com/revolist/revogrid/blob/3f18983837fc656b0d90eb4d55e52a605e13bd10/src/types/selection.ts#L87)
+[src/types/selection.ts:87](https://github.com/revolist/revogrid/blob/d06ea5b7beb9764dab968fd781d3f71fda941337/src/types/selection.ts#L87)

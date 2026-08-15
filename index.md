@@ -17,12 +17,12 @@ head:
       content: Build spreadsheet-grade data grids with Vue, React, Angular, Svelte, Dash, Python, and JavaScript apps.
   - - meta
     - name: keywords
-      content: RevoGrid, JavaScript Data Grid, React Data Grid, Vue Data Grid, Angular Data Grid, Svelte Data Grid, Dash Data Grid, Python Data Grid, Virtual Scrolling, Editable Grid, Data Table, Pivot Grid, Gantt Grid, Excel
+      content: RevoGrid, JavaScript Data Grid, React Data Grid, Vue Data Grid, Angular Data Grid, Svelte Data Grid, Dash Data Grid, Python Data Grid, Virtual Scrolling, Editable Grid, Data Table, JavaScript Pivot Table Component, Pivot Grid, Gantt Grid, Excel
 hero:
   eyebrow: High-performance data grid
   title: JavaScript Data Grid for complex web apps
   emphasis: JavaScript Data Grid
-  tagline: The world's fastest JavaScript data grid. Inline editing, virtual scroll, and custom cells for every major framework. 
+  tagline: The world's fastest JavaScript data grid. 60fps, 3x less memory. Inline editing, virtual scroll, and custom cells for every major framework.
   primaryAction:
     text: View demos
     link: /demo/
@@ -48,8 +48,25 @@ hero:
       link: /guide/
 
 trust:
-  kicker: Used by teams at companies including
+  kicker: Used by teams at
   title: Companies using RevoGrid
+
+recommended:
+  title: Engineered for
+  details: Every Challenge.
+  features:
+    - title: Individuals
+      icon:
+        src: individual.svg
+      details: Quickly build elegant and efficient data grids. Lightweight yet powerful architecture lets you easily scale as your needs grow.
+    - title: Startups and Innovators
+      icon:
+        src: startup.svg
+      details: Rapid prototyping with intuitive and extendable codebase. Agility to build robust data-driven applications in no time.
+    - title: Enterprise Solutions
+      icon:
+        src: org.svg
+      details: For large organizations managing massive datasets. Performance and scalability to handle even the most complex data tables.
 
 # demos:
 #   label: Live demos
@@ -85,103 +102,38 @@ trust:
 #       type: realtime
 
 capabilities:
-  label: Core capabilities
-  title: A grid engine, not a fixed component
-  description: RevoGrid is built for applications that outgrow simple table libraries.
+  title: Build data products people love to use.
+  emphasis: people love
+  description: Create focused tools, customer-facing apps, and enterprise platforms with spreadsheet-grade editing, advanced filtering, rich formatting, and flexible hierarchy.
   items:
-    - title: Performance at scale
-      icon: pulse
-      link: "/guide/performance"
-      description: Renders millions of rows at 60 fps. Virtual scrolling, frozen columns, and pinned rows — no pagination required.
-    - title: Spreadsheet-grade editing
-      icon: grid
+    - id: editing
+      title: Spreadsheet-grade editing
+      icon: edit
       link: "/guide/editing"
-      description: Range selection, keyboard navigation, copy/paste, and inline editing. The UX your users already know.
-    - title: Advanced filtering and sorting
-      icon: tool
-      link: "/guide/filters"
-      description: AND/OR condition trees across multiple filters per column. Additive multi-column sorting. All built into the core.
-    - title: Grouping and row ordering
-      icon: app
-      link: "/guide/row/grouping"
-      description: Group rows by any column. Drag to reorder. Full tree and nested data support included.
-    - title: Custom cells and editors
-      icon: star
-      link: "/guide/cell/renderer"
-      description: Any Vue, React, Angular, or Svelte component becomes a cell. Build pickers, badges, sparklines — whatever you need.
-    - title: Plugin architecture
-      icon: plugin
-      link: "/guide/plugin/"
-      description: Add column menus, export, history, or build your own. Extend without forking.
-
-nativeCells:
-  label: No context switch
-  title: Full native framework support
-  description: RevoGrid supports React, Vue, Angular, and Svelte at the core JavaScript DataGrid level, so developers can build data-heavy apps with native components, familiar framework patterns, and virtualized grid rendering.
-  links:
-    - text: React cells
-      href: /react-data-grid
-    - text: Vue cells
-      href: /vue-data-grid
-    - text: Angular cells
-      href: /angular-data-grid
-    - text: Svelte cells
-      href: /svelte-data-grid
-  examples:
-    - framework: React
-      color: '#61DAFB'
-      lang: tsx
-      code: |
-        const Cell = ({ value }) => (
-          __LT__strong__GT__{value}__LT__/strong__GT__
-        )
-
-        const columns = [
-          { prop: 'value', cellTemplate: Template(Cell) },
-        ]
-
-        __LT__RevoGrid columns={columns} source={rows} /__GT__
-    - framework: Vue
-      color: '#4FC08D'
-      lang: vue
-      code: |
-        __LT__script setup__GT__
-        import Cell from './Cell.vue'
-        const columns = [{
-          prop: 'value',
-          cellTemplate: VGridVueTemplate(Cell),
-        }]
-        __LT__/script__GT__
-
-        __LT__template__GT__
-          __LT__RevoGrid :columns="columns" :source="rows" /__GT__
-        __LT__/template__GT__
-    - framework: Angular
-      color: '#DD0031'
-      lang: ts
-      code: |
-        @Component({
-          template: '{{ props.model.value }}',
-        })
-        class CellComponent {}
-
-        columns = [
-          { prop: 'value', cellTemplate: Template(CellComponent) },
-        ]
-    - framework: Svelte
-      color: '#FF3E00'
-      lang: svelte
-      code: |
-        __LT__script lang="ts"__GT__
-          import Cell from './Cell.svelte'
-          import { RevoGrid, Template } from '@revolist/svelte-datagrid'
-
-          const columns = [
-            { prop: 'value', cellTemplate: Template(Cell) },
-          ]
-        __LT__/script__GT__
-
-        __LT__RevoGrid {columns} source={rows} /__GT__
+      description: Familiar inline editing, selection, navigation, and paste.
+    - id: control
+      title: Data control built in
+      icon: columns
+      link: "/guide/column/"
+      description: Sorting, resizing, selection, and column movement.
+    - id: filtering
+      title: Advanced filtering
+      tag: Pro
+      icon: filter
+      link: "/demo/filtering"
+      description: Owner selection, formatted cells, and spreadsheet actions.
+    - id: formatting
+      title: Spreadsheet formatting
+      tag: Pro
+      icon: palette
+      link: "/demo/context-menu"
+      description: Progress bars, currency, and reusable presentation rules.
+    - id: tree
+      title: Tree data
+      tag: Pro
+      icon: tree
+      link: "/demo/tree-data"
+      description: Filterable hierarchy with persistent parent context.
 
 developer:
   label: For developers
@@ -284,35 +236,150 @@ developer:
 
         __LT__RevoGrid {source} {columns} /__GT__
 
+feedback:
+  label: What builders say
+  title: Built into products. Praised in practice.
+  description: From open-source adopters to Pro teams, builders call out the speed, flexibility, value, and people behind RevoGrid.
+  items:
+    - quote: One of the best value grid solutions compared to other grid libraries, especially in terms of pricing, performance, and large dataset handling.
+      attribution: RevoGrid Pro customer
+      source: Customer email
+      size: featured
+      tone: green
+    - quote: Thank you for this amazing library, we are really impressed about the performance of the grid component.
+      attribution: RevoGrid user
+      source: GitHub
+      link: https://github.com/revolist/revogrid/issues/141
+      size: wide
+      tone: blue
+    - quote: Makes development a lot easier.
+      attribution: RevoGrid Advanced customer
+      source: Customer email
+      size: compact
+      tone: violet
+    - quote: I have to add my voice that it is truly wonderful. Building it with StencilJS was a very smart strategy!
+      attribution: RevoGrid user
+      source: GitHub
+      link: https://github.com/revolist/revogrid/issues/193
+      size: medium
+      tone: amber
+    - quote: We are VERY happy with the PivotGrid.
+      attribution: PivotGrid customer
+      source: Customer email
+      size: compact
+      tone: green
+    - quote: Thank you for this great revolutionary grid.
+      attribution: RevoGrid user
+      source: GitHub
+      link: https://github.com/revolist/revogrid/issues/211
+      size: medium
+      tone: blue
+    - quote: Very happy I upgraded, happy to support companies that listen and implement feedback.
+      attribution: RevoGrid Advanced customer
+      source: Customer email
+      size: wide
+      tone: violet
+    - quote: Thanks for all the hard work on this great component!
+      attribution: RevoGrid user
+      source: GitHub
+      link: https://github.com/revolist/revogrid/issues/129
+      size: medium
+      tone: amber
+    - quote: Everything works great.
+      attribution: RevoGrid user
+      source: GitHub
+      link: https://github.com/revolist/revogrid/issues/344
+      size: compact
+      tone: green
+    - quote: You have a great product, RevoGrid.
+      attribution: RevoGrid Pro customer
+      source: Customer email
+      size: medium
+      tone: blue
+    - quote: Awesome library!!
+      attribution: RevoGrid user
+      source: GitHub
+      link: https://github.com/revolist/revogrid/issues/52
+      size: compact
+      tone: violet
+    - quote: Congratulations for RevoGrid. It's really amazing.
+      attribution: RevoGrid user
+      source: GitHub
+      link: https://github.com/revolist/revogrid/issues/172
+      size: medium
+      tone: amber
+
 advanced:
   label: Advanced modules
-  title: Start with the core-grid. Add modules when you need them.
-  description: RevoGrid scales from a fast editable grid to advanced product workflows without switching tools or rewriting integrations.
+  title: Same grid engine. Bigger product surfaces.
+  description: Extend one typed data model into analytics, workflow, scheduling, and spreadsheet-grade tools.
   action:
-    text: Explore advanced modules
+    text: Explore modules
     link: /pro/#catalog
   items:
-    - title: Advanced Reporting
+    - title: Spreadsheet Formatting
+      catalogFeatureId: multi-cell-formatting
+      type: spreadsheet
+      link: /demo/excel
+      thumbnail: /img/spreadsheet.png
+      videoUrl: /video/spreadhsheet.mp4
+      description: Present live data with formats, progress bars, status styles, ranges, and spreadsheet-grade selection.
+    - title: Master Detail
+      catalogFeatureId: master-detail
+      type: master-detail
+      link: /demo/row-master
+      thumbnail: /img/master-detail.png
+      videoUrl: /video/master-detail.mp4
+      description: Expand any row into a nested grid, form, or custom product view.
+    - title: Formula Engine
+      catalogFeatureId: formula
+      type: formula
+      link: /guide/cell/formula
+      thumbnail: /img/formula.png
+      videoUrl: /video/formula.mp4
+      description: Evaluate spreadsheet formulas and grouping aggregations over live grid data.
+    - title: History
+      catalogFeatureId: history
+      type: history
+      link: /pro/
+      thumbnail: /img/history-undo.png
+      videoUrl: /video/history.mp4
+      description: Add dependable undo and redo across cell edits and multi-cell operations.
+    - title: Advanced Filter
+      catalogFeatureId: advanced-selection-filtering
+      type: filter
+      link: /demo/filtering
+      thumbnail: /img/advanced-filter.png
+      videoUrl: /video/filter-advance.mp4
+      description: Combine value selection and conditions in one fast, scalable filtering workflow.
+    - title: Pivot Table
       catalogProductId: pivot
       type: pivot
       link: /pivot
       thumbnail: /img/pivot.png
       videoUrl: /video/pivot.mp4
-      description: Pivot, aggregate, and summarize complex datasets directly inside your app. Drag-and-drop dimensions, drill-down, and totals — no BI tool required.
-    - title: Master Detail
-      catalogFeatureId: master-detail
-      type: master-detail
-      link: /pro/
-      thumbnail: /img/master-detail.png
-      videoUrl: /video/master-detail.mp4
-      description: Expand any row into a nested grid, form, or custom view. The UX pattern your customers already expect in real product interfaces.
-    - title: Audit Trail
-      catalogFeatureId: audit-trail-history
-      type: audit
-      link: /pro/
-      thumbnail: /img/audit-log.png
-      videoUrl: /video/al-demo.mp4
-      description: Record every cell change with who, what, and when. Filter, review, and export the full history. No DIY work required.
+      description: Analyze live grid data with drag-and-drop dimensions, aggregation, drill-down, filters, and totals.
+    - title: Event Scheduler
+      catalogProductId: scheduler
+      type: scheduler
+      link: /jsscheduler
+      thumbnail: /img/event-scheduler.png
+      videoUrl: /video/event-scheduler.mp4
+      description: Schedule people, rooms, and equipment with resource timelines, conflicts, and drag-to-reschedule.
+    - title: Kanban Board
+      catalogProductId: kanban
+      type: kanban
+      link: /kanban
+      thumbnail: /blog/kanban-product-development-polished.png
+      videoUrl: /video/kanban-demo.mp4
+      description: Project shared data into virtualized workflow columns, swimlanes, and WIP rules.
+    - title: Gantt Charts
+      catalogProductId: gantt
+      type: gantt
+      link: /gantt
+      thumbnail: /img/gantt-preview.png
+      videoUrl: /video/gantt-demo.mp4
+      description: Coordinate timelines, dependencies, milestones, and resources on the same data model.
 
 comparison:
   label: Why RevoGrid

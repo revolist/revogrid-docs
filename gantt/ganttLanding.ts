@@ -8,7 +8,7 @@ export type GanttLandingAction = {
 }
 
 export type GanttLandingPage = {
-  catalogProductId: 'gantt' | 'scheduler' | 'event-scheduler'
+  catalogProductId: 'gantt' | 'kanban' | 'scheduler' | 'event-scheduler'
   colors: {
     accent: string
     accent2: string
@@ -28,7 +28,7 @@ export type GanttLandingPage = {
   }
   preview: {
     enabled: boolean
-    kind?: 'gantt' | 'eventScheduler' | 'image'
+    kind?: 'gantt' | 'kanban' | 'eventScheduler' | 'image'
     title: string
     pills: { label: string, active?: boolean }[]
     liveLabel?: string
@@ -43,21 +43,49 @@ export type GanttLandingPage = {
     kicker: string
     title: string
     description: string
-    items: { icon: string, title: string, description: string, tags: string[] }[]
+    items: {
+      icon: string
+      title: string
+      description: string
+      tags: string[]
+      media?: string
+      mediaKind?: 'image' | 'video'
+      mediaAlt?: string
+      mediaAspect?: string
+      poster?: string
+      theme?: string
+      href?: string
+      cta?: string
+      featured?: boolean
+    }[]
   }
   integrations: {
     id: string
     kicker: string
     title: string
     description: string
-    items: { icon: string, name: string, badge?: string, href?: string }[]
+    items: {
+      icon: string
+      iconSrc?: string
+      name: string
+      badge?: string
+      href?: string
+    }[]
   }
   demos?: {
     id: string
     kicker: string
     title: string
     description: string
-    items: { title: string, description: string, href: string, media: string, mediaKind?: 'image' | 'video' }[]
+    items: {
+      title: string
+      description: string
+      href: string
+      media: string
+      mediaKind?: 'image' | 'video'
+      poster?: string
+      mediaFit?: 'cover' | 'contain'
+    }[]
   }
   evidence?: {
     id: string
@@ -65,7 +93,7 @@ export type GanttLandingPage = {
     title: string
     description: string
     items: { value: string, title: string, description: string }[]
-    note: string
+    note?: string
     links: { label: string, href: string }[]
   }
   evaluation?: {
@@ -83,6 +111,7 @@ export type GanttLandingPage = {
     title: string
     description: string
     items: { title: string, description: string }[]
+    actions?: GanttLandingAction[]
   }
   featureComparison?: {
     id: string
@@ -97,7 +126,18 @@ export type GanttLandingPage = {
     kicker: string
     title: string
     description: string
-    items: { title: string, description: string }[]
+    benefits?: { label: string, href: string }
+    items: {
+      title: string
+      description: string
+      media?: string
+      mediaKind?: 'image' | 'video'
+      mediaAlt?: string
+      poster?: string
+      theme?: string
+      href?: string
+      cta?: string
+    }[]
   }
   faq?: {
     id: string
@@ -139,7 +179,7 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
     darkBorder: 'color-mix(in srgb, var(--vp-c-brand-2) 28%, transparent)',
   },
   hero: {
-    eyebrow: 'RevoGrid Pro / Gantt',
+    eyebrow: 'RevoGrid Gantt',
     title: 'The interactive Gantt your app deserves.',
     description: 'Production-ready project scheduling for SaaS, ERP, and operations platforms. Drag-to-reschedule tasks, assign owners, track progress, and embed it as a native product feature.',
     actions: [
@@ -214,11 +254,11 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
     title: 'Works with your stack',
     description: 'One scheduling component with framework bindings for the RevoGrid ecosystem.',
     items: [
-      { icon: 'JS', name: 'JavaScript', badge: '' },
-      { icon: 'Vue', name: 'Vue', badge: '' },
-      { icon: 'React', name: 'React', badge: '' },
-      { icon: 'Ng', name: 'Angular', badge: '' },
-      { icon: 'Sv', name: 'Svelte', badge: '' },
+      { icon: 'JS', iconSrc: '/js.svg', name: 'JavaScript', badge: '' },
+      { icon: 'Vue', iconSrc: '/vuejs.svg', name: 'Vue', badge: '' },
+      { icon: 'React', iconSrc: '/react.svg', name: 'React', badge: '' },
+      { icon: 'Ng', iconSrc: '/angular.svg', name: 'Angular', badge: '' },
+      { icon: 'Sv', iconSrc: '/svelte.svg', name: 'Svelte', badge: '' },
     ],
   },
   advancedCallout: {

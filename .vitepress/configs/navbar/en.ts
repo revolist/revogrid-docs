@@ -5,24 +5,29 @@ export const navbarEn: DefaultTheme.NavItem[] = [
     text: 'Product',
     items: [
       {
-        text: 'Data Grid',
+        text: 'Data Grid JS',
         link: '/',
         activeMatch: '^/$',
       },
       {
-        text: 'Pivot Analytics',
+        text: 'Pivot Table JS',
         link: '/pivot',
         activeMatch: '^/pivot',
       },
       {
-        text: 'Gantt',
+        text: 'Kanban Board JS',
+        link: '/kanban',
+        activeMatch: '^/kanban',
+      },
+      {
+        text: 'Gantt Chart JS',
         link: '/gantt',
         activeMatch: '^/gantt',
       },
       {
-        text: 'Event Scheduler',
-        link: '/event-scheduler',
-        activeMatch: '^/event-scheduler',
+        text: 'Scheduler JS',
+        link: '/jsscheduler',
+        activeMatch: '^/jsscheduler',
       },
       {
         text: 'Frameworks',
@@ -79,6 +84,10 @@ export const navbarEn: DefaultTheme.NavItem[] = [
   {
     text: 'Links',
     items: [
+      {
+        text: 'Comparisons',
+        link: '/compare/',
+      },
       {
         text: 'Discussions',
         link: 'https://github.com/revolist/revogrid/discussions',

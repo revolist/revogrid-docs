@@ -171,11 +171,10 @@
     --rg-grid-line: rgba(0, 0, 0, 0.05);
 }
 
-.demo-sidebar-label {
+.demo-sidebar-group-label {
     display: inline-flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 4px 6px;
+    gap: 6px;
     min-width: 0;
     line-height: 18px;
     vertical-align: middle;
@@ -202,7 +201,6 @@
 }
 
 .demo-sidebar-badge--pro-lite {
-    border-color: color-mix(in srgb, var(--vp-c-brand-1) 28%, transparent);
     background: var(--vp-c-brand-soft);
     color: var(--vp-c-brand-1);
 }
@@ -504,6 +502,13 @@ header.VPFeatures {
     }
 }
 
+@media (min-width: 960px) {
+    .benchmarks-page .VPDoc:not(.has-sidebar) .container,
+    .benchmarks-page .VPDoc:not(.has-sidebar) .content {
+        max-width: 1088px;
+    }
+}
+
 @media (min-width: 1240px) {
     .demo-page-wrapper .demo-container {
         max-width: 1240px;
@@ -632,5 +637,9 @@ revo-grid:not(.skip-style) {
         .rv-filter {
             vertical-align: middle;
         }
+    }
+
+    revogrid [hidden]:where(:not([hidden=until-found])) {
+        display: inherit !important;
     }
 }

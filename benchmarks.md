@@ -1,17 +1,38 @@
 ---
 title: RevoGrid Data Grid Benchmarks
 description: Reproducible RevoGrid benchmark results and methodology for large-grid rendering, scrolling, memory, and editing latency.
+pageClass: benchmarks-page
+aside: false
+outline: false
 head:
   - - meta
     - name: keywords
       content: RevoGrid benchmarks, data grid performance benchmark, JavaScript grid FPS, grid memory usage, grid edit latency, virtual scrolling benchmark
 ---
 
+<script setup>
+import BenchmarkLiveDemo from './.vitepress/theme/BenchmarkLiveDemo.vue'
+</script>
+
 # RevoGrid Benchmarks
+
+Looking for scheduling measurements? See the [RevoGrid Gantt browser benchmark](/benchmarks/gantt), including the full 100/1K/5K/10K task matrix, dependency densities, raw JSON/CSV, screenshot, video, and live workload.
 
 This page records a reproducible local RevoGrid benchmark run. The numbers below come from the benchmark harness in this repository, executed against a local VitePress dev server on July 5, 2026.
 
 Benchmark numbers are environment-dependent. Treat these as a published run with its machine, browser, dataset, and renderer setup documented, not as a universal guarantee for every application.
+
+::: tip Related comparative benchmark
+Read [**Battle of the Rows: The Limits of Data Performance**](https://dev.to/kumakint/battle-of-the-rows-the-limits-of-data-performance-4mcn) for a 2024 comparison of RevoGrid, AG Grid, and Handsontable across datasets up to 400,000 rows, covering memory usage, scrolling FPS, and initial rendering. Its harness differs from the benchmark documented here, so compare the results with that context in mind.
+:::
+
+## Measure performance in your browser
+
+These live values describe this page and the selected workload. They are not universal product guarantees or directly comparable with results collected on another machine, browser, display, or page. You can also open the same workspace on the dedicated [Grid at Scale demo](/demo/).
+
+<ClientOnly>
+  <BenchmarkLiveDemo />
+</ClientOnly>
 
 ## Dataset and renderer
 
@@ -105,6 +126,7 @@ The script writes:
 
 ## Related docs
 
+- [Battle of the Rows: The Limits of Data Performance](https://dev.to/kumakint/battle-of-the-rows-the-limits-of-data-performance-4mcn)
 - [Performance and Virtualization](/guide/performance)
 - [Understanding Viewports](/guide/viewports)
 - [Programmatic Grid Control](/guide/programmatic-control)

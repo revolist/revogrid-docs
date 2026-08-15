@@ -20,7 +20,7 @@ See the complete [RevoGrid Gantt product page](/gantt) for live demos, grid-firs
 :::
 
 ::: info Comparing resource schedulers instead?
-For resource timelines, event editing, conflicts, availability, and operational planning, read the focused [RevoGrid vs Bryntum Scheduler: 2026 comparison](/blog/revogrid-vs-bryntum-scheduler-2026).
+For resource timelines, event editing, conflicts, availability, and operational planning, read the focused [RevoGrid Scheduler vs Bryntum Scheduler: 2026 comparison](/blog/revogrid-vs-bryntum-scheduler-2026).
 :::
 
 <script lang="ts" setup>

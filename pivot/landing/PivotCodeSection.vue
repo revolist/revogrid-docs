@@ -12,9 +12,9 @@
       <pre><code ref="codeEl">import { RevoGrid } from '@revolist/react-datagrid';
 import {
   PivotPlugin,
-  commonAggregators,
   type PivotConfig,
-} from '@revolist/revogrid-enterprise';
+} from '@revolist/pivot';
+import { commonAggregators } from '@revolist/revogrid-pro';
 
 const pivot: PivotConfig = {
   dimensions: [

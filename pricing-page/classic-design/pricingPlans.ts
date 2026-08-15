@@ -24,7 +24,7 @@ export const PRO_LIGHT_FEATURES = [
 export const PRO_ADV_FEATURES = [
   'Everything in Pro Lite',
   'Broader commercial use (no app limit)',
-  'Pivot Grid module',
+  'Pivot Table component',
   'Gantt Chart module',
   'Access to typed source code',
   'Private GitHub repository access',

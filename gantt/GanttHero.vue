@@ -43,6 +43,7 @@
 
       <ClientOnly v-else-if="preview.enabled">
         <EventSchedulerPreview v-if="preview.kind === 'eventScheduler'" class="hero-preview fade-up-3" />
+        <KanbanPreviewGrid v-else-if="preview.kind === 'kanban'" class="hero-preview fade-up-3" :preview="preview" />
         <GanttPreviewGrid v-else class="hero-preview fade-up-3" :preview="preview" :is-dark="isDark" />
       </ClientOnly>
     </div>
@@ -56,6 +57,7 @@ import type { GanttLandingPage } from './ganttLanding'
 
 const EventSchedulerPreview = defineAsyncComponent(() => import('./EventSchedulerPreview.vue'))
 const GanttPreviewGrid = defineAsyncComponent(() => import('./GanttPreviewGrid.vue'))
+const KanbanPreviewGrid = defineAsyncComponent(() => import('./KanbanPreviewGrid.vue'))
 
 const props = defineProps<{
   hero: GanttLandingPage['hero']

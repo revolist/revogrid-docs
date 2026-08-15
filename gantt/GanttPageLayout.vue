@@ -7,8 +7,6 @@
       :resolve-link="resolveLandingLink"
     />
 
-    <ProStatsBar v-if="page.stats.length" :items="page.stats" :aria-label="page.statsAriaLabel" />
-
     <section v-if="page.demos" :id="page.demos.id" class="content-section">
       <div class="container">
         <div class="section-kicker">{{ page.demos.kicker }}</div>
@@ -23,8 +21,21 @@
             class="demo-card"
           >
             <div class="demo-media">
-              <video v-if="item.mediaKind === 'video'" :src="item.media" muted autoplay loop playsinline></video>
-              <img v-else :src="item.media" :alt="item.title" loading="lazy">
+              <video
+                v-if="item.mediaKind === 'video'"
+                :src="item.media"
+                :poster="item.poster"
+                muted
+                autoplay
+                loop
+                playsinline
+              ></video>
+              <img
+                v-else
+                :src="item.media"
+                :alt="item.title"
+                loading="lazy"
+              >
             </div>
             <div class="demo-copy">
               <h3>{{ item.title }}</h3>
@@ -44,6 +55,14 @@
           <p class="section-sub">
             {{ page.positioning.description }}
           </p>
+          <div v-if="page.positioning.actions?.length" class="positioning-actions">
+            <ProDocButton
+              v-for="action in page.positioning.actions"
+              :key="action.href"
+              :href="resolveLandingLink(action.href)"
+              :variant="action.variant"
+            >{{ action.label }}</ProDocButton>
+          </div>
         </div>
 
         <div class="positioning-grid">
@@ -63,7 +82,7 @@
           {{ page.features.description }}
         </p>
 
-        <ProFeatureGrid :features="page.features.items" />
+        <ProFeatureGrid :features="page.features.items" :show-icons="false" />
       </div>
     </section>
 
@@ -72,27 +91,6 @@
       :integrations="page.integrations"
       :resolve-link="resolveLandingLink"
     />
-
-    <section v-if="page.evidence" :id="page.evidence.id" class="content-section evidence-section">
-      <div class="container split-section">
-        <div>
-          <div class="section-kicker">{{ page.evidence.kicker }}</div>
-          <h2 class="section-title">{{ page.evidence.title }}</h2>
-          <p class="section-sub">{{ page.evidence.description }}</p>
-          <p class="evidence-note">{{ page.evidence.note }}</p>
-          <div class="evidence-links">
-            <a v-for="link in page.evidence.links" :key="link.href" :href="resolveLandingLink(link.href)">{{ link.label }} →</a>
-          </div>
-        </div>
-        <div class="evidence-grid">
-          <article v-for="item in page.evidence.items" :key="item.title" class="evidence-card">
-            <strong>{{ item.value }}</strong>
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.description }}</p>
-          </article>
-        </div>
-      </div>
-    </section>
 
     <section v-if="page.featureComparison" :id="page.featureComparison.id" class="content-section">
       <div class="container">
@@ -121,36 +119,70 @@
       </div>
     </section>
 
-    <section v-if="page.useCases" :id="page.useCases.id" class="content-section">
+    <section
+      v-if="page.useCases"
+      :id="page.useCases.id"
+      :class="['content-section', page.useCases.items.some((item) => item.theme) ? 'use-cases-section--themed' : '']"
+    >
       <div class="container">
         <div class="section-kicker">{{ page.useCases.kicker }}</div>
         <h2 class="section-title">{{ page.useCases.title }}</h2>
         <p class="section-sub">
           {{ page.useCases.description }}
         </p>
+        <a
+          v-if="page.useCases.benefits"
+          :href="resolveLandingLink(page.useCases.benefits.href)"
+          class="use-cases-benefits-link"
+        >
+          {{ page.useCases.benefits.label }} →
+        </a>
 
         <div class="use-case-grid">
-          <article v-for="item in page.useCases.items" :key="item.title" class="content-card">
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.description }}</p>
-          </article>
+          <component
+            :is="item.href ? 'a' : 'article'"
+            v-for="item in page.useCases.items"
+            :key="item.title"
+            :href="item.href ? resolveLandingLink(item.href) : undefined"
+            :class="['use-case-card', item.theme ? `use-case-card--${item.theme}` : '']"
+          >
+            <div v-if="item.media" class="use-case-media">
+              <video
+                v-if="item.mediaKind === 'video'"
+                class="use-case-media__video"
+                :src="item.media"
+                :poster="item.poster"
+                muted
+                autoplay
+                loop
+                playsinline
+                preload="metadata"
+                aria-hidden="true"
+              ></video>
+              <img
+                v-if="item.mediaKind !== 'video' || item.poster"
+                :class="{ 'use-case-media__poster': item.mediaKind === 'video' }"
+                :src="item.mediaKind === 'video' ? item.poster : item.media"
+                :alt="item.mediaAlt || ''"
+                width="1200"
+                height="675"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <div class="use-case-copy">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+              <strong v-if="item.href">{{ item.cta || 'Explore this use case' }} →</strong>
+            </div>
+          </component>
         </div>
       </div>
     </section>
 
-    <section v-if="page.faq" :id="page.faq.id" class="content-section">
-      <div class="container split-section">
-        <div>
-          <div class="section-kicker">{{ page.faq.kicker }}</div>
-          <h2 class="section-title">{{ page.faq.title }}</h2>
-        </div>
-
-        <div class="faq-list">
-          <article v-for="item in page.faq.items" :key="item.q" class="faq-item">
-            <h3>{{ item.q }}</h3>
-            <p>{{ item.a }}</p>
-          </article>
-        </div>
+    <section v-if="page.faq" class="content-section standard-faq-section">
+      <div class="container">
+        <CommercialFaq :id="page.faq.id" :data="faqData" />
       </div>
     </section>
 
@@ -233,11 +265,11 @@ import {
   resolvePlanPrice,
   type CommercialFaqKey,
 } from '../commercial/productCatalog'
+import CommercialFaq from '../pro/CommercialFaq.vue'
 import ProAdvancedCallout from '../pro/ProAdvancedCallout.vue'
 import ProCtaBanner from '../pro/ProCtaBanner.vue'
 import ProDocButton from '../pro/ProDocButton.vue'
 import ProFeatureGrid from '../pro/ProFeatureGrid.vue'
-import ProStatsBar from '../pro/ProStatsBar.vue'
 import GanttHero from './GanttHero.vue'
 import GanttIntegrations from './GanttIntegrations.vue'
 import { mergeGanttPageConfig } from './ganttLanding'
@@ -273,7 +305,7 @@ const page = computed(() => {
             },
             {
               title: `Full ${plan.name} bundle`,
-              description: 'Includes Pivot, Gantt, Scheduler, original private source access, and priority support.',
+              description: 'Includes Pivot, Kanban, Gantt, Scheduler, original private source access, and priority support.',
             },
           ],
           actions: [
@@ -296,6 +328,9 @@ const page = computed(() => {
       : undefined,
   }
 })
+const faqData = computed(() => page.value.faq
+  ? { heading: page.value.faq.title, items: page.value.faq.items }
+  : undefined)
 const proAdvancedUsdYear = resolvePlanPrice('pro-advanced').year.USD
 const pageStyle = computed(() => ({
   '--gantt-accent': isDark.value ? page.value.colors.darkAccent : page.value.colors.accent,
@@ -413,6 +448,12 @@ function resolveLandingLink(href: string) {
   grid-template-columns: 1fr;
 }
 
+.positioning-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .use-case-grid,
 .resource-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -426,8 +467,184 @@ function resolveLandingLink(href: string) {
   }
 }
 
+.gantt-page .use-cases-section--themed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.gantt-page .use-cases-section--themed > .container {
+  width: min(1600px, calc(100% - 48px));
+  max-width: 1600px !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.use-cases-section--themed .use-case-copy {
+  padding: 20px;
+
+  p {
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 640px) {
+  #gantt-use-cases > .container {
+    width: calc(100% - 32px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.use-cases-benefits-link {
+  display: inline-flex;
+  margin: -28px 0 40px;
+  color: var(--gantt-accent);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  &:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid var(--gantt-accent);
+    outline-offset: 4px;
+  }
+}
+
+.use-case-card {
+  overflow: hidden;
+  border: 1px solid var(--rg-border);
+  border-radius: 16px;
+  background: var(--rg-bg-2);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+
+  &[href]:hover {
+    border-color: var(--rg-border-hover);
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &[href]:focus-visible {
+    outline: 2px solid var(--gantt-accent);
+    outline-offset: 3px;
+  }
+}
+
+.use-case-media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--rg-border);
+  background: #f4f7f6;
+
+  img,
+  video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+  }
+}
+
+.use-case-media__poster {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .use-case-media__video {
+    display: none !important;
+  }
+
+  .use-case-media__poster {
+    display: block !important;
+  }
+
+  .use-case-card {
+    transition: none;
+  }
+}
+
+.use-case-copy {
+  padding: 22px;
+
+  h3 {
+    margin: 0 0 9px;
+    color: var(--rg-text);
+    font-size: 17px;
+    line-height: 1.35;
+  }
+
+  p {
+    margin: 0;
+    color: var(--rg-text-2);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  strong {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--gantt-accent);
+    font-size: 13px;
+  }
+}
+
+.use-case-card--product-delivery,
+.use-case-card--sales-onboarding,
+.use-case-card--quality-manufacturing {
+  border-color: #30364f;
+  background: #111522;
+
+  .use-case-media { border-bottom-color: #30364f; }
+  .use-case-copy h3 { color: #f8fafc; }
+  .use-case-copy p { color: #b7bfd0; }
+}
+
+.use-case-card--product-delivery {
+  background: #0d122c;
+
+  .use-case-copy strong { color: #a99cff; }
+}
+
+.use-case-card--sales-onboarding {
+  border-color: #343b2b;
+  background: #10130e;
+
+  .use-case-copy strong { color: #b8e24c; }
+}
+
+.use-case-card--content-approvals {
+  border-color: #d9c8ba;
+  background: #faf2e8;
+
+  .use-case-copy h3 { color: #2b1b18; font-family: Georgia, 'Times New Roman', serif; }
+  .use-case-copy p { color: #735f57; }
+  .use-case-copy strong { color: #a23838; }
+}
+
+.use-case-card--quality-manufacturing {
+  border-color: #42474e;
+  background: #202327;
+
+  .use-case-copy strong { color: #ffbd3f; }
+}
+
+.use-case-card--internal-workflows {
+  border-color: #c7bde3;
+  background: #f4f0ff;
+
+  .use-case-copy h3 { color: #30284b; }
+  .use-case-copy p { color: #6b6280; }
+  .use-case-copy strong { color: #177d5b; }
+}
+
 .content-card,
-.faq-item,
 .resource-group {
   border: 1px solid var(--rg-border);
   border-radius: 16px;
@@ -491,27 +708,7 @@ function resolveLandingLink(href: string) {
   }
 }
 
-.faq-list {
-  gap: 10px;
-}
-
-.faq-item {
-  padding: 22px 24px;
-
-  h3 {
-    margin: 0 0 8px;
-    color: var(--rg-text);
-    font-size: 16px;
-    line-height: 1.4;
-  }
-
-  p {
-    margin: 0;
-    color: var(--rg-text-2);
-    font-size: 14px;
-    line-height: 1.7;
-  }
-}
+.standard-faq-section :deep(.commercial-faq) { margin: 0; }
 
 .resource-group {
   padding: 22px;
@@ -568,9 +765,10 @@ function resolveLandingLink(href: string) {
   overflow: hidden;
   background: var(--rg-bg-3);
 
-  img, video { width: 100%; height: 100%; }
+  img, video { width: 100%; height: 100%; object-position: top right; margin: 0; }
   img { object-fit: cover; }
-  video { object-fit: contain; }
+  video { object-fit: fill; }
+  .media-contain { object-fit: contain; }
 }
 
 .demo-copy {
@@ -579,12 +777,6 @@ function resolveLandingLink(href: string) {
   p { min-height: 66px; margin: 0 0 14px; color: var(--rg-text-2); font-size: 14px; line-height: 1.6; }
   strong { color: var(--rg-font-green); font-size: 13px; }
 }
-
-.evidence-note { padding: 16px; border: 1px solid var(--rg-green-border); border-radius: 12px; color: var(--rg-text-2); background: var(--rg-green-bg); font-size: 13px; line-height: 1.65; }
-.evidence-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 20px; a { color: var(--rg-font-green); font-size: 13px; font-weight: 600; text-decoration: none; } }
-.evidence-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; @media (max-width: 600px) { grid-template-columns: 1fr; } }
-.evidence-card { padding: 22px; border: 1px solid var(--rg-border); border-radius: 16px; background: var(--rg-bg); strong { color: var(--rg-font-green); font-family: var(--vp-font-family-mono); font-size: 23px; } h3 { margin: 10px 0 7px; font-size: 15px; } p { margin: 0; color: var(--rg-text-2); font-size: 13px; line-height: 1.6; } }
-
 .evaluation-shell { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr); gap: 48px; align-items: center; @media (max-width: 860px) { grid-template-columns: 1fr; } }
 .evaluation-card { padding: 30px; border: 1px solid var(--rg-border); border-radius: 16px; background: var(--rg-bg); > span { color: var(--rg-text-3); font-size: 12px; text-transform: uppercase; } > strong { display: block; margin: 5px 0 22px; color: var(--rg-font-green); font-size: 34px; } article { padding: 15px 0; border-top: 1px solid var(--rg-border); h3 { margin: 0 0 4px; font-size: 14px; } p { margin: 0; color: var(--rg-text-2); font-size: 13px; line-height: 1.6; } } }
 .evaluation-actions { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -597,9 +789,7 @@ function resolveLandingLink(href: string) {
 :deep(.pro-stats__item span) { color: var(--rg-text-3); }
 
 :deep(.feature-grid) {
-  border-color: var(--rg-border);
   border-radius: 16px;
-  background: var(--rg-border);
 }
 
 :deep(.feature-card) { background: var(--rg-bg); }
