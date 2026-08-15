@@ -110,7 +110,7 @@ capabilities:
       title: Spreadsheet-grade editing
       icon: edit
       link: "/guide/editing"
-      description: Familiar inline editing, selection, navigation, and paste.
+      description: Edit formulas, undo changes, format cells, and work across multiple ranges.
     - id: control
       title: Data control built in
       icon: columns
@@ -118,19 +118,16 @@ capabilities:
       description: Sorting, resizing, selection, and column movement.
     - id: filtering
       title: Advanced filtering
-      tag: Pro
       icon: filter
       link: "/demo/filtering"
       description: Owner selection, formatted cells, and spreadsheet actions.
     - id: formatting
       title: Spreadsheet formatting
-      tag: Pro
       icon: palette
       link: "/demo/context-menu"
       description: Progress bars, currency, and reusable presentation rules.
     - id: tree
       title: Tree data
-      tag: Pro
       icon: tree
       link: "/demo/tree-data"
       description: Filterable hierarchy with persistent parent context.

@@ -4,10 +4,12 @@ import type {
   ColumnTypes,
   DataType,
   GridPlugin,
+  RowHeaders,
 } from '@revolist/revogrid'
 import type {
   DataGridContextMenuConfig,
-  DataGridFormattingConfig,
+  DataGridFormattingPresetState,
+  EventManagerConfig,
   TreeConfig,
 } from '@revolist/revogrid-pro'
 import type { HomeV2Record } from '../homeV2Utils'
@@ -20,7 +22,6 @@ export type ShowcaseFeature = HomeV2Record & {
   title: string
   description: string
   link: string
-  tag?: string
 }
 
 export type CapabilityCodeLine = {
@@ -45,12 +46,13 @@ export type CapabilityExample = {
   columns: ColumnRegular[]
   columnTypes: ColumnTypes
   plugins: GridPlugin[]
+  eventManager?: EventManagerConfig
   filter: boolean | ColumnFilterConfig
   readonly: boolean
-  rowHeaders: boolean
+  rowHeaders: RowHeaders | boolean
   canMoveColumns: boolean
   tree?: TreeConfig
-  formatting?: DataGridFormattingConfig
+  formatting?: DataGridFormattingPresetState
   contextMenu: false | DataGridContextMenuConfig
   rowSize: number
   height: number

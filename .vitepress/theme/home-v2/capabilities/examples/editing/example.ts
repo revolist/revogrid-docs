@@ -1,25 +1,44 @@
 import type { ColumnRegular } from '@revolist/revogrid'
+import {
+  DataGridFormattingPlugin,
+  EventManagerPlugin,
+  FormulaPlugin,
+  HistoryPlugin,
+  MultiRangeSelectionPlugin,
+} from '@revolist/revogrid-pro'
 import { defineCapabilityExample } from '../../shared/defineExample'
 import { spreadsheetRows } from './data'
+import { spreadsheetFormatting } from './formatting'
 
 export const editingColumns: ColumnRegular[] = [
-  { name: 'Item', prop: 'item', size: 176, cellProperties: ({ model }) => model.id === 'SHEET-00002' ? { style: { backgroundColor: '#fef3c7' } } : undefined },
-  { name: 'Region', prop: 'region', size: 112, cellProperties: ({ model }) => model.id === 'SHEET-00006' ? { style: { backgroundColor: '#ede9fe' } } : undefined },
-  { name: 'Units', prop: 'units', size: 92, cellProperties: ({ model }) => model.id === 'SHEET-00004' ? { style: { backgroundColor: '#dcfce7' } } : undefined },
-  { name: 'Revenue', prop: 'revenue', size: 124, cellProperties: ({ model }) => model.id === 'SHEET-00003' ? { style: { backgroundColor: '#dbeafe' } } : undefined },
+  { name: 'Item', prop: 'item', size: 176 },
+  { name: 'Region', prop: 'region', size: 112 },
+  { name: 'Units', prop: 'units', size: 92 },
+  { name: 'Formula', prop: 'formula', size: 124 },
 ]
 
 export const editingExample = defineCapabilityExample({
   id: 'editing',
   code: [
-    { text: '<RevoGrid' },
-    { text: '  source={rows} columns={columns}', accent: true },
-    { text: '  range resize rowHeaders', accent: true },
-    { text: '/>' },
+    { text: 'const plugins = [' },
+    { text: '  EventManagerPlugin, FormulaPlugin, HistoryPlugin,', accent: true },
+    { text: '  MultiRangeSelectionPlugin, DataGridFormattingPlugin', accent: true },
+    { text: ']' },
+    { text: "rows[0].formula = '=C1*124'", accent: true },
+    { text: "const formatting = { rowKeyProp: 'id', cells: [", accent: true },
+    { text: "  { rowKey: 'SHEET-00002', prop: 'item',", accent: true },
+    { text: "    format: { appearance: { fillColor: '#fef3c7' } } }", accent: true },
+    { text: '] }', accent: true },
+    { text: '<RevoGrid source={rows} columns={columns}', accent: true },
+    { text: '  plugins={plugins} dataGridFormatting={formatting}', accent: true },
+    { text: '  dataGridContextMenu={{}} />', accent: true },
   ],
   source: spreadsheetRows,
   columns: editingColumns,
-  rowHeaders: true,
+  plugins: [EventManagerPlugin, FormulaPlugin, HistoryPlugin, MultiRangeSelectionPlugin, DataGridFormattingPlugin],
+  eventManager: { applyEventsToSource: true },
+  formatting: spreadsheetFormatting,
+  contextMenu: {},
   rowSize: 32,
   height: 224,
   surface: 'spreadsheet',

@@ -1,6 +1,6 @@
 ---
 title: Evaluate RevoGrid Pro
-description: Evaluate RevoGrid Pro with a 30-day private npm trial, public setup boilerplate, live demos, the JavaScript Pivot Table component, Gantt Chart, and licensing guidance.
+description: Start evaluating RevoGrid Pro immediately with public trial access, a no-login npm registry, and a ready-to-run public starter.
 sidebar: false
 aside: false
 editLink: false

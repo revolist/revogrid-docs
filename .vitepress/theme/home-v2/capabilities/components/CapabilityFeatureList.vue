@@ -17,11 +17,10 @@
         <span class="rg-showcase-feature-icon">
           <FontAwesomeSvgIcon :name="feature.icon" />
         </span>
-        <span class="rg-showcase-feature-copy">
-          <span class="rg-showcase-feature-heading">
-            <strong>{{ feature.title }}</strong>
-            <span v-if="feature.tag" class="rg-showcase-pro-badge">{{ feature.tag }}</span>
-          </span>
+          <span class="rg-showcase-feature-copy">
+            <span class="rg-showcase-feature-heading">
+              <strong>{{ feature.title }}</strong>
+            </span>
           <span class="rg-showcase-feature-description">
             {{ feature.description }}
           </span>

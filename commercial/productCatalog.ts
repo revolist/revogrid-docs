@@ -604,7 +604,7 @@ export const commercialFaqs: Record<CommercialFaqKey, { q: string, a: string }> 
   },
   trial: {
     q: 'Can I evaluate RevoGrid Pro before purchasing?',
-    a: `Yes. Request a 30-day trial for approved private npm access. The public trial repository is boilerplate for evaluation setup; it does not contain the Pro packages.`,
+    a: 'Yes. Start the 30-day trial immediately from the public trial registry—no npm login or token, license key, form, or approval email is required. You can also clone and run the public starter right away.',
   },
   'source-access': {
     q: 'What source access is included?',

@@ -20,6 +20,7 @@
           :columns="example.columns"
           :column-types="example.columnTypes"
           :plugins="example.plugins"
+          :event-manager.prop="example.eventManager"
           :filter="gridFilter"
           :readonly="example.readonly"
           :row-headers="example.rowHeaders"
