@@ -15,7 +15,6 @@ export type DemoId =
   | 'ai-prompt-library'
   | 'project-portfolio'
   | 'project-tracker'
-  | 'excel'
   | 'audit-history'
   | 'column-collapse'
   | 'context-menu'
@@ -442,7 +441,6 @@ const demos = {
   'ai-prompt-library': { id: 'ai-prompt-library', title: 'AI Prompt Library', planId: 'open-source', status: 'stable', pageUrl: '/demo/ai-prompts' },
   'project-portfolio': { id: 'project-portfolio', title: 'Project Portfolio', planId: 'open-source', status: 'stable', pageUrl: '/demo/project-portfolio' },
   'project-tracker': { id: 'project-tracker', title: 'Project Tracker', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/color' },
-  excel: { id: 'excel', title: 'Excel', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/excel' },
   'audit-history': { id: 'audit-history', title: 'Audit History', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/audit-history' },
   'column-collapse': { id: 'column-collapse', title: 'Column Collapse', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/column-collapse' },
   'context-menu': { id: 'context-menu', title: 'Context Menu & Formatting', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/context-menu' },

@@ -314,13 +314,6 @@ advanced:
     text: Explore modules
     link: /pro/#catalog
   items:
-    - title: Spreadsheet Formatting
-      catalogFeatureId: multi-cell-formatting
-      type: spreadsheet
-      link: /demo/excel
-      thumbnail: /img/spreadsheet.png
-      videoUrl: /video/spreadhsheet.mp4
-      description: Present live data with formats, progress bars, status styles, ranges, and spreadsheet-grade selection.
     - title: Master Detail
       catalogFeatureId: master-detail
       type: master-detail

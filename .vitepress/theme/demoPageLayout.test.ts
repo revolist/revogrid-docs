@@ -15,7 +15,6 @@ const demoSidebarSource = readFileSync(new URL('../configs/sidebar/en.demo.ts', 
 const vitepressConfigSource = readFileSync(new URL('../config.mts', import.meta.url), 'utf8')
 const docsThemeSource = readFileSync(new URL('./style.scss', import.meta.url), 'utf8')
 const demoPageLayoutSource = readFileSync(new URL('./DemoPageLayout.vue', import.meta.url), 'utf8')
-const excelDemoSource = readFileSync(new URL('../../demo/excel.md', import.meta.url), 'utf8')
 const planningDemoStyleSource = readFileSync(
   new URL('../../revogrid-demos/pro-advanced-planning/src/planning.scss', import.meta.url),
   'utf8',
@@ -24,7 +23,6 @@ const demoSeoFiles = [
   'index.md',
   'hr.md',
   'color.md',
-  'excel.md',
   'audit-history.md',
   'column-collapse.md',
   'context-menu.md',
@@ -129,7 +127,7 @@ test('provides source-attributed feature badges only for paid demos', () => {
   const paid = configs.filter(config => config.demo.planId !== 'open-source')
 
   assert.deepEqual(openSource?.featureBadges, [])
-  assert.equal(paid.length, 18)
+  assert.equal(paid.length, 17)
   paid.forEach((config) => {
     assert.ok(config.featureBadges.length >= 5)
     assert.equal(
@@ -158,34 +156,6 @@ test('describes concrete Project Tracker capabilities instead of preset infrastr
       },
       { label: 'Drag row ordering', source: 'RowOrderPlugin' },
       { label: 'Context menus', source: 'ContextMenuPlugin' },
-    ],
-  )
-})
-
-test('describes the requested Excel collaboration, filtering, merge, and reorder capabilities', () => {
-  assert.deepEqual(
-    getDemoPageConfig('excel').featureBadges,
-    [
-      {
-        label: 'Formulas',
-        source: 'FormulaBarPlugin + FormulaDependencyHighlightPlugin + NamedRangesPlugin + FormulaPlugin',
-      },
-      {
-        label: 'Collaboration',
-        source: 'CollaborativePresencePlugin + CellFlashPlugin + EventManagerPlugin',
-      },
-      { label: 'Undo & redo', source: 'HistoryPlugin' },
-      { label: 'Autofill', source: 'AutoFillPlugin + AutoFillPreviewPlugin' },
-      { label: 'Multi-range selection', source: 'MultiRangeSelectionPlugin' },
-      {
-        label: 'Row & column controls',
-        source: 'RowHeaderPlugin + RowOrderPlugin + ColumnMoveAdvancedPlugin + ColumnCollapsePlugin + ColumnHidePlugin + ColumnStretchPlugin',
-      },
-      { label: 'Smart copy & paste', source: 'ClipboardJsonPlugin' },
-      { label: 'Context menus', source: 'ContextMenuPlugin' },
-      { label: 'Excel export', source: 'ExportExcelPlugin' },
-      { label: 'Advanced filters', source: 'AdvanceFilterPlugin + FilterHeaderPlugin' },
-      { label: 'Validation & merging', source: 'CellValidatePlugin + CellMergePlugin + SameValueMergePlugin' },
     ],
   )
 })
@@ -390,7 +360,6 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
           '/demo/column-collapse',
           '/demo/context-menu',
           '/demo/row-master',
-          '/demo/excel',
           '/demo/audit-history',
           '/demo/color',
         ],
@@ -466,17 +435,18 @@ test('does not expose the retired ecommerce demo', () => {
   assert.equal(existsSync(new URL('../../demo/ecommerce.md', import.meta.url)), false)
 })
 
+test('does not expose the temporarily hidden Excel demo', () => {
+  assert.equal('excel' in PRODUCT_CATALOG.demos, false)
+  assert.doesNotMatch(demoSidebarSource, /demoSidebarText\('excel'\)|\/demo\/excel/)
+  assert.doesNotMatch(readFileSync(new URL('../../index.md', import.meta.url), 'utf8'), /\/demo\/excel/)
+  assert.match(vitepressConfigSource, /['"]demo\/excel\.md['"]/)
+  assert.equal(existsSync(new URL('../../demo/excel.md', import.meta.url)), true)
+})
+
 test('insets the Pivot preset switch and toolbar actions from both edges', () => {
   assert.match(
     pivotHeaderStyleSource,
     /\.financial-pivot-header__toolbar\s*\{[\s\S]*?box-sizing:\s*border-box;[\s\S]*?padding-inline:\s*8px;/,
-  )
-})
-
-test('keeps the embedded Excel workbench flush with the workspace top edge', () => {
-  assert.match(
-    excelDemoSource,
-    /\.demo-main-widget\s*\{[\s\S]*?padding-top:\s*0;/,
   )
 })
 

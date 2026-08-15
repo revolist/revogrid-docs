@@ -110,16 +110,6 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
   },
-  excel: {
-    docsUrl: '/pro/',
-    verificationOptions: [
-      { code: 'xlsx_import_export', label: 'Try it with my own workbook' },
-      { code: 'formulas_calculated_cells', label: 'Check formulas and calculated cells' },
-      { code: 'framework_integration', label: 'See an integration example' },
-      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
-      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
-    ],
-  },
   'audit-history': {
     docsUrl: '/pro/',
     verificationOptions: [
