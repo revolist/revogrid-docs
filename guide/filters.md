@@ -72,7 +72,9 @@ String columns support `notEmpty`, `empty`, `eq`, `notEq`, `begins`, `contains`,
 
 Number columns support `notEmpty`, `empty`, `eqN`, `neqN`, `gt`, `gte`, `lt`, and `lte`.
 
-These operation ids are the values used in saved filter state, `include`, localization, and event payloads.
+Boolean and array columns support the blank operations `notEmpty` and `empty`.
+
+In the filter panel, `empty` is labeled **Is blank** and `notEmpty` is labeled **Is not blank**. The operation ids have not changed, so existing saved filter state remains compatible. These ids are also the values used by `include`, localization, and event payloads.
 
 [<Badge type="tip">FilterItem</Badge>](/guide/types/Interface.FilterItem)
 [<Badge type="tip">FilterType</Badge>](/guide/types/TypeAlias.FilterType)
@@ -93,6 +95,7 @@ Important options:
 
 | Option | Purpose |
 | --- | --- |
+| `blankSemantics` | Defines which source values the blank operators match across the grid. |
 | `collection` | Restores single-filter state by column prop. |
 | `multiFilterItems` | Restores multiple filters per column, including `and` / `or` relations. |
 | `include` | Limits the operations shown in the dropdown. |
@@ -106,9 +109,80 @@ Important options:
 [<Badge type="tip">FilterCollectionItem</Badge>](/guide/types/TypeAlias.FilterCollectionItem)
 [<Badge type="tip">MultiFilterItem</Badge>](/guide/types/Interface.MultiFilterItem)
 
+## Configure blank values
+
+The **Is blank** and **Is not blank** operations preserve the original source value instead of converting all falsy values to the same representation. The default policy is:
+
+| Source value | Blank by default |
+| --- | --- |
+| `null` | Yes |
+| An own property whose value is `undefined` | Yes |
+| An empty string (`''`) | Yes |
+| A missing own property | Yes |
+| A whitespace-only string such as `'   '` | No |
+| An empty array (`[]`) | No |
+| `false`, `0`, or `NaN` | No |
+| Non-empty arrays and objects | No |
+
+Set `blankSemantics` on the grid filter config to change this policy. Every field is optional:
+
+```ts
+grid.filter = {
+  blankSemantics: {
+    whitespaceOnlyString: true,
+    emptyArray: true,
+    null: true,
+    undefined: true,
+    emptyString: true,
+    missingProperty: true,
+  },
+};
+```
+
+A column can override individual fields without repeating the grid policy. Column settings are merged field-by-field over the grid settings and the defaults:
+
+```ts
+grid.columns = [
+  {
+    prop: 'tags',
+    name: 'Tags',
+    filter: 'array',
+    // Keep [] as a non-blank value for this column only.
+    blankSemantics: { emptyArray: false },
+  },
+  {
+    prop: 'active',
+    name: 'Active',
+    filter: 'boolean',
+  },
+];
+```
+
+Use `isBlank` for application-specific values. It runs after the configured rules and receives their result as `fallbackResult`:
+
+```ts
+grid.filter = {
+  blankSemantics: {
+    isBlank(value, context, fallbackResult) {
+      if (context.property === 'status' && value === 'N/A') {
+        return true;
+      }
+
+      return fallbackResult;
+    },
+  },
+};
+```
+
+The callback receives the unparsed source `value` plus a context containing `model`, `column`, `property`, `sourceValue`, `parsedValue`, `hasOwnProperty`, and the effective `blankSemantics`. Inherited properties count as missing because `hasOwnProperty` is `false`.
+
+Blank checks always use `sourceValue`, even when the column has a `cellParser`. Other built-in and custom filter operations continue to receive `parsedValue`. Configuring blank semantics does not coerce values for typed comparisons, so number, string, boolean, and array operators keep their existing strict behavior.
+
+**Is not blank** is the exact inverse of the resolved blank predicate, including the result returned by `isBlank`.
+
 ## Customize filter names
 
-Use `localization.filterNames` to replace the labels shown for built-in filter operations. The operation id for the default **Not set** filter is `empty`, so its label can be rendered as blank like this:
+Use `localization.filterNames` to replace the labels shown for built-in filter operations. For example, you can use shorter labels for the default **Is blank** and **Is not blank** operations:
 
 ```ts
 import { filterNames } from '@revolist/revogrid';
@@ -118,13 +192,14 @@ grid.filter = {
     captions: {},
     filterNames: {
       ...filterNames,
-      empty: '',
+      empty: 'Blank',
+      notEmpty: 'Not blank',
     },
   },
 };
 ```
 
-Spreading `filterNames` keeps all other built-in labels unchanged and satisfies the complete `FilterLocalization` mapping expected by TypeScript. Override any other operation id in the same object, such as `notEmpty` for **Set**, `eq` for **Equal**, or `contains` for **Contains**.
+Spreading `filterNames` keeps all other built-in labels unchanged and satisfies the complete `FilterLocalization` mapping expected by TypeScript. Override any other operation id in the same object, such as `eq` for **Equal** or `contains` for **Contains**. The ids remain `empty` and `notEmpty` for compatibility with saved filters, regardless of the labels you display.
 
 [<Badge type="tip">FilterLocalization</Badge>](/guide/types/Interface.FilterLocalization)
 
