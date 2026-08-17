@@ -20,17 +20,16 @@ export const treeColumns: ColumnRegular[] = [
 
 export const treeExample = defineCapabilityExample({
   id: 'tree',
-  code: [
-    { text: 'const tree = {' },
-    { text: "  idField: 'id', parentIdField: 'parentId'", accent: true },
-    { text: '}' },
-    { text: '<RevoGrid source={teams} columns={columns}', accent: true },
-    { text: '  tree={tree} filter />', accent: true },
-  ],
+  code: `const tree = {
+  idField: 'id', parentIdField: 'parentId'
+}
+
+<RevoGrid source={teams} columns={columns}
+  tree={tree} filter />`,
   source: treeRows,
   columns: treeColumns,
   plugins: [TreeDataPlugin, AdvanceFilterPlugin, FilterHeaderPlugin],
-  filter: createFilterConfig(),
+  filter: createFilterConfig({ syncCellTemplate: true }),
   readonly: true,
   tree: {
     idField: 'id',

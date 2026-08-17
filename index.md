@@ -107,20 +107,15 @@ capabilities:
   description: Create focused tools, customer-facing apps, and enterprise platforms with spreadsheet-grade editing, advanced filtering, rich formatting, and flexible hierarchy.
   items:
     - id: editing
-      title: Spreadsheet-grade editing
+      title: Spreadsheet editing
       icon: edit
       link: "/guide/editing"
       description: Edit formulas, undo changes, format cells, and work across multiple ranges.
     - id: control
-      title: Data control built in
-      icon: columns
-      link: "/guide/column/"
-      description: Sorting, resizing, selection, and column movement.
-    - id: filtering
-      title: Advanced filtering
+      title: Filtering & Data Control
       icon: filter
       link: "/demo/filtering"
-      description: Owner selection, formatted cells, and spreadsheet actions.
+      description: Sorting, resizing, selection, column movement, and advanced filters.
     - id: formatting
       title: Spreadsheet formatting
       icon: palette
