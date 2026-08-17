@@ -69,6 +69,45 @@ grid.rowDefinitions = rowDefinitions;
 
 In this scenario, all rows will default to a height of 50 pixels, except for the first row (which will be 70 pixels high) and the sixth row (which will be 30 pixels high).
 
+## Interactive Row Resizing
+
+Use the opt-in `RowResizePlugin` when users should be able to drag the bottom edge of a row header, similar to a spreadsheet. Row headers must be enabled; the existing `resize` property continues to control columns only.
+
+```ts
+import { RowResizePlugin } from '@revolist/revogrid';
+
+grid.rowHeaders = true;
+grid.plugins = [RowResizePlugin];
+```
+
+If the grabbed row belongs to the active cell range, every row in that range receives the same height. Otherwise, only the grabbed row changes. Heights update live during the drag and are clamped to 20px by default.
+
+Use `createRowResizePlugin` to change the limits:
+
+```ts
+import { createRowResizePlugin } from '@revolist/revogrid';
+
+const AppRowResizePlugin = createRowResizePlugin({
+  minHeight: 24,
+  maxHeight: 160,
+});
+
+grid.plugins = [AppRowResizePlugin];
+```
+
+The plugin emits four events on the root grid:
+
+| Event             | Purpose                                                                                                         |
+| ----------------- | --------------------------------------------------------------------------------------------------------------- |
+| `beforerowresize` | Fires before dragging begins. Call `preventDefault()` to block the gesture.                                     |
+| `rowresize`       | Fires after each live height update.                                                                            |
+| `afterrowresize`  | Fires once after pointer release commits the height.                                                            |
+| `rowresizecancel` | Fires after Escape, pointer cancellation, teardown, or a conflicting data change restores the original heights. |
+
+Each event includes `rowType`, the grabbed `index`, all affected `indexes`, the current `size`, the `previousSizes` map, and the originating pointer event. Persist application-controlled row definitions from `afterrowresize` when the height must survive a complete source replacement.
+
+The plugin deliberately does not provide double-click AutoFit and does not allow rows to be dragged to zero height.
+
 ## Best Practices for Row Height Management
 
 - **Consistency**: For a clean and consistent grid appearance, use the `rowSize` property to set a uniform height for most rows.
