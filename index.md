@@ -107,30 +107,22 @@ capabilities:
   description: Create focused tools, customer-facing apps, and enterprise platforms with spreadsheet-grade editing, advanced filtering, rich formatting, and flexible hierarchy.
   items:
     - id: editing
-      title: Spreadsheet-grade editing
+      title: Spreadsheet editing
       icon: edit
       link: "/guide/editing"
-      description: Familiar inline editing, selection, navigation, and paste.
+      description: Edit formulas, undo changes, format cells, and work across multiple ranges.
     - id: control
-      title: Data control built in
-      icon: columns
-      link: "/guide/column/"
-      description: Sorting, resizing, selection, and column movement.
-    - id: filtering
-      title: Advanced filtering
-      tag: Pro
+      title: Filtering & Data Control
       icon: filter
       link: "/demo/filtering"
-      description: Owner selection, formatted cells, and spreadsheet actions.
+      description: Sorting, resizing, selection, column movement, and advanced filters.
     - id: formatting
       title: Spreadsheet formatting
-      tag: Pro
       icon: palette
       link: "/demo/context-menu"
       description: Progress bars, currency, and reusable presentation rules.
     - id: tree
       title: Tree data
-      tag: Pro
       icon: tree
       link: "/demo/tree-data"
       description: Filterable hierarchy with persistent parent context.
@@ -317,13 +309,6 @@ advanced:
     text: Explore modules
     link: /pro/#catalog
   items:
-    - title: Spreadsheet Formatting
-      catalogFeatureId: multi-cell-formatting
-      type: spreadsheet
-      link: /demo/excel
-      thumbnail: /img/spreadsheet.png
-      videoUrl: /video/spreadhsheet.mp4
-      description: Present live data with formats, progress bars, status styles, ranges, and spreadsheet-grade selection.
     - title: Master Detail
       catalogFeatureId: master-detail
       type: master-detail

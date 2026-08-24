@@ -1,5 +1,5 @@
 ---
-title: "JavaScript Scheduler & Event Calendar"
+title: "JavaScript Scheduler & Event Calendar | RevoGrid Scheduler"
 titleTemplate: false
 description: RevoGrid Scheduler is a JavaScript Scheduler and event calendar for resource timelines, staff shifts, bookings, availability, and capacity planning.
 sidebar: false
@@ -72,8 +72,8 @@ ganttLanding:
     darkSoft: rgba(167, 139, 250, 0.14)
     darkBorder: rgba(167, 139, 250, 0.28)
   hero:
-    eyebrow: Resource Scheduler
-    title: 'JavaScript Scheduler & Calendar'
+    eyebrow: RevoGrid Scheduler
+    title: 'RevoGrid Scheduler: JavaScript Scheduler for your product.'
     description: Scheduler component for staff rosters, room bookings, equipment plans, field crews, support queues, and resource capacity.
     actions:
       - label: View Demo

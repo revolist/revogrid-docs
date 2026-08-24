@@ -20,6 +20,7 @@
           :columns="example.columns"
           :column-types="example.columnTypes"
           :plugins="example.plugins"
+          :event-manager.prop="example.eventManager"
           :filter="gridFilter"
           :readonly="example.readonly"
           :row-headers="example.rowHeaders"
@@ -39,14 +40,11 @@
     </div>
 
     <div class="rg-showcase-code-panel">
-      <code aria-label="RevoGrid configuration example">
-        <span
-          v-for="(line, index) in example.code"
-          :key="`${example.id}-${index}`"
-          class="rg-showcase-code-line"
-          :class="{ 'rg-showcase-code-accent': line.accent }"
-        >{{ line.text }}</span>
-      </code>
+      <div
+        class="rg-showcase-code"
+        aria-label="RevoGrid configuration example"
+        v-html="highlightedCode"
+      ></div>
     </div>
   </div>
 </template>
@@ -54,6 +52,7 @@
 <script lang="ts" setup>
 import { computed, nextTick, ref, watch } from 'vue'
 import { useData } from 'vitepress'
+import { codeToHtml } from 'shiki'
 import VGrid from '@revolist/vue3-datagrid'
 import '@revolist/revogrid-pro/dist/revogrid-pro.css'
 import type { CapabilityExample, ShowcaseFeature } from '../types'
@@ -67,6 +66,7 @@ const { isDark } = useData()
 const gridRef = ref<{ $el?: HTMLRevoGridElement } | HTMLRevoGridElement | null>(null)
 const gridTheme = computed(() => props.example.theme(isDark.value))
 const gridFilter = computed(() => props.example.syncFilterColumns ? false : props.example.filter)
+const highlightedCode = ref('')
 
 function getGrid() {
   const current = gridRef.value
@@ -85,6 +85,18 @@ watch(
     grid.columns = example.columns
   },
   { flush: 'post' },
+)
+
+watch(
+  () => props.example.code,
+  async (code) => {
+    const html = await codeToHtml(code, {
+      lang: 'tsx',
+      theme: 'github-dark-high-contrast',
+    })
+    if (code === props.example.code) highlightedCode.value = html
+  },
+  { immediate: true },
 )
 </script>
 

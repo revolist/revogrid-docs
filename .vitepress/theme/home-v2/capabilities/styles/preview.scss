@@ -22,6 +22,11 @@
 .rg-showcase-surface-spreadsheet {
   background: #fff;
   color-scheme: light;
+
+  .rg-showcase-grid {
+    --revo-grid-cell-padding: 0 5px;
+    --revo-grid-header-padding: 0 5px;
+  }
 }
 
 .rg-showcase-grid {
@@ -39,29 +44,25 @@
   padding: 18px 22px;
   background: var(--rg-showcase-rail);
 
-  code {
-    display: grid;
-    width: 100%;
-    min-width: 0;
-    gap: 2px;
-    overflow: hidden;
-    color: rgba(255, 255, 255, 0.68);
-    font-family: var(--vp-font-family-mono);
-    font-size: 11px;
-    line-height: 1.45;
-    white-space: normal;
-  }
 }
 
-.rg-showcase-code-line {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.rg-showcase-code {
+  width: 100%;
+  min-width: 0;
+  overflow: auto;
 }
 
-.rg-showcase-code-accent {
-  color: #9ae5c5;
-  font-weight: 600;
+.rg-showcase-code :deep(.shiki) {
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  background: transparent !important;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.rg-showcase-code :deep(code) {
+  font-family: var(--vp-font-family-mono);
 }
 
 :deep(.rg-showcase-number) {
@@ -85,7 +86,7 @@
     min-height: 112px;
     padding: 14px;
 
-    code {
+    .rg-showcase-code :deep(.shiki) {
       font-size: 9.5px;
     }
   }

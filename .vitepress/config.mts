@@ -607,6 +607,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     srcExclude: process.env.VITE_PRO_INCLUDE
         ? [
             'revogrid-demos/**',
+            'demo/excel.md',
             '**/_*.md',
             'README.md',
             'guide/parts/*.md',
@@ -617,6 +618,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         ]
         : [
             'revogrid-demos/**',
+            'demo/excel.md',
             'demo/**-pro/**',
             'pro-pages/**',
             '**/_*.md',

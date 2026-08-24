@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.25.1](README.md) / ExtraNodeFuncConfig
+[RevoGrid Documentation v4.26.1](README.md) / ExtraNodeFuncConfig
 
 # Interface: ExtraNodeFuncConfig
 
@@ -8,4 +8,4 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `refresh` | () => `void` | [src/types/interfaces.ts:421](https://github.com/revolist/revogrid/blob/d06ea5b7beb9764dab968fd781d3f71fda941337/src/types/interfaces.ts#L421) |
+| `refresh` | () => `void` | [src/types/interfaces.ts:424](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/types/interfaces.ts#L424) |

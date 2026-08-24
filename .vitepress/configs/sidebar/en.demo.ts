@@ -269,10 +269,6 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
                 link: '/demo/row-master',
             },
             {
-                text: demoSidebarText('excel'),
-                link: '/demo/excel',
-            },
-            {
                 text: demoSidebarText('audit-history'),
                 link: '/demo/audit-history',
             },

@@ -41,8 +41,8 @@ const activeId = ref<FeatureId>('formatting')
 const fallbackFeature: ShowcaseFeature = {
   id: 'editing',
   icon: 'edit',
-  title: 'Spreadsheet-grade editing',
-  description: 'Familiar inline editing, selection, navigation, and paste.',
+  title: 'Spreadsheet editing',
+  description: 'Edit formulas, undo changes, format cells, and work across multiple ranges.',
   link: '/guide/editing',
 }
 

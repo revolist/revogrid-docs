@@ -76,34 +76,6 @@ const DEMO_PAGE_CONTENT = {
       { label: 'Context menus', source: 'ContextMenuPlugin' },
     ],
   },
-  excel: {
-    title: 'Excel Workbench Demo',
-    description: 'Edit workbook-style data with formulas, formatting, validation, and import or export flows.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-excel/src/excel.vue',
-    guidedActions: ['Edit a formula', 'Format a cell', 'Export the workbook'],
-    featureBadges: [
-      {
-        label: 'Formula',
-        source: 'FormulaBarPlugin + FormulaDependencyHighlightPlugin + NamedRangesPlugin + FormulaPlugin',
-      },
-      {
-        label: 'Collaboration',
-        source: 'CollaborativePresencePlugin + CellFlashPlugin + EventManagerPlugin',
-      },
-      { label: 'Undo & redo', source: 'HistoryPlugin' },
-      { label: 'Autofill', source: 'AutoFillPlugin + AutoFillPreviewPlugin' },
-      { label: 'Multi-range selection', source: 'MultiRangeSelectionPlugin' },
-      {
-        label: 'Row & column controls',
-        source: 'RowHeaderPlugin + RowOrderPlugin + ColumnMoveAdvancedPlugin + ColumnCollapsePlugin + ColumnHidePlugin + ColumnStretchPlugin',
-      },
-      { label: 'Column drilldown', source: 'ColumnCollapsePlugin' },
-      { label: 'Context menus', source: 'ContextMenuPlugin' },
-      { label: 'Excel export', source: 'ExportExcelPlugin' },
-      { label: 'Advanced filters', source: 'AdvanceFilterPlugin + FilterHeaderPlugin' },
-      { label: 'Validation & merging', source: 'CellValidatePlugin + CellMergePlugin + SameValueMergePlugin' },
-    ],
-  },
   'audit-history': {
     title: 'Audit History Demo',
     description: 'Compare revisions, export records, and restore earlier values.',

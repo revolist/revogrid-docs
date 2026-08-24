@@ -17,14 +17,13 @@ export const formattingColumns: ColumnRegular[] = [
 
 export const formattingExample = defineCapabilityExample({
   id: 'formatting',
-  code: [
-    { text: 'const formatting = {' },
-    { text: "  progress: { presentation: 'progress-line' },", accent: true },
-    { text: "  budget: { preset: 'currency', currency: 'USD' }", accent: true },
-    { text: '}' },
-    { text: '<RevoGrid source={projects} columns={columns}', accent: true },
-    { text: '  dataGridFormatting={formatting} />', accent: true },
-  ],
+  code: `const formatting = {
+  progress: { presentation: 'progress-line' },
+  budget: { preset: 'currency', currency: 'USD' }
+}
+
+<RevoGrid source={projects} columns={columns}
+  dataGridFormatting={formatting} />`,
   source: formattingRows,
   columns: formattingColumns,
   plugins: [DataGridFormattingPlugin],

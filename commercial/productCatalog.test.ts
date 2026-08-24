@@ -146,7 +146,10 @@ test('generates commercial FAQs, demo badges, and pricing view facts', () => {
   const differences = getPricingDifferenceRows()
 
   assert.match(trialFaq.a, /30-day trial/)
-  assert.match(trialFaq.a, /boilerplate/)
+  assert.match(trialFaq.a, /public trial registry/)
+  assert.match(trialFaq.a, /no npm login or token/i)
+  assert.match(trialFaq.a, /public starter/i)
+  assert.doesNotMatch(trialFaq.a, /approved private npm|request.*access/i)
   assert.deepEqual(pivotBadge, {
     label: 'Pivot Table Demo',
     badge: 'Adv',

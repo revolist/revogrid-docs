@@ -1,5 +1,4 @@
-import type { DataGridFormattingConfig } from '@revolist/revogrid-pro'
-import type { FormattingRow } from './data'
+import type { DataGridFormattingPresetState } from '@revolist/revogrid-pro'
 
 export const budgetValueFormat = {
   preset: 'currency',
@@ -7,7 +6,7 @@ export const budgetValueFormat = {
   decimalPlaces: 0,
 } as const
 
-export const projectFormattingConfig: DataGridFormattingConfig<FormattingRow> = {
+export const projectFormattingConfig: DataGridFormattingPresetState = {
   rowKeyProp: 'id',
   columns: [
     {
