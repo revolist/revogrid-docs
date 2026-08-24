@@ -97,5 +97,5 @@ grid.addEventListener('afterrowresize', event => {
 
 - [Row Height](/guide/row/height)
 - [Row Headers](/guide/row/headers)
-- [Row Selection](/guide/selection)
+- [Row Selection](/guide/row/selection.pro)
 - [Filtering](/guide/filters)
