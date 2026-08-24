@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.26.1](README.md) / [Components](Namespace.Components.md) / RevogrRowHeaders
+[RevoGrid Documentation v4.26.2](README.md) / [Components](Namespace.Components.md) / RevogrRowHeaders
 
 # Interface: RevogrRowHeaders
 
@@ -9,11 +9,11 @@ Visible on the left side of the table
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `additionalData` | `any` | Additional data to pass to renderer | [src/components.d.ts:715](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L715) |
-| `dataPorts` | [`ViewportData`](TypeAlias.ViewportData.md)[] | Viewport data | [src/components.d.ts:719](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L719) |
-| `headerProp` | `Record`\<`string`, `any`\> | Header props | [src/components.d.ts:723](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L723) |
-| `height` | `number` | Header height to setup row headers | [src/components.d.ts:727](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L727) |
-| `jobsBeforeRender` | `Promise`\<`any`\>[] | Prevent rendering until job is done. Can be used for initial rendering performance improvement. When several plugins require initial rendering this will prevent double initial rendering. **Default** `[]` | [src/components.d.ts:732](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L732) |
-| `resize` | `boolean` | Enable resize | [src/components.d.ts:736](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L736) |
-| `rowClass` | `string` | Row class | [src/components.d.ts:740](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L740) |
-| `rowHeaderColumn` | [`RowHeaders`](Interface.RowHeaders.md) | Row header column | [src/components.d.ts:744](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L744) |
+| `additionalData` | `any` | Additional data to pass to renderer | [src/components.d.ts:722](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L722) |
+| `dataPorts` | [`ViewportData`](TypeAlias.ViewportData.md)[] | Viewport data | [src/components.d.ts:726](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L726) |
+| `headerProp` | `Record`\<`string`, `any`\> | Header props | [src/components.d.ts:730](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L730) |
+| `height` | `number` | Header height to setup row headers | [src/components.d.ts:734](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L734) |
+| `jobsBeforeRender` | `Promise`\<`any`\>[] | Prevent rendering until job is done. Can be used for initial rendering performance improvement. When several plugins require initial rendering this will prevent double initial rendering. **Default** `[]` | [src/components.d.ts:739](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L739) |
+| `resize` | `boolean` | Enable resize | [src/components.d.ts:743](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L743) |
+| `rowClass` | `string` | Row class | [src/components.d.ts:747](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L747) |
+| `rowHeaderColumn` | [`RowHeaders`](Interface.RowHeaders.md) | Row header column | [src/components.d.ts:751](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L751) |

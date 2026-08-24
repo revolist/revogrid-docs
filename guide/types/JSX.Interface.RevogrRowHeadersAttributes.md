@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.26.1](README.md) / [JSX](Namespace.JSX.md) / RevogrRowHeadersAttributes
+[RevoGrid Documentation v4.26.2](README.md) / [JSX](Namespace.JSX.md) / RevogrRowHeadersAttributes
 
 # Interface: RevogrRowHeadersAttributes
 
@@ -6,7 +6,7 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `additionalData` | `string` | [src/components.d.ts:2600](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L2600) |
-| `height` | `number` | [src/components.d.ts:2597](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L2597) |
-| `resize` | `boolean` | [src/components.d.ts:2599](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L2599) |
-| `rowClass` | `string` | [src/components.d.ts:2598](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L2598) |
+| `additionalData` | `string` | [src/components.d.ts:2613](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L2613) |
+| `height` | `number` | [src/components.d.ts:2610](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L2610) |
+| `resize` | `boolean` | [src/components.d.ts:2612](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L2612) |
+| `rowClass` | `string` | [src/components.d.ts:2611](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L2611) |

@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.26.1](README.md) / ColumnTemplateFunc
+[RevoGrid Documentation v4.26.2](README.md) / ColumnTemplateFunc
 
 # Type Alias: ColumnTemplateFunc()
 
@@ -20,4 +20,4 @@ type ColumnTemplateFunc: (createElement: HyperFunc<VNode>, props: ColumnTemplate
 
 ## Defined in
 
-[src/types/interfaces.ts:449](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/types/interfaces.ts#L449)
+[src/types/interfaces.ts:449](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/types/interfaces.ts#L449)
