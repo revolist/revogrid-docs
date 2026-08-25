@@ -11,7 +11,6 @@
 
       <div class="excel-grid-card excel-grid-card--grouping">
         <div class="excel-group-actions">
-          <span>Drag any column header into the panel, then drag keys to reorder them.</span>
           <button type="button" @click="collapseAllGroups">Collapse all</button>
           <button type="button" @click="expandAllGroups">Expand all</button>
         </div>
@@ -19,18 +18,15 @@
           class="excel-live-grid--grouping"
           :source="projectRows"
           :columns="groupColumns"
-          :plugins="[ColumnGroupPanelPlugin]"
           :grouping="grouping"
-          :column-group-panel="{ emptyPanelText: 'Drag a column header here to group rows' }"
           :row-size="36"
           range
           resize
           readonly
-          @grouping-change="onGroupingChange"
         />
         <div class="excel-table-status">
           <div><span>{{ groupingProps.length }} grouping levels · {{ projectRows.length }} projects</span></div>
-          <span>drag keys to reorder · × removes a level</span>
+          <span>Region → Department</span>
         </div>
       </div>
       <p class="excel-demo-caption">{{ content.caption }}</p>
@@ -40,9 +36,9 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import type { ColumnProp, GroupCellTemplateFunc, GroupingOptions, VNode } from '@revolist/revogrid'
+import type { CellTemplate, ColumnProp, GroupCellTemplateFunc, GroupingOptions, VNode } from '@revolist/revogrid'
 import { expandSvgIconVNode } from '@revolist/revogrid'
-import { ColumnGroupPanelPlugin, getGroupingData } from '@revolist/revogrid-pro'
+import { getGroupingData } from '@revolist/revogrid-pro'
 import ExcelRevoGrid from './ExcelRevoGrid.vue'
 import { excelNumberFormat, excelSignedIntegerFormat } from './excelFormattingPlugins'
 import type { ExcelLandingContent } from './excelLandingContent'
@@ -141,8 +137,12 @@ const grouping = computed<GroupingOptions>(() => ({
   groupCellTemplate,
 }))
 
-function onGroupingChange(payload: { props: ColumnProp[] }) {
-  groupingProps.value = [...payload.props]
+const groupLeafCellTemplate: CellTemplate<ProjectRow> = (h, props) => {
+  const leafIndent = `calc(${groupingProps.value.length} * 24px)`
+  return h('span', {
+    class: 'excel-group-leaf-value',
+    style: { '--excel-group-leaf-indent': leafIndent },
+  }, String(props.value ?? ''))
 }
 
 function collapseAllGroups() {
@@ -154,7 +154,7 @@ function expandAllGroups() {
 }
 
 const groupColumns = [
-  { name: 'Region', prop: 'region', size: 150, readonly: true },
+  { name: 'Region', prop: 'region', size: 150, readonly: true, cellTemplate: groupLeafCellTemplate },
   { name: 'Department', prop: 'department', size: 170, readonly: true },
   { name: 'Project', prop: 'project', size: 300, readonly: true },
   { name: 'Budget', prop: 'budget', size: 140, readonly: true, dataGridFormat: excelNumberFormat },

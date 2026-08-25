@@ -92,9 +92,9 @@ const emptyFilterHeader = {
 }
 const customerColumns = [
   { ...emptyFilterHeader, prop: 'customer', name: 'Customer', size: 280, filter: ['string'], dataGridFormat: excelBoldFormat },
-  { ...emptyFilterHeader, prop: 'region', name: 'Region', size: 110, filter: [FIlTER_SELECTION] },
-  { ...emptyFilterHeader, prop: 'segment', name: 'Segment', size: 130, filter: [FIlTER_SELECTION] },
-  { ...emptyFilterHeader, prop: 'status', name: 'Status', size: 130, filter: [FIlTER_SELECTION], dataGridFormat: createBadgeFormat(statusStyles) },
+  { prop: 'region', name: 'Region', size: 110, filter: [FIlTER_SELECTION] },
+  { prop: 'segment', name: 'Segment', size: 130, filter: [FIlTER_SELECTION] },
+  { prop: 'status', name: 'Status', size: 130, filter: [FIlTER_SELECTION], dataGridFormat: createBadgeFormat(statusStyles) },
   { ...emptyFilterHeader, prop: 'arr', name: 'ARR', size: 120, filter: ['number'], dataGridFormat: excelNumberFormat },
   { ...emptyFilterHeader, prop: 'renewal', name: 'Renewal', size: 120, filter: ['date'] },
   { ...emptyFilterHeader, prop: 'owner', name: 'Owner', size: 130, filter: ['string'] },

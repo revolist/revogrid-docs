@@ -18,6 +18,18 @@ head:
 
 Filtering lets users narrow the visible rows without changing the original `source`. RevoGrid keeps the full dataset available and hides non-matching physical row indexes through the trimming pipeline, so filtering works together with virtual scrolling, sorting, editing, and `getVisibleSource()`.
 
+## Performance by design
+
+RevoGrid filters the data model, not the rendered DOM. It keeps the original `source` intact, calculates which rows should be visible, and lets row virtualization render only the small portion currently in the viewport. This makes filtering suitable for large, interactive datasets without creating a DOM element for every matching row.
+
+Large local filter operations automatically run in short batches so the browser can stay responsive between slices of work. When an active filter is reapplied after replacing `source`, RevoGrid keeps the new rows hidden until the result is ready, then publishes the filtered view once. Users see an empty pending view followed by the correct result—not a flash of the complete unfiltered dataset.
+
+- Small datasets keep the immediate synchronous path.
+- Large datasets use a responsive, cancellable path, so a newer filter or source can replace stale work.
+- Filtering composes with sorting, grouping, tree visibility, and other row trims before rows become visible.
+
+Client-side filtering still evaluates the local records and any active conditions. Keep custom filter functions lightweight; for datasets that should not live entirely in the browser, use [server-side filtering](/guide/server-side-data#remote-filtering). See [Performance and Virtualization](/guide/performance) for broader large-data guidance.
+
 ## Enable filtering
 
 Turn on the built-in filter plugin with the grid-level `filter` prop:
@@ -288,6 +300,23 @@ grid.filter = {
 The filter function receives the parsed cell value and the extra value from the filter panel. `func.extra = 'input'` asks the panel to render an input for that operation. The filter API also supports `datepicker` or a custom extra-field renderer for specialized UIs.
 
 [<Badge type="tip">CustomFilter</Badge>](/guide/types/Interface.CustomFilter)
+
+### Choose the right extension point
+
+Filtering can be extended at several levels without replacing the whole plugin:
+
+- Use `cellParser` to normalize a stored value before built-in or custom operations evaluate it.
+- Use `customFilters` to add a reusable operation that returns `true` or `false` for each row.
+- Use `beforefilterapply` to inspect, rewrite, or delegate the requested filter before evaluation starts.
+- Use `beforefiltertrimmed` when your application needs final control over the physical row indexes that will be hidden.
+
+Custom filter functions are synchronous predicates. RevoGrid may call them once per row for each active condition, so keep them pure and fast: avoid network requests, DOM work, large allocations, and shared-state mutations. Do not declare a custom predicate `async` or return a `Promise`; a promise is not a deferred boolean filter result.
+
+### How asynchronous filtering works
+
+For large local datasets, RevoGrid can yield between batches of synchronous predicate calls. The overall operation can continue across browser tasks while every individual custom predicate remains simple and synchronous. If a newer filter or source arrives, stale batched work can be discarded before it changes the visible result.
+
+When filtering genuinely requires asynchronous work—such as an API request, database query, or permission service—prevent the local operation in `beforefilterapply` and let your data controller load the matching rows into `source`. The controller should cancel or ignore stale requests and guard against requesting the same filter again when the remote source is assigned. See [Remote filtering](/guide/server-side-data#remote-filtering) for the recommended flow.
 
 ## Event hooks
 

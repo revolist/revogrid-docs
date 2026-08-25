@@ -64,7 +64,6 @@
             :data-grid-formatting-panel="excelFormattingPanel"
             :data-grid-context-menu="heroContextMenu"
             :plugins="heroPlugins"
-            :filter="heroFilterConfig"
             :initial-range="heroInitialRange"
             range
             resize
@@ -83,7 +82,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref, shallowRef } from 'vue'
-import { AdvanceFilterPlugin, FormulaPlugin } from '@revolist/revogrid-pro'
+import { FormulaPlugin } from '@revolist/revogrid-pro'
 import type { DataGridContextMenuConfig } from '@revolist/revogrid-pro'
 import FontAwesomeSvgIcon from '../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
 import ProDocButton from '../pro/ProDocButton.vue'
@@ -107,16 +106,15 @@ const heroStageStyles = {
   Proposal: { backgroundColor: 'var(--xl-accent-soft)', color: 'var(--xl-accent)' },
 }
 const heroColumns = [
-  { name: 'Account', prop: 'account', size: 220, sortable: true, filter: ['string'], dataGridFormat: excelBoldFormat },
-  { name: 'Owner', prop: 'owner', size: 150, sortable: true, filter: ['string'] },
-  { name: 'Stage', prop: 'stage', size: 140, sortable: true, filter: ['string'], dataGridFormat: createBadgeFormat(heroStageStyles) },
-  { name: 'ARR', prop: 'arr', size: 130, sortable: true, filter: ['number'], dataGridFormat: excelNumberFormat },
-  { name: 'Prob.', prop: 'probability', size: 120, sortable: true, filter: ['number'], dataGridFormat: excelPercentFormat },
-  { name: 'Close date', prop: 'closeDate', size: 150, sortable: true, filter: ['date'], dataGridFormat: excelMonoFormat },
-  { name: 'Region', prop: 'region', size: 258, sortable: true, filter: ['string'], columnProperties: () => ({ class: { 'excel-hero-region-header': true } }) },
+  { name: 'Account', prop: 'account', size: 220, sortable: true, dataGridFormat: excelBoldFormat },
+  { name: 'Owner', prop: 'owner', size: 150, sortable: true },
+  { name: 'Stage', prop: 'stage', size: 140, sortable: true, dataGridFormat: createBadgeFormat(heroStageStyles) },
+  { name: 'ARR', prop: 'arr', size: 130, sortable: true, dataGridFormat: excelNumberFormat },
+  { name: 'Prob.', prop: 'probability', size: 120, sortable: true, dataGridFormat: excelPercentFormat },
+  { name: 'Close date', prop: 'closeDate', size: 150, sortable: true, dataGridFormat: excelMonoFormat },
+  { name: 'Region', prop: 'region', size: 258, sortable: true, columnProperties: () => ({ class: { 'excel-hero-region-header': true } }) },
 ]
-const heroPlugins = [AdvanceFilterPlugin, FormulaPlugin]
-const heroFilterConfig = { disableDynamicFiltering: true }
+const heroPlugins = [FormulaPlugin]
 const HERO_ROW_COUNT = 10_000
 const heroSeedRows = [
   { account: 'Northwind Logistics', owner: 'M. Halvorsen', stage: 'Negotiation', arr: 184000, probability: 0.7, closeDate: '2026-09-30', region: 'EMEA' },

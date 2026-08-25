@@ -1106,23 +1106,14 @@ body:has(.vp-doc._excel-data-grid) {
   display: flex;
   min-height: 40px;
   align-items: center;
+  justify-content: flex-end;
   gap: 12px;
   border-bottom: 1px solid var(--xl-line);
   padding: 0 12px;
   color: var(--xl-muted);
   font-size: 10.5px;
 }
-.excel-group-actions > span { margin-right: auto; }
 .excel-group-actions button { border: 0; background: transparent; color: var(--xl-accent); cursor: pointer; font-size: 11px; }
-.excel-live-grid--grouping .group-panel {
-  min-height: 46px;
-  border-color: var(--xl-line);
-  background: var(--xl-surface);
-}
-.excel-live-grid--grouping .group-item {
-  border-color: var(--xl-line);
-  background: var(--xl-soft);
-}
 .excel-core-group-toggle {
   display: flex;
   width: 100%;
@@ -1140,6 +1131,10 @@ body:has(.vp-doc._excel-data-grid) {
 .excel-core-group-toggle svg { flex: 0 0 auto; color: var(--xl-accent); }
 .excel-core-group-toggle strong { font-weight: 650; }
 .excel-core-group-toggle small { color: var(--xl-dim); font-family: var(--xl-mono); font-size: 10px; }
+.excel-group-leaf-value {
+  display: block;
+  margin-inline-start: var(--excel-group-leaf-indent, 0);
+}
 .excel-group-summary {
   display: flex;
   width: 100%;

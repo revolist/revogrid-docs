@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.26.1](README.md) / [JSX](Namespace.JSX.md) / RevogrScrollVirtualAttributes
+[RevoGrid Documentation v4.26.2](README.md) / [JSX](Namespace.JSX.md) / RevogrScrollVirtualAttributes
 
 # Interface: RevogrScrollVirtualAttributes
 
@@ -6,7 +6,7 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `clientSize` | `number` | [src/components.d.ts:2606](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L2606) |
-| `dimension` | [`DimensionType`](TypeAlias.DimensionType.md) | [src/components.d.ts:2603](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L2603) |
-| `realSize` | `number` | [src/components.d.ts:2604](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L2604) |
-| `virtualSize` | `number` | [src/components.d.ts:2605](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/components.d.ts#L2605) |
+| `clientSize` | `number` | [src/components.d.ts:2619](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L2619) |
+| `dimension` | [`DimensionType`](TypeAlias.DimensionType.md) | [src/components.d.ts:2616](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L2616) |
+| `realSize` | `number` | [src/components.d.ts:2617](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L2617) |
+| `virtualSize` | `number` | [src/components.d.ts:2618](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/components.d.ts#L2618) |

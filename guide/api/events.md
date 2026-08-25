@@ -80,6 +80,10 @@ aside: false
 | columndragmousemove | `MouseEvent` | revo-grid | Fired while a column drag operation is moving. |
 | beforecolumndragend | `BeforeColumnDragEndEventData` | revo-grid | Fired before the column drag operation is applied. Call preventDefault() to reject the move. |
 | columndragend | `ColumnDragEventData` | revo-grid | Fired when the column drag operation completes. Includes reordered columns, physical order, and viewport type. |
+| beforerowresize | `RowResizeEventDetail` | revo-grid | Fired before a row-header resize gesture starts. Call preventDefault() to reject the gesture. |
+| rowresize | `RowResizeEventDetail` | revo-grid | Fired after each live row-height update. |
+| afterrowresize | `RowResizeEventDetail` | revo-grid | Fired after a row resize gesture commits. |
+| rowresizecancel | `RowResizeCancelEventDetail` | revo-grid | Fired after an interrupted row resize restores the original heights. |
 | rowdragstartinit | `TModel` | revogr-order-editor | Row drag started |
 | rowdragendinit | `{ rowType: DimensionRows; }` | revogr-order-editor | Row drag ended started |
 | rowdragmoveinit | `PositionItem & { rowType: DimensionRows; }` | revogr-order-editor | Row move started |
