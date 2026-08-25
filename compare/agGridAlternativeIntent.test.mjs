@@ -163,7 +163,7 @@ test('uses reader-focused section labels while preserving every legacy fragment'
 })
 
 test('keeps shared commercial CTA defaults for other comparison pages', () => {
-  assert.match(ctaSource, /primaryLabel: 'Request Pro Trial'/)
+  assert.match(ctaSource, /primaryLabel: 'Get Pro Trial'/)
   assert.match(ctaSource, /secondaryLabel: 'Buy Pro'/)
   assert.match(ctaSource, /role="group"/)
   assert.match(ctaSource, /aria-label="Comparison actions"/)

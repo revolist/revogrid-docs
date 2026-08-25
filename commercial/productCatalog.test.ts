@@ -125,14 +125,15 @@ test('keeps Scheduler-family page chrome full width', () => {
   assert.match(ganttPageLayout, /:global\(\.gantt-page-doc \.VPDoc \.container\),\s*:global\(\.gantt-page-doc \.VPDoc \.content\)/)
 })
 
-test('defines the approved private npm trial lifecycle', () => {
+test('defines the immediately installable public npm trial lifecycle', () => {
   for (const planId of ['pro-lite', 'pro-advanced'] as const) {
     const trial = getPlan(planId).trial
     assert.equal(trial.available, true)
     assert.equal(trial.durationDays, 30)
-    assert.equal(trial.delivery, 'private-npm')
+    assert.equal(trial.delivery, 'public-npm')
     assert.equal(trial.requestUrl, '/trial')
-    assert.match(trial.note!, /boilerplate/i)
+    assert.match(trial.note!, /public trial registry/i)
+    assert.match(trial.note!, /no account, form, or approval/i)
   }
 
   assert.equal(getPlan('open-source').trial.delivery, 'none')
@@ -141,6 +142,7 @@ test('defines the approved private npm trial lifecycle', () => {
 
 test('generates commercial FAQs, demo badges, and pricing view facts', () => {
   const [trialFaq] = resolveCommercialFaqs(['trial'])
+  const [planDifferenceFaq] = resolveCommercialFaqs(['plan-difference'])
   const pivotBadge = getDemoBadge('pivot')
   const evaluation = getPricingEvaluationFacts()
   const differences = getPricingDifferenceRows()
@@ -150,6 +152,7 @@ test('generates commercial FAQs, demo badges, and pricing view facts', () => {
   assert.match(trialFaq.a, /no npm login or token/i)
   assert.match(trialFaq.a, /public starter/i)
   assert.doesNotMatch(trialFaq.a, /approved private npm|request.*access/i)
+  assert.match(planDifferenceFaq.a, /Pro Advanced adds priority support, unlimited product usage/)
   assert.deepEqual(pivotBadge, {
     label: 'Pivot Table Demo',
     badge: 'Adv',
@@ -163,11 +166,11 @@ test('generates commercial FAQs, demo badges, and pricing view facts', () => {
   assert.equal(evaluation.options[0].action.label, 'Explore open source')
   assert.equal(
     evaluation.options[1].description,
-    'Test Pro functionality in your own project before purchasing. Access is provided on request.',
+    'Install the public Pro trial and test it in your own project before purchasing.',
   )
-  assert.equal(evaluation.options[1].action.label, 'Request Pro Trial')
+  assert.equal(evaluation.options[1].action.label, 'Get Pro Trial')
   assert.equal(evaluation.options[1].action.href, '/trial')
-  assert.match(evaluation.options[1].features[0], /30-day private npm/)
+  assert.match(evaluation.options[1].features[0], /30-day public npm trial/)
   assert.equal(differences.length, 4)
   assert.ok(differences.some((row) =>
     typeof row.feature !== 'string' && row.feature.text === 'Priority support'))

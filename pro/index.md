@@ -40,7 +40,7 @@ proPage:
         detail:
         href: /pricing
       trial:
-        label: Request Pro Trial
+        label: Get Pro Trial
         href: /trial
       secondary:
         label: Watch 90s demo
@@ -269,7 +269,7 @@ proPage:
         label: Get Pro
         href: /pricing
       trial:
-        label: Request Pro Trial
+        label: Get Pro Trial
         href: /trial
       secondary:
         label: Read the docs

@@ -736,7 +736,7 @@ A scalable architecture should:
 
 That is the architecture behind RevoGrid's [live 50,000-task Kanban demo](/demo/kanban-performance).
 
-Explore the [RevoGrid Kanban product page](/kanban), open the [complete interactive Kanban demo](/demo/kanban), read the [Enterprise Kanban documentation](https://pro.rv-grid.com/guides/kanban/), or [request a Pro Advanced trial](/trial) to validate the board with your own task model, policies, templates, and persistence layer.
+Explore the [RevoGrid Kanban product page](/kanban), open the [complete interactive Kanban demo](/demo/kanban), read the [Enterprise Kanban documentation](https://pro.rv-grid.com/guides/kanban/), or [get the Pro Advanced trial](/trial) to validate the board with your own task model, policies, templates, and persistence layer.
 
 ## Frequently asked questions
 

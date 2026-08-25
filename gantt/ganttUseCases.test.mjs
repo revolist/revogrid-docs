@@ -88,7 +88,7 @@ test('reuses the canonical Pro Advanced pricing module instead of a custom closi
     libraryPageSource,
     /<ProAdvancedCallout\s+title="RevoGrid Gantt is part of the Pro Advanced bundle\."\s+product-id="gantt"\s*\/>/,
   )
-  assert.doesNotMatch(libraryPageSource, /closing-cta|Start with one real plan|Request Pro Trial/)
+  assert.doesNotMatch(libraryPageSource, /closing-cta|Start with one real plan|Get Pro Trial/)
 })
 
 test('keeps the custom use-case hero balanced at laptop widths', () => {

@@ -79,7 +79,7 @@ ganttLanding:
       - label: Try Interactive Demo
         href: /demo/kanban
         arrow: true
-      - label: Request Pro Trial
+      - label: Get Pro Trial
         href: /trial
         variant: secondary
     badges:
@@ -352,13 +352,13 @@ ganttLanding:
     priceLabel: Pro Advanced current USD price
     items:
       - title: 30-day trial
-        description: Request approved private npm access and validate the board with your data, policies, templates, and persistence layer.
+        description: Install the public npm trial immediately and validate the board with your data, policies, templates, and persistence layer.
       - title: Unlimited production usage
         description: Licensed applications can deploy Kanban without per-deployment or per-end-user charges, subject to the license terms.
       - title: Full Advanced bundle
         description: Use Kanban alongside Pivot, Gantt, Scheduler, advanced grid plugins, original source access, and priority support.
     actions:
-      - label: Request Pro Trial
+      - label: Get Pro Trial
         href: /trial
       - label: Review all pricing
         href: /pricing
@@ -407,7 +407,7 @@ ganttLanding:
     primaryHref: /demo/kanban
     primaryLabel: Try Interactive Demo
     secondaryHref: /trial
-    secondaryLabel: Request Pro Trial
+    secondaryLabel: Get Pro Trial
 ---
 
 <script lang="ts" setup>

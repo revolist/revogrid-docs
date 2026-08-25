@@ -5,9 +5,9 @@ export const navbarEn: DefaultTheme.NavItem[] = [
     text: 'Product',
     items: [
       {
-        text: 'Data Grid JS',
-        link: '/',
-        activeMatch: '^/$',
+        text: 'Excel Data Grid',
+        link: '/excel-data-grid',
+        activeMatch: '^/excel-data-grid',
       },
       {
         text: 'Pivot Table JS',

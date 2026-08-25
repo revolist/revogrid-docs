@@ -140,4 +140,4 @@ Choose one real planning flow and ask the people who perform it to work through 
 
 Then test the technical shape: realistic task volume, hierarchy, dependency density, custom columns, resource assignments, permissions, backend rejection, and the devices users actually have.
 
-Explore the [live RevoGrid Gantt demos](/demo/gantt), review the focused guides for [ERP](/gantt/erp-gantt), [professional services](/gantt/professional-services-gantt), [construction](/gantt/construction-gantt), [manufacturing](/gantt/manufacturing-gantt), [resource planning](/gantt/resource-planning), and [internal tools](/gantt/internal-tools-gantt), or [request a Pro Advanced trial](/trial) with a production-shaped plan.
+Explore the [live RevoGrid Gantt demos](/demo/gantt), review the focused guides for [ERP](/gantt/erp-gantt), [professional services](/gantt/professional-services-gantt), [construction](/gantt/construction-gantt), [manufacturing](/gantt/manufacturing-gantt), [resource planning](/gantt/resource-planning), and [internal tools](/gantt/internal-tools-gantt), or [get the Pro Advanced trial](/trial) to evaluate a production-shaped plan.

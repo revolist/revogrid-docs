@@ -127,7 +127,7 @@ Test the idea with one real workflow and the people who coordinate it:
 - Confirm keyboard access, focus visibility, readable labels, and narrow-screen behavior.
 - Ask whether the view removes status-chasing or merely creates one more place to update.
 
-Open the [live Gantt demo](/demo/gantt) to explore the interaction, review the [main RevoGrid Gantt page](/gantt) for the implemented feature set, and request a [trial](/trial) to evaluate your real data shape, permissions, and workflow boundaries.
+Open the [live Gantt demo](/demo/gantt) to explore the interaction, review the [main RevoGrid Gantt page](/gantt) for the implemented feature set, and install the [trial](/trial) to evaluate your real data shape, permissions, and workflow boundaries.
 
 ## Internal tools Gantt FAQ
 

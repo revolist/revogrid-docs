@@ -57,8 +57,8 @@ Contact us to upgrade to Pro Advanced.
 
 ### Evaluation (trial) access
 
-Yes, you can evaluate RevoGrid Pro before purchasing. The trial lasts 30 days and is available by request for teams that need to validate Pro or Pro Advanced modules.
+Yes, you can evaluate RevoGrid Pro before purchasing. The public trial lasts 30 days and can be installed immediately by teams that need to validate Pro or Pro Advanced modules.
 
-Start with the [Evaluate RevoGrid Pro](/trial) page for the request form, public demo links, trial limits, and the path from evaluation to production.
+Start with the [Get Pro Trial](/trial) page for installation instructions, public demo links, trial limits, and the path from evaluation to production.
 
 For production license quantity details, see the relevant clause in the [EULA](https://rv-grid.com/pro/policies/license).

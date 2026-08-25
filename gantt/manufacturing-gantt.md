@@ -76,7 +76,7 @@ Test with a production-shaped slice rather than a tidy sample. Include the large
 
 Treat the schedule as part of a wider production workflow. Decide which system owns released orders, inventory, routing, machine state, labor availability, quality status, approved baselines, and delivery promises. Then define which changes the Gantt may make directly, which need validation, and which must remain read-only.
 
-Review [resource scheduling](/gantt/resource-scheduling), [critical path](/gantt/critical-path), [baselines](/gantt/baselines), and the [ERP Gantt guide](/gantt/erp-gantt). If the main interaction is placing crews, machines, or maintenance windows into calendar slots, also compare the [JavaScript Scheduler](/jsscheduler). Then open the [RevoGrid Gantt demo](/demo/gantt) and request a [trial](/trial) for production-shaped testing.
+Review [resource scheduling](/gantt/resource-scheduling), [critical path](/gantt/critical-path), [baselines](/gantt/baselines), and the [ERP Gantt guide](/gantt/erp-gantt). If the main interaction is placing crews, machines, or maintenance windows into calendar slots, also compare the [JavaScript Scheduler](/jsscheduler). Then open the [RevoGrid Gantt demo](/demo/gantt) and install the [trial](/trial) for production-shaped testing.
 
 ## Manufacturing Gantt FAQ
 

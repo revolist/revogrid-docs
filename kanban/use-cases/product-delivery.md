@@ -47,4 +47,4 @@ Your product remains the system of record for issues, permissions, validation, r
 - Test an overloaded build lane and a blocked review decision.
 - Confirm keyboard movement, persistence conflicts, and permissions with your own integration.
 
-Related guidance: [RevoGrid Kanban](/kanban), [Gantt for product planning](/gantt), and [requesting a Pro trial](/trial).
+Related guidance: [RevoGrid Kanban](/kanban), [Gantt for product planning](/gantt), and [getting the Pro trial](/trial).

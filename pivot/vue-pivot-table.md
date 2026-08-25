@@ -69,7 +69,7 @@ import CommercialFaq from '../pro/CommercialFaq.vue'
 
 Embed self-service Pivot analytics directly in a Vue 3 product. RevoGrid Pivot gives users an Excel-familiar field workflow while Vue controls source data, reactive configuration, saved views, permissions, and the surrounding application experience.
 
-[View the live Pivot demo](https://pivot.rv-grid.com/demo/) · [Request a Pro trial](/trial) · [Inspect the Vue example](https://github.com/revolist/pivot/blob/main/src/pivot.vue)
+[View the live Pivot demo](https://pivot.rv-grid.com/demo/) · [Get Pro Trial](/trial) · [Inspect the Vue example](https://github.com/revolist/pivot/blob/main/src/pivot.vue)
 
 ![Vue Pivot Table Component for embedded analytics](/img/pivot-preview.jpg)
 
@@ -177,10 +177,10 @@ During a trial, test 10,000, 100,000, and the maximum expected source rows with 
 
 RevoGrid Pivot is included in **RevoGrid Pro Advanced**. RevoGrid Core remains MIT licensed; the Pivot engine, configurator, chart workflow, export/state helpers, and remote analytical contracts are commercial capabilities.
 
-Use the [request-based trial](/trial) to validate your real dataset, Nuxt boundary, chart workflow, export requirements, and server architecture. Review the [Pivot product overview](/pivot/), [pricing](/pricing/), [live demo](https://pivot.rv-grid.com/demo/), and [complete repository](https://github.com/revolist/pivot).
+Use the [publicly installable trial](/trial) to validate your real dataset, Nuxt boundary, chart workflow, export requirements, and server architecture. Review the [Pivot product overview](/pivot/), [pricing](/pricing/), [live demo](https://pivot.rv-grid.com/demo/), and [complete repository](https://github.com/revolist/pivot).
 
 <CommercialFaq id="vue-pivot-faq" />
 
 ## Evaluate the Vue Pivot Table
 
-[Open the live demo](https://pivot.rv-grid.com/demo/), [inspect the Vue source](https://github.com/revolist/pivot/blob/main/src/pivot.vue), or [request a Pro trial](/trial).
+[Open the live demo](https://pivot.rv-grid.com/demo/), [inspect the Vue source](https://github.com/revolist/pivot/blob/main/src/pivot.vue), or [get the Pro trial](/trial).

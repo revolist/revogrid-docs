@@ -26,7 +26,7 @@ export function usePivotPage() {
             ...merged.cta,
             description: `Add embedded pivot analytics to your application. Included in ${plan.name}.`,
             secondaryHref: product.trialUrl!,
-            secondaryLabel: 'Request Pro Trial',
+            secondaryLabel: 'Get Pro Trial',
           }
         : undefined,
     }

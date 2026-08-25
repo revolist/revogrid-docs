@@ -128,7 +128,7 @@ The choice should follow measurement rather than a headline row count. Test real
 
 ## Build the revenue workspace
 
-Review the [Pivot product overview](/pivot/), explore the [interactive Pivot demo](/demo/pivot), and [request a Pro Advanced trial](/trial) to evaluate your own revenue model.
+Review the [Pivot product overview](/pivot/), explore the [interactive Pivot demo](/demo/pivot), and [get the Pro Advanced trial](/trial) to evaluate your own revenue model.
 
 ## Explore other Pivot use cases
 

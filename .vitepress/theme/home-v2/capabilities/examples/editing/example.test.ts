@@ -10,7 +10,7 @@ describe('Spreadsheet editing example', () => {
     expect(editingExample.rowHeaders).toBe(true)
     expect(editingExample.code).toContain('rowHeaders')
     expect(spreadsheetFormatting.columns).toEqual([
-      expect.objectContaining({ prop: 'units' }),
+      expect.objectContaining({ column: 2 }),
     ])
     const formulaColumn = editingColumns.find(({ prop }) => prop === 'formula')
     const formulaProperties = typeof formulaColumn?.cellProperties === 'function'
@@ -20,6 +20,7 @@ describe('Spreadsheet editing example', () => {
       style: { fontWeight: '700', textAlign: 'right' },
     })
     expect(editingExample.code).not.toContain('rows.map')
-    expect(editingExample.code).toContain("rowKey: 'SHEET-00002'")
+    expect(editingExample.code).toContain('range: { start: { row: 1, column: 0 } }')
+    expect(editingExample.code).not.toContain('rowKeyProp')
   })
 })

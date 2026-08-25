@@ -296,8 +296,8 @@ const page = computed(() => {
           description: `${product.name} is included in ${plan.name}. Licensing is per front-end developer with no runtime royalties or deployment counting.`,
           items: [
             {
-              title: `${trialDays}-day private npm trial`,
-              description: `Request approved ${trialDays}-day private npm access. The public repository is setup boilerplate and does not contain Pro packages.`,
+              title: `${trialDays}-day public npm trial`,
+              description: `Install the ${trialDays}-day Pro trial directly from the public trial registry. No account, form, or approval is required.`,
             },
             {
               title: plan.billingSummary,
@@ -309,7 +309,7 @@ const page = computed(() => {
             },
           ],
           actions: [
-            { label: 'Request Pro Trial', href: product.trialUrl! },
+            { label: 'Get Pro Trial', href: product.trialUrl! },
             { label: 'Review all pricing', href: '/pricing', variant: 'secondary' as const },
           ],
         }
@@ -323,7 +323,7 @@ const page = computed(() => {
       ? {
           ...merged.cta,
           secondaryHref: product.trialUrl!,
-          secondaryLabel: 'Request Pro Trial',
+          secondaryLabel: 'Get Pro Trial',
         }
       : undefined,
   }

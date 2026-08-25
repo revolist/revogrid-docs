@@ -1,25 +1,23 @@
 import type { DataGridFormattingPresetState } from '@revolist/revogrid-pro'
 const unitsNumberFormat = {
-  value: { preset: 'number' },
+  value: { kind: 'preset', preset: 'number' },
   appearance: { horizontal: 'right' },
 } as const
 
 export const spreadsheetFormatting: DataGridFormattingPresetState = {
-  rowKeyProp: 'id',
   columns: [
-    { prop: 'units', format: unitsNumberFormat },
+    { column: 2, format: unitsNumberFormat },
   ],
   cells: [
     {
-      rowKey: 'SHEET-00004',
-      prop: 'units',
+      range: { start: { row: 3, column: 2 } },
       format: {
         ...unitsNumberFormat,
         appearance: { horizontal: 'right', fillColor: '#dcfce7' },
       },
     },
-    { rowKey: 'SHEET-00002', prop: 'item', format: { appearance: { fillColor: '#fef3c7' } } },
-    { rowKey: 'SHEET-00006', prop: 'region', format: { appearance: { fillColor: '#ede9fe' } } },
-    { rowKey: 'SHEET-00003', prop: 'formula', format: { appearance: { fillColor: '#dbeafe' } } },
+    { range: { start: { row: 1, column: 0 } }, format: { appearance: { fillColor: '#fef3c7' } } },
+    { range: { start: { row: 5, column: 1 } }, format: { appearance: { fillColor: '#ede9fe' } } },
+    { range: { start: { row: 2, column: 3 } }, format: { appearance: { fillColor: '#dbeafe' } } },
   ],
 } satisfies DataGridFormattingPresetState

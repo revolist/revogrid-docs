@@ -1,7 +1,7 @@
 // @vitest-environment happy-dom
 
 import { describe, expect, it } from 'vitest'
-import { DataGridFormattingPlugin, FIlTER_SLIDER } from '@revolist/revogrid-pro'
+import { DataGridContextMenuPlugin, DataGridFormattingPlugin, FIlTER_SLIDER } from '@revolist/revogrid-pro'
 import { controlColumns, controlExample } from './example'
 import { statusColumn } from '../../shared/columns'
 import { capabilityColumnTypes } from '../../shared/columnTypes'
@@ -31,14 +31,15 @@ describe('Filtering & Data Control templates', () => {
   })
 
   it('starts Growth at -11.8% and formats normalized values as percentages', () => {
-    const growthFormats = controlExample.formatting?.columns?.find(({ prop }) => prop === 'growth')
+    const growthFormats = controlExample.formatting?.columns?.find(({ column }) => column === 2)
     const growthFilters = typeof controlExample.filter === 'object'
       ? controlExample.filter.multiFilterItems?.growth
       : undefined
 
     expect(controlExample.source.map(row => row.growth)).toEqual([0.08, 0.14, -0.03, -0.12, 0.21])
-    expect(controlExample.plugins).toContain(DataGridFormattingPlugin)
-    expect(growthFormats?.format.value).toEqual({ preset: 'percent', decimalPlaces: 1 })
+    expect(controlExample.plugins).toContain(DataGridContextMenuPlugin)
+    expect(controlExample.plugins).not.toContain(DataGridFormattingPlugin)
+    expect(growthFormats?.format.value).toEqual({ kind: 'preset', preset: 'percent', decimalPlaces: 1 })
     expect(growthFilters).toEqual([
       expect.objectContaining({
         type: FIlTER_SLIDER,

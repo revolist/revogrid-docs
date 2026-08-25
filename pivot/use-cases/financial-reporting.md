@@ -140,7 +140,7 @@ Use an application-owned server model when datasets are too large or sensitive, 
 - Specify whether CSV/TSV is sufficient or a native XLSX process is required.
 - Test keyboard use, non-color variance cues, narrow screens, and long account labels.
 
-Open the [Pivot product overview](/pivot/), explore the [live Pivot demo](/demo/pivot), or [request a Pro Advanced trial](/trial) with a representative financial dataset.
+Open the [Pivot product overview](/pivot/), explore the [live Pivot demo](/demo/pivot), or [get the Pro Advanced trial](/trial) to evaluate a representative financial dataset.
 
 ## Explore other Pivot use cases
 

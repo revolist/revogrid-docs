@@ -19,7 +19,7 @@ withDefaults(defineProps<{
   secondaryLabel?: string
 }>(), {
   primaryHref: '/trial',
-  primaryLabel: 'Request Pro Trial',
+  primaryLabel: 'Get Pro Trial',
   secondaryHref: '/pricing#pro-advanced',
   secondaryLabel: 'Buy Pro',
 })

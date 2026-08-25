@@ -409,7 +409,7 @@ finalCta:
     - text: View pricing
       link: /pricing
       variant: secondary
-    - text: Request Pro Trial
+    - text: Get Pro Trial
       link: /trial
       variant: secondary
     - text: View docs

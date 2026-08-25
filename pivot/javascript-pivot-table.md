@@ -69,7 +69,7 @@ import CommercialFaq from '../pro/CommercialFaq.vue'
 
 Embed a configurable Pivot Table in a JavaScript or TypeScript application without adopting a framework-specific analytical runtime. RevoGrid Pivot uses a standards-based custom element, native properties, and DOM events while providing the same field workflow, charts, export, and data models as the framework wrappers.
 
-[View the live Pivot demo](https://pivot.rv-grid.com/demo/) · [Request a Pro trial](/trial) · [Inspect the JavaScript example](https://github.com/revolist/pivot/blob/main/src/pivot.ts)
+[View the live Pivot demo](https://pivot.rv-grid.com/demo/) · [Get Pro Trial](/trial) · [Inspect the JavaScript example](https://github.com/revolist/pivot/blob/main/src/pivot.ts)
 
 ![JavaScript Pivot Table Component for embedded analytics](/img/pivot-preview.jpg)
 
@@ -174,10 +174,10 @@ Test 10,000, 100,000, and the maximum expected source row count using realistic 
 
 RevoGrid Pivot is included in **RevoGrid Pro Advanced**. RevoGrid Core remains MIT licensed; the Pivot engine, configurator, charts, export/state helpers, and remote analytical contracts are commercial capabilities.
 
-Use the [request-based trial](/trial) to validate your application lifecycle, data scale, chart workflow, export requirements, and server architecture. Review the [Pivot product overview](/pivot/), [pricing](/pricing/), [live demo](https://pivot.rv-grid.com/demo/), and [complete repository](https://github.com/revolist/pivot).
+Use the [publicly installable trial](/trial) to validate your application lifecycle, data scale, chart workflow, export requirements, and server architecture. Review the [Pivot product overview](/pivot/), [pricing](/pricing/), [live demo](https://pivot.rv-grid.com/demo/), and [complete repository](https://github.com/revolist/pivot).
 
 <CommercialFaq id="javascript-pivot-faq" />
 
 ## Evaluate the JavaScript Pivot Table
 
-[Open the live demo](https://pivot.rv-grid.com/demo/), [inspect the JavaScript source](https://github.com/revolist/pivot/blob/main/src/pivot.ts), or [request a Pro trial](/trial).
+[Open the live demo](https://pivot.rv-grid.com/demo/), [inspect the JavaScript source](https://github.com/revolist/pivot/blob/main/src/pivot.ts), or [get the Pro trial](/trial).

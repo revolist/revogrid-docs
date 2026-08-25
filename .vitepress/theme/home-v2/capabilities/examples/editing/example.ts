@@ -33,20 +33,18 @@ export const editingExample = defineCapabilityExample({
 rows[0].formula = '=C1*124'
 
 const formatting = {
-  rowKeyProp: 'id',
   columns: [
     {
-      prop: 'units',
+      column: 2,
       format: {
-        value: { preset: 'number' },
+        value: { kind: 'preset', preset: 'number' },
         appearance: { horizontal: 'right' }
       }
     }
   ],
   cells: [
     {
-      rowKey: 'SHEET-00002',
-      prop: 'item',
+      range: { start: { row: 1, column: 0 } },
       format: {
         appearance: { fillColor: '#fef3c7' }
       }

@@ -69,7 +69,7 @@ import CommercialFaq from '../pro/CommercialFaq.vue'
 
 Embed self-service Pivot analytics directly in a React product. RevoGrid Pivot gives users an Excel-familiar field workflow while your application keeps control of data, permissions, saved views, navigation, and surrounding UI.
 
-[View the live Pivot demo](https://pivot.rv-grid.com/demo/) · [Request a Pro trial](/trial) · [Read the React implementation tutorial](/blog/react-pivot-table-large-datasets)
+[View the live Pivot demo](https://pivot.rv-grid.com/demo/) · [Get Pro Trial](/trial) · [Read the React implementation tutorial](/blog/react-pivot-table-large-datasets)
 
 ![React Pivot Table Component for embedded analytics](/img/pivot-preview.jpg)
 
@@ -204,10 +204,10 @@ The React wrapper does not create a separate Pivot implementation. It binds Reac
 
 RevoGrid Pivot is included in **RevoGrid Pro Advanced**. RevoGrid Core remains the MIT-licensed grid foundation; the Pivot engine, configurator, chart workflow, export/state helpers, and remote analytical contracts are commercial capabilities.
 
-Use the [request-based trial](/trial) to validate your real dataset, browser targets, Next.js boundary, chart workflow, export requirements, and server architecture before purchasing. Review the [Pivot product overview](/pivot/), [pricing](/pricing/), [live demo](https://pivot.rv-grid.com/demo/), and [complete example repository](https://github.com/revolist/pivot).
+Use the [publicly installable trial](/trial) to validate your real dataset, browser targets, Next.js boundary, chart workflow, export requirements, and server architecture before purchasing. Review the [Pivot product overview](/pivot/), [pricing](/pricing/), [live demo](https://pivot.rv-grid.com/demo/), and [complete example repository](https://github.com/revolist/pivot).
 
 <CommercialFaq id="react-pivot-faq" />
 
 ## Evaluate the React Pivot Table
 
-[Open the live demo](https://pivot.rv-grid.com/demo/), [clone the repository](https://github.com/revolist/pivot), or [request a Pro trial](/trial). Developers ready to implement can continue with the [large-dataset React Pivot tutorial](/blog/react-pivot-table-large-datasets).
+[Open the live demo](https://pivot.rv-grid.com/demo/), [clone the repository](https://github.com/revolist/pivot), or [get the Pro trial](/trial). Developers ready to implement can continue with the [large-dataset React Pivot tutorial](/blog/react-pivot-table-large-datasets).
