@@ -39,9 +39,9 @@ const percentageHeatmapRenderer: CellTemplate = (h, props, additionalData) => he
 
 export const controlColumns: ColumnRegular[] = [
   { name: 'Customer', prop: 'company', size: 164, sortable: true, filter: 'string' },
-  { ...ownerColumn, size: 156, columnType: 'ownerSelect', source: ownerOptions, labelKey: 'owner', valueKey: 'owner', filter: [FIlTER_SELECTION] },
+  { ...ownerColumn, size: 156, columnType: 'ownerSelect', source: ownerOptions, labelKey: 'owner', valueKey: 'owner', syncCellTemplate: true, filter: [FIlTER_SELECTION] },
   { name: 'Growth %', prop: 'growth', size: 112, sortable: true, order: 'desc', columnType: 'growthNumber', filter: ['number', FIlTER_SLIDER] },
-  { ...statusColumn, size: 116, columnType: 'select', source: statusOptions, filter: [FIlTER_SELECTION] },
+  { ...statusColumn, size: 116, columnType: 'select', source: statusOptions, syncCellTemplate: true, filter: [FIlTER_SELECTION] },
 ]
 
 const formattingConfig: DataGridFormattingPresetState = {

@@ -9,8 +9,11 @@ import { createFilterConfig } from '../../shared/filterConfig'
 
 describe('Filtering & Data Control templates', () => {
   it('synchronizes the authored Pro badge template for Status options', () => {
+    const owner = controlColumns.find(({ prop }) => prop === 'owner')
     const status = controlColumns.find(({ prop }) => prop === 'health')
 
+    expect(owner?.syncCellTemplate).toBe(true)
+    expect(status?.syncCellTemplate).toBe(true)
     expect(status?.cellTemplate).toBe(statusColumn.cellTemplate)
     expect(status?.badgeStyles).toBe(statusColumn.badgeStyles)
     expect((capabilityColumnTypes.select as { syncCellTemplate?: boolean }).syncCellTemplate).toBe(true)
@@ -25,6 +28,8 @@ describe('Filtering & Data Control templates', () => {
     ) as { data?: { style?: Record<string, string> } }
 
     expect(rendered.data?.style).toMatchObject({
+      backgroundColor: 'color-mix(in srgb, var(--badge-cell-value-background-color) 60%, transparent)',
+      color: 'var(--badge-cell-value-color, inherit)',
       borderRadius: '12px',
       padding: '4px 8px',
     })
