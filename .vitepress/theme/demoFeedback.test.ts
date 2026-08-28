@@ -36,6 +36,7 @@ import {
   getDemoFeedbackTextLengthBucket,
   getDemosViewedInSession,
   getPrimaryAnswerForCardResponse,
+  hasMeaningfulDemoFeedbackAnswers,
   isDemoFeedbackConversionCta,
   isDemoFeedbackInCooldown,
   markDemoFeedbackShown,
@@ -487,6 +488,29 @@ test('buckets optional text length without exposing its contents', () => {
   assert.equal(getDemoFeedbackTextLengthBucket('a'.repeat(100)), '51_100')
   assert.equal(getDemoFeedbackTextLengthBucket('a'.repeat(101)), '101_200')
   assert.equal(getDemoFeedbackTextLengthBucket('a'.repeat(250)), '101_200')
+})
+
+test('rejects feedback answer objects when every form field is empty', () => {
+  assert.equal(hasMeaningfulDemoFeedbackAnswers(undefined), false)
+  assert.equal(hasMeaningfulDemoFeedbackAnswers({
+    verificationAnswers: [],
+    rowVolume: undefined,
+    comparison: undefined,
+    notFitReason: undefined,
+    freeText: '',
+  }), false)
+  assert.equal(hasMeaningfulDemoFeedbackAnswers({
+    verificationAnswers: [],
+    comparison: '   ',
+    freeText: '\n\t',
+  }), false)
+  assert.equal(hasMeaningfulDemoFeedbackAnswers({
+    verificationAnswers: ['framework_integration'],
+  }), true)
+  assert.equal(hasMeaningfulDemoFeedbackAnswers({
+    verificationAnswers: [],
+    freeText: 'Needs resource leveling',
+  }), true)
 })
 
 test('builds immediate option and privacy-safe text analytics events', () => {

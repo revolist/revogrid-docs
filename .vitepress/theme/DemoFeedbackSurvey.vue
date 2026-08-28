@@ -95,6 +95,7 @@ import {
   getDemoVisibleTime,
   getDemosViewedInSession,
   getPrimaryAnswerForCardResponse,
+  hasMeaningfulDemoFeedbackAnswers,
   isDemoFeedbackConversionCta,
   markDemoFeedbackShown,
   parseDemoFeedbackCooldownState,
@@ -566,23 +567,8 @@ const closeFlow = (reason: DemoFeedbackFlowCloseReason) => {
   submissionState.value = 'idle'
   errorMessage.value = ''
   if (!feedbackState.submitted) {
-    const primaryAnswer = feedbackState.primaryAnswer
-    if (feedbackDemo.value && primaryAnswer) {
-      const payload = createDemoFeedbackPayload({
-        demo: feedbackDemo.value,
-        state: feedbackState,
-        primaryAnswer,
-        answers: createInitialDemoFeedbackAnswers(),
-        activeDemoId,
-        activeElapsedMs: activeElapsedMs(),
-      })
-      feedbackState = submitDemoFeedback(feedbackState)
-      recordPromptOutcome('submitted')
-      sendPayloadInBackground(payload)
-    } else {
-      feedbackState = dismissDemoFeedback(feedbackState)
-      recordPromptOutcome('dismissed')
-    }
+    feedbackState = dismissDemoFeedback(feedbackState)
+    recordPromptOutcome('dismissed')
   }
   persistState()
   pushAnalytics('demo_feedback_closed', 'closed', analyticsProperties(
@@ -647,7 +633,9 @@ const submitDetailedAnswer = async ({
   primaryAnswer,
   answers,
 }: { primaryAnswer: DemoFeedbackPrimaryAnswer, answers: DemoFeedbackAnswers }) => {
-  if (!feedbackDemo.value || submissionState.value === 'submitting') return
+  if (!feedbackDemo.value
+    || submissionState.value === 'submitting'
+    || !hasMeaningfulDemoFeedbackAnswers(answers)) return
   feedbackState = setDemoFeedbackPrimaryAnswer(feedbackState, primaryAnswer)
   persistState()
   const payload = createDemoFeedbackPayload({
