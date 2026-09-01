@@ -75,7 +75,7 @@
     "@revolist/revogrid": "^4.27.0",
     "@revolist/revogrid-column-date": "^2.0.25",
     "@revolist/revogrid-column-numeral": "^2.0.11",
-    "@revolist/revogrid-column-select": "3.2.2",
+    "@revolist/revogrid-column-select": "3.2.3",
     "@revolist/gantt": "2.7.19",
     "@revolist/kanban": "2.7.19",
     "@revolist/pivot": "2.7.19",
