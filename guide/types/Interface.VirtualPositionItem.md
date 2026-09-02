@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.26.2](README.md) / VirtualPositionItem
+[RevoGrid Documentation v4.27.0](README.md) / VirtualPositionItem
 
 # Interface: VirtualPositionItem
 
@@ -13,7 +13,7 @@ in the viewport.
 
 | Property | Type | Description | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| `end` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`end` | [src/types/interfaces.ts:669](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/types/interfaces.ts#L669) |
-| `itemIndex` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`itemIndex` | [src/types/interfaces.ts:667](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/types/interfaces.ts#L667) |
-| `size` | `number` | The size of the virtual position item. | - | [src/types/interfaces.ts:633](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/types/interfaces.ts#L633) |
-| `start` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`start` | [src/types/interfaces.ts:668](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/types/interfaces.ts#L668) |
+| `end` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`end` | [src/types/interfaces.ts:669](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/types/interfaces.ts#L669) |
+| `itemIndex` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`itemIndex` | [src/types/interfaces.ts:667](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/types/interfaces.ts#L667) |
+| `size` | `number` | The size of the virtual position item. | - | [src/types/interfaces.ts:633](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/types/interfaces.ts#L633) |
+| `start` | `number` | - | [`PositionItem`](Interface.PositionItem.md).`start` | [src/types/interfaces.ts:668](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/types/interfaces.ts#L668) |

@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.26.2](README.md) / Trimmed
+[RevoGrid Documentation v4.27.0](README.md) / Trimmed
 
 # Type Alias: Trimmed
 
@@ -8,4 +8,4 @@ type Trimmed: Record<string, TrimmedEntity>;
 
 ## Defined in
 
-[src/store/dataSource/trimmed.plugin.ts:5](https://github.com/revolist/revogrid/blob/3228e771269f05d2ed0b0d9b7dd71866fcd26d2d/src/store/dataSource/trimmed.plugin.ts#L5)
+[src/store/dataSource/trimmed.plugin.ts:5](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/store/dataSource/trimmed.plugin.ts#L5)
