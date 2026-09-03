@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.1](README.md) / DimensionTypeCol
+[RevoGrid Documentation v4.27.5](README.md) / DimensionTypeCol
 
 # Type Alias: DimensionTypeCol
 
@@ -8,4 +8,4 @@ type DimensionTypeCol: "rgCol";
 
 ## Defined in
 
-[src/types/dimension.ts:2](https://github.com/revolist/revogrid/blob/efdee0ab92f26ace8caf4a94296facd42fc75704/src/types/dimension.ts#L2)
+[src/types/dimension.ts:2](https://github.com/revolist/revogrid/blob/550b7866a42c233c05c64c33e7c4b433bcf70717/src/types/dimension.ts#L2)
