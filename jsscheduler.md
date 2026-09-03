@@ -79,7 +79,7 @@ ganttLanding:
       - label: View Demo
         href: /demo/event-scheduler
         arrow: true
-      - label: Request Pro Trial
+      - label: Get Pro Trial
         href: /trial
         variant: secondary
     badges:
@@ -171,7 +171,7 @@ ganttLanding:
     primaryHref: /demo/event-scheduler
     primaryLabel: View Demo
     secondaryHref: /trial
-    secondaryLabel: Request Pro Trial
+    secondaryLabel: Get Pro Trial
 ---
 
 <script lang="ts" setup>

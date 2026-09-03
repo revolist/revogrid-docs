@@ -8,7 +8,7 @@ export type FeatureStatus = 'stable' | 'beta' | 'preview'
 export type SupportLevel = 'community' | 'self-service' | 'priority' | 'dedicated'
 export type ApplicationLimit = 'unlimited-mit' | 'one-product' | 'unlimited-products' | 'custom'
 export type SourceAccess = 'public-source' | 'typed-private-packages' | 'original-private-source'
-export type TrialDeliveryMethod = 'none' | 'private-npm' | 'sales-assisted'
+export type TrialDeliveryMethod = 'none' | 'public-npm' | 'sales-assisted'
 export type ProductId = 'revogrid' | 'pivot' | 'kanban' | 'gantt' | 'scheduler' | 'event-scheduler'
 export type DemoId =
   | 'grid-at-scale'
@@ -180,10 +180,10 @@ const plans = {
     trial: {
       available: true,
       durationDays: 30,
-      delivery: 'private-npm',
+      delivery: 'public-npm',
       requestUrl: TRIAL_REQUEST_URL,
       boilerplateUrl: TRIAL_BOILERPLATE_URL,
-      note: 'The public repository is evaluation boilerplate. Pro packages are delivered through approved private npm access.',
+      note: 'Install the trial packages immediately from the public trial registry. No account, form, or approval is required.',
     },
     billingSummary: '1 developer seat',
     actionLabel: 'Buy Pro Lite',
@@ -208,10 +208,10 @@ const plans = {
     trial: {
       available: true,
       durationDays: 30,
-      delivery: 'private-npm',
+      delivery: 'public-npm',
       requestUrl: TRIAL_REQUEST_URL,
       boilerplateUrl: TRIAL_BOILERPLATE_URL,
-      note: 'The public repository is evaluation boilerplate. Pro packages are delivered through approved private npm access.',
+      note: 'Install the trial packages immediately from the public trial registry. No account, form, or approval is required.',
     },
     billingSummary: '1 developer seat · Unlimited product usage',
     actionLabel: 'Buy Pro Advanced',
@@ -594,7 +594,7 @@ export const commercialFaqs: Record<CommercialFaqKey, { q: string, a: string }> 
   },
   'plan-difference': {
     q: 'What is the difference between Pro Lite and Pro Advanced?',
-    a: 'Pro Lite covers one product or app and includes typed Pro packages through private npm. Pro Advanced adds unlimited product usage, original private source repository access, the JavaScript Pivot Table, Kanban, Gantt, Scheduler, and priority support.',
+    a: 'Pro Lite covers one product or app and includes typed Pro packages through private npm. Pro Advanced adds priority support, unlimited product usage, original private source repository access, the JavaScript Pivot Table, Kanban, Gantt, and Scheduler.',
   },
   'open-source-production': {
     q: 'Can I use the open-source core in production?',
@@ -720,14 +720,14 @@ export const getPricingEvaluationFacts = () => {
         icon: 'starOutline',
         eyebrow: 'Evaluate Pro features',
         heading: 'Evaluate RevoGrid Pro',
-        description: 'Test Pro functionality in your own project before purchasing. Access is provided on request.',
+        description: 'Install the public Pro trial and test it in your own project before purchasing.',
         features: [
-          `${trialDays}-day private npm access`,
+          `${trialDays}-day public npm trial`,
           'Pro plugins and production-ready examples',
           'Pivot Table, Kanban, Gantt, and JavaScript Scheduler',
           'Public GitHub repository is setup boilerplate only',
         ],
-        action: { label: 'Request Pro Trial', href: advanced.trial.requestUrl! },
+        action: { label: 'Get Pro Trial', href: advanced.trial.requestUrl! },
         recommended: true,
       },
     ],

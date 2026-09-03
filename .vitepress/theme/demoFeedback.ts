@@ -1158,6 +1158,18 @@ export const getDemoFeedbackReadyBranch = (demo: CatalogDemo): DemoFeedbackReady
 export const normalizeDemoFeedbackText = (value = ''): string =>
   value.trim().slice(0, DEMO_FEEDBACK_TEXT_MAX_LENGTH)
 
+const hasMeaningfulFormValue = (value: unknown): boolean => {
+  if (Array.isArray(value)) return value.some(hasMeaningfulFormValue)
+  if (typeof value === 'string') return value.trim().length > 0
+  return value !== undefined && value !== null
+}
+
+export const hasMeaningfulDemoFeedbackAnswers = (
+  answers?: Partial<DemoFeedbackAnswers> | null,
+): boolean => Boolean(
+  answers && Object.values(answers).some(hasMeaningfulFormValue),
+)
+
 export const getDemoFeedbackTextLengthBucket = (
   value: string,
 ): DemoFeedbackTextLengthBucket | undefined => {

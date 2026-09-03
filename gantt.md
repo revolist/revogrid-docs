@@ -28,7 +28,7 @@ ganttLanding:
       - label: View Demo
         href: /demo/gantt
         arrow: true
-      - label: Request Pro Trial
+      - label: Get Pro Trial
         href: /trial
         variant: secondary
     badges:
@@ -343,13 +343,13 @@ ganttLanding:
     priceLabel: Pro Advanced current USD price
     items:
       - title: 30-day trial
-        description: The trial lasts 30 days and is available on request with no credit card required. Start with public demos, then validate Pro behavior inside your application.
+        description: The public trial lasts 30 days and installs immediately with no account, form, approval, or credit card required. Start with public demos, then validate Pro behavior inside your application.
       - title: Unlimited production usage
         description: One licensed developer seat can ship the module in production without per-deployment or per-end-user charges, subject to the license terms.
       - title: Full Advanced bundle
         description: The same plan includes Gantt, Pivot, the plugin API, typed source access, private repository access, priority support, and engineering guidance.
     actions:
-      - label: Request Pro Trial
+      - label: Get Pro Trial
         href: /trial
       - label: Review all pricing
         href: /pricing
@@ -426,7 +426,7 @@ ganttLanding:
     primaryHref: /demo/gantt
     primaryLabel: View Demo
     secondaryHref: /trial
-    secondaryLabel: Request Pro Trial
+    secondaryLabel: Get Pro Trial
 ---
 
 <script lang="ts" setup>

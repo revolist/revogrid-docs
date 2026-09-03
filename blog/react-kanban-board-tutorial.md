@@ -102,7 +102,7 @@ head:
             "name": "Is the RevoGrid Kanban component free?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "The RevoGrid data grid core is MIT licensed. The production Kanban plugin and card editor are included in RevoGrid Pro Advanced and can be evaluated through the private npm trial."
+              "text": "The RevoGrid data grid core is MIT licensed. The production Kanban plugin and card editor are included in RevoGrid Pro Advanced and can be evaluated through the public npm trial."
             }
           }
         ]
@@ -132,7 +132,7 @@ In this tutorial, we will build a complete **React Kanban board with TypeScript*
 You can also inspect the [live Kanban showcase](https://kanban.rv-grid.com/demo/) and the [React, Vue, Angular, and TypeScript reference source](https://github.com/revolist/kanban).
 
 ::: info RevoGrid Kanban availability
-The RevoGrid core data grid is MIT licensed. Kanban and its packaged card editor are part of **RevoGrid Pro Advanced**. The installation below uses the private npm trial packages so the example can be evaluated before switching to the licensed production package names.
+The RevoGrid core data grid is MIT licensed. Kanban and its packaged card editor are part of **RevoGrid Pro Advanced**. The installation below uses the public npm trial packages so the example can be evaluated before switching to the licensed production package names.
 :::
 
 ## What we are building
@@ -184,7 +184,7 @@ This guide assumes you are comfortable with:
 - React state and effects;
 - basic npm and Vite usage.
 
-Use a current Node.js LTS release and request [RevoGrid Pro trial access](/trial/) before running the private-registry installation commands.
+Use a current Node.js LTS release and [get the RevoGrid Pro trial](/trial/) before running the installation commands.
 
 ## Step 1: Create the React and TypeScript project
 
@@ -1407,7 +1407,7 @@ Yes. Both views use the same canonical Planning records. Enable the Kanban confi
 
 ### Is RevoGrid Kanban open source?
 
-The RevoGrid core data grid is MIT licensed. The Kanban plugin and packaged editor are commercial RevoGrid Pro Advanced modules. A private npm trial is available for evaluation.
+The RevoGrid core data grid is MIT licensed. The Kanban plugin and packaged editor are commercial RevoGrid Pro Advanced modules. A public npm trial is available for immediate installation and evaluation.
 
 ## Where to go next
 

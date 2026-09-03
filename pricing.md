@@ -30,7 +30,7 @@ pricingPage:
       href: /pro/feature-table
   evaluation:
     heading: Want to evaluate RevoGrid first?
-    description: Choose the immediate MIT core or request approved Pro trial access for your own project.
+    description: Choose the immediate MIT core or install the Pro trial in your own project.
     options:
       - eyebrow: Recommended for Pro evaluation
       - eyebrow: Start immediately

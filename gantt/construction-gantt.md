@@ -119,4 +119,4 @@ Yes. Resources and assignments can represent people or non-human capacity, inclu
 
 ## See the planning surface
 
-Explore the full [RevoGrid Gantt overview](/gantt), open the [interactive demo](/demo/gantt), or [request a trial](/trial) with a representative construction schedule.
+Explore the full [RevoGrid Gantt overview](/gantt), open the [interactive demo](/demo/gantt), or [get the Pro trial](/trial) to evaluate a representative construction schedule.

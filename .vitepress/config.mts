@@ -356,6 +356,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             text: 'Overview',
                         },
                         {
+                            link: '/excel-data-grid',
+                            text: 'Excel Data Grid',
+                        },
+                        {
                             link: '/pro/feature-table',
                             text: 'Features',
                         },

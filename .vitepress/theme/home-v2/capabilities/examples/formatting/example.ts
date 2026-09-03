@@ -18,8 +18,14 @@ export const formattingColumns: ColumnRegular[] = [
 export const formattingExample = defineCapabilityExample({
   id: 'formatting',
   code: `const formatting = {
-  progress: { presentation: 'progress-line' },
-  budget: { preset: 'currency', currency: 'USD' }
+  columns: [
+    { column: 2, format: {
+      presentation: { id: 'progress-line' }
+    } },
+    { column: 3, format: { value: {
+      kind: 'preset', preset: 'currency', currency: 'USD'
+    } } }
+  ]
 }
 
 <RevoGrid source={projects} columns={columns}

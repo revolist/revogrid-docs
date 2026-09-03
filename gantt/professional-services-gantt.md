@@ -108,7 +108,7 @@ Use one real engagement—not a tidy sample project—to evaluate the fit:
 - Confirm that keyboard access, focus states, and narrow-screen layouts remain usable.
 - Decide which edits require validation, approval, audit, or read-only presentation.
 
-Open the [live Gantt demo](/demo/gantt) to inspect the planning interaction, then request a [trial](/trial) to test your actual data shape, calendars, policies, and performance expectations. The [main RevoGrid Gantt page](/gantt) summarizes the implemented feature set and related examples.
+Open the [live Gantt demo](/demo/gantt) to inspect the planning interaction, then install the [trial](/trial) to test your actual data shape, calendars, policies, and performance expectations. The [main RevoGrid Gantt page](/gantt) summarizes the implemented feature set and related examples.
 
 ## Professional services Gantt FAQ
 

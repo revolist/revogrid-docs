@@ -8,6 +8,8 @@ import { heatmapOptions, statusBadgeStyles } from './presentation'
 
 const syncedBadgeStyle = {
   display: 'inline-block',
+  backgroundColor: 'color-mix(in srgb, var(--badge-cell-value-background-color) 60%, transparent)',
+  color: 'var(--badge-cell-value-color, inherit)',
   padding: '4px 8px',
   borderRadius: '12px',
   fontSize: '12px',

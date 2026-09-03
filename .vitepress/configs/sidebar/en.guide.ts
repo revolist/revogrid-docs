@@ -459,7 +459,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
         link: '/guide/licensing',
     },
     {
-        text: 'Request Pro Trial',
+        text: 'Get Pro Trial',
         link: '/trial',
     },
     {

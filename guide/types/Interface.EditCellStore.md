@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.26.1](README.md) / EditCellStore
+[RevoGrid Documentation v4.27.0](README.md) / EditCellStore
 
 # Interface: EditCellStore
 
@@ -12,6 +12,6 @@ Edit cell info for store
 
 | Property | Type | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ |
-| `val?` | `any` | - | [src/types/selection.ts:164](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/types/selection.ts#L164) |
-| `x` | `number` | [`Cell`](Interface.Cell.md).`x` | [src/types/selection.ts:100](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/types/selection.ts#L100) |
-| `y` | `number` | [`Cell`](Interface.Cell.md).`y` | [src/types/selection.ts:101](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/types/selection.ts#L101) |
+| `val?` | `any` | - | [src/types/selection.ts:164](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/types/selection.ts#L164) |
+| `x` | `number` | [`Cell`](Interface.Cell.md).`x` | [src/types/selection.ts:100](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/types/selection.ts#L100) |
+| `y` | `number` | [`Cell`](Interface.Cell.md).`y` | [src/types/selection.ts:101](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/types/selection.ts#L101) |

@@ -86,7 +86,7 @@ RevoGrid is strong when the user expectation is: **“this should be a fast, edi
 | License type | MIT open-source core plus commercial Pro license | Commercial and free license modes depending on usage |
 | Public price | Free core; Pro starts at $199/year | Standard from $999/year; Priority from $1299/year; Enterprise custom |
 | Seat model | No paid seat for core; Pro is per developer seat | Each developer working with Handsontable needs a license |
-| Trial/evaluation | Open-source build available with no credit card; 30-day Pro trial available on request | 45-day trial with full feature access and no credit card required |
+| Trial/evaluation | Open-source build available with no credit card; publicly installable 30-day Pro trial | 45-day trial with full feature access and no credit card required |
 | Commercial SaaS usage | MIT core permits commercial use; Pro includes unlimited production usage | Requires the correct commercial license for commercial use |
 | Deployment fee | No deployment fee | Not positioned as deployment-counted on reviewed public pricing page; developer licensing is stated |
 | Server license | No server license | Not positioned as a separate server license on reviewed public pricing page |

@@ -148,7 +148,7 @@ const props = withDefaults(
     helper: '',
     title: '',
     subtitle: '',
-    submitLabel: 'Request Pro Trial',
+    submitLabel: 'Get Pro Trial',
     successTitle: 'Thank you',
     successMessage: 'We will get back to you as soon as possible.',
     requestType: 'contact',

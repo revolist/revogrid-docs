@@ -43,7 +43,7 @@ withDefaults(defineProps<{
 }>(), {
   eyebrow: 'Deep technical comparison for product teams',
   primaryCtaHref: '/trial',
-  primaryCtaLabel: 'Request Pro Trial',
+  primaryCtaLabel: 'Get Pro Trial',
   revoSummary:
     'RevoGrid Core and RevoGrid Pro are best understood as a fast data-grid foundation plus optional advanced workflow modules.',
   reviewedDate: 'June 4, 2026',

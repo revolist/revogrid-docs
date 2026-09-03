@@ -21,7 +21,7 @@ const DEFAULT_PAGE: PivotLandingPage = {
     description: 'Feature-rich JavaScript Pivot Table with linked charts. Group, filter, aggregate, visualize, drill into, and export large datasets without leaving the page.',
     actions: [
       { label: 'View Demo', href: 'https://rv-grid.com/demo/pivot', arrow: true },
-      { label: 'Request Pro Trial', href: 'https://rv-grid.com/trial', variant: 'secondary' },
+      { label: 'Get Pro Trial', href: 'https://rv-grid.com/trial', variant: 'secondary' },
     ],
     badges: [
       'Drag-and-drop dimensions',
@@ -165,7 +165,7 @@ const DEFAULT_PAGE: PivotLandingPage = {
     primaryHref: 'https://rv-grid.com/demo/pivot',
     primaryLabel: 'View Demo',
     secondaryHref: 'https://rv-grid.com/trial',
-    secondaryLabel: 'Request Pro Trial',
+    secondaryLabel: 'Get Pro Trial',
   },
 }
 

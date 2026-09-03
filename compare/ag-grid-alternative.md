@@ -129,7 +129,7 @@ Both grids can power serious data-heavy applications. The better choice depends 
 | Move an existing AG Grid screen | [Follow the AG Grid migration guide](/blog/migrating-from-ag-grid-to-revogrid/) |
 | Compare Community and paid capabilities | [Jump to the feature matrix](#AG-Grid-vs-RevoGrid-Advanced-Feature-Support-Matrix) |
 | Check open-source and commercial terms | [Review RevoGrid licensing](/guide/licensing) and [pricing](/pricing) |
-| Validate Pro features in your own application | [Request a 30-day Pro trial](/trial) |
+| Validate Pro features in your own application | [Get Pro Trial](/trial) |
 
 <CompareProductVisuals
   id="ag-grid-revogrid-interface-examples"
@@ -512,7 +512,7 @@ If these are not your priorities and AG Grid already works well for your team, s
 | Community support | ✅ Pro | ✅ GitHub/forums | ✅ Zendesk | AG Grid Community relies on community support; Enterprise uses Zendesk. |
 | 1 year of updates | ✅ Pro | ✅ Community updates | ✅ | Both commercial models include update/support periods; details differ. |
 | Use after update entitlement expires | ✅ | ✅ | ✅ Perpetual licence | Both have perpetual-style usage concepts; review active terms. |
-| Trial / demos | ✅ Pro | ✅ Local test | ✅ Trial | AG Grid Enterprise can be tested locally; RevoGrid provides public demos and a request-based 30-day trial. |
+| Trial / demos | ✅ Pro | ✅ Local test | ✅ Trial | AG Grid Enterprise can be tested locally; RevoGrid provides public demos and a publicly installable 30-day trial. |
 
 | Feature | RevoGrid | AG Grid Community | AG Grid Enterprise / Bundle | Notes |
 |---|:---:|:---:|:---:|---|

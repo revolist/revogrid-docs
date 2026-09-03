@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.26.1](README.md) / CellProps
+[RevoGrid Documentation v4.27.0](README.md) / CellProps
 
 # Type Alias: CellProps
 
@@ -20,8 +20,8 @@ Contains properties for custom cell rendering.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `className` | `JSXBase.HTMLAttributes`\<`HTMLDivElement`\>\[`"class"`\] | [src/types/interfaces.ts:299](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/types/interfaces.ts#L299) |
+| `className` | `JSXBase.HTMLAttributes`\<`HTMLDivElement`\>\[`"class"`\] | [src/types/interfaces.ts:299](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/types/interfaces.ts#L299) |
 
 ## Defined in
 
-[src/types/interfaces.ts:298](https://github.com/revolist/revogrid/blob/496e830978060b5e7c29c6643944dfebb0146d83/src/types/interfaces.ts#L298)
+[src/types/interfaces.ts:298](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/types/interfaces.ts#L298)

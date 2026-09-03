@@ -69,7 +69,7 @@ import CommercialFaq from '../pro/CommercialFaq.vue'
 
 Embed self-service Pivot analytics in an Angular application without building a reporting engine around a static table. RevoGrid Pivot supplies the analytical runtime and virtualized viewport while Angular controls signals, permissions, saved views, services, and the surrounding product workflow.
 
-[View the live Pivot demo](https://pivot.rv-grid.com/demo/) · [Request a Pro trial](/trial) · [Inspect the Angular example](https://github.com/revolist/pivot/blob/main/src/pivot.angular.ts)
+[View the live Pivot demo](https://pivot.rv-grid.com/demo/) · [Get Pro Trial](/trial) · [Inspect the Angular example](https://github.com/revolist/pivot/blob/main/src/pivot.angular.ts)
 
 ![Angular Pivot Table Component for embedded analytics](/img/pivot-preview.jpg)
 
@@ -186,10 +186,10 @@ Test 10,000, 100,000, and your maximum expected row count with realistic dimensi
 
 RevoGrid Pivot is included in **RevoGrid Pro Advanced**. RevoGrid Core remains MIT licensed; Pivot configuration, analytical calculation, charts, export/state helpers, and server-side contracts are commercial capabilities.
 
-Use the [request-based trial](/trial) to test your data, SSR boundary, services, export requirements, and server architecture. Review the [Pivot overview](/pivot/), [pricing](/pricing/), [live demo](https://pivot.rv-grid.com/demo/), and [complete repository](https://github.com/revolist/pivot).
+Use the [publicly installable trial](/trial) to test your data, SSR boundary, services, export requirements, and server architecture. Review the [Pivot overview](/pivot/), [pricing](/pricing/), [live demo](https://pivot.rv-grid.com/demo/), and [complete repository](https://github.com/revolist/pivot).
 
 <CommercialFaq id="angular-pivot-faq" />
 
 ## Evaluate the Angular Pivot Table
 
-[Open the live demo](https://pivot.rv-grid.com/demo/), [inspect the Angular source](https://github.com/revolist/pivot/blob/main/src/pivot.angular.ts), or [request a Pro trial](/trial).
+[Open the live demo](https://pivot.rv-grid.com/demo/), [inspect the Angular source](https://github.com/revolist/pivot/blob/main/src/pivot.angular.ts), or [get the Pro trial](/trial).

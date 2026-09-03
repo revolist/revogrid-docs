@@ -162,4 +162,4 @@ Before shipping a board, check that:
 
 Open the [interactive RevoGrid Kanban demo](/demo/kanban) to move cards across workflow columns and inspect WIP behavior. For production-scale architecture, read the [50,000-task virtualized Kanban guide](/blog/virtualized-kanban-board-50000-tasks). You can also compare the [Sales and Customer Onboarding](/kanban/use-cases/sales-onboarding) and [Internal Workflows](/kanban/use-cases/internal-workflows) examples to see how the same column model supports very different work.
 
-RevoGrid Kanban is included in Pro Advanced. [Request trial access](/trial) to evaluate workflow columns, custom cards, swimlanes, movement rules, and persistence with your own records.
+RevoGrid Kanban is included in Pro Advanced. [Get Pro Trial](/trial) to evaluate workflow columns, custom cards, swimlanes, movement rules, and persistence with your own records.

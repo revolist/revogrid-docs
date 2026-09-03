@@ -43,7 +43,7 @@ Customer teams need to move from a broad signal—Gold members spend more or one
 
 RevoGrid Pivot is included in **RevoGrid Pro Advanced**. It combines the Pivot model with RevoGrid's virtualized grid surface, configurable fields, filters, totals, custom cell presentation, and linked Pivot charts.
 
-[Explore RevoGrid Pivot](/pivot/) · [Open the live demo](/demo/pivot) · [Request a Pro trial](/trial)
+[Explore RevoGrid Pivot](/pivot/) · [Open the live demo](/demo/pivot) · [Get Pro Trial](/trial)
 
 ![Customer analytics workspace grouping customers by city and Gold, Silver, and Bronze membership tiers, with spend and average-rating columns split by discount usage, heatmap colors, filters, and a linked total-spend bar chart.](/img/pivot-use-cases/customer-analytics.webp)
 
@@ -121,7 +121,7 @@ Use a server-side model when records must remain behind governance controls, car
 
 ## Build the customer analytics experience
 
-Use the [Pivot product overview](/pivot/) to review the complete capability set, try the workflow in the [live Pivot demo](/demo/pivot), or [request a RevoGrid Pro Advanced trial](/trial) to evaluate your dataset, privacy boundary, metrics, and performance targets.
+Use the [Pivot product overview](/pivot/) to review the complete capability set, try the workflow in the [live Pivot demo](/demo/pivot), or [get the RevoGrid Pro Advanced trial](/trial) to evaluate your dataset, privacy boundary, metrics, and performance targets.
 
 ## Explore other Pivot use cases
 

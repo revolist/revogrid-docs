@@ -384,7 +384,7 @@ The practical distinction is simple:
 
 **Build scheduling into your product—not beside it.**
 
-[Explore RevoGrid Gantt](/gantt) · [View Gantt documentation](https://pro.rv-grid.com/guides/gantt/) · [Request Pro Trial](/trial)
+[Explore RevoGrid Gantt](/gantt) · [View Gantt documentation](https://pro.rv-grid.com/guides/gantt/) · [Get Pro Trial](/trial)
 
 </div>
 
