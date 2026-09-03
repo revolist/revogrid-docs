@@ -4288,6 +4288,20 @@ const filterNames: {
 
 ***
 
+## filterTypeDefaults
+
+```ts
+const filterTypeDefaults: Partial<Record<string, FilterType>>;
+```
+
+Preferred initial operator for built-in filter families.
+
+### Defined in
+
+[src/plugins/filter/filter.indexed.ts:40](https://github.com/revolist/revogrid/blob/master/src/plugins/filter/filter.indexed.ts#L40)
+
+***
+
 ## filterTypes
 
 ```ts
@@ -8080,6 +8094,7 @@ function updateMissingAndRange(
 | [ClipboardConfig](Interface.ClipboardConfig.md) | Clipboard behavior configuration. |
 | [ColumnDataSchemaModel](Interface.ColumnDataSchemaModel.md) | - |
 | [ColumnFilterConfig](Interface.ColumnFilterConfig.md) | Filter configuration for a column. This is the type of the `filter` property on a column. |
+| [ColumnFilterOption](Interface.ColumnFilterOption.md) | Structured filter configuration for an individual column. |
 | [ColumnGroup](Interface.ColumnGroup.md) | Configuration for header inner template properties |
 | [ColumnGrouping](Interface.ColumnGrouping.md) | `ColumnGrouping` type is used to define a grouping in a column. |
 | [ColumnProperties](Interface.ColumnProperties.md) | Configuration for header inner template properties |
