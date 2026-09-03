@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.0](README.md) / AfterSortingApplyEvent
+[RevoGrid Documentation v4.27.1](README.md) / AfterSortingApplyEvent
 
 # Type Alias: AfterSortingApplyEvent
 
@@ -17,11 +17,11 @@ Sorting information emitted after sorting is applied.
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `sorting` | [`SortingOrder`](TypeAlias.SortingOrder.md) | Final active sorting order per column property. | [src/plugins/sorting/sorting.types.ts:55](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/plugins/sorting/sorting.types.ts#L55) |
-| `sortingColumns` | [`SortingColumnMap`](TypeAlias.SortingColumnMap.md) | Column metadata indexed by sorted column property. | [src/plugins/sorting/sorting.types.ts:59](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/plugins/sorting/sorting.types.ts#L59) |
-| `sortingOrder` | [`SortingColumnOrder`](TypeAlias.SortingColumnOrder.md) | Active sorting priority in click/config insertion order. | [src/plugins/sorting/sorting.types.ts:63](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/plugins/sorting/sorting.types.ts#L63) |
-| `types` | [`DimensionRows`](TypeAlias.DimensionRows.md)[] | Row stores affected by the sorting run. | [src/plugins/sorting/sorting.types.ts:67](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/plugins/sorting/sorting.types.ts#L67) |
+| `sorting` | [`SortingOrder`](TypeAlias.SortingOrder.md) | Final active sorting order per column property. | [src/plugins/sorting/sorting.types.ts:55](https://github.com/revolist/revogrid/blob/efdee0ab92f26ace8caf4a94296facd42fc75704/src/plugins/sorting/sorting.types.ts#L55) |
+| `sortingColumns` | [`SortingColumnMap`](TypeAlias.SortingColumnMap.md) | Column metadata indexed by sorted column property. | [src/plugins/sorting/sorting.types.ts:59](https://github.com/revolist/revogrid/blob/efdee0ab92f26ace8caf4a94296facd42fc75704/src/plugins/sorting/sorting.types.ts#L59) |
+| `sortingOrder` | [`SortingColumnOrder`](TypeAlias.SortingColumnOrder.md) | Active sorting priority in click/config insertion order. | [src/plugins/sorting/sorting.types.ts:63](https://github.com/revolist/revogrid/blob/efdee0ab92f26ace8caf4a94296facd42fc75704/src/plugins/sorting/sorting.types.ts#L63) |
+| `types` | [`DimensionRows`](TypeAlias.DimensionRows.md)[] | Row stores affected by the sorting run. | [src/plugins/sorting/sorting.types.ts:67](https://github.com/revolist/revogrid/blob/efdee0ab92f26ace8caf4a94296facd42fc75704/src/plugins/sorting/sorting.types.ts#L67) |
 
 ## Defined in
 
-[src/plugins/sorting/sorting.types.ts:51](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/plugins/sorting/sorting.types.ts#L51)
+[src/plugins/sorting/sorting.types.ts:51](https://github.com/revolist/revogrid/blob/efdee0ab92f26ace8caf4a94296facd42fc75704/src/plugins/sorting/sorting.types.ts#L51)

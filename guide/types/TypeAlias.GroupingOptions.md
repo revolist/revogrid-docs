@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.0](README.md) / GroupingOptions
+[RevoGrid Documentation v4.27.1](README.md) / GroupingOptions
 
 # Type Alias: GroupingOptions
 
@@ -15,11 +15,11 @@ type GroupingOptions: {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `groupCellTemplate` | [`GroupCellTemplateFunc`](TypeAlias.GroupCellTemplateFunc.md) | Custom template for cells in synthetic group rows. When provided, group rows render only the columns in the current horizontal viewport and this template takes precedence over `groupLabelTemplate`. | [src/plugins/groupingRow/grouping.row.types.ts:127](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/plugins/groupingRow/grouping.row.types.ts#L127) |
-| `groupLabelTemplate` | [`GroupLabelTemplateFunc`](TypeAlias.GroupLabelTemplateFunc.md) | Custom group label template | [src/plugins/groupingRow/grouping.row.types.ts:121](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/plugins/groupingRow/grouping.row.types.ts#L121) |
-| `preserveGroupingOnUpdate` | `boolean` | Should grouping be preserved on source update. default: true | [src/plugins/groupingRow/grouping.row.types.ts:117](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/plugins/groupingRow/grouping.row.types.ts#L117) |
-| `props` | [`ColumnProp`](TypeAlias.ColumnProp.md)[] | Column props to which grouping will be applied | [src/plugins/groupingRow/grouping.row.types.ts:111](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/plugins/groupingRow/grouping.row.types.ts#L111) |
+| `groupCellTemplate` | [`GroupCellTemplateFunc`](TypeAlias.GroupCellTemplateFunc.md) | Custom template for cells in synthetic group rows. When provided, group rows render only the columns in the current horizontal viewport and this template takes precedence over `groupLabelTemplate`. | [src/plugins/groupingRow/grouping.row.types.ts:127](https://github.com/revolist/revogrid/blob/efdee0ab92f26ace8caf4a94296facd42fc75704/src/plugins/groupingRow/grouping.row.types.ts#L127) |
+| `groupLabelTemplate` | [`GroupLabelTemplateFunc`](TypeAlias.GroupLabelTemplateFunc.md) | Custom group label template | [src/plugins/groupingRow/grouping.row.types.ts:121](https://github.com/revolist/revogrid/blob/efdee0ab92f26ace8caf4a94296facd42fc75704/src/plugins/groupingRow/grouping.row.types.ts#L121) |
+| `preserveGroupingOnUpdate` | `boolean` | Should grouping be preserved on source update. default: true | [src/plugins/groupingRow/grouping.row.types.ts:117](https://github.com/revolist/revogrid/blob/efdee0ab92f26ace8caf4a94296facd42fc75704/src/plugins/groupingRow/grouping.row.types.ts#L117) |
+| `props` | [`ColumnProp`](TypeAlias.ColumnProp.md)[] | Column props to which grouping will be applied | [src/plugins/groupingRow/grouping.row.types.ts:111](https://github.com/revolist/revogrid/blob/efdee0ab92f26ace8caf4a94296facd42fc75704/src/plugins/groupingRow/grouping.row.types.ts#L111) |
 
 ## Defined in
 
-[src/plugins/groupingRow/grouping.row.types.ts:107](https://github.com/revolist/revogrid/blob/136a2f6099b1cbf94140f404d687dcb241c08093/src/plugins/groupingRow/grouping.row.types.ts#L107)
+[src/plugins/groupingRow/grouping.row.types.ts:107](https://github.com/revolist/revogrid/blob/efdee0ab92f26ace8caf4a94296facd42fc75704/src/plugins/groupingRow/grouping.row.types.ts#L107)
