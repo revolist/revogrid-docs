@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.6](README.md) / h
+[RevoGrid Documentation v4.27.7](README.md) / h
 
 # h
 

@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.6](README.md) / ColumnDragStartEventData
+[RevoGrid Documentation v4.27.7](README.md) / ColumnDragStartEventData
 
 # Type Alias: ColumnDragStartEventData
 
@@ -8,4 +8,4 @@ type ColumnDragStartEventData: ColumnPropProp;
 
 ## Defined in
 
-[src/plugins/moveColumn/column.drag.plugin.ts:36](https://github.com/revolist/revogrid/blob/83088a5efb95df5d6b5a082ad10cadaa2bdcb42b/src/plugins/moveColumn/column.drag.plugin.ts#L36)
+[src/plugins/moveColumn/column.drag.plugin.ts:36](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/plugins/moveColumn/column.drag.plugin.ts#L36)
