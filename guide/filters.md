@@ -67,6 +67,16 @@ const columns = [
   { prop: 'internalId', name: 'Internal ID', filter: false },
   { prop: 'score', name: 'Score', filter: 'number' },
   { prop: 'status', name: 'Status', filter: ['string', 'selection'] },
+  {
+    prop: 'reference',
+    name: 'Reference',
+    filter: { type: 'string', default: 'eq' },
+  },
+  {
+    prop: 'notes',
+    name: 'Notes',
+    filter: { type: 'string', default: false },
+  },
 ];
 ```
 
@@ -77,6 +87,62 @@ const columns = [
 | `'string'` | Text matching such as contains, starts with, and equals. |
 | `'number'` | Numeric comparisons such as greater than and less than. |
 | `string[]` | Multiple filter families, often used by Pro or custom filters. |
+| `{ type, default }` | Select one or more filter families and optionally override the initial operator, or set `default: false` to open this column's panel empty. |
+
+## Default filter conditions
+
+When a column has no saved or active conditions, opening its filter panel shows
+one removable draft condition. String columns start with **Contains** and number
+columns start with **=**. Boolean, array, and custom filter families use their
+first available operator.
+
+The draft is ready for input but is not an applied filter. Opening or closing
+the panel does not filter rows, activate the header filter icon, emit filtering
+events, or add the draft to persisted filter state. Entering a value or
+explicitly selecting an operator promotes it to a normal condition. If dynamic
+filtering is disabled, the promoted condition remains local until **Save**.
+
+Use the structured column form to choose a different initial operator:
+
+```ts
+grid.columns = [
+  {
+    prop: 'name',
+    name: 'Name',
+    filter: { type: 'string', default: 'eq' },
+  },
+  {
+    prop: 'score',
+    name: 'Score',
+    filter: { type: ['number', 'string'], default: 'gte' },
+  },
+];
+```
+
+To keep the original empty-panel behavior everywhere, disable default drafts in
+the grid filter configuration. A column can opt out independently with
+`default: false`. Conversely, an explicit operator on a column opts that column
+back in when the grid-wide setting is disabled.
+
+```ts
+grid.filter = { defaultFilter: false };
+
+grid.columns = [
+  { prop: 'name', filter: 'string' }, // Opens empty.
+  { prop: 'notes', filter: { type: 'string', default: false } }, // Opens empty.
+  { prop: 'status', filter: { type: 'string', default: 'eq' } }, // Opens with Equal.
+];
+```
+
+The override must name an operator available to one of the configured families.
+It is resolved after `include` and custom filters are applied. If it is invalid
+or excluded, RevoGrid uses the built-in family default when available, then the
+first available operator from the first configured family.
+
+Removing the draft or clicking **Reset** leaves the current panel empty. A new
+draft is created the next time that column's panel is opened. Existing filters
+loaded through `collection`, `multiFilterItems`, or the `filter` event are shown
+as-is and never receive an extra draft.
 
 ## Built-in filter operations
 
@@ -97,6 +163,7 @@ Pass an object to `grid.filter` when you need controlled behavior instead of the
 
 ```ts
 grid.filter = {
+  defaultFilter: false,
   include: ['contains', 'eq', 'notEmpty', 'gt', 'gte', 'lt', 'lte'],
   disableDynamicFiltering: true,
   closeFilterPanelOnOutsideClick: false,
@@ -109,6 +176,7 @@ Important options:
 | Option | Purpose |
 | --- | --- |
 | `blankSemantics` | Defines which source values the blank operators match across the grid. |
+| `defaultFilter` | Controls whether empty panels start with a draft condition. Defaults to `true`. |
 | `collection` | Restores single-filter state by column prop. |
 | `multiFilterItems` | Restores multiple filters per column, including `and` / `or` relations. |
 | `include` | Limits the operations shown in the dropdown. |

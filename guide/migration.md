@@ -5,6 +5,38 @@ description: Review RevoGrid version changes and upgrade notes, including migrat
 
 # RevoGrid Migration Guides
 
+## Version 4.28.0
+
+### Breaking change: Default filter conditions are now visible
+
+Opening an empty column filter panel now displays one removable draft condition.
+String columns start with **Contains**, number columns start with **=**, and other
+filter families use their first available operator. The draft does not filter
+rows, emit filtering events, or mark the column as filtered until the user
+enters a value or explicitly selects an operator.
+
+To preserve the previous empty-panel behavior for the whole grid, disable
+default filter drafts in the filter configuration:
+
+```ts
+grid.filter = { defaultFilter: false };
+```
+
+To disable the draft for only one column, use the structured column filter
+configuration:
+
+```ts
+grid.columns = [
+  {
+    prop: 'name',
+    filter: { type: 'string', default: false },
+  },
+];
+```
+
+See [Filtering](./filters#default-filter-conditions) for column overrides and
+the complete draft lifecycle.
+
 ## Version 2.0+
 
 -   Introduced the plugin system, grouping, sorting, and filtering.
