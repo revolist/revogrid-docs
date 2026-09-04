@@ -71,8 +71,8 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.2.0",
-    "@revolist/react-datagrid": "^4.27.1",
-    "@revolist/revogrid": "^4.27.1",
+    "@revolist/react-datagrid": "^4.27.6",
+    "@revolist/revogrid": "^4.27.6",
     "@revolist/revogrid-column-date": "^2.0.25",
     "@revolist/revogrid-column-numeral": "^2.0.11",
     "@revolist/revogrid-column-select": "3.2.4",
@@ -81,7 +81,7 @@
     "@revolist/pivot": "2.7.19",
     "@revolist/revogrid-pro": "2.7.19",
     "@revolist/scheduler": "2.7.19",
-    "@revolist/vue3-datagrid": "4.27.1",
+    "@revolist/vue3-datagrid": "4.27.6",
     "lodash-es": "^4.18.1",
     "numeral": "^2.0.6",
     "read-excel-file": "^9.0.10"
