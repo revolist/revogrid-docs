@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.5](README.md) / ThemeColorScheme
+[RevoGrid Documentation v4.27.6](README.md) / ThemeColorScheme
 
 # Type Alias: ThemeColorScheme
 
@@ -8,4 +8,4 @@ type ThemeColorScheme: "light" | "dark";
 
 ## Defined in
 
-[src/types/theme.ts:16](https://github.com/revolist/revogrid/blob/550b7866a42c233c05c64c33e7c4b433bcf70717/src/types/theme.ts#L16)
+[src/types/theme.ts:16](https://github.com/revolist/revogrid/blob/83088a5efb95df5d6b5a082ad10cadaa2bdcb42b/src/types/theme.ts#L16)

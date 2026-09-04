@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.5](README.md) / ColumnAutoSizeMode
+[RevoGrid Documentation v4.27.6](README.md) / ColumnAutoSizeMode
 
 # Enumeration: ColumnAutoSizeMode
 
@@ -6,6 +6,6 @@
 
 | Enumeration Member | Value | Defined in |
 | ------ | ------ | ------ |
-| `autoSizeAll` | `"autoSizeAll"` | [src/plugins/column.auto-size.plugin.ts:61](https://github.com/revolist/revogrid/blob/550b7866a42c233c05c64c33e7c4b433bcf70717/src/plugins/column.auto-size.plugin.ts#L61) |
-| `autoSizeOnTextOverlap` | `"autoSizeOnTextOverlap"` | [src/plugins/column.auto-size.plugin.ts:59](https://github.com/revolist/revogrid/blob/550b7866a42c233c05c64c33e7c4b433bcf70717/src/plugins/column.auto-size.plugin.ts#L59) |
-| `headerClickAutosize` | `"headerClickAutoSize"` | [src/plugins/column.auto-size.plugin.ts:57](https://github.com/revolist/revogrid/blob/550b7866a42c233c05c64c33e7c4b433bcf70717/src/plugins/column.auto-size.plugin.ts#L57) |
+| `autoSizeAll` | `"autoSizeAll"` | [src/plugins/column.auto-size.plugin.ts:61](https://github.com/revolist/revogrid/blob/83088a5efb95df5d6b5a082ad10cadaa2bdcb42b/src/plugins/column.auto-size.plugin.ts#L61) |
+| `autoSizeOnTextOverlap` | `"autoSizeOnTextOverlap"` | [src/plugins/column.auto-size.plugin.ts:59](https://github.com/revolist/revogrid/blob/83088a5efb95df5d6b5a082ad10cadaa2bdcb42b/src/plugins/column.auto-size.plugin.ts#L59) |
+| `headerClickAutosize` | `"headerClickAutoSize"` | [src/plugins/column.auto-size.plugin.ts:57](https://github.com/revolist/revogrid/blob/83088a5efb95df5d6b5a082ad10cadaa2bdcb42b/src/plugins/column.auto-size.plugin.ts#L57) |

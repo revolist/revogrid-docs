@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.5](README.md) / ViewPortScrollEvent
+[RevoGrid Documentation v4.27.6](README.md) / ViewPortScrollEvent
 
 # Type Alias: ViewPortScrollEvent\<D\>
 
@@ -24,11 +24,11 @@ event in the viewport.
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `coordinate` | `number` | The coordinate of the scroll event. | [src/types/interfaces.ts:535](https://github.com/revolist/revogrid/blob/550b7866a42c233c05c64c33e7c4b433bcf70717/src/types/interfaces.ts#L535) |
-| `delta` | `number` | The change in coordinate between scroll events. | [src/types/interfaces.ts:539](https://github.com/revolist/revogrid/blob/550b7866a42c233c05c64c33e7c4b433bcf70717/src/types/interfaces.ts#L539) |
-| `dimension` | `D` | The dimension of the viewport being scrolled. | [src/types/interfaces.ts:531](https://github.com/revolist/revogrid/blob/550b7866a42c233c05c64c33e7c4b433bcf70717/src/types/interfaces.ts#L531) |
-| `outside` | `boolean` | Indicates whether the scroll event occurred outside the viewport. | [src/types/interfaces.ts:543](https://github.com/revolist/revogrid/blob/550b7866a42c233c05c64c33e7c4b433bcf70717/src/types/interfaces.ts#L543) |
+| `coordinate` | `number` | The coordinate of the scroll event. | [src/types/interfaces.ts:535](https://github.com/revolist/revogrid/blob/83088a5efb95df5d6b5a082ad10cadaa2bdcb42b/src/types/interfaces.ts#L535) |
+| `delta` | `number` | The change in coordinate between scroll events. | [src/types/interfaces.ts:539](https://github.com/revolist/revogrid/blob/83088a5efb95df5d6b5a082ad10cadaa2bdcb42b/src/types/interfaces.ts#L539) |
+| `dimension` | `D` | The dimension of the viewport being scrolled. | [src/types/interfaces.ts:531](https://github.com/revolist/revogrid/blob/83088a5efb95df5d6b5a082ad10cadaa2bdcb42b/src/types/interfaces.ts#L531) |
+| `outside` | `boolean` | Indicates whether the scroll event occurred outside the viewport. | [src/types/interfaces.ts:543](https://github.com/revolist/revogrid/blob/83088a5efb95df5d6b5a082ad10cadaa2bdcb42b/src/types/interfaces.ts#L543) |
 
 ## Defined in
 
-[src/types/interfaces.ts:527](https://github.com/revolist/revogrid/blob/550b7866a42c233c05c64c33e7c4b433bcf70717/src/types/interfaces.ts#L527)
+[src/types/interfaces.ts:527](https://github.com/revolist/revogrid/blob/83088a5efb95df5d6b5a082ad10cadaa2bdcb42b/src/types/interfaces.ts#L527)
