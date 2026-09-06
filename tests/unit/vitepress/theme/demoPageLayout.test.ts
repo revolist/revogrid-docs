@@ -7,7 +7,11 @@ import {
   DEMO_PAGE_LAYOUT_VERSION,
   createDemoPageAnalyticsEvent,
   getAllDemoPageConfigs,
+  getDemoGuidedStepActions,
   getDemoPageConfig,
+  isConfirmedGanttMove,
+  isConfirmedGridEdit,
+  matchesDemoGuidedStepAction,
 } from '../../../../.vitepress/theme/demoPageLayout'
 import { sidebarDemonEn } from '../../../../.vitepress/configs/sidebar/en.demo'
 
@@ -60,6 +64,64 @@ test('provides complete reusable layout content for every catalog demo', () => {
     assert.match(config.implementationUrl, new RegExp(`[?&]demo=${config.demo.id}(?:&|$)`))
     assert.match(config.pricingUrl, /^\/pricing\?source=demo-page/)
   })
+})
+
+test('keeps Filtering preset and search steps semantically separate', () => {
+  const steps = getDemoGuidedStepActions('filtering')
+  assert.deepEqual(steps, ['preset', 'search', 'filter'])
+  assert.equal(matchesDemoGuidedStepAction(steps[0], 'preset'), true)
+  assert.equal(matchesDemoGuidedStepAction(steps[1], 'preset'), false)
+  assert.equal(matchesDemoGuidedStepAction(steps[1], 'search'), true)
+  assert.equal(matchesDemoGuidedStepAction(steps[2], 'search'), false)
+  assert.equal(matchesDemoGuidedStepAction(steps[2], 'filter'), true)
+})
+
+test('requires confirmed Planning edits and date moves before advancing their steps', () => {
+  const steps = getDemoGuidedStepActions('planning')
+  assert.deepEqual(steps, ['edit', 'gantt-move', 'switch-view'])
+  assert.equal(matchesDemoGuidedStepAction(steps[0], 'switch-view'), false)
+  assert.equal(matchesDemoGuidedStepAction(steps[2], 'switch-view'), true)
+
+  assert.equal(isConfirmedGridEdit({ val: 'Updated', model: { name: 'Original' }, prop: 'name' }), true)
+  assert.equal(isConfirmedGridEdit({ val: 'Same', model: { name: 'Same' }, prop: 'name' }), false)
+  assert.equal(isConfirmedGridEdit({}), false)
+
+  assert.equal(isConfirmedGanttMove({
+    action: 'move',
+    previousSourceValues: { startDate: '2026-01-01', endDate: '2026-01-03' },
+    sourcePatch: { startDate: '2026-01-02', endDate: '2026-01-04' },
+  }), true)
+  assert.equal(isConfirmedGanttMove({
+    action: 'move',
+    previousSourceValues: { startDate: '2026-01-01', endDate: '2026-01-03' },
+    sourcePatch: { startDate: '2026-01-01', endDate: '2026-01-03' },
+  }), false)
+  assert.equal(isConfirmedGanttMove({
+    action: 'move',
+    taskId: 'task-1',
+    sourcePatch: { startDate: '2026-01-02' },
+  }, [{ id: 'task-1', startDate: '2026-01-01', endDate: '2026-01-03' }]), true)
+  assert.equal(isConfirmedGanttMove({
+    action: 'move',
+    taskId: 'task-1',
+    sourcePatch: { startDate: '2026-01-01' },
+  }, [{ id: 'task-1', startDate: '2026-01-01', endDate: '2026-01-03' }]), false)
+  assert.equal(isConfirmedGanttMove({ action: 'resize', sourcePatch: {}, previousSourceValues: {} }), false)
+})
+
+test('does not retain the former generic click-and-grid-event step advancement', () => {
+  assert.doesNotMatch(demoPageLayoutSource, /recordMeaningfulInteraction/)
+  assert.doesNotMatch(demoPageLayoutSource, /workspace_control|workspace_change|workspace_drag/)
+  assert.match(demoPageLayoutSource, /order-explorer__presets button/)
+  assert.match(demoPageLayoutSource, /order-explorer__search-input/)
+  assert.match(demoPageLayoutSource, /planning-demo__switch/)
+})
+
+test('leaves every other demo inert until it declares its own action contract', () => {
+  for (const demoId of Object.keys(PRODUCT_CATALOG.demos) as DemoId[]) {
+    if (demoId === 'filtering' || demoId === 'planning') continue
+    assert.deepEqual(getDemoGuidedStepActions(demoId), ['manual', 'manual', 'manual'])
+  }
 })
 
 test('uses the concise Project Portfolio description', () => {
@@ -401,26 +463,48 @@ test('resolves the requested public plan labels and try-in-project destinations'
     assert.equal(config.planLabel, value.plan)
     assert.ok(config.primaryCtaUrl.startsWith(value.destination))
     assert.match(config.primaryCtaUrl, new RegExp(`[?&]demo=${demoId}(?:&|$)`))
+    assert.match(config.primaryCtaUrl, new RegExp(`[?&]demo_id=${demoId}(?:&|$)`))
   })
 })
 
 test('creates stable data-layer events without allowing detail fields to replace identity', () => {
-  const event = createDemoPageAnalyticsEvent('demo_guided_action_complete', 'pivot', {
+  const event = createDemoPageAnalyticsEvent('demo_action', 'pivot', {
     event: 'overridden',
     demo_slug: 'overridden',
-    guided_action_index: 2,
-    guided_action_label: 'Move a field',
+    action_id: 'move-field',
+    placement: 'guided_stepper',
   })
 
   assert.deepEqual(event, {
-    guided_action_index: 2,
-    guided_action_label: 'Move a field',
-    event: 'demo_guided_action_complete',
+    action_id: 'move-field',
+    placement: 'guided_stepper',
+    event: 'demo_action',
+    demo_id: 'pivot',
     demo_name: 'Pivot Table Demo',
     demo_slug: 'pivot',
     demo_tier: 'pro-advanced',
     demo_layout_version: DEMO_PAGE_LAYOUT_VERSION,
   })
+})
+
+test('reports ready only after an observed demo grid finishes initializing', () => {
+  assert.match(demoPageLayoutSource, /componentOnReady/)
+  assert.match(demoPageLayoutSource, /markDemoReady/)
+  assert.doesNotMatch(
+    demoPageLayoutSource,
+    /scanForGrids\(\)\s*\n\s*pushAnalytics\(createDemoPageAnalyticsEvent\('demo_ready'/,
+  )
+})
+
+test('confirms grid edits from beforeedit state and Gantt moves against the current source', () => {
+  assert.match(demoPageLayoutSource, /'beforeedit'/)
+  assert.match(demoPageLayoutSource, /pendingGridEdits/)
+  assert.match(demoPageLayoutSource, /isConfirmedGanttMove\(detail, source\)/)
+})
+
+test('preserves experiment attribution in the demo trial link after hydration', () => {
+  assert.match(demoPageLayoutSource, /primaryCtaHref/)
+  assert.match(demoPageLayoutSource, /target\.searchParams\.set\('experiment_variant'/)
 })
 
 test('keeps docs grid resets scoped', () => {

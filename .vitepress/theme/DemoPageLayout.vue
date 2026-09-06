@@ -27,7 +27,7 @@
       <div class="demo-page-header-actions" aria-label="Demo actions">
         <a
           class="demo-page-button demo-page-button--primary"
-          :href="config.primaryCtaUrl"
+          :href="primaryCtaHref"
           @click="trackCta('header', 'try_in_project')"
         >
           Try in your project
@@ -79,9 +79,7 @@
       class="demo-page-workspace"
       @click.capture="handleWorkspaceClick"
       @change.capture="handleWorkspaceChange"
-      @keydown.capture="handleUserGesture"
-      @pointerdown.capture="handlePointerDown"
-      @pointerup.capture="handlePointerUp"
+      @input.capture="handleWorkspaceInput"
     >
       <ClientOnly>
         <slot />
@@ -93,68 +91,81 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 import type { DemoId } from '../../commercial/productCatalog'
-import { DEMO_FEEDBACK_INTERACTION_EVENTS } from './demoFeedback'
-import { createDemoPageAnalyticsEvent, getDemoPageConfig } from './demoPageLayout'
+import {
+  createDemoPageAnalyticsEvent,
+  getDemoGuidedStepActions,
+  getDemoPageConfig,
+  isConfirmedGanttMove,
+  isConfirmedGridEdit,
+  matchesDemoGuidedStepAction,
+  type DemoGuidedStepAction,
+} from './demoPageLayout'
+import { getAnalyticsExperimentVariant, trackSiteAnalytics } from './siteAnalytics'
 import FontAwesomeSvgIcon from './home-v2/FontAwesomeSvgIcon.vue'
-
-type DataLayerWindow = Window & { dataLayer?: Array<Record<string, unknown>> }
 
 const props = defineProps<{ demoId: DemoId }>()
 const config = computed(() => getDemoPageConfig(props.demoId))
 const workspaceRef = ref<HTMLElement>()
+const primaryCtaHref = ref(config.value.primaryCtaUrl)
 const completedActionCount = ref(0)
-const interactionCount = ref(0)
 const progressPercent = computed(() =>
   (completedActionCount.value / config.value.guidedActions.length) * 100,
 )
+const guidedStepActions = computed(() => getDemoGuidedStepActions(props.demoId))
 
 const observedGrids = new Set<HTMLElement>()
 const gridHandlers = new Map<HTMLElement, Map<string, EventListener>>()
-const interactionEventNames = Object.keys(DEMO_FEEDBACK_INTERACTION_EVENTS)
+const pendingGridEdits = new WeakMap<HTMLElement, { prop: string, val: unknown, oldVal: unknown }>()
 let gridObserver: MutationObserver | undefined
-let lastInteractionAt = 0
-let lastUserGestureAt = 0
-let pointerStart: { x: number, y: number } | undefined
+let headerFilterGestureUntil = 0
 
-const pushAnalytics = (event: ReturnType<typeof createDemoPageAnalyticsEvent>) => {
-  const analyticsWindow = window as DataLayerWindow
-  analyticsWindow.dataLayer ??= []
-  analyticsWindow.dataLayer.push(event)
+const analyticsContext = () => {
+  const experimentVariant = getAnalyticsExperimentVariant(window.location)
+  return experimentVariant ? { experiment_variant: experimentVariant } : {}
 }
 
+const hydratePrimaryCtaHref = () => {
+  const target = new URL(config.value.primaryCtaUrl, window.location.origin)
+  const experimentVariant = getAnalyticsExperimentVariant(window.location)
+  if (target.pathname === '/trial' && experimentVariant) {
+    target.searchParams.set('experiment_variant', experimentVariant)
+  }
+  primaryCtaHref.value = target.origin === window.location.origin
+    ? `${target.pathname}${target.search}${target.hash}`
+    : target.href
+}
+
+const pushAnalytics = (event: ReturnType<typeof createDemoPageAnalyticsEvent>, dedupeKey: string) =>
+  trackSiteAnalytics(event.event, event, dedupeKey)
+
 const trackCta = (location: 'header', action: 'try_in_project') => {
-  pushAnalytics(createDemoPageAnalyticsEvent('demo_cta_click', props.demoId, {
-    cta_location: location,
-    cta_action: action,
-  }))
+  const target = new URL(primaryCtaHref.value, window.location.origin)
+  if (target.pathname === '/trial') {
+    pushAnalytics(createDemoPageAnalyticsEvent('demo_trial_click', props.demoId, {
+      action_id: action,
+      placement: location,
+      ...analyticsContext(),
+    }), `demo_trial_click:${props.demoId}:${location}:${action}`)
+  }
 }
 
 const trackImplementationOpen = () => {
   pushAnalytics(createDemoPageAnalyticsEvent('demo_implementation_open', props.demoId, {
     cta_location: 'header',
     implementation_url: config.value.implementationUrl,
-  }))
+  }), `demo_implementation_open:${props.demoId}:header`)
 }
 
-const recordMeaningfulInteraction = (interactionType: string) => {
-  const now = Date.now()
-  if (now - lastInteractionAt < 350) return
-  lastInteractionAt = now
-  interactionCount.value += 1
-
-  pushAnalytics(createDemoPageAnalyticsEvent('demo_meaningful_interaction', props.demoId, {
-    interaction_type: interactionType,
-    interaction_count: interactionCount.value,
-  }))
-
+const recordGuidedAction = (action: DemoGuidedStepAction) => {
   if (completedActionCount.value >= config.value.guidedActions.length) return
   const actionIndex = completedActionCount.value
+  if (!matchesDemoGuidedStepAction(guidedStepActions.value[actionIndex], action)) return
   completedActionCount.value += 1
-  pushAnalytics(createDemoPageAnalyticsEvent('demo_guided_action_complete', props.demoId, {
-    guided_action_index: actionIndex + 1,
-    guided_action_label: config.value.guidedActions[actionIndex],
-    completion_source: interactionType,
-  }))
+  pushAnalytics(createDemoPageAnalyticsEvent('demo_action', props.demoId, {
+    action_id: action,
+    placement: 'guided_stepper',
+    ...analyticsContext(),
+  }), `demo_action:${props.demoId}:${action}`)
 }
 
 const closestElement = (event: Event): Element | null =>
@@ -163,46 +174,82 @@ const closestElement = (event: Event): Element | null =>
 const handleWorkspaceClick = (event: MouseEvent) => {
   const target = closestElement(event)
   if (!target) return
-  handleUserGesture()
-  if (target.closest('button, a, [role="button"], select, input[type="checkbox"], input[type="radio"], input[type="range"]')) {
-    recordMeaningfulInteraction('workspace_control')
+  if (target.closest('.order-explorer__presets button')) recordGuidedAction('preset')
+  if (target.closest('.planning-demo__switch button:not([aria-selected="true"])')) {
+    recordGuidedAction('switch-view')
   }
+  if (target.closest('revo-grid')) headerFilterGestureUntil = Date.now() + 2_000
 }
 
 const handleWorkspaceChange = (event: Event) => {
-  handleUserGesture()
   const target = closestElement(event)
-  if (target?.matches('select, input, textarea')) recordMeaningfulInteraction('workspace_change')
+  if (target?.closest('revo-grid')) headerFilterGestureUntil = Date.now() + 2_000
 }
 
-const handleUserGesture = () => {
-  lastUserGestureAt = Date.now()
+const handleWorkspaceInput = (event: Event) => {
+  const target = closestElement(event)
+  if (target instanceof HTMLInputElement
+    && target.matches('.order-explorer__search-input')
+    && target.value.trim()) {
+    recordGuidedAction('search')
+  }
+  if (target?.closest('revo-grid')) headerFilterGestureUntil = Date.now() + 2_000
 }
 
-const handlePointerDown = (event: PointerEvent) => {
-  handleUserGesture()
-  pointerStart = { x: event.clientX, y: event.clientY }
-}
-
-const handlePointerUp = (event: PointerEvent) => {
-  if (!pointerStart) return
-  const distance = Math.hypot(event.clientX - pointerStart.x, event.clientY - pointerStart.y)
-  pointerStart = undefined
-  if (distance >= 8) recordMeaningfulInteraction('workspace_drag')
+const markDemoReady = () => {
+  pushAnalytics(
+    createDemoPageAnalyticsEvent('demo_ready', props.demoId, analyticsContext()),
+    `demo_ready:${props.demoId}`,
+  )
 }
 
 const observeGrid = (grid: HTMLElement) => {
   if (observedGrids.has(grid)) return
   observedGrids.add(grid)
   const handlers = new Map<string, EventListener>()
-  interactionEventNames.forEach((eventName) => {
-    const handler = () => {
-      if (Date.now() - lastUserGestureAt <= 2_000) recordMeaningfulInteraction(eventName)
+  ;(['beforeedit', 'afteredit', 'afterfilterapply', 'gantt-before-task-change'] as const).forEach((eventName) => {
+    const handler = (event: Event) => {
+      const detail = event instanceof CustomEvent && event.detail && typeof event.detail === 'object'
+        ? event.detail as Record<string, unknown>
+        : {}
+      if (eventName === 'beforeedit') {
+        const model = detail.model
+        const prop = detail.prop
+        if (Object.hasOwn(detail, 'val') && model && typeof model === 'object' && typeof prop === 'string') {
+          pendingGridEdits.set(grid, {
+            prop,
+            val: detail.val,
+            oldVal: (model as Record<string, unknown>)[prop],
+          })
+        }
+      }
+      if (eventName === 'afteredit') {
+        const pending = pendingGridEdits.get(grid)
+        pendingGridEdits.delete(grid)
+        if (pending
+          && pending.prop === detail.prop
+          && Object.is(pending.val, detail.val)
+          && isConfirmedGridEdit({ ...detail, oldVal: pending.oldVal })) {
+          recordGuidedAction('edit')
+        }
+      }
+      if (eventName === 'afterfilterapply' && Date.now() <= headerFilterGestureUntil) recordGuidedAction('filter')
+      const gridSource = (grid as HTMLElement & { source?: unknown }).source
+      const source = Array.isArray(gridSource) ? gridSource : []
+      if (eventName === 'gantt-before-task-change' && isConfirmedGanttMove(detail, source)) {
+        recordGuidedAction('gantt-move')
+      }
     }
     grid.addEventListener(eventName, handler)
     handlers.set(eventName, handler)
   })
   gridHandlers.set(grid, handlers)
+
+  const readyGrid = grid as HTMLElement & { componentOnReady?: () => Promise<unknown> }
+  const readiness = readyGrid.componentOnReady?.() ?? Promise.resolve()
+  void readiness.then(() => {
+    if (grid.isConnected) markDemoReady()
+  }).catch(() => undefined)
 }
 
 const scanForGrids = () => {
@@ -217,6 +264,8 @@ const scanForGrids = () => {
 
 onMounted(async () => {
   await nextTick()
+  hydratePrimaryCtaHref()
+  pushAnalytics(createDemoPageAnalyticsEvent('demo_view', props.demoId, analyticsContext()), `demo_view:${props.demoId}`)
   scanForGrids()
   if (!workspaceRef.value) return
   gridObserver = new MutationObserver(scanForGrids)

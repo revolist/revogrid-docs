@@ -4,6 +4,7 @@ import test from 'node:test'
 
 const trialPage = readFileSync(new URL('../../../pro/TrialPage.vue', import.meta.url), 'utf8')
 const trialRoute = readFileSync(new URL('../../../trial.md', import.meta.url), 'utf8')
+const trialRequestForm = readFileSync(new URL('../../../pro/TrialRequestForm.vue', import.meta.url), 'utf8')
 
 test('keeps immediate public trial access ahead of the optional contact form', () => {
   assert.match(trialPage, /<h1>Evaluate RevoGrid Pro now<\/h1>/)
@@ -31,10 +32,14 @@ test('keeps contact optional without changing trial form submission ownership', 
   assert.doesNotMatch(trialPage, /we(?:’|')ll send (?:trial )?access details/i)
   assert.doesNotMatch(trialRoute, /private npm trial/i)
   assert.match(trialRoute, /immediately with public trial access/i)
+  assert.match(trialRequestForm, /\? 'trial_contact_submit'/)
+  assert.match(trialRequestForm, /demo_id: props\.demoId/)
+  assert.doesNotMatch(trialRequestForm, /businessEmail.*analytics|analytics.*businessEmail/s)
 })
 
 test('keeps query-aware package installation instructions on the public trial page', () => {
-  assert.match(trialPage, /new URLSearchParams\(window\.location\.search\)\.get\('product'\)/)
+  assert.match(trialPage, /const query = new URLSearchParams\(window\.location\.search\)/)
+  assert.match(trialPage, /const product = query\.get\('product'\)/)
   assert.match(trialPage, /pnpm i @revolist\/revogrid/)
   assert.match(trialPage, /pnpm i @revolist\/rv-pro-trial/)
   assert.match(trialPage, /@revolist\/pivot-trial/)
@@ -43,6 +48,14 @@ test('keeps query-aware package installation instructions on the public trial pa
   assert.match(trialPage, /@revolist\/scheduler-trial/)
   assert.match(trialPage, /Standalone product trials build on the Pro trial/)
   assert.match(trialPage, /:aria-current="option\.id === selectedTrial\.id \? 'page' : undefined"/)
+  assert.match(trialPage, /query\.get\('demo_id'\)/)
+  assert.match(trialPage, /:href="trialOptionHref\(option\.id\)"/)
+  assert.match(trialPage, /query\.set\('demo_id', demoId\.value\)/)
+  assert.match(trialPage, /query\.set\('experiment_variant', experimentVariant\.value\)/)
+  assert.match(trialPage, /trial_install_click/)
+  assert.match(trialPage, /trial_starter_click/)
+  assert.match(trialPage, /trackTrialClick\('trial_install_click', 'hero_install'\)/)
+  assert.match(trialPage, /trackTrialClick\('trial_starter_click', 'hero_starter'\)/)
   assert.match(trialPage, /\.trial-copy,\s*\.quick-start-panel \{\s*min-width: 0;/)
 })
 

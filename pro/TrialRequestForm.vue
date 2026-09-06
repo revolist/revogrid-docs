@@ -121,11 +121,11 @@
 import { computed, ref } from 'vue'
 import FontAwesomeSvgIcon from '../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
 import successIcon from '../.vitepress/theme/images/wcag.svg'
+import { trackSiteAnalytics } from '../.vitepress/theme/siteAnalytics'
 
 const API_URL = import.meta.env.VITE_API_URL
 type RequestType = 'contact' | 'trial'
 type AnalyticsAction = 'started' | 'validation_error' | 'submitted' | 'submit_failed'
-type DataLayerWindow = Window & { dataLayer?: Array<Record<string, unknown>> }
 
 const requestLabels: Record<RequestType, string> = {
   contact: 'Contact request',
@@ -142,6 +142,8 @@ const props = withDefaults(
     successTitle?: string
     successMessage?: string
     requestType?: RequestType
+    demoId?: string
+    experimentVariant?: string
   }>(),
   {
     eyebrow: '',
@@ -197,14 +199,15 @@ const isFormValid = computed(() => {
 
 const pushAnalytics = (
   action: AnalyticsAction,
-  properties: Record<string, unknown> = {},
+  properties: Record<string, string | number | boolean | undefined> = {},
 ) => {
-  if (typeof window === 'undefined') return
-  const analyticsWindow = window as DataLayerWindow
-  analyticsWindow.dataLayer ??= []
-  analyticsWindow.dataLayer.push({
-    event: `${props.requestType}_request_form_${action}`,
+  const event = props.requestType === 'trial' && action === 'submitted'
+    ? 'trial_contact_submit'
+    : `${props.requestType}_request_form_${action}`
+  trackSiteAnalytics(event, {
     request_type: props.requestType,
+    ...(props.demoId ? { demo_id: props.demoId } : {}),
+    ...(props.experimentVariant ? { experiment_variant: props.experimentVariant } : {}),
     ...properties,
   })
 }

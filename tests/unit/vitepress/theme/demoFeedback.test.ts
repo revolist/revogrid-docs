@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
 import test from 'node:test'
 import { PRODUCT_CATALOG } from '../../../../commercial/productCatalog'
 import {
@@ -66,6 +67,18 @@ const context: DemoFeedbackSessionContext = {
 }
 
 const initial = () => createInitialDemoFeedbackSession(context)
+const feedbackSurveySource = readFileSync(
+  new URL('../../../../.vitepress/theme/DemoFeedbackSurvey.vue', import.meta.url),
+  'utf8',
+)
+
+test('offers feedback only through a compact user-triggered control', () => {
+  assert.match(feedbackSurveySource, /class="demo-feedback-trigger"/)
+  assert.match(feedbackSurveySource, /@click="requestFeedback"/)
+  assert.match(feedbackSurveySource, /showFeedbackCard\(true\)/)
+  assert.doesNotMatch(feedbackSurveySource, /eligibleDemoIds\.includes\(activeDemoId\).*showFeedbackCard/s)
+  assert.doesNotMatch(feedbackSurveySource, /shouldRestoreDemoFeedbackCard/)
+})
 
 test('matches only catalogued demo routes after normalizing URLs, queries, and trailing slashes', () => {
   assert.equal(normalizeDemoPath('https://rv-grid.com/demo/pivot/?source=pricing#demo'), '/demo/pivot')

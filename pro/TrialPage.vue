@@ -16,6 +16,7 @@
               target="_blank"
               rel="noopener noreferrer"
               arrow
+              @click="trackTrialClick('trial_install_click', 'hero_install')"
             >
               Install Pro Trial
             </ProDocButton>
@@ -25,6 +26,7 @@
               rel="noopener noreferrer"
               variant="secondary"
               arrow
+              @click="trackTrialClick('trial_starter_click', 'hero_starter')"
             >
               Clone Trial Starter
             </ProDocButton>
@@ -71,7 +73,7 @@
               <a
                 v-for="option in trialOptions"
                 :key="option.id"
-                :href="`/trial?product=${option.id}`"
+                :href="trialOptionHref(option.id)"
                 :aria-current="option.id === selectedTrial.id ? 'page' : undefined"
                 @click="selectedTrial = option"
               >
@@ -133,6 +135,8 @@
             subtitle="Tell us about your application, evaluation questions, or commercial requirements."
             submit-label="Contact the team"
             request-type="trial"
+            :demo-id="demoId"
+            :experiment-variant="experimentVariant"
             success-title="Message received"
             success-message="Our team will get back to you as soon as possible."
           />
@@ -151,6 +155,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import FontAwesomeSvgIcon from '../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
+import { getAnalyticsExperimentVariant, trackSiteAnalytics } from '../.vitepress/theme/siteAnalytics'
 import TrustedLogoStrip from '../.vitepress/theme/TrustedLogoStrip.vue'
 import { getPlan } from '../commercial/productCatalog'
 import CommercialFaq from './CommercialFaq.vue'
@@ -220,16 +225,42 @@ const trialOptions: TrialOption[] = [
 ]
 
 const selectedTrial = ref<TrialOption>(trialOptions[0])
+const demoId = ref<string>()
+const experimentVariant = ref<string>()
 
 function findTrialOption(product: string | null): TrialOption {
   const normalizedProduct = product === 'event-scheduler' ? 'scheduler' : product
   return trialOptions.find(option => option.id === normalizedProduct) ?? trialOptions[0]
 }
 
+function trialOptionHref(product: TrialProductId): string {
+  const query = new URLSearchParams({ product })
+  if (demoId.value) query.set('demo_id', demoId.value)
+  if (experimentVariant.value) query.set('experiment_variant', experimentVariant.value)
+  return `/trial?${query.toString()}`
+}
+
 onMounted(() => {
-  const product = new URLSearchParams(window.location.search).get('product')
+  const query = new URLSearchParams(window.location.search)
+  const product = query.get('product')
   selectedTrial.value = findTrialOption(product)
+  const incomingDemoId = query.get('demo_id')?.trim()
+  demoId.value = incomingDemoId && /^[a-z0-9-]{1,80}$/i.test(incomingDemoId)
+    ? incomingDemoId
+    : undefined
+  experimentVariant.value = getAnalyticsExperimentVariant(window.location)
 })
+
+function trackTrialClick(
+  event: 'trial_install_click' | 'trial_starter_click',
+  placement: 'hero_install' | 'hero_starter',
+) {
+  trackSiteAnalytics(event, {
+    placement,
+    ...(demoId.value ? { demo_id: demoId.value } : {}),
+    ...(experimentVariant.value ? { experiment_variant: experimentVariant.value } : {}),
+  }, `${event}:${placement}:${demoId.value ?? 'direct'}`)
+}
 
 const accessDetails = [
   'No npm login or authentication token is required.',

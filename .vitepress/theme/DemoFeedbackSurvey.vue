@@ -1,5 +1,13 @@
 <template>
   <Teleport to="body">
+    <button
+      v-if="activeDemoId && !cardVisible && !flowVisible"
+      class="demo-feedback-trigger"
+      type="button"
+      @click="requestFeedback"
+    >
+      Feedback
+    </button>
     <Transition name="demo-feedback-card">
       <aside
         :id="DEMO_FEEDBACK_ELEMENT_IDS.card"
@@ -109,7 +117,6 @@ import {
   serializeDemoFeedbackSession,
   setDemoFeedbackCardResponse,
   setDemoFeedbackPrimaryAnswer,
-  shouldRestoreDemoFeedbackCard,
   submitDemoFeedback,
   suppressDemoFeedbackForCta,
   type DemoFeedbackAction,
@@ -339,10 +346,10 @@ const recordPromptOutcome = (outcome: 'dismissed' | 'submitted') => {
   persistCooldownState()
 }
 
-const showFeedbackCard = () => {
+const showFeedbackCard = (requestedByUser = false) => {
   if (!activeDemoId) return
   const now = Date.now()
-  if (!canRequestDemoFeedback(feedbackState, activeDemoId, {
+  if (!requestedByUser && !canRequestDemoFeedback(feedbackState, activeDemoId, {
     at: now,
     cooldownState: feedbackCooldownState,
   })) return
@@ -355,6 +362,10 @@ const showFeedbackCard = () => {
   if (!persistState() || !persistCooldownState()) return
   cardVisible.value = true
   pushAnalytics('demo_feedback_shown', 'shown', analyticsProperties())
+}
+
+const requestFeedback = () => {
+  showFeedbackCard(true)
 }
 
 const evaluateEligibility = () => {
@@ -371,7 +382,6 @@ const evaluateEligibility = () => {
     persistState()
     pushAnalytics('demo_feedback_eligible', 'eligible', analyticsProperties())
   }
-  if (feedbackState.eligibleDemoIds.includes(activeDemoId)) showFeedbackCard()
 }
 
 const scheduleEligibilityCheck = () => {
@@ -509,20 +519,8 @@ const activateRoute = async (path: string) => {
     persistState()
     await nextTick()
     scanForGrids()
-    if (shouldRestoreDemoFeedbackCard(feedbackState, activeDemoId)) {
-      feedbackDemo.value = demo || null
-      if (feedbackState.lastPromptedAt !== undefined) {
-        feedbackCooldownState = recordDemoFeedbackPromptDisplay(
-          feedbackCooldownState,
-          activeDemoId,
-          feedbackState.lastPromptedAt,
-        )
-        persistCooldownState()
-      }
-      cardVisible.value = true
-    } else {
-      evaluateEligibility()
-    }
+    cardVisible.value = false
+    evaluateEligibility()
   }
   scheduleEligibilityCheck()
 }
@@ -805,6 +803,28 @@ onBeforeUnmount(() => {
   box-shadow: 0 16px 50px rgba(0, 0, 0, 0.24);
   color: var(--vp-c-text-1);
   backdrop-filter: blur(12px);
+}
+
+.demo-feedback-trigger {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 50;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 999px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  padding: 7px 12px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px color-mix(in srgb, #0f172a 14%, transparent);
+}
+
+.demo-feedback-trigger:hover,
+.demo-feedback-trigger:focus-visible {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
 }
 
 .demo-feedback-card-kicker {

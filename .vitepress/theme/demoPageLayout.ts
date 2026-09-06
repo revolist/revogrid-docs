@@ -5,12 +5,21 @@ import {
   type PlanId,
 } from '../../commercial/productCatalog'
 
-export const DEMO_PAGE_LAYOUT_VERSION = 'demo-page-v1' as const
+export const DEMO_PAGE_LAYOUT_VERSION = 'demo-page-v2' as const
 
 export interface DemoFeatureBadge {
   label: string
   source: string
 }
+
+export type DemoGuidedStepAction =
+  | 'preset'
+  | 'search'
+  | 'filter'
+  | 'edit'
+  | 'gantt-move'
+  | 'switch-view'
+  | 'manual'
 
 export interface DemoPageContent {
   title: string
@@ -25,6 +34,48 @@ export interface DemoPageConfig extends DemoPageContent {
   planLabel: 'Core' | 'Pro Lite' | 'Pro Advanced'
   primaryCtaUrl: string
   pricingUrl: string
+}
+
+const DEMO_GUIDED_STEP_ACTIONS: Partial<Record<DemoId, readonly DemoGuidedStepAction[]>> = {
+  filtering: ['preset', 'search', 'filter'],
+  planning: ['edit', 'gantt-move', 'switch-view'],
+}
+
+export const getDemoGuidedStepActions = (demoId: DemoId): readonly DemoGuidedStepAction[] =>
+  DEMO_GUIDED_STEP_ACTIONS[demoId]
+  ?? getDemoPageConfig(demoId).guidedActions.map(() => 'manual')
+
+export const matchesDemoGuidedStepAction = (
+  expected: DemoGuidedStepAction | undefined,
+  actual: DemoGuidedStepAction,
+): boolean => expected === actual && actual !== 'manual'
+
+export const isConfirmedGridEdit = (detail: Record<string, unknown>): boolean => {
+  if (!Object.hasOwn(detail, 'val')) return false
+  if (Object.hasOwn(detail, 'oldVal')) return !Object.is(detail.val, detail.oldVal)
+  const model = detail.model
+  const prop = detail.prop
+  if (!model || typeof model !== 'object' || typeof prop !== 'string') return false
+  return !Object.is(detail.val, (model as Record<string, unknown>)[prop])
+}
+
+export const isConfirmedGanttMove = (
+  detail: Record<string, unknown>,
+  source: readonly unknown[] = [],
+): boolean => {
+  if (detail.action !== 'move') return false
+  const patch = detail.sourcePatch ?? detail.changes
+  const sourceTask = source.find((candidate) =>
+    candidate
+    && typeof candidate === 'object'
+    && String((candidate as Record<string, unknown>).id) === String(detail.taskId),
+  )
+  const previous = detail.previousSourceValues ?? detail.previousValues ?? sourceTask
+  if (!patch || typeof patch !== 'object' || !previous || typeof previous !== 'object') return false
+  const dates = ['startDate', 'endDate'] as const
+  return dates.some((date) =>
+    typeof (patch as Record<string, unknown>)[date] === 'string'
+    && (patch as Record<string, unknown>)[date] !== (previous as Record<string, unknown>)[date])
 }
 
 const DEMO_PAGE_CONTENT = {
@@ -322,6 +373,7 @@ const withDemoAttribution = (
   const url = new URL(href, PUBLIC_SITE_ORIGIN)
   url.searchParams.set('source', 'demo-page')
   url.searchParams.set('demo', demoId)
+  url.searchParams.set('demo_id', demoId)
   return url.origin === PUBLIC_SITE_ORIGIN && !preserveAbsolute
     ? `${url.pathname}${url.search}${url.hash}`
     : url.toString()
@@ -345,10 +397,11 @@ export const getDemoPageConfig = (demoId: DemoId): DemoPageConfig => {
 }
 
 export type DemoPageAnalyticsEventName =
-  | 'demo_cta_click'
+  | 'demo_view'
+  | 'demo_ready'
+  | 'demo_action'
+  | 'demo_trial_click'
   | 'demo_implementation_open'
-  | 'demo_guided_action_complete'
-  | 'demo_meaningful_interaction'
 
 export const createDemoPageAnalyticsEvent = (
   event: DemoPageAnalyticsEventName,
@@ -359,6 +412,7 @@ export const createDemoPageAnalyticsEvent = (
   return {
     ...details,
     event,
+    demo_id: demo.id,
     demo_name: demo.title,
     demo_slug: demo.id,
     demo_tier: demo.planId,
