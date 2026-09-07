@@ -230,3 +230,26 @@ test('demo surfaces retain clear contrast in light and dark themes', async ({ pa
     gridBorder: 'rgb(80, 91, 86)',
   })
 })
+
+test('planning Gantt uses varied schedules and aligns the Today marker', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto('/demo/')
+  const ganttTab = page.locator('.planning-demo__switch button').filter({ hasText: 'gantt' })
+  await expect(ganttTab).toBeVisible()
+  await ganttTab.click()
+  await expect(page.locator('.gantt-header-flag-cap--today')).toBeVisible()
+  await expect(page.locator('.gantt-bar--task').first()).toBeVisible()
+
+  const timeline = await page.evaluate(() => {
+    const cap = document.querySelector('.gantt-header-flag-cap--today')!.getBoundingClientRect()
+    const line = document.querySelector('.gantt-background__flag-line--today')!.getBoundingClientRect()
+    const widths = Array.from(document.querySelectorAll('.gantt-bar--task'))
+      .map(bar => bar.getBoundingClientRect().width)
+      .filter(width => width > 0)
+    return { markerOffset: Math.abs(cap.left - line.left), widths }
+  })
+
+  expect(timeline.markerOffset).toBeLessThanOrEqual(1)
+  expect(timeline.widths.length).toBeGreaterThanOrEqual(9)
+  expect(Math.max(...timeline.widths) - Math.min(...timeline.widths)).toBeGreaterThan(30)
+})
