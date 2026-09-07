@@ -163,3 +163,8 @@ test('aligns the AI prompt search controls with the demo heading', () => {
   const styles = readFileSync(new URL('../../../../revogrid-demos/core-ai-prompts/src/prompt-library.css', import.meta.url), 'utf8')
   assert.match(styles, /\.prompt-toolbar\s*\{[\s\S]*?padding:\s*18px 0/)
 })
+
+test('aligns the Project Portfolio grouping controls with the demo heading', () => {
+  const styles = readFileSync(new URL('../../../../revogrid-demos/core-project-portfolio/src/project-portfolio.css', import.meta.url), 'utf8')
+  assert.match(styles, /\.portfolio-toolbar\s*\{[\s\S]*?padding:\s*12px 0/)
+})
