@@ -30,10 +30,10 @@ function normalize(path: string) { const normalized = path.replace(/\/$/, ''); r
 function active(href: string) { const path = normalize(route.path); if (href === '/demo/') return path === '/demo/' || path === '/demo/planning'; if (href === '/demo/grid-at-scale') return path === href || path === '/demo/hr'; return path === href; }
 </script>
 <style scoped>
-.demo-nav{position:fixed;z-index:35;top:var(--vp-nav-height,64px);bottom:0;left:0;width:var(--demo-sidebar-width,256px);padding:16px 0 0 10px;border-right:1px solid #cbd3cf;background:transparent;box-shadow:inset -1px 0 #d7ddda;font-size:13px;line-height:18px}
+.demo-nav{position:fixed;z-index:35;top:var(--vp-nav-height,64px);bottom:0;left:0;width:var(--demo-sidebar-width,256px);padding:16px 0 0 10px;border-right:1px solid var(--vp-c-divider);background:transparent;box-shadow:inset -1px 0 var(--vp-c-divider);font-size:13px;line-height:18px}
 .demo-nav header{display:none;height:32px;margin-right:10px;padding:0;font-size:14px;font-weight:650;letter-spacing:-.01em}
 .demo-nav header button{display:none}
-.demo-nav>label{position:relative;display:flex;height:34px;align-items:center;gap:7px;margin-right:10px;padding:0 10px 0 30px;border:1px solid #bbc5c0;border-radius:6px;background:#fff;box-shadow:0 1px 2px rgb(15 23 42/8%)}
+.demo-nav>label{position:relative;display:flex;height:34px;align-items:center;gap:7px;margin-right:10px;padding:0 10px 0 30px;border:1px solid var(--vp-c-divider);border-radius:6px;background:var(--vp-c-bg);box-shadow:0 1px 2px rgb(15 23 42/8%)}
 .demo-nav>label:before{position:absolute;left:11px;width:12px;height:12px;border:1.5px solid currentColor;border-radius:50%;content:"";opacity:.65}
 .demo-nav>label:after{position:absolute;left:21px;top:21px;width:5px;height:1.5px;transform:rotate(45deg);background:currentColor;content:"";opacity:.65}
 .demo-nav input{min-width:0;width:100%;border:0;outline:0;background:transparent;color:inherit;font:inherit}
@@ -43,11 +43,11 @@ function active(href: string) { const path = normalize(route.path); if (href ===
 .demo-nav h2{margin:0 8px 5px;font-size:10px;font-weight:650;letter-spacing:.075em;text-transform:uppercase}
 .demo-nav a{display:grid;grid-template-columns:16px minmax(0,1fr) auto;min-height:31px;align-items:center;gap:7px;padding:5px 8px;border:1px solid transparent;border-radius:6px;color:inherit;font-size:12.5px;font-weight:500;line-height:18px;text-decoration:none}
 .demo-nav a span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.demo-nav a:hover{background:#fff}
-.demo-nav a.active{border-color:#9bcbb4;background:#dff1e8;font-weight:650}
+.demo-nav a:hover{background:var(--vp-c-bg)}
+.demo-nav a.active{border-color:var(--vp-c-brand-1);background:var(--vp-c-brand-soft);font-weight:650}
 .demo-nav a :deep(.fa-svg-icon){width:13px;height:13px;opacity:.82}
-.demo-nav small{padding:1px 4px;border-radius:4px;background:#e3e7e5;font-size:8px;font-weight:600;line-height:14px;white-space:nowrap;opacity:.7}
-.demo-nav a.active small{background:#c9e5d7}
+.demo-nav small{padding:1px 4px;border-radius:4px;background:var(--vp-c-default-soft);font-size:8px;font-weight:600;line-height:14px;white-space:nowrap;opacity:.7}
+.demo-nav a.active small{background:var(--vp-c-brand-soft)}
 .demo-nav-trigger,.demo-nav-scrim{display:none}
 @media(max-width:1099px){.demo-nav{z-index:101;transform:translateX(-100%);transition:transform .16s ease}.demo-nav.open{transform:none}.demo-nav header{display:flex;justify-content:flex-end}.demo-nav header button{display:grid;width:30px;height:30px;place-items:center;border:0;background:transparent;color:inherit;font-size:20px}.demo-nav nav{height:calc(100% - 66px)}.demo-nav-trigger{display:block;position:fixed;z-index:34;top:calc(var(--vp-nav-height,64px) + 12px);left:14px;height:34px;padding:0 11px;border:1px solid var(--vp-c-divider);border-radius:6px;background:var(--vp-c-bg);color:inherit}.demo-nav-scrim{display:block;position:fixed;z-index:100;inset:0;border:0;background:rgb(15 23 42/35%)}}
 @media(prefers-reduced-motion:reduce){.demo-nav{transition:none}}

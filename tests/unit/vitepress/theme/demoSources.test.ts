@@ -37,11 +37,24 @@ test('keeps the source panel and demo navigation at their specified breakpoints'
   assert.match(sourcePanel, /@media\(max-width:1099px\)/)
   assert.match(sourcePanel, /position:absolute;z-index:2;inset:0/)
   assert.match(navigation, /--demo-sidebar-width,256px/)
-  assert.match(navigation, /background:#dff1e8/)
+  assert.match(navigation, /background:var\(--vp-c-brand-soft\)/)
   assert.match(readFileSync(new URL('../../../../.vitepress/theme/style.scss', import.meta.url), 'utf8'), /\.dark \.demo-page-class \.demo-nav/)
   assert.match(navigation, /@media\(max-width:1099px\)/)
   for (const source of [layout, sourcePanel, navigation]) {
     assert.doesNotMatch(source, /font(?:-family)?:[^;}]*Geist/)
+  }
+})
+
+test('uses the site color tokens instead of a demo-specific palette', () => {
+  const sources = [
+    readFileSync(new URL('../../../../.vitepress/theme/DemoPageLayout.vue', import.meta.url), 'utf8'),
+    readFileSync(new URL('../../../../.vitepress/theme/DemoNavigation.vue', import.meta.url), 'utf8'),
+    readFileSync(new URL('../../../../.vitepress/theme/DemoSourcePanel.vue', import.meta.url), 'utf8'),
+    readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.scss', import.meta.url), 'utf8'),
+  ]
+  for (const source of sources) {
+    assert.doesNotMatch(source, /--planning-(?:accent|surface|border|text)|--revo-grid-/)
+    assert.doesNotMatch(source, /#(?:008b55|00ad68|138a5b|17a66a|4f67d8|d2574a)/i)
   }
 })
 
@@ -86,7 +99,7 @@ test('uses native advanced filters, quick search, and plugin-owned badges in the
   assert.doesNotMatch(vueSource, /planning-demo__chips/)
   assert.doesNotMatch(vueSource, /toggleVisiblePlanningRows/)
   assert.doesNotMatch(vueSource, /@click\.capture/)
-  assert.match(styles, /\.cell-header-checkbox-container\{[^}]*width:100%[^}]*margin:0!important;padding:0!important/)
+  assert.doesNotMatch(styles, /cell-header-checkbox-container/)
   assert.match(columns, /syncCellTemplate:[\s\S]*owner: true[\s\S]*priority: true/)
   assert.match(columns, /prop: 'name', name: 'Task',[\s\S]*filter: true/)
   assert.match(columns, /columnType: 'dropdown',[\s\S]*source: ownerEditorOptions[\s\S]*syncCellTemplate: true/)
