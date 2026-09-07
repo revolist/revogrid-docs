@@ -21,16 +21,15 @@
           Try in your app
           <span aria-hidden="true">→</span>
         </a>
+        <button v-if="sources" ref="sourceButtonRef" class="demo-page-header-link" type="button" :aria-expanded="sourceOpen" @click="openSource"><FontAwesomeSvgIcon name="code"/>Code</button>
+        <a v-if="sources" class="demo-page-header-link" :href="sources.vue.documentationUrl"><FontAwesomeSvgIcon name="bookOpen"/>Docs</a>
         <a class="demo-page-github" :href="config.implementationUrl" target="_blank" rel="noopener noreferrer"><FontAwesomeSvgIcon name="github"/>GitHub</a>
       </div>
     </header>
 
-    <div v-if="demoId !== 'planning'" class="demo-page-utility"><div class="demo-page-utility-actions"><slot name="workspace-actions"/><button ref="sourceButtonRef" type="button" :aria-expanded="sourceOpen" @click="openSource"><FontAwesomeSvgIcon name="code"/> Code</button><a :href="sources.vue.documentationUrl"><FontAwesomeSvgIcon name="bookOpen"/>Docs</a></div></div>
-
     <div class="demo-page-stage" :class="{ 'source-open': sourceOpen }"><div
       ref="workspaceRef"
       class="demo-page-workspace"
-      @demo-open-source="openSource"
     >
       <ClientOnly>
         <slot />
@@ -400,4 +399,5 @@ $max-content-width: 1240px;
 .demo-page-workspace{background:transparent}
 .demo-page-heading p,.demo-page-features summary,.demo-page-features li span,.demo-page-utility-actions button,.demo-page-utility-actions a{color:inherit}
 .demo-page-github{display:inline-flex;height:36px;align-items:center;gap:7px;box-sizing:border-box;padding:0 12px;border:1px solid var(--vp-c-divider);border-radius:6px;background:var(--vp-c-bg);box-shadow:0 1px 2px rgb(15 23 42/7%);color:inherit;font-size:13px;font-weight:600;line-height:1;text-decoration:none}.demo-page-github:hover{border-color:var(--vp-c-border);background:var(--vp-c-bg-soft)}.demo-page-github :deep(.fa-svg-icon){width:15px;height:15px}
+.demo-page-header-actions{flex-wrap:wrap;justify-content:flex-end}.demo-page-header-link{display:inline-flex;height:36px;align-items:center;gap:6px;padding:0 8px;border:0;border-radius:6px;background:transparent;color:inherit;font:500 13px/1 inherit;text-decoration:none;cursor:pointer}.demo-page-header-link:hover{background:var(--vp-c-bg-soft)}.demo-page-header-link :deep(.fa-svg-icon){width:14px;height:14px}
 </style>
