@@ -167,7 +167,7 @@ const updateGuidePosition = () => {
   const stageBounds = stage.getBoundingClientRect()
   const targetBounds = target.getBoundingClientRect()
   if (!stageBounds.width || !stageBounds.height || !targetBounds.width || !targetBounds.height) return
-  const markerLeft = Math.max(8, Math.min(stageBounds.width - 8, targetBounds.right - stageBounds.left))
+  const markerLeft = Math.max(8, Math.min(stageBounds.width - 8, targetBounds.left - stageBounds.left + 18))
   const markerTop = Math.max(8, Math.min(stageBounds.height - 8, targetBounds.top - stageBounds.top + 12))
   const tooltipWidth = Math.min(286, stageBounds.width - 24)
   const tooltipHeight = 118
