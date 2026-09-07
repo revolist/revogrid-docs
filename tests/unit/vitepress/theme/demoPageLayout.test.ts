@@ -327,8 +327,11 @@ test('describes the requested Scheduler capabilities without filter or history b
   )
 })
 
-test('uses the compact feature disclosure and instruction', () => {
-  assert.match(demoPageLayoutSource, /<summary>Features used<\/summary>/)
+test('uses an implementation GitHub link and compact instruction', () => {
+  assert.match(demoPageLayoutSource, /class="demo-page-github"/)
+  assert.match(demoPageLayoutSource, /name="github"\/>GitHub/)
+  assert.match(demoPageLayoutSource, /:href="config\.implementationUrl"/)
+  assert.doesNotMatch(demoPageLayoutSource, /<summary>Features used<\/summary>/)
   assert.match(demoPageLayoutSource, /class="demo-page-guide"/)
   assert.doesNotMatch(demoPageLayoutSource, /class="demo-page-guide-target"|@keyframes demo-page-guide-pulse|class="demo-page-guide-actions"/)
 })

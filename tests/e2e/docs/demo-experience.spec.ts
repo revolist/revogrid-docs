@@ -205,7 +205,7 @@ test('planning layout stays usable at the target viewports', async ({ page }) =>
         const divider = document.querySelector('.VPNavBar .divider-line')!.getBoundingClientRect()
         const title = document.querySelector('.VPNavBarTitle .title')!
         const primaryAction = document.querySelector('.demo-page-button--primary')!.getBoundingClientRect()
-        const featureAction = document.querySelector('.demo-page-features summary')!.getBoundingClientRect()
+        const githubAction = document.querySelector('.demo-page-github')!.getBoundingClientRect()
         const stage = document.querySelector('.demo-page-stage')!
         const grid = document.querySelector('.planning-demo__grid')!
         return {
@@ -215,7 +215,7 @@ test('planning layout stays usable at the target viewports', async ({ page }) =>
           dividerLeft: divider.left,
           dividerWidth: divider.width,
           titleBorderWidth: getComputedStyle(title).borderBottomWidth,
-          actionOffset: Math.abs(primaryAction.top - featureAction.top),
+          actionOffset: Math.abs(primaryAction.top - githubAction.top),
           stageBorderWidth: getComputedStyle(stage).borderWidth,
           gridBorderWidth: getComputedStyle(grid).borderWidth,
           sidebarTitleCount: document.querySelectorAll('.demo-nav header strong').length,
