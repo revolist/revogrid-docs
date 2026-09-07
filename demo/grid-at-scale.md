@@ -26,5 +26,5 @@ import HRDemo from '@revogrid-demos/core-free/src/hr.vue'
 </DemoPageLayout>
 
 <style scoped>
-.demo-main-widget{min-height:0;height:100%;padding-top:10px;border-radius:0}:deep(.hr-toolbar){margin:16px 20px;padding:4px;font-size:12px}
+.demo-main-widget{min-height:0;height:100%;padding-top:0;border-radius:0}:deep(.hr-toolbar){margin:4px 0 12px;padding:0 0 12px;border-bottom:1px solid var(--vp-c-divider);font-size:12px}
 </style>

@@ -147,3 +147,9 @@ test('keeps guided steps out of the planning shell', () => {
   const layout = readFileSync(new URL('../../../../.vitepress/theme/DemoPageLayout.vue', import.meta.url), 'utf8')
   assert.doesNotMatch(layout, /demo-page-guide|Show guide|guidedActions|guideLayout/)
 })
+
+test('aligns the Grid at Scale data source toolbar with the demo heading', () => {
+  const page = readFileSync(new URL('../../../../demo/grid-at-scale.md', import.meta.url), 'utf8')
+  assert.match(page, /\.demo-main-widget\{[^}]*padding-top:0/)
+  assert.match(page, /:deep\(\.hr-toolbar\)\{margin:4px 0 12px;padding:0 0 12px;border-bottom:1px solid var\(--vp-c-divider\)/)
+})
