@@ -260,7 +260,6 @@ $max-content-width: 1240px;
   box-sizing: border-box;
   width: 100%;
   padding: var(--vp-nav-height, 64px) clamp(14px, 2vw, 28px) 28px;
-  color: var(--vp-c-text-1);
   height: calc(100vh);
   display: flex;
   flex-direction: column;
@@ -299,7 +298,6 @@ $max-content-width: 1240px;
 
 .demo-page-heading p {
   margin: 8px 0 0;
-  color: var(--vp-c-text-2);
   font-size: 0.95rem;
   line-height: 1.55;
 }
@@ -505,19 +503,19 @@ $max-content-width: 1240px;
 .demo-page-button--primary,.demo-page-button--primary:hover{background:var(--demo-page-green);transform:none}
 
 /* Final demo-page hierarchy and surface treatment. */
-.demo-page-layout{padding-bottom:18px;background:var(--vp-c-bg);color:var(--vp-c-text-1)}
+.demo-page-layout{padding-bottom:18px;background:var(--vp-c-bg)}
 .demo-page-header{min-height:92px;margin:0;padding:16px 0 12px;align-items:flex-start}
 .demo-page-title-row{gap:9px}
-.demo-page-title-row h1{margin:0;color:var(--vp-c-text-1);letter-spacing:-.025em}
-.demo-page-heading p{margin:3px 0 0;color:var(--vp-c-text-2)}
+.demo-page-title-row h1{margin:0;letter-spacing:-.025em}
+.demo-page-heading p{margin:3px 0 0}
 .demo-page-plan{align-self:center;padding:2px 6px;border:1px solid color-mix(in srgb,var(--demo-page-green) 18%,transparent);background:color-mix(in srgb,var(--demo-page-green) 7%,transparent);color:color-mix(in srgb,var(--demo-page-green) 82%,var(--vp-c-text-1));font-size:10px;font-weight:600;line-height:16px}
 .demo-page-header-actions{padding-top:2px;gap:8px}
 .demo-page-button{height:36px;min-height:36px;box-shadow:0 1px 2px rgb(15 23 42/8%);font-size:13px;font-weight:600}
 .demo-page-button--primary{border-color:color-mix(in srgb,var(--demo-page-green) 82%,#000);background:var(--demo-page-green);color:#fff}
-.demo-page-features summary{display:flex;align-items:center;background:var(--vp-c-bg);color:var(--vp-c-text-2);font-size:13px;font-weight:520;box-shadow:0 1px 2px rgb(15 23 42/3%)}
-.demo-page-features summary:hover{border-color:var(--vp-c-border);color:var(--vp-c-text-1)}
+.demo-page-features summary{display:flex;align-items:center;background:var(--vp-c-bg);font-size:13px;font-weight:520;box-shadow:0 1px 2px rgb(15 23 42/3%)}
+.demo-page-features summary:hover{border-color:var(--vp-c-border)}
 .demo-page-utility{min-height:34px;margin:0 0 8px}
-.demo-page-guide{align-items:center;color:var(--vp-c-text-2);font-size:11.5px}
+.demo-page-guide{align-items:center;font-size:11.5px}
 .demo-page-guide>span{width:20px;height:20px;background:color-mix(in srgb,var(--demo-page-green) 9%,transparent);color:var(--demo-page-green-dark);font-size:10px;font-weight:650}
 .demo-page-guide--heading{min-height:24px;margin-top:8px!important}
 .demo-page-layout[data-demo-id='planning'] .demo-page-header{min-height:82px;padding-bottom:10px}
@@ -533,7 +531,6 @@ $max-content-width: 1240px;
 
 /* Contrast pass for the shared demo shell. */
 .demo-page-layout{background:transparent}
-.demo-page-heading p,.demo-page-guide{color:#4f5b55}
 .demo-page-plan{border-color:#a9cfbc;background:#e3f1ea;color:#075f3c}
 .demo-page-features summary{border-color:#b9c3be;background:#fff;color:#3d4943;box-shadow:0 1px 2px rgb(15 23 42/7%)}
 .demo-page-guide>span{border:1px solid #b7d8c8;background:#e1f1e9;color:#096942}
@@ -542,4 +539,5 @@ $max-content-width: 1240px;
 .demo-page-features summary{margin:0}
 .demo-page-stage{border:0;border-radius:0;box-shadow:none}
 .demo-page-workspace{background:transparent}
+.demo-page-heading p,.demo-page-features summary,.demo-page-features li span,.demo-page-guide,.demo-page-utility-actions button,.demo-page-utility-actions a{color:inherit}
 </style>
