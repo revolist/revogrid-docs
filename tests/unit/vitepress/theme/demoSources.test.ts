@@ -175,3 +175,9 @@ test('extends Project Tracker actions to the demo edges', () => {
   assert.match(shell, /\.project-grid-toolbar\s*\{[\s\S]*?padding:\s*space\(4\) 0/)
   assert.match(responsive, /\.project-grid-toolbar\s*\{\s*padding:\s*space\(4\) 0/)
 })
+
+test('aligns Tree Data actions with the demo edge', () => {
+  const styles = readFileSync(new URL('../../../../revogrid-demos/pro-tree-data/src/tree.scss', import.meta.url), 'utf8')
+  assert.match(styles, /\.tree-toolbar\s*\{[\s\S]*?justify-content:\s*flex-start[\s\S]*?padding:\s*14px 0/)
+  assert.match(styles, /\.tree-toolbar__actions\s*\{[\s\S]*?justify-content:\s*flex-start/)
+})
