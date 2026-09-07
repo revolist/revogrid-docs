@@ -46,3 +46,17 @@ test('keeps open-source demos unbadged and labels the scale demo Performance', (
   assert.match(navigation, /planId === 'open-source' \? null/)
   assert.match(navigation, /item\('grid-at-scale','Performance','\/demo\/grid-at-scale','grid'\)/)
 })
+
+test('marks every planning view Pro and gives workspace actions matching icons', () => {
+  const vueSource = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.vue', import.meta.url), 'utf8')
+  const frameworkSources = [
+    vueSource,
+    readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.ts', import.meta.url), 'utf8'),
+    readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.react.tsx', import.meta.url), 'utf8'),
+    readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.angular.ts', import.meta.url), 'utf8'),
+  ]
+  frameworkSources.forEach(source => assert.match(source, /planning-demo__pro/))
+  assert.match(vueSource, /name="code"\/>Code/)
+  assert.match(vueSource, /name="bookOpen"\/>Docs/)
+  assert.match(vueSource, /name="ellipsis"\/>More/)
+})

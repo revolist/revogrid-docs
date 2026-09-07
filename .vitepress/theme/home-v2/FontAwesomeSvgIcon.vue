@@ -12,6 +12,7 @@ import arrowRightIcon from '@fortawesome/fontawesome-free/svgs/solid/arrow-right
 import caretDownIcon from '@fortawesome/fontawesome-free/svgs/solid/caret-down.svg?raw'
 import caretRightIcon from '@fortawesome/fontawesome-free/svgs/solid/caret-right.svg?raw'
 import borderAllIcon from '@fortawesome/fontawesome-free/svgs/solid/border-all.svg?raw'
+import bookOpenIcon from '@fortawesome/fontawesome-free/svgs/solid/book-open.svg?raw'
 import boxesStackedIcon from '@fortawesome/fontawesome-free/svgs/solid/boxes-stacked.svg?raw'
 import buildingColumnsIcon from '@fortawesome/fontawesome-free/svgs/solid/building-columns.svg?raw'
 import calendarDaysIcon from '@fortawesome/fontawesome-free/svgs/solid/calendar-days.svg?raw'
@@ -33,6 +34,7 @@ import listCheckIcon from '@fortawesome/fontawesome-free/svgs/solid/list-check.s
 import lockIcon from '@fortawesome/fontawesome-free/svgs/solid/lock.svg?raw'
 import paletteIcon from '@fortawesome/fontawesome-free/svgs/solid/palette.svg?raw'
 import penToSquareIcon from '@fortawesome/fontawesome-free/svgs/solid/pen-to-square.svg?raw'
+import ellipsisIcon from '@fortawesome/fontawesome-free/svgs/solid/ellipsis.svg?raw'
 import puzzlePieceIcon from '@fortawesome/fontawesome-free/svgs/solid/puzzle-piece.svg?raw'
 import rectangleListIcon from '@fortawesome/fontawesome-free/svgs/solid/rectangle-list.svg?raw'
 import scaleBalancedIcon from '@fortawesome/fontawesome-free/svgs/solid/scale-balanced.svg?raw'
@@ -59,7 +61,9 @@ const icons: Record<string, string> = {
   caretRight: caretRightIcon,
   pulse: gaugeHighIcon,
   grid: borderAllIcon,
+  bookOpen: bookOpenIcon,
   edit: penToSquareIcon,
+  ellipsis: ellipsisIcon,
   columns: tableColumnsIcon,
   palette: paletteIcon,
   tree: sitemapIcon,
