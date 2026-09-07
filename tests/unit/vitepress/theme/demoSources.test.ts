@@ -158,3 +158,8 @@ test('aligns the Grid at Scale data source toolbar with the demo heading', () =>
   assert.match(page, /\.demo-main-widget\{[^}]*padding-top:0/)
   assert.match(page, /:deep\(\.hr-toolbar\)\{margin:4px 0 12px;padding:0 0 12px;border-bottom:1px solid var\(--vp-c-divider\)/)
 })
+
+test('aligns the AI prompt search controls with the demo heading', () => {
+  const styles = readFileSync(new URL('../../../../revogrid-demos/core-ai-prompts/src/prompt-library.css', import.meta.url), 'utf8')
+  assert.match(styles, /\.prompt-toolbar\s*\{[\s\S]*?padding:\s*18px 0/)
+})
