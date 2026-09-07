@@ -28,6 +28,7 @@ test('navigation search filters examples without changing the route', async ({ p
 })
 
 test('source panel uses real files and preserves the live workspace', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 })
   await page.goto('/demo/')
   const taskSearch = page.getByPlaceholder('Search tasks…')
   await taskSearch.fill('Maya')
@@ -35,6 +36,16 @@ test('source panel uses real files and preserves the live workspace', async ({ p
 
   await page.getByRole('button', { name: 'Code' }).click()
   await expect(page.getByRole('dialog', { name: 'Use this example' })).toBeVisible()
+  const sourceGeometry = await page.evaluate(() => {
+    const stage = document.querySelector('.demo-page-stage')!.getBoundingClientRect()
+    const workspace = document.querySelector('.demo-page-workspace')!.getBoundingClientRect()
+    const source = document.querySelector('.demo-source')!.getBoundingClientRect()
+    return { stage, workspace, source }
+  })
+  expect(sourceGeometry.source.left).toBeGreaterThan(sourceGeometry.stage.left)
+  expect(sourceGeometry.source.right).toBeLessThanOrEqual(sourceGeometry.stage.right + 1)
+  expect(sourceGeometry.workspace.left).toBe(sourceGeometry.stage.left)
+  expect(sourceGeometry.workspace.right).toBeLessThan(sourceGeometry.source.left)
   await expect(page.getByLabel('File')).toHaveValue('0')
   await expect(page.getByLabel('File')).toContainText('planning.vue')
   await page.getByRole('tab', { name: 'React' }).click()
