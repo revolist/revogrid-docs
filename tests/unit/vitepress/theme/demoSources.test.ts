@@ -34,6 +34,6 @@ test('keeps the source panel and demo navigation at their specified breakpoints'
   const navigation = readFileSync(new URL('../../../../.vitepress/theme/DemoNavigation.vue', import.meta.url), 'utf8')
   assert.match(sourcePanel, /width:420px;min-width:420px/)
   assert.match(sourcePanel, /@media\(max-width:1279px\)/)
-  assert.match(navigation, /width:196px/)
+  assert.match(navigation, /--demo-sidebar-width,256px/)
   assert.match(navigation, /@media\(max-width:1099px\)/)
 })

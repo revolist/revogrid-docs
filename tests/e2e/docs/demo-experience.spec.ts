@@ -149,6 +149,27 @@ test('planning layout stays usable at the target viewports', async ({ page }) =>
       await expect(page.getByRole('button', { name: 'Examples', exact: true })).toBeVisible()
     } else {
       await expect(page.locator('.demo-nav')).toBeVisible()
+      const shellGeometry = await page.evaluate(() => {
+        const sidebar = document.querySelector('.demo-nav')!.getBoundingClientRect()
+        const scrollArea = document.querySelector('.demo-nav nav')!.getBoundingClientRect()
+        const layout = document.querySelector('.demo-page-layout')!.getBoundingClientRect()
+        const divider = document.querySelector('.VPNavBar .divider-line')!.getBoundingClientRect()
+        const title = document.querySelector('.VPNavBarTitle .title')!
+        return {
+          sidebarWidth: sidebar.width,
+          scrollbarEdge: sidebar.right - scrollArea.right,
+          layoutLeft: layout.left,
+          dividerLeft: divider.left,
+          dividerWidth: divider.width,
+          titleBorderWidth: getComputedStyle(title).borderBottomWidth,
+        }
+      })
+      expect(shellGeometry.sidebarWidth).toBe(256)
+      expect(shellGeometry.scrollbarEdge).toBeLessThanOrEqual(1)
+      expect(shellGeometry.layoutLeft).toBe(256)
+      expect(shellGeometry.dividerLeft).toBe(0)
+      expect(shellGeometry.dividerWidth).toBe(viewport.width)
+      expect(shellGeometry.titleBorderWidth).toBe('0px')
     }
 
     if (viewport.width === 1280) {

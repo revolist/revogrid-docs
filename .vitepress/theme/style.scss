@@ -82,7 +82,8 @@
 }
 
 .demo-page-class {
-    --vp-sidebar-width: 196px;
+    --demo-sidebar-width: 256px;
+    --vp-sidebar-width: var(--demo-sidebar-width);
     font-family: Geist, Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -93,6 +94,14 @@
 @media (min-width: 1100px) {
     .demo-page-class .VPContent.has-sidebar {
         padding-left: 0 !important;
+    }
+
+    .demo-page-class .VPNavBar.has-sidebar .divider {
+        padding-left: 0;
+    }
+
+    .demo-page-class .VPNavBarTitle.has-sidebar .title {
+        border-bottom: 0;
     }
 }
 

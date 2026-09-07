@@ -529,4 +529,5 @@ $max-content-width: 1240px;
 .demo-page-stage{border-color:color-mix(in srgb,var(--vp-c-divider) 92%,transparent);background:var(--vp-c-bg);box-shadow:0 1px 2px rgb(15 23 42/3%)}
 @media(max-width:1099px){.demo-page-layout{padding-right:16px;padding-left:16px}.demo-page-header{min-height:82px}}
 @media(max-width:700px){.demo-page-layout[data-demo-id='planning'] .demo-page-heading{display:block}.demo-page-layout[data-demo-id='planning'] .demo-page-guide--heading{margin-top:8px!important}}
+@media(min-width:1100px){.demo-page-layout{margin-left:var(--demo-sidebar-width,256px);width:calc(100% - var(--demo-sidebar-width,256px))}}
 </style>
