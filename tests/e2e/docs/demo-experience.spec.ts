@@ -28,17 +28,10 @@ test('navigation search filters examples without changing the route', async ({ p
   await expect(page.locator('.demo-nav nav')).toContainText('Kanban')
 })
 
-test('planning guide spotlights the next action and can be dismissed or reopened', async ({ page }) => {
+test('planning does not render guided steps', async ({ page }) => {
   await page.goto('/demo/')
-  const tooltip = page.locator('.demo-page-guide-tooltip')
-  await expect(tooltip).toContainText('Update a status')
-  await expect(tooltip).toContainText('Select a Status cell')
-  await expect(page.locator('.demo-page-guide-spotlight')).toBeVisible()
-
-  await tooltip.getByRole('button', { name: 'Dismiss guide' }).click()
-  await expect(tooltip).toBeHidden()
-  await page.getByRole('button', { name: 'Show guide' }).click()
-  await expect(tooltip).toBeVisible()
+  await expect(page.locator('[class*="demo-page-guide"]')).toHaveCount(0)
+  await expect(page.getByRole('button', { name: 'Show guide' })).toHaveCount(0)
 })
 
 test('source panel uses real files and preserves the live workspace', async ({ page }) => {

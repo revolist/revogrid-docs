@@ -7,11 +7,7 @@ import {
   DEMO_PAGE_LAYOUT_VERSION,
   createDemoPageAnalyticsEvent,
   getAllDemoPageConfigs,
-  getDemoGuidedStepActions,
   getDemoPageConfig,
-  isConfirmedGanttMove,
-  isConfirmedGridEdit,
-  matchesDemoGuidedStepAction,
 } from '../../../../.vitepress/theme/demoPageLayout'
 import { sidebarDemonEn } from '../../../../.vitepress/configs/sidebar/en.demo'
 
@@ -59,71 +55,10 @@ test('provides complete reusable layout content for every catalog demo', () => {
     assert.equal(config.demo, PRODUCT_CATALOG.demos[config.demo.id])
     assert.ok(config.title.length > 4)
     assert.match(config.description, /\.$/)
-    assert.ok(config.guidedActions.length >= 2 && config.guidedActions.length <= 3)
-    assert.equal(new Set(config.guidedActions).size, config.guidedActions.length)
-    assert.ok(config.guidedActions.every(action => action.length > 5))
     assert.match(config.implementationUrl, /[?&]source=demo-page/)
     assert.match(config.implementationUrl, new RegExp(`[?&]demo=${config.demo.id}(?:&|$)`))
     assert.match(config.pricingUrl, /^\/pricing\?source=demo-page/)
   })
-})
-
-test('keeps Filtering preset and search steps semantically separate', () => {
-  const steps = getDemoGuidedStepActions('filtering')
-  assert.deepEqual(steps, ['preset', 'search', 'filter'])
-  assert.equal(matchesDemoGuidedStepAction(steps[0], 'preset'), true)
-  assert.equal(matchesDemoGuidedStepAction(steps[1], 'preset'), false)
-  assert.equal(matchesDemoGuidedStepAction(steps[1], 'search'), true)
-  assert.equal(matchesDemoGuidedStepAction(steps[2], 'search'), false)
-  assert.equal(matchesDemoGuidedStepAction(steps[2], 'filter'), true)
-})
-
-test('requires a confirmed Planning status edit before switching views', () => {
-  const steps = getDemoGuidedStepActions('planning')
-  assert.deepEqual(steps, ['edit', 'switch-view'])
-  assert.equal(matchesDemoGuidedStepAction(steps[0], 'switch-view'), false)
-  assert.equal(matchesDemoGuidedStepAction(steps[1], 'switch-view'), true)
-
-  assert.equal(isConfirmedGridEdit({ val: 'Updated', model: { name: 'Original' }, prop: 'name' }), true)
-  assert.equal(isConfirmedGridEdit({ val: 'Same', model: { name: 'Same' }, prop: 'name' }), false)
-  assert.equal(isConfirmedGridEdit({}), false)
-
-  assert.equal(isConfirmedGanttMove({
-    action: 'move',
-    previousSourceValues: { startDate: '2026-01-01', endDate: '2026-01-03' },
-    sourcePatch: { startDate: '2026-01-02', endDate: '2026-01-04' },
-  }), true)
-  assert.equal(isConfirmedGanttMove({
-    action: 'move',
-    previousSourceValues: { startDate: '2026-01-01', endDate: '2026-01-03' },
-    sourcePatch: { startDate: '2026-01-01', endDate: '2026-01-03' },
-  }), false)
-  assert.equal(isConfirmedGanttMove({
-    action: 'move',
-    taskId: 'task-1',
-    sourcePatch: { startDate: '2026-01-02' },
-  }, [{ id: 'task-1', startDate: '2026-01-01', endDate: '2026-01-03' }]), true)
-  assert.equal(isConfirmedGanttMove({
-    action: 'move',
-    taskId: 'task-1',
-    sourcePatch: { startDate: '2026-01-01' },
-  }, [{ id: 'task-1', startDate: '2026-01-01', endDate: '2026-01-03' }]), false)
-  assert.equal(isConfirmedGanttMove({ action: 'resize', sourcePatch: {}, previousSourceValues: {} }), false)
-})
-
-test('does not retain the former generic click-and-grid-event step advancement', () => {
-  assert.doesNotMatch(demoPageLayoutSource, /recordMeaningfulInteraction/)
-  assert.doesNotMatch(demoPageLayoutSource, /workspace_control|workspace_change|workspace_drag/)
-  assert.match(demoPageLayoutSource, /order-explorer__presets button/)
-  assert.match(demoPageLayoutSource, /order-explorer__search-input/)
-  assert.match(demoPageLayoutSource, /planning-demo__switch/)
-})
-
-test('leaves every other demo inert until it declares its own action contract', () => {
-  for (const demoId of Object.keys(PRODUCT_CATALOG.demos) as DemoId[]) {
-    if (demoId === 'filtering' || demoId === 'planning') continue
-    assert.deepEqual(getDemoGuidedStepActions(demoId), ['manual', 'manual', 'manual'])
-  }
 })
 
 test('uses the concise Project Portfolio description', () => {
@@ -327,13 +262,12 @@ test('describes the requested Scheduler capabilities without filter or history b
   )
 })
 
-test('uses an implementation GitHub link and compact instruction', () => {
+test('uses an implementation GitHub link without guided steps', () => {
   assert.match(demoPageLayoutSource, /class="demo-page-github"/)
   assert.match(demoPageLayoutSource, /name="github"\/>GitHub/)
   assert.match(demoPageLayoutSource, /:href="config\.implementationUrl"/)
   assert.doesNotMatch(demoPageLayoutSource, /<summary>Features used<\/summary>/)
-  assert.match(demoPageLayoutSource, /class="demo-page-guide"/)
-  assert.doesNotMatch(demoPageLayoutSource, /class="demo-page-guide-target"|@keyframes demo-page-guide-pulse|class="demo-page-guide-actions"/)
+  assert.doesNotMatch(demoPageLayoutSource, /demo-page-guide|Show guide|guidedActions/)
 })
 
 test('does not repeat the header CTA inside the demo workspace', () => {
@@ -437,12 +371,12 @@ test('creates stable data-layer events without allowing detail fields to replace
     event: 'overridden',
     demo_slug: 'overridden',
     action_id: 'move-field',
-    placement: 'guided_stepper',
+    placement: 'source_panel',
   })
 
   assert.deepEqual(event, {
     action_id: 'move-field',
-    placement: 'guided_stepper',
+    placement: 'source_panel',
     event: 'demo_action',
     demo_id: 'pivot',
     demo_name: 'Pivot Table Demo',
@@ -459,12 +393,6 @@ test('reports ready only after an observed demo grid finishes initializing', () 
     demoPageLayoutSource,
     /scanForGrids\(\)\s*\n\s*pushAnalytics\(createDemoPageAnalyticsEvent\('demo_ready'/,
   )
-})
-
-test('confirms grid edits from beforeedit state and Gantt moves against the current source', () => {
-  assert.match(demoPageLayoutSource, /'beforeedit'/)
-  assert.match(demoPageLayoutSource, /pendingGridEdits/)
-  assert.match(demoPageLayoutSource, /isConfirmedGanttMove\(detail, source\)/)
 })
 
 test('preserves experiment attribution in the demo trial link after hydration', () => {

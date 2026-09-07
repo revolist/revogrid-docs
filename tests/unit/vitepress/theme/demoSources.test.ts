@@ -72,6 +72,7 @@ test('uses native advanced filters, quick search, and plugin-owned badges in the
   assert.match(vueSource, /:filter-badges\.prop="filterBadgeOptions"/)
   assert.match(vueSource, /:filter\.prop="planningFilterConfig"/)
   assert.doesNotMatch(vueSource, /planning-demo__toolbar/)
+  assert.doesNotMatch(vueSource, /planning-demo__hint/)
   assert.match(workspace, /slots:[\s\S]*start:[\s\S]*planning-demo__filter-search/)
   assert.match(vueSource, /usePlanningWorkspace/)
   assert.doesNotMatch(vueSource, /planning-demo__filter-popover/)
@@ -105,18 +106,7 @@ test('uses native advanced filters, quick search, and plugin-owned badges in the
   }
 })
 
-test('keeps the planning guide actionable and dismissible', () => {
+test('keeps guided steps out of the planning shell', () => {
   const layout = readFileSync(new URL('../../../../.vitepress/theme/DemoPageLayout.vue', import.meta.url), 'utf8')
-  assert.match(layout, /title: 'Update a status'/)
-  assert.match(layout, /title: 'Open Kanban'/)
-  assert.match(layout, /guideTarget\(\)/)
-  assert.match(layout, /querySelector<HTMLElement>\('\.planning-status'\)/)
-  assert.match(layout, /targetBounds\.height \/ 2/)
-  assert.match(layout, /Dismiss guide/)
-  assert.match(layout, /Show guide/)
-  assert.match(layout, /pointer-events:none/)
-  assert.match(layout, /demo-page-guide-marker/)
-  assert.match(layout, /@keyframes demo-guide-pulse/)
-  assert.match(layout, /targetBounds\.left - stageBounds\.left - 7/)
-  assert.doesNotMatch(layout, /guideLayout\.spotlight/)
+  assert.doesNotMatch(layout, /demo-page-guide|Show guide|guidedActions|guideLayout/)
 })

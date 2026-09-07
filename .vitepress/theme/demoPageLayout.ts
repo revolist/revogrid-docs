@@ -12,20 +12,10 @@ export interface DemoFeatureBadge {
   source: string
 }
 
-export type DemoGuidedStepAction =
-  | 'preset'
-  | 'search'
-  | 'filter'
-  | 'edit'
-  | 'gantt-move'
-  | 'switch-view'
-  | 'manual'
-
 export interface DemoPageContent {
   title: string
   description: string
   implementationUrl: string
-  guidedActions: readonly string[]
   featureBadges: readonly DemoFeatureBadge[]
 }
 
@@ -36,61 +26,17 @@ export interface DemoPageConfig extends DemoPageContent {
   pricingUrl: string
 }
 
-const DEMO_GUIDED_STEP_ACTIONS: Partial<Record<DemoId, readonly DemoGuidedStepAction[]>> = {
-  filtering: ['preset', 'search', 'filter'],
-  planning: ['edit', 'switch-view'],
-}
-
-export const getDemoGuidedStepActions = (demoId: DemoId): readonly DemoGuidedStepAction[] =>
-  DEMO_GUIDED_STEP_ACTIONS[demoId]
-  ?? getDemoPageConfig(demoId).guidedActions.map(() => 'manual')
-
-export const matchesDemoGuidedStepAction = (
-  expected: DemoGuidedStepAction | undefined,
-  actual: DemoGuidedStepAction,
-): boolean => expected === actual && actual !== 'manual'
-
-export const isConfirmedGridEdit = (detail: Record<string, unknown>): boolean => {
-  if (!Object.hasOwn(detail, 'val')) return false
-  if (Object.hasOwn(detail, 'oldVal')) return !Object.is(detail.val, detail.oldVal)
-  const model = detail.model
-  const prop = detail.prop
-  if (!model || typeof model !== 'object' || typeof prop !== 'string') return false
-  return !Object.is(detail.val, (model as Record<string, unknown>)[prop])
-}
-
-export const isConfirmedGanttMove = (
-  detail: Record<string, unknown>,
-  source: readonly unknown[] = [],
-): boolean => {
-  if (detail.action !== 'move') return false
-  const patch = detail.sourcePatch ?? detail.changes
-  const sourceTask = source.find((candidate) =>
-    candidate
-    && typeof candidate === 'object'
-    && String((candidate as Record<string, unknown>).id) === String(detail.taskId),
-  )
-  const previous = detail.previousSourceValues ?? detail.previousValues ?? sourceTask
-  if (!patch || typeof patch !== 'object' || !previous || typeof previous !== 'object') return false
-  const dates = ['startDate', 'endDate'] as const
-  return dates.some((date) =>
-    typeof (patch as Record<string, unknown>)[date] === 'string'
-    && (patch as Record<string, unknown>)[date] !== (previous as Record<string, unknown>)[date])
-}
-
 const DEMO_PAGE_CONTENT = {
   'grid-at-scale': {
     title: 'Grid at Scale Demo',
     description: 'Explore fast editing, filtering, and sorting across a large virtualized dataset.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/core-free/src/hr.vue',
-    guidedActions: ['Change the dataset size', 'Edit an employee', 'Sort or filter a column'],
     featureBadges: [],
   },
   'ai-prompt-library': {
     title: 'AI Prompt Library Demo',
     description: 'Search, filter, and edit a practical prompt catalog that loads instantly from bundled local data.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/core-ai-prompts/src/prompt-library.vue',
-    guidedActions: ['Search for a prompt', 'Filter by category', 'Double-click a prompt to edit it'],
     featureBadges: [
       { label: 'Multiline editing', source: 'Core TextEditor extension' },
       { label: 'Local data', source: 'Bundled typed prompt catalog' },
@@ -101,7 +47,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'Project Portfolio Demo',
     description: 'Delivery portfolio with two-level row grouping, progress indicators, sorting, and filtering.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/core-project-portfolio/src/project-portfolio.vue',
-    guidedActions: ['Expand or collapse all groups', 'Open any group', 'Sort or filter a project column'],
     featureBadges: [
       { label: 'Row grouping', source: 'RevoGrid Core grouping API' },
       { label: 'Custom cells', source: 'Core cellTemplate renderers' },
@@ -112,7 +57,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'Project Tracker Demo',
     description: 'Manage owners, priorities, statuses, and deadlines in an editable project workspace.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-project-table/src/project-table.vue',
-    guidedActions: ['Change a project status', 'Filter the project list', 'Add a project'],
     featureBadges: [
       { label: 'Row selection', source: 'RowSelectPlugin' },
       { label: 'Excel filters', source: 'AdvanceFilterPlugin' },
@@ -131,7 +75,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'Audit History Demo',
     description: 'Compare revisions, export records, and restore earlier values.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-audit-history/src/audit-history.vue',
-    guidedActions: ['Edit an invoice field', 'Inspect the new audit record', 'Restore an earlier value'],
     featureBadges: [
       { label: 'Change log', source: 'AuditHistoryPlugin' },
       { label: 'Audit panel', source: 'defineAuditHistoryPanel' },
@@ -145,7 +88,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'Column Collapse Demo',
     description: 'Collapsible groups, sealed summaries, filtering, selection & responsive columns.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-column-collapse/src/column-collapse.vue',
-    guidedActions: ['Collapse a grouped header', 'Expand the hidden columns', 'Filter a contact column'],
     featureBadges: [
       { label: 'Column collapse', source: 'ColumnCollapsePlugin' },
       { label: 'Grouped headers', source: 'RevoGrid column groups' },
@@ -159,7 +101,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'Context Menu & Formatting Demo',
     description: 'Selection-aware commands and rich formatting across cells, rows, columns, and headers.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-data-grid-context-menu/src/data-grid-context-menu.vue',
-    guidedActions: ['Open a cell context menu', 'Format the selected cells', 'Inspect a grouped column'],
     featureBadges: [
       { label: 'Context menu', source: 'DataGridContextMenuPlugin' },
       { label: 'Cell formats', source: 'DataGridContextMenuPlugin formatting runtime' },
@@ -172,7 +113,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'Advanced Filtering Demo',
     description: 'Presets, quick search, expression filters, selection cascades, date rules, and numeric sliders.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-filtering/src/filtering.vue',
-    guidedActions: ['Apply a filter preset', 'Try the global search', 'Build a header filter'],
     featureBadges: [
       { label: 'Advanced filters', source: 'AdvanceFilterPlugin' },
       { label: 'Header filtering', source: 'FilterHeaderPlugin' },
@@ -186,7 +126,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'Infinity Scroll Demo',
     description: 'Load remote rows in buffered chunks with server-side sorting and filtering.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-infinity-scroll/src/infinity-scroll.vue',
-    guidedActions: ['Scroll to load more rows', 'Sort a remote column', 'Export the full dataset'],
     featureBadges: [
       { label: 'Remote chunk loading', source: 'InfinityScrollPlugin' },
       { label: 'Buffered preloading', source: 'InfinityScrollConfig.bufferSize + preloadThreshold' },
@@ -199,7 +138,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'Row Master Demo',
     description: 'Rich master-detail panels with nested hierarchy, asynchronous details in virtualized grid.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-row-master/src/row-master.vue',
-    guidedActions: ['Expand a project row', 'Inspect the loaded details', 'Navigate the project hierarchy'],
     featureBadges: [
       { label: 'Master-detail rows', source: 'MasterRowPlugin' },
       { label: 'Custom detail templates', source: 'RowMasterConfig.template' },
@@ -212,7 +150,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'Tree Data Demo',
     description: 'Hierarchical rows with sticky parents, animation, reorder, selection, filtering & export.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-tree-data/src/tree.vue',
-    guidedActions: ['Expand the organization tree', 'Toggle sticky parents', 'Reorder a hierarchy row'],
     featureBadges: [
       { label: 'Hierarchical rows', source: 'TreeDataPlugin' },
       { label: 'Sticky parents', source: 'StickyCellsPlugin + TreeConfig.stickyParents' },
@@ -227,7 +164,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'Excel Workbench Demo',
     description: 'Edit formulas, validation, formatting, presence, and Excel files in a spreadsheet workspace.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-excel/src/excel.vue',
-    guidedActions: ['Edit a workbook cell', 'Inspect a formula', 'Import or export a workbook'],
     featureBadges: [
       { label: 'Spreadsheet editing', source: 'RevoGrid Pro workbook configuration' },
       { label: 'Excel import and export', source: 'Excel import/export plugin' },
@@ -238,7 +174,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'JavaScript Pivot Table Component Demo',
     description: 'High-performance pivot table, drag-and-drop fields, multi-level aggregation, filtering, and export.',
     implementationUrl: 'https://github.com/revolist/pivot',
-    guidedActions: ['Change an aggregation', 'Move a field', 'Apply a filter'],
     featureBadges: [
       { label: 'Pivot Table analytics', source: 'PivotPlugin' },
       { label: 'Advanced filters', source: 'AdvanceFilterPlugin + FilterHeaderPlugin' },
@@ -251,7 +186,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'JavaScript Gantt Chart Demo',
     description: 'Plan tasks, dependencies, milestones, and schedules in an interactive timeline workspace.',
     implementationUrl: 'https://github.com/revolist/gantt',
-    guidedActions: ['Move a task', 'Resize a timeline item', 'Change the zoom'],
     featureBadges: [
       { label: 'Gantt', source: 'GanttPlugin' },
       { label: 'Dependencies & critical path', source: 'GanttDependencyOverlayPlugin + GanttTaskBarsPlugin' },
@@ -266,7 +200,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'Large Dataset Gantt Demo',
     description: '10,000 virtualized Gantt tasks and 19,796 dependencies.',
     implementationUrl: 'https://github.com/revolist/gantt',
-    guidedActions: ['Scroll through 10,000 tasks', 'Inspect linked task chains', 'Pan across the timeline'],
     featureBadges: [
       { label: 'Gantt timeline', source: 'GanttPlugin' },
       { label: '10,000 tasks', source: 'createGanttBigDataSet task fixture' },
@@ -280,7 +213,6 @@ const DEMO_PAGE_CONTENT = {
     title: '20Y-Timeline Gantt Demo',
     description: 'Linked tasks across a twenty-year program with month-and-quarter scaling.',
     implementationUrl: 'https://github.com/revolist/gantt',
-    guidedActions: ['Pan across the 20Y timeline', 'Inspect linked task chains', 'Compare periods'],
     featureBadges: [
       { label: 'Gantt timeline', source: 'GanttPlugin' },
       { label: '20-year range', source: '2026–2045 horizontal big-data fixture' },
@@ -294,7 +226,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'Kanban Workflow Demo',
     description: 'Cards across workflow columns and swimlanes with ordering, WIP limits, card rules & editing.',
     implementationUrl: 'https://github.com/revolist/kanban',
-    guidedActions: ['Move a card between columns', 'Review a swimlane', 'Test a WIP limit'],
     featureBadges: [
       { label: 'Kanban board', source: 'KanbanPlugin' },
       { label: 'Card movement', source: 'KanbanPlugin source-backed drag and drop' },
@@ -308,7 +239,6 @@ const DEMO_PAGE_CONTENT = {
     title: '50K-Task Kanban Performance Demo',
     description: 'Virtualize 50K tasks across ten workflow columns and two team swimlanes.',
     implementationUrl: 'https://github.com/revolist/kanban',
-    guidedActions: ['Scroll through 50K tasks', 'Pan across workflow columns', 'Collapse a team swimlane'],
     featureBadges: [
       { label: 'Kanban board', source: 'KanbanPlugin' },
       { label: '50,000 tasks', source: 'createKanbanBoardRows performance fixture' },
@@ -322,7 +252,6 @@ const DEMO_PAGE_CONTENT = {
     title: '100K Kanban Server-Loading Demo',
     description: 'Load a 100,000-card Kanban board from a remote offset stream in small, virtualized chunks.',
     implementationUrl: 'https://github.com/revolist/kanban',
-    guidedActions: ['Watch the first remote load', 'Scroll to request another range', 'Inspect loading placeholders'],
     featureBadges: [
       { label: 'Kanban board', source: 'KanbanPlugin' },
       { label: '100,000 cards', source: 'KanbanConfig remote.total' },
@@ -336,7 +265,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'JavaScript Scheduler Demo',
     description: 'Build resource schedules with events, movement, resizing, and calendar views.',
     implementationUrl: 'https://github.com/revolist/scheduler',
-    guidedActions: ['Create an event', 'Move or resize a shift', 'Change the calendar view'],
     featureBadges: [
       { label: 'Scheduler & Calendar', source: 'EventSchedulerPlugin' },
       { label: 'Event editing', source: 'EventSchedulerPlugin: create, move, resize, delete' },
@@ -356,7 +284,6 @@ const DEMO_PAGE_CONTENT = {
     title: 'Project workspace',
     description: 'Edit once. Explore the same data in every view.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-advanced-planning/src/planning.vue',
-    guidedActions: ['Change a task status', 'Open Kanban to see the same data'],
     featureBadges: [
       { label: 'Shared model', source: 'Reactive task state shared across every planning view' },
       { label: 'Data grid', source: 'RevoGrid editing, filtering, sorting, ranges, and column moving' },
