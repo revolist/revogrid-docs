@@ -65,12 +65,16 @@ test('marks every planning view Pro and gives workspace actions matching icons',
 test('uses native advanced filters, quick search, and plugin-owned badges in the planning grid', () => {
   const vueSource = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.vue', import.meta.url), 'utf8')
   const columns = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/data/columns.ts', import.meta.url), 'utf8')
-  assert.match(vueSource, /AdvanceFilterPlugin, FilterHeaderPlugin/)
+  const workspace = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/composables/usePlanningWorkspace.ts', import.meta.url), 'utf8')
+  assert.match(workspace, /AdvanceFilterPlugin, FilterHeaderPlugin/)
   assert.match(vueSource, /:quick-filter\.prop="quickFilter"/)
   assert.match(vueSource, /:filter-badges\.prop="filterBadgeOptions"/)
   assert.match(vueSource, /:filter\.prop="planningFilterConfig"/)
+  assert.match(vueSource, /usePlanningWorkspace/)
   assert.doesNotMatch(vueSource, /planning-demo__filter-popover/)
   assert.doesNotMatch(vueSource, /planning-demo__chips/)
+  assert.doesNotMatch(vueSource, /toggleVisiblePlanningRows/)
+  assert.doesNotMatch(vueSource, /@click\.capture/)
   assert.match(columns, /syncCellTemplate:[\s\S]*owner: true[\s\S]*priority: true/)
   assert.match(columns, /columnType: 'dropdown',[\s\S]*source: ownerEditorOptions[\s\S]*syncCellTemplate: true/)
   assert.match(columns, /workflowStatusColumn[\s\S]*filter: \[FILTER_CHIP_BADGE_TOGGLES\]/)
@@ -82,6 +86,7 @@ test('uses native advanced filters, quick search, and plugin-owned badges in the
   assert.match(columns, /prop: 'activityAt',[\s\S]*filter: \[FILTER_TIME_MATRIX\]/)
   assert.match(columns, /structuredFilterTypes: planningStructuredFilterTypes/)
   assert.ok(getRegisteredDemoSourcePaths().includes('pro-advanced-planning/src/data/planning.structured.ts'))
+  assert.ok(getRegisteredDemoSourcePaths().includes('pro-advanced-planning/src/composables/usePlanningWorkspace.ts'))
   const tsSource = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.ts', import.meta.url), 'utf8')
   const reactSource = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.react.tsx', import.meta.url), 'utf8')
   const angularSource = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.angular.ts', import.meta.url), 'utf8')
@@ -89,6 +94,10 @@ test('uses native advanced filters, quick search, and plugin-owned badges in the
   assert.match(tsSource, /grid\.filter = planningFilterConfig/)
   assert.match(reactSource, /filter=\{planningFilterConfig\}/)
   assert.match(angularSource, /\[filter\]="planningFilterConfig"/)
+  for (const source of [tsSource, reactSource, angularSource]) {
+    assert.doesNotMatch(source, /toggleVisiblePlanningRows/)
+    assert.doesNotMatch(source, /click\.capture|onClickCapture/)
+  }
 })
 
 test('keeps the planning guide actionable and dismissible', () => {
