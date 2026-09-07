@@ -14,7 +14,6 @@
 
       <div class="demo-page-header-actions" aria-label="Demo actions">
         <button v-if="sources" ref="sourceButtonRef" class="demo-page-header-link" type="button" :aria-expanded="sourceOpen" @click="openSource"><FontAwesomeSvgIcon name="code"/>Code</button>
-        <a v-if="sources" class="demo-page-header-link" :href="sources.vue.documentationUrl"><FontAwesomeSvgIcon name="bookOpen"/>Docs</a>
         <a class="demo-page-github demo-page-header-link" :href="config.implementationUrl" target="_blank" rel="noopener noreferrer"><FontAwesomeSvgIcon name="github"/>GitHub</a>
         <a
           class="demo-page-button demo-page-button--primary"
@@ -398,5 +397,5 @@ $max-content-width: 1240px;
 .demo-page-stage{border:0;border-radius:0;box-shadow:none}
 .demo-page-workspace{background:transparent}
 .demo-page-heading p,.demo-page-features summary,.demo-page-features li span,.demo-page-utility-actions button,.demo-page-utility-actions a{color:inherit}
-.demo-page-header-actions{flex-wrap:wrap;justify-content:flex-end}.demo-page-header-link{display:inline-flex;height:36px;align-items:center;gap:6px;padding:0 8px;border:0;border-radius:6px;background:transparent;color:inherit;font:500 13px/1 inherit;text-decoration:none;cursor:pointer}.demo-page-header-link:hover{background:var(--vp-c-bg-soft)}.demo-page-header-link :deep(.fa-svg-icon){width:14px;height:14px}
+.demo-page-header-actions{flex-wrap:wrap;justify-content:flex-end}.demo-page-header-link{display:inline-flex;width:96px;height:36px;align-items:center;justify-content:center;gap:6px;padding:0 8px;border:0;border-radius:6px;background:transparent;color:inherit;font:500 13px/1 inherit;text-decoration:none;cursor:pointer}.demo-page-header-link:hover{background:var(--vp-c-bg-soft)}.demo-page-header-link :deep(.fa-svg-icon){width:14px;height:14px}
 </style>

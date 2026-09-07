@@ -65,7 +65,7 @@ test('keeps open-source demos unbadged and labels the scale demo Performance', (
   assert.match(navigation, /item\('grid-at-scale','Performance','\/demo\/grid-at-scale','grid'\)/)
 })
 
-test('keeps planning tabs simple and gives shared top actions matching icons', () => {
+test('keeps planning tabs simple and leaves only working shared top actions', () => {
   const layout = readFileSync(new URL('../../../../.vitepress/theme/DemoPageLayout.vue', import.meta.url), 'utf8')
   const vueSource = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.vue', import.meta.url), 'utf8')
   const frameworkSources = [
@@ -79,8 +79,9 @@ test('keeps planning tabs simple and gives shared top actions matching icons', (
   assert.doesNotMatch(vueSource, /name="code"\/>Code/)
   assert.doesNotMatch(vueSource, /name="bookOpen"\/>Docs/)
   assert.match(layout, /demo-page-header-actions[\s\S]*?name="code"\/>Code/)
-  assert.match(layout, /name="bookOpen"\/>Docs/)
+  assert.doesNotMatch(layout, /name="bookOpen"\/>Docs/)
   assert.match(layout, /name="github"\/>GitHub[\s\S]*?Try in your app/)
+  assert.match(layout, /demo-page-header-link\{[^}]*width:96px[^}]*justify-content:center/)
   assert.doesNotMatch(layout, /v-if="demoId !== 'planning'"/)
 })
 
