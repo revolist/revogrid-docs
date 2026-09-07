@@ -73,6 +73,29 @@
     --vp-demo-border: rgba(255, 255, 255, 0.2);
 }
 
+@font-face {
+    font-family: 'Geist';
+    src: url('/fonts/geist-latin-wght-normal.woff2') format('woff2-variations');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+.demo-page-class {
+    --vp-sidebar-width: 196px;
+    font-family: Geist, Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.demo-page-class .VPSidebar {
+    display: none !important;
+}
+
+@media (min-width: 1100px) {
+    .demo-page-class .VPContent.has-sidebar {
+        padding-left: 0 !important;
+    }
+}
+
 /**
  * Component: Button
  * -------------------------------------------------------------------------- */

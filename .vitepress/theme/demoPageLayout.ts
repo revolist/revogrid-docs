@@ -5,7 +5,7 @@ import {
   type PlanId,
 } from '../../commercial/productCatalog'
 
-export const DEMO_PAGE_LAYOUT_VERSION = 'demo-page-v2' as const
+export const DEMO_PAGE_LAYOUT_VERSION = 'demo-page-v3' as const
 
 export interface DemoFeatureBadge {
   label: string
@@ -38,7 +38,7 @@ export interface DemoPageConfig extends DemoPageContent {
 
 const DEMO_GUIDED_STEP_ACTIONS: Partial<Record<DemoId, readonly DemoGuidedStepAction[]>> = {
   filtering: ['preset', 'search', 'filter'],
-  planning: ['edit', 'gantt-move', 'switch-view'],
+  planning: ['edit', 'switch-view'],
 }
 
 export const getDemoGuidedStepActions = (demoId: DemoId): readonly DemoGuidedStepAction[] =>
@@ -223,6 +223,17 @@ const DEMO_PAGE_CONTENT = {
       { label: 'Excel export', source: 'ExportExcelPlugin' },
     ],
   },
+  excel: {
+    title: 'Excel Workbench Demo',
+    description: 'Edit formulas, validation, formatting, presence, and Excel files in a spreadsheet workspace.',
+    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-excel/src/excel.vue',
+    guidedActions: ['Edit a workbook cell', 'Inspect a formula', 'Import or export a workbook'],
+    featureBadges: [
+      { label: 'Spreadsheet editing', source: 'RevoGrid Pro workbook configuration' },
+      { label: 'Excel import and export', source: 'Excel import/export plugin' },
+      { label: 'Presence', source: 'Shared spreadsheet presence model' },
+    ],
+  },
   pivot: {
     title: 'JavaScript Pivot Table Component Demo',
     description: 'High-performance pivot table, drag-and-drop fields, multi-level aggregation, filtering, and export.',
@@ -342,10 +353,10 @@ const DEMO_PAGE_CONTENT = {
     ],
   },
   planning: {
-    title: 'Grid, Kanban, Gantt Charts & Event Scheduler Demo',
-    description: 'One shared model across synchronized Data Grid, Kanban, Gantt, Scheduler & Calendar views.',
+    title: 'Project workspace',
+    description: 'Edit once. Explore the same data in every view.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-advanced-planning/src/planning.vue',
-    guidedActions: ['Edit a task in the grid', 'Move a task in Gantt', 'Switch between views'],
+    guidedActions: ['Change a task status', 'Open Kanban to see the same data'],
     featureBadges: [
       { label: 'Shared model', source: 'Reactive task state shared across every planning view' },
       { label: 'Data grid', source: 'RevoGrid editing, filtering, sorting, ranges, and column moving' },
