@@ -5,7 +5,7 @@
       <header><button type="button" aria-label="Close examples" @click="open = false">×</button></header>
       <label><span class="sr-only">Find a demo</span><input v-model="query" type="search" placeholder="Find a demo…" /></label>
       <nav>
-        <section v-for="group in filteredGroups" :key="group.label"><h2>{{ group.label }}</h2><a v-for="item in group.items" :key="item.id" :href="item.href" :class="{ active: active(item.href) }" @click="open = false"><FontAwesomeSvgIcon :name="item.icon"/><span>{{ item.label }}</span><small>{{ item.plan }}</small></a></section>
+        <section v-for="group in filteredGroups" :key="group.label"><h2>{{ group.label }}</h2><a v-for="item in group.items" :key="item.id" :href="item.href" :class="{ active: active(item.href) }" @click="open = false"><FontAwesomeSvgIcon :name="item.icon"/><span>{{ item.label }}</span><small v-if="item.plan">{{ item.plan }}</small></a></section>
         <p v-if="!filteredGroups.length">No matching demos</p>
       </nav>
     </aside>
@@ -19,9 +19,9 @@ import { PRODUCT_CATALOG, type DemoId } from '../../commercial/productCatalog';
 import FontAwesomeSvgIcon from './home-v2/FontAwesomeSvgIcon.vue';
 const route = useRoute(); const open = ref(false); const query = ref('');
 const isDemo = computed(() => route.path === '/demo' || route.path.startsWith('/demo/'));
-const item = (id: DemoId, label: string, href: string, icon = 'grid') => ({ id, label, href, icon, plan: PRODUCT_CATALOG.demos[id].planId === 'open-source' ? 'Core' : PRODUCT_CATALOG.demos[id].planId === 'pro-lite' ? 'Pro' : 'Advanced' });
+const item = (id: DemoId, label: string, href: string, icon = 'grid') => ({ id, label, href, icon, plan: PRODUCT_CATALOG.demos[id].planId === 'open-source' ? null : PRODUCT_CATALOG.demos[id].planId === 'pro-lite' ? 'Pro' : 'Advanced' });
 const groups = [
-  { label: 'Start here', items: [item('planning','Project workspace','/demo/','listCheck'), item('grid-at-scale','Grid at Scale','/demo/grid-at-scale','grid')] },
+  { label: 'Start here', items: [item('planning','Project workspace','/demo/','listCheck'), item('grid-at-scale','Performance','/demo/grid-at-scale','grid')] },
   { label: 'Data grid', items: [item('ai-prompt-library','AI prompts','/demo/ai-prompts','message'), item('project-portfolio','Project portfolio','/demo/project-portfolio','chart'), item('project-tracker','Project tracker','/demo/color','listCheck'), item('tree-data','Tree data','/demo/tree-data','tree'), item('filtering','Filtering','/demo/filtering','filter'), item('infinity-scroll','Infinity Scroll','/demo/infinity-scroll','arrowDown'), item('column-collapse','Column collapse','/demo/column-collapse','columns'), item('context-menu','Context menu','/demo/context-menu','tool'), item('row-master','Master detail','/demo/row-master','rectangleList'), item('audit-history','Audit history','/demo/audit-history','edit'), item('excel','Excel','/demo/excel','table')] },
   { label: 'Planning', items: [item('gantt','Gantt','/demo/gantt','chart'), item('gantt-big-data','10K Gantt','/demo/gantt-big-data','chart'), item('gantt-horizontal-big-data','20Y Gantt','/demo/gantt-horizontal-big-data','chart'), item('event-scheduler','Scheduler','/demo/event-scheduler','calendarDays'), item('kanban','Kanban','/demo/kanban','columns'), item('kanban-performance','50K Kanban','/demo/kanban-performance','columns'), item('kanban-server-loading','100K Remote Kanban','/demo/kanban-server-loading','columns'), item('pivot','Pivot table','/demo/pivot','chartColumn')] },
 ];

@@ -39,3 +39,10 @@ test('keeps the source panel and demo navigation at their specified breakpoints'
   assert.match(readFileSync(new URL('../../../../.vitepress/theme/style.scss', import.meta.url), 'utf8'), /\.dark \.demo-page-class \.demo-nav/)
   assert.match(navigation, /@media\(max-width:1099px\)/)
 })
+
+test('keeps open-source demos unbadged and labels the scale demo Performance', () => {
+  const navigation = readFileSync(new URL('../../../../.vitepress/theme/DemoNavigation.vue', import.meta.url), 'utf8')
+  assert.match(navigation, /<small v-if="item\.plan">/)
+  assert.match(navigation, /planId === 'open-source' \? null/)
+  assert.match(navigation, /item\('grid-at-scale','Performance','\/demo\/grid-at-scale','grid'\)/)
+})
