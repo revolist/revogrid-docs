@@ -76,6 +76,7 @@ test('uses native advanced filters, quick search, and plugin-owned badges in the
   assert.doesNotMatch(vueSource, /toggleVisiblePlanningRows/)
   assert.doesNotMatch(vueSource, /@click\.capture/)
   assert.match(columns, /syncCellTemplate:[\s\S]*owner: true[\s\S]*priority: true/)
+  assert.match(columns, /prop: 'name', name: 'Task',[\s\S]*filter: true/)
   assert.match(columns, /columnType: 'dropdown',[\s\S]*source: ownerEditorOptions[\s\S]*syncCellTemplate: true/)
   assert.match(columns, /workflowStatusColumn[\s\S]*filter: \[FILTER_CHIP_BADGE_TOGGLES\]/)
   assert.match(columns, /prop: 'priority',[\s\S]*filter: \[FIlTER_SELECTION\]/)
