@@ -88,6 +88,17 @@ test('grid selection controls show clear unchecked, checked and mixed states', a
   expect(unchecked.borderWidth).toBe('2px')
   expect(unchecked.background).not.toBe(selected.background)
   expect(mixed.indeterminate).toBe(true)
+
+  await expect(page.locator('.rgHeaderCell.cell-checkbox .header-controls')).toBeHidden()
+  await checkboxes.nth(0).click()
+  await expect(checkboxes.nth(0)).toBeChecked()
+  await expect(checkboxes.nth(1)).toBeChecked()
+  await expect(page.locator('.planning-demo__footer')).toContainText('50 selected')
+
+  await checkboxes.nth(0).click()
+  await expect(checkboxes.nth(0)).not.toBeChecked()
+  await expect(checkboxes.nth(1)).not.toBeChecked()
+  await expect(page.locator('.planning-demo__footer')).not.toContainText('selected')
 })
 
 test('grid and Kanban content stays aligned inside its cells', async ({ page }) => {
