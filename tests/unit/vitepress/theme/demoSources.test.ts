@@ -35,5 +35,7 @@ test('keeps the source panel and demo navigation at their specified breakpoints'
   assert.match(sourcePanel, /width:420px;min-width:420px/)
   assert.match(sourcePanel, /@media\(max-width:1279px\)/)
   assert.match(navigation, /--demo-sidebar-width,256px/)
+  assert.match(navigation, /background:#dff1e8/)
+  assert.match(readFileSync(new URL('../../../../.vitepress/theme/style.scss', import.meta.url), 'utf8'), /\.dark \.demo-page-class \.demo-nav/)
   assert.match(navigation, /@media\(max-width:1099px\)/)
 })

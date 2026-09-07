@@ -192,3 +192,41 @@ test('planning layout stays usable at the target viewports', async ({ page }) =>
     }
   }
 })
+
+test('demo surfaces retain clear contrast in light and dark themes', async ({ page }) => {
+  const readSurfaces = () => page.evaluate(() => {
+    const color = (selector: string, property: 'backgroundColor' | 'borderColor' = 'backgroundColor') =>
+      getComputedStyle(document.querySelector(selector) as Element)[property]
+    return {
+      canvas: color('.demo-page-layout'),
+      sidebar: color('.demo-nav'),
+      stage: color('.demo-page-stage'),
+      controlBorder: color('.planning-demo__search', 'borderColor'),
+      gridBorder: color('.planning-demo__grid', 'borderColor'),
+    }
+  })
+
+  await page.goto('/demo/')
+  await page.evaluate(() => localStorage.setItem('vitepress-theme-appearance', 'light'))
+  await page.reload()
+  await expect(page.locator('.planning-demo__grid')).toBeVisible()
+  expect(await readSurfaces()).toEqual({
+    canvas: 'rgb(247, 248, 247)',
+    sidebar: 'rgb(243, 245, 244)',
+    stage: 'rgb(255, 255, 255)',
+    controlBorder: 'rgb(184, 194, 190)',
+    gridBorder: 'rgb(184, 194, 190)',
+  })
+
+  await page.evaluate(() => localStorage.setItem('vitepress-theme-appearance', 'dark'))
+  await page.reload()
+  await expect(page.locator('html')).toHaveClass(/dark/)
+  await expect(page.locator('.planning-demo__grid')).toBeVisible()
+  expect(await readSurfaces()).toEqual({
+    canvas: 'rgb(22, 25, 24)',
+    sidebar: 'rgb(32, 36, 34)',
+    stage: 'rgb(25, 28, 27)',
+    controlBorder: 'rgb(80, 91, 86)',
+    gridBorder: 'rgb(80, 91, 86)',
+  })
+})

@@ -50,4 +50,18 @@ function active(href: string) { const path = normalize(route.path); if (href ===
 .demo-nav a :deep(.fa-svg-icon){width:13px;height:13px;opacity:.72}
 .demo-nav small{padding:1px 4px;border-radius:4px;background:color-mix(in srgb,var(--vp-c-text-3) 8%,transparent);color:var(--vp-c-text-3);font-size:8px;line-height:14px;white-space:nowrap}
 .demo-nav a.active small{background:color-mix(in srgb,#008b55 10%,transparent);color:inherit}
+
+/* Stronger separation from the workspace and clearer navigation states. */
+.demo-nav{border-right-color:#cbd3cf;background:#f3f5f4;box-shadow:inset -1px 0 #d7ddda}
+.demo-nav header{color:#18211d;font-weight:650}
+.demo-nav>label{border-color:#bbc5c0;background:#fff;box-shadow:0 1px 2px rgb(15 23 42/8%)}
+.demo-nav input{color:#17211d}.demo-nav input::placeholder{color:#68736d}
+.demo-nav h2{color:#5c6862;font-weight:650}
+.demo-nav a{color:#45514b;font-weight:500}
+.demo-nav a :deep(.fa-svg-icon){opacity:.82}
+.demo-nav a:hover{background:#fff;color:#17211d}
+.demo-nav a.active{border-color:#9bcbb4;background:#dff1e8;color:#075f3c;font-weight:650}
+.demo-nav small{background:#e3e7e5;color:#59645f;font-weight:600}
+.demo-nav a.active small{background:#c9e5d7;color:#075f3c}
+.demo-nav nav::-webkit-scrollbar-thumb{background-color:#8f9994}
 </style>
