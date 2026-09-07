@@ -168,3 +168,10 @@ test('aligns the Project Portfolio grouping controls with the demo heading', () 
   const styles = readFileSync(new URL('../../../../revogrid-demos/core-project-portfolio/src/project-portfolio.css', import.meta.url), 'utf8')
   assert.match(styles, /\.portfolio-toolbar\s*\{[\s\S]*?padding:\s*12px 0/)
 })
+
+test('extends Project Tracker actions to the demo edges', () => {
+  const shell = readFileSync(new URL('../../../../revogrid-demos/pro-project-table/src/project-tracker-styles/_shell.scss', import.meta.url), 'utf8')
+  const responsive = readFileSync(new URL('../../../../revogrid-demos/pro-project-table/src/project-tracker-styles/_responsive.scss', import.meta.url), 'utf8')
+  assert.match(shell, /\.project-grid-toolbar\s*\{[\s\S]*?padding:\s*space\(4\) 0/)
+  assert.match(responsive, /\.project-grid-toolbar\s*\{\s*padding:\s*space\(4\) 0/)
+})
