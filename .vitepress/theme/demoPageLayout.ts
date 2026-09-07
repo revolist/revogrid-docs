@@ -44,7 +44,7 @@ const DEMO_PAGE_CONTENT = {
     ],
   },
   'project-portfolio': {
-    title: 'Project Portfolio Demo',
+    title: 'Row Grouping Demo',
     description: 'Delivery portfolio with two-level row grouping, progress indicators, sorting, and filtering.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/core-project-portfolio/src/project-portfolio.vue',
     featureBadges: [

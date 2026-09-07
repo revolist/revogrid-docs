@@ -1,5 +1,5 @@
 ---
-title: Project Portfolio Row Grouping Demo
+title: Row Grouping Demo
 description: Explore a realistic project portfolio with two-level row grouping, custom progress cells, sorting, and filtering in the open-source Core grid.
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc

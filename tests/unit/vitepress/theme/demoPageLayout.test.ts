@@ -62,6 +62,7 @@ test('provides complete reusable layout content for every catalog demo', () => {
 })
 
 test('uses the concise Project Portfolio description', () => {
+  assert.equal(getDemoPageConfig('project-portfolio').title, 'Row Grouping Demo')
   assert.equal(
     getDemoPageConfig('project-portfolio').description,
     'Delivery portfolio with two-level row grouping, progress indicators, sorting, and filtering.',

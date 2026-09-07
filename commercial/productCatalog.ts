@@ -440,7 +440,7 @@ const products = {
 const demos = {
   'grid-at-scale': { id: 'grid-at-scale', title: 'Grid at Scale', planId: 'open-source', status: 'stable', pageUrl: '/demo/grid-at-scale' },
   'ai-prompt-library': { id: 'ai-prompt-library', title: 'AI Prompt Library', planId: 'open-source', status: 'stable', pageUrl: '/demo/ai-prompts' },
-  'project-portfolio': { id: 'project-portfolio', title: 'Project Portfolio', planId: 'open-source', status: 'stable', pageUrl: '/demo/project-portfolio' },
+  'project-portfolio': { id: 'project-portfolio', title: 'Row Grouping', planId: 'open-source', status: 'stable', pageUrl: '/demo/project-portfolio' },
   'project-tracker': { id: 'project-tracker', title: 'Project Tracker', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/color' },
   'audit-history': { id: 'audit-history', title: 'Audit History', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/audit-history' },
   'column-collapse': { id: 'column-collapse', title: 'Column Collapse', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/column-collapse' },
