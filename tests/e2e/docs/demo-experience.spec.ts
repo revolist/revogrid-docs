@@ -59,6 +59,79 @@ test('clipboard errors are visible and do not close the source panel', async ({ 
   await expect(page.getByRole('dialog', { name: 'Use this example' })).toBeVisible()
 })
 
+test('grid selection controls show clear unchecked, checked and mixed states', async ({ page }) => {
+  await page.goto('/demo/')
+  const checkboxes = page.locator('.row-select-checkbox')
+  await expect(checkboxes.nth(1)).toBeVisible()
+
+  const unchecked = await checkboxes.nth(1).evaluate(element => ({
+    appearance: getComputedStyle(element).appearance,
+    accentColor: getComputedStyle(element).accentColor,
+    size: element.getBoundingClientRect().width,
+    availableWidth: element.parentElement?.parentElement?.getBoundingClientRect().width,
+  }))
+  await checkboxes.nth(1).click()
+  const selected = await checkboxes.nth(1).evaluate(element => ({
+    checked: (element as HTMLInputElement).checked,
+  }))
+  const mixed = await checkboxes.nth(0).evaluate(element => ({
+    indeterminate: (element as HTMLInputElement).indeterminate,
+  }))
+
+  expect(selected.checked).toBe(true)
+  expect(unchecked.size).toBe(16)
+  expect(unchecked.availableWidth).toBeGreaterThanOrEqual(16)
+  expect(unchecked.appearance).not.toBe('none')
+  expect(unchecked.accentColor).toBe('rgb(19, 138, 91)')
+  expect(mixed.indeterminate).toBe(true)
+})
+
+test('grid and Kanban content stays aligned inside its cells', async ({ page }) => {
+  await page.goto('/demo/')
+  await expect(page.locator('.planning-demo__grid')).toBeVisible()
+  await expect(page.locator('.avatar-cell__image').first()).toBeVisible()
+
+  const gridMetrics = await page.evaluate(() => {
+    const avatar = document.querySelector('.avatar-cell__image') as HTMLElement
+    const readonlyCells = Array.from(document.querySelectorAll('revogr-data .rgCell.disabled')) as HTMLElement[]
+    return {
+      avatarSize: avatar?.getBoundingClientRect().height,
+      avatarMargin: avatar ? getComputedStyle(avatar).margin : null,
+      readonlyBackgrounds: readonlyCells.map(cell => getComputedStyle(cell).backgroundColor),
+    }
+  })
+  expect(gridMetrics.avatarSize).toBe(20)
+  expect(gridMetrics.avatarMargin).toBe('0px')
+  expect(gridMetrics.readonlyBackgrounds.every(color => color === 'rgba(0, 0, 0, 0)')).toBe(true)
+
+  await page.getByRole('tab', { name: 'Kanban' }).click()
+  await expect(page.locator('.kanban-card').first()).toBeVisible()
+  const kanbanMetrics = await page.evaluate(() => ({
+    columns: Array.from(document.querySelectorAll('.kanban-column-header-cell')).map(column => column.getBoundingClientRect().width),
+    cards: Array.from(document.querySelectorAll('.kanban-card')).slice(0, 4).map(card => card.getBoundingClientRect().width),
+  }))
+  expect(kanbanMetrics.columns).toEqual([228, 228, 228, 228])
+  expect(kanbanMetrics.cards.every(width => width >= 190)).toBe(true)
+})
+
+test('workspace popovers close after actions, outside clicks and Escape', async ({ page }) => {
+  await page.goto('/demo/')
+  const more = page.locator('.planning-demo__actions details')
+  await more.locator('summary').click()
+  await expect(more).toHaveAttribute('open', '')
+  await more.getByRole('button', { name: 'Reset' }).click()
+  await expect(more).not.toHaveAttribute('open', '')
+
+  await page.getByRole('button', { name: 'Filter', exact: true }).click()
+  await expect(page.locator('.planning-demo__filter-popover')).toBeVisible()
+  await page.getByRole('heading', { name: 'Project workspace' }).click()
+  await expect(page.locator('.planning-demo__filter-popover')).toBeHidden()
+
+  await page.getByRole('button', { name: 'Filter', exact: true }).click()
+  await page.keyboard.press('Escape')
+  await expect(page.locator('.planning-demo__filter-popover')).toBeHidden()
+})
+
 test('planning layout stays usable at the target viewports', async ({ page }) => {
   for (const viewport of [
     { width: 1440, height: 900 },
