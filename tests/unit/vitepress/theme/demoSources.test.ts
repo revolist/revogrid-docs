@@ -65,7 +65,7 @@ test('keeps open-source demos unbadged and labels the scale demo Performance', (
   assert.match(navigation, /item\('grid-at-scale','Performance','\/demo\/grid-at-scale','grid'\)/)
 })
 
-test('marks every planning view Pro and gives shared top actions matching icons', () => {
+test('keeps planning tabs simple and gives shared top actions matching icons', () => {
   const layout = readFileSync(new URL('../../../../.vitepress/theme/DemoPageLayout.vue', import.meta.url), 'utf8')
   const vueSource = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.vue', import.meta.url), 'utf8')
   const frameworkSources = [
@@ -74,12 +74,13 @@ test('marks every planning view Pro and gives shared top actions matching icons'
     readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.react.tsx', import.meta.url), 'utf8'),
     readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.angular.ts', import.meta.url), 'utf8'),
   ]
-  frameworkSources.forEach(source => assert.match(source, /planning-demo__pro/))
-  assert.match(vueSource, /name="ellipsis"\/>More/)
+  frameworkSources.forEach(source => assert.doesNotMatch(source, /planning-demo__pro/))
+  assert.doesNotMatch(vueSource, /planning-demo__pro|>More</)
   assert.doesNotMatch(vueSource, /name="code"\/>Code/)
   assert.doesNotMatch(vueSource, /name="bookOpen"\/>Docs/)
   assert.match(layout, /demo-page-header-actions[\s\S]*?name="code"\/>Code/)
   assert.match(layout, /name="bookOpen"\/>Docs/)
+  assert.match(layout, /name="github"\/>GitHub[\s\S]*?Try in your app/)
   assert.doesNotMatch(layout, /v-if="demoId !== 'planning'"/)
 })
 

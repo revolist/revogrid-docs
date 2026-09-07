@@ -263,7 +263,7 @@ test('describes the requested Scheduler capabilities without filter or history b
 })
 
 test('uses an implementation GitHub link without guided steps', () => {
-  assert.match(demoPageLayoutSource, /class="demo-page-github"/)
+  assert.match(demoPageLayoutSource, /class="[^"]*demo-page-github[^"]*"/)
   assert.match(demoPageLayoutSource, /name="github"\/>GitHub/)
   assert.match(demoPageLayoutSource, /:href="config\.implementationUrl"/)
   assert.doesNotMatch(demoPageLayoutSource, /<summary>Features used<\/summary>/)
