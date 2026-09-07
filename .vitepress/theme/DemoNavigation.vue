@@ -30,7 +30,7 @@ function normalize(path: string) { const normalized = path.replace(/\/$/, ''); r
 function active(href: string) { const path = normalize(route.path); if (href === '/demo/') return path === '/demo/' || path === '/demo/planning'; if (href === '/demo/grid-at-scale') return path === href || path === '/demo/hr'; return path === href; }
 </script>
 <style scoped>
-.demo-nav{position:fixed;z-index:35;top:var(--vp-nav-height,64px);bottom:0;left:0;width:var(--demo-sidebar-width,256px);padding:16px 0 0 10px;border-right:1px solid #cbd3cf;background:transparent;box-shadow:inset -1px 0 #d7ddda;font:400 13px/18px Geist,Inter,system-ui,sans-serif}
+.demo-nav{position:fixed;z-index:35;top:var(--vp-nav-height,64px);bottom:0;left:0;width:var(--demo-sidebar-width,256px);padding:16px 0 0 10px;border-right:1px solid #cbd3cf;background:transparent;box-shadow:inset -1px 0 #d7ddda;font-size:13px;line-height:18px}
 .demo-nav header{display:none;height:32px;margin-right:10px;padding:0;font-size:14px;font-weight:650;letter-spacing:-.01em}
 .demo-nav header button{display:none}
 .demo-nav>label{position:relative;display:flex;height:34px;align-items:center;gap:7px;margin-right:10px;padding:0 10px 0 30px;border:1px solid #bbc5c0;border-radius:6px;background:#fff;box-shadow:0 1px 2px rgb(15 23 42/8%)}

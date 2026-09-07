@@ -30,6 +30,7 @@ test('points every source panel file at an existing local source file', () => {
 })
 
 test('keeps the source panel and demo navigation at their specified breakpoints', () => {
+  const layout = readFileSync(new URL('../../../../.vitepress/theme/DemoPageLayout.vue', import.meta.url), 'utf8')
   const sourcePanel = readFileSync(new URL('../../../../.vitepress/theme/DemoSourcePanel.vue', import.meta.url), 'utf8')
   const navigation = readFileSync(new URL('../../../../.vitepress/theme/DemoNavigation.vue', import.meta.url), 'utf8')
   assert.match(sourcePanel, /width:420px;min-width:420px/)
@@ -39,6 +40,9 @@ test('keeps the source panel and demo navigation at their specified breakpoints'
   assert.match(navigation, /background:#dff1e8/)
   assert.match(readFileSync(new URL('../../../../.vitepress/theme/style.scss', import.meta.url), 'utf8'), /\.dark \.demo-page-class \.demo-nav/)
   assert.match(navigation, /@media\(max-width:1099px\)/)
+  for (const source of [layout, sourcePanel, navigation]) {
+    assert.doesNotMatch(source, /font(?:-family)?:[^;}]*Geist/)
+  }
 })
 
 test('keeps open-source demos unbadged and labels the scale demo Performance', () => {
