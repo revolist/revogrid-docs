@@ -181,3 +181,9 @@ test('aligns Tree Data actions with the demo edge', () => {
   assert.match(styles, /\.tree-toolbar\s*\{[\s\S]*?justify-content:\s*flex-start[\s\S]*?padding:\s*14px 0/)
   assert.match(styles, /\.tree-toolbar__actions\s*\{[\s\S]*?justify-content:\s*flex-start/)
 })
+
+test('aligns Advanced Filtering controls with the demo heading', () => {
+  const styles = readFileSync(new URL('../../../../revogrid-demos/pro-filtering/src/filtering.scss', import.meta.url), 'utf8')
+  assert.match(styles, /\.order-explorer__toolbar\s*\{[\s\S]*?margin-inline:\s*0/)
+  assert.match(styles, /\.order-explorer__active-filters\s*\{[\s\S]*?margin-inline:\s*0/)
+})
