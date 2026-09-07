@@ -60,3 +60,15 @@ test('marks every planning view Pro and gives workspace actions matching icons',
   assert.match(vueSource, /name="bookOpen"\/>Docs/)
   assert.match(vueSource, /name="ellipsis"\/>More/)
 })
+
+test('uses native advanced filters, quick search, and plugin-owned badges in the planning grid', () => {
+  const vueSource = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.vue', import.meta.url), 'utf8')
+  const columns = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/data/columns.ts', import.meta.url), 'utf8')
+  assert.match(vueSource, /AdvanceFilterPlugin, FilterHeaderPlugin/)
+  assert.match(vueSource, /:quick-filter\.prop="quickFilter"/)
+  assert.match(vueSource, /:filter-badges\.prop="filterBadgeOptions"/)
+  assert.doesNotMatch(vueSource, /planning-demo__filter-popover/)
+  assert.doesNotMatch(vueSource, /planning-demo__chips/)
+  assert.match(columns, /workflowStatusColumn[\s\S]*filter: \[FIlTER_SELECTION\]/)
+  assert.match(columns, /prop: 'priority',[\s\S]*filter: \[FIlTER_SELECTION\]/)
+})
