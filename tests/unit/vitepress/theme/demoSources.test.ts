@@ -198,3 +198,9 @@ test('lets the remote Kanban board fill the demo workspace', () => {
   assert.match(styles, /\.kanban-server-loading\s*\{[\s\S]*?height:\s*100%[\s\S]*?grid-template-rows:\s*auto minmax\(0, 1fr\)/)
   assert.match(styles, /\.kanban-server-loading__grid\s*\{[\s\S]*?height:\s*100%[\s\S]*?min-height:\s*0/)
 })
+
+test('gives the Pivot field configuration panel room to avoid horizontal scrolling', () => {
+  const styles = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-pivot/src/financial-pivot-header/financial-pivot-header.scss', import.meta.url), 'utf8')
+  assert.match(styles, /\.financial-pivot-showcase \.pivot-config\s*\{[\s\S]*?--pv-cfg-width:\s*380px[\s\S]*?overflow-x:\s*hidden/)
+  assert.match(styles, /\.financial-pivot-showcase \.pivot-config > \*\s*\{[\s\S]*?min-width:\s*0[\s\S]*?width:\s*100%/)
+})
