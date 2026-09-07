@@ -25,7 +25,7 @@
       </div>
     </header>
 
-    <div v-if="demoId !== 'planning'" class="demo-page-utility"><div class="demo-page-utility-actions"><slot name="workspace-actions"/><button ref="sourceButtonRef" type="button" :aria-expanded="sourceOpen" @click="openSource"><FontAwesomeSvgIcon name="code"/> Code</button><a :href="sources.vue.documentationUrl">Docs</a></div></div>
+    <div v-if="demoId !== 'planning'" class="demo-page-utility"><div class="demo-page-utility-actions"><slot name="workspace-actions"/><button ref="sourceButtonRef" type="button" :aria-expanded="sourceOpen" @click="openSource"><FontAwesomeSvgIcon name="code"/> Code</button><a :href="sources.vue.documentationUrl"><FontAwesomeSvgIcon name="bookOpen"/>Docs</a></div></div>
 
     <div class="demo-page-stage" :class="{ 'source-open': sourceOpen }"><div
       ref="workspaceRef"

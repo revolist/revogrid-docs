@@ -14,6 +14,7 @@ const sourceFile = (path: string, load: () => Promise<string>): DemoSourceFile =
 const planningSupportingFiles = [
   sourceFile('pro-advanced-planning/src/composables/usePlanningWorkspace.ts', () => import('../../revogrid-demos/pro-advanced-planning/src/composables/usePlanningWorkspace.ts?raw').then(module => module.default)),
   sourceFile('pro-advanced-planning/src/data/columns.ts', () => import('../../revogrid-demos/pro-advanced-planning/src/data/columns.ts?raw').then(module => module.default)),
+  sourceFile('pro-advanced-planning/src/data/formatting.ts', () => import('../../revogrid-demos/pro-advanced-planning/src/data/formatting.ts?raw').then(module => module.default)),
   sourceFile('pro-advanced-planning/src/data/planning.structured.ts', () => import('../../revogrid-demos/pro-advanced-planning/src/data/planning.structured.ts?raw').then(module => module.default)),
   sourceFile('pro-advanced-planning/src/data/fixtures.ts', () => import('../../revogrid-demos/pro-advanced-planning/src/data/fixtures.ts?raw').then(module => module.default)),
   sourceFile('pro-advanced-planning/src/data/source.ts', () => import('../../revogrid-demos/pro-advanced-planning/src/data/source.ts?raw').then(module => module.default)),

@@ -49,6 +49,7 @@ test('keeps open-source demos unbadged and labels the scale demo Performance', (
 })
 
 test('marks every planning view Pro and gives workspace actions matching icons', () => {
+  const layout = readFileSync(new URL('../../../../.vitepress/theme/DemoPageLayout.vue', import.meta.url), 'utf8')
   const vueSource = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.vue', import.meta.url), 'utf8')
   const frameworkSources = [
     vueSource,
@@ -60,6 +61,8 @@ test('marks every planning view Pro and gives workspace actions matching icons',
   assert.match(vueSource, /name="code"\/>Code/)
   assert.match(vueSource, /name="bookOpen"\/>Docs/)
   assert.match(vueSource, /name="ellipsis"\/>More/)
+  assert.match(layout, /name="code"\/> Code/)
+  assert.match(layout, /name="bookOpen"\/>Docs/)
 })
 
 test('uses native advanced filters, quick search, and plugin-owned badges in the planning grid', () => {
@@ -93,6 +96,7 @@ test('uses native advanced filters, quick search, and plugin-owned badges in the
   assert.match(columns, /prop: 'activityAt',[\s\S]*filter: \[FILTER_TIME_MATRIX\]/)
   assert.match(columns, /structuredFilterTypes: planningStructuredFilterTypes/)
   assert.ok(getRegisteredDemoSourcePaths().includes('pro-advanced-planning/src/data/planning.structured.ts'))
+  assert.ok(getRegisteredDemoSourcePaths().includes('pro-advanced-planning/src/data/formatting.ts'))
   assert.ok(getRegisteredDemoSourcePaths().includes('pro-advanced-planning/src/composables/usePlanningWorkspace.ts'))
   const tsSource = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.ts', import.meta.url), 'utf8')
   const reactSource = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.react.tsx', import.meta.url), 'utf8')
@@ -104,6 +108,16 @@ test('uses native advanced filters, quick search, and plugin-owned badges in the
   assert.match(reactSource, /columnTypes=\{gridColumnTypes\}/)
   assert.match(angularSource, /\[filter\]="planningFilterConfig"/)
   assert.match(angularSource, /\[columnTypes\]="gridColumnTypes"/)
+  const formatting = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-planning/src/data/formatting.ts', import.meta.url), 'utf8')
+  assert.match(formatting, /preset: 'date'/)
+  assert.match(formatting, /preset: 'currency'/)
+  assert.match(formatting, /preset: 'datetime'/)
+  assert.match(formatting, /id: 'progress-line'/)
+  assert.match(workspace, /DataGridFormattingPlugin/)
+  assert.match(vueSource, /data-grid-formatting\.prop="planningDataGridFormatting"/)
+  assert.match(tsSource, /grid\.dataGridFormatting = planningDataGridFormatting/)
+  assert.match(reactSource, /dataGridFormatting=\{dataGridFormatting\}/)
+  assert.match(angularSource, /\[dataGridFormatting\]="planningDataGridFormatting"/)
   for (const source of [tsSource, reactSource, angularSource]) {
     assert.doesNotMatch(source, /toggleVisiblePlanningRows/)
     assert.doesNotMatch(source, /click\.capture|onClickCapture/)
