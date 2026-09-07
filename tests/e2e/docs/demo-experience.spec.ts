@@ -28,10 +28,12 @@ test('navigation search filters examples without changing the route', async ({ p
   await expect(page.locator('.demo-nav nav')).toContainText('Kanban')
 })
 
-test('planning does not render guided steps', async ({ page }) => {
-  await page.goto('/demo/')
-  await expect(page.locator('[class*="demo-page-guide"]')).toHaveCount(0)
-  await expect(page.getByRole('button', { name: 'Show guide' })).toHaveCount(0)
+test('demo pages do not render guided steps', async ({ page }) => {
+  for (const demo of canonicalDemos) {
+    await page.goto(demo.pageUrl)
+    await expect(page.locator('[class*="demo-page-guide"]')).toHaveCount(0)
+    await expect(page.getByRole('button', { name: 'Show guide' })).toHaveCount(0)
+  }
 })
 
 test('source panel uses real files and preserves the live workspace', async ({ page }) => {
