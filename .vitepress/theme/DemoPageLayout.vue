@@ -40,7 +40,7 @@
       <ClientOnly>
         <slot />
       </ClientOnly>
-    </div><DemoSourcePanel v-if="sourceOpen && sources" :sources="sources" :implementation-url="config.implementationUrl" :dark="isDark" @close="closeSource" @framework="trackSourceFramework" @copy="trackSourceCopy" /><template v-if="activeGuide && guideLayout"><div class="demo-page-guide-spotlight" :style="guideLayout.spotlight" aria-hidden="true"/><aside class="demo-page-guide-tooltip" :class="`demo-page-guide-tooltip--${guideLayout.placement}`" :style="guideLayout.tooltip" aria-label="Interactive guide"><div><span>Step {{ completedActionCount + 1 }} of {{ config.guidedActions.length }}</span><strong>{{ guideContent.title }}</strong></div><button type="button" aria-label="Dismiss guide" @click="dismissGuide">×</button><p>{{ guideContent.description }}</p></aside></template></div>
+    </div><DemoSourcePanel v-if="sourceOpen && sources" :sources="sources" :implementation-url="config.implementationUrl" :dark="isDark" @close="closeSource" @framework="trackSourceFramework" @copy="trackSourceCopy" /><template v-if="activeGuide && guideLayout"><div class="demo-page-guide-marker" :style="guideLayout.marker" aria-hidden="true"/><aside class="demo-page-guide-tooltip" :class="`demo-page-guide-tooltip--${guideLayout.placement}`" :style="guideLayout.tooltip" aria-label="Interactive guide"><div><span>Step {{ completedActionCount + 1 }} of {{ config.guidedActions.length }}</span><strong>{{ guideContent.title }}</strong></div><button type="button" aria-label="Dismiss guide" @click="dismissGuide">×</button><p>{{ guideContent.description }}</p></aside></template></div>
   </div>
 </template>
 
@@ -81,7 +81,7 @@ const activeGuide = computed(() => props.demoId === 'planning'
 const guideContent = computed(() => guidedStepActions.value[completedActionCount.value] === 'switch-view'
   ? { title: 'Open Kanban', description: 'Switch to Kanban to see the same task and its updated status reflected as a card.' }
   : { title: 'Update a status', description: 'Select a Status cell and choose a different value. The change stays in sync across every view.' })
-type GuideLayout = { spotlight: Record<string, string>; tooltip: Record<string, string>; placement: 'above' | 'below' | 'left' | 'right' }
+type GuideLayout = { marker: Record<string, string>; tooltip: Record<string, string>; placement: 'above' | 'below' | 'left' | 'right' }
 const guideLayout = ref<GuideLayout>()
 let guideFrame = 0
 
@@ -167,11 +167,8 @@ const updateGuidePosition = () => {
   const stageBounds = stage.getBoundingClientRect()
   const targetBounds = target.getBoundingClientRect()
   if (!stageBounds.width || !stageBounds.height || !targetBounds.width || !targetBounds.height) return
-  const inset = 4
-  const spotlightLeft = Math.max(0, targetBounds.left - stageBounds.left - inset)
-  const spotlightTop = Math.max(0, targetBounds.top - stageBounds.top - inset)
-  const spotlightWidth = Math.min(stageBounds.width - spotlightLeft, targetBounds.width + inset * 2)
-  const spotlightHeight = Math.min(stageBounds.height - spotlightTop, targetBounds.height + inset * 2)
+  const markerLeft = Math.max(8, Math.min(stageBounds.width - 8, targetBounds.right - stageBounds.left))
+  const markerTop = Math.max(8, Math.min(stageBounds.height - 8, targetBounds.top - stageBounds.top + 12))
   const tooltipWidth = Math.min(286, stageBounds.width - 24)
   const tooltipHeight = 118
   const availableRight = stageBounds.right - targetBounds.right
@@ -191,7 +188,7 @@ const updateGuidePosition = () => {
       ? Math.max(12, targetBounds.top - stageBounds.top - tooltipHeight - 14)
       : Math.min(stageBounds.height - tooltipHeight - 12, targetBounds.bottom - stageBounds.top + 14)
   guideLayout.value = {
-    spotlight: { left: `${spotlightLeft}px`, top: `${spotlightTop}px`, width: `${spotlightWidth}px`, height: `${spotlightHeight}px` },
+    marker: { left: `${markerLeft}px`, top: `${markerTop}px` },
     tooltip: { left: `${tooltipLeft}px`, top: `${tooltipTop}px`, width: `${tooltipWidth}px` },
     placement: horizontalPlacement ?? (placeAbove ? 'above' : 'below'),
   }
@@ -626,4 +623,5 @@ $max-content-width: 1240px;
 .demo-page-heading p,.demo-page-features summary,.demo-page-features li span,.demo-page-guide,.demo-page-utility-actions button,.demo-page-utility-actions a{color:inherit}
 .demo-page-github{display:inline-flex;height:36px;align-items:center;gap:7px;box-sizing:border-box;padding:0 12px;border:1px solid #b9c3be;border-radius:6px;background:var(--vp-c-bg);box-shadow:0 1px 2px rgb(15 23 42/7%);color:inherit;font-size:13px;font-weight:600;line-height:1;text-decoration:none}.demo-page-github:hover{border-color:var(--vp-c-border);background:var(--vp-c-bg-soft)}.demo-page-github :deep(.fa-svg-icon){width:15px;height:15px}
 .demo-page-guide--heading button,.demo-page-guide-reopen{border:0;background:transparent;color:inherit;font:inherit;cursor:pointer}.demo-page-guide--heading button{display:grid;width:20px;height:20px;margin-left:2px;place-items:center;border-radius:50%;font-size:16px;line-height:1}.demo-page-guide--heading button:hover,.demo-page-guide-reopen:hover{background:var(--vp-c-bg-soft)}.demo-page-guide-reopen{align-self:start;margin-top:2px;padding:3px 7px;border:1px solid var(--vp-c-divider);border-radius:5px;font-size:11px;line-height:16px}.demo-page-guide-spotlight{position:absolute;z-index:3;pointer-events:none;border:2px solid var(--demo-page-green);border-radius:6px;box-shadow:0 0 0 4px color-mix(in srgb,var(--demo-page-green) 14%,transparent),0 8px 20px color-mix(in srgb,var(--demo-page-green) 20%,transparent);transition:all 180ms ease}.demo-page-guide-tooltip{position:absolute;z-index:4;display:grid;grid-template-columns:1fr auto;gap:4px 12px;box-sizing:border-box;padding:12px 13px;border:1px solid color-mix(in srgb,var(--demo-page-green) 45%,var(--vp-c-divider));border-radius:8px;background:var(--vp-c-bg);box-shadow:0 12px 28px rgb(15 23 42/16%);font:400 12px/17px Geist,Inter,system-ui,sans-serif}.demo-page-guide-tooltip::before{position:absolute;top:-6px;left:20px;width:10px;height:10px;border-top:1px solid color-mix(in srgb,var(--demo-page-green) 45%,var(--vp-c-divider));border-left:1px solid color-mix(in srgb,var(--demo-page-green) 45%,var(--vp-c-divider));background:var(--vp-c-bg);content:'';transform:rotate(45deg)}.demo-page-guide-tooltip--above::before{top:auto;bottom:-6px;border-top:0;border-right:1px solid color-mix(in srgb,var(--demo-page-green) 45%,var(--vp-c-divider));border-bottom:1px solid color-mix(in srgb,var(--demo-page-green) 45%,var(--vp-c-divider));border-left:0}.demo-page-guide-tooltip--right::before{top:20px;left:-6px;transform:rotate(-45deg)}.demo-page-guide-tooltip--left::before{top:20px;right:-6px;left:auto;transform:rotate(135deg)}.demo-page-guide-tooltip div{display:grid;gap:1px}.demo-page-guide-tooltip span{color:var(--vp-c-text-2);font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}.demo-page-guide-tooltip strong{font-size:13px;font-weight:650}.demo-page-guide-tooltip button{z-index:1;width:24px;height:24px;padding:0;border:0;border-radius:5px;background:transparent;color:var(--vp-c-text-2);font-size:18px;line-height:1;cursor:pointer}.demo-page-guide-tooltip button:hover{background:var(--vp-c-bg-soft);color:inherit}.demo-page-guide-tooltip p{grid-column:1/-1;margin:0;color:var(--vp-c-text-2)}@media(max-width:700px){.demo-page-guide-tooltip{max-width:calc(100% - 24px)}.demo-page-guide-spotlight{box-shadow:0 0 0 3px color-mix(in srgb,var(--demo-page-green) 14%,transparent)}}@media(prefers-reduced-motion:reduce){.demo-page-guide-spotlight{transition:none}}
+.demo-page-guide-marker{position:absolute;z-index:3;width:10px;height:10px;pointer-events:none;border-radius:50%;background:var(--demo-page-green);box-shadow:0 0 0 0 color-mix(in srgb,var(--demo-page-green) 55%,transparent);transform:translate(-50%,-50%);animation:demo-guide-pulse 1.6s ease-out infinite}@keyframes demo-guide-pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--demo-page-green) 52%,transparent)}70%{box-shadow:0 0 0 11px transparent}100%{box-shadow:0 0 0 0 transparent}}@media(prefers-reduced-motion:reduce){.demo-page-guide-marker{animation:none}}
 </style>

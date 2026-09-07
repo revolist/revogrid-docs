@@ -109,4 +109,7 @@ test('keeps the planning guide actionable and dismissible', () => {
   assert.match(layout, /Dismiss guide/)
   assert.match(layout, /Show guide/)
   assert.match(layout, /pointer-events:none/)
+  assert.match(layout, /demo-page-guide-marker/)
+  assert.match(layout, /@keyframes demo-guide-pulse/)
+  assert.doesNotMatch(layout, /guideLayout\.spotlight/)
 })
