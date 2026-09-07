@@ -532,13 +532,14 @@ $max-content-width: 1240px;
 @media(min-width:1100px){.demo-page-layout{margin-left:var(--demo-sidebar-width,256px);width:calc(100% - var(--demo-sidebar-width,256px))}}
 
 /* Contrast pass for the shared demo shell. */
-.demo-page-layout{background:#f7f8f7}
+.demo-page-layout{background:transparent}
 .demo-page-heading p,.demo-page-guide{color:#4f5b55}
 .demo-page-plan{border-color:#a9cfbc;background:#e3f1ea;color:#075f3c}
 .demo-page-features summary{border-color:#b9c3be;background:#fff;color:#3d4943;box-shadow:0 1px 2px rgb(15 23 42/7%)}
 .demo-page-guide>span{border:1px solid #b7d8c8;background:#e1f1e9;color:#096942}
-.demo-page-stage{border-color:#b9c3be;background:#fff;box-shadow:0 1px 4px rgb(15 23 42/9%)}
+.demo-page-stage{border-color:#b9c3be;background:transparent;box-shadow:0 1px 4px rgb(15 23 42/9%)}
 .demo-page-header-actions{align-items:center}
 .demo-page-features summary{margin:0}
 .demo-page-stage{border:0;border-radius:0;box-shadow:none}
+.demo-page-workspace{background:transparent}
 </style>

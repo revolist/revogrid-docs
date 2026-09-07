@@ -149,6 +149,16 @@ test('planning layout stays usable at the target viewports', async ({ page }) =>
     await expect(page.locator('.planning-demo__grid')).toBeVisible()
     const pageOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
     expect(pageOverflow).toBeLessThanOrEqual(1)
+    const edgeAlignment = await page.evaluate(() => {
+      const header = document.querySelector('.demo-page-header')!.getBoundingClientRect()
+      const grid = document.querySelector('.planning-demo__grid')!.getBoundingClientRect()
+      return {
+        left: Math.abs(grid.left - header.left),
+        right: Math.abs(grid.right - header.right),
+      }
+    })
+    expect(edgeAlignment.left).toBeLessThanOrEqual(1)
+    expect(edgeAlignment.right).toBeLessThanOrEqual(1)
     if (viewport.width < 1100) {
       await expect(page.getByRole('button', { name: 'Examples', exact: true })).toBeVisible()
     } else {
@@ -209,7 +219,7 @@ test('planning layout stays usable at the target viewports', async ({ page }) =>
   }
 })
 
-test('demo surfaces retain clear contrast in light and dark themes', async ({ page }) => {
+test('demo surfaces stay transparent while controls and grid borders retain contrast', async ({ page }) => {
   const readSurfaces = () => page.evaluate(() => {
     const color = (selector: string, property: 'backgroundColor' | 'borderColor' = 'backgroundColor') =>
       getComputedStyle(document.querySelector(selector) as Element)[property]
@@ -217,6 +227,8 @@ test('demo surfaces retain clear contrast in light and dark themes', async ({ pa
       canvas: color('.demo-page-layout'),
       sidebar: color('.demo-nav'),
       stage: color('.demo-page-stage'),
+      grid: color('.planning-demo__grid'),
+      gridHeader: color('.planning-demo__grid revogr-header .rgHeaderCell'),
       controlBorder: color('.planning-demo__search', 'borderColor'),
       gridBorder: color('.planning-demo__grid', 'borderColor'),
     }
@@ -227,9 +239,11 @@ test('demo surfaces retain clear contrast in light and dark themes', async ({ pa
   await page.reload()
   await expect(page.locator('.planning-demo__grid')).toBeVisible()
   expect(await readSurfaces()).toEqual({
-    canvas: 'rgb(247, 248, 247)',
-    sidebar: 'rgb(243, 245, 244)',
-    stage: 'rgb(255, 255, 255)',
+    canvas: 'rgba(0, 0, 0, 0)',
+    sidebar: 'rgba(0, 0, 0, 0)',
+    stage: 'rgba(0, 0, 0, 0)',
+    grid: 'rgba(0, 0, 0, 0)',
+    gridHeader: 'rgba(0, 0, 0, 0)',
     controlBorder: 'rgb(184, 194, 190)',
     gridBorder: 'rgb(184, 194, 190)',
   })
@@ -239,9 +253,11 @@ test('demo surfaces retain clear contrast in light and dark themes', async ({ pa
   await expect(page.locator('html')).toHaveClass(/dark/)
   await expect(page.locator('.planning-demo__grid')).toBeVisible()
   expect(await readSurfaces()).toEqual({
-    canvas: 'rgb(22, 25, 24)',
-    sidebar: 'rgb(32, 36, 34)',
-    stage: 'rgb(25, 28, 27)',
+    canvas: 'rgba(0, 0, 0, 0)',
+    sidebar: 'rgba(0, 0, 0, 0)',
+    stage: 'rgba(0, 0, 0, 0)',
+    grid: 'rgba(0, 0, 0, 0)',
+    gridHeader: 'rgba(0, 0, 0, 0)',
     controlBorder: 'rgb(80, 91, 86)',
     gridBorder: 'rgb(80, 91, 86)',
   })
