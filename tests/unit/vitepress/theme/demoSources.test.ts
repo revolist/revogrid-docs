@@ -187,3 +187,8 @@ test('aligns Advanced Filtering controls with the demo heading', () => {
   assert.match(styles, /\.order-explorer__toolbar\s*\{[\s\S]*?margin-inline:\s*0/)
   assert.match(styles, /\.order-explorer__active-filters\s*\{[\s\S]*?margin-inline:\s*0/)
 })
+
+test('aligns Infinity Scroll controls with the demo heading', () => {
+  const styles = readFileSync(new URL('../../../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.scss', import.meta.url), 'utf8')
+  assert.match(styles, /\.infinity-toolbar\s*\{[\s\S]*?padding:\s*14px 0/)
+})
