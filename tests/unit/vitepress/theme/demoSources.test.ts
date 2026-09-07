@@ -70,6 +70,8 @@ test('uses native advanced filters, quick search, and plugin-owned badges in the
   assert.match(vueSource, /:quick-filter\.prop="quickFilter"/)
   assert.match(vueSource, /:filter-badges\.prop="filterBadgeOptions"/)
   assert.match(vueSource, /:filter\.prop="planningFilterConfig"/)
+  assert.doesNotMatch(vueSource, /planning-demo__toolbar/)
+  assert.match(workspace, /slots:[\s\S]*start:[\s\S]*planning-demo__filter-search/)
   assert.match(vueSource, /usePlanningWorkspace/)
   assert.doesNotMatch(vueSource, /planning-demo__filter-popover/)
   assert.doesNotMatch(vueSource, /planning-demo__chips/)
