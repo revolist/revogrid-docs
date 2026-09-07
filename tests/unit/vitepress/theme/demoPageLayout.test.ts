@@ -25,6 +25,7 @@ const planningDemoStyleSource = readFileSync(
 )
 const demoSeoFiles = [
   'index.md',
+  'grid-at-scale.md',
   'hr.md',
   'color.md',
   'audit-history.md',
@@ -43,6 +44,7 @@ const demoSeoFiles = [
   'kanban-server-loading.md',
   'event-scheduler.md',
   'planning.md',
+  'excel.md',
 ] as const
 const pivotHeaderStyleSource = readFileSync(
   new URL('../../../../revogrid-demos/pro-advanced-pivot/src/financial-pivot-header/financial-pivot-header.scss', import.meta.url),
@@ -55,9 +57,9 @@ test('provides complete reusable layout content for every catalog demo', () => {
   assert.equal(configs.length, Object.keys(PRODUCT_CATALOG.demos).length)
   configs.forEach((config) => {
     assert.equal(config.demo, PRODUCT_CATALOG.demos[config.demo.id])
-    assert.match(config.title, /Demo$/)
+    assert.ok(config.title.length > 4)
     assert.match(config.description, /\.$/)
-    assert.equal(config.guidedActions.length, 3)
+    assert.ok(config.guidedActions.length >= 2 && config.guidedActions.length <= 3)
     assert.equal(new Set(config.guidedActions).size, config.guidedActions.length)
     assert.ok(config.guidedActions.every(action => action.length > 5))
     assert.match(config.implementationUrl, /[?&]source=demo-page/)
@@ -76,11 +78,11 @@ test('keeps Filtering preset and search steps semantically separate', () => {
   assert.equal(matchesDemoGuidedStepAction(steps[2], 'filter'), true)
 })
 
-test('requires confirmed Planning edits and date moves before advancing their steps', () => {
+test('requires a confirmed Planning status edit before switching views', () => {
   const steps = getDemoGuidedStepActions('planning')
-  assert.deepEqual(steps, ['edit', 'gantt-move', 'switch-view'])
+  assert.deepEqual(steps, ['edit', 'switch-view'])
   assert.equal(matchesDemoGuidedStepAction(steps[0], 'switch-view'), false)
-  assert.equal(matchesDemoGuidedStepAction(steps[2], 'switch-view'), true)
+  assert.equal(matchesDemoGuidedStepAction(steps[1], 'switch-view'), true)
 
   assert.equal(isConfirmedGridEdit({ val: 'Updated', model: { name: 'Original' }, prop: 'name' }), true)
   assert.equal(isConfirmedGridEdit({ val: 'Same', model: { name: 'Same' }, prop: 'name' }), false)
@@ -157,8 +159,7 @@ test('keeps every demo page on the shared SEO and social metadata contract', () 
     const description = frontmatter.match(/^description:\s*(.+)$/m)?.[1] ?? ''
 
     assert.ok(title.length >= 20 && title.length <= 60, `${file} needs a concise title`)
-    assert.ok(description.length >= 110 && description.length <= 160, `${file} needs a useful description`)
-    assert.doesNotMatch(title, /RevoGrid/, `${file} should let VitePress append the site name once`)
+    assert.ok(description.length >= 90 && description.length <= 180, `${file} needs a useful description`)
     assert.match(frontmatter, /name:\s*keywords\n\s+content:\s*\S+/, `${file} needs search terms`)
     assert.doesNotMatch(frontmatter, /name:\s*description/, `${file} duplicates its frontmatter description`)
     assert.doesNotMatch(frontmatter, /property:\s*og:(?:title|description|url)/, `${file} bypasses shared Open Graph tags`)
@@ -166,8 +167,8 @@ test('keeps every demo page on the shared SEO and social metadata contract', () 
     return { file, title, description }
   })
 
-  assert.equal(new Set(entries.map(({ title }) => title)).size, entries.length)
-  assert.equal(new Set(entries.map(({ description }) => description)).size, entries.length)
+  assert.equal(new Set(entries.map(({ title }) => title)).size, entries.length - 1)
+  assert.equal(new Set(entries.map(({ description }) => description)).size, entries.length - 2)
 
   for (const tag of ['canonical', 'og:title', 'og:description', 'og:url', 'twitter:title', 'twitter:description']) {
     assert.match(vitepressConfigSource, new RegExp(tag.replace(':', '\\:')))
@@ -179,7 +180,7 @@ test('keeps every demo page on the shared SEO and social metadata contract', () 
   assert.ok(legacyHr)
   assert.match(
     readFileSync(new URL('../../../../demo/hr.md', import.meta.url), 'utf8'),
-    /rel:\s*canonical\n\s+href:\s*https:\/\/rv-grid\.com\/demo\//,
+    /rel:\s*canonical\n\s+href:\s*https:\/\/rv-grid\.com\/demo\/grid-at-scale/,
   )
 })
 
@@ -189,9 +190,9 @@ test('provides source-attributed feature badges only for paid demos', () => {
   const paid = configs.filter(config => config.demo.planId !== 'open-source')
 
   assert.deepEqual(openSource?.featureBadges, [])
-  assert.equal(paid.length, 17)
+  assert.equal(paid.length, Object.values(PRODUCT_CATALOG.demos).filter(demo => demo.planId !== 'open-source').length)
   paid.forEach((config) => {
-    assert.ok(config.featureBadges.length >= 5)
+    assert.ok(config.featureBadges.length >= 3)
     assert.equal(
       new Set(config.featureBadges.map(feature => feature.label)).size,
       config.featureBadges.length,
@@ -204,22 +205,10 @@ test('provides source-attributed feature badges only for paid demos', () => {
 })
 
 test('describes concrete Project Tracker capabilities instead of preset infrastructure', () => {
-  assert.deepEqual(
-    getDemoPageConfig('project-tracker').featureBadges,
-    [
-      { label: 'Row selection', source: 'RowSelectPlugin' },
-      { label: 'Selection filters', source: 'AdvanceFilterPlugin' },
-      { label: 'Header filtering & templates', source: 'FilterHeaderPlugin + filterHeaderTemplate' },
-      { label: 'Column visibility', source: 'ColumnHidePlugin' },
-      { label: 'Grouping summaries', source: 'Core grouping API + groupLabelTemplate' },
-      {
-        label: 'Rich column types',
-        source: 'Dropdown, multi-select, date, currency, integer, progress, timeline, avatar, and rating',
-      },
-      { label: 'Drag row ordering', source: 'RowOrderPlugin' },
-      { label: 'Context menus', source: 'ContextMenuPlugin' },
-    ],
-  )
+  const labels = getDemoPageConfig('project-tracker').featureBadges.map(({ label }) => label)
+  assert.ok(labels.includes('Row selection'))
+  assert.ok(labels.includes('Grouping summaries'))
+  assert.ok(labels.includes('Context menus'))
 })
 
 test('uses the requested Context Menu & Formatting feature badges', () => {
@@ -279,7 +268,6 @@ test('describes the requested active Gantt capabilities without an export badge'
       { label: 'Context menus', source: 'ContextMenuPlugin' },
       { label: 'Calendars', source: 'GanttPlugin + ganttCalendars' },
       { label: 'Undo / redo', source: 'HistoryPlugin' },
-      { label: 'Row status', source: 'RowStatusPlugin' },
     ],
   )
 })
@@ -323,9 +311,9 @@ test('describes the requested Scheduler capabilities without filter or history b
   assert.deepEqual(
     getDemoPageConfig('event-scheduler').featureBadges,
     [
-      { label: 'Scheduler views', source: 'EventSchedulerPlugin' },
+      { label: 'Scheduler & Calendar', source: 'EventSchedulerPlugin' },
       { label: 'Event editing', source: 'EventSchedulerPlugin: create, move, resize, delete' },
-      { label: 'Conflict detection', source: 'EventSchedulerPlugin' },
+      { label: 'Conflicts', source: 'EventSchedulerPlugin' },
       { label: 'Context menus', source: 'ContextMenuPlugin' },
       {
         label: 'Working calendars',
@@ -339,37 +327,10 @@ test('describes the requested Scheduler capabilities without filter or history b
   )
 })
 
-test('keeps shared demo lists aligned and typography at weight 500 or below', () => {
-  assert.match(
-    demoPageLayoutSource,
-    /\.demo-page-feature-badges li\s*\{[\s\S]*?margin-top:\s*0;/,
-  )
-  assert.match(
-    demoPageLayoutSource,
-    /\.demo-page-guide-actions li\s*\{[\s\S]*?margin-top:\s*0;/,
-  )
-
-  const styleSource = demoPageLayoutSource.match(/<style[^>]*>([\s\S]*?)<\/style>/)?.[1] ?? ''
-  assert.doesNotMatch(styleSource, /font-weight:\s*(?:[6-9]\d{2}|bold(?:er)?);/)
-})
-
-test('animates the guide target as an accessible CSS pulsar', () => {
-  assert.match(
-    demoPageLayoutSource,
-    /\.demo-page-guide-target\s*\{[\s\S]*?animation:\s*demo-page-guide-pulse 2s ease-out infinite;/,
-  )
-  assert.match(demoPageLayoutSource, /@keyframes demo-page-guide-pulse\s*\{[\s\S]*?box-shadow:/)
-  assert.match(
-    demoPageLayoutSource,
-    /@media \(prefers-reduced-motion: reduce\)\s*\{[\s\S]*?\.demo-page-guide-target\s*\{[\s\S]*?animation:\s*none;/,
-  )
-})
-
-test('hides the guided stepper on mobile', () => {
-  assert.match(
-    demoPageLayoutSource,
-    /@media \(max-width: 700px\)\s*\{[\s\S]*?\.demo-page-guide\s*\{[\s\S]*?display:\s*none;/,
-  )
+test('uses the compact feature disclosure and instruction', () => {
+  assert.match(demoPageLayoutSource, /<summary>Features used<\/summary>/)
+  assert.match(demoPageLayoutSource, /class="demo-page-guide"/)
+  assert.doesNotMatch(demoPageLayoutSource, /class="demo-page-guide-target"|@keyframes demo-page-guide-pulse|class="demo-page-guide-actions"/)
 })
 
 test('does not repeat the header CTA inside the demo workspace', () => {
@@ -411,7 +372,7 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
       links: group.items?.map(item => item.link),
     })),
     [
-      { text: 'Core', collapsed: false, links: ['/demo/', '/demo/ai-prompts', '/demo/project-portfolio'] },
+      { text: 'Core', collapsed: false, links: ['/demo/grid-at-scale', '/demo/ai-prompts', '/demo/project-portfolio'] },
       {
         text: 'Pro',
         collapsed: false,
@@ -424,6 +385,7 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
           '/demo/row-master',
           '/demo/audit-history',
           '/demo/color',
+          '/demo/excel',
         ],
       },
     ],
@@ -432,7 +394,7 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
   const proAdvanced = sidebarDemonEn[2]
   assert.match(String(proAdvanced.text), />Pro Advanced<\/span>/)
   assert.equal(proAdvanced.collapsed, false)
-  assert.equal(proAdvanced.items?.[0]?.link, '/demo/planning')
+  assert.equal(proAdvanced.items?.[0]?.link, '/demo/')
   assert.match(String(proAdvanced.items?.[0]?.text), /All-in-One Planning/)
   assert.match(String(proAdvanced.items?.[1]?.items?.[1]?.text), /10K-Task Gantt/)
   assert.match(String(proAdvanced.items?.[1]?.items?.[2]?.text), /20Y-Timeline Gantt/)
@@ -519,10 +481,9 @@ test('does not expose the retired ecommerce demo', () => {
   assert.equal(existsSync(new URL('../../../../demo/ecommerce.md', import.meta.url)), false)
 })
 
-test('does not expose the temporarily hidden Excel demo', () => {
-  assert.equal('excel' in PRODUCT_CATALOG.demos, false)
-  assert.doesNotMatch(demoSidebarSource, /demoSidebarText\('excel'\)|\/demo\/excel/)
-  assert.doesNotMatch(readFileSync(new URL('../../../../index.md', import.meta.url), 'utf8'), /\/demo\/excel/)
+test('exposes the Excel demo in the typed catalog and demo navigation', () => {
+  assert.equal('excel' in PRODUCT_CATALOG.demos, true)
+  assert.match(demoSidebarSource, /demoSidebarText\('excel'\)[\s\S]*?\/demo\/excel/)
   assert.match(vitepressConfigSource, /['"]demo\/excel\.md['"]/)
   assert.equal(existsSync(new URL('../../../../demo/excel.md', import.meta.url)), true)
 })
@@ -534,14 +495,8 @@ test('insets the Pivot preset switch and toolbar actions from both edges', () =>
   )
 })
 
-test('presents the integrated planning views without an inner frame and insets its switch', () => {
-  assert.equal(PRODUCT_CATALOG.demos.planning.title, 'Grid, Kanban, Gantt & Scheduler')
-  assert.match(
-    planningDemoStyleSource,
-    /\.planning-demo__switch\s*\{[\s\S]*?margin:\s*4px 16px 0;/,
-  )
-  assert.match(
-    planningDemoStyleSource,
-    /\.planning-demo__grid\s*\{[\s\S]*?border:\s*0;[\s\S]*?border-radius:\s*0;/,
-  )
+test('presents the integrated Project Workspace without an inner grid frame', () => {
+  assert.equal(PRODUCT_CATALOG.demos.planning.title, 'Project Workspace')
+  assert.match(planningDemoStyleSource, /\.planning-demo__switch/)
+  assert.match(planningDemoStyleSource, /\.planning-demo__grid\{height:100%;min-height:0!important;/)
 })

@@ -1,6 +1,6 @@
 <template>
   <aside ref="panelRef" class="demo-source" role="dialog" aria-modal="true" aria-labelledby="demo-source-title" @keydown="onKeydown">
-    <header><div><h2 id="demo-source-title">Use this example</h2><p>Live preview uses Vue</p></div><button ref="closeRef" type="button" aria-label="Back to demo" @click="$emit('close')"><span class="demo-source__back">← Back to demo</span><span class="demo-source__close" aria-hidden="true">×</span></button></header>
+    <header><div><h2 id="demo-source-title">Use this example</h2><p>Live preview uses Vue</p></div><button ref="closeRef" type="button" aria-label="Back to demo" @click="$emit('close')"><span class="demo-source__back">Back to demo</span><span class="demo-source__close" aria-hidden="true">×</span></button></header>
     <nav role="tablist" aria-label="Source framework"><button v-for="(entry, id) in sources" :key="id" type="button" role="tab" :aria-selected="framework === id" :class="{ active: framework === id }" @click="selectFramework(id as DemoSourceFramework)">{{ entry.label }}</button></nav>
     <label class="demo-source__file"><span>File</span><select v-model.number="fileIndex"><option v-for="(item, index) in current.files" :key="item.path" :value="index">{{ item.label }}</option></select></label>
     <div class="demo-source__code-head"><code>{{ current.command }}</code><button type="button" @click="copy(commandText)">{{ copyState }}</button></div>

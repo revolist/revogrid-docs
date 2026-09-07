@@ -10,6 +10,7 @@
           >{{ config.planLabel }}</span>
         </div>
         <p>{{ config.description }}</p>
+        <p v-if="demoId === 'planning' && completedActionCount < config.guidedActions.length" class="demo-page-guide demo-page-guide--heading" aria-live="polite"><span>{{ completedActionCount + 1 }}</span>{{ config.guidedActions[completedActionCount] }}</p>
       </div>
 
       <div class="demo-page-header-actions" aria-label="Demo actions">
@@ -25,7 +26,7 @@
       </div>
     </header>
 
-    <div class="demo-page-utility"><p v-if="completedActionCount < config.guidedActions.length" class="demo-page-guide" aria-live="polite"><span>{{ completedActionCount + 1 }}</span>{{ config.guidedActions[completedActionCount] }}</p><div v-if="demoId !== 'planning'" class="demo-page-utility-actions"><slot name="workspace-actions"/><button ref="sourceButtonRef" type="button" :aria-expanded="sourceOpen" @click="openSource"><FontAwesomeSvgIcon name="code"/> Code</button><a :href="sources.vue.documentationUrl">Docs</a></div></div>
+    <div v-if="demoId !== 'planning'" class="demo-page-utility"><p v-if="completedActionCount < config.guidedActions.length" class="demo-page-guide" aria-live="polite"><span>{{ completedActionCount + 1 }}</span>{{ config.guidedActions[completedActionCount] }}</p><div class="demo-page-utility-actions"><slot name="workspace-actions"/><button ref="sourceButtonRef" type="button" :aria-expanded="sourceOpen" @click="openSource"><FontAwesomeSvgIcon name="code"/> Code</button><a :href="sources.vue.documentationUrl">Docs</a></div></div>
 
     <div class="demo-page-stage" :class="{ 'source-open': sourceOpen }"><div
       ref="workspaceRef"
@@ -502,4 +503,30 @@ $max-content-width: 1240px;
 .demo-page-layout{--demo-page-green:#008b55;--demo-page-green-dark:#00784a;height:100vh;padding:var(--vp-nav-height,64px) 24px 16px;font-family:Geist,Inter,system-ui,sans-serif}.demo-page-header{max-width:none;margin:0 0 8px;padding-top:18px;gap:20px}.demo-page-title-row h1{font-size:28px;line-height:34px;font-weight:600}.demo-page-heading p{margin-top:4px;font-size:14px;line-height:20px}.demo-page-plan{border-radius:5px}.demo-page-header-actions{align-items:flex-start}.demo-page-button{min-height:36px;padding:7px 14px;border-radius:6px}.demo-page-features{position:relative}.demo-page-features summary{height:36px;padding:7px 10px;border:1px solid var(--vp-c-divider);border-radius:6px;cursor:pointer;list-style:none}.demo-page-features ul{position:absolute;z-index:30;top:42px;right:0;width:310px;margin:0;padding:8px;border:1px solid var(--vp-c-divider);border-radius:8px;background:var(--vp-c-bg);box-shadow:0 12px 30px rgb(15 23 42/14%);list-style:none}.demo-page-features li{display:grid;gap:2px;margin:0;padding:7px}.demo-page-features li span{color:var(--vp-c-text-2);font-size:11px}.demo-page-utility{display:flex;min-height:36px;align-items:center;justify-content:space-between;margin-bottom:8px}.demo-page-guide{display:flex;gap:8px;margin:0;padding:0;background:transparent;color:var(--vp-c-text-2);font-size:12px}.demo-page-guide>span{display:grid;width:20px;height:20px;place-items:center;border-radius:50%;background:color-mix(in srgb,var(--demo-page-green) 12%,transparent);color:var(--demo-page-green-dark)}.demo-page-utility-actions{display:flex;align-items:center;gap:4px}.demo-page-utility-actions button,.demo-page-utility-actions a{display:inline-flex;height:34px;align-items:center;gap:6px;padding:0 10px;border:0;border-radius:6px;background:transparent;color:var(--vp-c-text-1);font:500 13px/1 inherit;text-decoration:none}.demo-page-utility-actions button:hover,.demo-page-utility-actions a:hover{background:var(--vp-c-bg-soft)}.demo-page-utility-actions :deep(.fa-svg-icon){width:14px;height:14px}.demo-page-stage{display:flex;min-height:0;flex:1;overflow:hidden;border:1px solid var(--vp-c-divider);border-radius:6px;background:var(--vp-c-bg)}.demo-page-workspace{min-width:0;min-height:0;flex:1;overflow:hidden;border:0;border-radius:0;box-shadow:none}.demo-page-stage.source-open .demo-page-workspace{border-right:0}@media(min-width:1100px){.demo-page-layout{margin-left:196px}}@media(max-width:1099px){.demo-page-layout{padding-top:calc(var(--vp-nav-height,64px) + 54px)}.demo-page-header{padding-top:0}}@media(max-width:700px){.demo-page-layout{height:auto;min-height:100vh;padding-inline:10px}.demo-page-header{align-items:flex-start;flex-direction:column}.demo-page-header-actions{width:100%;flex-direction:row}.demo-page-button--primary{width:100%}.demo-page-features{display:none}.demo-page-utility{align-items:flex-start}.demo-page-guide{max-width:65%}.demo-page-stage{height:620px}}
 @media(min-width:1100px){.demo-page-layout{width:calc(100% - 196px)}}
 .demo-page-button--primary,.demo-page-button--primary:hover{background:var(--demo-page-green);transform:none}
+
+/* Final demo-page hierarchy and surface treatment. */
+.demo-page-layout{padding-bottom:18px;background:var(--vp-c-bg);color:var(--vp-c-text-1)}
+.demo-page-header{min-height:92px;margin:0;padding:16px 0 12px;align-items:flex-start}
+.demo-page-title-row{gap:9px}
+.demo-page-title-row h1{margin:0;color:var(--vp-c-text-1);letter-spacing:-.025em}
+.demo-page-heading p{margin:3px 0 0;color:var(--vp-c-text-2)}
+.demo-page-plan{align-self:center;padding:2px 6px;border:1px solid color-mix(in srgb,var(--demo-page-green) 18%,transparent);background:color-mix(in srgb,var(--demo-page-green) 7%,transparent);color:color-mix(in srgb,var(--demo-page-green) 82%,var(--vp-c-text-1));font-size:10px;font-weight:600;line-height:16px}
+.demo-page-header-actions{padding-top:2px;gap:8px}
+.demo-page-button{height:36px;min-height:36px;box-shadow:0 1px 2px rgb(15 23 42/8%);font-size:13px;font-weight:600}
+.demo-page-button--primary{border-color:color-mix(in srgb,var(--demo-page-green) 82%,#000);background:var(--demo-page-green);color:#fff}
+.demo-page-features summary{display:flex;align-items:center;background:var(--vp-c-bg);color:var(--vp-c-text-2);font-size:13px;font-weight:520;box-shadow:0 1px 2px rgb(15 23 42/3%)}
+.demo-page-features summary:hover{border-color:var(--vp-c-border);color:var(--vp-c-text-1)}
+.demo-page-utility{min-height:34px;margin:0 0 8px}
+.demo-page-guide{align-items:center;color:var(--vp-c-text-2);font-size:11.5px}
+.demo-page-guide>span{width:20px;height:20px;background:color-mix(in srgb,var(--demo-page-green) 9%,transparent);color:var(--demo-page-green-dark);font-size:10px;font-weight:650}
+.demo-page-guide--heading{min-height:24px;margin-top:8px!important}
+.demo-page-layout[data-demo-id='planning'] .demo-page-header{min-height:82px;padding-bottom:10px}
+.demo-page-layout[data-demo-id='planning'] .demo-page-heading{display:grid;grid-template-columns:auto auto;align-items:center;gap:2px 18px}
+.demo-page-layout[data-demo-id='planning'] .demo-page-title-row{grid-column:1/-1}
+.demo-page-layout[data-demo-id='planning'] .demo-page-heading>p:not(.demo-page-guide){margin:0}
+.demo-page-layout[data-demo-id='planning'] .demo-page-guide--heading{min-height:20px;margin:0!important;white-space:nowrap}
+.demo-page-layout[data-demo-id='planning'] :deep(.planning-demo__hint){display:none}
+.demo-page-stage{border-color:color-mix(in srgb,var(--vp-c-divider) 92%,transparent);background:var(--vp-c-bg);box-shadow:0 1px 2px rgb(15 23 42/3%)}
+@media(max-width:1099px){.demo-page-layout{padding-right:16px;padding-left:16px}.demo-page-header{min-height:82px}}
+@media(max-width:700px){.demo-page-layout[data-demo-id='planning'] .demo-page-heading{display:block}.demo-page-layout[data-demo-id='planning'] .demo-page-guide--heading{margin-top:8px!important}}
 </style>

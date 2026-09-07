@@ -9,3 +9,4 @@ dist
 package-lock.json
 *_feature.md
 .playwright-mcp
+test-results/
