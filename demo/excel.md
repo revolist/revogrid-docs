@@ -1,5 +1,5 @@
 ---
-title: Excel-Style Spreadsheet Data Grid Demo
+title: Collaboration Spreadsheet Data Grid Demo
 description: Try spreadsheet editing, formulas, validation, formatting, collaboration, and Excel import or export in the RevoGrid Pro workbook demo.
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc

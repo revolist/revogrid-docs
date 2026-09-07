@@ -161,7 +161,7 @@ const DEMO_PAGE_CONTENT = {
     ],
   },
   excel: {
-    title: 'Excel Workbench Demo',
+    title: 'Collaboration Demo',
     description: 'Edit formulas, validation, formatting, presence, and Excel files in a spreadsheet workspace.',
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-excel/src/excel.vue',
     featureBadges: [

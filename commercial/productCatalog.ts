@@ -449,7 +449,7 @@ const demos = {
   'infinity-scroll': { id: 'infinity-scroll', title: 'Infinity Scroll', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/infinity-scroll' },
   'row-master': { id: 'row-master', title: 'Row Master', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/row-master' },
   'tree-data': { id: 'tree-data', title: 'Tree Data', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/tree-data' },
-  excel: { id: 'excel', title: 'Excel Workbench', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/excel' },
+  excel: { id: 'excel', title: 'Collaboration', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/excel' },
   pivot: { id: 'pivot', title: 'Pivot Table Demo', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot' },
   gantt: { id: 'gantt', title: 'Gantt Chart JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt' },
   'gantt-big-data': { id: 'gantt-big-data', title: '10K-Task Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt-big-data' },
