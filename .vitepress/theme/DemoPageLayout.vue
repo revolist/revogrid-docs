@@ -1,5 +1,11 @@
 <template>
-  <div class="demo-page-layout" :data-demo-id="demoId">
+  <div class="demo-page-layout" :data-demo-id="demoId" :class="{ 'demo-page-layout--first-entry': experimentEnabled }">
+    <nav v-if="experimentEnabled" class="demo-scenarios" aria-label="Demo scenarios">
+      <a target="_self" v-for="scenario in firstEntryScenarios" :key="scenario.demoId"
+        :href="firstEntryDemoHref(scenario.demoId)" :aria-current="scenario.demoId === demoId ? 'page' : undefined"
+      >{{ scenario.label }}</a>
+      <a target="_self" class="demo-scenarios__all" href="/demo/?scenario=performance">Browse all demos</a>
+    </nav>
     <header class="demo-page-header">
       <div class="demo-page-heading">
         <div class="demo-page-title-row">
@@ -24,27 +30,32 @@
         </ul>
       </div>
 
-      <div class="demo-page-header-actions" aria-label="Demo actions">
-        <a
-          class="demo-page-button demo-page-button--primary"
-          :href="primaryCtaHref"
-          @click="trackCta('header', 'try_in_project')"
-        >
-          Try in your project
-          <span aria-hidden="true">→</span>
-        </a>
-        <a
-          class="demo-page-button demo-page-button--secondary"
-          :href="config.implementationUrl"
-          @click="trackImplementationOpen"
-        >
-          <FontAwesomeSvgIcon name="github" />
-          View implementation
-        </a>
+      <div class="demo-page-evaluation">
+        <p v-if="experimentEnabled" class="demo-page-included">{{ config.demo.planId === 'open-source' ? 'This demo uses Core. Evaluate Pro features next.' : `Features in this demo are included in ${config.planLabel}.` }}
+          <a :href="config.pricingUrl">Compare plans</a>
+        </p>
+        <div class="demo-page-header-actions" aria-label="Demo actions">
+          <a
+            class="demo-page-button demo-page-button--primary"
+            :href="primaryCtaHref"
+            @click="trackCta('header', 'try_in_project')"
+          >
+            {{ experimentEnabled ? 'Try free for 30 days' : 'Try in your project' }}
+            <span aria-hidden="true">→</span>
+          </a>
+          <a
+            class="demo-page-button demo-page-button--secondary"
+            :href="config.implementationUrl"
+            @click="trackImplementationOpen"
+          >
+            <FontAwesomeSvgIcon name="github" />
+            View example code
+          </a>
+        </div>
       </div>
     </header>
 
-    <section class="demo-page-guide" aria-labelledby="demo-page-guide-title">
+    <section v-if="!explicitProgress" class="demo-page-guide" aria-labelledby="demo-page-guide-title">
       <div class="demo-page-guide-intro">
         <span class="demo-page-guide-target" aria-hidden="true">◎</span>
         <span>
@@ -77,6 +88,8 @@
     <div
       ref="workspaceRef"
       class="demo-page-workspace"
+      @order-explorer-action="handleScenarioAction"
+      @order-explorer-reset="resetScenarioProgress"
       @click.capture="handleWorkspaceClick"
       @change.capture="handleWorkspaceChange"
       @input.capture="handleWorkspaceInput"
@@ -101,10 +114,13 @@ import {
   type DemoGuidedStepAction,
 } from './demoPageLayout'
 import { getAnalyticsExperimentVariant, trackSiteAnalytics } from './siteAnalytics'
+import { firstEntryScenarios, firstEntryDemoHref, firstEntryWorkspaceClasses, getFirstEntryContext, isOrderFirstEntry } from './demoFirstEntry'
 import FontAwesomeSvgIcon from './home-v2/FontAwesomeSvgIcon.vue'
 
-const props = defineProps<{ demoId: DemoId }>()
-const config = computed(() => getDemoPageConfig(props.demoId))
+const props = defineProps<{ demoId: DemoId, firstEntry?: boolean }>()
+const experimentEnabled = ref(false)
+const explicitProgress = computed(() => experimentEnabled.value && props.firstEntry === true)
+const config = computed(() => (experimentEnabled.value ? getFirstEntryContext(props.demoId) : undefined) ?? getDemoPageConfig(props.demoId))
 const workspaceRef = ref<HTMLElement>()
 const primaryCtaHref = ref(config.value.primaryCtaUrl)
 const completedActionCount = ref(0)
@@ -118,6 +134,7 @@ const gridHandlers = new Map<HTMLElement, Map<string, EventListener>>()
 const pendingGridEdits = new WeakMap<HTMLElement, { prop: string, val: unknown, oldVal: unknown }>()
 let gridObserver: MutationObserver | undefined
 let headerFilterGestureUntil = 0
+let workspaceBodyClasses: string[] = []
 
 const analyticsContext = () => {
   const experimentVariant = getAnalyticsExperimentVariant(window.location)
@@ -153,6 +170,7 @@ const trackImplementationOpen = () => {
   pushAnalytics(createDemoPageAnalyticsEvent('demo_implementation_open', props.demoId, {
     cta_location: 'header',
     implementation_url: config.value.implementationUrl,
+    ...analyticsContext(),
   }), `demo_implementation_open:${props.demoId}:header`)
 }
 
@@ -168,10 +186,24 @@ const recordGuidedAction = (action: DemoGuidedStepAction) => {
   }), `demo_action:${props.demoId}:${action}`)
 }
 
+const handleScenarioAction = (event: Event) => {
+  if (!explicitProgress.value || !(event instanceof CustomEvent)) return
+  const progress = Number(event.detail?.progress)
+  const resultCount = Number(event.detail?.resultCount)
+  if (!Number.isInteger(progress) || !Number.isInteger(resultCount) || resultCount < 0) return
+  while (completedActionCount.value < Math.min(progress, guidedStepActions.value.length)) {
+    recordGuidedAction(guidedStepActions.value[completedActionCount.value])
+  }
+}
+const resetScenarioProgress = () => {
+  if (explicitProgress.value) completedActionCount.value = 0
+}
+
 const closestElement = (event: Event): Element | null =>
   event.target instanceof Element ? event.target : null
 
 const handleWorkspaceClick = (event: MouseEvent) => {
+  if (explicitProgress.value) return
   const target = closestElement(event)
   if (!target) return
   if (target.closest('.order-explorer__presets button')) recordGuidedAction('preset')
@@ -182,11 +214,13 @@ const handleWorkspaceClick = (event: MouseEvent) => {
 }
 
 const handleWorkspaceChange = (event: Event) => {
+  if (explicitProgress.value) return
   const target = closestElement(event)
   if (target?.closest('revo-grid')) headerFilterGestureUntil = Date.now() + 2_000
 }
 
 const handleWorkspaceInput = (event: Event) => {
+  if (explicitProgress.value) return
   const target = closestElement(event)
   if (target instanceof HTMLInputElement
     && target.matches('.order-explorer__search-input')
@@ -233,7 +267,7 @@ const observeGrid = (grid: HTMLElement) => {
           recordGuidedAction('edit')
         }
       }
-      if (eventName === 'afterfilterapply' && Date.now() <= headerFilterGestureUntil) recordGuidedAction('filter')
+      if (!explicitProgress.value && eventName === 'afterfilterapply' && Date.now() <= headerFilterGestureUntil) recordGuidedAction('filter')
       const gridSource = (grid as HTMLElement & { source?: unknown }).source
       const source = Array.isArray(gridSource) ? gridSource : []
       if (eventName === 'gantt-before-task-change' && isConfirmedGanttMove(detail, source)) {
@@ -263,6 +297,13 @@ const scanForGrids = () => {
 }
 
 onMounted(async () => {
+  experimentEnabled.value = (props.firstEntry === true || isOrderFirstEntry(window.location.search))
+    && !!getFirstEntryContext(props.demoId)
+    && (props.demoId !== 'filtering' || props.firstEntry === true)
+  if (experimentEnabled.value) {
+    workspaceBodyClasses = firstEntryWorkspaceClasses(props.demoId)
+    document.body.classList.add(...workspaceBodyClasses)
+  }
   await nextTick()
   hydratePrimaryCtaHref()
   pushAnalytics(createDemoPageAnalyticsEvent('demo_view', props.demoId, analyticsContext()), `demo_view:${props.demoId}`)
@@ -273,6 +314,7 @@ onMounted(async () => {
 })
 
 onBeforeUnmount(() => {
+  if (workspaceBodyClasses.length) document.body.classList.remove(...workspaceBodyClasses)
   gridObserver?.disconnect()
   gridHandlers.forEach((handlers, grid) => {
     handlers.forEach((handler, eventName) => grid.removeEventListener(eventName, handler))
@@ -283,7 +325,7 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss" scoped>
-$max-content-width: 1240px;
+$max-content-width: 1280px;
 
 .demo-page-layout {
   --demo-page-green: #00ad68;
@@ -295,6 +337,10 @@ $max-content-width: 1240px;
   height: calc(100vh);
   display: flex;
   flex-direction: column;
+}
+
+:global(.dark) .demo-page-layout {
+  --demo-page-green-dark: #66dda8;
 }
 
 
@@ -634,6 +680,103 @@ $max-content-width: 1240px;
   .demo-page-button,
   .demo-page-progress-track > span {
     transition: none;
+  }
+}
+
+.demo-page-evaluation { display: contents; }
+
+.demo-page-layout--first-entry {
+  height: auto;
+  min-height: 100vh;
+  padding-inline: clamp(12px, 2.5vw, 32px);
+  .demo-page-header { margin-bottom: 14px; }
+  .demo-page-workspace {
+    max-width: $max-content-width;
+    min-height: 0;
+    height: auto;
+    flex: none;
+    margin: 0 auto 28px;
+    overflow: visible;
+    box-shadow: 0 12px 36px color-mix(in srgb, var(--vp-c-text-1) 5%, transparent);
+  }
+  .demo-page-evaluation {
+    display: block;
+    max-width: 430px;
+    border-left: 1px solid var(--vp-c-divider);
+    padding-left: 24px;
+  }
+  .demo-page-header-actions { flex-wrap: wrap; }
+  :deep(.order-first-entry__brief) { display: none; }
+}
+
+.demo-page-layout--first-entry:not([data-demo-id='filtering']) .demo-page-workspace {
+  min-height: 600px;
+  height: 650px;
+  overflow: hidden;
+}
+.demo-scenarios {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px;
+  max-width: $max-content-width; width: 100%; margin: 12px auto 0;
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding-bottom: 8px;
+  a { display: inline-flex; min-height: 44px; align-items: center; padding: 0 14px; border-radius: 8px; color: var(--vp-c-text-2); font-size: 14px; font-weight: 500; text-decoration: none; }
+  a:hover { background: var(--vp-c-default-soft); color: var(--vp-c-text-1); }
+  a[aria-current='page'], a[aria-current='page']:hover { background: color-mix(in srgb, var(--demo-page-green) 13%, var(--vp-c-bg)); color: var(--demo-page-green-dark); font-weight: 650; }
+  a:focus-visible { outline: 3px solid var(--demo-page-green); }
+  .demo-scenarios__all { margin-left: auto; text-decoration: underline; text-underline-offset: 3px; }
+}
+.demo-page-included { font-size: 12px; color: var(--vp-c-text-2); margin: 0 0 8px; }
+.demo-page-included a { text-decoration: underline; white-space: nowrap; }
+
+:global(body.order-first-entry-workspace .VPSidebar),
+:global(body.order-first-entry-workspace .VPLocalNav) {
+  display: none !important;
+}
+
+:global(body.order-first-entry-workspace .VPContent.has-sidebar) {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+:global(body.order-first-entry-workspace .order-first-entry__brief) {
+  display: none !important;
+}
+
+@media (max-width: 720px) {
+  .demo-page-layout--first-entry {
+    padding-top: 0;
+    padding-inline: 8px;
+
+    .demo-page-header {
+      gap: 10px;
+      padding: 8px 6px 0;
+    }
+
+    .demo-page-title-row { align-items: center; flex-direction: row; }
+    .demo-page-title-row h1 { font-size: 24px; }
+    .demo-page-heading p { margin-top: 6px; font-size: 13px; line-height: 1.4; }
+    .demo-page-feature-badges { margin-top: 7px; }
+    .demo-page-feature-badges { display: none; }
+    .demo-page-evaluation { max-width: none; border-left: 0; padding-left: 0; }
+    .demo-page-included { margin-bottom: 6px; }
+    .demo-page-header-actions { display: grid; grid-template-columns: 1fr 1fr; width: 100%; gap: 7px; }
+    .demo-page-button { min-height: 44px; padding-inline: 9px; font-size: 12px; }
+    .demo-page-workspace { margin-bottom: 18px; border-radius: 9px; }
+  }
+
+  .demo-page-layout--first-entry:not([data-demo-id='filtering']) .demo-page-workspace {
+    min-height: 560px;
+    height: 620px;
+  }
+
+  .demo-scenarios {
+    flex-wrap: nowrap;
+    gap: 1px;
+    margin-top: 4px;
+    overflow-x: auto;
+    padding: 6px 2px 8px;
+    a { min-height: 44px; padding: 0 10px; font-size: 12px; white-space: nowrap; }
+    .demo-scenarios__all { margin-left: 8px; }
   }
 }
 </style>

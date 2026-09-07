@@ -1,5 +1,18 @@
 <template>
   <main class="trial-page">
+    <section v-if="demoContext" class="trial-demo-context trial-container" aria-label="Your selected demo">
+      <div>
+        <p class="trial-demo-context__eyebrow">Selected demo</p>
+        <p>Continue evaluating <strong>{{ demoContext.title }}</strong> · {{ demoContext.planLabel }}</p>
+        <p>{{ demoContext.demo.planId === 'open-source' ? 'Your demo uses Core. Explore Pro features with the trial.' : `The features you tried are included in ${demoContext.planLabel}.` }}</p>
+      </div>
+      <nav aria-label="Selected demo resources">
+        <a target="_self" :href="demoContext.returnHref">Back to {{ demoContext.title }}</a>
+        <a :href="demoContext.implementationUrl">View example code</a>
+        <a :href="demoContext.pricingUrl">Compare plans</a>
+      </nav>
+    </section>
+
     <section class="trial-hero">
       <div class="trial-container trial-hero-grid">
         <div class="trial-copy">
@@ -153,7 +166,8 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { getFirstEntryContext, ORDER_FIRST_ENTRY_VARIANT } from '../.vitepress/theme/demoFirstEntry'
+import { computed, onMounted, ref } from 'vue'
 import FontAwesomeSvgIcon from '../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
 import { getAnalyticsExperimentVariant, trackSiteAnalytics } from '../.vitepress/theme/siteAnalytics'
 import TrustedLogoStrip from '../.vitepress/theme/TrustedLogoStrip.vue'
@@ -227,6 +241,7 @@ const trialOptions: TrialOption[] = [
 const selectedTrial = ref<TrialOption>(trialOptions[0])
 const demoId = ref<string>()
 const experimentVariant = ref<string>()
+const demoContext = computed(() => experimentVariant.value === ORDER_FIRST_ENTRY_VARIANT ? getFirstEntryContext(demoId.value) : undefined)
 
 function findTrialOption(product: string | null): TrialOption {
   const normalizedProduct = product === 'event-scheduler' ? 'scheduler' : product
@@ -740,6 +755,37 @@ const steps = [
 
   .step-card h3 {
     margin-top: 0;
+  }
+}
+.trial-demo-context {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px 40px;
+  margin-top: calc(var(--vp-nav-height, 64px) + 18px);
+  margin-bottom: 18px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--vp-c-brand-1) 7%, var(--vp-c-bg));
+  padding: 14px 18px;
+
+  p { margin: 0; }
+  p + p { margin-top: 3px; color: var(--vp-c-text-2); font-size: 13px; }
+  .trial-demo-context__eyebrow { margin-bottom: 5px; color: var(--vp-c-brand-1); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  nav { display: flex; flex: 0 0 auto; flex-wrap: wrap; justify-content: flex-end; gap: 8px 18px; }
+  a { display: inline-flex; min-height: 44px; align-items: center; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+}
+
+@media (max-width: 720px) {
+  .trial-demo-context {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: calc(var(--vp-nav-height, 64px) + 10px);
+    margin-bottom: 10px;
+    padding: 12px 14px;
+
+    nav { justify-content: flex-start; gap: 0 16px; }
   }
 }
 </style>

@@ -15,12 +15,23 @@ head:
 ---
 
 <script setup>
-import HRDemo from '@revogrid-demos/core-free/src/hr.vue'
+import '@revolist/revogrid-pro/dist/revogrid-pro.css'
+import { defineAsyncComponent, onMounted, ref } from 'vue'
+import { isOrderFirstEntryLanding } from '../.vitepress/theme/demoFirstEntry'
+const ready = ref(false)
+const firstEntry = ref(false)
+const HRDemo = defineAsyncComponent(() => import('@revogrid-demos/core-free/src/hr.vue'))
+const FilteringDemo = defineAsyncComponent(() => import('@revogrid-demos/pro-filtering/src/filtering.vue'))
+onMounted(() => {
+  firstEntry.value = isOrderFirstEntryLanding(window.location.search)
+  ready.value = true
+})
 </script>
 
-<DemoPageLayout demo-id="grid-at-scale">
+<DemoPageLayout v-if="ready" :demo-id="firstEntry ? 'filtering' : 'grid-at-scale'" :first-entry="firstEntry">
   <div class="demo-main-widget">
-    <HRDemo />
+    <FilteringDemo v-if="firstEntry" mode="first-entry" />
+    <HRDemo v-else />
   </div>
 </DemoPageLayout>
 
