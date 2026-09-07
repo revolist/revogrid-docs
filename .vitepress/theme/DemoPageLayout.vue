@@ -10,7 +10,8 @@
           >{{ config.planLabel }}</span>
         </div>
         <p>{{ config.description }}</p>
-        <p v-if="demoId === 'planning' && completedActionCount < config.guidedActions.length" class="demo-page-guide demo-page-guide--heading" aria-live="polite"><span>{{ completedActionCount + 1 }}</span>{{ config.guidedActions[completedActionCount] }}</p>
+        <p v-if="demoId === 'planning' && completedActionCount < config.guidedActions.length && !guideDismissed" class="demo-page-guide demo-page-guide--heading" aria-live="polite"><span>{{ completedActionCount + 1 }}</span>{{ config.guidedActions[completedActionCount] }}<button type="button" aria-label="Dismiss guide" @click="dismissGuide">×</button></p>
+        <button v-else-if="demoId === 'planning' && completedActionCount < config.guidedActions.length" type="button" class="demo-page-guide-reopen" @click="showGuide">Show guide</button>
       </div>
 
       <div class="demo-page-header-actions" aria-label="Demo actions">
@@ -39,7 +40,7 @@
       <ClientOnly>
         <slot />
       </ClientOnly>
-    </div><DemoSourcePanel v-if="sourceOpen && sources" :sources="sources" :implementation-url="config.implementationUrl" :dark="isDark" @close="closeSource" @framework="trackSourceFramework" @copy="trackSourceCopy" /></div>
+    </div><DemoSourcePanel v-if="sourceOpen && sources" :sources="sources" :implementation-url="config.implementationUrl" :dark="isDark" @close="closeSource" @framework="trackSourceFramework" @copy="trackSourceCopy" /><template v-if="activeGuide && guideLayout"><div class="demo-page-guide-spotlight" :style="guideLayout.spotlight" aria-hidden="true"/><aside class="demo-page-guide-tooltip" :class="`demo-page-guide-tooltip--${guideLayout.placement}`" :style="guideLayout.tooltip" aria-label="Interactive guide"><div><span>Step {{ completedActionCount + 1 }} of {{ config.guidedActions.length }}</span><strong>{{ guideContent.title }}</strong></div><button type="button" aria-label="Dismiss guide" @click="dismissGuide">×</button><p>{{ guideContent.description }}</p></aside></template></div>
   </div>
 </template>
 
@@ -66,12 +67,23 @@ const config = computed(() => getDemoPageConfig(props.demoId))
 const workspaceRef = ref<HTMLElement>()
 const primaryCtaHref = ref(config.value.primaryCtaUrl)
 const completedActionCount = ref(0)
+const guideDismissed = ref(false)
 const sourceOpen = ref(false)
 const sourceButtonRef = ref<HTMLButtonElement>()
 let sourceReturnFocus: HTMLElement | undefined
 const { isDark } = useData()
 const sources = computed(() => getDemoSources(props.demoId))
 const guidedStepActions = computed(() => getDemoGuidedStepActions(props.demoId))
+const activeGuide = computed(() => props.demoId === 'planning'
+  && !guideDismissed.value
+  && !sourceOpen.value
+  && completedActionCount.value < config.value.guidedActions.length)
+const guideContent = computed(() => guidedStepActions.value[completedActionCount.value] === 'switch-view'
+  ? { title: 'Open Kanban', description: 'Switch to Kanban to see the same task and its updated status reflected as a card.' }
+  : { title: 'Update a status', description: 'Select a Status cell and choose a different value. The change stays in sync across every view.' })
+type GuideLayout = { spotlight: Record<string, string>; tooltip: Record<string, string>; placement: 'above' | 'below' | 'left' | 'right' }
+const guideLayout = ref<GuideLayout>()
+let guideFrame = 0
 
 const observedGrids = new Set<HTMLElement>()
 const gridHandlers = new Map<HTMLElement, Map<string, EventListener>>()
@@ -118,17 +130,83 @@ const trackImplementationOpen = () => {
 const openSource = (event?: Event) => {
   sourceReturnFocus = event?.target instanceof HTMLElement ? event.target : sourceButtonRef.value
   sourceOpen.value = true
+  guideLayout.value = undefined
   trackImplementationOpen()
 }
-const closeSource = () => { sourceOpen.value = false; nextTick(() => (sourceReturnFocus ?? sourceButtonRef.value)?.focus()) }
+const closeSource = () => { sourceOpen.value = false; nextTick(() => { queueGuidePosition(); (sourceReturnFocus ?? sourceButtonRef.value)?.focus() }) }
 const trackSourceFramework = (framework: DemoSourceFramework) => pushAnalytics(createDemoPageAnalyticsEvent('demo_action', props.demoId, { action_id: `source_${framework}`, placement: 'source_panel', ...analyticsContext() }), `demo_source_framework:${props.demoId}:${framework}`)
 const trackSourceCopy = () => pushAnalytics(createDemoPageAnalyticsEvent('demo_action', props.demoId, { action_id: 'source_copy', placement: 'source_panel', ...analyticsContext() }), `demo_source_copy:${props.demoId}`)
+const dismissGuide = () => {
+  guideDismissed.value = true
+  guideLayout.value = undefined
+  pushAnalytics(createDemoPageAnalyticsEvent('demo_action', props.demoId, { action_id: 'guide_dismiss', placement: 'guided_stepper', ...analyticsContext() }), `demo_guide_dismiss:${props.demoId}`)
+}
+const showGuide = () => {
+  guideDismissed.value = false
+  nextTick(queueGuidePosition)
+}
+
+const guideTarget = () => {
+  const workspace = workspaceRef.value
+  if (!workspace || props.demoId !== 'planning') return undefined
+  if (guidedStepActions.value[completedActionCount.value] === 'switch-view') {
+    return workspace.querySelector<HTMLElement>('.planning-demo__switch button:nth-child(2)')
+  }
+  const grid = workspace.querySelector<HTMLElement>('.planning-demo__grid')
+  const statusHeader = [...(grid?.querySelectorAll<HTMLElement>('revogr-header .rgHeaderCell') ?? [])]
+    .find(cell => cell.textContent?.trim().startsWith('Status'))
+  return statusHeader ?? grid
+}
+
+const updateGuidePosition = () => {
+  guideFrame = 0
+  if (!activeGuide.value) return
+  const target = guideTarget()
+  const stage = workspaceRef.value?.parentElement
+  if (!target || !stage) return
+  const stageBounds = stage.getBoundingClientRect()
+  const targetBounds = target.getBoundingClientRect()
+  if (!stageBounds.width || !stageBounds.height || !targetBounds.width || !targetBounds.height) return
+  const inset = 4
+  const spotlightLeft = Math.max(0, targetBounds.left - stageBounds.left - inset)
+  const spotlightTop = Math.max(0, targetBounds.top - stageBounds.top - inset)
+  const spotlightWidth = Math.min(stageBounds.width - spotlightLeft, targetBounds.width + inset * 2)
+  const spotlightHeight = Math.min(stageBounds.height - spotlightTop, targetBounds.height + inset * 2)
+  const tooltipWidth = Math.min(286, stageBounds.width - 24)
+  const tooltipHeight = 118
+  const availableRight = stageBounds.right - targetBounds.right
+  const availableLeft = targetBounds.left - stageBounds.left
+  const horizontalPlacement = availableRight >= tooltipWidth + 14
+    ? 'right'
+    : availableLeft >= tooltipWidth + 14 ? 'left' : undefined
+  const placeAbove = !horizontalPlacement && targetBounds.bottom - stageBounds.top + tooltipHeight + 14 > stageBounds.height
+  const tooltipLeft = horizontalPlacement === 'right'
+    ? targetBounds.right - stageBounds.left + 14
+    : horizontalPlacement === 'left'
+      ? targetBounds.left - stageBounds.left - tooltipWidth - 14
+      : Math.max(12, Math.min(targetBounds.left - stageBounds.left, stageBounds.width - tooltipWidth - 12))
+  const tooltipTop = horizontalPlacement
+    ? Math.max(12, Math.min(targetBounds.top - stageBounds.top, stageBounds.height - tooltipHeight - 12))
+    : placeAbove
+      ? Math.max(12, targetBounds.top - stageBounds.top - tooltipHeight - 14)
+      : Math.min(stageBounds.height - tooltipHeight - 12, targetBounds.bottom - stageBounds.top + 14)
+  guideLayout.value = {
+    spotlight: { left: `${spotlightLeft}px`, top: `${spotlightTop}px`, width: `${spotlightWidth}px`, height: `${spotlightHeight}px` },
+    tooltip: { left: `${tooltipLeft}px`, top: `${tooltipTop}px`, width: `${tooltipWidth}px` },
+    placement: horizontalPlacement ?? (placeAbove ? 'above' : 'below'),
+  }
+}
+const queueGuidePosition = () => {
+  if (guideFrame) cancelAnimationFrame(guideFrame)
+  guideFrame = requestAnimationFrame(updateGuidePosition)
+}
 
 const recordGuidedAction = (action: DemoGuidedStepAction) => {
   if (completedActionCount.value >= config.value.guidedActions.length) return
   const actionIndex = completedActionCount.value
   if (!matchesDemoGuidedStepAction(guidedStepActions.value[actionIndex], action)) return
   completedActionCount.value += 1
+  nextTick(queueGuidePosition)
   pushAnalytics(createDemoPageAnalyticsEvent('demo_action', props.demoId, {
     action_id: action,
     placement: 'guided_stepper',
@@ -237,11 +315,17 @@ onMounted(async () => {
   pushAnalytics(createDemoPageAnalyticsEvent('demo_view', props.demoId, analyticsContext()), `demo_view:${props.demoId}`)
   scanForGrids()
   if (!workspaceRef.value) return
-  gridObserver = new MutationObserver(scanForGrids)
+  gridObserver = new MutationObserver(() => { scanForGrids(); queueGuidePosition() })
   gridObserver.observe(workspaceRef.value, { childList: true, subtree: true })
+  window.addEventListener('resize', queueGuidePosition, { passive: true })
+  window.addEventListener('scroll', queueGuidePosition, { capture: true, passive: true })
+  queueGuidePosition()
 })
 
 onBeforeUnmount(() => {
+  if (guideFrame) cancelAnimationFrame(guideFrame)
+  window.removeEventListener('resize', queueGuidePosition)
+  window.removeEventListener('scroll', queueGuidePosition, true)
   gridObserver?.disconnect()
   gridHandlers.forEach((handlers, grid) => {
     handlers.forEach((handler, eventName) => grid.removeEventListener(eventName, handler))
@@ -540,4 +624,5 @@ $max-content-width: 1240px;
 .demo-page-stage{border:0;border-radius:0;box-shadow:none}
 .demo-page-workspace{background:transparent}
 .demo-page-heading p,.demo-page-features summary,.demo-page-features li span,.demo-page-guide,.demo-page-utility-actions button,.demo-page-utility-actions a{color:inherit}
+.demo-page-guide--heading button,.demo-page-guide-reopen{border:0;background:transparent;color:inherit;font:inherit;cursor:pointer}.demo-page-guide--heading button{display:grid;width:20px;height:20px;margin-left:2px;place-items:center;border-radius:50%;font-size:16px;line-height:1}.demo-page-guide--heading button:hover,.demo-page-guide-reopen:hover{background:var(--vp-c-bg-soft)}.demo-page-guide-reopen{align-self:start;margin-top:2px;padding:3px 7px;border:1px solid var(--vp-c-divider);border-radius:5px;font-size:11px;line-height:16px}.demo-page-guide-spotlight{position:absolute;z-index:3;pointer-events:none;border:2px solid var(--demo-page-green);border-radius:6px;box-shadow:0 0 0 4px color-mix(in srgb,var(--demo-page-green) 14%,transparent),0 8px 20px color-mix(in srgb,var(--demo-page-green) 20%,transparent);transition:all 180ms ease}.demo-page-guide-tooltip{position:absolute;z-index:4;display:grid;grid-template-columns:1fr auto;gap:4px 12px;box-sizing:border-box;padding:12px 13px;border:1px solid color-mix(in srgb,var(--demo-page-green) 45%,var(--vp-c-divider));border-radius:8px;background:var(--vp-c-bg);box-shadow:0 12px 28px rgb(15 23 42/16%);font:400 12px/17px Geist,Inter,system-ui,sans-serif}.demo-page-guide-tooltip::before{position:absolute;top:-6px;left:20px;width:10px;height:10px;border-top:1px solid color-mix(in srgb,var(--demo-page-green) 45%,var(--vp-c-divider));border-left:1px solid color-mix(in srgb,var(--demo-page-green) 45%,var(--vp-c-divider));background:var(--vp-c-bg);content:'';transform:rotate(45deg)}.demo-page-guide-tooltip--above::before{top:auto;bottom:-6px;border-top:0;border-right:1px solid color-mix(in srgb,var(--demo-page-green) 45%,var(--vp-c-divider));border-bottom:1px solid color-mix(in srgb,var(--demo-page-green) 45%,var(--vp-c-divider));border-left:0}.demo-page-guide-tooltip--right::before{top:20px;left:-6px;transform:rotate(-45deg)}.demo-page-guide-tooltip--left::before{top:20px;right:-6px;left:auto;transform:rotate(135deg)}.demo-page-guide-tooltip div{display:grid;gap:1px}.demo-page-guide-tooltip span{color:var(--vp-c-text-2);font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}.demo-page-guide-tooltip strong{font-size:13px;font-weight:650}.demo-page-guide-tooltip button{z-index:1;width:24px;height:24px;padding:0;border:0;border-radius:5px;background:transparent;color:var(--vp-c-text-2);font-size:18px;line-height:1;cursor:pointer}.demo-page-guide-tooltip button:hover{background:var(--vp-c-bg-soft);color:inherit}.demo-page-guide-tooltip p{grid-column:1/-1;margin:0;color:var(--vp-c-text-2)}@media(max-width:700px){.demo-page-guide-tooltip{max-width:calc(100% - 24px)}.demo-page-guide-spotlight{box-shadow:0 0 0 3px color-mix(in srgb,var(--demo-page-green) 14%,transparent)}}@media(prefers-reduced-motion:reduce){.demo-page-guide-spotlight{transition:none}}
 </style>

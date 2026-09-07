@@ -76,3 +76,13 @@ test('uses native advanced filters, quick search, and plugin-owned badges in the
   assert.match(columns, /workflowStatusColumn[\s\S]*filter: \[FIlTER_SELECTION\]/)
   assert.match(columns, /prop: 'priority',[\s\S]*filter: \[FIlTER_SELECTION\]/)
 })
+
+test('keeps the planning guide actionable and dismissible', () => {
+  const layout = readFileSync(new URL('../../../../.vitepress/theme/DemoPageLayout.vue', import.meta.url), 'utf8')
+  assert.match(layout, /title: 'Update a status'/)
+  assert.match(layout, /title: 'Open Kanban'/)
+  assert.match(layout, /guideTarget\(\)/)
+  assert.match(layout, /Dismiss guide/)
+  assert.match(layout, /Show guide/)
+  assert.match(layout, /pointer-events:none/)
+})
