@@ -153,9 +153,10 @@ const guideTarget = () => {
     return workspace.querySelector<HTMLElement>('.planning-demo__switch button:nth-child(2)')
   }
   const grid = workspace.querySelector<HTMLElement>('.planning-demo__grid')
+  const statusValue = grid?.querySelector<HTMLElement>('.planning-status')
   const statusHeader = [...(grid?.querySelectorAll<HTMLElement>('revogr-header .rgHeaderCell') ?? [])]
     .find(cell => cell.textContent?.trim().startsWith('Status'))
-  return statusHeader ?? grid
+  return statusValue ?? statusHeader ?? grid
 }
 
 const updateGuidePosition = () => {
@@ -167,8 +168,8 @@ const updateGuidePosition = () => {
   const stageBounds = stage.getBoundingClientRect()
   const targetBounds = target.getBoundingClientRect()
   if (!stageBounds.width || !stageBounds.height || !targetBounds.width || !targetBounds.height) return
-  const markerLeft = Math.max(8, Math.min(stageBounds.width - 8, targetBounds.left - stageBounds.left + 18))
-  const markerTop = Math.max(8, Math.min(stageBounds.height - 8, targetBounds.top - stageBounds.top + 12))
+  const markerLeft = Math.max(8, Math.min(stageBounds.width - 8, targetBounds.left - stageBounds.left - 7))
+  const markerTop = Math.max(8, Math.min(stageBounds.height - 8, targetBounds.top - stageBounds.top + targetBounds.height / 2))
   const tooltipWidth = Math.min(286, stageBounds.width - 24)
   const tooltipHeight = 118
   const availableRight = stageBounds.right - targetBounds.right
