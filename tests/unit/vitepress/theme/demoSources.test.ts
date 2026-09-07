@@ -109,7 +109,7 @@ test('uses native advanced filters, quick search, and plugin-owned badges in the
   assert.doesNotMatch(vueSource, /@click\.capture/)
   assert.doesNotMatch(styles, /cell-header-checkbox-container/)
   assert.match(columns, /syncCellTemplate:[\s\S]*owner: true[\s\S]*priority: true/)
-  assert.match(columns, /prop: 'name', name: 'Task',[\s\S]*filter: true/)
+  assert.match(columns, /prop: 'name', name: 'Task',[\s\S]*filter: \[FIlTER_SELECTION\][\s\S]*filterPlaceholder: 'All tasks'/)
   assert.match(columns, /columnType: 'dropdown',[\s\S]*source: ownerEditorOptions[\s\S]*syncCellTemplate: true/)
   assert.match(columns, /prop: 'workflowStatus',[\s\S]*filter: \[FILTER_CHIP_BADGE_TOGGLES\][\s\S]*columnType: 'dropdown',[\s\S]*source: workflowEditorOptions[\s\S]*syncCellTemplate: true/)
   assert.match(columns, /gridColumnTypes = \{[\s\S]*dropdown: ColumnDropdown/)
