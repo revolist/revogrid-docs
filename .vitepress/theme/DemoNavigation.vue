@@ -30,7 +30,7 @@ function normalize(path: string) { const normalized = path.replace(/\/$/, ''); r
 function active(href: string) { const path = normalize(route.path); if (href === '/demo/') return path === '/demo/' || path === '/demo/planning'; if (href === '/demo/grid-at-scale') return path === href || path === '/demo/hr'; return path === href; }
 </script>
 <style scoped>
-.demo-nav{position:fixed;z-index:35;top:var(--vp-nav-height,64px);bottom:0;left:0;width:var(--demo-sidebar-width,256px);padding:16px 0 0 10px;border-right:1px solid var(--vp-c-divider);background:transparent;box-shadow:inset -1px 0 var(--vp-c-divider);font-size:13px;line-height:18px}
+.demo-nav{position:fixed;z-index:35;top:var(--vp-nav-height,64px);bottom:0;left:0;width:var(--demo-sidebar-width,256px);padding:16px 0 0 10px;border-right:1px solid var(--vp-c-divider);background:transparent;box-shadow:inset -1px 0 var(--vp-c-divider);color:var(--vp-c-text-1);font-size:13px;line-height:18px}
 .demo-nav header{display:none;height:32px;margin-right:10px;padding:0;font-size:14px;font-weight:650;letter-spacing:-.01em}
 .demo-nav header button{display:none}
 .demo-nav>label{position:relative;display:flex;height:34px;align-items:center;gap:7px;margin-right:10px;padding:0 10px 0 30px;border:1px solid var(--vp-c-divider);border-radius:6px;background:var(--vp-c-bg);box-shadow:0 1px 2px rgb(15 23 42/8%)}
@@ -41,10 +41,10 @@ function active(href: string) { const path = normalize(route.path); if (href ===
 .demo-nav nav::-webkit-scrollbar{width:10px}.demo-nav nav::-webkit-scrollbar-track{background:transparent}.demo-nav nav::-webkit-scrollbar-thumb{border:3px solid transparent;border-radius:10px;background:color-mix(in srgb,currentColor 50%,transparent);background-clip:padding-box}
 .demo-nav section{margin:0 0 16px}
 .demo-nav h2{margin:0 8px 5px;font-size:10px;font-weight:650;letter-spacing:.075em;text-transform:uppercase}
-.demo-nav a{display:grid;grid-template-columns:16px minmax(0,1fr) auto;min-height:31px;align-items:center;gap:7px;padding:5px 8px;border:1px solid transparent;border-radius:6px;color:inherit;font-size:12.5px;font-weight:500;line-height:18px;text-decoration:none}
+.demo-nav a{display:grid;grid-template-columns:16px minmax(0,1fr) auto;min-height:31px;align-items:center;gap:7px;padding:6px 9px;border:0;border-radius:6px;color:inherit;font-size:12.5px;font-weight:500;line-height:18px;text-decoration:none}
 .demo-nav a span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .demo-nav a:hover{background:var(--vp-c-bg)}
-.demo-nav a.active{border-color:var(--vp-c-brand-1);background:var(--vp-c-brand-soft);font-weight:650}
+.demo-nav a.active{background:var(--vp-c-brand-soft);font-weight:650}
 .demo-nav a :deep(.fa-svg-icon){width:13px;height:13px;opacity:.82}
 .demo-nav small{padding:1px 4px;border-radius:4px;background:var(--vp-c-default-soft);font-size:8px;font-weight:600;line-height:14px;white-space:nowrap;opacity:.7}
 .demo-nav a.active small{background:var(--vp-c-brand-soft)}
