@@ -26,7 +26,7 @@ const groups = [
   { label: 'Planning', items: [item('gantt','Gantt','/demo/gantt','chart'), item('gantt-big-data','10K Gantt','/demo/gantt-big-data','chart'), item('gantt-horizontal-big-data','20Y Gantt','/demo/gantt-horizontal-big-data','chart'), item('event-scheduler','Scheduler','/demo/event-scheduler','calendarDays'), item('kanban','Kanban','/demo/kanban','columns'), item('kanban-performance','50K Kanban','/demo/kanban-performance','columns'), item('kanban-server-loading','100K Remote Kanban','/demo/kanban-server-loading','columns'), item('pivot','Pivot table','/demo/pivot','chartColumn')] },
 ];
 const filteredGroups = computed(() => { const value = query.value.trim().toLowerCase(); return groups.map(group => ({ ...group, items: group.items.filter(entry => !value || entry.label.toLowerCase().includes(value)) })).filter(group => group.items.length); });
-function normalize(path: string) { return path === '/demo' ? '/demo/' : path.replace(/\/$/, ''); }
+function normalize(path: string) { const normalized = path.replace(/\/$/, ''); return normalized === '/demo' ? '/demo/' : normalized; }
 function active(href: string) { const path = normalize(route.path); if (href === '/demo/') return path === '/demo/' || path === '/demo/planning'; if (href === '/demo/grid-at-scale') return path === href || path === '/demo/hr'; return path === href; }
 </script>
 <style scoped>

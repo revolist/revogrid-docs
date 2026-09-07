@@ -20,6 +20,7 @@ test('compatibility routes resolve to the canonical demo identity', async ({ pag
 
 test('navigation search filters examples without changing the route', async ({ page }) => {
   await page.goto('/demo/')
+  await expect(page.locator('.demo-nav a[href="/demo/"]')).toHaveClass(/active/)
   const search = page.getByPlaceholder('Find a demo…')
   await search.fill('kanban')
   await expect(page).toHaveURL(/\/demo\/$/)
