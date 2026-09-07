@@ -130,6 +130,16 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
   },
+  'context-menu': {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_context_actions', label: 'Try it with my own context actions' },
+      { code: 'selection_formatting', label: 'Check selection and formatting behavior' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
   filtering: {
     docsUrl: '/pro/',
     verificationOptions: [
@@ -165,6 +175,16 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
     verificationOptions: [
       { code: 'own_hierarchy', label: 'Try it with my own hierarchy' },
       { code: 'tree_filter_order', label: 'Check filtering, ordering and sticky rows' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  excel: {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_workbook', label: 'Try it with my own workbook' },
+      { code: 'formula_import_export', label: 'Check formulas, import and export' },
       { code: 'framework_integration', label: 'See an integration example' },
       { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
@@ -565,6 +585,7 @@ const demosByPath = new Map<string, CatalogDemo>(
 
 export const getDemoByPath = (value: string): CatalogDemo | undefined =>
   demosByPath.get(normalizeDemoPath(value))
+  ?? ({ '/demo/planning': PRODUCT_CATALOG.demos.planning, '/demo/hr': PRODUCT_CATALOG.demos['grid-at-scale'] } as const)[normalizeDemoPath(value) as '/demo/planning' | '/demo/hr']
 
 export const createInitialDemoFeedbackSession = (
   context: DemoFeedbackSessionContext,

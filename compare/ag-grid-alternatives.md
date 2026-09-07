@@ -81,7 +81,7 @@ If rectangular cell selection and spreadsheet-style copy/paste must remain open 
 There is no single best data grid. There is a best first candidate for a specific product constraint.
 
 <div class="oss-picks">
-  <a class="oss-pick" href="/demo/">
+  <a class="oss-pick" href="/demo/grid-at-scale">
     <img class="oss-pick-image" src="/blog/oss-revogrid-range-clipboard.png" alt="RevoGrid Core demo after a value was pasted into an active grid cell" />
     <span class="oss-pick-body">
       <span class="oss-pill">Framework-independent</span>

@@ -82,7 +82,10 @@ test('offers feedback only through a compact user-triggered control', () => {
 
 test('matches only catalogued demo routes after normalizing URLs, queries, and trailing slashes', () => {
   assert.equal(normalizeDemoPath('https://rv-grid.com/demo/pivot/?source=pricing#demo'), '/demo/pivot')
-  assert.equal(getDemoByPath('/demo/')?.id, 'grid-at-scale')
+  assert.equal(getDemoByPath('/demo/')?.id, 'planning')
+  assert.equal(getDemoByPath('/demo/planning')?.id, 'planning')
+  assert.equal(getDemoByPath('/demo/grid-at-scale')?.id, 'grid-at-scale')
+  assert.equal(getDemoByPath('/demo/hr')?.id, 'grid-at-scale')
   assert.equal(getDemoByPath('/demo/color?from=pricing')?.id, 'project-tracker')
   assert.equal(getDemoByPath('/guide/')?.id, undefined)
   assert.equal(getDemoByPath('/pricing')?.id, undefined)
@@ -116,21 +119,21 @@ test('parses session state safely without ever persisting answer text', () => {
   )
 })
 
-test('requires exactly 30 seconds of visible demo time without an interaction', () => {
+test('requires exactly 20 seconds of visible demo time without an interaction', () => {
   const state = recordDemoView(initial(), 'gantt', NOW)
 
-  assert.equal(DEMO_FEEDBACK_MIN_TIME_MS, 30_000)
+  assert.equal(DEMO_FEEDBACK_MIN_TIME_MS, 20_000)
   const tooEarly = evaluateDemoFeedbackEligibility(state, {
     activeDemoId: 'gantt',
-    activeElapsedMs: 29_999,
-    at: NOW + 29_999,
+    activeElapsedMs: 19_999,
+    at: NOW + 19_999,
   })
   assert.equal(tooEarly.becameEligible, false)
 
   const eligible = evaluateDemoFeedbackEligibility(state, {
     activeDemoId: 'gantt',
-    activeElapsedMs: 30_000,
-    at: NOW + 30_000,
+    activeElapsedMs: 20_000,
+    at: NOW + 20_000,
   })
   assert.equal(eligible.becameEligible, true)
   assert.deepEqual(eligible.state.eligibleDemoIds, ['gantt'])
@@ -139,7 +142,7 @@ test('requires exactly 30 seconds of visible demo time without an interaction', 
 
 test('does not count hidden-tab time toward eligibility', () => {
   let state = recordDemoView(initial(), 'pivot', NOW)
-  state = addDemoVisibleTime(state, 'pivot', 20_000)
+  state = addDemoVisibleTime(state, 'pivot', 10_000)
   // Ten seconds hidden: no visible-time transition is recorded.
   assert.equal(evaluateDemoFeedbackEligibility(state, {
     activeDemoId: 'pivot',
@@ -662,7 +665,7 @@ test('derives the two Lite and Advanced next actions from the catalog', () => {
   assert.ok(pro.actions.some(({ code, href, label }) => code === 'view_documentation'
     && label === 'View implementation guide'
     && href?.startsWith('/gantt?')))
-  const lite = getDemoFeedbackReadyBranch(PRODUCT_CATALOG.demos.ecommerce)
+  const lite = getDemoFeedbackReadyBranch(PRODUCT_CATALOG.demos.excel)
   assert.equal(lite.actions.length, 2)
   assert.ok(lite.actions.some(({ code }) => code === 'use_open_source'))
   assert.equal(lite.actions.some(({ code }) => code === 'start_pro_trial'), false)

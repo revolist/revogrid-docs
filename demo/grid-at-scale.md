@@ -14,7 +14,7 @@ head:
       href: https://rv-grid.com/demo/grid-at-scale
   - - meta
     - name: keywords
-      content: RevoGrid HR demo, HR data grid, employee records grid, workforce planning grid, people operations dashboard, editable data grid, enterprise HR software grid, React data grid, Vue data grid, Angular data grid
+      content: RevoGrid HR demo, large dataset grid, editable data grid, virtual scrolling, React data grid, Vue data grid, Angular data grid
 ---
 
 <script setup>
@@ -22,16 +22,9 @@ import HRDemo from '@revogrid-demos/core-free/src/hr.vue'
 </script>
 
 <DemoPageLayout demo-id="grid-at-scale">
-  <div class="demo-main-widget">
-    <HRDemo />
-  </div>
+  <div class="demo-main-widget"><HRDemo /></div>
 </DemoPageLayout>
 
 <style scoped>
-.demo-main-widget {
-  min-height: 0;
-  height: 100%;
-  padding-top: 10px;
-  border-radius: 0;
-}
+.demo-main-widget{min-height:0;height:100%;padding-top:10px;border-radius:0}:deep(.hr-toolbar){margin:16px 20px;padding:4px;font-size:12px}
 </style>

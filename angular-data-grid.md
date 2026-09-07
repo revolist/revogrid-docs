@@ -41,7 +41,7 @@ hero:
   tagline: Fast virtual scrolling, inline editing, custom Angular cell renderers, and TypeScript-first APIs for dashboards, admin tools, and production SaaS.
   primaryAction:
     text: Explore 1M-row demo
-    link: /demo/
+    link: /demo/grid-at-scale
   secondaryAction:
     text: Read Angular docs
     link: /guide/angular/
@@ -302,7 +302,7 @@ finalCta:
   pricingNote: true
   actions:
     - text: Explore 1M-row demo
-      link: /demo/
+      link: /demo/grid-at-scale
       variant: primary
     - text: Install Angular package
       link: /guide/angular/

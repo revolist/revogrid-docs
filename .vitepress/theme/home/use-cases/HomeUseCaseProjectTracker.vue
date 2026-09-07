@@ -13,7 +13,7 @@
                         <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Timeline badges</strong> — date range rendering with conditional coloring based on deadline status</span></div>
                     </div>
                     <div class="uc-ctas">
-                        <a href="https://rv-grid.com/demo/" class="rg-btn">See live demo</a>
+                        <a href="https://rv-grid.com/demo/color" class="rg-btn">See live demo</a>
                         <a :href="homeLink('/guide/')" class="rg-btn rg-btn-secondary">Read docs</a>
                     </div>
                 </div>

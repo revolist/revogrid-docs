@@ -22,6 +22,7 @@ export type DemoId =
   | 'infinity-scroll'
   | 'row-master'
   | 'tree-data'
+  | 'excel'
   | 'pivot'
   | 'gantt'
   | 'gantt-big-data'
@@ -375,7 +376,7 @@ const products = {
     minimumPlan: 'open-source',
     status: 'stable',
     pageUrl: '/',
-    demoUrl: '/demo/',
+    demoUrl: '/demo/grid-at-scale',
     trialUrl: TRIAL_REQUEST_URL,
     buyUrl: '/pricing',
   },
@@ -437,7 +438,7 @@ const products = {
 } as const satisfies Record<ProductId, CatalogProduct>
 
 const demos = {
-  'grid-at-scale': { id: 'grid-at-scale', title: 'Grid at Scale', planId: 'open-source', status: 'stable', pageUrl: '/demo/' },
+  'grid-at-scale': { id: 'grid-at-scale', title: 'Grid at Scale', planId: 'open-source', status: 'stable', pageUrl: '/demo/grid-at-scale' },
   'ai-prompt-library': { id: 'ai-prompt-library', title: 'AI Prompt Library', planId: 'open-source', status: 'stable', pageUrl: '/demo/ai-prompts' },
   'project-portfolio': { id: 'project-portfolio', title: 'Project Portfolio', planId: 'open-source', status: 'stable', pageUrl: '/demo/project-portfolio' },
   'project-tracker': { id: 'project-tracker', title: 'Project Tracker', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/color' },
@@ -448,6 +449,7 @@ const demos = {
   'infinity-scroll': { id: 'infinity-scroll', title: 'Infinity Scroll', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/infinity-scroll' },
   'row-master': { id: 'row-master', title: 'Row Master', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/row-master' },
   'tree-data': { id: 'tree-data', title: 'Tree Data', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/tree-data' },
+  excel: { id: 'excel', title: 'Excel Workbench', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/excel' },
   pivot: { id: 'pivot', title: 'Pivot Table Demo', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot' },
   gantt: { id: 'gantt', title: 'Gantt Chart JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt' },
   'gantt-big-data': { id: 'gantt-big-data', title: '10K-Task Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt-big-data' },
@@ -456,7 +458,7 @@ const demos = {
   'kanban-performance': { id: 'kanban-performance', title: '50K-Task Kanban', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban-performance' },
   'kanban-server-loading': { id: 'kanban-server-loading', title: '100K Server-Loaded Kanban', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban-server-loading' },
   'event-scheduler': { id: 'event-scheduler', title: 'Scheduler JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
-  planning: { id: 'planning', title: 'Grid, Kanban, Gantt Charts & Event Scheduler', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/planning' },
+  planning: { id: 'planning', title: 'Project Workspace', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/' },
 } as const satisfies Record<DemoId, CatalogDemo>
 
 export const PRODUCT_CATALOG = {

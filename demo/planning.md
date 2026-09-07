@@ -9,6 +9,9 @@ prev: false
 next: false
 editLink: false
 head:
+  - - link
+    - rel: canonical
+      href: https://rv-grid.com/demo/
   - - meta
     - name: keywords
       content: RevoGrid planning demo, JavaScript planning grid, Kanban board, Gantt scheduler demo, resource planning, project calendar, synchronized planning views, React planning grid, Vue planning grid, Angular planning grid
