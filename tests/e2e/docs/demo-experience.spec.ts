@@ -66,23 +66,27 @@ test('grid selection controls show clear unchecked, checked and mixed states', a
 
   const unchecked = await checkboxes.nth(1).evaluate(element => ({
     appearance: getComputedStyle(element).appearance,
-    accentColor: getComputedStyle(element).accentColor,
+    borderWidth: getComputedStyle(element).borderWidth,
+    background: getComputedStyle(element).backgroundColor,
     size: element.getBoundingClientRect().width,
     availableWidth: element.parentElement?.parentElement?.getBoundingClientRect().width,
   }))
   await checkboxes.nth(1).click()
   const selected = await checkboxes.nth(1).evaluate(element => ({
     checked: (element as HTMLInputElement).checked,
+    background: getComputedStyle(element).backgroundColor,
   }))
   const mixed = await checkboxes.nth(0).evaluate(element => ({
     indeterminate: (element as HTMLInputElement).indeterminate,
   }))
 
   expect(selected.checked).toBe(true)
-  expect(unchecked.size).toBe(16)
+  expect(selected.background).toBe('rgb(19, 138, 91)')
+  expect(unchecked.size).toBe(17)
   expect(unchecked.availableWidth).toBeGreaterThanOrEqual(16)
-  expect(unchecked.appearance).not.toBe('none')
-  expect(unchecked.accentColor).toBe('rgb(19, 138, 91)')
+  expect(unchecked.appearance).toBe('none')
+  expect(unchecked.borderWidth).toBe('2px')
+  expect(unchecked.background).not.toBe(selected.background)
   expect(mixed.indeterminate).toBe(true)
 })
 
@@ -155,6 +159,10 @@ test('planning layout stays usable at the target viewports', async ({ page }) =>
         const layout = document.querySelector('.demo-page-layout')!.getBoundingClientRect()
         const divider = document.querySelector('.VPNavBar .divider-line')!.getBoundingClientRect()
         const title = document.querySelector('.VPNavBarTitle .title')!
+        const primaryAction = document.querySelector('.demo-page-button--primary')!.getBoundingClientRect()
+        const featureAction = document.querySelector('.demo-page-features summary')!.getBoundingClientRect()
+        const stage = document.querySelector('.demo-page-stage')!
+        const grid = document.querySelector('.planning-demo__grid')!
         return {
           sidebarWidth: sidebar.width,
           scrollbarEdge: sidebar.right - scrollArea.right,
@@ -162,6 +170,10 @@ test('planning layout stays usable at the target viewports', async ({ page }) =>
           dividerLeft: divider.left,
           dividerWidth: divider.width,
           titleBorderWidth: getComputedStyle(title).borderBottomWidth,
+          actionOffset: Math.abs(primaryAction.top - featureAction.top),
+          stageBorderWidth: getComputedStyle(stage).borderWidth,
+          gridBorderWidth: getComputedStyle(grid).borderWidth,
+          sidebarTitleCount: document.querySelectorAll('.demo-nav header strong').length,
         }
       })
       expect(shellGeometry.sidebarWidth).toBe(256)
@@ -170,6 +182,10 @@ test('planning layout stays usable at the target viewports', async ({ page }) =>
       expect(shellGeometry.dividerLeft).toBe(0)
       expect(shellGeometry.dividerWidth).toBe(viewport.width)
       expect(shellGeometry.titleBorderWidth).toBe('0px')
+      expect(shellGeometry.actionOffset).toBeLessThanOrEqual(1)
+      expect(shellGeometry.stageBorderWidth).toBe('0px')
+      expect(shellGeometry.gridBorderWidth).toBe('1px')
+      expect(shellGeometry.sidebarTitleCount).toBe(0)
     }
 
     if (viewport.width === 1280) {

@@ -538,4 +538,7 @@ $max-content-width: 1240px;
 .demo-page-features summary{border-color:#b9c3be;background:#fff;color:#3d4943;box-shadow:0 1px 2px rgb(15 23 42/7%)}
 .demo-page-guide>span{border:1px solid #b7d8c8;background:#e1f1e9;color:#096942}
 .demo-page-stage{border-color:#b9c3be;background:#fff;box-shadow:0 1px 4px rgb(15 23 42/9%)}
+.demo-page-header-actions{align-items:center}
+.demo-page-features summary{margin:0}
+.demo-page-stage{border:0;border-radius:0;box-shadow:none}
 </style>

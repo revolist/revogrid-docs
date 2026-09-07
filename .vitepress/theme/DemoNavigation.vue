@@ -2,7 +2,7 @@
   <template v-if="isDemo">
     <button class="demo-nav-trigger" type="button" :aria-expanded="open" @click="open = true">Examples</button>
     <aside class="demo-nav" :class="{ open }" aria-label="Demo examples">
-      <header><strong>Examples</strong><button type="button" aria-label="Close examples" @click="open = false">×</button></header>
+      <header><button type="button" aria-label="Close examples" @click="open = false">×</button></header>
       <label><span class="sr-only">Find a demo</span><input v-model="query" type="search" placeholder="Find a demo…" /></label>
       <nav>
         <section v-for="group in filteredGroups" :key="group.label"><h2>{{ group.label }}</h2><a v-for="item in group.items" :key="item.id" :href="item.href" :class="{ active: active(item.href) }" @click="open = false"><FontAwesomeSvgIcon :name="item.icon"/><span>{{ item.label }}</span><small>{{ item.plan }}</small></a></section>
@@ -64,4 +64,7 @@ function active(href: string) { const path = normalize(route.path); if (href ===
 .demo-nav small{background:#e3e7e5;color:#59645f;font-weight:600}
 .demo-nav a.active small{background:#c9e5d7;color:#075f3c}
 .demo-nav nav::-webkit-scrollbar-thumb{background-color:#8f9994}
+.demo-nav header{display:none}
+.demo-nav nav{height:calc(100% - 34px)}
+@media(max-width:1099px){.demo-nav header{display:flex;height:32px;justify-content:flex-end;margin-right:10px;padding:0}.demo-nav header button{display:grid;width:30px;height:30px;place-items:center}.demo-nav nav{height:calc(100% - 66px)}}
 </style>
