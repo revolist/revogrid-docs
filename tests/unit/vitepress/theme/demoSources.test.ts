@@ -192,3 +192,9 @@ test('aligns Infinity Scroll controls with the demo heading', () => {
   const styles = readFileSync(new URL('../../../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.scss', import.meta.url), 'utf8')
   assert.match(styles, /\.infinity-toolbar\s*\{[\s\S]*?padding:\s*14px 0/)
 })
+
+test('lets the remote Kanban board fill the demo workspace', () => {
+  const styles = readFileSync(new URL('../../../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss', import.meta.url), 'utf8')
+  assert.match(styles, /\.kanban-server-loading\s*\{[\s\S]*?height:\s*100%[\s\S]*?grid-template-rows:\s*auto minmax\(0, 1fr\)/)
+  assert.match(styles, /\.kanban-server-loading__grid\s*\{[\s\S]*?height:\s*100%[\s\S]*?min-height:\s*0/)
+})
