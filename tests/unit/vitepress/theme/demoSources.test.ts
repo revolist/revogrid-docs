@@ -43,6 +43,9 @@ test('keeps the source panel and demo navigation at their specified breakpoints'
   assert.doesNotMatch(layout, /implementation-url/)
   assert.match(navigation, /--demo-sidebar-width,256px/)
   assert.match(navigation, /background:var\(--vp-c-brand-soft\)/)
+  assert.match(navigation, /demo-nav>label\{[^}]*background:var\(--vp-c-bg\)\}/)
+  assert.doesNotMatch(navigation, /demo-nav>label\{[^}]*box-shadow/)
+  assert.match(navigation, /demo-nav>label:focus-within\{[^}]*border-color:var\(--vp-c-brand-1\)[^}]*outline:2px solid var\(--vp-c-brand-1\)/)
   assert.match(readFileSync(new URL('../../../../.vitepress/theme/style.scss', import.meta.url), 'utf8'), /\.dark \.demo-page-class \.demo-nav/)
   assert.match(navigation, /@media\(max-width:1099px\)/)
   for (const source of [layout, sourcePanel, navigation]) {

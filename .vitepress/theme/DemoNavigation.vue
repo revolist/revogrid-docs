@@ -33,7 +33,8 @@ function active(href: string) { const path = normalize(route.path); if (href ===
 .demo-nav{position:fixed;z-index:35;top:var(--vp-nav-height,64px);bottom:0;left:0;width:var(--demo-sidebar-width,256px);padding:16px 0 0 10px;border-right:1px solid var(--vp-c-divider);background:transparent;box-shadow:inset -1px 0 var(--vp-c-divider);color:var(--vp-c-text-1);font-size:13px;line-height:18px}
 .demo-nav header{display:none;height:32px;margin-right:10px;padding:0;font-size:14px;font-weight:650;letter-spacing:-.01em}
 .demo-nav header button{display:none}
-.demo-nav>label{position:relative;display:flex;height:34px;align-items:center;gap:7px;margin-right:10px;padding:0 10px 0 30px;border:1px solid var(--vp-c-divider);border-radius:6px;background:var(--vp-c-bg);box-shadow:0 1px 2px rgb(15 23 42/8%)}
+.demo-nav>label{position:relative;display:flex;height:34px;align-items:center;gap:7px;margin-right:10px;padding:0 10px 0 30px;border:1px solid var(--vp-c-divider);border-radius:6px;background:var(--vp-c-bg)}
+.demo-nav>label:focus-within{border-color:var(--vp-c-brand-1);outline:2px solid var(--vp-c-brand-1);outline-offset:1px}
 .demo-nav>label:before{position:absolute;left:11px;width:12px;height:12px;border:1.5px solid currentColor;border-radius:50%;content:"";opacity:.65}
 .demo-nav>label:after{position:absolute;left:21px;top:21px;width:5px;height:1.5px;transform:rotate(45deg);background:currentColor;content:"";opacity:.65}
 .demo-nav input{min-width:0;width:100%;border:0;outline:0;background:transparent;color:inherit;font:inherit}
