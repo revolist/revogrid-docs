@@ -35,6 +35,7 @@ import lockIcon from '@fortawesome/fontawesome-free/svgs/solid/lock.svg?raw'
 import paletteIcon from '@fortawesome/fontawesome-free/svgs/solid/palette.svg?raw'
 import penToSquareIcon from '@fortawesome/fontawesome-free/svgs/solid/pen-to-square.svg?raw'
 import ellipsisIcon from '@fortawesome/fontawesome-free/svgs/solid/ellipsis.svg?raw'
+import expandIcon from '@fortawesome/fontawesome-free/svgs/solid/expand.svg?raw'
 import puzzlePieceIcon from '@fortawesome/fontawesome-free/svgs/solid/puzzle-piece.svg?raw'
 import rectangleListIcon from '@fortawesome/fontawesome-free/svgs/solid/rectangle-list.svg?raw'
 import scaleBalancedIcon from '@fortawesome/fontawesome-free/svgs/solid/scale-balanced.svg?raw'
@@ -64,6 +65,7 @@ const icons: Record<string, string> = {
   bookOpen: bookOpenIcon,
   edit: penToSquareIcon,
   ellipsis: ellipsisIcon,
+  expand: expandIcon,
   columns: tableColumnsIcon,
   palette: paletteIcon,
   tree: sitemapIcon,
