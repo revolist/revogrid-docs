@@ -33,7 +33,7 @@
       <ClientOnly>
         <slot />
       </ClientOnly>
-    </div><DemoSourcePanel v-if="sourceOpen && sources" :sources="sources" :implementation-url="config.implementationUrl" :dark="isDark" @close="closeSource" @framework="trackSourceFramework" @copy="trackSourceCopy" /></div>
+    </div><DemoSourcePanel v-if="sourceOpen && sources" :sources="sources" :dark="isDark" @close="closeSource" @framework="trackSourceFramework" @copy="trackSourceCopy" /></div>
   </div>
 </template>
 
