@@ -39,7 +39,7 @@ test('source panel uses real files and preserves the live workspace', async ({ p
   await page.goto('/demo/')
   const taskSearch = page.getByPlaceholder('Search tasks…')
   await taskSearch.fill('Maya')
-  await expect(page.getByText(/of 50 tasks/)).toBeVisible()
+  await expect(page.getByText(/of 100 tasks/)).toBeVisible()
 
   await page.getByRole('button', { name: 'Code' }).click()
   await expect(page.getByRole('dialog', { name: 'Use this example' })).toBeVisible()
@@ -111,7 +111,7 @@ test('grid selection controls show clear unchecked, checked and mixed states', a
   await checkboxes.nth(0).click()
   await expect(checkboxes.nth(0)).toBeChecked()
   await expect(checkboxes.nth(1)).toBeChecked()
-  await expect(page.locator('.planning-demo__footer')).toContainText('50 selected')
+  await expect(page.locator('.planning-demo__footer')).toContainText('60 selected')
 
   await checkboxes.nth(0).click()
   await expect(checkboxes.nth(0)).not.toBeChecked()
