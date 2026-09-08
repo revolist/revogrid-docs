@@ -8,15 +8,30 @@ export type FeatureStatus = 'stable' | 'beta' | 'preview'
 export type SupportLevel = 'community' | 'self-service' | 'priority' | 'dedicated'
 export type ApplicationLimit = 'unlimited-mit' | 'one-product' | 'unlimited-products' | 'custom'
 export type SourceAccess = 'public-source' | 'typed-private-packages' | 'original-private-source'
-export type TrialDeliveryMethod = 'none' | 'private-npm' | 'sales-assisted'
-export type ProductId = 'revogrid' | 'pivot' | 'gantt' | 'scheduler' | 'event-scheduler'
+export type TrialDeliveryMethod = 'none' | 'public-npm' | 'sales-assisted'
+export type ProductId = 'revogrid' | 'pivot' | 'kanban' | 'gantt' | 'scheduler' | 'event-scheduler'
 export type DemoId =
   | 'grid-at-scale'
+  | 'ai-prompt-library'
+  | 'project-portfolio'
   | 'project-tracker'
+  | 'audit-history'
+  | 'column-collapse'
+  | 'context-menu'
+  | 'filtering'
+  | 'infinity-scroll'
+  | 'row-master'
+  | 'tree-data'
   | 'excel'
   | 'pivot'
   | 'gantt'
+  | 'gantt-big-data'
+  | 'gantt-horizontal-big-data'
+  | 'kanban'
+  | 'kanban-performance'
+  | 'kanban-server-loading'
   | 'event-scheduler'
+  | 'planning'
 export type CommercialFaqKey =
   | 'developer-licenses'
   | 'deployment-fees'
@@ -35,7 +50,7 @@ export interface PeriodPrices {
 
 export interface CatalogPromotion {
   id: 'summer-sale-2026'
-  planId: 'pro-lite'
+  planId: PurchasablePlanId
   startsAt: string
   expiresAt: string
   cutoffAt: string
@@ -166,18 +181,16 @@ const plans = {
     trial: {
       available: true,
       durationDays: 30,
-      delivery: 'private-npm',
+      delivery: 'public-npm',
       requestUrl: TRIAL_REQUEST_URL,
       boilerplateUrl: TRIAL_BOILERPLATE_URL,
-      note: 'The public repository is evaluation boilerplate. Pro packages are delivered through approved private npm access.',
+      note: 'Install the trial packages immediately from the public trial registry. No account, form, or approval is required.',
     },
-    billingSummary: '1 developer seat · 1 product/app',
+    billingSummary: '1 developer seat',
     actionLabel: 'Buy Pro Lite',
     pricingHighlights: [
       { text: 'Commercial production use' },
-      { text: 'Production-ready plugins and examples', link: '/pro/' },
-      { text: 'Typed private npm packages' },
-      { text: 'One product or app' },
+      { text: 'Production-ready modules and examples', link: '/pro/' },
       { text: 'One year of updates' },
     ],
   },
@@ -196,19 +209,18 @@ const plans = {
     trial: {
       available: true,
       durationDays: 30,
-      delivery: 'private-npm',
+      delivery: 'public-npm',
       requestUrl: TRIAL_REQUEST_URL,
       boilerplateUrl: TRIAL_BOILERPLATE_URL,
-      note: 'The public repository is evaluation boilerplate. Pro packages are delivered through approved private npm access.',
+      note: 'Install the trial packages immediately from the public trial registry. No account, form, or approval is required.',
     },
     billingSummary: '1 developer seat · Unlimited product usage',
     actionLabel: 'Buy Pro Advanced',
     pricingHighlights: [
       { text: 'Everything in Pro Lite' },
-      { text: 'Unlimited product usage' },
-      { text: 'Original private source repository access' },
       { text: 'Priority support and bug-fix queue' },
-      { text: 'Pivot, Gantt, Scheduler, and Event Scheduler' },
+      { text: 'Original source code access' },
+      { text: 'Pivot Table, Kanban, Gantt, Calendar, and Scheduler' },
     ],
   },
   enterprise: {
@@ -253,8 +265,23 @@ const promotions: CatalogPromotion[] = [
     year: { USD: 149 },
     buyUrl: 'https://buy.stripe.com/5kQeVe8N9ef67C29qmew80g',
     label: 'Summer sale',
-    title: '25% off Pro Lite.',
-    description: 'Pro Lite is $149/year for the summer discount, down from $199/year.',
+    title: '25% off Pro plans.',
+    description: '',
+    badge: '25% off summer discount',
+    discountLabel: '25% off',
+    priceValidUntil: '2026-08-31',
+  },
+  {
+    id: 'summer-sale-2026',
+    planId: 'pro-advanced',
+    startsAt: '2026-06-01T00:00:00Z',
+    expiresAt: SUMMER_SALE_EXPIRES_AT,
+    cutoffAt: SUMMER_SALE_CUTOFF,
+    year: { USD: 375 },
+    buyUrl: plans['pro-advanced'].buyUrl,
+    label: 'Summer sale',
+    title: '25% off Pro plans.',
+    description: '',
     badge: '25% off summer discount',
     discountLabel: '25% off',
     priceValidUntil: '2026-08-31',
@@ -316,8 +343,9 @@ const featureFacts = [
   ['timeline-editor', 'Timeline Editor', 'pro-lite', 'stable'],
   ['event-manager', 'Event Manager', 'pro-lite', 'stable'],
   ['pivot', 'Pivot Table', 'pro-advanced', 'stable'],
-  ['gantt', 'Gantt & Scheduling', 'pro-advanced', 'stable'],
-  ['event-scheduler', 'Event Scheduler', 'pro-advanced', 'stable'],
+  ['kanban', 'Kanban', 'pro-advanced', 'stable'],
+  ['gantt', 'Gantt Charts', 'pro-advanced', 'stable'],
+  ['event-scheduler', 'Scheduler JS', 'pro-advanced', 'stable'],
   ['collaborative-editing', 'Collaborative Editing', 'pro-lite', 'beta'],
 ] as const satisfies ReadonlyArray<readonly [string, string, PlanId, FeatureStatus]>
 
@@ -348,7 +376,7 @@ const products = {
     minimumPlan: 'open-source',
     status: 'stable',
     pageUrl: '/',
-    demoUrl: '/demo/',
+    demoUrl: '/demo/grid-at-scale',
     trialUrl: TRIAL_REQUEST_URL,
     buyUrl: '/pricing',
   },
@@ -360,6 +388,17 @@ const products = {
     featureId: 'pivot',
     pageUrl: '/pivot/',
     demoUrl: '/demo/pivot',
+    trialUrl: TRIAL_REQUEST_URL,
+    buyUrl: '/pricing',
+  },
+  kanban: {
+    id: 'kanban',
+    name: 'RevoGrid Kanban',
+    minimumPlan: 'pro-advanced',
+    status: 'stable',
+    featureId: 'kanban',
+    pageUrl: '/kanban',
+    demoUrl: '/demo/kanban',
     trialUrl: TRIAL_REQUEST_URL,
     buyUrl: '/pricing',
   },
@@ -379,19 +418,19 @@ const products = {
     name: 'RevoGrid Scheduler',
     minimumPlan: 'pro-advanced',
     status: 'stable',
-    featureId: 'gantt',
-    pageUrl: '/scheduler',
-    demoUrl: '/demo/gantt',
+    featureId: 'event-scheduler',
+    pageUrl: '/jsscheduler',
+    demoUrl: '/demo/event-scheduler',
     trialUrl: TRIAL_REQUEST_URL,
     buyUrl: '/pricing',
   },
   'event-scheduler': {
     id: 'event-scheduler',
-    name: 'RevoGrid Event Scheduler',
+    name: 'RevoGrid Scheduler',
     minimumPlan: 'pro-advanced',
     status: 'stable',
     featureId: 'event-scheduler',
-    pageUrl: '/event-scheduler',
+    pageUrl: '/jsscheduler',
     demoUrl: '/demo/event-scheduler',
     trialUrl: TRIAL_REQUEST_URL,
     buyUrl: '/pricing',
@@ -399,12 +438,27 @@ const products = {
 } as const satisfies Record<ProductId, CatalogProduct>
 
 const demos = {
-  'grid-at-scale': { id: 'grid-at-scale', title: 'Grid at Scale', planId: 'open-source', status: 'stable', pageUrl: '/demo/' },
+  'grid-at-scale': { id: 'grid-at-scale', title: 'Grid at Scale', planId: 'open-source', status: 'stable', pageUrl: '/demo/grid-at-scale' },
+  'ai-prompt-library': { id: 'ai-prompt-library', title: 'AI Prompt Library', planId: 'open-source', status: 'stable', pageUrl: '/demo/ai-prompts' },
+  'project-portfolio': { id: 'project-portfolio', title: 'Row Grouping', planId: 'open-source', status: 'stable', pageUrl: '/demo/project-portfolio' },
   'project-tracker': { id: 'project-tracker', title: 'Project Tracker', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/color' },
-  excel: { id: 'excel', title: 'Excel', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/excel' },
-  pivot: { id: 'pivot', title: 'Pivot Analytics', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot' },
-  gantt: { id: 'gantt', title: 'Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt' },
-  'event-scheduler': { id: 'event-scheduler', title: 'Event Scheduler', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
+  'audit-history': { id: 'audit-history', title: 'Audit History', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/audit-history' },
+  'column-collapse': { id: 'column-collapse', title: 'Column Collapse', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/column-collapse' },
+  'context-menu': { id: 'context-menu', title: 'Context Menu & Formatting', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/context-menu' },
+  filtering: { id: 'filtering', title: 'Advanced Filtering', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/filtering' },
+  'infinity-scroll': { id: 'infinity-scroll', title: 'Infinity Scroll', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/infinity-scroll' },
+  'row-master': { id: 'row-master', title: 'Row Master', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/row-master' },
+  'tree-data': { id: 'tree-data', title: 'Tree Data', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/tree-data' },
+  excel: { id: 'excel', title: 'Collaboration', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/excel' },
+  pivot: { id: 'pivot', title: 'Pivot Table Demo', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot' },
+  gantt: { id: 'gantt', title: 'Gantt Chart JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt' },
+  'gantt-big-data': { id: 'gantt-big-data', title: '10K-Task Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt-big-data' },
+  'gantt-horizontal-big-data': { id: 'gantt-horizontal-big-data', title: '20Y-Timeline Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt-horizontal-big-data' },
+  kanban: { id: 'kanban', title: 'Kanban Board', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban' },
+  'kanban-performance': { id: 'kanban-performance', title: '50K-Task Kanban', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban-performance' },
+  'kanban-server-loading': { id: 'kanban-server-loading', title: '100K Server-Loaded Kanban', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban-server-loading' },
+  'event-scheduler': { id: 'event-scheduler', title: 'Scheduler JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
+  planning: { id: 'planning', title: 'Project Workspace', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/' },
 } as const satisfies Record<DemoId, CatalogDemo>
 
 export const PRODUCT_CATALOG = {
@@ -501,8 +555,11 @@ export const formatFrameworkPricingNote = (at: PriceTimestamp = new Date()): str
   const lightPriceCopy = lightPrice.compareAtYear?.USD
     ? `$${lightPrice.year.USD}/year sale ($${lightPrice.compareAtYear.USD} regular)`
     : `$${lightPrice.year.USD}/year`
+  const advancedPriceCopy = advancedPrice.compareAtYear?.USD
+    ? `$${advancedPrice.year.USD}/year sale ($${advancedPrice.compareAtYear.USD} regular)`
+    : `$${advancedPrice.year.USD}/year`
 
-  return `Open-source core. ${plans['pro-lite'].name}: ${lightPriceCopy}. ${plans['pro-advanced'].name}: $${advancedPrice.year.USD}/year. Per-developer licensing. No deployment counting.`
+  return `Open-source core. ${plans['pro-lite'].name}: ${lightPriceCopy}. ${plans['pro-advanced'].name}: ${advancedPriceCopy}. Per-developer licensing. No deployment counting.`
 }
 
 export const getCatalogProFeatures = () => proFeatureMarketing.map((feature) => {
@@ -539,7 +596,7 @@ export const commercialFaqs: Record<CommercialFaqKey, { q: string, a: string }> 
   },
   'plan-difference': {
     q: 'What is the difference between Pro Lite and Pro Advanced?',
-    a: 'Pro Lite covers one product or app and includes typed Pro packages through private npm. Pro Advanced adds unlimited product usage, original private source repository access, Pivot, Gantt, Scheduler, and priority support.',
+    a: 'Pro Lite covers one product or app and includes typed Pro packages through private npm. Pro Advanced adds priority support, unlimited product usage, original private source repository access, the JavaScript Pivot Table, Kanban, Gantt, and Scheduler.',
   },
   'open-source-production': {
     q: 'Can I use the open-source core in production?',
@@ -547,7 +604,7 @@ export const commercialFaqs: Record<CommercialFaqKey, { q: string, a: string }> 
   },
   trial: {
     q: 'Can I evaluate RevoGrid Pro before purchasing?',
-    a: `Yes. Request a 30-day trial for approved private npm access. The public trial repository is boilerplate for evaluation setup; it does not contain the Pro packages.`,
+    a: 'Yes. Start the 30-day trial immediately from the public trial registry—no npm login or token, license key, form, or approval email is required. You can also clone and run the public starter right away.',
   },
   'source-access': {
     q: 'What source access is included?',
@@ -606,24 +663,16 @@ export const getPricingDifferenceRows = () => {
     },
     {
       feature: {
-        text: 'Original source repository access',
-        description: 'Private source access through GitHub',
-        icon: 'code',
-      },
-      lite: excluded,
-      advanced: included,
-      enterprise: included,
-    },
-    {
-      feature: {
-        text: 'Pivot, Gantt & Scheduler',
+        text: 'Pivot Table, Kanban, Gantt Charts & Event Scheduler',
         icon: 'calendarDays',
         parts: [
-          { text: 'Pivot', href: '/pivot/' },
+          { text: 'Pivot Table', href: '/pivot/' },
+          { text: ', ' },
+          { text: 'Kanban', href: '/kanban' },
           { text: ', ' },
           { text: 'Gantt', href: '/gantt' },
           { text: ' & ' },
-          { text: 'Scheduler', href: '/event-scheduler' },
+          { text: 'Scheduler JS', href: '/jsscheduler' },
         ],
       },
       lite: excluded,
@@ -673,14 +722,14 @@ export const getPricingEvaluationFacts = () => {
         icon: 'starOutline',
         eyebrow: 'Evaluate Pro features',
         heading: 'Evaluate RevoGrid Pro',
-        description: 'Test Pro functionality in your own project before purchasing. Access is provided on request.',
+        description: 'Install the public Pro trial and test it in your own project before purchasing.',
         features: [
-          `${trialDays}-day private npm access`,
+          `${trialDays}-day public npm trial`,
           'Pro plugins and production-ready examples',
-          'Pivot, Gantt, Scheduler, and Event Scheduler',
+          'Pivot Table, Kanban, Gantt, and JavaScript Scheduler',
           'Public GitHub repository is setup boilerplate only',
         ],
-        action: { label: 'Request Pro Trial', href: advanced.trial.requestUrl! },
+        action: { label: 'Get Pro Trial', href: advanced.trial.requestUrl! },
         recommended: true,
       },
     ],

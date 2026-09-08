@@ -195,6 +195,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                         link: '/guide/row/height',
                     },
                     {
+                        text: 'Row Resizing',
+                        link: '/guide/row/resize',
+                    },
+                    {
                         text: 'Row Pinning',
                         link: '/guide/row/pin',
                     },
@@ -455,7 +459,7 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
         link: '/guide/licensing',
     },
     {
-        text: 'Request Pro Trial',
+        text: 'Get Pro Trial',
         link: '/trial',
     },
     {

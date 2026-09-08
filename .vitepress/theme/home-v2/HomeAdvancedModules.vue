@@ -1,9 +1,15 @@
 <template>
-  <section id="advanced" class="rg-section">
+  <section id="advanced" class="rg-section rg-advanced-section">
     <div class="rg-container">
-      <HomeSectionHeader :section="section" />
+      <div class="rg-advanced-heading">
+        <HomeSectionHeader :section="section" />
+        <a class="rg-advanced-heading-action" :href="linkOf(section?.action?.link)">
+          {{ section?.action?.text }}
+          <HomeChevron />
+        </a>
+      </div>
       <div class="rg-modules-grid">
-        <div
+        <article
           v-for="item in section?.items"
           :key="item.title"
           class="rg-module-card"
@@ -34,13 +40,7 @@
               <HomeChevron />
             </a>
           </div>
-        </div>
-      </div>
-      <div class="rg-centered-action">
-        <a class="rg-btn rg-btn-secondary" :href="linkOf(section?.action?.link)">
-          {{ section?.action?.text }}
-          <HomeChevron />
-        </a>
+        </article>
       </div>
     </div>
   </section>
@@ -74,43 +74,134 @@ const catalogStatus = (item: HomeV2Record) => catalogFacts(item)?.status ?? 'sta
 </script>
 
 <style lang="scss">
+#advanced .rg-section-header {
+  max-width: 820px;
+  margin: 0;
+  text-align: left;
+}
+
+#advanced .rg-section-label {
+  margin-bottom: 14px;
+  color: var(--rg-font-green);
+  letter-spacing: 0.12em;
+}
+
+#advanced .rg-section-title {
+  font-size: clamp(32px, 3.4vw, 46px);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+}
+
+#advanced .rg-section-desc {
+  max-width: 680px;
+  margin: 0;
+  color: var(--rg-text-2);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
 #advanced .rg-module-card {
   padding: 0;
 }
 
 #advanced .rg-module-preview {
-  height: 200px;
+  height: auto;
   margin-top: 0;
   border: none;
   border-radius: 0;
 }
+
+#advanced .rg-module-card .rg-module-preview {
+  aspect-ratio: 2 / 1;
+}
+
+@media (max-width: 640px) {
+  #advanced .rg-section-header {
+    text-align: left;
+  }
+
+  #advanced .rg-section-title {
+    font-size: 32px;
+  }
+
+  #advanced .rg-section-desc {
+    margin-left: 0;
+  }
+}
 </style>
 
 <style lang="scss" scoped>
+.rg-advanced-section {
+  padding-block: clamp(80px, 9vw, 132px);
+}
+
+.rg-advanced-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 36px;
+  margin-bottom: 42px;
+}
+
+.rg-advanced-heading-action {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 6px;
+  color: var(--rg-font-green);
+  font-size: 15px;
+  font-weight: 650;
+  text-decoration: none;
+  padding-block: 8px;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  &:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--rg-green) 35%, transparent);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+}
+
+.rg-advanced-section .rg-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  overflow: visible;
+}
+
 .rg-module-card {
-  border: 1px solid var(--vp-c-gray-2);
-  border-radius: 16px;
+  min-width: 0;
+  border: 1px solid var(--rg-border);
+  border-radius: 18px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: var(--vp-c-bg-soft);
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 
   &:hover {
-    border-color: rgba(27, 71, 193, 0.4);
+    border-color: color-mix(in srgb, var(--rg-green) 42%, var(--rg-border));
+    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+    transform: translateY(-3px);
   }
 }
 
 .rg-module-card-body {
   display: flex;
   flex-direction: column;
-  padding: 16px;
-  gap: 6px;
+  padding: 20px 20px 22px;
+  gap: 9px;
   flex: 1;
 
   h3 {
-    font-size: 16px;
-    font-weight: 600;
+    color: var(--rg-text);
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: 650;
     margin: 0;
     display: flex;
     align-items: center;
@@ -120,35 +211,92 @@ const catalogStatus = (item: HomeV2Record) => catalogFacts(item)?.status ?? 'sta
 
   p {
     font-size: 14px;
-    color: var(--vp-c-text-2);
+    line-height: 1.5;
+    color: var(--rg-text-2);
     margin: 0;
     flex: 1;
   }
 }
 
 .rg-module-tag {
+  position: relative;
   font-size: 11px;
-  font-weight: 500;
-  padding: 0px 6px 0 0px;
-  border-radius: 4px;
-  background: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand-1);
+  line-height: 22px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0 9px 0 16px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--rg-green) 12%, transparent);
+  color: var(--rg-font-green);
   white-space: nowrap;
-  vertical-align: middle;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--rg-green);
+  }
 }
 
 .rg-module-link {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--vp-c-brand-1);
+  width: fit-content;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--rg-font-green);
   text-decoration: none;
-  margin-top: 4px;
+  margin-top: 7px;
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+@media (max-width: 960px) {
+  .rg-advanced-section .rg-modules-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .rg-advanced-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .rg-advanced-section .rg-modules-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .rg-advanced-heading {
+    margin-bottom: 32px;
+  }
+
+  .rg-module-card-body {
+    padding: 22px 20px 24px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rg-module-card {
+    transition: none;
+  }
+
+  .rg-module-card:hover {
+    transform: none;
   }
 }
 </style>

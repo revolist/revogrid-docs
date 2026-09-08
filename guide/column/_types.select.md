@@ -81,6 +81,37 @@ const dropdown = {
 
 Use the object form when the visible label and stored value should differ.
 
+#### Synchronize cell and dropdown templates
+
+Set `syncCellTemplate` to `true` when dropdown options should reuse the
+resolved cell template. This is opt-in; without the flag, options keep their
+existing text-only rendering. Object option fields are available on the
+synthetic row model passed to the cell template, which is useful for avatars,
+badges, and other metadata-driven renderers.
+
+```ts
+const ownerType = new SelectTypePlugin()
+ownerType.cellTemplate = ownerCellTemplate
+ownerType.syncCellTemplate = true
+
+const columnTypes = { ownerSelect: ownerType }
+const columns = [
+  {
+    prop: 'owner',
+    columnType: 'ownerSelect',
+    labelKey: 'name',
+    valueKey: 'name',
+    source: [
+      { name: 'Maya Chen', avatarIndex: 1 },
+      { name: 'Elias Novak', avatarIndex: 2 },
+    ],
+  },
+]
+```
+
+If the column also provides an explicit dropdown `template`, that template
+takes precedence.
+
 #### Dynamic source
 
 `source` can be a synchronous function when options depend on the current row

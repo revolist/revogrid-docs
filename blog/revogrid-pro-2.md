@@ -89,7 +89,7 @@ The 2+ generation makes the commercial structure easier to understand:
 | Plan | Best fit |
 | --- | --- |
 | [Pro Lite](/pricing/) | Teams that need production-ready Pro plugins, portal access, MCP support, and advanced grid workflows. |
-| [Pro Advanced](/pricing/) | Teams that need major modules such as Pivot Grid and Gantt Chart, plus priority support and early module access. |
+| [Pro Advanced](/pricing/) | Teams that need major modules such as the Pivot Table component and Gantt Chart, plus priority support and early module access. |
 | Enterprise | Larger teams that need custom contracts, procurement support, security review help, dedicated engineering contact, and flexible licensing. |
 
 This structure matters because teams often start with a fast data grid and later need reporting, planning, auditability, and enterprise procurement. RevoGrid Pro 2+ gives that growth path a clearer shape.
@@ -202,7 +202,7 @@ That makes Pivot useful for product analytics, financial reports, operational da
 
 Try it on the [Pivot demo page](/demo/pivot/) or read more on the [Pivot product page](/pivot/).
 
-## Gantt and Scheduling Move Into the Grid
+## Gantt Charts Move Into the Grid
 
 [RevoGrid Gantt](/gantt/) brings scheduling and timeline planning into the same product family as the grid.
 

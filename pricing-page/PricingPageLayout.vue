@@ -4,7 +4,7 @@
       <span class="pricing-promo-label">{{ pricingPromo.label }}</span>
       <span class="pricing-promo-copy">
         <strong>{{ pricingPromo.title }}</strong>
-        <span>{{ pricingPromo.description }}</span>
+        <span v-if="pricingPromo.description">{{ pricingPromo.description }}</span>
       </span>
     </div>
 

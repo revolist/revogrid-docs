@@ -72,6 +72,8 @@ const resolveCard = (card: PricingCardData): ResolvedPricingCardData => {
       action: plan.actionLabel,
       features: [...plan.pricingHighlights],
       price: `$${price.year}`,
+      compareAtPrice: price.compareAtYear ? `$${price.compareAtYear}` : undefined,
+      discountLabel: price.promotion?.discountLabel,
       period: '/ year',
       sub: '',
       billingNote: plan.billingSummary,

@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.24.1](README.md) / DSourceState
+[RevoGrid Documentation v4.27.7](README.md) / DSourceState
 
 # Type Alias: DSourceState\<T1, T2\>
 
@@ -13,8 +13,8 @@ type DSourceState<T1, T2>: DataSourceState<T1, T2> & {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `groupingCellRenderer` | [`GroupCellTemplateFunc`](TypeAlias.GroupCellTemplateFunc.md) \| `null` | [src/store/dataSource/data.store.ts:37](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/store/dataSource/data.store.ts#L37) |
-| `groupingCustomRenderer` | [`GroupLabelTemplateFunc`](TypeAlias.GroupLabelTemplateFunc.md) \| `null` | [src/store/dataSource/data.store.ts:36](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/store/dataSource/data.store.ts#L36) |
+| `groupingCellRenderer` | [`GroupCellTemplateFunc`](TypeAlias.GroupCellTemplateFunc.md) \| `null` | [src/store/dataSource/data.store.ts:42](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/store/dataSource/data.store.ts#L42) |
+| `groupingCustomRenderer` | [`GroupLabelTemplateFunc`](TypeAlias.GroupLabelTemplateFunc.md) \| `null` | [src/store/dataSource/data.store.ts:41](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/store/dataSource/data.store.ts#L41) |
 
 ## Type Parameters
 
@@ -25,4 +25,4 @@ type DSourceState<T1, T2>: DataSourceState<T1, T2> & {
 
 ## Defined in
 
-[src/store/dataSource/data.store.ts:32](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/store/dataSource/data.store.ts#L32)
+[src/store/dataSource/data.store.ts:37](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/store/dataSource/data.store.ts#L37)

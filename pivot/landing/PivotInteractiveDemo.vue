@@ -57,10 +57,10 @@ import { computed, ref } from 'vue'
 import NumberColumnType from '@revolist/revogrid-column-numeral'
 import RevoGrid, { type GridPlugin } from '@revolist/vue3-datagrid'
 import { AGG_MODES, RAW, REGIONS, type AggMode } from './pivotLandingData'
-import { PivotPlugin, type PivotConfig } from '../../.vitepress/revogrid-enterprise-pivot-shim'
+import { PivotPlugin, type PivotConfig } from '../../.vitepress/revogrid-pivot-shim'
 import { commonAggregators } from '../../.vitepress/revogrid-pro-shim'
 import '@revolist/revogrid-pro/dist/revogrid-pro.css'
-import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
+import '@revolist/pivot/styles.css'
 
 const agg = ref<AggMode>('sum')
 const plugins: GridPlugin[] = [PivotPlugin]

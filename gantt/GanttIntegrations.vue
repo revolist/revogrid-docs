@@ -14,7 +14,18 @@
           :href="integration.href ? resolveLink(integration.href) : undefined"
           class="integration-card"
         >
-          <span class="integration-icon">{{ integration.icon }}</span>
+          <span
+            class="integration-icon"
+            :class="{ 'integration-icon--image': integration.iconSrc }"
+          >
+            <img
+              v-if="integration.iconSrc"
+              :src="resolveLink(integration.iconSrc)"
+              alt=""
+              aria-hidden="true"
+            >
+            <template v-else>{{ integration.icon }}</template>
+          </span>
           <strong>{{ integration.name }}</strong>
           <small>{{ integration.badge }}</small>
         </component>
@@ -134,5 +145,16 @@ defineProps<{
   font-family: var(--vp-font-family-mono);
   font-size: 12px;
   font-weight: 900;
+
+  &--image {
+    background: transparent;
+  }
+
+  img {
+    display: block;
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+  }
 }
 </style>

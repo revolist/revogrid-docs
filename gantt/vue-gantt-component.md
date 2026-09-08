@@ -1,11 +1,11 @@
 ---
 title: Vue Gantt Chart Component for SaaS and Planning Apps
-description: "Build Vue Gantt planning workflows with RevoGrid: editable tasks, dependencies, critical path, baselines, resources, virtualization, live demos, pricing, and trial access."
+description: "Build Vue planning workflows with RevoGrid Gantt, a JavaScript Gantt chart component with editable tasks, dependencies, critical path, resources, and virtualization."
 outline: deep
 head:
   - - meta
     - name: keywords
-      content: Vue Gantt component, Vue 3 Gantt chart, Vue Gantt library, Vue project scheduling, Vue resource planning component
+      content: RevoGrid Gantt Vue, Vue Gantt component, Vue 3 Gantt chart, JavaScript Gantt chart Vue, Vue Gantt library, Vue project scheduling, Vue resource planning component
 faq:
   items:
     - q: Does RevoGrid Gantt support Vue 3?

@@ -508,7 +508,7 @@ You can start with the MIT-licensed RevoGrid Core. It covers the main grid exper
 | RevoGrid Core (MIT) | RevoGrid Pro and advanced modules |
 | --- | --- |
 | Virtual rows and columns | Pivot and advanced reporting workflows |
-| Cell editing | Gantt and Scheduler |
+| Cell editing | Gantt Charts |
 | Sorting and built-in filtering | Advanced filtering capabilities |
 | Range selection | Formulas and advanced spreadsheet workflows |
 | Clipboard operations | Master-detail and other product modules |

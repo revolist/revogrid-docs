@@ -11,9 +11,11 @@ head:
 
 RevoGrid is a high-performance [MIT-licensed](/guide/licensing) JavaScript data grid built for large datasets, fast scrolling, and spreadsheet-like interactions. It works as a Web Component, so the same core grid can be used in JavaScript, [TypeScript](/guide/ts/), [React](/guide/react/), [Angular](/guide/angular/), [Vue](/guide/vue3/), [Svelte](/guide/svelte/), and other modern frontends.
 
+[Explore the full RevoGrid Data Grid →](https://rv-grid.com/)
+
 ## Quick start in 60 seconds
 
-This page is the fastest way to get a data grid on the screen. From here you can move into feature guides, framework-specific setup, and the full [API](/guide/api/revoGrid).
+This page is the fastest way to get a JavaScript data grid on the screen with RevoGrid. From here you can move into feature guides, framework-specific setup, and the full [API](/guide/api/revoGrid).
 
 
 For prototypes, internal tools, or plain HTML pages, load RevoGrid directly from a CDN:
@@ -72,7 +74,7 @@ RevoGrid can stay simple for read-only tables, or become interactive with custom
 Choose the path that matches what you are building:
 
 - [Installation](/guide/installation): package managers, CDN usage, and loader setup.
-- [Request Pro Trial](/trial): request 30-day Pro trial access and compare public demos before purchasing.
+- [Get Pro Trial](/trial): install the 30-day Pro trial and compare public demos before purchasing.
 - [Overview](/guide/overview): how the grid is structured and when to use it.
 - [AI Agents and MCP](/guide/mcp): connect Codex, Cursor, Claude Code, or VS Code to version-aware RevoGrid docs, examples, migrations, and typed API context.
 - [Filtering](/guide/filters): enable built-in filtering and custom filter logic.

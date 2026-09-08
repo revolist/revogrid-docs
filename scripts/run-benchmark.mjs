@@ -48,7 +48,7 @@ const context = await browser.newContext({
     },
 })
 const page = await context.newPage()
-await page.goto('http://127.0.0.1:5173/benchmarks', { waitUntil: 'domcontentloaded' })
+await page.goto('http://127.0.0.1:5173/benchmarks?automated=1', { waitUntil: 'domcontentloaded' })
 
 const result = await page.evaluate(async ({ rowCount, columnCount }) => {
     document.body.innerHTML = `

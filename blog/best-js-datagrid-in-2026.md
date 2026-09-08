@@ -183,7 +183,7 @@ That matters when the grid becomes a long-term product dependency.
 
 ### RevoGrid
 
-[RevoGrid](https://rv-grid.com/) is a high-performance JavaScript data grid built as a Web Component. It supports [React](/guide/react/), [Vue](/guide/vue3/), [Angular](/guide/angular/), [Svelte](/guide/svelte/), TypeScript, and [plain JavaScript](/datagridjs/) through one core engine.
+[RevoGrid](https://rv-grid.com/) is a high-performance JavaScript data grid built as a Web Component. It supports [React](/guide/react/), [Vue](/guide/vue3/), [Angular](/guide/angular/), [Svelte](/guide/svelte/), TypeScript, and [plain JavaScript](/) through one core engine.
 
 
 ![RevoGrid JavaScript data grid preview](/img/pro-demo.png)
@@ -713,7 +713,7 @@ It gives developers a real grid engine, not just a component. It uses the browse
 
 For teams building serious data-heavy web apps in 2026, **RevoGrid is the grid to start with**.
 
-Next, explore [DataGridJS](/datagridjs/) for a plain JavaScript overview, review the [comparison hub](/compare/), compare RevoGrid against [AG Grid](/compare/ag-grid-alternative/), [Handsontable](/compare/handsontable-alternative/), or [Syncfusion](/compare/syncfusion-alternative/), review [RevoGrid Pro](/pro/) for advanced workflows, or try the [interactive demos](/demo/).
+Next, explore the [RevoGrid JavaScript data grid overview](/), review the [comparison hub](/compare/), compare RevoGrid against [AG Grid](/compare/ag-grid-alternative/), [Handsontable](/compare/handsontable-alternative/), or [Syncfusion](/compare/syncfusion-alternative/), review [RevoGrid Pro](/pro/) for advanced workflows, or try the [interactive demos](/demo/).
 
 
 ## Related comparison guides

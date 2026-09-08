@@ -8,7 +8,7 @@
     <div class="actions">
       <ProDocButton href="/gantt">Explore RevoGrid Gantt</ProDocButton>
       <ProDocButton href="/demo/gantt" variant="secondary">Open live demo</ProDocButton>
-      <ProDocButton href="/trial" variant="secondary">Request Pro Trial</ProDocButton>
+      <ProDocButton href="/trial" variant="secondary">Get Pro Trial</ProDocButton>
     </div>
   </aside>
 </template>

@@ -67,7 +67,7 @@ const revogridProWorkspaceRoot = path.resolve(__dirname, '../../..')
 const revogridDemosRoot = path.resolve(__dirname, '../revogrid-demos')
 const revogridDemoDataSuffix = '.revogrid-demo-source.ts'
 const localProPackageRoot = path.resolve(revogridProWorkspaceRoot, 'packages/pro')
-const localEnterprisePackageRoot = path.resolve(revogridProWorkspaceRoot, 'packages/enterprise')
+const standaloneProductNames = ['gantt', 'kanban', 'pivot', 'scheduler'] as const
 const useLocalProPackages =
     process.env.npm_lifecycle_event === 'dev' ||
     process.env.npm_lifecycle_script?.includes('vitepress dev') ||
@@ -79,42 +79,25 @@ const localProPackageAliases = useLocalProPackages
             replacement: path.resolve(localProPackageRoot, 'dist/revogrid-pro.css'),
         },
         {
-            find: /^@revolist\/revogrid-enterprise\/dist\/revogrid-enterprise\.css$/,
-            replacement: path.resolve(localEnterprisePackageRoot, 'dist/revogrid-enterprise.css'),
-        },
-        {
             find: /^@revolist\/revogrid-pro$/,
             replacement: path.resolve(localProPackageRoot, 'dist/revogrid-pro.js'),
         },
-        {
-            find: /^@revolist\/revogrid-enterprise$/,
-            replacement: path.resolve(localEnterprisePackageRoot, 'dist/revogrid-enterprise.js'),
-        },
+        ...standaloneProductNames.flatMap((productName) => {
+            const packageRoot = path.resolve(revogridProWorkspaceRoot, `packages/${productName}`)
+
+            return [
+                {
+                    find: new RegExp(`^@revolist/${productName}/styles\\.css$`),
+                    replacement: path.resolve(packageRoot, `dist/${productName}.css`),
+                },
+                {
+                    find: new RegExp(`^@revolist/${productName}$`),
+                    replacement: path.resolve(packageRoot, `dist/${productName}.js`),
+                },
+            ]
+        }),
     ]
     : []
-
-const standaloneBuildPages: Record<string, string> = {
-    gantt: 'gantt.md',
-    scheduler: 'scheduler.md',
-    timelinegrid: 'timelinegrid.md',
-    'ops-scheduler': 'ops-scheduler.md',
-    jsscheduler: 'jsscheduler.md',
-    pivot: 'pivot/index.md',
-    pivotio: 'pivotio.md',
-    vue: 'vue.md',
-    angular: 'angular.md',
-    datagridjs: 'datagridjs.md',
-}
-
-const standaloneBuildPage = process.env.DOCS_BUILD_PAGE
-const standaloneBuildSource = standaloneBuildPage ? standaloneBuildPages[standaloneBuildPage] : undefined
-const standaloneBuildSrcDir = process.env.DOCS_STANDALONE_SRC_DIR
-const standaloneBuildRewrites = standaloneBuildSource && !standaloneBuildSrcDir
-    ? {
-        'index.md': '__home.md',
-        [standaloneBuildSource]: 'index.md',
-    }
-    : undefined
 
 const trimTrailingSlash = (value: string): string => value.replace(/\/+$/, '')
 
@@ -198,19 +181,12 @@ const archiveControlledHead = (head: HeadConfig[] | undefined): HeadConfig[] | u
 }
 
 const config: UserConfig<DefaultTheme.Config> = {
-    ...((standaloneBuildSource || isArchiveBuild) ? {} : { sitemap: {
+    ...(isArchiveBuild ? {} : { sitemap: {
         hostname: siteUrl,
         transformItems(items) {
             return items.filter((item) => !item.url.includes('pivot/landing'))
         },
     } }),
-    ...(standaloneBuildSrcDir
-        ? {
-            srcDir: standaloneBuildSrcDir,
-            outDir: path.resolve(__dirname, 'dist'),
-            publicDir: path.resolve(__dirname, '../public'),
-        }
-        : {}),
     cleanUrls: true,
     title: 'RevoGrid',
     appearance: 'dark',
@@ -262,11 +238,14 @@ const config: UserConfig<DefaultTheme.Config> = {
         ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
         ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
         ['meta', { property: 'og:image', content: 'https://rv-grid.com/og-image.jpg' }],
+        ['meta', { property: 'og:image:alt', content: 'RevoGrid data grid interface' }],
         ['meta', { property: 'og:type', content: 'website' }],
         ['meta', { property: 'og:site_name', content: 'RevoGrid Documentation' }],
+        ['meta', { property: 'og:locale', content: 'en_US' }],
 
         ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
         ['meta', { name: 'twitter:image', content: 'https://rv-grid.com/og-image.jpg' }],
+        ['meta', { name: 'twitter:image:alt', content: 'RevoGrid data grid interface' }],
         ['meta', { name: 'twitter:site', content: '@RevoGrid' }],
 
         [
@@ -353,9 +332,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
 
-        logo: '/logo.svg?skipsvgo',
+        logo: {
+            src: '/logo.svg?skipsvgo',
+            alt: 'RevoGrid',
+        },
         outline: [2, 3],
-        socialLinks: standaloneBuildSource ? [] : [
+        socialLinks: [
             // { icon: 'x', link: 'https://x.com/revolist_ou/' },
             {
                 icon: 'github',
@@ -365,13 +347,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         footer: {
             message: `RevoGrid is a powerful data grid library made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. Copyright © 2017-present.`,
-            items: standaloneBuildSource ? [] : [
+            items: [
                 {
                     title: 'Product',
                     links: [
                         {
                             link: '/',
                             text: 'Overview',
+                        },
+                        {
+                            link: '/excel-data-grid',
+                            text: 'Excel Data Grid',
                         },
                         {
                             link: '/pro/feature-table',
@@ -459,7 +445,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               indexName: 'RevoGrid',
             }
         },
-        nav: standaloneBuildSource ? [] : navbarEn,
+        nav: navbarEn,
 
         sidebar: sidebarEn,
     },
@@ -526,7 +512,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             noExternal: [
                 'element-plus',
                 '@revolist/revogrid-pro',
-                '@revolist/revogrid-enterprise',
+                '@revolist/gantt',
+                '@revolist/kanban',
+                '@revolist/pivot',
+                '@revolist/scheduler',
                 '@revolist/revogrid-column-date',
                 '@revolist/revogrid-column-numeral',
                 '@revolist/revogrid-column-select',
@@ -542,7 +531,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         ? []
                         : [
                             '@revolist/revogrid-pro',
-                            '@revolist/revogrid-enterprise',
+                            '@revolist/gantt',
+                            '@revolist/kanban',
+                            '@revolist/pivot',
+                            '@revolist/scheduler',
                         ]
                 ),
                 '@braintree/sanitize-url',
@@ -556,7 +548,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 ? {
                     exclude: [
                         '@revolist/revogrid-pro',
-                        '@revolist/revogrid-enterprise',
+                        '@revolist/gantt',
+                        '@revolist/kanban',
+                        '@revolist/pivot',
+                        '@revolist/scheduler',
                     ],
                 }
                 : {}),
@@ -616,6 +611,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     srcExclude: process.env.VITE_PRO_INCLUDE
         ? [
             'revogrid-demos/**',
+            'demo/excel.md',
             '**/_*.md',
             'README.md',
             'guide/parts/*.md',
@@ -626,6 +622,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         ]
         : [
             'revogrid-demos/**',
+            'demo/excel.md',
             'demo/**-pro/**',
             'pro-pages/**',
             '**/_*.md',
@@ -636,7 +633,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             'guide/plugin/example.md',
             'guide/column/cell.template.md',
         ],
-    rewrites: standaloneBuildRewrites,
     ignoreDeadLinks: true,
 }
 

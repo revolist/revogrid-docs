@@ -18,6 +18,18 @@ head:
 
 Filtering lets users narrow the visible rows without changing the original `source`. RevoGrid keeps the full dataset available and hides non-matching physical row indexes through the trimming pipeline, so filtering works together with virtual scrolling, sorting, editing, and `getVisibleSource()`.
 
+## Performance by design
+
+RevoGrid filters the data model, not the rendered DOM. It keeps the original `source` intact, calculates which rows should be visible, and lets row virtualization render only the small portion currently in the viewport. This makes filtering suitable for large, interactive datasets without creating a DOM element for every matching row.
+
+Large local filter operations automatically run in short batches so the browser can stay responsive between slices of work. When an active filter is reapplied after replacing `source`, RevoGrid keeps the new rows hidden until the result is ready, then publishes the filtered view once. Users see an empty pending view followed by the correct result—not a flash of the complete unfiltered dataset.
+
+- Small datasets keep the immediate synchronous path.
+- Large datasets use a responsive, cancellable path, so a newer filter or source can replace stale work.
+- Filtering composes with sorting, grouping, tree visibility, and other row trims before rows become visible.
+
+Client-side filtering still evaluates the local records and any active conditions. Keep custom filter functions lightweight; for datasets that should not live entirely in the browser, use [server-side filtering](/guide/server-side-data#remote-filtering). See [Performance and Virtualization](/guide/performance) for broader large-data guidance.
+
 ## Enable filtering
 
 Turn on the built-in filter plugin with the grid-level `filter` prop:
@@ -55,6 +67,16 @@ const columns = [
   { prop: 'internalId', name: 'Internal ID', filter: false },
   { prop: 'score', name: 'Score', filter: 'number' },
   { prop: 'status', name: 'Status', filter: ['string', 'selection'] },
+  {
+    prop: 'reference',
+    name: 'Reference',
+    filter: { type: 'string', default: 'eq' },
+  },
+  {
+    prop: 'notes',
+    name: 'Notes',
+    filter: { type: 'string', default: false },
+  },
 ];
 ```
 
@@ -65,6 +87,62 @@ const columns = [
 | `'string'` | Text matching such as contains, starts with, and equals. |
 | `'number'` | Numeric comparisons such as greater than and less than. |
 | `string[]` | Multiple filter families, often used by Pro or custom filters. |
+| `{ type, default }` | Select one or more filter families and optionally override the initial operator, or set `default: false` to open this column's panel empty. |
+
+## Default filter conditions
+
+When a column has no saved or active conditions, opening its filter panel shows
+one removable draft condition. String columns start with **Contains** and number
+columns start with **=**. Boolean, array, and custom filter families use their
+first available operator.
+
+The draft is ready for input but is not an applied filter. Opening or closing
+the panel does not filter rows, activate the header filter icon, emit filtering
+events, or add the draft to persisted filter state. Entering a value or
+explicitly selecting an operator promotes it to a normal condition. If dynamic
+filtering is disabled, the promoted condition remains local until **Save**.
+
+Use the structured column form to choose a different initial operator:
+
+```ts
+grid.columns = [
+  {
+    prop: 'name',
+    name: 'Name',
+    filter: { type: 'string', default: 'eq' },
+  },
+  {
+    prop: 'score',
+    name: 'Score',
+    filter: { type: ['number', 'string'], default: 'gte' },
+  },
+];
+```
+
+To keep the original empty-panel behavior everywhere, disable default drafts in
+the grid filter configuration. A column can opt out independently with
+`default: false`. Conversely, an explicit operator on a column opts that column
+back in when the grid-wide setting is disabled.
+
+```ts
+grid.filter = { defaultFilter: false };
+
+grid.columns = [
+  { prop: 'name', filter: 'string' }, // Opens empty.
+  { prop: 'notes', filter: { type: 'string', default: false } }, // Opens empty.
+  { prop: 'status', filter: { type: 'string', default: 'eq' } }, // Opens with Equal.
+];
+```
+
+The override must name an operator available to one of the configured families.
+It is resolved after `include` and custom filters are applied. If it is invalid
+or excluded, RevoGrid uses the built-in family default when available, then the
+first available operator from the first configured family.
+
+Removing the draft or clicking **Reset** leaves the current panel empty. A new
+draft is created the next time that column's panel is opened. Existing filters
+loaded through `collection`, `multiFilterItems`, or the `filter` event are shown
+as-is and never receive an extra draft.
 
 ## Built-in filter operations
 
@@ -72,7 +150,9 @@ String columns support `notEmpty`, `empty`, `eq`, `notEq`, `begins`, `contains`,
 
 Number columns support `notEmpty`, `empty`, `eqN`, `neqN`, `gt`, `gte`, `lt`, and `lte`.
 
-These operation ids are the values used in saved filter state, `include`, localization, and event payloads.
+Boolean and array columns support the blank operations `notEmpty` and `empty`.
+
+In the filter panel, `empty` is labeled **Is blank** and `notEmpty` is labeled **Is not blank**. The operation ids have not changed, so existing saved filter state remains compatible. These ids are also the values used by `include`, localization, and event payloads.
 
 [<Badge type="tip">FilterItem</Badge>](/guide/types/Interface.FilterItem)
 [<Badge type="tip">FilterType</Badge>](/guide/types/TypeAlias.FilterType)
@@ -83,9 +163,11 @@ Pass an object to `grid.filter` when you need controlled behavior instead of the
 
 ```ts
 grid.filter = {
+  defaultFilter: false,
   include: ['contains', 'eq', 'notEmpty', 'gt', 'gte', 'lt', 'lte'],
   disableDynamicFiltering: true,
   closeFilterPanelOnOutsideClick: false,
+  allowDuplicateOperators: false,
 };
 ```
 
@@ -93,6 +175,8 @@ Important options:
 
 | Option | Purpose |
 | --- | --- |
+| `blankSemantics` | Defines which source values the blank operators match across the grid. |
+| `defaultFilter` | Controls whether empty panels start with a draft condition. Defaults to `true`. |
 | `collection` | Restores single-filter state by column prop. |
 | `multiFilterItems` | Restores multiple filters per column, including `and` / `or` relations. |
 | `include` | Limits the operations shown in the dropdown. |
@@ -101,14 +185,91 @@ Important options:
 | `localization` | Replaces filter captions and operation names. |
 | `disableDynamicFiltering` | Applies changes only when the user confirms. |
 | `closeFilterPanelOnOutsideClick` | Controls whether outside clicks close the filter panel. |
+| `allowDuplicateOperators` | Allows the same operator to be selected more than once per column. Defaults to `true`; set to `false` to make visible operators mutually exclusive in the panel. |
+
+When `allowDuplicateOperators` is `false`, the filter panel hides operators
+already used by the current column from the **Add condition** dropdown. Existing
+conditions remain editable, and programmatically supplied duplicate
+`multiFilterItems` are preserved.
 
 [<Badge type="tip">ColumnFilterConfig</Badge>](/guide/types/Interface.ColumnFilterConfig)
 [<Badge type="tip">FilterCollectionItem</Badge>](/guide/types/TypeAlias.FilterCollectionItem)
 [<Badge type="tip">MultiFilterItem</Badge>](/guide/types/Interface.MultiFilterItem)
 
+## Configure blank values
+
+The **Is blank** and **Is not blank** operations preserve the original source value instead of converting all falsy values to the same representation. The default policy is:
+
+| Source value | Blank by default |
+| --- | --- |
+| `null` | Yes |
+| An own property whose value is `undefined` | Yes |
+| An empty string (`''`) | Yes |
+| A missing own property | Yes |
+| A whitespace-only string such as `'   '` | No |
+| An empty array (`[]`) | No |
+| `false`, `0`, or `NaN` | No |
+| Non-empty arrays and objects | No |
+
+Set `blankSemantics` on the grid filter config to change this policy. Every field is optional:
+
+```ts
+grid.filter = {
+  blankSemantics: {
+    whitespaceOnlyString: true,
+    emptyArray: true,
+    null: true,
+    undefined: true,
+    emptyString: true,
+    missingProperty: true,
+  },
+};
+```
+
+A column can override individual fields without repeating the grid policy. Column settings are merged field-by-field over the grid settings and the defaults:
+
+```ts
+grid.columns = [
+  {
+    prop: 'tags',
+    name: 'Tags',
+    filter: 'array',
+    // Keep [] as a non-blank value for this column only.
+    blankSemantics: { emptyArray: false },
+  },
+  {
+    prop: 'active',
+    name: 'Active',
+    filter: 'boolean',
+  },
+];
+```
+
+Use `isBlank` for application-specific values. It runs after the configured rules and receives their result as `fallbackResult`:
+
+```ts
+grid.filter = {
+  blankSemantics: {
+    isBlank(value, context, fallbackResult) {
+      if (context.property === 'status' && value === 'N/A') {
+        return true;
+      }
+
+      return fallbackResult;
+    },
+  },
+};
+```
+
+The callback receives the unparsed source `value` plus a context containing `model`, `column`, `property`, `sourceValue`, `parsedValue`, `hasOwnProperty`, and the effective `blankSemantics`. Inherited properties count as missing because `hasOwnProperty` is `false`.
+
+Blank checks always use `sourceValue`, even when the column has a `cellParser`. Other built-in and custom filter operations continue to receive `parsedValue`. Configuring blank semantics does not coerce values for typed comparisons, so number, string, boolean, and array operators keep their existing strict behavior.
+
+**Is not blank** is the exact inverse of the resolved blank predicate, including the result returned by `isBlank`.
+
 ## Customize filter names
 
-Use `localization.filterNames` to replace the labels shown for built-in filter operations. The operation id for the default **Not set** filter is `empty`, so its label can be rendered as blank like this:
+Use `localization.filterNames` to replace the labels shown for built-in filter operations. For example, you can use shorter labels for the default **Is blank** and **Is not blank** operations:
 
 ```ts
 import { filterNames } from '@revolist/revogrid';
@@ -118,13 +279,14 @@ grid.filter = {
     captions: {},
     filterNames: {
       ...filterNames,
-      empty: '',
+      empty: 'Blank',
+      notEmpty: 'Not blank',
     },
   },
 };
 ```
 
-Spreading `filterNames` keeps all other built-in labels unchanged and satisfies the complete `FilterLocalization` mapping expected by TypeScript. Override any other operation id in the same object, such as `notEmpty` for **Set**, `eq` for **Equal**, or `contains` for **Contains**.
+Spreading `filterNames` keeps all other built-in labels unchanged and satisfies the complete `FilterLocalization` mapping expected by TypeScript. Override any other operation id in the same object, such as `eq` for **Equal** or `contains` for **Contains**. The ids remain `empty` and `notEmpty` for compatibility with saved filters, regardless of the labels you display.
 
 [<Badge type="tip">FilterLocalization</Badge>](/guide/types/Interface.FilterLocalization)
 
@@ -206,6 +368,23 @@ grid.filter = {
 The filter function receives the parsed cell value and the extra value from the filter panel. `func.extra = 'input'` asks the panel to render an input for that operation. The filter API also supports `datepicker` or a custom extra-field renderer for specialized UIs.
 
 [<Badge type="tip">CustomFilter</Badge>](/guide/types/Interface.CustomFilter)
+
+### Choose the right extension point
+
+Filtering can be extended at several levels without replacing the whole plugin:
+
+- Use `cellParser` to normalize a stored value before built-in or custom operations evaluate it.
+- Use `customFilters` to add a reusable operation that returns `true` or `false` for each row.
+- Use `beforefilterapply` to inspect, rewrite, or delegate the requested filter before evaluation starts.
+- Use `beforefiltertrimmed` when your application needs final control over the physical row indexes that will be hidden.
+
+Custom filter functions are synchronous predicates. RevoGrid may call them once per row for each active condition, so keep them pure and fast: avoid network requests, DOM work, large allocations, and shared-state mutations. Do not declare a custom predicate `async` or return a `Promise`; a promise is not a deferred boolean filter result.
+
+### How asynchronous filtering works
+
+For large local datasets, RevoGrid can yield between batches of synchronous predicate calls. The overall operation can continue across browser tasks while every individual custom predicate remains simple and synchronous. If a newer filter or source arrives, stale batched work can be discarded before it changes the visible result.
+
+When filtering genuinely requires asynchronous work—such as an API request, database query, or permission service—prevent the local operation in `beforefilterapply` and let your data controller load the matching rows into `source`. The controller should cancel or ignore stale requests and guard against requesting the same filter again when the remote source is assigned. See [Remote filtering](/guide/server-side-data#remote-filtering) for the recommended flow.
 
 ## Event hooks
 

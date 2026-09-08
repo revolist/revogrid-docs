@@ -30,7 +30,7 @@ pricingPage:
       href: /pro/feature-table
   evaluation:
     heading: Want to evaluate RevoGrid first?
-    description: Choose the immediate MIT core or request approved Pro trial access for your own project.
+    description: Choose the immediate MIT core or install the Pro trial in your own project.
     options:
       - eyebrow: Recommended for Pro evaluation
       - eyebrow: Start immediately
@@ -73,11 +73,11 @@ pricing:
   note: Simple per-developer licensing. No deployment counting. No server license.
   cards:
     - id: light
-      description: For individual developers and small teams building production data apps.
+      description: For individual developers building production data apps.
     - id: advanced
       featured: true
-      badge: Best for product teams
-      description: For product teams that need original source repository access, Pivot Grid, Gantt and Scheduler, and priority support.
+      badge: Best overall
+      description: For teams and developers who need faster integration, priority support, and deeper project-level guidance.
     - id: enterprise
       description: For larger teams with procurement, security review, and custom terms.
 

@@ -6,9 +6,13 @@
       :resolve-link="resolvePivotLink"
     />
 
-    <ProStatsBar v-if="page.stats.length" :items="page.stats" :aria-label="page.statsAriaLabel" />
-
     <PivotFeaturesSection :features="page.features" />
+
+    <GanttIntegrations
+      v-if="page.integrations.items.length"
+      :integrations="page.integrations"
+      :resolve-link="resolvePivotLink"
+    />
 
     <PivotUseCases v-if="page.useCases.enabled" />
 
@@ -18,6 +22,10 @@
       :section-id="page.advancedCallout.sectionId"
       :product-id="page.catalogProductId"
     />
+
+    <div class="container pivot-page-faq">
+      <CommercialFaq id="pivot-product-faq" />
+    </div>
 
     <ProCtaBanner
       v-if="page.cta"
@@ -38,8 +46,9 @@
 <script lang="ts" setup>
 import ProAdvancedCallout from '../pro/ProAdvancedCallout.vue'
 import ProCtaBanner from '../pro/ProCtaBanner.vue'
-import ProStatsBar from '../pro/ProStatsBar.vue'
+import CommercialFaq from '../pro/CommercialFaq.vue'
 import PivotUseCases from '../pro/PivotUseCases.vue'
+import GanttIntegrations from '../gantt/GanttIntegrations.vue'
 import PivotFeaturesSection from './page-layout/PivotFeaturesSection.vue'
 import PivotHeroSection from './page-layout/PivotHeroSection.vue'
 import { usePivotPage } from './page-layout/usePivotPage'

@@ -53,7 +53,7 @@ const proAdvancedLink = proAdvancedPrice.link
 
 const INCLUDED = [
   'Pivot Tables',
-  'Gantt and Scheduler',
+  'Gantt Charts',
   'Original source repository',
   plan.billingSummary,
   'Priority support',

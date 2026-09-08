@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <div v-if="previewEnabled" class="fade-up-3">
+      <div v-if="previewEnabled" class="hero-preview fade-up-3">
         <PivotDemo />
       </div>
     </div>

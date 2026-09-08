@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.24.1](README.md) / RevogridEvents
+[RevoGrid Documentation v4.27.7](README.md) / RevogridEvents
 
 # Type Alias: RevogridEvents
 
@@ -66,7 +66,6 @@ type RevogridEvents:
   | "resetChange"
   | "beforefocusrender"
   | "beforescrollintoview"
-  | "afterfocus"
   | "beforeheaderclick"
   | "headerresize"
   | "beforeheaderresize"
@@ -78,6 +77,10 @@ type RevogridEvents:
   | "columndragmousemove"
   | "beforecolumndragend"
   | "columndragend"
+  | "beforerowresize"
+  | "rowresize"
+  | "afterrowresize"
+  | "rowresizecancel"
   | "rowdragstartinit"
   | "rowdragendinit"
   | "rowdragmoveinit"
@@ -122,4 +125,4 @@ type RevogridEvents:
 
 ## Defined in
 
-[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/988f05df30e815486c8b4467f75b54627b66b975/src/types/events.ts#L2)
+[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/types/events.ts#L2)

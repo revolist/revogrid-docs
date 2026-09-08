@@ -40,7 +40,7 @@ hero:
   tagline: Fast virtual scrolling, inline editing, custom React cell renderers, and TypeScript-first APIs for dashboards, admin tools, and production SaaS.
   primaryAction:
     text: Explore 1M-row demo
-    link: /demo/
+    link: /demo/grid-at-scale
   secondaryAction:
     text: Read React docs
     link: /guide/react/
@@ -320,7 +320,7 @@ finalCta:
   pricingNote: true
   actions:
     - text: Explore 1M-row demo
-      link: /demo/
+      link: /demo/grid-at-scale
       variant: primary
     - text: Install React package
       link: /guide/react/

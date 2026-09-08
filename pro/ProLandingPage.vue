@@ -93,11 +93,11 @@ const page = computed(() => {
       actions: {
         ...raw.cta?.actions,
         trial: {
-          label: 'Request Pro Trial',
+          label: 'Get Pro Trial',
           href: PRODUCT_CATALOG.urls.trialRequest,
         },
       },
-      note: 'Royalty-free - No deployment fee - 30-day private npm trial',
+      note: 'Royalty-free - No deployment fee - 30-day public npm trial',
     },
   }
 })

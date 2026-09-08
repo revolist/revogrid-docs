@@ -2,10 +2,11 @@
   <main class="rg-home">
     <HomeHeroSection :hero="data.hero" />
     <HomeStatsTrust :section="data.trust" />
+    <HomeAudienceStrip :section="data.recommended" />
     <HomeDemoGallery v-if="data.demos" :section="data.demos" />
     <HomeCapabilities :section="data.capabilities" />
     <HomeDeveloperSection :section="data.developer" />
-    <HomeNativeCells :section="data.nativeCells" />
+    <HomeFeedbackCloud :section="data.feedback" />
     <HomeAdvancedModules :section="data.advanced" />
     <HomeUseCases v-if="data.useCases" :section="data.useCases" />
     <HomeComparison :section="data.comparison" />
@@ -20,14 +21,15 @@
 import { computed } from 'vue'
 import { useData } from 'vitepress'
 import HomeAdvancedModules from './home-v2/HomeAdvancedModules.vue'
+import HomeAudienceStrip from './home-v2/HomeAudienceStrip.vue'
 import HomeCapabilities from './home-v2/HomeCapabilities.vue'
 import HomeComparison from './home-v2/HomeComparison.vue'
 import HomeDemoGallery from './home-v2/HomeDemoGallery.vue'
 import HomeDeveloperSection from './home-v2/HomeDeveloperSection.vue'
 import HomeFaq from './home-v2/HomeFaq.vue'
+import HomeFeedbackCloud from './home-v2/HomeFeedbackCloud.vue'
 import HomeFinalCta from './home-v2/HomeFinalCta.vue'
 import HomeHeroSection from './home-v2/HomeHeroSection.vue'
-import HomeNativeCells from './home-v2/HomeNativeCells.vue'
 import HomeStatsTrust from './home-v2/HomeStatsTrust.vue'
 import HomeUseCases from './home-v2/HomeUseCases.vue'
 
@@ -716,7 +718,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   border-radius: 16px;
   position: relative;
   overflow: hidden;
-  background: var(--rg-bg-2);
   color: inherit;
   text-decoration: none;
 

@@ -1,8 +1,8 @@
 <template>
   <section class="final-cta">
     <div class="section-label centered">Get started</div>
-    <h2>Use Pivot Grid with <span>RevoGrid</span></h2>
-    <p>Pivot is in RevoGrid Pro. The MIT open-source core includes grouping, sorting, and virtual rendering. Start free - upgrade when you need pivot.</p>
+    <h2>Use the Pivot Table Component with <span>RevoGrid</span></h2>
+    <p>RevoGrid Pivot is in RevoGrid Pro. The MIT open-source core includes grouping, sorting, and virtual rendering. Start free - upgrade when you need pivot analytics.</p>
     <div class="cta-actions">
       <a :href="revoGridProPricesUrl" class="rg-btn" target="_blank" rel="noopener">Get full access in RevoGrid Pro -></a>
       <a :href="pivotDocsUrl" class="rg-btn rg-btn-secondary" target="_blank" rel="noopener">Read the docs</a>

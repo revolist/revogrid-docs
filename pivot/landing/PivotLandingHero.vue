@@ -2,9 +2,9 @@
   <section id="top" class="hero">
     <div class="hero-left">
       <div class="eyebrow"><span></span>RevoGrid Pro · Pivot Plugin</div>
-      <h1>Build <span>data-heavy</span><br />pivot tables -<br /><em>not just tables.</em></h1>
+      <h1>JavaScript <span>pivot table</span><br />component for<br /><em>data-heavy apps.</em></h1>
       <p>
-        Client-side pivoting, aggregation, and grouping -
+        A high-performance pivot grid with client-side aggregation and grouping -
         <strong>powered by RevoGrid</strong>. No backend. Works with hundreds
         of thousands of rows.
       </p>

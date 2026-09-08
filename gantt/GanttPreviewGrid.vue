@@ -1,20 +1,5 @@
 <template>
-  <div class="gantt-demo-wrap">
-    <div class="gd-toolbar">
-      <span class="traffic red"></span>
-      <span class="traffic yellow"></span>
-      <span class="traffic green"></span>
-      <span class="gd-title">{{ preview.title }}</span>
-      <span
-        v-for="pill in preview.pills"
-        :key="pill.label"
-        class="gd-pill"
-        :class="{ active: pill.active }"
-      >
-        {{ pill.label }}
-      </span>
-      <span v-if="preview.liveLabel" class="gd-live">{{ preview.liveLabel }}</span>
-    </div>
+  <ProductPreviewFrame :preview="preview">
     <div class="gantt-grid-stage">
       <RevoGrid
         ref="gridRef"
@@ -30,16 +15,17 @@
         :columns="columns"
       />
     </div>
-  </div>
+  </ProductPreviewFrame>
 </template>
 
 <script lang="ts" setup>
 import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 import RevoGrid from '@revolist/vue3-datagrid'
-import { GanttPlugin } from '@revolist/revogrid-enterprise'
+import { GanttPlugin } from '@revolist/gantt'
 import { assignments, calendars, columns, ganttConfig, resources, tasks } from './ganttPreviewData'
 import type { GanttLandingPage } from './ganttLanding'
-import '@revolist/revogrid-enterprise/dist/revogrid-enterprise.css'
+import ProductPreviewFrame from './ProductPreviewFrame.vue'
+import '@revolist/gantt/styles.css'
 
 defineProps<{
   preview: GanttLandingPage['preview']
@@ -78,68 +64,6 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss" scoped>
-.gantt-demo-wrap {
-  overflow: hidden;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 14px;
-  background: var(--vp-c-bg);
-  box-shadow: var(--pro-doc-shadow-lg);
-
-  &::before {
-    content: '';
-    display: block;
-    height: 2px;
-    background: linear-gradient(90deg, transparent 0%, var(--gantt-accent) 35%, var(--gantt-accent-2) 65%, transparent 100%);
-  }
-}
-
-.gd-toolbar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 42px;
-  padding: 9px 14px;
-  border-bottom: 1px solid var(--vp-c-divider);
-  background: var(--vp-c-bg-soft);
-}
-
-.traffic {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-}
-
-.red { background: #ff5f57; }
-.yellow { background: #febc2e; }
-.green { background: #28c840; }
-
-.gd-title {
-  flex: 1;
-  margin-left: 4px;
-  color: var(--vp-c-text-3);
-  font-family: var(--vp-font-family-mono);
-  font-size: 11px;
-  min-width: 0;
-}
-
-.gd-pill,
-.gd-live {
-  padding: 3px 8px;
-  border-radius: 5px;
-  border: 1px solid var(--vp-c-divider);
-  color: var(--vp-c-text-3);
-  font-family: var(--vp-font-family-mono);
-  font-size: 10px;
-  white-space: nowrap;
-}
-
-.gd-pill.active,
-.gd-live {
-  color: var(--gantt-accent);
-  border-color: var(--gantt-accent-border);
-  background: var(--gantt-soft);
-}
-
 .gantt-grid-stage {
   height: clamp(520px, 58vh, 640px);
   min-width: 0;
@@ -200,10 +124,6 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: 620px) {
-  .gd-pill {
-    display: none;
-  }
-
   .gantt-grid-stage {
     height: 480px;
     overflow-x: auto;

@@ -355,7 +355,7 @@ A RevoGrid Gantt setup in React uses the RevoGrid React wrapper and the Pro Adva
 ```tsx
 import React, { useMemo, useRef } from 'react';
 import { RevoGrid } from '@revolist/react-datagrid';
-import { GanttPlugin } from '@revolist/revogrid-enterprise';
+import { GanttPlugin } from '@revolist/gantt';
 
 export default function ProjectPlanGantt() {
   const gridRef = useRef<HTMLRevoGridElement>(null);

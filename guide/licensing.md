@@ -31,7 +31,7 @@ The Pro version is available under a commercial license — visit the [Pricing p
 
 #### Advanced plan
 
-Unlocks the most advanced features of RevoGrid, including Pivot Grid, Gantt Chart, AI, premium support, private GitHub repository access, totals, drill-down, field panels, custom aggregations, and server-side analytics contracts. It also includes everything offered in the Pro Lite plan.
+Unlocks the most advanced features of RevoGrid, including the JavaScript Pivot Table component, Gantt Chart, AI, premium support, private GitHub repository access, totals, drill-down, field panels, custom aggregations, and server-side analytics contracts. It also includes everything offered in the Pro Lite plan.
 
 The Pro Advanced version is available under a commercial license—visit the [Licensing page](/pro/policies/license) for details.
 
@@ -57,8 +57,8 @@ Contact us to upgrade to Pro Advanced.
 
 ### Evaluation (trial) access
 
-Yes, you can evaluate RevoGrid Pro before purchasing. The trial lasts 30 days and is available by request for teams that need to validate Pro or Pro Advanced modules.
+Yes, you can evaluate RevoGrid Pro before purchasing. The public trial lasts 30 days and can be installed immediately by teams that need to validate Pro or Pro Advanced modules.
 
-Start with the [Evaluate RevoGrid Pro](/trial) page for the request form, public demo links, trial limits, and the path from evaluation to production.
+Start with the [Get Pro Trial](/trial) page for installation instructions, public demo links, trial limits, and the path from evaluation to production.
 
 For production license quantity details, see the relevant clause in the [EULA](https://rv-grid.com/pro/policies/license).

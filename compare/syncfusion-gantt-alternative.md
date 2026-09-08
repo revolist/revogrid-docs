@@ -317,7 +317,7 @@ The following example shows the shape of a framework-neutral RevoGrid Gantt setu
 
 ```ts
 import { defineCustomElements } from '@revolist/revogrid/loader'
-import { GanttPlugin } from '@revolist/revogrid-enterprise'
+import { GanttPlugin } from '@revolist/gantt'
 
 defineCustomElements()
 
@@ -566,7 +566,7 @@ The practical decision is not simply which product has more checkmarks. It is wh
 
 **Build scheduling into your product with RevoGrid Gantt.**
 
-[Explore RevoGrid Gantt](/gantt) · [View the Gantt docs](https://pro.rv-grid.com/guides/gantt/) · [Compare Pro features](/pro/feature-table) · [Request Pro Trial](/trial)
+[Explore RevoGrid Gantt](/gantt) · [View the Gantt docs](https://pro.rv-grid.com/guides/gantt/) · [Compare Pro features](/pro/feature-table) · [Get Pro Trial](/trial)
 
 </div>
 

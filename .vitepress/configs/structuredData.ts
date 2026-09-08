@@ -85,20 +85,15 @@ const breadcrumbJsonLd = (
 
 const structuredProductForPath = (relativePath: string): ProductId | undefined => {
     if (relativePath === 'index.md') {
-        const standaloneProduct = {
-            pivot: 'pivot',
-            gantt: 'gantt',
-            scheduler: 'scheduler',
-        }[process.env.DOCS_BUILD_PAGE || ''] as ProductId | undefined
-        return standaloneProduct ?? 'revogrid'
+        return 'revogrid'
     }
     if (['react-data-grid.md', 'vue-data-grid.md', 'angular-data-grid.md', 'svelte-data-grid.md'].includes(relativePath)) {
         return 'revogrid'
     }
     if (relativePath === 'pivot/index.md') return 'pivot'
+    if (relativePath === 'kanban.md') return 'kanban'
     if (relativePath === 'gantt.md') return 'gantt'
-    if (relativePath === 'scheduler.md') return 'scheduler'
-    if (relativePath === 'event-scheduler.md') return 'event-scheduler'
+    if (relativePath === 'jsscheduler.md') return 'event-scheduler'
     return undefined
 }
 
@@ -140,6 +135,10 @@ const softwareApplicationJsonLd = (
     productId: ProductId,
 ): JsonLdData => {
     const product = getProduct(productId)
+    const isScheduler = productId === 'scheduler' || productId === 'event-scheduler'
+    const isGantt = productId === 'gantt'
+    const isKanban = productId === 'kanban'
+    const isDedicatedProduct = isScheduler || isGantt || isKanban
     const pagePath = relativePath === 'index.md' && productId !== 'revogrid'
         ? product.pageUrl
         : cleanPagePath(relativePath)
@@ -147,17 +146,64 @@ const softwareApplicationJsonLd = (
     return {
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
-        '@id': `${siteUrl}/#software`,
+        '@id': isDedicatedProduct ? `${siteUrl}${pagePath}#software` : `${siteUrl}/#software`,
         name: product.name,
-        alternateName: productId === 'revogrid' ? 'RevoGrid Data Grid' : undefined,
+        alternateName: productId === 'revogrid'
+            ? 'RevoGrid Data Grid'
+            : isScheduler
+                ? ['RevoGrid Event Scheduler', 'RevoGrid JavaScript Scheduler']
+                : undefined,
         applicationCategory: 'DeveloperApplication',
-        applicationSubCategory: 'JavaScript Data Grid',
-        operatingSystem: 'Any',
+        applicationSubCategory: isScheduler
+            ? 'JavaScript Scheduler and Event Calendar'
+            : isGantt
+                ? 'JavaScript Gantt Chart and Project Scheduling Component'
+                : isKanban
+                    ? 'JavaScript Kanban Board Component'
+                : 'JavaScript Data Grid',
+        operatingSystem: isDedicatedProduct ? 'Web' : 'Any',
         url: `${siteUrl}${pagePath === '/' ? '' : pagePath}`,
-        image: `${siteUrl}/og-image.jpg`,
+        image: isScheduler
+            ? `${siteUrl}/blog/scheduler.png`
+            : isGantt
+                ? `${siteUrl}/img/gantt-preview.png`
+                : isKanban
+                    ? `${siteUrl}/blog/kanban-product-development-polished.png`
+                : `${siteUrl}/og-image.jpg`,
         description: productId === 'revogrid'
             ? 'A high-performance JavaScript data grid for Vue, React, Angular, Svelte, and JavaScript applications.'
-            : `${product.name} is an embeddable commercial module for data-heavy web applications.`,
+            : isScheduler
+                ? 'RevoGrid Scheduler is a JavaScript scheduler component for resource timelines, staff shifts, bookings, availability, conflict handling, and capacity planning.'
+                : isGantt
+                    ? 'RevoGrid Gantt is an embeddable JavaScript Gantt chart component for editable project timelines, dependencies, resources, baselines, critical path, and large task datasets.'
+                    : isKanban
+                        ? 'RevoGrid Kanban is an embeddable JavaScript Kanban board component for virtualized workflows, drag-and-drop cards, swimlanes, WIP limits, custom templates, and large task datasets.'
+                    : `${product.name} is an embeddable commercial module for data-heavy web applications.`,
+        featureList: isScheduler
+            ? [
+                'Resource timeline and event calendar views',
+                'Staff, room, equipment, and workforce scheduling',
+                'Event editing, drag and drop, resizing, and recurrence',
+                'Availability, overlap, conflict, and capacity rules',
+                'JavaScript, TypeScript, React, Vue, Angular, and Svelte support',
+            ]
+            : isGantt
+                ? [
+                    'Editable task grid and virtualized Gantt timeline',
+                    'Task dependencies, milestones, calendars, and constraints',
+                    'Resources, assignments, capacity, and workload planning',
+                    'Baselines, critical path, progress, and schedule variance',
+                    'JavaScript, TypeScript, React, Vue, Angular, and Svelte support',
+                ]
+                : isKanban
+                    ? [
+                        'Virtualized workflow columns and card rows',
+                        'Drag-and-drop ordering and validated card movement',
+                        'Swimlanes, WIP limits, transition rules, and permissions',
+                        'Custom cards, headers, editors, empty states, and themes',
+                        'JavaScript, TypeScript, React, Vue, Angular, and Svelte support',
+                    ]
+                : undefined,
         author: {
             '@type': 'Organization',
             name: 'Revolist OU',

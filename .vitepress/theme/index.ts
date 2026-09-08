@@ -23,6 +23,7 @@ import DemoThemeBridge from './DemoThemeBridge.vue'
 import ProDemoFrame from './ProDemoFrame.vue'
 import DemoWidgetFrame from './DemoWidgetFrame.vue'
 import DemoPageLayout from './DemoPageLayout.vue'
+import DemoNavigation from './DemoNavigation.vue'
 import QuickStartCdnExample from './QuickStartCdnExample.vue'
 import TreeDataProDemo from './TreeDataProDemo.vue'
 import RevoGridHomeLayout from './RevoGridHomeLayout.vue'
@@ -35,6 +36,7 @@ export default {
         return h(DefaultTheme.Layout, null, {
             // https://vitepress.dev/guide/extending-default-theme#layout-slots
             'layout-top': () => [
+                h(DemoNavigation),
                 h(HeaderNavControls),
                 h(HomePageColors),
                 h(DemoThemeBridge),

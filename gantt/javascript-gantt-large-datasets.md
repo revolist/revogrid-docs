@@ -52,7 +52,7 @@ Use production-shaped data, not evenly spaced synthetic bars. Measure:
 
 Also test slower client hardware and the browsers your customers actually use. For very large portfolios, consider project partitioning, lazy-loading detail, and server-owned summaries even when the UI is virtualized.
 
-Open the [live Gantt demo](/demo/gantt) for interaction quality, then request a [Pro Advanced trial](/trial) to profile your own project. See [critical path](/gantt/critical-path), [resource scheduling](/gantt/resource-scheduling), and the full [RevoGrid Gantt performance evidence](/gantt#gantt-performance).
+Open the [live Gantt demo](/demo/gantt) for interaction quality, then install the [Pro Advanced trial](/trial) to profile your own project. See [critical path](/gantt/critical-path), [resource scheduling](/gantt/resource-scheduling), and the full [RevoGrid Gantt performance evidence](/gantt#gantt-performance).
 
 ## Large-data Gantt FAQ
 
@@ -63,4 +63,3 @@ The architecture and benchmark cases are designed for large workloads, but your 
 ### Is virtualization enough?
 
 No. It reduces rendering work; scheduling graphs, resource calculations, network transfer, and application state updates still need independent measurement.
-

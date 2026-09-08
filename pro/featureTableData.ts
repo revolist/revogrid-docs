@@ -69,6 +69,7 @@ export const featureTablePlans: FeatureTablePlan[] = [
     link: advancedPrice.link,
     price: advancedPrice.month.USD,
     priceYear: advancedPrice.year.USD,
+    compareAtPriceYear: advancedPrice.compareAtYear?.USD,
     pricePeriod: 'month',
     billingSummary: getPlan('pro-advanced').billingSummary,
     buttonText: 'Buy Now',

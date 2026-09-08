@@ -3,18 +3,26 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
 import githubIcon from '@fortawesome/fontawesome-free/svgs/brands/github.svg?raw'
 import linkedinIcon from '@fortawesome/fontawesome-free/svgs/brands/linkedin.svg?raw'
 import starOutlineIcon from '@fortawesome/fontawesome-free/svgs/regular/star.svg?raw'
 import arrowDownIcon from '@fortawesome/fontawesome-free/svgs/solid/arrow-down.svg?raw'
+import arrowRightIcon from '@fortawesome/fontawesome-free/svgs/solid/arrow-right.svg?raw'
+import caretDownIcon from '@fortawesome/fontawesome-free/svgs/solid/caret-down.svg?raw'
+import caretRightIcon from '@fortawesome/fontawesome-free/svgs/solid/caret-right.svg?raw'
 import borderAllIcon from '@fortawesome/fontawesome-free/svgs/solid/border-all.svg?raw'
+import bookOpenIcon from '@fortawesome/fontawesome-free/svgs/solid/book-open.svg?raw'
 import boxesStackedIcon from '@fortawesome/fontawesome-free/svgs/solid/boxes-stacked.svg?raw'
 import buildingColumnsIcon from '@fortawesome/fontawesome-free/svgs/solid/building-columns.svg?raw'
 import calendarDaysIcon from '@fortawesome/fontawesome-free/svgs/solid/calendar-days.svg?raw'
 import chartLineIcon from '@fortawesome/fontawesome-free/svgs/solid/chart-line.svg?raw'
 import chartColumnIcon from '@fortawesome/fontawesome-free/svgs/solid/chart-column.svg?raw'
 import checkIcon from '@fortawesome/fontawesome-free/svgs/solid/check.svg?raw'
+import circleIcon from '@fortawesome/fontawesome-free/svgs/solid/circle.svg?raw'
 import circleCheckIcon from '@fortawesome/fontawesome-free/svgs/solid/circle-check.svg?raw'
+import commentIcon from '@fortawesome/fontawesome-free/svgs/solid/comment.svg?raw'
+import messageIcon from '@fortawesome/fontawesome-free/svgs/solid/message.svg?raw'
 import codeIcon from '@fortawesome/fontawesome-free/svgs/solid/code.svg?raw'
 import filterIcon from '@fortawesome/fontawesome-free/svgs/solid/filter.svg?raw'
 import folderIcon from '@fortawesome/fontawesome-free/svgs/solid/folder.svg?raw'
@@ -24,11 +32,17 @@ import industryIcon from '@fortawesome/fontawesome-free/svgs/solid/industry.svg?
 import linkIcon from '@fortawesome/fontawesome-free/svgs/solid/link.svg?raw'
 import listCheckIcon from '@fortawesome/fontawesome-free/svgs/solid/list-check.svg?raw'
 import lockIcon from '@fortawesome/fontawesome-free/svgs/solid/lock.svg?raw'
+import paletteIcon from '@fortawesome/fontawesome-free/svgs/solid/palette.svg?raw'
+import penToSquareIcon from '@fortawesome/fontawesome-free/svgs/solid/pen-to-square.svg?raw'
+import ellipsisIcon from '@fortawesome/fontawesome-free/svgs/solid/ellipsis.svg?raw'
+import expandIcon from '@fortawesome/fontawesome-free/svgs/solid/expand.svg?raw'
 import puzzlePieceIcon from '@fortawesome/fontawesome-free/svgs/solid/puzzle-piece.svg?raw'
 import rectangleListIcon from '@fortawesome/fontawesome-free/svgs/solid/rectangle-list.svg?raw'
 import scaleBalancedIcon from '@fortawesome/fontawesome-free/svgs/solid/scale-balanced.svg?raw'
 import screwdriverWrenchIcon from '@fortawesome/fontawesome-free/svgs/solid/screwdriver-wrench.svg?raw'
 import shieldIcon from '@fortawesome/fontawesome-free/svgs/solid/shield.svg?raw'
+import sitemapIcon from '@fortawesome/fontawesome-free/svgs/solid/sitemap.svg?raw'
+import tableColumnsIcon from '@fortawesome/fontawesome-free/svgs/solid/table-columns.svg?raw'
 import tabletScreenButtonIcon from '@fortawesome/fontawesome-free/svgs/solid/tablet-screen-button.svg?raw'
 import usersIcon from '@fortawesome/fontawesome-free/svgs/solid/users.svg?raw'
 import userTieIcon from '@fortawesome/fontawesome-free/svgs/solid/user-tie.svg?raw'
@@ -43,8 +57,18 @@ const icons: Record<string, string> = {
   linkedin: linkedinIcon,
   starOutline: starOutlineIcon,
   arrowDown: arrowDownIcon,
+  arrowRight: arrowRightIcon,
+  caretDown: caretDownIcon,
+  caretRight: caretRightIcon,
   pulse: gaugeHighIcon,
   grid: borderAllIcon,
+  bookOpen: bookOpenIcon,
+  edit: penToSquareIcon,
+  ellipsis: ellipsisIcon,
+  expand: expandIcon,
+  columns: tableColumnsIcon,
+  palette: paletteIcon,
+  tree: sitemapIcon,
   star: wandMagicSparklesIcon,
   plugin: puzzlePieceIcon,
   scaleBalanced: scaleBalancedIcon,
@@ -58,7 +82,10 @@ const icons: Record<string, string> = {
   tool: screwdriverWrenchIcon,
   shield: shieldIcon,
   check: checkIcon,
+  circle: circleIcon,
   circleCheck: circleCheckIcon,
+  comment: commentIcon,
+  message: messageIcon,
   code: codeIcon,
   calendarDays: calendarDaysIcon,
   headset: headsetIcon,
@@ -71,7 +98,7 @@ const icons: Record<string, string> = {
   calendar: folderIcon,
 }
 
-const svg = icons[props.name] ?? borderAllIcon
+const svg = computed(() => icons[props.name] ?? borderAllIcon)
 </script>
 
 <style lang="scss" scoped>

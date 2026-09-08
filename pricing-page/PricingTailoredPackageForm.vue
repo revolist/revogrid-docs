@@ -180,7 +180,7 @@ const capabilities: Capability[] = [
   { id: 'remote-data-performance', name: 'Remote data & performance', description: 'Large datasets, server workflows and caching', icon: 'pulse' },
   { id: 'undo-redo-history', name: 'Undo, redo & history', description: 'Change tracking and audit history', icon: 'trend' },
   { id: 'pivot-analytics', name: 'Pivot analytics', description: 'Totals, subtotals, drill-down and aggregation', icon: 'chartColumn' },
-  { id: 'gantt-scheduler', name: 'Gantt & Scheduler', description: 'Timelines, tasks, dependencies and events', icon: 'calendarDays' },
+  { id: 'gantt-scheduler', name: 'Gantt Charts', description: 'Timelines, tasks, dependencies and events', icon: 'calendarDays' },
 ]
 
 const props = defineProps<{ isVisible: boolean }>()

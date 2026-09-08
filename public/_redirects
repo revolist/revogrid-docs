@@ -1,3 +1,22 @@
 /pro/prices /pricing 301
 /pro/pricing /pricing 301
 /prices /pricing 301
+
+# Retired satellite landing pages. Keep both clean-URL variants explicit so
+# existing links consolidate directly into the closest retained page.
+/timelinegrid /gantt 301
+/timelinegrid/ /gantt 301
+/ops-scheduler /jsscheduler 301
+/ops-scheduler/ /jsscheduler 301
+/event-scheduler /jsscheduler 301
+/event-scheduler/ /jsscheduler 301
+/pivotio /pivot/ 301
+/pivotio/ /pivot/ 301
+/vue /vue-data-grid 301
+/vue/ /vue-data-grid 301
+/angular /angular-data-grid 301
+/angular/ /angular-data-grid 301
+/datagridjs / 301
+/datagridjs/ / 301
+/scheduler /jsscheduler 301
+/scheduler/ /jsscheduler 301

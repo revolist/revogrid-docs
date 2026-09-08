@@ -56,7 +56,7 @@ RevoGrid is built for that scenario. It focuses on the data surface itself: fast
 | Best for | ✅ | ✅ | RevoGrid fits data-heavy SaaS and grid-first workflows; Syncfusion fits teams buying a broad UI suite. |
 | Product philosophy | ✅ Focused grid engine | ✅ Broad component suite | RevoGrid centers the grid foundation; Syncfusion spans many unrelated UI controls. |
 | Grid performance focus | ✅ | ✅ | RevoGrid is virtualized grid-first; Syncfusion DataGrid includes performance features inside a larger suite. |
-| Gantt approach | ✅ Pro | ✅ | RevoGrid uses a Gantt & Scheduling module on the grid foundation; Syncfusion uses a separate Gantt control. |
+| Gantt approach | ✅ Pro | ✅ | RevoGrid uses Gantt Charts on the grid foundation; Syncfusion uses a separate Gantt control. |
 | Pivot approach | ✅ Pro | ✅ | RevoGrid uses a Pivot module on the grid foundation; Syncfusion uses a separate Pivot Table control. |
 | Framework strategy | ✅ | ✅ | RevoGrid uses a Web Component core with framework integrations; Syncfusion provides separate framework packages. |
 | Licensing posture | ✅ | ✅ | RevoGrid uses MIT core plus Pro modules; Syncfusion uses commercial suite licensing with community-license eligibility. |
@@ -187,7 +187,7 @@ RevoGrid is built for that scenario. It focuses on the data surface itself: fast
 | BI-style embedded reporting | ✅ Pro | ⚠️ Separate BI/workflow setup |
 | Pivot charts | ⚠️ Chart integration | ✅ |
 | Gantt chart / scheduling | ✅ Pro | ✅ |
-| Event scheduler / calendar | ✅ Pro | ✅ |
+| JavaScript Scheduler / calendar | ✅ Pro | ✅ |
 | Resource planner | ✅ Pro | ✅ |
 | Gantt task hierarchy / WBS | ✅ Pro | ✅ |
 | Task dependencies | ✅ Pro | ✅ |
@@ -311,8 +311,8 @@ Choose RevoGrid when:
 | Syncfusion Pivot Table | ✅ Pro Pivot |
 | Syncfusion Pivot field list | ✅ Pro Pivot Configurator |
 | Syncfusion Pivot drill-down | ✅ Pro row/column drill-down and pivot contracts |
-| Syncfusion Gantt Chart | ✅ Pro Gantt & Scheduling |
-| Syncfusion Scheduler / Calendar | ✅ Pro event scheduler and calendar workflows |
+| Syncfusion Gantt Chart | ✅ Pro Gantt Charts |
+| Syncfusion Scheduler / Calendar | ✅ Pro JavaScript Scheduler and calendar workflows |
 | Syncfusion resource planning workflows | ✅ Pro resource planner workflows |
 | Syncfusion Gantt dependencies | ✅ Pro dependencies with lead/lag support |
 | Syncfusion Gantt baselines / critical path | ✅ Pro baselines, critical path, slack, and scheduling tools |
@@ -336,7 +336,7 @@ Yes. RevoGrid is a JavaScript data grid alternative to Syncfusion DataGrid for t
 
 ### Is RevoGrid a Syncfusion Gantt alternative?
 
-Yes, for teams that want Gantt and scheduling workflows connected to the same grid foundation. RevoGrid Pro includes Gantt & Scheduling features such as dependencies, task hierarchy, baselines, resource models, critical path, timeline zoom, and task editing workflows.
+Yes, for teams that want Gantt Charts connected to the same grid foundation. RevoGrid Pro includes dependencies, task hierarchy, baselines, resource models, critical path, timeline zoom, and task editing workflows.
 
 ### Is RevoGrid a Syncfusion Pivot Table alternative?
 
@@ -362,7 +362,7 @@ Choose Syncfusion when you want a broad commercial UI suite and need many non-gr
 
 If your team is replacing Syncfusion because the grid experience feels too heavy, too suite-oriented, or too hard to tailor for your product, start with RevoGrid.
 
-RevoGrid gives you the performance-first foundation for complex data screens and the Pro modules needed for enterprise-grade pivot analytics, Gantt scheduling, event scheduler/calendar workflows, resource planning, collaborative mode, PDF export, formulas, editing, validation, and large-dataset workflows.
+RevoGrid gives you the performance-first foundation for complex data screens and the Pro modules needed for enterprise-grade pivot analytics, Gantt scheduling, JavaScript Scheduler and calendar workflows, resource planning, collaborative mode, PDF export, formulas, editing, validation, and large-dataset workflows.
 
 <div class="vp-doc-grid-cta">
 

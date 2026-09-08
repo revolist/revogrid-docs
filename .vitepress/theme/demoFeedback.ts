@@ -80,6 +80,26 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
   },
+  'ai-prompt-library': {
+    docsUrl: '/guide/',
+    verificationOptions: [
+      { code: 'prompt_editing', label: 'Try multiline prompt editing' },
+      { code: 'search_filtering', label: 'Check search and category filtering' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  'project-portfolio': {
+    docsUrl: '/guide/row-grouping/',
+    verificationOptions: [
+      { code: 'row_grouping', label: 'Try grouped project data' },
+      { code: 'custom_cells', label: 'Check progress and status cells' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
   'project-tracker': {
     docsUrl: '/pro/',
     verificationOptions: [
@@ -90,22 +110,82 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
   },
-  excel: {
+  'audit-history': {
     docsUrl: '/pro/',
     verificationOptions: [
-      { code: 'xlsx_import_export', label: 'Try it with my own workbook' },
-      { code: 'formulas_calculated_cells', label: 'Check formulas and calculated cells' },
+      { code: 'own_audit_workflow', label: 'Try it with my own audit workflow' },
+      { code: 'retention_restore', label: 'Check retention, comparison and restore' },
       { code: 'framework_integration', label: 'See an integration example' },
       { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
   },
-  ecommerce: {
+  'column-collapse': {
     docsUrl: '/pro/',
     verificationOptions: [
-      { code: 'own_dataset_performance', label: 'Try it with my own commerce data' },
-      { code: 'advanced_filter_group', label: 'Check advanced filtering and grouping' },
-      { code: 'framework_custom_cells', label: 'See a framework integration example' },
+      { code: 'own_column_groups', label: 'Try it with my own column groups' },
+      { code: 'collapse_filter_behavior', label: 'Check collapse and filter behavior' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  'context-menu': {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_context_actions', label: 'Try it with my own context actions' },
+      { code: 'selection_formatting', label: 'Check selection and formatting behavior' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  filtering: {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_filter_model', label: 'Try it with my own filter model' },
+      { code: 'operators_presets', label: 'Check operators, presets and cascades' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  'infinity-scroll': {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_remote_data', label: 'Try it with my own remote data' },
+      { code: 'loading_sort_filter', label: 'Check loading, sorting and filtering' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  'row-master': {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_detail_content', label: 'Try it with my own detail content' },
+      { code: 'async_detail_templates', label: 'Check async detail templates' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  'tree-data': {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_hierarchy', label: 'Try it with my own hierarchy' },
+      { code: 'tree_filter_order', label: 'Check filtering, ordering and sticky rows' },
+      { code: 'framework_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  excel: {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_workbook', label: 'Try it with my own workbook' },
+      { code: 'formula_import_export', label: 'Check formulas, import and export' },
+      { code: 'framework_integration', label: 'See an integration example' },
       { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
@@ -130,11 +210,71 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
   },
+  'gantt-big-data': {
+    docsUrl: '/gantt',
+    verificationOptions: [
+      { code: 'own_project_scale', label: 'Try it with my own project scale' },
+      { code: 'task_dependency_performance', label: 'Check task and dependency performance' },
+      { code: 'app_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  'gantt-horizontal-big-data': {
+    docsUrl: '/gantt',
+    verificationOptions: [
+      { code: 'own_project_span', label: 'Try it with my own long-range project' },
+      { code: 'horizontal_timeline_performance', label: 'Check horizontal timeline performance' },
+      { code: 'app_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  kanban: {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_workflow_data', label: 'Try it with my own workflow data' },
+      { code: 'movement_wip_rules', label: 'Check movement and WIP rules' },
+      { code: 'app_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  'kanban-performance': {
+    docsUrl: '/kanban',
+    verificationOptions: [
+      { code: 'own_board_scale', label: 'Try it with my own board scale' },
+      { code: 'virtualization_performance', label: 'Check row and column virtualization' },
+      { code: 'app_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  'kanban-server-loading': {
+    docsUrl: '/kanban',
+    verificationOptions: [
+      { code: 'own_remote_data', label: 'Try it with my own remote data' },
+      { code: 'server_loading_performance', label: 'Check server-loading performance' },
+      { code: 'app_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
   'event-scheduler': {
-    docsUrl: '/event-scheduler',
+    docsUrl: '/jsscheduler',
     verificationOptions: [
       { code: 'own_event_data', label: 'Try it with my own event data' },
       { code: 'recurring_multi_resource', label: 'Check recurring and multi-resource events' },
+      { code: 'app_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+  planning: {
+    docsUrl: '/pro/',
+    verificationOptions: [
+      { code: 'own_planning_data', label: 'Try it with my own planning data' },
+      { code: 'cross_view_sync', label: 'Check synchronization across planning views' },
       { code: 'app_integration', label: 'See an integration example' },
       { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
@@ -445,6 +585,7 @@ const demosByPath = new Map<string, CatalogDemo>(
 
 export const getDemoByPath = (value: string): CatalogDemo | undefined =>
   demosByPath.get(normalizeDemoPath(value))
+  ?? ({ '/demo/planning': PRODUCT_CATALOG.demos.planning, '/demo/hr': PRODUCT_CATALOG.demos['grid-at-scale'] } as const)[normalizeDemoPath(value) as '/demo/planning' | '/demo/hr']
 
 export const createInitialDemoFeedbackSession = (
   context: DemoFeedbackSessionContext,
@@ -1038,6 +1179,18 @@ export const getDemoFeedbackReadyBranch = (demo: CatalogDemo): DemoFeedbackReady
 export const normalizeDemoFeedbackText = (value = ''): string =>
   value.trim().slice(0, DEMO_FEEDBACK_TEXT_MAX_LENGTH)
 
+const hasMeaningfulFormValue = (value: unknown): boolean => {
+  if (Array.isArray(value)) return value.some(hasMeaningfulFormValue)
+  if (typeof value === 'string') return value.trim().length > 0
+  return value !== undefined && value !== null
+}
+
+export const hasMeaningfulDemoFeedbackAnswers = (
+  answers?: Partial<DemoFeedbackAnswers> | null,
+): boolean => Boolean(
+  answers && Object.values(answers).some(hasMeaningfulFormValue),
+)
+
 export const getDemoFeedbackTextLengthBucket = (
   value: string,
 ): DemoFeedbackTextLengthBucket | undefined => {
@@ -1244,7 +1397,7 @@ export const isDemoFeedbackConversionCta = (href: string, label = ''): boolean =
     }
     if (url.origin !== 'https://rv-grid.com') return false
     return /^\/(trial|pricing)(\/|$)/.test(url.pathname)
-      || /^\/(guide|pro|pivot|gantt|scheduler|event-scheduler)(\/|$)/.test(url.pathname)
+      || /^\/(guide|pro|pivot|gantt|jsscheduler)(\/|$)/.test(url.pathname)
   } catch {
     return false
   }

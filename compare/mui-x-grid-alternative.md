@@ -160,7 +160,7 @@ Choose **RevoGrid** if you need:
 * high-performance virtual rendering for large datasets
 * spreadsheet-like UX with range selection, fill handle, editing, copy/paste, pinning, sorting, filtering, and custom templates
 * a simpler commercial path with no deployment counting and no server license
-* advanced workflow modules such as Excel import/export, Pivot Grid, Gantt, formulas, charts, advanced filtering, grouping aggregation, and more
+* advanced workflow modules such as Excel import/export, the Pivot Table component, Gantt, formulas, charts, advanced filtering, grouping aggregation, and more
 * deep customization through plugins, column types, templates, events, and public grid APIs
 
 Choose **MUI X Data Grid** if you need:
@@ -187,8 +187,8 @@ The short version: **MUI X is a good React grid. RevoGrid is a better grid found
 | Material UI integration  | Can be styled to match your design system, including Material-like themes                                 | Native MUI integration                                                                   | MUI X wins if Material UI consistency is the main requirement.                                                       |
 | Server-side data         | App-controlled loading in core; Pro features for infinite scroll, remote pagination, server-side grouping | Data Source layer centralizes server-side fetching                                       | MUI X has a very explicit server-side abstraction. RevoGrid gives more control and broader architecture flexibility. |
 | Grouping and aggregation | Row grouping in docs; Pro adds drag-and-drop grouping, aggregation, Pivot                                 | Row grouping and aggregation are Premium features                                        | RevoGrid is attractive if grouping is part of a broader spreadsheet/analytics workflow.                              |
-| Pivot                    | RevoGrid Pro Advanced includes Pivot Grid                                                                 | MUI X has Premium-level analysis features, including advanced data analysis capabilities | Both can cover advanced analysis, but RevoGrid pairs Pivot with a spreadsheet-like grid foundation and Gantt module. |
-| Gantt / scheduling path  | RevoGrid Pro Advanced includes Gantt, event scheduler, calendar, and resource planner workflows           | MUI X has separate advanced components and Scheduler Preview                             | RevoGrid is stronger when grid, Pivot, scheduling, and resource planning should share one product foundation.        |
+| Pivot                    | RevoGrid Pro Advanced includes the Pivot Table component                                                   | MUI X has Premium-level analysis features, including advanced data analysis capabilities | Both can cover advanced analysis, but RevoGrid pairs Pivot with a spreadsheet-like grid foundation and Gantt module. |
+| Gantt / scheduling path  | RevoGrid Pro Advanced includes Gantt Chart, Scheduler JS, calendar, and resource planner workflows      | MUI X has separate advanced components and Scheduler Preview                             | RevoGrid is stronger when grid, Pivot, scheduling, and resource planning should share one product foundation.        |
 | Pricing                  | Community free; Pro Lite and Pro Advanced per developer; no deployment counting; no server license        | Community free; Pro, Premium, Enterprise per developer                                   | RevoGrid is often simpler and more cost-efficient for SaaS and internal product teams.                               |
 | Best fit                 | Data-heavy SaaS, internal tools, ERP/MRP, analytics, spreadsheet-like apps, multi-framework teams         | React/MUI dashboards, Material UI apps, teams standardized on MUI X                      | The better choice depends on whether your grid is a component or infrastructure.                                     |
 
@@ -467,7 +467,7 @@ RevoGrid should be evaluated as a grid engine. MUI X should be evaluated as a Re
 | Aggregation | ✅ Pro | — | — | ✅ | Important for reporting and operational dashboards. |
 | Tree data | ✅ Pro | — | ✅ | ✅ | Both can support hierarchy in paid plans. |
 | Master detail | ✅ Pro | — | ✅ | ✅ | Useful for nested data exploration. |
-| Pivot table / Pivot Grid | ✅ Pro Advanced | — | — | ✅ | Compare exact Pivot workflow, not only the label. |
+| Pivot Table component | ✅ Pro Advanced | — | — | ✅ | Compare exact Pivot workflow, not only the label. |
 | Pivot totals / summaries | ✅ Pro Advanced | — | — | ✅ | Relevant for embedded analytics. |
 | Charts | ✅ Pro | — | ⚠️ MUI X Charts package | ✅ MUI X Charts package | MUI has a broader component suite; RevoGrid focuses on grid-centered workflows. |
 | Gantt / scheduling path | ✅ Pro Advanced | — | ⚠️ Separate Scheduler ecosystem | ⚠️ Separate Scheduler ecosystem | RevoGrid is stronger when grid, Gantt, scheduler/calendar, and resource planner workflows should share one product stack. |
@@ -728,7 +728,7 @@ RevoGrid Pro Advanced is for product teams that need advanced modules and direct
 
 It includes:
 
-* Pivot Grid
+* Pivot Table component
 * Gantt Chart
 * priority support
 * roadmap influence

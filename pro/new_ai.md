@@ -9,7 +9,7 @@ head:
         content: Connect AI coding tools to RevoGrid Pro MCP for Pro-only docs, examples, typed API context, migration guidance, and AI-assisted grid code generation.
     - - meta
       - name: keywords
-        content: RevoGrid Pro MCP, AI coding assistant, Codex, Cursor, Claude Code, VS Code MCP, pivot grid, RevoGrid Pro examples, RevoGrid Pro docs
+        content: RevoGrid Pro MCP, AI coding assistant, Codex, Cursor, Claude Code, VS Code MCP, JavaScript pivot table component, pivot grid, RevoGrid Pro examples, RevoGrid Pro docs
 ---
 
 # RevoGrid Pro AI Code Generation and MCP Agents
@@ -135,7 +135,7 @@ This is especially useful when you want to ask an agent for:
 
 ## Prompt patterns for RevoGrid Pro
 
-- `Build a React pivot grid with RevoGrid Pro. Use MCP results first, then adapt the best matching example to my data model.`
+- `Build a React pivot table component with RevoGrid Pro. Use MCP results first, then adapt the best matching example to my data model.`
 - `Find the best RevoGrid Pro example for advanced filter headers in Vue and explain the plugin configuration.`
 - `Use RevoGrid Pro docs and types to implement row master with editable nested content.`
 - `Check whether this feature is Core or Pro before writing code, and show the best matching Pro example if it exists.`

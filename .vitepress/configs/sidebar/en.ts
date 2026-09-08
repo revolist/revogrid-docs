@@ -16,6 +16,10 @@ export const sidebarEn: DefaultTheme.Sidebar = {
             link: '/pro/',
         },
         {
+            text: 'Kanban',
+            link: '/kanban',
+        },
+        {
             text: 'Gantt',
             link: '/gantt',
         },

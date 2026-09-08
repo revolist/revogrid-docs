@@ -5,7 +5,7 @@ import {
   type GanttPluginConfig,
   type ResourceEntity,
   type TaskEntity,
-} from '@revolist/revogrid-enterprise'
+} from '@revolist/gantt'
 
 const GANTT_PROJECT_ID = 'launch-saas-product'
 const GANTT_CALENDAR_ID = 'launch-standard'

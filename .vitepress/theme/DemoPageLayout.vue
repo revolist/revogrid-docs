@@ -10,239 +10,132 @@
           >{{ config.planLabel }}</span>
         </div>
         <p>{{ config.description }}</p>
-        <ul
-          v-if="config.featureBadges.length"
-          class="demo-page-feature-badges"
-          :class="`demo-page-feature-badges--${config.demo.planId}`"
-          aria-label="Pro features used in this demo"
-        >
-          <li
-            v-for="feature in config.featureBadges"
-            :key="feature.label"
-            :title="feature.source"
-          >{{ feature.label }}</li>
-        </ul>
       </div>
 
       <div class="demo-page-header-actions" aria-label="Demo actions">
+        <button v-if="sources" ref="sourceButtonRef" class="demo-page-header-link" type="button" :aria-expanded="sourceOpen" @click="openSource"><FontAwesomeSvgIcon name="code"/>Code</button>
+        <a class="demo-page-github demo-page-header-link" :href="config.implementationUrl" target="_blank" rel="noopener noreferrer"><FontAwesomeSvgIcon name="github"/>GitHub</a>
         <a
           class="demo-page-button demo-page-button--primary"
-          :href="config.primaryCtaUrl"
+          :href="primaryCtaHref"
           @click="trackCta('header', 'try_in_project')"
         >
-          Try in your project
+          Try in your app
           <span aria-hidden="true">→</span>
-        </a>
-        <a
-          class="demo-page-button demo-page-button--secondary"
-          :href="config.implementationUrl"
-          @click="trackImplementationOpen"
-        >
-          <FontAwesomeSvgIcon name="github" />
-          View implementation
         </a>
       </div>
     </header>
 
-    <section class="demo-page-guide" aria-labelledby="demo-page-guide-title">
-      <div class="demo-page-guide-intro">
-        <span class="demo-page-guide-target" aria-hidden="true">◎</span>
-        <span>
-          <strong id="demo-page-guide-title">Try {{ config.demo.title }}</strong>
-          <small>Complete a few actions in the workspace</small>
-        </span>
-      </div>
-
-      <ol class="demo-page-guide-actions">
-        <li
-          v-for="(action, index) in config.guidedActions"
-          :key="action"
-          :class="{ 'is-complete': index < completedActionCount }"
-        >
-          <span class="demo-page-guide-number" aria-hidden="true">
-            {{ index < completedActionCount ? '✓' : index + 1 }}
-          </span>
-          <span>{{ action }}</span>
-        </li>
-      </ol>
-
-      <div class="demo-page-progress" aria-live="polite">
-        <span>Progress</span>
-        <span class="demo-page-progress-track" aria-hidden="true">
-          <span :style="{ width: `${progressPercent}%` }"></span>
-        </span>
-        <span>{{ completedActionCount }} of {{ config.guidedActions.length }}</span>
-      </div>
-    </section>
-
-    <div
+    <div class="demo-page-stage" :class="{ 'source-open': sourceOpen }"><div
       ref="workspaceRef"
       class="demo-page-workspace"
-      @click.capture="handleWorkspaceClick"
-      @change.capture="handleWorkspaceChange"
-      @keydown.capture="handleUserGesture"
-      @pointerdown.capture="handlePointerDown"
-      @pointerup.capture="handlePointerUp"
     >
       <ClientOnly>
         <slot />
       </ClientOnly>
-      <Transition name="demo-page-bottom-cta">
-        <aside v-if="hasInteracted" class="demo-page-bottom-cta" aria-label="Try RevoGrid with your data">
-          <div class="demo-page-bottom-message">
-            <span class="demo-page-bottom-check" aria-hidden="true">✓</span>
-            <span>
-              <strong>Ready to test this with your own data?</strong>
-              <small>You have started exploring {{ config.demo.title }}.</small>
-            </span>
-          </div>
-          <div class="demo-page-bottom-actions">
-            <a
-              class="demo-page-button demo-page-button--primary"
-              :href="config.primaryCtaUrl"
-              @click="trackCta('bottom', 'try_in_project')"
-            >Try in your project</a>
-            <a
-              class="demo-page-button demo-page-button--secondary"
-              :href="config.pricingUrl"
-              @click="trackCta('bottom', 'see_pricing')"
-            >See pricing</a>
-          </div>
-        </aside>
-      </Transition>
-    </div>
+    </div><DemoSourcePanel v-if="sourceOpen && sources" :sources="sources" :dark="isDark" @close="closeSource" @framework="trackSourceFramework" @copy="trackSourceCopy" /></div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
+import { useData } from 'vitepress'
 import type { DemoId } from '../../commercial/productCatalog'
-import { DEMO_FEEDBACK_INTERACTION_EVENTS } from './demoFeedback'
-import { createDemoPageAnalyticsEvent, getDemoPageConfig } from './demoPageLayout'
+import {
+  createDemoPageAnalyticsEvent,
+  getDemoPageConfig,
+} from './demoPageLayout'
+import { getAnalyticsExperimentVariant, trackSiteAnalytics } from './siteAnalytics'
 import FontAwesomeSvgIcon from './home-v2/FontAwesomeSvgIcon.vue'
-
-type DataLayerWindow = Window & { dataLayer?: Array<Record<string, unknown>> }
+import DemoSourcePanel from './DemoSourcePanel.vue'
+import { getDemoSources, type DemoSourceFramework } from './demoSources'
 
 const props = defineProps<{ demoId: DemoId }>()
 const config = computed(() => getDemoPageConfig(props.demoId))
 const workspaceRef = ref<HTMLElement>()
-const completedActionCount = ref(0)
-const hasInteracted = ref(false)
-const interactionCount = ref(0)
-const progressPercent = computed(() =>
-  (completedActionCount.value / config.value.guidedActions.length) * 100,
-)
+const primaryCtaHref = ref(config.value.primaryCtaUrl)
+const sourceOpen = ref(false)
+const sourceButtonRef = ref<HTMLButtonElement>()
+let sourceReturnFocus: HTMLElement | undefined
+const { isDark } = useData()
+const sources = computed(() => getDemoSources(props.demoId))
 
 const observedGrids = new Set<HTMLElement>()
-const gridHandlers = new Map<HTMLElement, Map<string, EventListener>>()
-const interactionEventNames = Object.keys(DEMO_FEEDBACK_INTERACTION_EVENTS)
 let gridObserver: MutationObserver | undefined
-let lastInteractionAt = 0
-let lastUserGestureAt = 0
-let pointerStart: { x: number, y: number } | undefined
 
-const pushAnalytics = (event: ReturnType<typeof createDemoPageAnalyticsEvent>) => {
-  const analyticsWindow = window as DataLayerWindow
-  analyticsWindow.dataLayer ??= []
-  analyticsWindow.dataLayer.push(event)
+const analyticsContext = () => {
+  const experimentVariant = getAnalyticsExperimentVariant(window.location)
+  return experimentVariant ? { experiment_variant: experimentVariant } : {}
 }
 
-const trackCta = (location: 'header' | 'bottom', action: 'try_in_project' | 'see_pricing') => {
-  pushAnalytics(createDemoPageAnalyticsEvent('demo_cta_click', props.demoId, {
-    cta_location: location,
-    cta_action: action,
-  }))
+const hydratePrimaryCtaHref = () => {
+  const target = new URL(config.value.primaryCtaUrl, window.location.origin)
+  const experimentVariant = getAnalyticsExperimentVariant(window.location)
+  if (target.pathname === '/trial' && experimentVariant) {
+    target.searchParams.set('experiment_variant', experimentVariant)
+  }
+  primaryCtaHref.value = target.origin === window.location.origin
+    ? `${target.pathname}${target.search}${target.hash}`
+    : target.href
+}
+
+const pushAnalytics = (event: ReturnType<typeof createDemoPageAnalyticsEvent>, dedupeKey: string) =>
+  trackSiteAnalytics(event.event, event, dedupeKey)
+
+const trackCta = (location: 'header', action: 'try_in_project') => {
+  const target = new URL(primaryCtaHref.value, window.location.origin)
+  if (target.pathname === '/trial') {
+    pushAnalytics(createDemoPageAnalyticsEvent('demo_trial_click', props.demoId, {
+      action_id: action,
+      placement: location,
+      ...analyticsContext(),
+    }), `demo_trial_click:${props.demoId}:${location}:${action}`)
+  }
 }
 
 const trackImplementationOpen = () => {
   pushAnalytics(createDemoPageAnalyticsEvent('demo_implementation_open', props.demoId, {
     cta_location: 'header',
     implementation_url: config.value.implementationUrl,
-  }))
+  }), `demo_implementation_open:${props.demoId}:header`)
 }
-
-const recordMeaningfulInteraction = (interactionType: string) => {
-  const now = Date.now()
-  if (now - lastInteractionAt < 350) return
-  lastInteractionAt = now
-  hasInteracted.value = true
-  interactionCount.value += 1
-
-  pushAnalytics(createDemoPageAnalyticsEvent('demo_meaningful_interaction', props.demoId, {
-    interaction_type: interactionType,
-    interaction_count: interactionCount.value,
-  }))
-
-  if (completedActionCount.value >= config.value.guidedActions.length) return
-  const actionIndex = completedActionCount.value
-  completedActionCount.value += 1
-  pushAnalytics(createDemoPageAnalyticsEvent('demo_guided_action_complete', props.demoId, {
-    guided_action_index: actionIndex + 1,
-    guided_action_label: config.value.guidedActions[actionIndex],
-    completion_source: interactionType,
-  }))
+const openSource = (event?: Event) => {
+  sourceReturnFocus = event?.target instanceof HTMLElement ? event.target : sourceButtonRef.value
+  sourceOpen.value = true
+  trackImplementationOpen()
 }
-
-const closestElement = (event: Event): Element | null =>
-  event.target instanceof Element ? event.target : null
-
-const handleWorkspaceClick = (event: MouseEvent) => {
-  const target = closestElement(event)
-  if (!target || target.closest('.demo-page-bottom-cta')) return
-  handleUserGesture()
-  if (target.closest('button, a, [role="button"], select, input[type="checkbox"], input[type="radio"], input[type="range"]')) {
-    recordMeaningfulInteraction('workspace_control')
-  }
-}
-
-const handleWorkspaceChange = (event: Event) => {
-  handleUserGesture()
-  const target = closestElement(event)
-  if (target?.matches('select, input, textarea')) recordMeaningfulInteraction('workspace_change')
-}
-
-const handleUserGesture = () => {
-  lastUserGestureAt = Date.now()
-}
-
-const handlePointerDown = (event: PointerEvent) => {
-  handleUserGesture()
-  pointerStart = { x: event.clientX, y: event.clientY }
-}
-
-const handlePointerUp = (event: PointerEvent) => {
-  if (!pointerStart) return
-  const distance = Math.hypot(event.clientX - pointerStart.x, event.clientY - pointerStart.y)
-  pointerStart = undefined
-  if (distance >= 8) recordMeaningfulInteraction('workspace_drag')
+const closeSource = () => { sourceOpen.value = false; nextTick(() => { (sourceReturnFocus ?? sourceButtonRef.value)?.focus() }) }
+const trackSourceFramework = (framework: DemoSourceFramework) => pushAnalytics(createDemoPageAnalyticsEvent('demo_action', props.demoId, { action_id: `source_${framework}`, placement: 'source_panel', ...analyticsContext() }), `demo_source_framework:${props.demoId}:${framework}`)
+const trackSourceCopy = () => pushAnalytics(createDemoPageAnalyticsEvent('demo_action', props.demoId, { action_id: 'source_copy', placement: 'source_panel', ...analyticsContext() }), `demo_source_copy:${props.demoId}`)
+const markDemoReady = () => {
+  pushAnalytics(
+    createDemoPageAnalyticsEvent('demo_ready', props.demoId, analyticsContext()),
+    `demo_ready:${props.demoId}`,
+  )
 }
 
 const observeGrid = (grid: HTMLElement) => {
   if (observedGrids.has(grid)) return
   observedGrids.add(grid)
-  const handlers = new Map<string, EventListener>()
-  interactionEventNames.forEach((eventName) => {
-    const handler = () => {
-      if (Date.now() - lastUserGestureAt <= 2_000) recordMeaningfulInteraction(eventName)
-    }
-    grid.addEventListener(eventName, handler)
-    handlers.set(eventName, handler)
-  })
-  gridHandlers.set(grid, handlers)
+  const readyGrid = grid as HTMLElement & { componentOnReady?: () => Promise<unknown> }
+  const readiness = readyGrid.componentOnReady?.() ?? Promise.resolve()
+  void readiness.then(() => {
+    if (grid.isConnected) markDemoReady()
+  }).catch(() => undefined)
 }
 
 const scanForGrids = () => {
   workspaceRef.value?.querySelectorAll<HTMLElement>('revo-grid').forEach(observeGrid)
   observedGrids.forEach((grid) => {
     if (grid.isConnected) return
-    gridHandlers.get(grid)?.forEach((handler, eventName) => grid.removeEventListener(eventName, handler))
-    gridHandlers.delete(grid)
     observedGrids.delete(grid)
   })
 }
 
 onMounted(async () => {
   await nextTick()
+  hydratePrimaryCtaHref()
+  pushAnalytics(createDemoPageAnalyticsEvent('demo_view', props.demoId, analyticsContext()), `demo_view:${props.demoId}`)
   scanForGrids()
   if (!workspaceRef.value) return
   gridObserver = new MutationObserver(scanForGrids)
@@ -251,10 +144,6 @@ onMounted(async () => {
 
 onBeforeUnmount(() => {
   gridObserver?.disconnect()
-  gridHandlers.forEach((handlers, grid) => {
-    handlers.forEach((handler, eventName) => grid.removeEventListener(eventName, handler))
-  })
-  gridHandlers.clear()
   observedGrids.clear()
 })
 </script>
@@ -263,12 +152,11 @@ onBeforeUnmount(() => {
 $max-content-width: 1240px;
 
 .demo-page-layout {
-  --demo-page-green: #00ad68;
-  --demo-page-green-dark: #008b55;
+  --demo-page-green: var(--vp-c-brand-1);
+  --demo-page-green-dark: var(--vp-c-brand-1);
   box-sizing: border-box;
   width: 100%;
   padding: var(--vp-nav-height, 64px) clamp(14px, 2vw, 28px) 28px;
-  color: var(--vp-c-text-1);
   height: calc(100vh);
   display: flex;
   flex-direction: column;
@@ -307,7 +195,6 @@ $max-content-width: 1240px;
 
 .demo-page-heading p {
   margin: 8px 0 0;
-  color: var(--vp-c-text-2);
   font-size: 0.95rem;
   line-height: 1.55;
 }
@@ -324,7 +211,6 @@ $max-content-width: 1240px;
 .demo-page-feature-badges li {
   margin-top: 0;
   padding: 4px 8px;
-  border: 1px solid color-mix(in srgb, var(--demo-page-green) 24%, var(--vp-c-divider));
   border-radius: 999px;
   background: color-mix(in srgb, var(--demo-page-green) 7%, var(--vp-c-bg));
   color: var(--demo-page-green-dark);
@@ -335,9 +221,9 @@ $max-content-width: 1240px;
 }
 
 .demo-page-feature-badges--pro-advanced li {
-  border-color: color-mix(in srgb, #8b5cf6 24%, var(--vp-c-divider));
-  background: color-mix(in srgb, #8b5cf6 7%, var(--vp-c-bg));
-  color: #7c3aed;
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 24%, var(--vp-c-divider));
+  background: color-mix(in srgb, var(--vp-c-brand-1) 7%, var(--vp-c-bg));
+  color: var(--vp-c-brand-1);
 }
 
 .demo-page-plan {
@@ -360,12 +246,11 @@ $max-content-width: 1240px;
 }
 
 .demo-page-plan--pro-advanced {
-  background: color-mix(in srgb, #8b5cf6 14%, transparent);
-  color: #7c3aed;
+  background: color-mix(in srgb, var(--vp-c-brand-1) 14%, transparent);
+  color: var(--vp-c-brand-1);
 }
 
-.demo-page-header-actions,
-.demo-page-bottom-actions {
+.demo-page-header-actions {
   display: flex;
   flex: 0 0 auto;
   gap: 10px;
@@ -399,13 +284,13 @@ $max-content-width: 1240px;
 }
 
 .demo-page-button--primary {
-  background: linear-gradient(135deg, var(--demo-page-green), #00bf75);
-  color: #fff;
+  background: linear-gradient(135deg, var(--demo-page-green), var(--vp-c-brand-2));
+  color: var(--vp-button-brand-text);
 }
 
 .demo-page-button--primary:hover {
   background: linear-gradient(135deg, var(--demo-page-green-dark), var(--demo-page-green));
-  color: #fff;
+  color: var(--vp-button-brand-text);
 }
 
 .demo-page-button--secondary {
@@ -419,189 +304,16 @@ $max-content-width: 1240px;
   color: var(--vp-c-text-1);
 }
 
-.demo-page-guide {
-  display: grid;
-  grid-template-columns: minmax(190px, 0.85fr) minmax(420px, 2fr) auto;
-  align-items: center;
-  gap: 18px;
-  max-width: $max-content-width;
-  width: 100%;
-  margin: 0 auto 14px;
-  padding: 10px 14px;
-  border: 1px solid color-mix(in srgb, var(--demo-page-green) 18%, var(--vp-c-divider));
-  border-radius: 9px;
-  background: color-mix(in srgb, var(--demo-page-green) 5%, var(--vp-c-bg));
-}
-
-.demo-page-guide-intro,
-.demo-page-guide-intro > span:last-child,
-.demo-page-bottom-message,
-.demo-page-bottom-message > span:last-child {
-  display: flex;
-  min-width: 0;
-}
-
-.demo-page-guide-intro,
-.demo-page-bottom-message {
-  align-items: center;
-  gap: 10px;
-}
-
-.demo-page-guide-intro > span:last-child,
-.demo-page-bottom-message > span:last-child {
-  flex-direction: column;
-}
-
-.demo-page-guide-intro strong,
-.demo-page-bottom-message strong {
-  font-size: 0.82rem;
-  font-weight: 500;
-  line-height: 1.25;
-}
-
-.demo-page-guide-intro small,
-.demo-page-bottom-message small {
-  margin-top: 2px;
-  color: var(--vp-c-text-2);
-  font-size: 0.72rem;
-  line-height: 1.3;
-}
-
-.demo-page-guide-target,
-.demo-page-bottom-check {
-  display: inline-grid;
-  flex: 0 0 30px;
-  width: 30px;
-  height: 30px;
-  place-items: center;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--demo-page-green) 13%, transparent);
-  color: var(--demo-page-green-dark);
-  font-weight: 500;
-}
-
-.demo-page-guide-target {
-  animation: demo-page-guide-pulse 2s ease-out infinite;
-}
-
-@keyframes demo-page-guide-pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgb(0 173 104 / 30%);
-  }
-
-  70%,
-  100% {
-    box-shadow: 0 0 0 10px rgb(0 173 104 / 0%);
-  }
-}
-
-.demo-page-guide-actions {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.demo-page-guide-actions li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 0;
-  min-width: 0;
-  color: var(--vp-c-text-2);
-  font-size: 0.75rem;
-  line-height: 1.25;
-}
-
-.demo-page-guide-actions li.is-complete {
-  color: var(--vp-c-text-1);
-}
-
-.demo-page-guide-number {
-  display: inline-grid;
-  flex: 0 0 26px;
-  width: 26px;
-  height: 26px;
-  place-items: center;
-  border: 1px solid color-mix(in srgb, var(--demo-page-green) 35%, var(--vp-c-divider));
-  border-radius: 50%;
-  color: var(--demo-page-green-dark);
-  font-weight: 500;
-}
-
-.is-complete .demo-page-guide-number {
-  border-color: var(--demo-page-green);
-  background: var(--demo-page-green);
-  color: #fff;
-}
-
-.demo-page-progress {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-  color: var(--vp-c-text-2);
-  font-size: 0.69rem;
-}
-
-.demo-page-progress-track {
-  display: block;
-  width: 48px;
-  height: 12px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--demo-page-green) 16%, var(--vp-c-bg-soft));
-}
-
-.demo-page-progress-track > span {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--demo-page-green);
-  transition: width 180ms ease;
-}
-
 .demo-page-workspace {
   position: relative;
   width: 100%;
-  min-height: 560px;
+  min-height: 0;
   flex-grow: 1;
   overflow: hidden;
   border: 1px solid var(--vp-c-divider);
-  border-radius: 10px;
+  border-radius: 0;
   background: var(--vp-c-bg);
-  box-shadow: 0 8px 30px color-mix(in srgb, var(--vp-c-text-1) 6%, transparent);
-}
-
-.demo-page-bottom-cta {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  left: 12px;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  margin: 0;
-  padding: 11px 14px;
-  border: 1px solid color-mix(in srgb, var(--demo-page-green) 20%, var(--vp-c-divider));
-  border-radius: 9px;
-  background: color-mix(in srgb, var(--demo-page-green) 5%, var(--vp-c-bg));
-  box-shadow: 0 10px 36px color-mix(in srgb, var(--vp-c-text-1) 12%, transparent);
-}
-
-.demo-page-bottom-cta-enter-active,
-.demo-page-bottom-cta-leave-active {
-  transition: opacity 180ms ease, transform 180ms ease;
-}
-
-.demo-page-bottom-cta-enter-from,
-.demo-page-bottom-cta-leave-to {
-  opacity: 0;
-  transform: translateY(8px);
+  box-shadow: none;
 }
 
 @media (max-width: 1100px) {
@@ -611,14 +323,6 @@ $max-content-width: 1240px;
     gap: 14px;
   }
 
-  .demo-page-guide {
-    grid-template-columns: 1fr auto;
-  }
-
-  .demo-page-guide-actions {
-    grid-column: 1 / -1;
-    grid-row: 2;
-  }
 }
 
 @media (max-width: 700px) {
@@ -627,9 +331,7 @@ $max-content-width: 1240px;
   }
 
   .demo-page-title-row,
-  .demo-page-header-actions,
-  .demo-page-bottom-cta,
-  .demo-page-bottom-actions {
+  .demo-page-header-actions {
     align-items: stretch;
     flex-direction: column;
   }
@@ -638,22 +340,8 @@ $max-content-width: 1240px;
     align-items: flex-start;
   }
 
-  .demo-page-header-actions,
-  .demo-page-bottom-actions {
+  .demo-page-header-actions {
     width: 100%;
-  }
-
-  .demo-page-guide {
-    grid-template-columns: 1fr;
-  }
-
-  .demo-page-guide-actions {
-    grid-column: 1;
-    grid-template-columns: 1fr;
-  }
-
-  .demo-page-progress {
-    justify-content: flex-start;
   }
 
   .demo-page-workspace {
@@ -662,15 +350,52 @@ $max-content-width: 1240px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .demo-page-guide-target {
-    animation: none;
-  }
-
   .demo-page-button,
-  .demo-page-progress-track > span,
-  .demo-page-bottom-cta-enter-active,
-  .demo-page-bottom-cta-leave-active {
+  .demo-page-progress-track > span {
     transition: none;
   }
 }
+
+/* Demo page v3 overrides. Kept last while the former v2 selectors remain for compatibility. */
+.demo-page-layout{--demo-page-green:var(--vp-c-brand-1);--demo-page-green-dark:var(--vp-c-brand-1);height:100vh;padding:var(--vp-nav-height,64px) 24px 16px}.demo-page-header{max-width:none;margin:0 0 8px;padding-top:18px;gap:20px}.demo-page-title-row h1{font-size:28px;line-height:34px;font-weight:600}.demo-page-heading p{margin-top:4px;font-size:14px;line-height:20px}.demo-page-plan{border-radius:5px}.demo-page-header-actions{align-items:flex-start}.demo-page-button{min-height:36px;padding:7px 14px;border-radius:6px}.demo-page-features{position:relative}.demo-page-features summary{height:36px;padding:7px 10px;border:1px solid var(--vp-c-divider);border-radius:6px;cursor:pointer;list-style:none}.demo-page-features ul{position:absolute;z-index:30;top:42px;right:0;width:310px;margin:0;padding:8px;border:1px solid var(--vp-c-divider);border-radius:8px;background:var(--vp-c-bg);box-shadow:0 12px 30px rgb(15 23 42/14%);list-style:none}.demo-page-features li{display:grid;gap:2px;margin:0;padding:7px}.demo-page-features li span{color:var(--vp-c-text-2);font-size:11px}.demo-page-utility{display:flex;min-height:36px;align-items:center;justify-content:space-between;margin-bottom:8px}.demo-page-utility-actions{display:flex;align-items:center;gap:4px}.demo-page-utility-actions button,.demo-page-utility-actions a{display:inline-flex;height:34px;align-items:center;gap:6px;padding:0 10px;border:0;border-radius:6px;background:transparent;color:var(--vp-c-text-1);font:500 13px/1 inherit;text-decoration:none}.demo-page-utility-actions button:hover,.demo-page-utility-actions a:hover{background:var(--vp-c-bg-soft)}.demo-page-utility-actions :deep(.fa-svg-icon){width:14px;height:14px}.demo-page-stage{position:relative;display:flex;min-height:0;flex:1;overflow:hidden;border:1px solid var(--vp-c-divider);border-radius:6px;background:var(--vp-c-bg)}.demo-page-workspace{min-width:0;min-height:0;flex:1;overflow:hidden;border:0;border-radius:0;box-shadow:none}.demo-page-stage.source-open .demo-page-workspace{border-right:0}@media(min-width:1100px){.demo-page-layout{margin-left:196px}}@media(max-width:1099px){.demo-page-layout{padding-top:calc(var(--vp-nav-height,64px) + 54px)}.demo-page-header{padding-top:0}}@media(max-width:700px){.demo-page-layout{height:auto;min-height:100vh;padding-inline:10px}.demo-page-header{align-items:flex-start;flex-direction:column}.demo-page-header-actions{width:100%;flex-direction:row}.demo-page-button--primary{width:100%}.demo-page-features{display:none}.demo-page-utility{align-items:flex-start}.demo-page-stage{height:620px}}
+@media(min-width:1100px){.demo-page-layout{width:calc(100% - 196px)}}
+.demo-page-button--primary,.demo-page-button--primary:hover{background:var(--demo-page-green);transform:none}
+
+/* Final demo-page hierarchy and surface treatment. */
+.demo-page-layout{padding-bottom:18px;background:var(--vp-c-bg)}
+.demo-page-header{min-height:92px;margin:0;padding:16px 0 12px;align-items:flex-start}
+.demo-page-title-row{gap:9px}
+.demo-page-title-row h1{margin:0;letter-spacing:-.025em}
+.demo-page-heading p{margin:3px 0 0}
+.demo-page-plan{align-self:center;padding:2px 6px;border:1px solid color-mix(in srgb,var(--demo-page-green) 18%,transparent);background:color-mix(in srgb,var(--demo-page-green) 7%,transparent);color:color-mix(in srgb,var(--demo-page-green) 82%,var(--vp-c-text-1));font-size:10px;font-weight:600;line-height:16px}
+.demo-page-header-actions{padding-top:2px;gap:8px}
+.demo-page-button{height:36px;min-height:36px;box-shadow:0 1px 2px rgb(15 23 42/8%);font-size:13px;font-weight:600}
+.demo-page-button--primary{border-color:color-mix(in srgb,var(--demo-page-green) 82%,var(--vp-c-text-1));background:var(--demo-page-green);color:#fff}
+.demo-page-features summary{display:flex;align-items:center;background:var(--vp-c-bg);font-size:13px;font-weight:520;box-shadow:0 1px 2px rgb(15 23 42/3%)}
+.demo-page-features summary:hover{border-color:var(--vp-c-border)}
+.demo-page-utility{min-height:34px;margin:0 0 8px}
+
+
+
+.demo-page-layout[data-demo-id='planning'] .demo-page-header{min-height:82px;padding-bottom:10px}
+.demo-page-layout[data-demo-id='planning'] .demo-page-heading{display:grid;grid-template-columns:auto auto;align-items:center;gap:2px 18px}
+.demo-page-layout[data-demo-id='planning'] .demo-page-title-row{grid-column:1/-1}
+.demo-page-layout[data-demo-id='planning'] .demo-page-heading>p{margin:0}
+.demo-page-stage{border-color:color-mix(in srgb,var(--vp-c-divider) 92%,transparent);background:var(--vp-c-bg);box-shadow:0 1px 2px rgb(15 23 42/3%)}
+@media(max-width:1099px){.demo-page-layout{padding-right:16px;padding-left:16px}.demo-page-header{min-height:82px}}
+@media(max-width:700px){.demo-page-layout[data-demo-id='planning'] .demo-page-heading{display:block}}
+@media(min-width:1100px){.demo-page-layout{margin-left:var(--demo-sidebar-width,256px);width:calc(100% - var(--demo-sidebar-width,256px))}}
+
+/* Contrast pass for the shared demo shell. */
+.demo-page-layout{background:transparent}
+.demo-page-plan{border-color:var(--vp-c-divider);background:var(--vp-c-default-soft);color:var(--vp-c-text-1)}
+.demo-page-features summary{border-color:var(--vp-c-divider);background:var(--vp-c-bg);color:var(--vp-c-text-1);box-shadow:0 1px 2px rgb(15 23 42/7%)}
+
+.demo-page-stage{border-color:var(--vp-c-divider);background:transparent;box-shadow:0 1px 4px rgb(15 23 42/9%)}
+.demo-page-header-actions{align-items:center}
+.demo-page-features summary{margin:0}
+.demo-page-stage{border:0;border-radius:0;box-shadow:none}
+.demo-page-workspace{background:transparent}
+.demo-page-heading p,.demo-page-features summary,.demo-page-features li span,.demo-page-utility-actions button,.demo-page-utility-actions a{color:inherit}
+.demo-page-header-actions{flex-wrap:wrap;justify-content:flex-end}.demo-page-header-link{display:inline-flex;width:96px;height:36px;align-items:center;justify-content:center;gap:6px;padding:0 8px;border:0;border-radius:6px;background:transparent;color:inherit;font:500 13px/1 inherit;text-decoration:none;cursor:pointer}.demo-page-header-link:hover{background:var(--vp-c-bg-soft)}.demo-page-header-link :deep(.fa-svg-icon){width:14px;height:14px}
 </style>

@@ -1,0 +1,362 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "AG Grid Search Conversion Audit",
+    "description": "A focused diagnosis of Google Search click-through performance for RevoGrid's AG Grid alternative page.",
+    "generatedAt": "2026-08-12T17:45:00+01:00",
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# AG Grid Search Conversion Audit"
+      },
+      {
+        "id": "executive-summary",
+        "type": "markdown",
+        "body": "## Executive Summary\n\n- **Yes, there is a meaningful CTR opportunity.** The page generated 44 clicks from 4,473 impressions, a 0.98% click-through rate. At the same impression volume, 1.5% CTR would produce about 67 clicks (+23), while 2.0% would produce about 89 (+45). These are scenarios, not forecasts.\n- **The clearest signal is intent, not volume.** “ag grid open source alternatives” reached 11.5% CTR, while the generic plural query reached 2.9% and eight of the ten visible queries produced no clicks. This pattern suggests that a concrete differentiator—MIT-licensed core—earns attention, while the generic comparison promise is not distinctive enough.\n- **The search result and landing page undersell the useful difference.** The indexed title is awkward, the description reads as a feature list, and the first screen leads research-stage visitors to “Request Pro Trial” or “Buy Pro” before offering a demo or a fast answer.\n- **Average position is the key missing control.** Position, device, country, and date range were not visible in the screenshots. The first measurement step is to export those fields so ranking effects are separated from snippet effects."
+      },
+      {
+        "id": "query-finding",
+        "type": "markdown",
+        "body": "## Clear, open-source intent earns the clicks\n\nThe visible query sample covers 454 impressions and 7 clicks. It is only 10.1% of the page's impressions, so it should not be treated as the whole distribution. Within that sample, however, the contrast is sharp: the open-source query converts much better than the page average, while broad or brand-adjacent queries do not.\n\n**So what:** make the MIT core and the exact comparison outcome visible in the title, description, H1, and first paragraph. Do not lead with a generic list of advanced features."
+      },
+      {
+        "id": "query-chart",
+        "type": "chart",
+        "chartId": "visible-query-ctr"
+      },
+      {
+        "id": "intent-mismatch",
+        "type": "markdown",
+        "body": "## The plural query expects a list; the page offers one vendor comparison\n\nSearchers using “AG Grid alternatives” are usually choosing among several products. The current page is a long RevoGrid-versus-AG-Grid comparison. Current competing results explicitly promise lists, pricing, free options, or use cases, which makes their value easier to understand before the click.\n\nKeep this URL focused on the singular and brand-comparison intent: **AG Grid alternative**, **RevoGrid vs AG Grid**, licensing, migration, and framework fit. If plural/open-source impressions remain substantial after the snippet test, create a separate multi-vendor page for **AG Grid alternatives** and link the two pages with clearly distinct intent."
+      },
+      {
+        "id": "snippet-rewrite",
+        "type": "markdown",
+        "body": "## Rewrite the promise before changing the whole page\n\n**Recommended title**\n\n`AG Grid Alternative: RevoGrid vs AG Grid (2026)`\n\n**Recommended meta description**\n\n`Compare AG Grid and RevoGrid on licensing, pricing, performance, editing, framework support, and advanced features. Try RevoGrid’s MIT-licensed core.`\n\n**Recommended H1**\n\n`RevoGrid vs AG Grid: A Practical AG Grid Alternative`\n\nThis is concise, names both products, matches the comparison intent, and puts the open-source differentiator in the result pitch. Google may still generate a query-specific snippet from on-page text, so the first paragraph must reinforce the same promise."
+      },
+      {
+        "id": "landing-page",
+        "type": "markdown",
+        "body": "## Let research-stage visitors prove value before asking them to buy\n\nThe first screen currently explains both products in abstract language and then offers only `Request Pro Trial` and `Buy Pro`. Replace that sequence with a faster decision path:\n\n1. Lead with three concrete proof points: `MIT core`, `React/Vue/Angular/Svelte`, and `no deployment counting`.\n2. Put the short comparison table immediately after a two-sentence answer.\n3. Use `Try the live demo` as the primary CTA and `View migration guide` as the secondary CTA.\n4. Move `Request Pro Trial` and `Buy Pro` below the comparison proof, for visitors who have qualified themselves.\n5. Add direct jump links for `Open-source`, `Pricing & licensing`, `Feature comparison`, and `Migration`.\n\nThis will not directly force a Google click, but it aligns the page text Google may use for snippets and improves the post-click path."
+      },
+      {
+        "id": "next-steps",
+        "type": "markdown",
+        "body": "## Recommended 30-day test\n\n1. In Search Console, export query, clicks, impressions, CTR, average position, device, country, and date for this page. Keep the same date length for the before/after comparison.\n2. Ship the title, description, H1, first-paragraph, and CTA changes together as one coherent message test. Correct the Article structured-data URL so it matches `/compare/ag-grid-alternative`.\n3. Request re-indexing, annotate the release date, and wait for enough impressions before judging.\n4. Compare CTR only within similar average-position and device buckets. Track generic singular, generic plural, open-source, migration, and AG Grid brand/community queries separately.\n5. If plural intent remains strong but underperforms, publish a genuinely multi-vendor alternatives page instead of stretching this comparison page to cover both intents."
+      },
+      {
+        "id": "further-questions",
+        "type": "markdown",
+        "body": "## Further Questions\n\n- What is the average position for the page and for each high-impression query?\n- Is the low CTR concentrated on mobile, a country, or a particular date range?\n- Which title and snippet is Google actually showing for the key queries?\n- Do visitors who arrive from open-source queries start a demo, view pricing, or request a trial?"
+      },
+      {
+        "id": "caveats",
+        "type": "markdown",
+        "body": "## Caveats and Assumptions\n\nThe screenshots do not show the reporting period, average position, device, country, or conversion events after the click. The ten visible queries account for only 10.1% of page impressions. Zero clicks on 25–52 impressions is directional, not conclusive. The diagnosis therefore identifies the most plausible and actionable drivers, but it does not claim that snippet changes alone caused or will fix the full gap."
+      }
+    ],
+    "charts": [
+      {
+        "id": "visible-query-ctr",
+        "title": "Click-through rate for the ten visible queries",
+        "subtitle": "CTR from the supplied Search Console screenshot; page average shown as a dashed reference",
+        "intent": "comparison",
+        "question": "Which visible query intents attract clicks?",
+        "rationale": "Horizontal bars keep the long search-query labels readable and make the large open-source outlier clear.",
+        "comparisonContext": {
+          "baseline": "Page CTR: 0.98%",
+          "denominator": "Clicks divided by impressions",
+          "grain": "Search query",
+          "unit": "CTR"
+        },
+        "type": "horizontalBar",
+        "dataset": "query_ctr",
+        "sourceId": "gsc-screenshots",
+        "encodings": {
+          "x": {
+            "field": "query_label",
+            "type": "nominal",
+            "label": "Query"
+          },
+          "y": {
+            "field": "ctr",
+            "type": "quantitative",
+            "aggregate": "none",
+            "format": "percent",
+            "label": "CTR"
+          },
+          "tooltip": [
+            {
+              "field": "query_full",
+              "type": "text",
+              "label": "Full query"
+            },
+            {
+              "field": "clicks",
+              "type": "quantitative",
+              "label": "Clicks"
+            },
+            {
+              "field": "impressions",
+              "type": "quantitative",
+              "label": "Impressions"
+            },
+            {
+              "field": "impression_share",
+              "type": "quantitative",
+              "format": "percent",
+              "label": "Page impression share"
+            }
+          ]
+        },
+        "valueFormat": "percent",
+        "layout": "full",
+        "labels": {
+          "values": "all"
+        },
+        "palette": {
+          "kind": "sequential",
+          "name": "blue"
+        },
+        "referenceLines": [
+          {
+            "axis": "y",
+            "value": 0.009836798569192935,
+            "label": "Page average 0.98%",
+            "color": "neutral",
+            "lineStyle": "dashed"
+          }
+        ],
+        "settings": {
+          "orientation": "horizontal",
+          "sort": "descending",
+          "categoryLabelPolicy": "wrap",
+          "showValues": true
+        },
+        "surface": {
+          "surface": "card",
+          "showControls": false,
+          "viewMode": "both"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "id": "gsc-screenshots",
+        "label": "Google Search Console screenshots supplied by the user on August 12, 2026",
+        "path": "source-data.json",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "description": "Reconstructs the ten visible query rows transcribed from the supplied Search Console screenshot and calculates CTR and page-share fields.",
+          "executed_at": "2026-08-12T17:45:00+01:00",
+          "filters": [
+            "Page = https://rv-grid.com/compare/ag-grid-alternative",
+            "Reporting period not visible in screenshot",
+            "Top ten visible query rows only"
+          ],
+          "metric_definitions": [
+            "CTR = clicks / impressions",
+            "Impression share = query impressions / 4,473 page impressions",
+            "Click share = query clicks / 44 page clicks"
+          ],
+          "sql": "WITH transcribed(query_label, query_full, clicks, impressions, rank_by_impressions, intent) AS (VALUES ('ag grid alternatives','ag grid alternatives',4,137,1,'generic alternatives'),('ag grid alternative','ag grid alternative',0,52,2,'generic alternative'),('ag-grid.com','ag-grid.com',0,46,3,'competitor navigation'),('ag grid community','ag grid community',0,44,4,'competitor community'),('Research data-grid libraries…','research data grid libraries with an excel-like user experience. compare the available options in terms of licensing, pricing, support, documentation, and customization capabilities',0,36,5,'multi-vendor research'),('ag-grid alternatives','ag-grid alternatives',0,31,6,'generic alternatives'),('ag grid community vs enterprise','ag grid community vs enterprise',0,30,7,'competitor tier comparison'),('ag grid alternatives open source','ag grid alternatives open source',0,27,8,'open-source alternatives'),('ag grid open source alternatives','ag grid open source alternatives',3,26,9,'open-source alternatives'),('Need inline-editing options…','i need to do a research because i need to find a data grid component that supports inline editing. can you give me the best options',0,25,10,'multi-vendor research')) SELECT query_label, query_full, clicks, impressions, CAST(clicks AS REAL) / impressions AS ctr, CAST(impressions AS REAL) / 4473 AS impression_share, CAST(clicks AS REAL) / 44 AS click_share, rank_by_impressions, intent FROM transcribed ORDER BY ctr DESC, impressions DESC;"
+        }
+      },
+      {
+        "id": "live-page",
+        "label": "RevoGrid — AG Grid Alternative page",
+        "href": "https://rv-grid.com/compare/ag-grid-alternative"
+      },
+      {
+        "id": "google-title-links",
+        "label": "Google Search Central — Influencing title links",
+        "href": "https://developers.google.com/search/docs/appearance/title-link"
+      },
+      {
+        "id": "google-snippets",
+        "label": "Google Search Central — Control snippets in search results",
+        "href": "https://developers.google.com/search/docs/appearance/snippet"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-08-12T17:45:00+01:00",
+    "status": "ready",
+    "datasets": {
+      "page_summary": [
+        {
+          "url": "https://rv-grid.com/compare/ag-grid-alternative",
+          "clicks": 44,
+          "impressions": 4473,
+          "ctr": 0.009836798569192935,
+          "test_target_ctr": 0.015,
+          "clicks_at_test_target": 67,
+          "incremental_clicks_at_test_target": 23,
+          "visible_impressions": 454,
+          "visible_clicks": 7,
+          "visible_impression_share": 0.10149787614576347,
+          "visible_click_share": 0.1590909090909091,
+          "visible_query_ctr": 0.015418502202643172,
+          "unseen_query_ctr": 0.00920627021647176,
+          "reporting_period": "Not visible in supplied screenshots"
+        }
+      ],
+      "query_ctr": [
+        {
+          "query_label": "ag grid open source alternatives",
+          "query_full": "ag grid open source alternatives",
+          "clicks": 3,
+          "impressions": 26,
+          "ctr": 0.11538461538461539,
+          "impression_share": 0.005812653699977644,
+          "click_share": 0.06818181818181818,
+          "rank_by_impressions": 9,
+          "intent": "open-source alternatives"
+        },
+        {
+          "query_label": "ag grid alternatives",
+          "query_full": "ag grid alternatives",
+          "clicks": 4,
+          "impressions": 137,
+          "ctr": 0.029197080291970802,
+          "impression_share": 0.030628213726805277,
+          "click_share": 0.09090909090909091,
+          "rank_by_impressions": 1,
+          "intent": "generic alternatives"
+        },
+        {
+          "query_label": "ag grid alternative",
+          "query_full": "ag grid alternative",
+          "clicks": 0,
+          "impressions": 52,
+          "ctr": 0,
+          "impression_share": 0.011625307399955287,
+          "click_share": 0,
+          "rank_by_impressions": 2,
+          "intent": "generic alternative"
+        },
+        {
+          "query_label": "ag-grid.com",
+          "query_full": "ag-grid.com",
+          "clicks": 0,
+          "impressions": 46,
+          "ctr": 0,
+          "impression_share": 0.010283925776883524,
+          "click_share": 0,
+          "rank_by_impressions": 3,
+          "intent": "competitor navigation"
+        },
+        {
+          "query_label": "ag grid community",
+          "query_full": "ag grid community",
+          "clicks": 0,
+          "impressions": 44,
+          "ctr": 0,
+          "impression_share": 0.009836798569192935,
+          "click_share": 0,
+          "rank_by_impressions": 4,
+          "intent": "competitor community"
+        },
+        {
+          "query_label": "Research data-grid libraries…",
+          "query_full": "research data grid libraries with an excel-like user experience. compare the available options in terms of licensing, pricing, support, documentation, and customization capabilities",
+          "clicks": 0,
+          "impressions": 36,
+          "ctr": 0,
+          "impression_share": 0.008048289738430584,
+          "click_share": 0,
+          "rank_by_impressions": 5,
+          "intent": "multi-vendor research"
+        },
+        {
+          "query_label": "ag-grid alternatives",
+          "query_full": "ag-grid alternatives",
+          "clicks": 0,
+          "impressions": 31,
+          "ctr": 0,
+          "impression_share": 0.0069304717192041135,
+          "click_share": 0,
+          "rank_by_impressions": 6,
+          "intent": "generic alternatives"
+        },
+        {
+          "query_label": "ag grid community vs enterprise",
+          "query_full": "ag grid community vs enterprise",
+          "clicks": 0,
+          "impressions": 30,
+          "ctr": 0,
+          "impression_share": 0.00670690811535882,
+          "click_share": 0,
+          "rank_by_impressions": 7,
+          "intent": "competitor tier comparison"
+        },
+        {
+          "query_label": "ag grid alternatives open source",
+          "query_full": "ag grid alternatives open source",
+          "clicks": 0,
+          "impressions": 27,
+          "ctr": 0,
+          "impression_share": 0.006036217303822937,
+          "click_share": 0,
+          "rank_by_impressions": 8,
+          "intent": "open-source alternatives"
+        },
+        {
+          "query_label": "Need inline-editing options…",
+          "query_full": "i need to do a research because i need to find a data grid component that supports inline editing. can you give me the best options",
+          "clicks": 0,
+          "impressions": 25,
+          "ctr": 0,
+          "impression_share": 0.00558909009613235,
+          "click_share": 0,
+          "rank_by_impressions": 10,
+          "intent": "multi-vendor research"
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "gsc-screenshots",
+      "label": "Google Search Console screenshots supplied by the user on August 12, 2026",
+      "path": "source-data.json",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "description": "Reconstructs the ten visible query rows transcribed from the supplied Search Console screenshot and calculates CTR and page-share fields.",
+        "executed_at": "2026-08-12T17:45:00+01:00",
+        "filters": [
+          "Page = https://rv-grid.com/compare/ag-grid-alternative",
+          "Reporting period not visible in screenshot",
+          "Top ten visible query rows only"
+        ],
+        "metric_definitions": [
+          "CTR = clicks / impressions",
+          "Impression share = query impressions / 4,473 page impressions",
+          "Click share = query clicks / 44 page clicks"
+        ],
+        "sql": "WITH transcribed(query_label, query_full, clicks, impressions, rank_by_impressions, intent) AS (VALUES ('ag grid alternatives','ag grid alternatives',4,137,1,'generic alternatives'),('ag grid alternative','ag grid alternative',0,52,2,'generic alternative'),('ag-grid.com','ag-grid.com',0,46,3,'competitor navigation'),('ag grid community','ag grid community',0,44,4,'competitor community'),('Research data-grid libraries…','research data grid libraries with an excel-like user experience. compare the available options in terms of licensing, pricing, support, documentation, and customization capabilities',0,36,5,'multi-vendor research'),('ag-grid alternatives','ag-grid alternatives',0,31,6,'generic alternatives'),('ag grid community vs enterprise','ag grid community vs enterprise',0,30,7,'competitor tier comparison'),('ag grid alternatives open source','ag grid alternatives open source',0,27,8,'open-source alternatives'),('ag grid open source alternatives','ag grid open source alternatives',3,26,9,'open-source alternatives'),('Need inline-editing options…','i need to do a research because i need to find a data grid component that supports inline editing. can you give me the best options',0,25,10,'multi-vendor research')) SELECT query_label, query_full, clicks, impressions, CAST(clicks AS REAL) / impressions AS ctr, CAST(impressions AS REAL) / 4473 AS impression_share, CAST(clicks AS REAL) / 44 AS click_share, rank_by_impressions, intent FROM transcribed ORDER BY ctr DESC, impressions DESC;"
+      }
+    },
+    {
+      "id": "live-page",
+      "label": "RevoGrid — AG Grid Alternative page",
+      "href": "https://rv-grid.com/compare/ag-grid-alternative"
+    },
+    {
+      "id": "google-title-links",
+      "label": "Google Search Central — Influencing title links",
+      "href": "https://developers.google.com/search/docs/appearance/title-link"
+    },
+    {
+      "id": "google-snippets",
+      "label": "Google Search Central — Control snippets in search results",
+      "href": "https://developers.google.com/search/docs/appearance/snippet"
+    }
+  ]
+}

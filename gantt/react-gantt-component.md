@@ -1,11 +1,11 @@
 ---
 title: React Gantt Chart Component for Data-Heavy Apps
-description: Evaluate RevoGrid as a React Gantt component with editable task data, dependencies, resources, critical path, baselines, virtualization, demos, pricing, and trial access.
+description: Evaluate RevoGrid Gantt, a JavaScript Gantt chart component for React with editable tasks, dependencies, resources, critical path, baselines, and virtualization.
 outline: deep
 head:
   - - meta
     - name: keywords
-      content: React Gantt component, React Gantt chart library, React project scheduling component, React Gantt dependencies, React resource planning
+      content: RevoGrid Gantt React, React Gantt component, React Gantt chart library, JavaScript Gantt chart React, React project scheduling component, React Gantt dependencies, React resource planning
 faq:
   items:
     - q: Does RevoGrid Gantt work with React?
@@ -42,7 +42,7 @@ RevoGrid Gantt extends the same grid engine used for data-heavy RevoGrid screens
 
 “Native React” can be useful, but it is not the only architecture that integrates cleanly. A framework-independent Web Component avoids maintaining a separate scheduling implementation for every frontend. It also lets teams share the same Gantt behavior across React, Vue, Angular, Svelte, and vanilla JavaScript products.
 
-The practical test is whether the component exposes typed configuration, predictable events, cleanup, custom rendering hooks, and stable data ownership. Use the [live Gantt demo](/demo/gantt) to inspect interaction behavior, then validate the integration inside your actual React application during the [request-based 30-day trial](/trial).
+The practical test is whether the component exposes typed configuration, predictable events, cleanup, custom rendering hooks, and stable data ownership. Use the [live Gantt demo](/demo/gantt) to inspect interaction behavior, then validate the integration inside your actual React application with the [publicly installable 30-day trial](/trial).
 
 ## RevoGrid Gantt vs an ordinary React timeline
 

@@ -86,7 +86,7 @@ RevoGrid is strong when the user expectation is: **“this should be a fast, edi
 | License type | MIT open-source core plus commercial Pro license | Commercial and free license modes depending on usage |
 | Public price | Free core; Pro starts at $199/year | Standard from $999/year; Priority from $1299/year; Enterprise custom |
 | Seat model | No paid seat for core; Pro is per developer seat | Each developer working with Handsontable needs a license |
-| Trial/evaluation | Open-source build available with no credit card; 30-day Pro trial available on request | 45-day trial with full feature access and no credit card required |
+| Trial/evaluation | Open-source build available with no credit card; publicly installable 30-day Pro trial | 45-day trial with full feature access and no credit card required |
 | Commercial SaaS usage | MIT core permits commercial use; Pro includes unlimited production usage | Requires the correct commercial license for commercial use |
 | Deployment fee | No deployment fee | Not positioned as deployment-counted on reviewed public pricing page; developer licensing is stated |
 | Server license | No server license | Not positioned as a separate server license on reviewed public pricing page |
@@ -467,7 +467,7 @@ Legend:
 | Internal tool with Excel-like editing but no Pivot/Gantt | Depends | Handsontable if spreadsheet fidelity is central; RevoGrid Pro if licensing and workflow breadth matter more |
 | Formula-heavy spreadsheet replacement | Handsontable | Stronger formula breadth and spreadsheet-first positioning |
 | Product analytics embedded in app | RevoGrid Pro | Dedicated Pivot module and remote analytics direction |
-| Project planning / scheduling app | RevoGrid Pro | Dedicated Gantt & Scheduling module tied to grid data model |
+| Project planning / scheduling app | RevoGrid Pro | Dedicated Gantt Charts module tied to the grid data model |
 | Regulated editing workflow | RevoGrid Pro | Audit trail, validation, event manager, history, range previews, flash highlights |
 | Multi-framework product suite | RevoGrid | Web component foundation plus React, Angular, Vue, Svelte, JS/TS usage |
 | Enterprise spreadsheet component procurement | Handsontable or RevoGrid Enterprise | Handsontable has mature commercial support; RevoGrid Enterprise fits teams wanting custom terms and roadmap collaboration |
@@ -539,11 +539,11 @@ No. Handsontable is stronger when the main requirement is deep spreadsheet fidel
 
 ### Does RevoGrid Pro include Pivot?
 
-Yes. RevoGrid Pro includes the Pivot Grid / Pivot Table module.
+Yes. RevoGrid Pro Advanced includes the JavaScript Pivot Table component.
 
 ### Does RevoGrid Pro include Gantt?
 
-Yes. RevoGrid Pro includes Gantt & Scheduling / Gantt Chart. The reviewed pricing feature table marks Gantt & Scheduling as Beta, so validate production readiness for your use case during trial.
+Yes. RevoGrid Pro includes Gantt Charts. Validate production readiness for your use case during the trial.
 
 ### Does Handsontable include Pivot or Gantt?
 

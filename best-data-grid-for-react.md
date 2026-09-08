@@ -145,7 +145,7 @@ Use the [React data grid guide](/react-data-grid) for implementation details, th
 | Next.js / SSR | Use client-side rendering for the grid; surrounding page content can stay server-rendered |
 | Open-source core | Yes, MIT licensed with attribution requirements |
 | Commercial modules | Yes, through RevoGrid Pro plans |
-| Pivot Grid | Pro Advanced |
+| Pivot Table | Pro Advanced |
 | Gantt Chart | Pro Advanced |
 | AI coding support | Pro MCP and AI code generation pages are available for teams using coding agents |
 

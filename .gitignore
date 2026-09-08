@@ -7,4 +7,6 @@ dist
 .DS_Store
 .env
 package-lock.json
-_feature.md
+*_feature.md
+.playwright-mcp
+test-results/
