@@ -397,7 +397,7 @@ $max-content-width: 1240px;
 .demo-page-layout[data-demo-id='planning'] .demo-page-heading>p{margin:0}
 .demo-page-stage{border-color:color-mix(in srgb,var(--vp-c-divider) 92%,transparent);background:var(--vp-c-bg);box-shadow:0 1px 2px rgb(15 23 42/3%)}
 @media(max-width:1099px){.demo-page-layout{padding-right:16px;padding-left:16px}.demo-page-header{min-height:82px}}
-@media(max-width:700px){.demo-page-layout[data-demo-id='planning'] .demo-page-heading{display:block}}
+@media(max-width:700px){.demo-page-layout{padding-top:16px}.demo-page-layout[data-demo-id='planning'] .demo-page-heading{display:block}}
 @media(min-width:1100px){.demo-page-layout{margin-left:var(--demo-sidebar-width,256px);width:calc(100% - var(--demo-sidebar-width,256px))}}
 
 /* Contrast pass for the shared demo shell. */
@@ -411,5 +411,5 @@ $max-content-width: 1240px;
 .demo-page-stage{border:0;border-radius:0;box-shadow:none}
 .demo-page-workspace{background:transparent}
 .demo-page-heading p,.demo-page-features summary,.demo-page-features li span,.demo-page-utility-actions button,.demo-page-utility-actions a{color:inherit}
-.demo-page-header-actions{flex-wrap:wrap;justify-content:flex-end}.demo-page-header-link{display:inline-flex;width:96px;height:36px;align-items:center;justify-content:center;gap:6px;padding:0 8px;border:1px solid var(--vp-c-divider);border-radius:6px;background:var(--vp-c-bg);color:inherit;font:500 13px/1 inherit;text-decoration:none;cursor:pointer}.demo-page-header-link:hover{border-color:var(--vp-c-border);background:var(--vp-c-bg-soft)}.demo-page-header-link :deep(.fa-svg-icon){width:14px;height:14px}
+.demo-page-header-actions{flex-wrap:wrap;justify-content:flex-end}.demo-page-header-link{display:inline-flex;width:96px;height:36px;align-items:center;justify-content:center;gap:6px;padding:0 8px;border:1px solid var(--vp-c-divider);border-radius:6px;background:var(--vp-c-bg);color:inherit;font-family:var(--vp-font-family-base);font-size:13px;font-style:normal;font-variant:normal;font-weight:500;letter-spacing:normal;line-height:1;text-decoration:none;cursor:pointer}.demo-page-header-link:hover{border-color:var(--vp-c-border);background:var(--vp-c-bg-soft)}.demo-page-header-link :deep(.fa-svg-icon){width:14px;height:14px}
 </style>
