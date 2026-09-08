@@ -28,15 +28,49 @@ test('navigation search filters examples without changing the route', async ({ p
   await expect(page.locator('.demo-nav nav')).toContainText('Kanban')
 })
 
-test('mobile navigation opens on an opaque surface', async ({ page }) => {
+test('mobile navigation opens on an opaque full-width surface', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/demo/')
   await page.getByRole('button', { name: 'Examples', exact: true }).click()
 
   const drawer = page.locator('.demo-nav')
   await expect(drawer).toHaveClass(/open/)
+  await expect.poll(async () => (await drawer.boundingBox())?.x).toBe(0)
   expect(await drawer.evaluate(element => getComputedStyle(element).backgroundColor))
     .not.toBe('rgba(0, 0, 0, 0)')
+  const bounds = await drawer.boundingBox()
+  expect(bounds).not.toBeNull()
+  expect(bounds!.y).toBe(0)
+  expect(bounds!.width).toBe(390)
+  expect(bounds!.height).toBe(844)
+})
+
+test('mobile demo header starts below the Examples toolbar', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/demo/')
+
+  const title = page.getByRole('heading', { name: 'Project workspace' })
+  await expect(title).toBeVisible()
+  expect((await title.boundingBox())!.y).toBeLessThanOrEqual(160)
+  await expect(page.getByRole('link', { name: /Try in your app/ })).toBeVisible()
+})
+
+test('Code and GitHub header actions use matching typography', async ({ page }) => {
+  await page.goto('/demo/')
+
+  const typography = await page.evaluate(() => {
+    const properties = ['fontFamily', 'fontSize', 'fontStyle', 'fontVariant', 'fontWeight', 'letterSpacing', 'lineHeight'] as const
+    const read = (selector: string) => {
+      const style = getComputedStyle(document.querySelector(selector)!)
+      return Object.fromEntries(properties.map(property => [property, style[property]]))
+    }
+    return {
+      code: read('.demo-page-header-link[type="button"]'),
+      github: read('.demo-page-github'),
+    }
+  })
+
+  expect(typography.code).toEqual(typography.github)
 })
 
 test('Progress renders a slider in the Grid filter header', async ({ page }) => {
@@ -385,6 +419,7 @@ test('planning filters persist across every workspace view', async ({ page }) =>
 
   await expect(count).toContainText('100 of 100 tasks')
   await expect(page.getByText('Activity time', { exact: true })).toBeVisible()
+  await expect(page.getByText('Time', { exact: true })).toBeVisible()
   await page.getByRole('button', { name: 'Active tasks' }).click()
   await expect(count).toContainText('60 of 100 tasks')
 

@@ -131,12 +131,18 @@
     background: #191c1b;
     box-shadow: 0 1px 2px rgb(0 0 0 / 35%);
 }
-.dark .demo-page-class .demo-nav a:hover { background: #2b302e; }
+.dark .demo-page-class .demo-nav a:hover {
+    background: #2b302e;
+}
 .dark .demo-page-class .demo-nav a.active {
     background: #213f32;
 }
-.dark .demo-page-class .demo-nav small { background: #303633; }
-.dark .demo-page-class .demo-nav a.active small { background: #2e5946; }
+.dark .demo-page-class .demo-nav small {
+    background: #303633;
+}
+.dark .demo-page-class .demo-nav a.active small {
+    background: #2e5946;
+}
 
 .demo-page-class .VPSidebar {
     display: none !important;
@@ -178,20 +184,26 @@
 
 :root {
     --vp-home-hero-name-color: transparent;
-    --vp-home-hero-name-background: -webkit-linear-gradient(120deg,
-            #20d58e 30%,
-            #16c47f);
+    --vp-home-hero-name-background: -webkit-linear-gradient(
+        120deg,
+        #20d58e 30%,
+        #16c47f
+    );
 
     --vp-home-hero-image-background-image: transparent;
-    --vp-home-hero-name-background: -webkit-linear-gradient(120deg,
-            #20d58e 30%,
-            #16c47f);
+    --vp-home-hero-name-background: -webkit-linear-gradient(
+        120deg,
+        #20d58e 30%,
+        #16c47f
+    );
 }
 
 :root:not(.dark) {
-    --vp-home-hero-name-background: -webkit-linear-gradient(120deg,
-            #20d58e 10%,
-            #16c47f);
+    --vp-home-hero-name-background: -webkit-linear-gradient(
+        120deg,
+        #20d58e 10%,
+        #16c47f
+    );
     --vp-c-bg-soft: #f6f6fc;
     --vp-button-alt-border: var(--vp-c-black);
     --vp-button-alt-bg: var(--vp-c-black);
@@ -205,10 +217,11 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-    --vp-font-family-base: Poppins, ui-sans-serif, system-ui, -apple-system,
-        BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
-        Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --vp-font-family-base:
+        Poppins, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, 'Noto Sans',
+        sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
     --vp-custom-block-tip-border: transparent;
     --vp-custom-block-tip-text: var(--vp-c-text-1);
     --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
@@ -299,7 +312,6 @@
     margin-top: 10px;
 }
 
-
 .rg-btn,
 a.rg-btn {
     display: inline-flex;
@@ -314,7 +326,11 @@ a.rg-btn {
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
-    transition: border-color 0.18s, background 0.18s, opacity 0.18s, transform 0.18s;
+    transition:
+        border-color 0.18s,
+        background 0.18s,
+        opacity 0.18s,
+        transform 0.18s;
     white-space: nowrap;
 
     &:hover {
@@ -322,7 +338,6 @@ a.rg-btn {
         transform: translateY(-1px);
         color: #000;
     }
-
 
     &.rg-btn-secondary {
         background: var(--rg-bg-2);
@@ -337,7 +352,6 @@ a.rg-btn {
     }
 }
 
-
 /**
  * Component: Algolia
  * -------------------------------------------------------------------------- */
@@ -348,7 +362,7 @@ a.rg-btn {
             padding-top: 20px;
         }
 
-        >.action {
+        > .action {
             display: none;
         }
 
@@ -358,7 +372,9 @@ a.rg-btn {
             line-height: normal;
             font-size: 15px;
             font-weight: 600;
-            transition: filter 0.2s, transform 0.2s;
+            transition:
+                filter 0.2s,
+                transform 0.2s;
 
             &:hover {
                 transform: translateY(-2px);
@@ -521,7 +537,6 @@ header.VPFeatures {
         padding: 0 64px;
     }
 
-
     .rv-overline-1 {
         font-weight: 600;
         font-size: 1rem;
@@ -558,7 +573,6 @@ header.VPFeatures {
 }
 
 .no-x-padding {
-
     .VPContent,
     .VPContent .content,
     .VPDoc {
@@ -578,7 +592,6 @@ header.VPFeatures {
 }
 
 .no-bottom-padding {
-
     .VPContent,
     .content {
         padding-bottom: 0 !important;
@@ -595,7 +608,13 @@ header.VPFeatures {
 @media (min-width: 1240px) {
     .demo-page-wrapper .demo-container {
         max-width: 1240px;
-        width: calc(100vw - ((100vw - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width) + 32px * 4));
+        width: calc(
+            100vw -
+                (
+                    (100vw - var(--vp-layout-max-width)) / 2 +
+                        var(--vp-sidebar-width) + 32px * 4
+                )
+        );
     }
 
     .demo-page-class .VPDoc:not(.has-sidebar) .content {
@@ -623,7 +642,7 @@ header.VPFeatures {
     }
 }
 
-.demo-container>revo-grid {
+.demo-container > revo-grid {
     margin: 0;
     border-radius: 10px;
 
@@ -631,7 +650,7 @@ header.VPFeatures {
         border-radius: 10px 0 0 0;
     }
 
-    +.custom-block {
+    + .custom-block {
         margin: 0;
         border-radius: 0 0 8px 8px;
     }
@@ -659,7 +678,7 @@ revo-grid:not(.skip-style) {
     }
 }
 
-.example-container+details {
+.example-container + details {
     summary {
         display: flex;
         pointer-events: none;
@@ -722,7 +741,7 @@ revo-grid:not(.skip-style) {
         }
     }
 
-    revogrid [hidden]:where(:not([hidden=until-found])) {
+    revogrid [hidden]:where(:not([hidden='until-found'])) {
         display: inherit !important;
     }
 }
