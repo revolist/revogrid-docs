@@ -39,6 +39,17 @@ test('mobile navigation opens on an opaque surface', async ({ page }) => {
     .not.toBe('rgba(0, 0, 0, 0)')
 })
 
+test('Progress renders a slider when column filters are shown', async ({ page }) => {
+  await page.goto('/demo/')
+  await page.getByRole('button', { name: 'Column filters' }).click()
+
+  const progressSlider = page.locator(
+    '.filter-header-slider[data-filter-header-prop="percentDone"]',
+  )
+  await expect(progressSlider).toBeVisible()
+  await expect(progressSlider.locator('input[type="range"]')).toHaveCount(2)
+})
+
 test('demo pages do not render guided steps', async ({ page }) => {
   for (const demo of canonicalDemos) {
     await page.goto(demo.pageUrl)
