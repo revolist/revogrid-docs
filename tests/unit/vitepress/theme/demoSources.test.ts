@@ -95,6 +95,7 @@ test('keeps planning tabs simple and leaves only working shared top actions', ()
   assert.doesNotMatch(layout, /name="bookOpen"\/>Docs/)
   assert.match(layout, /name="github"\/>GitHub[\s\S]*?Try in your app/)
   assert.match(layout, /demo-page-header-link\{[^}]*width:96px[^}]*justify-content:center/)
+  assert.match(layout, /demo-page-header-link\{[^}]*border:1px solid var\(--vp-c-divider\)[^}]*background:var\(--vp-c-bg\)/)
   assert.doesNotMatch(layout, /v-if="demoId !== 'planning'"/)
 })
 

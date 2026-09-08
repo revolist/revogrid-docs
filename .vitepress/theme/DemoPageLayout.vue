@@ -411,5 +411,5 @@ $max-content-width: 1240px;
 .demo-page-stage{border:0;border-radius:0;box-shadow:none}
 .demo-page-workspace{background:transparent}
 .demo-page-heading p,.demo-page-features summary,.demo-page-features li span,.demo-page-utility-actions button,.demo-page-utility-actions a{color:inherit}
-.demo-page-header-actions{flex-wrap:wrap;justify-content:flex-end}.demo-page-header-link{display:inline-flex;width:96px;height:36px;align-items:center;justify-content:center;gap:6px;padding:0 8px;border:0;border-radius:6px;background:transparent;color:inherit;font:500 13px/1 inherit;text-decoration:none;cursor:pointer}.demo-page-header-link:hover{background:var(--vp-c-bg-soft)}.demo-page-header-link :deep(.fa-svg-icon){width:14px;height:14px}
+.demo-page-header-actions{flex-wrap:wrap;justify-content:flex-end}.demo-page-header-link{display:inline-flex;width:96px;height:36px;align-items:center;justify-content:center;gap:6px;padding:0 8px;border:1px solid var(--vp-c-divider);border-radius:6px;background:var(--vp-c-bg);color:inherit;font:500 13px/1 inherit;text-decoration:none;cursor:pointer}.demo-page-header-link:hover{border-color:var(--vp-c-border);background:var(--vp-c-bg-soft)}.demo-page-header-link :deep(.fa-svg-icon){width:14px;height:14px}
 </style>
