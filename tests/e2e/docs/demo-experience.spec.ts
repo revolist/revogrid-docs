@@ -150,6 +150,31 @@ test('grid selection controls show clear unchecked, checked and mixed states', a
   await expect(page.locator('.planning-demo__footer')).not.toContainText('selected')
 })
 
+test('deleting selected rows clears Grid selection', async ({ page }) => {
+  await page.goto('/demo/')
+  const checkboxes = page.locator('.row-select-checkbox')
+  await checkboxes.nth(1).click()
+  await checkboxes.nth(2).click()
+  await expect(page.locator('.planning-demo__footer')).toContainText('2 selected')
+
+  await page.locator('revo-grid').evaluate(async (element) => {
+    const grid = element as any
+    const contextMenu = (await grid.getPlugins()).find((plugin: any) =>
+      plugin.config?.commandHandlers?.['row.delete'],
+    )
+    contextMenu.config.commandHandlers['row.delete']({
+      rows: grid.source.slice(0, 2).map((model: unknown) => ({ model })),
+    })
+  })
+
+  await expect(page.locator('.planning-demo__footer')).toContainText('98 of 98 tasks')
+  await expect(page.locator('.planning-demo__footer')).not.toContainText('selected')
+  await expect.poll(() => checkboxes.nth(0).evaluate((element) => ({
+    checked: (element as HTMLInputElement).checked,
+    indeterminate: (element as HTMLInputElement).indeterminate,
+  }))).toEqual({ checked: false, indeterminate: false })
+})
+
 test('grid and Kanban content stays aligned inside its cells', async ({ page }) => {
   await page.goto('/demo/')
   await expect(page.locator('.planning-demo__grid')).toBeVisible()
