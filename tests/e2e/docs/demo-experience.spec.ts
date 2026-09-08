@@ -49,12 +49,13 @@ test('Progress renders a slider in the Grid filter header', async ({ page }) => 
   await expect(progressSlider.locator('input[type="range"]')).toHaveCount(2)
 })
 
-test('Kanban shows when shared filters narrow the task set', async ({ page }) => {
+test('planning views retain shared filter badges', async ({ page }) => {
   await page.goto('/demo/')
   await page.getByRole('button', { name: 'Active tasks' }).click()
-  await expect(page.getByRole('button', { name: 'Active tasks' })).toHaveAttribute('aria-pressed', 'true')
+  const badge = page.locator('.planning-demo__filter-badge-host .planning-demo__filter-badge')
+  await expect(badge).toContainText('Status: 3 selected')
   await page.getByRole('tab', { name: 'Kanban' }).click()
-  await expect(page.locator('.planning-demo__filter-status')).toHaveText('Filtered · 60 of 100')
+  await expect(badge).toContainText('Status: 3 selected')
 })
 
 test('demo pages do not render guided steps', async ({ page }) => {
