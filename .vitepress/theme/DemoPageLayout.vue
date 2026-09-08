@@ -107,6 +107,18 @@ const openSource = (event?: Event) => {
 const closeSource = () => { sourceOpen.value = false; nextTick(() => { (sourceReturnFocus ?? sourceButtonRef.value)?.focus() }) }
 const trackSourceFramework = (framework: DemoSourceFramework) => pushAnalytics(createDemoPageAnalyticsEvent('demo_action', props.demoId, { action_id: `source_${framework}`, placement: 'source_panel', ...analyticsContext() }), `demo_source_framework:${props.demoId}:${framework}`)
 const trackSourceCopy = () => pushAnalytics(createDemoPageAnalyticsEvent('demo_action', props.demoId, { action_id: 'source_copy', placement: 'source_panel', ...analyticsContext() }), `demo_source_copy:${props.demoId}`)
+const trackWorkspaceAction = (event: Event) => {
+  const target = event.target instanceof Element
+    ? event.target.closest<HTMLElement>('[data-demo-action]')
+    : null
+  const action = target?.dataset.demoAction
+  if (!action) return
+  pushAnalytics(createDemoPageAnalyticsEvent('demo_action', props.demoId, {
+    action_id: action,
+    placement: 'workspace',
+    ...analyticsContext(),
+  }), `demo_workspace_action:${props.demoId}:${action}`)
+}
 const markDemoReady = () => {
   pushAnalytics(
     createDemoPageAnalyticsEvent('demo_ready', props.demoId, analyticsContext()),
@@ -138,11 +150,13 @@ onMounted(async () => {
   pushAnalytics(createDemoPageAnalyticsEvent('demo_view', props.demoId, analyticsContext()), `demo_view:${props.demoId}`)
   scanForGrids()
   if (!workspaceRef.value) return
+  workspaceRef.value.addEventListener('click', trackWorkspaceAction)
   gridObserver = new MutationObserver(scanForGrids)
   gridObserver.observe(workspaceRef.value, { childList: true, subtree: true })
 })
 
 onBeforeUnmount(() => {
+  workspaceRef.value?.removeEventListener('click', trackWorkspaceAction)
   gridObserver?.disconnect()
   observedGrids.clear()
 })
@@ -397,5 +411,5 @@ $max-content-width: 1240px;
 .demo-page-stage{border:0;border-radius:0;box-shadow:none}
 .demo-page-workspace{background:transparent}
 .demo-page-heading p,.demo-page-features summary,.demo-page-features li span,.demo-page-utility-actions button,.demo-page-utility-actions a{color:inherit}
-.demo-page-header-actions{flex-wrap:wrap;justify-content:flex-end}.demo-page-header-link{display:inline-flex;width:96px;height:36px;align-items:center;justify-content:center;gap:6px;padding:0 8px;border:0;border-radius:6px;background:transparent;color:inherit;font:500 13px/1 inherit;text-decoration:none;cursor:pointer}.demo-page-header-link:hover{background:var(--vp-c-bg-soft)}.demo-page-header-link :deep(.fa-svg-icon){width:14px;height:14px}
+.demo-page-header-actions{flex-wrap:wrap;justify-content:flex-end}.demo-page-header-link{display:inline-flex;width:96px;height:36px;align-items:center;justify-content:center;gap:6px;padding:0 8px;border:1px solid var(--vp-c-divider);border-radius:6px;background:var(--vp-c-bg);color:inherit;font:500 13px/1 inherit;text-decoration:none;cursor:pointer}.demo-page-header-link:hover{border-color:var(--vp-c-border);background:var(--vp-c-bg-soft)}.demo-page-header-link :deep(.fa-svg-icon){width:14px;height:14px}
 </style>

@@ -430,5 +430,8 @@ test('insets the Pivot preset switch and toolbar actions from both edges', () =>
 test('presents the integrated Project Workspace without an inner grid frame', () => {
   assert.equal(PRODUCT_CATALOG.demos.planning.title, 'Project Workspace')
   assert.match(planningDemoStyleSource, /\.planning-demo__switch/)
-  assert.match(planningDemoStyleSource, /\.planning-demo__grid\{height:100%;min-height:0!important;/)
+  assert.match(
+    planningDemoStyleSource,
+    /\.planning-demo__grid\s*\{[\s\S]*?height:\s*100%;[\s\S]*?min-height:\s*0\s*!important;/,
+  )
 })

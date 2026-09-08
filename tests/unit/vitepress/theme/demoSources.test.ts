@@ -29,18 +29,25 @@ test('points every source panel file at an existing local source file', () => {
   }
 })
 
-test('keeps the source panel and demo navigation at their specified breakpoints', () => {
+test('keeps the source panel compact and expandable', () => {
   const layout = readFileSync(new URL('../../../../.vitepress/theme/DemoPageLayout.vue', import.meta.url), 'utf8')
   const sourcePanel = readFileSync(new URL('../../../../.vitepress/theme/DemoSourcePanel.vue', import.meta.url), 'utf8')
-  const navigation = readFileSync(new URL('../../../../.vitepress/theme/DemoNavigation.vue', import.meta.url), 'utf8')
   assert.match(sourcePanel, /width:420px;min-width:420px/)
   assert.match(sourcePanel, /@media\(max-width:1099px\)/)
   assert.match(sourcePanel, /position:absolute;z-index:2;inset:0/)
   assert.match(sourcePanel, /demo-source header\{[^}]*padding:0 18px 16px/)
-  assert.match(sourcePanel, /demo-source__code-head\{[^}]*align-items:flex-start;gap:12px/)
-  assert.match(sourcePanel, /demo-source__code-head code\{min-width:0;flex:1\}/)
+  assert.match(sourcePanel, /FontAwesomeSvgIcon name="expand"/)
+  assert.match(sourcePanel, /demo-source:fullscreen\{[^}]*width:100%/)
+  assert.doesNotMatch(sourcePanel, /Live preview uses Vue|demo-source__code-head|current\.command/)
   assert.doesNotMatch(sourcePanel, />Docs<|Open repository/)
   assert.doesNotMatch(layout, /implementation-url/)
+  for (const source of [layout, sourcePanel]) {
+    assert.doesNotMatch(source, /font(?:-family)?:[^;}]*Geist/)
+  }
+})
+
+test('keeps demo navigation at its specified breakpoint', () => {
+  const navigation = readFileSync(new URL('../../../../.vitepress/theme/DemoNavigation.vue', import.meta.url), 'utf8')
   assert.match(navigation, /--demo-sidebar-width,256px/)
   assert.match(navigation, /background:var\(--vp-c-brand-soft\)/)
   assert.match(navigation, /demo-nav>label\{[^}]*background:var\(--vp-c-bg\)\}/)
@@ -48,9 +55,7 @@ test('keeps the source panel and demo navigation at their specified breakpoints'
   assert.match(navigation, /demo-nav>label:focus-within\{[^}]*border-color:var\(--vp-c-brand-1\)[^}]*outline:2px solid var\(--vp-c-brand-1\)/)
   assert.match(readFileSync(new URL('../../../../.vitepress/theme/style.scss', import.meta.url), 'utf8'), /\.dark \.demo-page-class \.demo-nav/)
   assert.match(navigation, /@media\(max-width:1099px\)/)
-  for (const source of [layout, sourcePanel, navigation]) {
-    assert.doesNotMatch(source, /font(?:-family)?:[^;}]*Geist/)
-  }
+  assert.doesNotMatch(navigation, /font(?:-family)?:[^;}]*Geist/)
 })
 
 test('uses the site color tokens instead of a demo-specific palette', () => {
@@ -90,6 +95,7 @@ test('keeps planning tabs simple and leaves only working shared top actions', ()
   assert.doesNotMatch(layout, /name="bookOpen"\/>Docs/)
   assert.match(layout, /name="github"\/>GitHub[\s\S]*?Try in your app/)
   assert.match(layout, /demo-page-header-link\{[^}]*width:96px[^}]*justify-content:center/)
+  assert.match(layout, /demo-page-header-link\{[^}]*border:1px solid var\(--vp-c-divider\)[^}]*background:var\(--vp-c-bg\)/)
   assert.doesNotMatch(layout, /v-if="demoId !== 'planning'"/)
 })
 

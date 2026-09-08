@@ -28,6 +28,36 @@ test('navigation search filters examples without changing the route', async ({ p
   await expect(page.locator('.demo-nav nav')).toContainText('Kanban')
 })
 
+test('mobile navigation opens on an opaque surface', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/demo/')
+  await page.getByRole('button', { name: 'Examples', exact: true }).click()
+
+  const drawer = page.locator('.demo-nav')
+  await expect(drawer).toHaveClass(/open/)
+  expect(await drawer.evaluate(element => getComputedStyle(element).backgroundColor))
+    .not.toBe('rgba(0, 0, 0, 0)')
+})
+
+test('Progress renders a slider in the Grid filter header', async ({ page }) => {
+  await page.goto('/demo/')
+
+  const progressSlider = page.locator(
+    '.filter-header-slider[data-filter-header-prop="percentDone"]',
+  )
+  await expect(progressSlider).toBeVisible()
+  await expect(progressSlider.locator('input[type="range"]')).toHaveCount(2)
+})
+
+test('planning views retain shared filter badges', async ({ page }) => {
+  await page.goto('/demo/')
+  await page.getByRole('button', { name: 'Active tasks' }).click()
+  const badge = page.locator('.planning-demo__filter-badge-host .planning-demo__filter-badge')
+  await expect(badge).toContainText('Status: 3 selected')
+  await page.getByRole('tab', { name: 'Kanban' }).click()
+  await expect(badge).toContainText('Status: 3 selected')
+})
+
 test('demo pages do not render guided steps', async ({ page }) => {
   for (const demo of canonicalDemos) {
     await page.goto(demo.pageUrl)
@@ -45,6 +75,9 @@ test('source panel uses real files and preserves the live workspace', async ({ p
 
   await page.getByRole('button', { name: 'Code' }).click()
   await expect(page.getByRole('dialog', { name: 'Use this example' })).toBeVisible()
+  await expect(page.getByText('Live preview uses Vue')).toHaveCount(0)
+  await expect(page.locator('.demo-source__code-head')).toHaveCount(0)
+  await expect(page.getByRole('button', { name: 'Full screen code' })).toBeVisible()
   const sourceGeometry = await page.evaluate(() => {
     const stage = document.querySelector('.demo-page-stage')!.getBoundingClientRect()
     const workspace = document.querySelector('.demo-page-workspace')!.getBoundingClientRect()
@@ -59,6 +92,10 @@ test('source panel uses real files and preserves the live workspace', async ({ p
   await expect(page.getByLabel('File')).toContainText('planning.vue')
   await page.getByRole('tab', { name: 'React' }).click()
   await expect(page.getByLabel('File')).toContainText('planning.react.tsx')
+  await page.getByRole('button', { name: 'Full screen code' }).click()
+  await expect.poll(() => page.evaluate(() => document.fullscreenElement?.classList.contains('demo-source'))).toBe(true)
+  await page.getByRole('button', { name: 'Exit full screen code' }).click()
+  await expect.poll(() => page.evaluate(() => document.fullscreenElement)).toBeNull()
   await page.keyboard.press('Escape')
 
   await expect(taskSearch).toHaveValue('Maya')
@@ -74,7 +111,7 @@ test('clipboard errors are visible and do not close the source panel', async ({ 
   })
   await page.goto('/demo/')
   await page.getByRole('button', { name: 'Code' }).click()
-  await page.getByRole('button', { name: 'Copy', exact: true }).click()
+  await page.getByRole('button', { name: 'Copy file' }).click()
   await expect(page.getByRole('button', { name: 'Copy failed' })).toBeVisible()
   await expect(page.getByRole('dialog', { name: 'Use this example' })).toBeVisible()
 })
@@ -119,6 +156,31 @@ test('grid selection controls show clear unchecked, checked and mixed states', a
   await expect(checkboxes.nth(0)).not.toBeChecked()
   await expect(checkboxes.nth(1)).not.toBeChecked()
   await expect(page.locator('.planning-demo__footer')).not.toContainText('selected')
+})
+
+test('deleting selected rows clears Grid selection', async ({ page }) => {
+  await page.goto('/demo/')
+  const checkboxes = page.locator('.row-select-checkbox')
+  await checkboxes.nth(1).click()
+  await checkboxes.nth(2).click()
+  await expect(page.locator('.planning-demo__footer')).toContainText('2 selected')
+
+  await page.locator('revo-grid').evaluate(async (element) => {
+    const grid = element as any
+    const contextMenu = (await grid.getPlugins()).find((plugin: any) =>
+      plugin.config?.commandHandlers?.['row.delete'],
+    )
+    contextMenu.config.commandHandlers['row.delete']({
+      rows: grid.source.slice(0, 2).map((model: unknown) => ({ model })),
+    })
+  })
+
+  await expect(page.locator('.planning-demo__footer')).toContainText('98 of 98 tasks')
+  await expect(page.locator('.planning-demo__footer')).not.toContainText('selected')
+  await expect.poll(() => checkboxes.nth(0).evaluate((element) => ({
+    checked: (element as HTMLInputElement).checked,
+    indeterminate: (element as HTMLInputElement).indeterminate,
+  }))).toEqual({ checked: false, indeterminate: false })
 })
 
 test('grid and Kanban content stays aligned inside its cells', async ({ page }) => {
@@ -315,4 +377,19 @@ test('planning Gantt uses varied schedules and aligns the Today marker', async (
   expect(timeline.markerOffset).toBeLessThanOrEqual(1)
   expect(timeline.widths.length).toBeGreaterThanOrEqual(9)
   expect(Math.max(...timeline.widths) - Math.min(...timeline.widths)).toBeGreaterThan(30)
+})
+
+test('planning filters persist across every workspace view', async ({ page }) => {
+  await page.goto('/demo/')
+  const count = page.locator('.planning-demo__footer span').first()
+
+  await expect(count).toContainText('100 of 100 tasks')
+  await expect(page.getByText('Activity time', { exact: true })).toBeVisible()
+  await page.getByRole('button', { name: 'Active tasks' }).click()
+  await expect(count).toContainText('60 of 100 tasks')
+
+  for (const view of ['kanban', 'gantt', 'scheduler', 'calendar', 'grid']) {
+    await page.getByRole('tab', { name: view }).click()
+    await expect(count).toContainText('60 of 100 tasks')
+  }
 })

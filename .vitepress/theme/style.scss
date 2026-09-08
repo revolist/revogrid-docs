@@ -111,13 +111,19 @@
 .dark .demo-page-class .demo-page-stage {
     border-color: #505a55;
     background: transparent;
-    box-shadow: 0 1px 4px rgb(0 0 0 / 38%);
+    box-shadow: none;
 }
 
 .dark .demo-page-class .demo-nav {
     border-right-color: #414945;
     background: transparent;
     box-shadow: inset -1px 0 #343b37;
+}
+
+@media (max-width: 1099px) {
+    .dark .demo-page-class .demo-nav {
+        background: var(--vp-c-bg);
+    }
 }
 
 .dark .demo-page-class .demo-nav > label {
