@@ -323,3 +323,18 @@ test('planning Gantt uses varied schedules and aligns the Today marker', async (
   expect(timeline.widths.length).toBeGreaterThanOrEqual(9)
   expect(Math.max(...timeline.widths) - Math.min(...timeline.widths)).toBeGreaterThan(30)
 })
+
+test('planning filters persist across every workspace view', async ({ page }) => {
+  await page.goto('/demo/')
+  const count = page.locator('.planning-demo__footer span').first()
+
+  await expect(count).toContainText('100 of 100 tasks')
+  await expect(page.getByText('Activity time', { exact: true })).toBeVisible()
+  await page.getByRole('button', { name: 'Active tasks' }).click()
+  await expect(count).toContainText('60 of 100 tasks')
+
+  for (const view of ['kanban', 'gantt', 'scheduler', 'calendar', 'grid']) {
+    await page.getByRole('tab', { name: view }).click()
+    await expect(count).toContainText('60 of 100 tasks')
+  }
+})

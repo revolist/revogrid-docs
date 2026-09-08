@@ -107,6 +107,18 @@ const openSource = (event?: Event) => {
 const closeSource = () => { sourceOpen.value = false; nextTick(() => { (sourceReturnFocus ?? sourceButtonRef.value)?.focus() }) }
 const trackSourceFramework = (framework: DemoSourceFramework) => pushAnalytics(createDemoPageAnalyticsEvent('demo_action', props.demoId, { action_id: `source_${framework}`, placement: 'source_panel', ...analyticsContext() }), `demo_source_framework:${props.demoId}:${framework}`)
 const trackSourceCopy = () => pushAnalytics(createDemoPageAnalyticsEvent('demo_action', props.demoId, { action_id: 'source_copy', placement: 'source_panel', ...analyticsContext() }), `demo_source_copy:${props.demoId}`)
+const trackWorkspaceAction = (event: Event) => {
+  const target = event.target instanceof Element
+    ? event.target.closest<HTMLElement>('[data-demo-action]')
+    : null
+  const action = target?.dataset.demoAction
+  if (!action) return
+  pushAnalytics(createDemoPageAnalyticsEvent('demo_action', props.demoId, {
+    action_id: action,
+    placement: 'workspace',
+    ...analyticsContext(),
+  }), `demo_workspace_action:${props.demoId}:${action}`)
+}
 const markDemoReady = () => {
   pushAnalytics(
     createDemoPageAnalyticsEvent('demo_ready', props.demoId, analyticsContext()),
@@ -138,11 +150,13 @@ onMounted(async () => {
   pushAnalytics(createDemoPageAnalyticsEvent('demo_view', props.demoId, analyticsContext()), `demo_view:${props.demoId}`)
   scanForGrids()
   if (!workspaceRef.value) return
+  workspaceRef.value.addEventListener('click', trackWorkspaceAction)
   gridObserver = new MutationObserver(scanForGrids)
   gridObserver.observe(workspaceRef.value, { childList: true, subtree: true })
 })
 
 onBeforeUnmount(() => {
+  workspaceRef.value?.removeEventListener('click', trackWorkspaceAction)
   gridObserver?.disconnect()
   observedGrids.clear()
 })
