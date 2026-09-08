@@ -83,6 +83,12 @@
 
 .demo-page-class {
     --demo-sidebar-width: 256px;
+    --demo-focus-color: var(--vp-c-brand-1);
+    --demo-focus-ring: color-mix(
+        in srgb,
+        var(--demo-focus-color) 22%,
+        transparent
+    );
     --vp-sidebar-width: var(--demo-sidebar-width);
     font-family: Geist, Inter, ui-sans-serif, system-ui, sans-serif;
 }
