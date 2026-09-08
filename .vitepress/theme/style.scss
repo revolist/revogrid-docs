@@ -120,6 +120,12 @@
     box-shadow: inset -1px 0 #343b37;
 }
 
+@media (max-width: 1099px) {
+    .dark .demo-page-class .demo-nav {
+        background: var(--vp-c-bg);
+    }
+}
+
 .dark .demo-page-class .demo-nav > label {
     border-color: #515b56;
     background: #191c1b;

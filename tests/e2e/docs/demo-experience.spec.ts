@@ -28,6 +28,17 @@ test('navigation search filters examples without changing the route', async ({ p
   await expect(page.locator('.demo-nav nav')).toContainText('Kanban')
 })
 
+test('mobile navigation opens on an opaque surface', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/demo/')
+  await page.getByRole('button', { name: 'Examples', exact: true }).click()
+
+  const drawer = page.locator('.demo-nav')
+  await expect(drawer).toHaveClass(/open/)
+  expect(await drawer.evaluate(element => getComputedStyle(element).backgroundColor))
+    .not.toBe('rgba(0, 0, 0, 0)')
+})
+
 test('demo pages do not render guided steps', async ({ page }) => {
   for (const demo of canonicalDemos) {
     await page.goto(demo.pageUrl)
