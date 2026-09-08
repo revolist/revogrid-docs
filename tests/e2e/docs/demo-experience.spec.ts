@@ -39,9 +39,8 @@ test('mobile navigation opens on an opaque surface', async ({ page }) => {
     .not.toBe('rgba(0, 0, 0, 0)')
 })
 
-test('Progress renders a slider when column filters are shown', async ({ page }) => {
+test('Progress renders a slider in the Grid filter header', async ({ page }) => {
   await page.goto('/demo/')
-  await page.getByRole('button', { name: 'Column filters' }).click()
 
   const progressSlider = page.locator(
     '.filter-header-slider[data-filter-header-prop="percentDone"]',
@@ -53,6 +52,7 @@ test('Progress renders a slider when column filters are shown', async ({ page })
 test('Kanban shows when shared filters narrow the task set', async ({ page }) => {
   await page.goto('/demo/')
   await page.getByRole('button', { name: 'Active tasks' }).click()
+  await expect(page.getByRole('button', { name: 'Active tasks' })).toHaveAttribute('aria-pressed', 'true')
   await page.getByRole('tab', { name: 'Kanban' }).click()
   await expect(page.locator('.planning-demo__filter-status')).toHaveText('Filtered · 60 of 100')
 })
