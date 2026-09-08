@@ -50,6 +50,13 @@ test('Progress renders a slider when column filters are shown', async ({ page })
   await expect(progressSlider.locator('input[type="range"]')).toHaveCount(2)
 })
 
+test('Kanban shows when shared filters narrow the task set', async ({ page }) => {
+  await page.goto('/demo/')
+  await page.getByRole('button', { name: 'Active tasks' }).click()
+  await page.getByRole('tab', { name: 'Kanban' }).click()
+  await expect(page.locator('.planning-demo__filter-status')).toHaveText('Filtered · 60 of 100')
+})
+
 test('demo pages do not render guided steps', async ({ page }) => {
   for (const demo of canonicalDemos) {
     await page.goto(demo.pageUrl)
