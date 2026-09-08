@@ -45,6 +45,9 @@ test('source panel uses real files and preserves the live workspace', async ({ p
 
   await page.getByRole('button', { name: 'Code' }).click()
   await expect(page.getByRole('dialog', { name: 'Use this example' })).toBeVisible()
+  await expect(page.getByText('Live preview uses Vue')).toHaveCount(0)
+  await expect(page.locator('.demo-source__code-head')).toHaveCount(0)
+  await expect(page.getByRole('button', { name: 'Full screen code' })).toBeVisible()
   const sourceGeometry = await page.evaluate(() => {
     const stage = document.querySelector('.demo-page-stage')!.getBoundingClientRect()
     const workspace = document.querySelector('.demo-page-workspace')!.getBoundingClientRect()
@@ -59,6 +62,10 @@ test('source panel uses real files and preserves the live workspace', async ({ p
   await expect(page.getByLabel('File')).toContainText('planning.vue')
   await page.getByRole('tab', { name: 'React' }).click()
   await expect(page.getByLabel('File')).toContainText('planning.react.tsx')
+  await page.getByRole('button', { name: 'Full screen code' }).click()
+  await expect.poll(() => page.evaluate(() => document.fullscreenElement?.classList.contains('demo-source'))).toBe(true)
+  await page.getByRole('button', { name: 'Exit full screen code' }).click()
+  await expect.poll(() => page.evaluate(() => document.fullscreenElement)).toBeNull()
   await page.keyboard.press('Escape')
 
   await expect(taskSearch).toHaveValue('Maya')
@@ -74,7 +81,7 @@ test('clipboard errors are visible and do not close the source panel', async ({ 
   })
   await page.goto('/demo/')
   await page.getByRole('button', { name: 'Code' }).click()
-  await page.getByRole('button', { name: 'Copy', exact: true }).click()
+  await page.getByRole('button', { name: 'Copy file' }).click()
   await expect(page.getByRole('button', { name: 'Copy failed' })).toBeVisible()
   await expect(page.getByRole('dialog', { name: 'Use this example' })).toBeVisible()
 })
