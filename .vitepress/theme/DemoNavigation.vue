@@ -8,11 +8,11 @@
         ><span class="sr-only">Find a demo</span
         ><input v-model="query" type="search" placeholder="Find a demo…"
       /></label>
-      <nav>
-        <section v-for="group in filteredGroups" :key="group.label">
-          <h2>{{ group.label }}</h2>
+      <div v-if="!queryValue || filteredPinnedItems.length" class="demo-nav__pinned">
+        <section>
+          <h2>{{ pinnedGroup.label }}</h2>
           <a
-            v-for="item in group.items"
+            v-for="item in filteredPinnedItems"
             :key="item.id"
             :href="item.href"
             :class="{ active: active(item.href) }"
@@ -21,7 +21,41 @@
             ><small v-if="item.plan">{{ item.plan }}</small></a
           >
         </section>
-        <p v-if="!filteredGroups.length">No matching demos</p>
+      </div>
+      <nav ref="featureList">
+        <p v-if="!queryValue" class="demo-nav__eyebrow">Explore demos</p>
+        <section v-for="group in filteredFeatureGroups" :key="group.id">
+          <h2>
+            <button
+              type="button"
+              class="demo-nav__group-toggle"
+              :aria-expanded="isGroupExpanded(group)"
+              :aria-controls="`demo-nav-group-${group.id}`"
+              :disabled="Boolean(queryValue)"
+              @click="toggleGroup(group)"
+            >
+              <FontAwesomeSvgIcon :name="group.icon" />
+              <span>{{ group.label }}</span
+              ><span aria-hidden="true" class="demo-nav__chevron" />
+            </button>
+          </h2>
+          <div
+            :id="`demo-nav-group-${group.id}`"
+            v-show="isGroupExpanded(group)"
+            class="demo-nav__children"
+          >
+            <a
+              v-for="item in group.items"
+              :key="item.id"
+              :href="item.href"
+              :class="{ active: active(item.href) }"
+              @click="open = false"
+              ><FontAwesomeSvgIcon :name="item.icon" /><span>{{ item.label }}</span
+              ><small v-if="item.plan">{{ item.plan }}</small></a
+            >
+          </div>
+        </section>
+        <p v-if="!hasSearchMatches">No matching demos</p>
       </nav>
     </aside>
     <button
@@ -35,7 +69,7 @@
 </template>
 <script setup lang="ts">
 import { useScrollLock } from '@vueuse/core'
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { inBrowser, useRoute } from 'vitepress'
 import { PRODUCT_CATALOG, type DemoId } from '../../commercial/productCatalog'
 import { getDemoPageConfig } from './demoPageLayout'
@@ -43,8 +77,12 @@ import FontAwesomeSvgIcon from './home-v2/FontAwesomeSvgIcon.vue'
 const route = useRoute()
 const open = ref(false)
 const query = ref('')
+const featureList = ref<HTMLElement | null>(null)
+const expandedGroups = ref<Set<string>>(new Set(['data-grid']))
+const manuallyCollapsedGroups = ref<Set<string>>(new Set())
 const isDemo = computed(() => route.path === '/demo' || route.path.startsWith('/demo/'))
 const isPageScrollLocked = useScrollLock(inBrowser ? document.body : null)
+const expandedGroupsStorageKey = 'revogrid-demo-navigation-expanded-groups'
 
 watch(open, value => (isPageScrollLocked.value = value))
 watch(isDemo, value => {
@@ -60,7 +98,21 @@ function openFromLocalMenu(event: MouseEvent) {
   open.value = true
 }
 
-onMounted(() => document.addEventListener('click', openFromLocalMenu, true))
+onMounted(() => {
+  try {
+    const storedValue = localStorage.getItem(expandedGroupsStorageKey)
+    const storedGroups = storedValue === null ? null : JSON.parse(storedValue)
+    if (Array.isArray(storedGroups)) {
+      expandedGroups.value = new Set(
+        storedGroups.filter(value => typeof value === 'string' && featureGroupIds.has(value)),
+      )
+    }
+  } catch {
+    expandedGroups.value = new Set()
+  }
+  document.addEventListener('click', openFromLocalMenu, true)
+  void nextTick(keepActiveDemoVisible)
+})
 onBeforeUnmount(() => {
   document.removeEventListener('click', openFromLocalMenu, true)
   isPageScrollLocked.value = false
@@ -97,16 +149,19 @@ const createItem = (
           : 'Advanced',
   }
 }
-const groups = [
+const pinnedGroup = {
+  id: 'start-here',
+  label: 'Start here',
+  items: [
+    createItem('planning', 'Project workspace', '/demo/', 'listCheck', ['planning']),
+    createItem('grid-at-scale', 'Performance', '/demo/grid-at-scale', 'grid', ['HR']),
+  ],
+}
+const featureGroups = [
   {
-    label: 'Start here',
-    items: [
-      createItem('planning', 'Project workspace', '/demo/', 'listCheck', ['planning']),
-      createItem('grid-at-scale', 'Performance', '/demo/grid-at-scale', 'grid', ['HR']),
-    ],
-  },
-  {
+    id: 'data-grid',
     label: 'Data grid',
+    icon: 'grid',
     items: [
       createItem('ai-prompt-library', 'AI prompts', '/demo/ai-prompts', 'message'),
       createItem('project-portfolio', 'Row Grouping', '/demo/project-portfolio', 'chart', [
@@ -126,11 +181,15 @@ const groups = [
     ],
   },
   {
-    label: 'Pivot table',
+    id: 'pivot',
+    label: 'Pivot',
+    icon: 'chartColumn',
     items: [createItem('pivot', 'Pivot table', '/demo/pivot', 'chartColumn')],
   },
   {
+    id: 'gantt',
     label: 'Gantt',
+    icon: 'gantt',
     items: [
       createItem('gantt', 'Gantt chart', '/demo/gantt', 'gantt'),
       createItem('gantt-big-data', '10K tasks', '/demo/gantt-big-data', 'gantt'),
@@ -143,7 +202,9 @@ const groups = [
     ],
   },
   {
+    id: 'scheduler',
     label: 'Scheduler',
+    icon: 'calendarDays',
     items: [
       createItem('event-scheduler', 'Shift scheduling', '/demo/event-scheduler', 'calendarDays', [
         'Calendar',
@@ -152,7 +213,9 @@ const groups = [
     ],
   },
   {
+    id: 'kanban',
     label: 'Kanban',
+    icon: 'columns',
     items: [
       createItem('kanban', 'Task board', '/demo/kanban', 'columns'),
       createItem('kanban-performance', '50K cards', '/demo/kanban-performance', 'columns'),
@@ -165,20 +228,83 @@ const groups = [
     ],
   },
 ]
-const filteredGroups = computed(() => {
-  const value = query.value.trim().toLowerCase()
-  return groups
+const featureGroupIds = new Set(featureGroups.map(group => group.id))
+const queryValue = computed(() => query.value.trim().toLowerCase())
+const filteredPinnedItems = computed(() => {
+  if (!queryValue.value) return pinnedGroup.items
+  return pinnedGroup.items.filter(item => matchesSearch(pinnedGroup, item, queryValue.value))
+})
+const filteredFeatureGroups = computed(() =>
+  featureGroups
     .map(group => ({
       ...group,
-      items: group.items.filter(
-        entry =>
-          !value ||
-          group.label.toLowerCase().includes(value) ||
-          entry.searchTerms.some(term => term.includes(value)),
-      ),
+      items: group.items.filter(item => matchesSearch(group, item, queryValue.value)),
     }))
-    .filter(group => group.items.length)
-})
+    .filter(group => group.items.length),
+)
+const hasSearchMatches = computed(
+  () => filteredPinnedItems.value.length > 0 || filteredFeatureGroups.value.length > 0,
+)
+
+function matchesSearch(
+  group: (typeof featureGroups)[number] | typeof pinnedGroup,
+  item: ReturnType<typeof createItem>,
+  value: string,
+) {
+  return (
+    !value ||
+    group.label.toLowerCase().includes(value) ||
+    item.searchTerms.some(term => term.includes(value))
+  )
+}
+
+function groupHasActive(group: (typeof featureGroups)[number]) {
+  return group.items.some(item => active(item.href))
+}
+
+function isGroupExpanded(group: (typeof featureGroups)[number]) {
+  return (
+    Boolean(queryValue.value) ||
+    (groupHasActive(group) && !manuallyCollapsedGroups.value.has(group.id)) ||
+    expandedGroups.value.has(group.id)
+  )
+}
+
+function toggleGroup(group: (typeof featureGroups)[number]) {
+  if (queryValue.value) return
+  const next = new Set(expandedGroups.value)
+  const manuallyCollapsed = new Set(manuallyCollapsedGroups.value)
+  if (isGroupExpanded(group)) {
+    next.delete(group.id)
+    if (groupHasActive(group)) manuallyCollapsed.add(group.id)
+  } else {
+    next.add(group.id)
+    manuallyCollapsed.delete(group.id)
+  }
+  expandedGroups.value = next
+  manuallyCollapsedGroups.value = manuallyCollapsed
+  try {
+    localStorage.setItem(expandedGroupsStorageKey, JSON.stringify([...next]))
+  } catch {
+    // Disclosure state remains usable when browser storage is unavailable.
+  }
+}
+
+function keepActiveDemoVisible() {
+  featureList.value?.querySelector<HTMLElement>('a.active')?.scrollIntoView({
+    block: 'nearest',
+    inline: 'nearest',
+  })
+}
+
+watch(
+  () => route.path,
+  () => {
+    manuallyCollapsedGroups.value = new Set()
+    void nextTick(keepActiveDemoVisible)
+  },
+  { flush: 'post' },
+)
 function normalize(path: string) {
   const normalized = path.replace(/\/$/, '')
   return normalized === '/demo' ? '/demo/' : normalized
@@ -198,9 +324,11 @@ function active(href: string) {
   bottom: 0;
   left: 0;
   width: var(--demo-sidebar-width, 256px);
+  display: flex;
+  flex-direction: column;
   padding: 16px 0 0 10px;
   border-right: 1px solid var(--vp-c-divider);
-  background: transparent;
+  background: var(--vp-c-bg);
   color: var(--vp-c-neutral);
   font-size: 13px;
   line-height: 21px;
@@ -220,6 +348,7 @@ function active(href: string) {
 .demo-nav > label {
   position: relative;
   display: flex;
+  flex: none;
   height: 34px;
   align-items: center;
   gap: 7px;
@@ -227,7 +356,7 @@ function active(href: string) {
   padding: 0 10px 0 30px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 6px;
-  background: var(--vp-c-bg);
+  background: var(--vp-c-default-soft);
 }
 .demo-nav > label:focus-within {
   border-color: var(--demo-focus-color);
@@ -276,12 +405,19 @@ function active(href: string) {
   border: 0;
 }
 .demo-nav nav {
+  flex: 1;
+  min-height: 0;
   width: 100%;
-  height: calc(100% - 34px);
   overflow: auto;
-  padding: 12px 10px 16px 0;
+  padding: 9px 10px 16px 0;
   scrollbar-gutter: stable;
   scrollbar-width: thin;
+}
+.demo-nav__pinned {
+  flex: none;
+  margin-top: 12px;
+  padding: 0 10px 13px 0;
+  border-bottom: 1px solid var(--vp-c-divider);
 }
 .demo-nav nav::-webkit-scrollbar {
   width: 10px;
@@ -296,15 +432,79 @@ function active(href: string) {
   background-clip: padding-box;
 }
 .demo-nav section {
-  margin: 0 0 16px;
+  margin: 0 0 2px;
+}
+.demo-nav__pinned section {
+  margin: 0;
 }
 .demo-nav h2 {
-  margin: 0 8px 5px;
+  margin: 0;
   color: var(--vp-c-text-1);
   font-size: 10px;
   font-weight: 650;
   letter-spacing: 0.075em;
   text-transform: uppercase;
+}
+.demo-nav__pinned h2 {
+  margin: 0 8px 6px;
+}
+.demo-nav__eyebrow {
+  margin: 0 9px 5px;
+  color: var(--vp-c-text-2);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.075em;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+.demo-nav__group-toggle {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr) auto;
+  width: 100%;
+  min-height: 42px;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px 7px 9px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-align: left;
+  text-transform: none;
+}
+.demo-nav__group-toggle:hover {
+  background: var(--vp-c-default-soft);
+}
+.demo-nav__group-toggle:disabled {
+  cursor: default;
+}
+.demo-nav__group-toggle:focus-visible {
+  outline: 2px solid var(--demo-focus-color);
+  outline-offset: -2px;
+}
+.demo-nav__group-toggle :deep(.fa-svg-icon) {
+  width: 14px;
+  height: 14px;
+  color: var(--vp-c-text-2);
+  opacity: 0.82;
+}
+.demo-nav__chevron {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  transform: rotate(-45deg);
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  opacity: 0.72;
+  transition: transform 0.16s ease;
+}
+.demo-nav__group-toggle[aria-expanded='true'] .demo-nav__chevron {
+  transform: rotate(45deg);
 }
 .demo-nav a {
   display: grid;
@@ -350,6 +550,25 @@ function active(href: string) {
 .demo-nav a.active small {
   background: var(--vp-c-brand-soft);
 }
+.demo-nav__children {
+  margin: 0 0 5px 17px;
+  padding-left: 8px;
+  border-left: 1px solid var(--vp-c-divider);
+}
+.demo-nav__children a {
+  grid-template-columns: minmax(0, 1fr) auto;
+  min-height: 34px;
+  padding: 5px 8px;
+  font-size: 12px;
+  line-height: 17px;
+}
+.demo-nav__children a :deep(.fa-svg-icon) {
+  display: none;
+}
+.demo-nav nav > p:not(.demo-nav__eyebrow) {
+  margin: 8px 9px;
+  color: var(--vp-c-text-2);
+}
 .demo-nav-scrim {
   display: none;
 }
@@ -379,9 +598,6 @@ function active(href: string) {
     color: inherit;
     font-size: 20px;
   }
-  .demo-nav nav {
-    height: calc(100% - 66px);
-  }
   .demo-nav-scrim {
     display: block;
     position: fixed;
@@ -392,7 +608,8 @@ function active(href: string) {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .demo-nav {
+  .demo-nav,
+  .demo-nav__chevron {
     transition: none;
   }
 }

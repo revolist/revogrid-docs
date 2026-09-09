@@ -41,12 +41,16 @@ test('keeps the source panel compact and expandable', () => {
     new URL('../../../../.vitepress/theme/DemoSourcePanel.vue', import.meta.url),
     'utf8',
   )
-  assert.match(sourcePanel, /width:420px;min-width:420px/)
-  assert.match(sourcePanel, /@media\(max-width:1099px\)/)
-  assert.match(sourcePanel, /position:absolute;z-index:2;inset:0/)
-  assert.match(sourcePanel, /demo-source header\{[^}]*padding:0 18px 16px/)
+  assert.match(sourcePanel, /width:\s*420px;[\s\S]*?min-width:\s*420px/)
+  assert.match(sourcePanel, /@media\s*\(max-width:\s*1099px\)/)
+  assert.match(sourcePanel, /position:\s*absolute;[\s\S]*?z-index:\s*2;[\s\S]*?inset:\s*0/)
+  assert.match(sourcePanel, /aria-label="Example source code"/)
+  assert.match(sourcePanel, /grid-template-rows:\s*auto auto minmax\(0, 1fr\) auto/)
+  assert.match(sourcePanel, /class="demo-source__toolbar"/)
+  assert.match(sourcePanel, /demo-source__toolbar\s*\{[^}]*justify-content:\s*space-between/s)
   assert.match(sourcePanel, /FontAwesomeSvgIcon name="expand"/)
-  assert.match(sourcePanel, /demo-source:fullscreen\{[^}]*width:100%/)
+  assert.match(sourcePanel, /demo-source:fullscreen\s*\{[^}]*width:\s*100%/)
+  assert.doesNotMatch(sourcePanel, /Use this example|demo-source-title/)
   assert.doesNotMatch(sourcePanel, /Live preview uses Vue|demo-source__code-head|current\.command/)
   assert.doesNotMatch(sourcePanel, />Docs<|Open repository/)
   assert.doesNotMatch(layout, /implementation-url/)
@@ -60,19 +64,22 @@ test('keeps demo navigation at its specified breakpoint', () => {
     new URL('../../../../.vitepress/theme/DemoNavigation.vue', import.meta.url),
     'utf8',
   )
-  assert.match(navigation, /--demo-sidebar-width,256px/)
-  assert.match(navigation, /background:var\(--vp-c-brand-soft\)/)
-  assert.match(navigation, /demo-nav>label\{[^}]*background:var\(--vp-c-bg\)\}/)
-  assert.doesNotMatch(navigation, /demo-nav>label\{[^}]*box-shadow/)
+  assert.match(navigation, /--demo-sidebar-width,\s*256px/)
+  assert.match(navigation, /background:\s*var\(--vp-c-brand-soft\)/)
   assert.match(
     navigation,
-    /demo-nav>label:focus-within\{[^}]*border-color:var\(--vp-c-brand-1\)[^}]*outline:2px solid var\(--vp-c-brand-1\)/,
+    /demo-nav\s*>\s*label\s*\{[^}]*background:\s*var\(--vp-c-default-soft\)[^}]*\}/,
+  )
+  assert.doesNotMatch(navigation, /demo-nav\s*>\s*label\s*\{[^}]*box-shadow/)
+  assert.match(
+    navigation,
+    /demo-nav\s*>\s*label:focus-within\s*\{[^}]*border-color:\s*var\(--demo-focus-color\)[^}]*box-shadow:[^}]*var\(--demo-focus-ring\)/,
   )
   assert.match(
     readFileSync(new URL('../../../../.vitepress/theme/style.scss', import.meta.url), 'utf8'),
     /\.dark \.demo-page-class \.demo-nav/,
   )
-  assert.match(navigation, /@media\(max-width:1099px\)/)
+  assert.match(navigation, /@media\s*\(max-width:\s*1099px\)/)
   assert.doesNotMatch(navigation, /font(?:-family)?:[^;}]*Geist/)
 })
 
@@ -198,6 +205,38 @@ test('badges open-source demos as Free and keeps the scale demo label concise', 
   assert.match(
     navigation,
     /createItem\(\s*'grid-at-scale',\s*'Performance',\s*'\/demo\/grid-at-scale',\s*'grid'/,
+  )
+})
+
+test('keeps onboarding demos pinned above stateful collapsible feature groups', () => {
+  const navigation = readFileSync(
+    new URL('../../../../.vitepress/theme/DemoNavigation.vue', import.meta.url),
+    'utf8',
+  )
+  assert.match(navigation, /class="demo-nav__pinned"/)
+  assert.match(navigation, /ref="featureList"/)
+  assert.match(navigation, /class="demo-nav__group-toggle"/)
+  assert.match(navigation, /:aria-expanded="isGroupExpanded\(group\)"/)
+  assert.match(navigation, /revogrid-demo-navigation-expanded-groups/)
+  assert.match(navigation, /scrollIntoView\(\{/)
+  assert.match(navigation, /\.demo-nav\s*\{[^}]*display: flex[^}]*flex-direction: column/s)
+  assert.match(navigation, /\.demo-nav nav\s*\{[^}]*flex: 1[^}]*overflow: auto/s)
+})
+
+test('uses the compact explorer hierarchy in demo navigation', () => {
+  const navigation = readFileSync(
+    new URL('../../../../.vitepress/theme/DemoNavigation.vue', import.meta.url),
+    'utf8',
+  )
+  assert.match(navigation, />Explore demos<\/p>/)
+  assert.match(navigation, /new Set\(\['data-grid'\]\)/)
+  assert.match(navigation, /<FontAwesomeSvgIcon :name="group\.icon" \/>/)
+  assert.match(navigation, /class="demo-nav__children"/)
+  assert.doesNotMatch(navigation, /\.demo-nav__pinned a\.active/)
+  assert.match(navigation, /\.demo-nav a\.active\s*\{[^}]*background: var\(--vp-c-brand-soft\)/)
+  assert.match(
+    navigation,
+    /\.demo-nav__children\s*\{[^}]*border-left: 1px solid var\(--vp-c-divider\)/,
   )
 })
 

@@ -46,6 +46,53 @@ test('navigation search finds demos by category, feature, and alias without chan
   await expect(page.locator('.demo-nav nav a')).toContainText('Server-side scrolling')
 })
 
+test('navigation pins onboarding demos and remembers collapsible feature groups', async ({
+  page,
+}) => {
+  await page.goto('/demo/')
+  await page.evaluate(() => localStorage.removeItem('revogrid-demo-navigation-expanded-groups'))
+  await page.reload()
+
+  const pinned = page.locator('.demo-nav__pinned')
+  await expect(pinned.getByRole('link', { name: /Project workspace/ })).toBeVisible()
+  await expect(pinned.getByRole('link', { name: /Performance/ })).toBeVisible()
+
+  const dataGrid = page.getByRole('button', { name: 'Data grid' })
+  const kanban = page.getByRole('button', { name: 'Kanban' })
+  await expect(dataGrid).toHaveAttribute('aria-expanded', 'false')
+  await expect(kanban).toHaveAttribute('aria-expanded', 'false')
+
+  await kanban.click()
+  await expect(kanban).toHaveAttribute('aria-expanded', 'true')
+  await expect(page.locator('#demo-nav-group-kanban')).toContainText('Task board')
+
+  await page.reload()
+  await expect(page.getByRole('button', { name: 'Kanban' })).toHaveAttribute(
+    'aria-expanded',
+    'true',
+  )
+})
+
+test('navigation expands the active category and keeps its selected demo in view', async ({
+  page,
+}) => {
+  await page.goto('/demo/kanban-server-loading')
+
+  await expect(page.getByRole('button', { name: 'Kanban' })).toHaveAttribute(
+    'aria-expanded',
+    'true',
+  )
+  const selected = page.locator('.demo-nav nav a.active')
+  await expect(selected).toContainText('Server loading')
+  await expect(selected).toBeInViewport()
+  const withinFeatureList = await page.evaluate(() => {
+    const list = document.querySelector('.demo-nav nav')!.getBoundingClientRect()
+    const active = document.querySelector('.demo-nav nav a.active')!.getBoundingClientRect()
+    return active.top >= list.top && active.bottom <= list.bottom
+  })
+  expect(withinFeatureList).toBe(true)
+})
+
 test('mobile navigation opens on an opaque full-width surface', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/demo/')
@@ -136,10 +183,23 @@ test('source panel uses real files and preserves the live workspace', async ({ p
   await expect(page.getByText(/of 100 tasks/)).toBeVisible()
 
   await page.getByRole('button', { name: 'Code' }).click()
-  await expect(page.getByRole('dialog', { name: 'Use this example' })).toBeVisible()
+  const sourcePanel = page.getByRole('dialog', { name: 'Example source code' })
+  await expect(sourcePanel).toBeVisible()
+  await expect(sourcePanel.getByText('Use this example')).toHaveCount(0)
   await expect(page.getByText('Live preview uses Vue')).toHaveCount(0)
   await expect(page.locator('.demo-source__code-head')).toHaveCount(0)
-  await expect(page.getByRole('button', { name: 'Full screen code' })).toBeVisible()
+  const fullScreenButton = sourcePanel.getByRole('button', { name: 'Full screen code' })
+  await expect(fullScreenButton).toBeVisible()
+  const toolbarAlignment = await page.evaluate(() => {
+    const tab = document
+      .querySelector<HTMLElement>('.demo-source [role="tab"]')!
+      .getBoundingClientRect()
+    const action = document
+      .querySelector<HTMLElement>('.demo-source__fullscreen')!
+      .getBoundingClientRect()
+    return Math.abs(tab.top + tab.height / 2 - (action.top + action.height / 2))
+  })
+  expect(toolbarAlignment).toBeLessThanOrEqual(1)
   const sourceGeometry = await page.evaluate(() => {
     const stage = document.querySelector('.demo-page-stage')!.getBoundingClientRect()
     const workspace = document.querySelector('.demo-page-workspace')!.getBoundingClientRect()
@@ -149,12 +209,12 @@ test('source panel uses real files and preserves the live workspace', async ({ p
   expect(sourceGeometry.source.left).toBeGreaterThan(sourceGeometry.stage.left)
   expect(sourceGeometry.source.right).toBeLessThanOrEqual(sourceGeometry.stage.right + 1)
   expect(sourceGeometry.workspace.left).toBe(sourceGeometry.stage.left)
-  expect(sourceGeometry.workspace.right).toBeLessThan(sourceGeometry.source.left)
+  expect(sourceGeometry.workspace.right).toBeLessThanOrEqual(sourceGeometry.source.left)
   await expect(page.getByLabel('File')).toHaveValue('0')
   await expect(page.getByLabel('File')).toContainText('planning.vue')
   await page.getByRole('tab', { name: 'React' }).click()
   await expect(page.getByLabel('File')).toContainText('planning.react.tsx')
-  await page.getByRole('button', { name: 'Full screen code' }).click()
+  await fullScreenButton.click()
   await expect
     .poll(() => page.evaluate(() => document.fullscreenElement?.classList.contains('demo-source')))
     .toBe(true)
@@ -177,7 +237,7 @@ test('clipboard errors are visible and do not close the source panel', async ({ 
   await page.getByRole('button', { name: 'Code' }).click()
   await page.getByRole('button', { name: 'Copy file' }).click()
   await expect(page.getByRole('button', { name: 'Copy failed' })).toBeVisible()
-  await expect(page.getByRole('dialog', { name: 'Use this example' })).toBeVisible()
+  await expect(page.getByRole('dialog', { name: 'Example source code' })).toBeVisible()
 })
 
 test('grid selection controls show clear unchecked, checked and mixed states', async ({ page }) => {

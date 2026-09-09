@@ -4,11 +4,23 @@
     class="demo-source"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="demo-source-title"
+    aria-label="Example source code"
     @keydown="onKeydown"
   >
-    <header>
-      <h2 id="demo-source-title">Use this example</h2>
+    <div class="demo-source__toolbar">
+      <nav role="tablist" aria-label="Source framework">
+        <button
+          v-for="(entry, id) in sources"
+          :key="id"
+          type="button"
+          role="tab"
+          :aria-selected="framework === id"
+          :class="{ active: framework === id }"
+          @click="selectFramework(id as DemoSourceFramework)"
+        >
+          {{ entry.label }}
+        </button>
+      </nav>
       <div class="demo-source__header-actions">
         <button
           class="demo-source__fullscreen"
@@ -23,20 +35,7 @@
           ><span class="demo-source__close" aria-hidden="true">×</span>
         </button>
       </div>
-    </header>
-    <nav role="tablist" aria-label="Source framework">
-      <button
-        v-for="(entry, id) in sources"
-        :key="id"
-        type="button"
-        role="tab"
-        :aria-selected="framework === id"
-        :class="{ active: framework === id }"
-        @click="selectFramework(id as DemoSourceFramework)"
-      >
-        {{ entry.label }}
-      </button>
-    </nav>
+    </div>
     <label class="demo-source__file"
       ><span>File</span
       ><select v-model.number="fileIndex">
@@ -161,7 +160,7 @@ onBeforeUnmount(() => document.removeEventListener('fullscreenchange', syncFulls
 <style scoped>
 .demo-source {
   display: grid;
-  grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
   width: 420px;
   min-width: 420px;
   height: 100%;
@@ -175,22 +174,20 @@ onBeforeUnmount(() => document.removeEventListener('fullscreenchange', syncFulls
   min-width: 0;
   border-left: 0;
 }
-.demo-source header,
 .demo-source footer,
 .demo-source nav,
 .demo-source__file,
+.demo-source__toolbar,
 .demo-source__header-actions {
   display: flex;
   align-items: center;
 }
-.demo-source header {
+.demo-source__toolbar {
+  min-width: 0;
   justify-content: space-between;
-  padding: 0 18px 16px;
-}
-.demo-source h2 {
-  margin: 0;
-  border: 0;
-  font-size: 17px;
+  gap: 8px;
+  padding: 0 18px;
+  border-bottom: 1px solid var(--vp-c-divider);
 }
 .demo-source button,
 .demo-source select {
@@ -200,14 +197,15 @@ onBeforeUnmount(() => document.removeEventListener('fullscreenchange', syncFulls
   color: inherit;
 }
 .demo-source__header-actions {
+  flex: none;
   gap: 8px;
 }
-.demo-source header button {
+.demo-source__header-actions button {
   height: 34px;
   padding: 0 10px;
   font-size: 13px;
 }
-.demo-source header .demo-source__fullscreen {
+.demo-source__header-actions .demo-source__fullscreen {
   display: inline-flex;
   width: 34px;
   align-items: center;
@@ -221,10 +219,11 @@ onBeforeUnmount(() => document.removeEventListener('fullscreenchange', syncFulls
   font-size: 22px;
 }
 .demo-source nav {
-  padding: 0 18px;
-  border-bottom: 1px solid var(--vp-c-divider);
+  min-width: 0;
+  overflow-x: auto;
 }
 .demo-source nav button {
+  flex: none;
   height: 38px;
   padding: 0 10px;
   border: 0;
