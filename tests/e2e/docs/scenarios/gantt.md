@@ -4,7 +4,7 @@ Supplemental viewport/theme observations and live-checkout limitations: [catalog
 
 **Route:** `/demo/gantt`
 
-The docs embeds the Launch SaaS Product showcase, with 18 seed tasks, summary hierarchy, dependencies, assignments and milestones. The docs explicitly hides `.gantt-showcase-controls`: Critical path and Baselines checkboxes from the standalone example are not part of the docs UI. Critical path starts enabled; the Vue component overrides baseline visibility to false.
+The docs embeds the Launch SaaS Product showcase, with 18 seed tasks, summary hierarchy, dependencies, assignments and milestones. The docs hides `.gantt-showcase-visual-controls`: Critical path and Baselines checkboxes from the standalone example are not part of the docs UI. Fit / Week / Month remain visible, with Week selected initially. Critical path starts enabled; the Vue component overrides baseline visibility to false.
 
 ## Review evidence and execution contract
 

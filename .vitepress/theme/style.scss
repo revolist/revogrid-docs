@@ -117,6 +117,19 @@
   }
 }
 
+@media (min-width: 960px) and (max-width: 1099px) {
+  .demo-page-class .VPNavBar.has-sidebar .title {
+    position: static;
+    padding: 0;
+    width: auto;
+  }
+
+  .demo-page-class .VPNavBar.has-sidebar .content,
+  .demo-page-class .VPNavBar.has-sidebar .divider {
+    padding-left: 0;
+  }
+}
+
 .dark .demo-page-class .demo-nav > label {
   border-color: #515b56;
   background: #191c1b;

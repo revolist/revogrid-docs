@@ -38,6 +38,7 @@ import { useScrollLock } from '@vueuse/core'
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { inBrowser, useRoute } from 'vitepress'
 import { PRODUCT_CATALOG, type DemoId } from '../../commercial/productCatalog'
+import { getDemoPageConfig } from './demoPageLayout'
 import FontAwesomeSvgIcon from './home-v2/FontAwesomeSvgIcon.vue'
 const route = useRoute()
 const open = ref(false)
@@ -65,49 +66,75 @@ onBeforeUnmount(() => {
   isPageScrollLocked.value = false
 })
 
-const item = (id: DemoId, label: string, href: string, icon = 'grid') => ({
-  id,
-  label,
-  href,
-  icon,
-  plan:
-    PRODUCT_CATALOG.demos[id].planId === 'open-source'
-      ? null
-      : PRODUCT_CATALOG.demos[id].planId === 'pro-lite'
-        ? 'Pro'
-        : 'Advanced',
-})
+const createItem = (
+  id: DemoId,
+  label: string,
+  href: string,
+  icon = 'grid',
+  aliases: readonly string[] = [],
+) => {
+  const catalogDemo = PRODUCT_CATALOG.demos[id]
+  const page = getDemoPageConfig(id)
+
+  return {
+    id,
+    label,
+    href,
+    icon,
+    searchTerms: [
+      label,
+      catalogDemo.title,
+      page.title,
+      id.replaceAll('-', ' '),
+      ...aliases,
+      ...page.featureBadges.map(feature => feature.label),
+    ].map(term => term.toLowerCase()),
+    plan:
+      catalogDemo.planId === 'open-source'
+        ? 'Free'
+        : catalogDemo.planId === 'pro-lite'
+          ? 'Pro'
+          : 'Advanced',
+  }
+}
 const groups = [
   {
     label: 'Start here',
     items: [
-      item('planning', 'Project workspace', '/demo/', 'listCheck'),
-      item('grid-at-scale', 'Performance', '/demo/grid-at-scale', 'grid'),
+      createItem('planning', 'Project workspace', '/demo/', 'listCheck', ['planning']),
+      createItem('grid-at-scale', 'Performance', '/demo/grid-at-scale', 'grid', ['HR']),
     ],
   },
   {
     label: 'Data grid',
     items: [
-      item('ai-prompt-library', 'AI prompts', '/demo/ai-prompts', 'message'),
-      item('project-portfolio', 'Row Grouping', '/demo/project-portfolio', 'chart'),
-      item('project-tracker', 'Project tracker', '/demo/color', 'listCheck'),
-      item('tree-data', 'Tree data', '/demo/tree-data', 'tree'),
-      item('filtering', 'Advanced filtering', '/demo/filtering', 'filter'),
-      item('infinity-scroll', 'Server-side scrolling', '/demo/infinity-scroll', 'server'),
-      item('column-collapse', 'Column collapse', '/demo/column-collapse', 'collapseColumns'),
-      item('context-menu', 'Grid formatting', '/demo/context-menu', 'tool'),
-      item('row-master', 'Master detail', '/demo/row-master', 'rectangleList'),
-      item('audit-history', 'Audit history', '/demo/audit-history', 'edit'),
-      item('excel', 'Collaboration', '/demo/excel', 'users'),
+      createItem('ai-prompt-library', 'AI prompts', '/demo/ai-prompts', 'message'),
+      createItem('project-portfolio', 'Row Grouping', '/demo/project-portfolio', 'chart', [
+        'Project portfolio',
+      ]),
+      createItem('project-tracker', 'Project tracker', '/demo/color', 'listCheck', ['Color']),
+      createItem('tree-data', 'Tree data', '/demo/tree-data', 'tree'),
+      createItem('filtering', 'Advanced filtering', '/demo/filtering', 'filter'),
+      createItem('infinity-scroll', 'Server-side scrolling', '/demo/infinity-scroll', 'server'),
+      createItem('column-collapse', 'Column collapse', '/demo/column-collapse', 'collapseColumns'),
+      createItem('context-menu', 'Grid formatting', '/demo/context-menu', 'tool', ['Context menu']),
+      createItem('row-master', 'Master detail', '/demo/row-master', 'rectangleList', [
+        'Row master',
+      ]),
+      createItem('audit-history', 'Audit history', '/demo/audit-history', 'edit'),
+      createItem('excel', 'Collaboration', '/demo/excel', 'users', ['Excel', 'Spreadsheet']),
     ],
   },
-  { label: 'Pivot table', items: [item('pivot', 'Pivot table', '/demo/pivot', 'chartColumn')] },
+  {
+    label: 'Pivot table',
+    items: [createItem('pivot', 'Pivot table', '/demo/pivot', 'chartColumn')],
+  },
   {
     label: 'Gantt',
     items: [
-      item('gantt', 'Gantt chart', '/demo/gantt', 'gantt'),
-      item('gantt-big-data', '10K tasks', '/demo/gantt-big-data', 'gantt'),
-      item(
+      createItem('gantt', 'Gantt chart', '/demo/gantt', 'gantt'),
+      createItem('gantt-big-data', '10K tasks', '/demo/gantt-big-data', 'gantt'),
+      createItem(
         'gantt-horizontal-big-data',
         '20-year timeline',
         '/demo/gantt-horizontal-big-data',
@@ -117,14 +144,24 @@ const groups = [
   },
   {
     label: 'Scheduler',
-    items: [item('event-scheduler', 'Shift scheduling', '/demo/event-scheduler', 'calendarDays')],
+    items: [
+      createItem('event-scheduler', 'Shift scheduling', '/demo/event-scheduler', 'calendarDays', [
+        'Calendar',
+        'Event scheduler',
+      ]),
+    ],
   },
   {
     label: 'Kanban',
     items: [
-      item('kanban', 'Task board', '/demo/kanban', 'columns'),
-      item('kanban-performance', '50K cards', '/demo/kanban-performance', 'columns'),
-      item('kanban-server-loading', 'Server loading', '/demo/kanban-server-loading', 'columns'),
+      createItem('kanban', 'Task board', '/demo/kanban', 'columns'),
+      createItem('kanban-performance', '50K cards', '/demo/kanban-performance', 'columns'),
+      createItem(
+        'kanban-server-loading',
+        'Server loading',
+        '/demo/kanban-server-loading',
+        'columns',
+      ),
     ],
   },
 ]
@@ -133,7 +170,12 @@ const filteredGroups = computed(() => {
   return groups
     .map(group => ({
       ...group,
-      items: group.items.filter(entry => !value || entry.label.toLowerCase().includes(value)),
+      items: group.items.filter(
+        entry =>
+          !value ||
+          group.label.toLowerCase().includes(value) ||
+          entry.searchTerms.some(term => term.includes(value)),
+      ),
     }))
     .filter(group => group.items.length)
 })

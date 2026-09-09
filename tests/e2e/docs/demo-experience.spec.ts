@@ -21,14 +21,29 @@ test('compatibility routes resolve to the canonical demo identity', async ({ pag
   }
 })
 
-test('navigation search filters examples without changing the route', async ({ page }) => {
+test('navigation search finds demos by category, feature, and alias without changing the route', async ({
+  page,
+}) => {
   await page.goto('/demo/')
   await expect(page.locator('.demo-nav a[href="/demo/"]')).toHaveClass(/active/)
   const search = page.getByPlaceholder('Find a demo…')
+
   await search.fill('kanban')
   await expect(page).toHaveURL(/\/demo\/$/)
   await expect(page.locator('.demo-nav nav a')).toHaveCount(3)
   await expect(page.locator('.demo-nav nav')).toContainText('Kanban')
+
+  await search.fill('scheduler')
+  await expect(page.locator('.demo-nav nav a')).toHaveCount(1)
+  await expect(page.locator('.demo-nav nav a')).toContainText('Shift scheduling')
+
+  await search.fill('WIP limits')
+  await expect(page.locator('.demo-nav nav a')).toHaveCount(1)
+  await expect(page.locator('.demo-nav nav a')).toContainText('Task board')
+
+  await search.fill('Infinity Scroll')
+  await expect(page.locator('.demo-nav nav a')).toHaveCount(1)
+  await expect(page.locator('.demo-nav nav a')).toContainText('Server-side scrolling')
 })
 
 test('mobile navigation opens on an opaque full-width surface', async ({ page }) => {

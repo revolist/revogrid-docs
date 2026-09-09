@@ -28,6 +28,11 @@ const sourceFile = (path: string, load: () => Promise<string>): DemoSourceFile =
 })
 
 const planningSupportingFiles = [
+  sourceFile('pro-advanced-planning/src/planning.tips.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/planning.tips.ts?raw').then(
+      module => module.default,
+    ),
+  ),
   sourceFile('pro-advanced-planning/src/composables/usePlanningWorkspace.ts', () =>
     import('../../revogrid-demos/pro-advanced-planning/src/composables/usePlanningWorkspace.ts?raw').then(
       module => module.default,

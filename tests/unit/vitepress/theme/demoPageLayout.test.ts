@@ -393,7 +393,9 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
 
 test('resolves the requested public plan labels and try-in-project destinations', () => {
   const expected = {
-    'grid-at-scale': { plan: 'Core', destination: '/guide/' },
+    'grid-at-scale': { plan: 'Free', destination: '/guide/' },
+    'ai-prompt-library': { plan: 'Free', destination: '/guide/' },
+    'project-portfolio': { plan: 'Free', destination: '/guide/' },
     'project-tracker': { plan: 'Pro Lite', destination: 'https://rv-grid.com/trial' },
     pivot: { plan: 'Pro Advanced', destination: 'https://rv-grid.com/trial' },
   } as const satisfies Partial<Record<DemoId, { plan: string; destination: string }>>

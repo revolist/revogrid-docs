@@ -100,6 +100,17 @@ test('releases the demo sidebar layout reservation when navigation is off-canvas
   )
 })
 
+test('keeps the demo title in flow beside search while the sidebar is off-canvas', () => {
+  const styles = readFileSync(
+    new URL('../../../../.vitepress/theme/style.scss', import.meta.url),
+    'utf8',
+  )
+  assert.match(
+    styles,
+    /@media \(min-width: 960px\) and \(max-width: 1099px\)\s*\{[\s\S]*?\.demo-page-class \.VPNavBar\.has-sidebar \.title\s*\{[^}]*position: static/,
+  )
+})
+
 test('uses the primary text token for demo sidebar section headings', () => {
   const navigation = readFileSync(
     new URL('../../../../.vitepress/theme/DemoNavigation.vue', import.meta.url),
@@ -177,14 +188,17 @@ test('uses the site color tokens instead of a demo-specific palette', () => {
   }
 })
 
-test('keeps open-source demos unbadged and labels the scale demo Performance', () => {
+test('badges open-source demos as Free and keeps the scale demo label concise', () => {
   const navigation = readFileSync(
     new URL('../../../../.vitepress/theme/DemoNavigation.vue', import.meta.url),
     'utf8',
   )
   assert.match(navigation, /<small v-if="item\.plan">/)
-  assert.match(navigation, /planId === 'open-source' \? null/)
-  assert.match(navigation, /item\('grid-at-scale','Performance','\/demo\/grid-at-scale','grid'\)/)
+  assert.match(navigation, /planId === 'open-source'\s*\? 'Free'/)
+  assert.match(
+    navigation,
+    /createItem\(\s*'grid-at-scale',\s*'Performance',\s*'\/demo\/grid-at-scale',\s*'grid'/,
+  )
 })
 
 test('keeps planning tabs simple and leaves only working shared top actions', () => {
@@ -300,6 +314,7 @@ test('uses native advanced filters, quick search, and plugin-owned badges in the
       'pro-advanced-planning/src/composables/usePlanningWorkspace.ts',
     ),
   )
+  assert.ok(getRegisteredDemoSourcePaths().includes('pro-advanced-planning/src/planning.tips.ts'))
   const tsSource = readFileSync(
     new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.ts', import.meta.url),
     'utf8',

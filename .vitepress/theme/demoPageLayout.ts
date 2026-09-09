@@ -21,7 +21,7 @@ export interface DemoPageContent {
 
 export interface DemoPageConfig extends DemoPageContent {
   demo: CatalogDemo
-  planLabel: 'Core' | 'Pro Lite' | 'Pro Advanced'
+  planLabel: 'Free' | 'Pro Lite' | 'Pro Advanced'
   primaryCtaUrl: string
   pricingUrl: string
 }
@@ -336,7 +336,7 @@ const DEMO_PAGE_CONTENT = {
 } as const satisfies Record<DemoId, DemoPageContent>
 
 const PLAN_LABELS = {
-  'open-source': 'Core',
+  'open-source': 'Free',
   'pro-lite': 'Pro Lite',
   'pro-advanced': 'Pro Advanced',
 } as const satisfies Partial<Record<PlanId, DemoPageConfig['planLabel']>>
