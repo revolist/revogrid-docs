@@ -16,9 +16,7 @@ Hard reload restores eight invoice rows and four seed transactions in memory. Au
 
 The coordinating reviewer additionally inspected the initial route at 1440×900 in dark theme and 390×844 in light theme. Consult the central evidence matrix for the final per-viewport findings; the detailed interactions below were not automatically repeated in those viewports.
 
-Root reviewer opened and screenshotted this route in light theme at 1280×720. Eight invoice rows rendered. Customer Northwind changed to Northwind E2E successfully, but the complementary/aside area remained empty, including after the edit. Change ledger was NOT visible. AUDIT-001 ledger acceptance currently fails observation; ledger count/compare/restore/export cases are blocked by this missing panel. No claim is made that underlying audit records failed to collect.
-
-Mount investigation (hypothesis, not confirmed cause): Vue onMounted reads only gridRef.value?.$el and has no direct-element fallback or retry. The panel renderer would create a section even before records load; an empty aside therefore suggests skipped initialization or an exception, not proof of an empty audit store. No fix was made. Keep the P0 expectation below intact and record actual failure separately.
+The product owner confirmed that the Audit History ledger is working; the prior browser observation of an empty aside is withdrawn. AUDIT-001 is a required load-gate assertion. Re-run the ledger edit/compare/restore/export sequence against the current built docs host before recording any defect.
 
 ## Scenarios
 

@@ -509,19 +509,55 @@ test('planning Gantt uses varied schedules and aligns the Today marker', async (
   await expect(page.locator('.gantt-bar--task').first()).toBeVisible()
 
   const timeline = await page.evaluate(() => {
+    const grid = document.querySelector<HTMLElement & {
+      gantt?: { zoom?: { defaultLevelId?: string } }
+    }>('.planning-demo revo-grid.gantt-plugin')!
     const cap = document.querySelector('.gantt-header-flag-cap--today')!.getBoundingClientRect()
     const line = document
       .querySelector('.gantt-background__flag-line--today')!
       .getBoundingClientRect()
+    const leafWidths = Array.from(document.querySelectorAll('.gantt-header-cell--leaf'))
+      .map(cell => cell.getBoundingClientRect().width)
+      .filter(width => width > 0)
     const widths = Array.from(document.querySelectorAll('.gantt-bar--task'))
       .map(bar => bar.getBoundingClientRect().width)
       .filter(width => width > 0)
-    return { markerOffset: Math.abs(cap.left - line.left), widths }
+    return {
+      defaultLevelId: grid.gantt?.zoom?.defaultLevelId,
+      leafWidths,
+      markerOffset: Math.abs(cap.left - line.left),
+      widths,
+    }
   })
 
+  expect(timeline.defaultLevelId).toBe('day-week-medium')
+  expect(timeline.leafWidths.length).toBeGreaterThanOrEqual(2)
+  expect(timeline.leafWidths.every(width => Math.abs(width - 100) <= 1)).toBe(true)
   expect(timeline.markerOffset).toBeLessThanOrEqual(1)
   expect(timeline.widths.length).toBeGreaterThanOrEqual(9)
   expect(Math.max(...timeline.widths) - Math.min(...timeline.widths)).toBeGreaterThan(30)
+})
+
+test('planning Gantt keeps additional assignees selected', async ({ page }) => {
+  await page.goto('/demo/')
+  await page.getByRole('tab', { name: 'gantt', exact: true }).click()
+
+  const grid = page.locator('.planning-demo revo-grid.gantt-plugin')
+  const assigneeCell = grid.locator('.gantt-assignee-selected-list').first()
+  await expect(assigneeCell).toContainText('Maya')
+  await assigneeCell.click()
+
+  const menu = page.locator('.revo-dropdown-menu.gantt-assignee-dropdown')
+  const ava = menu.locator('.gantt-assignee-select-option').filter({ hasText: 'Ava' })
+  await expect(menu).toBeVisible()
+  await ava.click()
+
+  await expect(ava).toHaveAttribute('aria-selected', 'true')
+  await expect(ava.locator('input')).toBeChecked()
+
+  await page.keyboard.press('Escape')
+  await expect(menu).toBeHidden()
+  await expect(assigneeCell.locator('.gantt-assignee-avatar')).toHaveCount(2)
 })
 
 test('planning filters persist across every workspace view', async ({ page }) => {

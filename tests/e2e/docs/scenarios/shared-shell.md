@@ -13,7 +13,7 @@ Purpose: catch wrong mounts, broken assets and shell-only false positives.
 3. Inspect navigation → exactly one matching canonical example has the active presentation; its destination agrees with the catalog.
 4. Open Code and close with Back to demo → original workspace remains present and no second demo is mounted.
 
-Visual: header/actions and grid are readable, content scrolls within the intended workspace, no persistent loading layer hides data. Audit ledger failure is additional to invoice-grid readiness.
+Visual: header/actions and grid are readable, content scrolls within the intended workspace, no persistent loading layer hides data. Audit History also requires its Change ledger panel to be ready.
 
 Automation: scope to demo ID, then actual fixture record; assert link destinations without following trial or GitHub links. Collect errors and asset failures, distinguishing localhost external services from demo failures. Do not use analytics `demo_ready` alone as a data-ready oracle.
 
@@ -23,7 +23,7 @@ Evidence: all routes opened and initial screenshots inspected; step 4 was exerci
 
 Purpose: protect existing entry URLs without duplicate scenario coverage.
 
-1. Open `/demo/planning` → mounts `[data-demo-id="planning"]`, Project workspace, the five view tabs and default 60 of 100 tasks; canonical link is `https://rv-grid.com/demo/`.
+1. Open `/demo/planning` → mounts `[data-demo-id="planning"]`, Project workspace, the five view tabs and default 100 of 100 tasks; canonical link is `https://rv-grid.com/demo/`.
 2. Inspect navigation → Project workspace is active. Follow its canonical link `/demo/` → same initial fixture and view family load.
 3. Open `/demo/hr` → mounts `[data-demo-id="grid-at-scale"]`, Performance dataset controls and Avery Chen; canonical link is `https://rv-grid.com/demo/grid-at-scale`.
 4. Follow Performance's canonical link → same demo family appears. Back/forward across aliases → mounted identity always follows route; no duplicate entry is added to navigation.
@@ -36,7 +36,7 @@ Evidence: both alias pages opened at 960×800/light; IDs and canonical links rea
 
 Purpose: navigation search must not filter or reset the active demo.
 
-1. On Planning, type `Maya` into Quick search tasks and wait for 12 of 100 tasks → this establishes observable workspace state.
+1. On Planning, type `Maya` into Quick search tasks and wait for 20 of 100 tasks → this establishes observable workspace state.
 2. In Find a demo type `kanban` → only Kanban, 50K Kanban and 100K Remote Kanban remain; route and Maya workspace query stay unchanged.
 3. Replace navigation query with `zz-no-demo-qa` → No matching demos appears; live workspace remains usable.
 4. Select all navigation search text and Backspace → all 21 examples return. Repeat with `  KANBAN  ` → the same three matches appear because matching trims and ignores case.
@@ -50,10 +50,10 @@ Evidence: three matches, no results and clearing observed; whitespace/case varia
 
 Purpose: switching reference code must not replace the live Vue demo.
 
-1. Fresh Planning with no source-framework preference; search Maya → 12 of 100. Click Code → Use this example dialog opens with Vue selected and its registered first file loaded.
-2. Choose React → selected tab and File value become the registry's React entry (`planning.react.tsx`); displayed code belongs to it, while the existing Vue workspace and Maya result remain unchanged.
+1. Fresh Planning with no source-framework preference; search Maya → 20 of 100. Click Code → Use this example dialog opens with Vue selected and its registered first file loaded.
+2. Choose React → selected tab and File value become the registry's React entry (`planning.react.tsx`); displayed code belongs to it, while the existing workspace and Maya result remain unchanged.
 3. Choose Angular, then JavaScript (the Vanilla TS example) → each displays its own registered file. If a framework has multiple files, select another File → displayed text matches that file. Changing framework resets file selection to its first file.
-4. Close, then reopen → last selected framework is retained in session storage, first file selected, and Maya state remains 12 of 100. Open a different demo's Code → framework preference carries over but code comes from the new demo.
+4. Close, then reopen → last selected framework is retained in session storage, first file selected, and Maya state remains 20 of 100. Open a different demo's Code → framework preference carries over but code comes from the new demo.
 5. Clear only `revogrid-demo-source-framework` in a new isolated context → Vue is default again.
 
 Visual: selected source tab, filename and code agree; long lines scroll inside source; preview retains its size/selection as space permits. Automation: use dialog, Source framework tabs and File select; compare source contents to the registry. Four tabs do not mean four running framework implementations.
@@ -106,11 +106,11 @@ Evidence: [matrix](README.md#viewport-and-theme-evidence) specifies inspected co
 
 Purpose: detect stale projections, listeners and state leaking between demos.
 
-1. Fresh Planning, search Maya → 12 of 100. Open/close Code → remains 12 of 100.
+1. Fresh Planning, search Maya → 20 of 100. Open/close Code → remains 20 of 100.
 2. Navigate to Filtering → its default 217 of 10,000 and default badges appear, without Planning query or tasks.
 3. Navigate to Remote Kanban and wait for loaded status → loaded cards have no duplicate identities (multiple chunk requests are legitimate); navigating back to Filtering → correct filter fixture returns according to its reset contract.
 4. Repeat this route loop twice → one workspace per route, no duplicated toolbar/dialog, no dead controls or previously mounted overlays.
-5. Full reload Planning in fresh storage → default 60 of 100, not the former Maya search. Separately run each demo's explicit saved-settings case → only settings documented as persisted survive reload.
+5. Full reload Planning in fresh storage → default 100 of 100, not the former Maya search. Separately run each demo's explicit saved-settings case → only settings documented as persisted survive reload.
 
 Visual: back/forward and loading transitions never leave permanent white content after real readiness. Automation: use final stable identities and bounded mounted content; record application errors. Do not require all demos to share a persistence policy. Vite HMR resets during this review are environment interruptions, not established navigation defects.
 

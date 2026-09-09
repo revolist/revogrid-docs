@@ -4,7 +4,7 @@ Supplemental viewport/theme observations and live-checkout limitations: [catalog
 
 **Route:** `/demo/`
 
-One canonical 100-task model is shared by Grid, Kanban, Gantt, Scheduler and Calendar. The initial Status filter excludes Done, leaving **60 of 100 tasks**. The current toolbar has the five view tabs and Full screen; quick search is inside the grid filter-badge bar. There is no current custom More/Reset button, old Filter popover or project selector. Reload is the reset. Changes stay in memory in this demo.
+One canonical 100-task model is shared by Grid, Kanban, Gantt, Scheduler and Calendar. The initial view shows **100 of 100 tasks**. The current toolbar has the five view tabs and Full screen; quick search is inside the grid filter-badge bar. There is no current custom More/Reset button, old Filter popover or project selector. Reload is the reset. Changes stay in memory in this demo.
 
 ## Review evidence and execution contract
 
@@ -17,9 +17,9 @@ One canonical 100-task model is shared by Grid, Kanban, Gantt, Scheduler and Cal
 
 Baseline screenshot coverage also includes **1440×900/dark and 1280×720/light** for this route, as recorded by the central reviewer. Baseline inspection does not imply that every interaction below ran at both settings; narrow-screen evidence is tracked centrally.
 
-Central browser review executed at **1280×720, dark theme** on 2026-09-08. Root reviewer opened Grid, Kanban, Gantt, Scheduler and Calendar and inspected screenshots. Initial count was 60/100; Maya search settled at 12/100. Kanban showed four Maya cards in each of Planned/In progress/Blocked and zero Done. Gantt showed names/bars and Today marker. Resource Scheduler showed five owners; Maya events were outside its initial visible Sep 7 window. Calendar showed September 2026 Maya events. Code drawer switched to React file `planning.react.tsx`, retained the then-visible Vue live-framework label (removed by later concurrent source-panel changes), closed on Escape, returned focus to Code and preserved Maya query.
+Central browser review executed at **1280×720, dark theme** on 2026-09-08. Root reviewer opened Grid, Kanban, Gantt, Scheduler and Calendar and inspected screenshots. The current fixture shows 100/100 initially; Maya search settles at 20/100. Gantt showed names/bars and Today marker. Resource Scheduler showed five owners. Calendar showed September 2026 Maya events. Code drawer switched to React file `planning.react.tsx`, closed on Escape, returned focus to Code and preserved Maya query.
 
-A concurrent Vite/HMR rebuild at approximately 11:35:50 UTC reset planning state and reported CSS/module reload failures before recovery. Browser observations therefore describe the live development tree, not an immutable clean checkout. Subsequent central review also tested an unmatched query → 0/100, then keyboard clearing → 60/100, and inspected light-mode screenshots at 1440×900, 960×800 and 390×844. Task mutation, drag and fullscreen were not executed; screenshots alone do not establish every mobile interaction.
+A concurrent Vite/HMR rebuild at approximately 11:35:50 UTC reset planning state and reported CSS/module reload failures before recovery. Browser observations therefore describe the live development tree, not an immutable clean checkout. Subsequent central review also tested an unmatched query → 0/100, then keyboard clearing → 100/100, and inspected light-mode screenshots at 1440×900, 960×800 and 390×844. Task mutation, drag and fullscreen were not executed; screenshots alone do not establish every mobile interaction.
 
 ## Source and existing coverage
 
@@ -33,14 +33,14 @@ Existing [docs suite](../demo-experience.spec.ts) covers planning selection, lay
 
 ### PLAN-01 — Initial filtered workspace and all five views (P0)
 
-**Evidence:** Executed initial 60/100 and opened all five views; non-grid screenshots used Maya-filtered subset, not full 60-task set. Detailed identity/count assertions remain source-derived.
+**Evidence:** Executed initial 100/100 and opened all five views; non-grid screenshots used Maya-filtered subset. Detailed identity/count assertions remain source-derived.
 
 **Setup/reset:** Reload /demo/ without saved state.
 
-1. Wait for the grid and Status badge ⇒ footer settles at `60 of 100 tasks`; Done rows are excluded. `API integration` (task-003, Noah, In progress) is a visible fixture; `Define requirements` (task-001, Maya, Done) is initially excluded.
+1. Wait for the grid ⇒ footer settles at `100 of 100 tasks`; `API integration` (task-003, Noah, In progress) and `Define requirements` (task-001, Maya, Done) are visible fixtures.
 2. Click Kanban ⇒ Planned, In progress, Blocked and Done columns render; the same filtered task set is used, so Done starts empty.
 3. Click Gantt ⇒ task table and dated bars render for the filtered set over September 2026.
-4. Click Scheduler ⇒ resource timeline appears with Ava, Noah, Leo, Maya and Nina resources and events for the filtered tasks.
+4. Click Scheduler ⇒ resource timeline appears with Ava, Noah, Leo, Maya and Nina resources and events for the current task set.
 5. Click Calendar ⇒ September 2026 month layout displays the same events. Return to Grid ⇒ filter and task count remain consistent.
 
 **Visual checks:** Active tab is distinguishable and aria-selected is correct. Grid/timeline fills its region without blank overlay; labels and avatars fit; events align with their dates. Calendar may legitimately need its own internal scroll.
@@ -49,14 +49,14 @@ Existing [docs suite](../demo-experience.spec.ts) covers planning selection, lay
 
 ### PLAN-02 — Search, no results and filter persistence across views (P0)
 
-**Evidence:** Executed Maya → 12/100, cross-view filtered rendering, unmatched query → 0/100, and keyboard clearing → 60/100. Status-badge removal and all-record Maya20 variants remain source-derived.
+**Evidence:** Executed Maya → 20/100, cross-view filtered rendering, unmatched query → 0/100, and keyboard clearing → 100/100.
 
 **Setup/reset:** Reload; retain default Status filter.
 
-1. Enter `Maya` in Quick search tasks ⇒ after filtering settles exactly 12 of 100 tasks remain (Maya has 20 total; 8 Done are excluded).
+1. Enter `Maya` in Quick search tasks ⇒ after filtering settles exactly 20 of 100 tasks remain.
 2. Switch to each other view ⇒ only that filtered subset supplies cards/tasks/events; return Grid ⇒ query remains Maya.
 3. Replace query with `zz-no-task-qa-2026` ⇒ footer is 0 of 100 and no task records render; headers, tabs and search stay usable.
-4. Clear search ⇒ 60 of 100 return. Remove the Status filter badge ⇒ 100 of 100 return, including Define requirements. Search Maya again ⇒ 20 of 100.
+4. Clear search ⇒ 100 of 100 return, including Define requirements. Search Maya again ⇒ 20 of 100.
 
 **Visual checks:** No stale cards/bars remain after zero results. Empty state does not collapse the page; no filter badge overlaps search or view tabs.
 
@@ -100,7 +100,7 @@ Existing [docs suite](../demo-experience.spec.ts) covers planning selection, lay
 
 **Setup/reset:** Reload; inspect each relevant header filter.
 
-1. Open Owner selection filter and choose Maya ⇒ every visible task owner is Maya and default status still applies; clear it ⇒ 60 return.
+1. Open Owner selection filter and choose Maya ⇒ every visible task owner is Maya; clear it ⇒ 100 return.
 2. Open Status chip filter and select only Blocked ⇒ all results have blocked status; clear all active filters ⇒ all 100 return.
 3. Apply Priority Normal (500) ⇒ only priority 500 records remain. Open Due date calendar range and select Sep 7–8 2026 ⇒ result IDs equal the intersection of the chosen priority and range.
 4. Clear filters; apply a Progress threshold, then a Budget histogram interval, then an Activity time matrix cell ⇒ record the numeric interval/threshold or weekday/hour range displayed by each selected control, then assert that every visible task satisfies that recorded criterion, its badge identifies it, and the footer count equals independently filtered fixture IDs.

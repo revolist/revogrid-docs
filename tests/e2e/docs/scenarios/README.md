@@ -12,7 +12,7 @@ Three parallel source reviewers owned Core/Pro grids, planning/Gantt/Scheduler, 
 
 ## Index and automation order
 
-All entries have source review and partial browser verification. Audit history has an observed P0 failure that blocks ledger workflows. The browser column summarizes the exercised subset; individual documents give its precise limits.
+All entries have source review and partial browser verification. Audit History's ledger is an expected P0 workflow; the earlier missing-ledger observation has been withdrawn after correction from the product owner. The browser column summarizes the exercised subset; individual documents give its precise limits.
 
 | ID / document | Demo | Tier | Route | Cases | Browser review subset |
 |---|---|---|---|---:|---|
@@ -26,7 +26,7 @@ All entries have source review and partial browser verification. Audit history h
 | [column-collapse](column-collapse.md) | Column collapse | Pro | `/demo/column-collapse` | 5 | Partial: Personal and Contact expansion |
 | [context-menu](context-menu.md) | Context menu | Pro | `/demo/context-menu` | 6 | Partial: Ada menu open, Escape |
 | [row-master](row-master.md) | Master detail | Pro | `/demo/row-master` | 5 | Partial: Warehouse detail content, close |
-| [audit-history](audit-history.md) | Audit history | Pro | `/demo/audit-history` | 5 | Partial: Invoice edit; ledger missing |
+| [audit-history](audit-history.md) | Audit history | Pro | `/demo/audit-history` | 5 | Partial: Invoice edit; ledger workflow required |
 | [excel](excel.md) | Collaboration | Pro | `/demo/excel` | 7 | Partial: Owner edit, Undo, presence |
 | [planning](planning.md) | Project workspace | Advanced | `/demo/` | 10 | Partial: All five views, search, source preservation |
 | [gantt](gantt.md) | Gantt | Advanced | `/demo/gantt` | 7 | Partial: Test Plan completion, hierarchy collapse |
@@ -42,9 +42,9 @@ Aliases `/demo/planning` and `/demo/hr` are covered by SHELL-02, without duplica
 
 Recommended implementation order:
 
-1. **P0 shell and load gates:** SHELL-01/02, then every demo's initial case. Await real content, not only a grid element. Keep the missing Audit ledger as a failing acceptance case.
+1. **P0 shell and load gates:** SHELL-01/02, then every demo's initial case. Await real content, not only a grid element. Require the Audit ledger as part of the Audit History load gate.
 2. **P0 primary workflows:** Core search/grouping, Pro selection/edit/filter/collapse/detail, Planning synchronization across all five views, Scheduler workspaces, Kanban moves/editor validation, Pivot numerical totals, large-data scroll/loading.
-3. **P1 recovery and combinations:** cancel/clear/undo, persistence and isolation, repeated navigation, readonly protection, large-data recycling, export and blocked audit workflows once the panel is available.
+3. **P1 recovery and combinations:** cancel/clear/undo, persistence and isolation, repeated navigation, readonly protection, large-data recycling, export and Audit History restore workflows.
 4. **P1 visual coverage:** shared shell at all four viewport sizes, then each demo's overlays, selection, scrolling and theme checks. Test each exposed workspace, not just the initial Grid tab.
 
 ## Viewport and theme evidence
