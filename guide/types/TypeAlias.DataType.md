@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.8](README.md) / DataType
+[RevoGrid Documentation v4.27.9](README.md) / DataType
 
 # Type Alias: DataType\<D, K\>
 
@@ -17,4 +17,4 @@ Represents a generic row data object used internally by the grid.
 
 ## Defined in
 
-[src/types/interfaces.ts:478](https://github.com/revolist/revogrid/blob/eab8bb4b11fd25779732f8d09f424d108c801b86/src/types/interfaces.ts#L478)
+[src/types/interfaces.ts:478](https://github.com/revolist/revogrid/blob/454d5862c03c84c4e0967bdb49edf69110897611/src/types/interfaces.ts#L478)

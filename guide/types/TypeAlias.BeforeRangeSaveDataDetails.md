@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.8](README.md) / BeforeRangeSaveDataDetails
+[RevoGrid Documentation v4.27.9](README.md) / BeforeRangeSaveDataDetails
 
 # Type Alias: BeforeRangeSaveDataDetails\<TModel\>
 
@@ -22,12 +22,12 @@ type BeforeRangeSaveDataDetails<TModel>: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `data` | \{\} | [src/types/selection.ts:149](https://github.com/revolist/revogrid/blob/eab8bb4b11fd25779732f8d09f424d108c801b86/src/types/selection.ts#L149) |
-| `models` | \{\} | [src/types/selection.ts:150](https://github.com/revolist/revogrid/blob/eab8bb4b11fd25779732f8d09f424d108c801b86/src/types/selection.ts#L150) |
-| `newRange` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/types/selection.ts:152](https://github.com/revolist/revogrid/blob/eab8bb4b11fd25779732f8d09f424d108c801b86/src/types/selection.ts#L152) |
-| `oldRange` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/types/selection.ts:153](https://github.com/revolist/revogrid/blob/eab8bb4b11fd25779732f8d09f424d108c801b86/src/types/selection.ts#L153) |
-| `type` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/types/selection.ts:151](https://github.com/revolist/revogrid/blob/eab8bb4b11fd25779732f8d09f424d108c801b86/src/types/selection.ts#L151) |
+| `data` | \{\} | [src/types/selection.ts:149](https://github.com/revolist/revogrid/blob/454d5862c03c84c4e0967bdb49edf69110897611/src/types/selection.ts#L149) |
+| `models` | \{\} | [src/types/selection.ts:150](https://github.com/revolist/revogrid/blob/454d5862c03c84c4e0967bdb49edf69110897611/src/types/selection.ts#L150) |
+| `newRange` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/types/selection.ts:152](https://github.com/revolist/revogrid/blob/454d5862c03c84c4e0967bdb49edf69110897611/src/types/selection.ts#L152) |
+| `oldRange` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/types/selection.ts:153](https://github.com/revolist/revogrid/blob/454d5862c03c84c4e0967bdb49edf69110897611/src/types/selection.ts#L153) |
+| `type` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/types/selection.ts:151](https://github.com/revolist/revogrid/blob/454d5862c03c84c4e0967bdb49edf69110897611/src/types/selection.ts#L151) |
 
 ## Defined in
 
-[src/types/selection.ts:148](https://github.com/revolist/revogrid/blob/eab8bb4b11fd25779732f8d09f424d108c801b86/src/types/selection.ts#L148)
+[src/types/selection.ts:148](https://github.com/revolist/revogrid/blob/454d5862c03c84c4e0967bdb49edf69110897611/src/types/selection.ts#L148)

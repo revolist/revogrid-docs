@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.8](README.md) / RowResizeConfig
+[RevoGrid Documentation v4.27.9](README.md) / RowResizeConfig
 
 # Type Alias: RowResizeConfig
 
@@ -14,10 +14,10 @@ type RowResizeConfig: {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `fullRow` | `boolean` | Makes the resize edge available across data rows, not only row headers. | [src/plugins/row-resize/row-resize.types.ts:9](https://github.com/revolist/revogrid/blob/eab8bb4b11fd25779732f8d09f424d108c801b86/src/plugins/row-resize/row-resize.types.ts#L9) |
-| `maxHeight` | `number` | Optional largest height a user can assign. | [src/plugins/row-resize/row-resize.types.ts:7](https://github.com/revolist/revogrid/blob/eab8bb4b11fd25779732f8d09f424d108c801b86/src/plugins/row-resize/row-resize.types.ts#L7) |
-| `minHeight` | `number` | Smallest height a user can assign. Defaults to 20px. | [src/plugins/row-resize/row-resize.types.ts:5](https://github.com/revolist/revogrid/blob/eab8bb4b11fd25779732f8d09f424d108c801b86/src/plugins/row-resize/row-resize.types.ts#L5) |
+| `fullRow` | `boolean` | Makes the resize edge available across data rows, not only row headers. | [src/plugins/row-resize/row-resize.types.ts:9](https://github.com/revolist/revogrid/blob/454d5862c03c84c4e0967bdb49edf69110897611/src/plugins/row-resize/row-resize.types.ts#L9) |
+| `maxHeight` | `number` | Optional largest height a user can assign. | [src/plugins/row-resize/row-resize.types.ts:7](https://github.com/revolist/revogrid/blob/454d5862c03c84c4e0967bdb49edf69110897611/src/plugins/row-resize/row-resize.types.ts#L7) |
+| `minHeight` | `number` | Smallest height a user can assign. Defaults to 20px. | [src/plugins/row-resize/row-resize.types.ts:5](https://github.com/revolist/revogrid/blob/454d5862c03c84c4e0967bdb49edf69110897611/src/plugins/row-resize/row-resize.types.ts#L5) |
 
 ## Defined in
 
-[src/plugins/row-resize/row-resize.types.ts:3](https://github.com/revolist/revogrid/blob/eab8bb4b11fd25779732f8d09f424d108c801b86/src/plugins/row-resize/row-resize.types.ts#L3)
+[src/plugins/row-resize/row-resize.types.ts:3](https://github.com/revolist/revogrid/blob/454d5862c03c84c4e0967bdb49edf69110897611/src/plugins/row-resize/row-resize.types.ts#L3)
