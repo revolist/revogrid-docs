@@ -108,6 +108,10 @@
 }
 
 @media (max-width: 1099px) {
+  .demo-page-class {
+    --vp-sidebar-width: 0px;
+  }
+
   .dark .demo-page-class .demo-nav {
     background: var(--vp-c-bg);
   }
