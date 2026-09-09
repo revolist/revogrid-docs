@@ -48,6 +48,12 @@ test('keeps the source panel compact and expandable', () => {
   assert.match(sourcePanel, /grid-template-rows:\s*auto auto minmax\(0, 1fr\) auto/)
   assert.match(sourcePanel, /class="demo-source__toolbar"/)
   assert.match(sourcePanel, /demo-source__toolbar\s*\{[^}]*justify-content:\s*space-between/s)
+  assert.match(sourcePanel, /demo-source__header-actions\s*\{[^}]*margin-bottom:\s*6px/s)
+  assert.match(
+    sourcePanel,
+    /demo-source__fullscreen :deep\(\.fa-svg-icon\)\s*\{[^}]*width:\s*15px[^}]*height:\s*15px/s,
+  )
+  assert.match(sourcePanel, /demo-source__close\s*\{[^}]*font-size:\s*18px/s)
   assert.match(sourcePanel, /FontAwesomeSvgIcon name="expand"/)
   assert.match(sourcePanel, /demo-source:fullscreen\s*\{[^}]*width:\s*100%/)
   assert.doesNotMatch(sourcePanel, /Use this example|demo-source-title/)

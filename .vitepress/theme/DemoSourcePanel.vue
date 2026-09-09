@@ -199,6 +199,7 @@ onBeforeUnmount(() => document.removeEventListener('fullscreenchange', syncFulls
 .demo-source__header-actions {
   flex: none;
   gap: 8px;
+  margin-bottom: 6px;
 }
 .demo-source__header-actions button {
   height: 34px;
@@ -212,11 +213,15 @@ onBeforeUnmount(() => document.removeEventListener('fullscreenchange', syncFulls
   justify-content: center;
   padding: 0;
 }
+.demo-source__fullscreen :deep(.fa-svg-icon) {
+  width: 15px;
+  height: 15px;
+}
 .demo-source__back {
   display: none;
 }
 .demo-source__close {
-  font-size: 22px;
+  font-size: 18px;
 }
 .demo-source nav {
   min-width: 0;
