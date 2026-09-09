@@ -34,9 +34,11 @@ const DEMO_PAGE_CONTENT = {
     featureBadges: [],
   },
   'ai-prompt-library': {
-    title: 'AI Prompt Library Demo',
-    description: 'Search, filter, and edit a practical prompt catalog that loads instantly from bundled local data.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/core-ai-prompts/src/prompt-library.vue',
+    title: 'RevoGrid AI Prompt Library Demo',
+    description:
+      'Search, filter, and edit 100 practical prompts for building, debugging, optimizing, and extending RevoGrid.',
+    implementationUrl:
+      'https://github.com/revolist/revogrid-demos/blob/main/core-ai-prompts/src/prompt-library.vue',
     featureBadges: [
       { label: 'Multiline editing', source: 'Core TextEditor extension' },
       { label: 'Local data', source: 'Bundled typed prompt catalog' },
@@ -45,8 +47,10 @@ const DEMO_PAGE_CONTENT = {
   },
   'project-portfolio': {
     title: 'Row Grouping Demo',
-    description: 'Delivery portfolio with two-level row grouping, progress indicators, sorting, and filtering.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/core-project-portfolio/src/project-portfolio.vue',
+    description:
+      'Delivery portfolio with two-level row grouping, progress indicators, sorting, and filtering.',
+    implementationUrl:
+      'https://github.com/revolist/revogrid-demos/blob/main/core-project-portfolio/src/project-portfolio.vue',
     featureBadges: [
       { label: 'Row grouping', source: 'RevoGrid Core grouping API' },
       { label: 'Custom cells', source: 'Core cellTemplate renderers' },
@@ -55,17 +59,23 @@ const DEMO_PAGE_CONTENT = {
   },
   'project-tracker': {
     title: 'Project Tracker Demo',
-    description: 'Manage owners, priorities, statuses, and deadlines in an editable project workspace.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-project-table/src/project-table.vue',
+    description:
+      'Manage owners, priorities, statuses, and deadlines in an editable project workspace.',
+    implementationUrl:
+      'https://github.com/revolist/revogrid-demos/blob/main/pro-project-table/src/project-table.vue',
     featureBadges: [
       { label: 'Row selection', source: 'RowSelectPlugin' },
       { label: 'Excel filters', source: 'AdvanceFilterPlugin' },
-      { label: 'Header filtering & selection', source: 'FilterHeaderPlugin + filterHeaderTemplate' },
+      {
+        label: 'Header filtering & selection',
+        source: 'FilterHeaderPlugin + filterHeaderTemplate',
+      },
       { label: 'Hide columns', source: 'ColumnHidePlugin' },
       { label: 'Grouping summaries', source: 'Core grouping API + groupLabelTemplate' },
       {
         label: 'Advanced column types',
-        source: 'Dropdown, multi-select, date, currency, integer, progress, timeline, avatar, and rating',
+        source:
+          'Dropdown, multi-select, date, currency, integer, progress, timeline, avatar, and rating',
       },
       { label: 'Row reorder', source: 'RowOrderPlugin' },
       { label: 'Context menus', source: 'ContextMenuPlugin' },
@@ -74,7 +84,8 @@ const DEMO_PAGE_CONTENT = {
   'audit-history': {
     title: 'Audit History Demo',
     description: 'Compare revisions, export records, and restore earlier values.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-audit-history/src/audit-history.vue',
+    implementationUrl:
+      'https://github.com/revolist/revogrid-demos/blob/main/pro-audit-history/src/audit-history.vue',
     featureBadges: [
       { label: 'Change log', source: 'AuditHistoryPlugin' },
       { label: 'Audit panel', source: 'defineAuditHistoryPanel' },
@@ -87,7 +98,8 @@ const DEMO_PAGE_CONTENT = {
   'column-collapse': {
     title: 'Column Collapse Demo',
     description: 'Collapsible groups, sealed summaries, filtering, selection & responsive columns.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-column-collapse/src/column-collapse.vue',
+    implementationUrl:
+      'https://github.com/revolist/revogrid-demos/blob/main/pro-column-collapse/src/column-collapse.vue',
     featureBadges: [
       { label: 'Column collapse', source: 'ColumnCollapsePlugin' },
       { label: 'Grouped headers', source: 'RevoGrid column groups' },
@@ -98,9 +110,11 @@ const DEMO_PAGE_CONTENT = {
     ],
   },
   'context-menu': {
-    title: 'Context Menu & Formatting Demo',
-    description: 'Selection-aware commands and rich formatting across cells, rows, columns, and headers.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-data-grid-context-menu/src/data-grid-context-menu.vue',
+    title: 'Grid Formatting Demo',
+    description:
+      'Selection-aware commands and rich formatting across cells, rows, columns, and headers.',
+    implementationUrl:
+      'https://github.com/revolist/revogrid-demos/blob/main/pro-data-grid-context-menu/src/data-grid-context-menu.vue',
     featureBadges: [
       { label: 'Context menu', source: 'DataGridContextMenuPlugin' },
       { label: 'Cell formats', source: 'DataGridContextMenuPlugin formatting runtime' },
@@ -111,8 +125,10 @@ const DEMO_PAGE_CONTENT = {
   },
   filtering: {
     title: 'Advanced Filtering Demo',
-    description: 'Presets, quick search, expression filters, selection cascades, date rules, and numeric sliders.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-filtering/src/filtering.vue',
+    description:
+      'Presets, quick search, expression filters, selection cascades, date rules, and numeric sliders.',
+    implementationUrl:
+      'https://github.com/revolist/revogrid-demos/blob/main/pro-filtering/src/filtering.vue',
     featureBadges: [
       { label: 'Advanced filters', source: 'AdvanceFilterPlugin' },
       { label: 'Header filtering', source: 'FilterHeaderPlugin' },
@@ -125,10 +141,14 @@ const DEMO_PAGE_CONTENT = {
   'infinity-scroll': {
     title: 'Infinity Scroll Demo',
     description: 'Load remote rows in buffered chunks with server-side sorting and filtering.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-infinity-scroll/src/infinity-scroll.vue',
+    implementationUrl:
+      'https://github.com/revolist/revogrid-demos/blob/main/pro-infinity-scroll/src/infinity-scroll.vue',
     featureBadges: [
       { label: 'Remote chunk loading', source: 'InfinityScrollPlugin' },
-      { label: 'Buffered preloading', source: 'InfinityScrollConfig.bufferSize + preloadThreshold' },
+      {
+        label: 'Buffered preloading',
+        source: 'InfinityScrollConfig.bufferSize + preloadThreshold',
+      },
       { label: 'Server-side sorting', source: 'InfinityScrollConfig.loadData order argument' },
       { label: 'Server-side filtering', source: 'InfinityScrollConfig.loadData filter arguments' },
       { label: 'Pinned summaries', source: 'pinnedTopSource + pinnedBottomSource' },
@@ -136,8 +156,10 @@ const DEMO_PAGE_CONTENT = {
   },
   'row-master': {
     title: 'Row Master Demo',
-    description: 'Rich master-detail panels with nested hierarchy, asynchronous details in virtualized grid.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-row-master/src/row-master.vue',
+    description:
+      'Rich master-detail panels with nested hierarchy, asynchronous details in virtualized grid.',
+    implementationUrl:
+      'https://github.com/revolist/revogrid-demos/blob/main/pro-row-master/src/row-master.vue',
     featureBadges: [
       { label: 'Master-detail rows', source: 'MasterRowPlugin' },
       { label: 'Custom detail templates', source: 'RowMasterConfig.template' },
@@ -148,8 +170,10 @@ const DEMO_PAGE_CONTENT = {
   },
   'tree-data': {
     title: 'Tree Data Demo',
-    description: 'Hierarchical rows with sticky parents, animation, reorder, selection, filtering & export.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-tree-data/src/tree.vue',
+    description:
+      'Hierarchical rows with sticky parents, animation, reorder, selection, filtering & export.',
+    implementationUrl:
+      'https://github.com/revolist/revogrid-demos/blob/main/pro-tree-data/src/tree.vue',
     featureBadges: [
       { label: 'Hierarchical rows', source: 'TreeDataPlugin' },
       { label: 'Sticky parents', source: 'StickyCellsPlugin + TreeConfig.stickyParents' },
@@ -162,8 +186,10 @@ const DEMO_PAGE_CONTENT = {
   },
   excel: {
     title: 'Collaboration Demo',
-    description: 'Edit formulas, validation, formatting, presence, and Excel files in a spreadsheet workspace.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-excel/src/excel.vue',
+    description:
+      'Edit formulas, validation, formatting, presence, and Excel files in a spreadsheet workspace.',
+    implementationUrl:
+      'https://github.com/revolist/revogrid-demos/blob/main/pro-excel/src/excel.vue',
     featureBadges: [
       { label: 'Spreadsheet editing', source: 'RevoGrid Pro workbook configuration' },
       { label: 'Excel import and export', source: 'Excel import/export plugin' },
@@ -172,7 +198,8 @@ const DEMO_PAGE_CONTENT = {
   },
   pivot: {
     title: 'JavaScript Pivot Table Component Demo',
-    description: 'High-performance pivot table, drag-and-drop fields, multi-level aggregation, filtering, and export.',
+    description:
+      'High-performance pivot table, drag-and-drop fields, multi-level aggregation, filtering, and export.',
     implementationUrl: 'https://github.com/revolist/pivot',
     featureBadges: [
       { label: 'Pivot Table analytics', source: 'PivotPlugin' },
@@ -184,11 +211,15 @@ const DEMO_PAGE_CONTENT = {
   },
   gantt: {
     title: 'JavaScript Gantt Chart Demo',
-    description: 'Plan tasks, dependencies, milestones, and schedules in an interactive timeline workspace.',
+    description:
+      'Plan tasks, dependencies, milestones, and schedules in an interactive timeline workspace.',
     implementationUrl: 'https://github.com/revolist/gantt',
     featureBadges: [
       { label: 'Gantt', source: 'GanttPlugin' },
-      { label: 'Dependencies & critical path', source: 'GanttDependencyOverlayPlugin + GanttTaskBarsPlugin' },
+      {
+        label: 'Dependencies & critical path',
+        source: 'GanttDependencyOverlayPlugin + GanttTaskBarsPlugin',
+      },
       { label: 'Task hierarchy', source: 'TreeDataPlugin' },
       { label: 'Zoom', source: 'GanttTimelineHeaderPlugin + zoomPreset' },
       { label: 'Context menus', source: 'ContextMenuPlugin' },
@@ -224,7 +255,8 @@ const DEMO_PAGE_CONTENT = {
   },
   kanban: {
     title: 'Kanban Workflow Demo',
-    description: 'Cards across workflow columns and swimlanes with ordering, WIP limits, card rules & editing.',
+    description:
+      'Cards across workflow columns and swimlanes with ordering, WIP limits, card rules & editing.',
     implementationUrl: 'https://github.com/revolist/kanban',
     featureBadges: [
       { label: 'Kanban board', source: 'KanbanPlugin' },
@@ -250,7 +282,8 @@ const DEMO_PAGE_CONTENT = {
   },
   'kanban-server-loading': {
     title: '100K Kanban Server-Loading Demo',
-    description: 'Load a 100,000-card Kanban board from a remote offset stream in small, virtualized chunks.',
+    description:
+      'Load a 100,000-card Kanban board from a remote offset stream in small, virtualized chunks.',
     implementationUrl: 'https://github.com/revolist/kanban',
     featureBadges: [
       { label: 'Kanban board', source: 'KanbanPlugin' },
@@ -283,14 +316,21 @@ const DEMO_PAGE_CONTENT = {
   planning: {
     title: 'Project workspace',
     description: 'Edit once. Explore the same data in every view.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/pro-advanced-planning/src/planning.vue',
+    implementationUrl:
+      'https://github.com/revolist/revogrid-demos/blob/main/pro-advanced-planning/src/planning.vue',
     featureBadges: [
       { label: 'Shared model', source: 'Reactive task state shared across every planning view' },
-      { label: 'Data grid', source: 'RevoGrid editing, filtering, sorting, ranges, and column moving' },
+      {
+        label: 'Data grid',
+        source: 'RevoGrid editing, filtering, sorting, ranges, and column moving',
+      },
       { label: 'Gantt', source: 'GanttPlugin' },
       { label: 'Resource scheduling', source: 'EventSchedulerPlugin resourceTimeline view' },
       { label: 'Calendar', source: 'EventSchedulerPlugin day view' },
-      { label: 'Resource assignments', source: 'Gantt resources and assignments synchronized with scheduler events' },
+      {
+        label: 'Resource assignments',
+        source: 'Gantt resources and assignments synchronized with scheduler events',
+      },
     ],
   },
 } as const satisfies Record<DemoId, DemoPageContent>
@@ -303,11 +343,7 @@ const PLAN_LABELS = {
 
 const PUBLIC_SITE_ORIGIN = 'https://rv-grid.com'
 
-const withDemoAttribution = (
-  href: string,
-  demoId: DemoId,
-  preserveAbsolute = false,
-): string => {
+const withDemoAttribution = (href: string, demoId: DemoId, preserveAbsolute = false): string => {
   const url = new URL(href, PUBLIC_SITE_ORIGIN)
   url.searchParams.set('source', 'demo-page')
   url.searchParams.set('demo', demoId)
@@ -326,20 +362,17 @@ export const getDemoPageConfig = (demoId: DemoId): DemoPageConfig => {
     ...DEMO_PAGE_CONTENT[demoId],
     demo,
     planLabel,
-    primaryCtaUrl: demo.planId === 'open-source'
-      ? withDemoAttribution('/guide/', demoId)
-      : withDemoAttribution(PRODUCT_CATALOG.urls.trialRequest, demoId, true),
+    primaryCtaUrl:
+      demo.planId === 'open-source'
+        ? withDemoAttribution('/guide/', demoId)
+        : withDemoAttribution(PRODUCT_CATALOG.urls.trialRequest, demoId, true),
     implementationUrl: withDemoAttribution(DEMO_PAGE_CONTENT[demoId].implementationUrl, demoId),
     pricingUrl: withDemoAttribution(PRODUCT_CATALOG.urls.pricing, demoId),
   }
 }
 
 export type DemoPageAnalyticsEventName =
-  | 'demo_view'
-  | 'demo_ready'
-  | 'demo_action'
-  | 'demo_trial_click'
-  | 'demo_implementation_open'
+  'demo_view' | 'demo_ready' | 'demo_action' | 'demo_trial_click' | 'demo_implementation_open'
 
 export const createDemoPageAnalyticsEvent = (
   event: DemoPageAnalyticsEventName,

@@ -88,7 +88,7 @@ export interface CatalogPlan {
   trial: CatalogTrial
   billingSummary: string
   actionLabel: string
-  pricingHighlights: ReadonlyArray<{ text: string, link?: string }>
+  pricingHighlights: ReadonlyArray<{ text: string; link?: string }>
 }
 
 export interface CatalogFeatureDefinition {
@@ -349,17 +349,19 @@ const featureFacts = [
   ['collaborative-editing', 'Collaborative Editing', 'pro-lite', 'beta'],
 ] as const satisfies ReadonlyArray<readonly [string, string, PlanId, FeatureStatus]>
 
-const features: CatalogFeatureDefinition[] = featureFacts.map(([id, title, minimumPlan, status]) => {
-  const marketing = proFeatureMarketing.find((feature) => feature.title === title)
-  return {
-    id,
-    title,
-    minimumPlan,
-    status,
-    docsUrl: marketing?.link || marketing?.sponsor,
-    demoUrl: marketing?.demoUrl,
-  }
-})
+const features: CatalogFeatureDefinition[] = featureFacts.map(
+  ([id, title, minimumPlan, status]) => {
+    const marketing = proFeatureMarketing.find(feature => feature.title === title)
+    return {
+      id,
+      title,
+      minimumPlan,
+      status,
+      docsUrl: marketing?.link || marketing?.sponsor,
+      demoUrl: marketing?.demoUrl,
+    }
+  },
+)
 
 features.push({
   id: 'revogrid-mcp',
@@ -438,27 +440,153 @@ const products = {
 } as const satisfies Record<ProductId, CatalogProduct>
 
 const demos = {
-  'grid-at-scale': { id: 'grid-at-scale', title: 'Grid at Scale', planId: 'open-source', status: 'stable', pageUrl: '/demo/grid-at-scale' },
-  'ai-prompt-library': { id: 'ai-prompt-library', title: 'AI Prompt Library', planId: 'open-source', status: 'stable', pageUrl: '/demo/ai-prompts' },
-  'project-portfolio': { id: 'project-portfolio', title: 'Row Grouping', planId: 'open-source', status: 'stable', pageUrl: '/demo/project-portfolio' },
-  'project-tracker': { id: 'project-tracker', title: 'Project Tracker', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/color' },
-  'audit-history': { id: 'audit-history', title: 'Audit History', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/audit-history' },
-  'column-collapse': { id: 'column-collapse', title: 'Column Collapse', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/column-collapse' },
-  'context-menu': { id: 'context-menu', title: 'Context Menu & Formatting', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/context-menu' },
-  filtering: { id: 'filtering', title: 'Advanced Filtering', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/filtering' },
-  'infinity-scroll': { id: 'infinity-scroll', title: 'Infinity Scroll', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/infinity-scroll' },
-  'row-master': { id: 'row-master', title: 'Row Master', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/row-master' },
-  'tree-data': { id: 'tree-data', title: 'Tree Data', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/tree-data' },
-  excel: { id: 'excel', title: 'Collaboration', planId: 'pro-lite', status: 'stable', pageUrl: '/demo/excel' },
-  pivot: { id: 'pivot', title: 'Pivot Table Demo', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot' },
-  gantt: { id: 'gantt', title: 'Gantt Chart JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt' },
-  'gantt-big-data': { id: 'gantt-big-data', title: '10K-Task Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt-big-data' },
-  'gantt-horizontal-big-data': { id: 'gantt-horizontal-big-data', title: '20Y-Timeline Gantt', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/gantt-horizontal-big-data' },
-  kanban: { id: 'kanban', title: 'Kanban Board', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban' },
-  'kanban-performance': { id: 'kanban-performance', title: '50K-Task Kanban', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban-performance' },
-  'kanban-server-loading': { id: 'kanban-server-loading', title: '100K Server-Loaded Kanban', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/kanban-server-loading' },
-  'event-scheduler': { id: 'event-scheduler', title: 'Scheduler JS', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/event-scheduler' },
-  planning: { id: 'planning', title: 'Project Workspace', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/' },
+  'grid-at-scale': {
+    id: 'grid-at-scale',
+    title: 'Grid at Scale',
+    planId: 'open-source',
+    status: 'stable',
+    pageUrl: '/demo/grid-at-scale',
+  },
+  'ai-prompt-library': {
+    id: 'ai-prompt-library',
+    title: 'RevoGrid AI Prompt Library',
+    planId: 'open-source',
+    status: 'stable',
+    pageUrl: '/demo/ai-prompts',
+  },
+  'project-portfolio': {
+    id: 'project-portfolio',
+    title: 'Row Grouping',
+    planId: 'open-source',
+    status: 'stable',
+    pageUrl: '/demo/project-portfolio',
+  },
+  'project-tracker': {
+    id: 'project-tracker',
+    title: 'Project Tracker',
+    planId: 'pro-lite',
+    status: 'stable',
+    pageUrl: '/demo/color',
+  },
+  'audit-history': {
+    id: 'audit-history',
+    title: 'Audit History',
+    planId: 'pro-lite',
+    status: 'stable',
+    pageUrl: '/demo/audit-history',
+  },
+  'column-collapse': {
+    id: 'column-collapse',
+    title: 'Column Collapse',
+    planId: 'pro-lite',
+    status: 'stable',
+    pageUrl: '/demo/column-collapse',
+  },
+  'context-menu': {
+    id: 'context-menu',
+    title: 'Grid Formatting',
+    planId: 'pro-lite',
+    status: 'stable',
+    pageUrl: '/demo/context-menu',
+  },
+  filtering: {
+    id: 'filtering',
+    title: 'Advanced Filtering',
+    planId: 'pro-lite',
+    status: 'stable',
+    pageUrl: '/demo/filtering',
+  },
+  'infinity-scroll': {
+    id: 'infinity-scroll',
+    title: 'Infinity Scroll',
+    planId: 'pro-lite',
+    status: 'stable',
+    pageUrl: '/demo/infinity-scroll',
+  },
+  'row-master': {
+    id: 'row-master',
+    title: 'Row Master',
+    planId: 'pro-lite',
+    status: 'stable',
+    pageUrl: '/demo/row-master',
+  },
+  'tree-data': {
+    id: 'tree-data',
+    title: 'Tree Data',
+    planId: 'pro-lite',
+    status: 'stable',
+    pageUrl: '/demo/tree-data',
+  },
+  excel: {
+    id: 'excel',
+    title: 'Collaboration',
+    planId: 'pro-lite',
+    status: 'stable',
+    pageUrl: '/demo/excel',
+  },
+  pivot: {
+    id: 'pivot',
+    title: 'Pivot Table Demo',
+    planId: 'pro-advanced',
+    status: 'stable',
+    pageUrl: '/demo/pivot',
+  },
+  gantt: {
+    id: 'gantt',
+    title: 'Gantt Chart JS',
+    planId: 'pro-advanced',
+    status: 'stable',
+    pageUrl: '/demo/gantt',
+  },
+  'gantt-big-data': {
+    id: 'gantt-big-data',
+    title: '10K-Task Gantt',
+    planId: 'pro-advanced',
+    status: 'stable',
+    pageUrl: '/demo/gantt-big-data',
+  },
+  'gantt-horizontal-big-data': {
+    id: 'gantt-horizontal-big-data',
+    title: '20Y-Timeline Gantt',
+    planId: 'pro-advanced',
+    status: 'stable',
+    pageUrl: '/demo/gantt-horizontal-big-data',
+  },
+  kanban: {
+    id: 'kanban',
+    title: 'Kanban Board',
+    planId: 'pro-advanced',
+    status: 'stable',
+    pageUrl: '/demo/kanban',
+  },
+  'kanban-performance': {
+    id: 'kanban-performance',
+    title: '50K-Task Kanban',
+    planId: 'pro-advanced',
+    status: 'stable',
+    pageUrl: '/demo/kanban-performance',
+  },
+  'kanban-server-loading': {
+    id: 'kanban-server-loading',
+    title: '100K Server-Loaded Kanban',
+    planId: 'pro-advanced',
+    status: 'stable',
+    pageUrl: '/demo/kanban-server-loading',
+  },
+  'event-scheduler': {
+    id: 'event-scheduler',
+    title: 'Scheduler JS',
+    planId: 'pro-advanced',
+    status: 'stable',
+    pageUrl: '/demo/event-scheduler',
+  },
+  planning: {
+    id: 'planning',
+    title: 'Project Workspace',
+    planId: 'pro-advanced',
+    status: 'stable',
+    pageUrl: '/demo/',
+  },
 } as const satisfies Record<DemoId, CatalogDemo>
 
 export const PRODUCT_CATALOG = {
@@ -489,9 +617,10 @@ const monthlyPrices = (year: PeriodPrices): PeriodPrices => ({
 })
 
 export const getPlan = (planId: PlanId): CatalogPlan => PRODUCT_CATALOG.plans[planId]
-export const getProduct = (productId: ProductId): CatalogProduct => PRODUCT_CATALOG.products[productId]
+export const getProduct = (productId: ProductId): CatalogProduct =>
+  PRODUCT_CATALOG.products[productId]
 export const getFeature = (featureId: string): CatalogFeatureDefinition | undefined =>
-  PRODUCT_CATALOG.features.find((feature) => feature.id === featureId)
+  PRODUCT_CATALOG.features.find(feature => feature.id === featureId)
 
 export const getPlanChain = (planId: PlanId): PlanId[] => {
   const chain: PlanId[] = []
@@ -515,10 +644,12 @@ export const resolvePlanPrice = (
   const plan = PRODUCT_CATALOG.plans[planId]
   const baseYear = plan.yearlyPrice as PeriodPrices
   const timestamp = asTimestamp(at)
-  const promotion = PRODUCT_CATALOG.promotions.find((candidate) =>
-    candidate.planId === planId
-    && timestamp >= asTimestamp(candidate.startsAt)
-    && timestamp < asTimestamp(candidate.cutoffAt))
+  const promotion = PRODUCT_CATALOG.promotions.find(
+    candidate =>
+      candidate.planId === planId &&
+      timestamp >= asTimestamp(candidate.startsAt) &&
+      timestamp < asTimestamp(candidate.cutoffAt),
+  )
 
   if (!promotion) {
     return {
@@ -533,7 +664,7 @@ export const resolvePlanPrice = (
     month: monthlyPrices(year),
     year,
     compareAtYear: Object.fromEntries(
-      Object.keys(promotion.year).map((currency) => [currency, baseYear[currency as Currency]]),
+      Object.keys(promotion.year).map(currency => [currency, baseYear[currency as Currency]]),
     ),
     link: stripeLinkWithClientReferenceId(promotion.buyUrl),
     promotion: {
@@ -562,16 +693,17 @@ export const formatFrameworkPricingNote = (at: PriceTimestamp = new Date()): str
   return `Open-source core. ${plans['pro-lite'].name}: ${lightPriceCopy}. ${plans['pro-advanced'].name}: ${advancedPriceCopy}. Per-developer licensing. No deployment counting.`
 }
 
-export const getCatalogProFeatures = () => proFeatureMarketing.map((feature) => {
-  const facts = PRODUCT_CATALOG.features.find((candidate) => candidate.title === feature.title)
-  if (!facts) throw new Error(`Missing catalog feature facts for "${feature.title}"`)
-  return {
-    ...feature,
-    ...facts,
-    beta: facts.status === 'beta',
-    preview: facts.status === 'preview',
-  }
-})
+export const getCatalogProFeatures = () =>
+  proFeatureMarketing.map(feature => {
+    const facts = PRODUCT_CATALOG.features.find(candidate => candidate.title === feature.title)
+    if (!facts) throw new Error(`Missing catalog feature facts for "${feature.title}"`)
+    return {
+      ...feature,
+      ...facts,
+      beta: facts.status === 'beta',
+      preview: facts.status === 'preview',
+    }
+  })
 
 export const getDemoBadge = (demoId: DemoId) => {
   const demo = PRODUCT_CATALOG.demos[demoId]
@@ -585,7 +717,7 @@ export const getDemoBadge = (demoId: DemoId) => {
   }
 }
 
-export const commercialFaqs: Record<CommercialFaqKey, { q: string, a: string }> = {
+export const commercialFaqs: Record<CommercialFaqKey, { q: string; a: string }> = {
   'developer-licenses': {
     q: 'How many developer licenses do I need?',
     a: 'The number of licenses must match the maximum number of concurrent front-end developers contributing to code that uses RevoGrid Pro.',
@@ -617,7 +749,7 @@ export const commercialFaqs: Record<CommercialFaqKey, { q: string, a: string }> 
 }
 
 export const resolveCommercialFaqs = (keys: CommercialFaqKey[] = []) =>
-  keys.map((key) => commercialFaqs[key])
+  keys.map(key => commercialFaqs[key])
 
 export const getProductOfferPlanIds = (productId: ProductId): PlanId[] => {
   const product = getProduct(productId)
@@ -712,7 +844,8 @@ export const getPricingEvaluationFacts = () => {
         icon: 'code',
         eyebrow: 'Start immediately',
         heading: 'Start with the free core',
-        description: 'Use the MIT-licensed RevoGrid core in your application. Free for commercial use — this is not a Pro trial.',
+        description:
+          'Use the MIT-licensed RevoGrid core in your application. Free for commercial use — this is not a Pro trial.',
         features: openSource.pricingHighlights.map(({ text }) => text),
         action: { label: openSource.actionLabel, href: '/guide/' },
         recommended: false,
@@ -722,7 +855,8 @@ export const getPricingEvaluationFacts = () => {
         icon: 'starOutline',
         eyebrow: 'Evaluate Pro features',
         heading: 'Evaluate RevoGrid Pro',
-        description: 'Install the public Pro trial and test it in your own project before purchasing.',
+        description:
+          'Install the public Pro trial and test it in your own project before purchasing.',
         features: [
           `${trialDays}-day public npm trial`,
           'Pro plugins and production-ready examples',
@@ -761,31 +895,111 @@ export const featureTableSupplementalGroups: CatalogFeatureTableGroup[] = [
     expanded: true,
     features: [
       { name: 'Basic Cell Formats', planIds: allPublishedPlans, nesting: 1 },
-      { name: 'Text Format', planIds: allPublishedPlans, nesting: 2, link: '/guide/column/types#String' },
-      { name: 'Number Format', planIds: allPublishedPlans, nesting: 2, link: '/guide/column/types#Number' },
-      { name: 'Date Format', planIds: allPublishedPlans, nesting: 2, link: '/guide/column/types#Date' },
-      { name: 'Selection Format', planIds: allPublishedPlans, nesting: 2, link: '/guide/column/types#Select-Dropdown' },
+      {
+        name: 'Text Format',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/column/types#String',
+      },
+      {
+        name: 'Number Format',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/column/types#Number',
+      },
+      {
+        name: 'Date Format',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/column/types#Date',
+      },
+      {
+        name: 'Selection Format',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/column/types#Select-Dropdown',
+      },
       { name: 'Column Features', planIds: allPublishedPlans, nesting: 1 },
-      { name: 'Last Column Stretch', planIds: allPublishedPlans, nesting: 2, link: '/guide/column/stretch' },
-      { name: 'Column Groups', planIds: allPublishedPlans, nesting: 2, link: '/guide/column/grouping' },
-      { name: 'Column Resizing', planIds: allPublishedPlans, nesting: 2, link: '/guide/column/resize' },
-      { name: 'Column Autosizing', planIds: allPublishedPlans, nesting: 2, link: '/guide/column/autosize' },
-      { name: 'Column Ordering', planIds: allPublishedPlans, nesting: 2, link: '/guide/column/order' },
+      {
+        name: 'Last Column Stretch',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/column/stretch',
+      },
+      {
+        name: 'Column Groups',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/column/grouping',
+      },
+      {
+        name: 'Column Resizing',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/column/resize',
+      },
+      {
+        name: 'Column Autosizing',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/column/autosize',
+      },
+      {
+        name: 'Column Ordering',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/column/order',
+      },
       { name: 'Column Pinning', planIds: allPublishedPlans, nesting: 2, link: '/guide/column/pin' },
       { name: 'Selection Features', planIds: allPublishedPlans, nesting: 1 },
       { name: 'Cell Range Selection', planIds: allPublishedPlans, nesting: 2 },
       { name: 'Fill Handle', planIds: allPublishedPlans, nesting: 2 },
       { name: 'Core Features', planIds: allPublishedPlans, nesting: 1 },
-      { name: 'Column Virtualization', planIds: allPublishedPlans, nesting: 2, link: '/guide/viewports' },
-      { name: 'Row Virtualization', planIds: allPublishedPlans, nesting: 2, link: '/guide/viewports' },
-      { name: 'Keyboard Support', planIds: allPublishedPlans, nesting: 2, link: '/guide/defs#Keyboard' },
-      { name: 'Intelligent Virtual DOM', planIds: allPublishedPlans, nesting: 2, link: '/guide/overview#VNode-Reactive-DOM' },
+      {
+        name: 'Column Virtualization',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/viewports',
+      },
+      {
+        name: 'Row Virtualization',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/viewports',
+      },
+      {
+        name: 'Keyboard Support',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/defs#Keyboard',
+      },
+      {
+        name: 'Intelligent Virtual DOM',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/overview#VNode-Reactive-DOM',
+      },
       { name: 'Basic Sorting', planIds: allPublishedPlans, nesting: 2, link: '/guide/sorting' },
       { name: 'Theme Support', planIds: allPublishedPlans, nesting: 2, link: '/guide/theme' },
       { name: 'Plugin System', planIds: allPublishedPlans, nesting: 2, link: '/guide/plugin/' },
-      { name: 'Trimmed Rows', planIds: allPublishedPlans, nesting: 2, link: '/guide/row/#Trimmed-Rows' },
-      { name: 'Custom Header Templates', planIds: allPublishedPlans, nesting: 2, link: '/guide/column/header.template' },
-      { name: 'Custom Cell Properties', planIds: allPublishedPlans, nesting: 2, link: '/guide/cell/' },
+      {
+        name: 'Trimmed Rows',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/row/#Trimmed-Rows',
+      },
+      {
+        name: 'Custom Header Templates',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/column/header.template',
+      },
+      {
+        name: 'Custom Cell Properties',
+        planIds: allPublishedPlans,
+        nesting: 2,
+        link: '/guide/cell/',
+      },
       { name: 'Accessibility', planIds: allPublishedPlans, nesting: 2 },
       { name: 'Localization', planIds: allPublishedPlans, nesting: 2 },
     ],
@@ -795,7 +1009,12 @@ export const featureTableSupplementalGroups: CatalogFeatureTableGroup[] = [
     expanded: true,
     features: [
       { name: 'AI Agent Support', planIds: ['pro-advanced'], nesting: 1, link: '/pro/ai' },
-      { name: 'RevoGrid MCP - AI-Native Grid Intelligence', planIds: ['pro-lite', 'pro-advanced'], nesting: 1, featureId: 'revogrid-mcp' },
+      {
+        name: 'RevoGrid MCP - AI-Native Grid Intelligence',
+        planIds: ['pro-lite', 'pro-advanced'],
+        nesting: 1,
+        featureId: 'revogrid-mcp',
+      },
       { name: 'Private GitHub repository access', planIds: ['pro-advanced'], nesting: 1 },
       { name: 'Support via GitHub', planIds: ['pro-advanced'], nesting: 1 },
       { name: 'Support via Email', planIds: ['pro-advanced'], nesting: 1 },
@@ -804,7 +1023,29 @@ export const featureTableSupplementalGroups: CatalogFeatureTableGroup[] = [
 ]
 
 export const chartFeatureTableItems: CatalogFeatureTableItem[] = [
-  { name: 'Charts', planIds: ['pro-lite', 'pro-advanced'], nesting: 1, collapsible: true, expanded: false, featureId: 'charts' },
-  ...['Progress Line', 'Progress Line with Value', 'Sparkline', 'Bar Chart', 'Timeline', 'Rating Star', 'Badge', 'Change', 'Thumbs', 'Pie Chart']
-    .map((name) => ({ name, planIds: ['pro-lite', 'pro-advanced'] as PlanId[], nesting: 2, parent: 'Charts' })),
+  {
+    name: 'Charts',
+    planIds: ['pro-lite', 'pro-advanced'],
+    nesting: 1,
+    collapsible: true,
+    expanded: false,
+    featureId: 'charts',
+  },
+  ...[
+    'Progress Line',
+    'Progress Line with Value',
+    'Sparkline',
+    'Bar Chart',
+    'Timeline',
+    'Rating Star',
+    'Badge',
+    'Change',
+    'Thumbs',
+    'Pie Chart',
+  ].map(name => ({
+    name,
+    planIds: ['pro-lite', 'pro-advanced'] as PlanId[],
+    nesting: 2,
+    parent: 'Charts',
+  })),
 ]

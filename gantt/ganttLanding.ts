@@ -30,14 +30,14 @@ export type GanttLandingPage = {
     enabled: boolean
     kind?: 'gantt' | 'kanban' | 'eventScheduler' | 'image'
     title: string
-    pills: { label: string, active?: boolean }[]
+    pills: { label: string; active?: boolean }[]
     liveLabel?: string
     lightSrc?: string
     darkSrc?: string
     alt?: string
   }
   statsAriaLabel: string
-  stats: { value: string, label: string }[]
+  stats: { value: string; label: string }[]
   features: {
     id: string
     kicker: string
@@ -92,9 +92,9 @@ export type GanttLandingPage = {
     kicker: string
     title: string
     description: string
-    items: { value: string, title: string, description: string }[]
+    items: { value: string; title: string; description: string }[]
     note?: string
-    links: { label: string, href: string }[]
+    links: { label: string; href: string }[]
   }
   evaluation?: {
     id: string
@@ -102,7 +102,7 @@ export type GanttLandingPage = {
     title: string
     description: string
     priceLabel: string
-    items: { title: string, description: string }[]
+    items: { title: string; description: string }[]
     actions: GanttLandingAction[]
   }
   positioning?: {
@@ -110,7 +110,7 @@ export type GanttLandingPage = {
     kicker: string
     title: string
     description: string
-    items: { title: string, description: string }[]
+    items: { title: string; description: string }[]
     actions?: GanttLandingAction[]
   }
   featureComparison?: {
@@ -119,14 +119,14 @@ export type GanttLandingPage = {
     title: string
     description: string
     columns: string[]
-    rows: { feature: string, revogrid: string, note: string }[]
+    rows: { feature: string; revogrid: string; note: string }[]
   }
   useCases?: {
     id: string
     kicker: string
     title: string
     description: string
-    benefits?: { label: string, href: string }
+    benefits?: { label: string; href: string }
     items: {
       title: string
       description: string
@@ -143,14 +143,14 @@ export type GanttLandingPage = {
     id: string
     kicker: string
     title: string
-    items: { q: string, a: string }[]
+    items: { q: string; a: string }[]
   }
   linkSections?: {
     id: string
     kicker: string
     title: string
     description: string
-    sections: { title: string, items: { label: string, href: string }[] }[]
+    sections: { title: string; items: { label: string; href: string }[] }[]
   }
   advancedCallout?: {
     title: string
@@ -181,7 +181,8 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
   hero: {
     eyebrow: 'RevoGrid Gantt',
     title: 'The interactive Gantt your app deserves.',
-    description: 'Production-ready project scheduling for SaaS, ERP, and operations platforms. Drag-to-reschedule tasks, assign owners, track progress, and embed it as a native product feature.',
+    description:
+      'Production-ready project scheduling for SaaS, ERP, and operations platforms. Drag-to-reschedule tasks, assign owners, track progress, and embed it as a native product feature.',
     actions: [
       { label: 'View Demo', href: 'https://rv-grid.com/demo/gantt', arrow: true },
       { label: 'Get Pro Trial', href: '/trial', variant: 'secondary' },
@@ -191,10 +192,7 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
   preview: {
     enabled: true,
     title: 'gantt-planning.revogrid.ts',
-    pills: [
-      { label: 'Basic plan', active: true },
-      { label: 'Assignees' },
-    ],
+    pills: [{ label: 'Basic plan', active: true }, { label: 'Assignees' }],
     liveLabel: 'Live',
   },
   statsAriaLabel: 'Gantt product stats',
@@ -208,42 +206,49 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
     id: 'features',
     kicker: 'Features',
     title: 'Everything a production Gantt needs.',
-    description: 'Built for applications where planning data is part of the product, not a static report.',
+    description:
+      'Built for applications where planning data is part of the product, not a static report.',
     items: [
       {
         icon: '01',
         title: 'Interactive scheduling',
-        description: 'Drag bars to reschedule tasks, resize durations, and update rows without leaving the grid context.',
+        description:
+          'Drag bars to reschedule tasks, resize durations, and update rows without leaving the grid context.',
         tags: ['Drag and drop', 'Resize', 'Touch support'],
       },
       {
         icon: '02',
         title: 'Task dependencies',
-        description: 'Model finish-to-start, start-to-start, finish-to-finish, and start-to-finish relationships.',
+        description:
+          'Model finish-to-start, start-to-start, finish-to-finish, and start-to-finish relationships.',
         tags: ['FS / SS / FF / SF', 'Connectors', 'Auto update'],
       },
       {
         icon: '03',
         title: 'Critical path analysis',
-        description: 'Highlight the sequence of tasks that determines the minimum delivery timeline.',
+        description:
+          'Highlight the sequence of tasks that determines the minimum delivery timeline.',
         tags: ['Critical path', 'Float', 'Status colors'],
       },
       {
         icon: '04',
         title: 'Resource tracking',
-        description: 'Assign multiple people per task and expose workload context directly in the schedule.',
+        description:
+          'Assign multiple people per task and expose workload context directly in the schedule.',
         tags: ['Assignees', 'Teams', 'Workload'],
       },
       {
         icon: '05',
         title: 'Cost and progress',
-        description: 'Track cost, start dates, completion percent, and group-level progress in one synchronized view.',
+        description:
+          'Track cost, start dates, completion percent, and group-level progress in one synchronized view.',
         tags: ['Cost columns', 'Progress bars', 'Groups'],
       },
       {
         icon: '06',
         title: 'Plugin API',
-        description: 'Customize cells, columns, toolbar actions, and context menus with the RevoGrid Pro plugin API.',
+        description:
+          'Customize cells, columns, toolbar actions, and context menus with the RevoGrid Pro plugin API.',
         tags: ['Custom renderers', 'Toolbar SDK', 'Column types'],
       },
     ],
@@ -266,7 +271,8 @@ export const DEFAULT_GANTT_PAGE: GanttLandingPage = {
   },
   cta: {
     title: 'Ship Gantt as a feature, not a project.',
-    description: 'Embed RevoGrid Gantt in your product and keep the scheduling experience under your control.',
+    description:
+      'Embed RevoGrid Gantt in your product and keep the scheduling experience under your control.',
     primaryHref: 'https://rv-grid.com/demo/gantt',
     primaryLabel: 'View Demo',
     secondaryHref: '/trial',
@@ -288,11 +294,10 @@ export function mergeGanttPageConfig(config: Partial<GanttLandingPage> = {}): Ga
     useCases: config.useCases,
     faq: config.faq,
     linkSections: config.linkSections,
-    advancedCallout: config.advancedCallout === null
-      ? undefined
-      : { ...DEFAULT_GANTT_PAGE.advancedCallout, ...config.advancedCallout },
-    cta: config.cta === null
-      ? undefined
-      : { ...DEFAULT_GANTT_PAGE.cta, ...config.cta },
+    advancedCallout:
+      config.advancedCallout === null
+        ? undefined
+        : { ...DEFAULT_GANTT_PAGE.advancedCallout, ...config.advancedCallout },
+    cta: config.cta === null ? undefined : { ...DEFAULT_GANTT_PAGE.cta, ...config.cta },
   }
 }

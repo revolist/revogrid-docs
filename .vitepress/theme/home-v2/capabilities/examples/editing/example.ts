@@ -60,12 +60,7 @@ const formatting = {
 />`,
   source: spreadsheetRows,
   columns: editingColumns,
-  plugins: [
-    FormulaPlugin,
-    HistoryPlugin,
-    MultiRangeSelectionPlugin,
-    DataGridFormattingPlugin,
-  ],
+  plugins: [FormulaPlugin, HistoryPlugin, MultiRangeSelectionPlugin, DataGridFormattingPlugin],
   eventManager: { applyEventsToSource: true },
   formatting: spreadsheetFormatting,
   contextMenu: {},

@@ -12,7 +12,9 @@
       <div class="diff-card revo">
         <div class="diff-label">RevoGrid Pivot</div>
         <ul>
-          <li v-for="item in REVO" :key="item.title"><span>✓</span><strong>{{ item.title }}</strong> {{ item.text }}</li>
+          <li v-for="item in REVO" :key="item.title">
+            <span>✓</span><strong>{{ item.title }}</strong> {{ item.text }}
+          </li>
         </ul>
         <div class="diff-note">Pivot is a plugin. RevoGrid is the foundation.</div>
       </div>

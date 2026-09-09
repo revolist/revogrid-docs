@@ -51,7 +51,8 @@ export function useExcelGridRenderStats(options: {
 
   onBeforeUnmount(() => {
     statsObserver?.disconnect()
-    if (statsFrame !== undefined && typeof window !== 'undefined') window.cancelAnimationFrame(statsFrame)
+    if (statsFrame !== undefined && typeof window !== 'undefined')
+      window.cancelAnimationFrame(statsFrame)
   })
 
   return { scheduleRenderStats, startStatsTracking }

@@ -12,8 +12,14 @@ test('uses readable discount groups and wide Pivot columns in the hero preview',
 })
 
 test('keeps the Total Spend sum visible without removing discount group controls', () => {
-  assert.match(demoSource, /prop: 'Total Spend',[\s\S]*?aggregators: \{[\s\S]*?sum: commonAggregators\.sum/)
-  assert.match(demoSource, /prop: 'Average Spend',[\s\S]*?aggregators: \{[\s\S]*?avg: commonAggregators\.avg/)
+  assert.match(
+    demoSource,
+    /prop: 'Total Spend',[\s\S]*?aggregators: \{[\s\S]*?sum: commonAggregators\.sum/,
+  )
+  assert.match(
+    demoSource,
+    /prop: 'Average Spend',[\s\S]*?aggregators: \{[\s\S]*?avg: commonAggregators\.avg/,
+  )
   assert.match(demoSource, /\{ prop: 'Total Spend', aggregator: 'sum' \}/)
   assert.match(demoSource, /\{ prop: 'Average Spend', aggregator: 'avg' \}/)
   assert.doesNotMatch(demoSource, /\{ prop: 'Total Spend', aggregator: 'avg' \}/)

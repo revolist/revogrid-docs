@@ -5,8 +5,7 @@
       <h1>JavaScript <span>pivot table</span><br />component for<br /><em>data-heavy apps.</em></h1>
       <p>
         A high-performance pivot grid with client-side aggregation and grouping -
-        <strong>powered by RevoGrid</strong>. No backend. Works with hundreds
-        of thousands of rows.
+        <strong>powered by RevoGrid</strong>. No backend. Works with hundreds of thousands of rows.
       </p>
       <div class="hero-actions">
         <a :href="liveDemoUrl" class="rg-btn" target="_blank" rel="noopener">
@@ -16,7 +15,9 @@
           </svg>
           View Live Demo
         </a>
-        <a :href="useWithRevoGridUrl" class="rg-btn rg-btn-secondary" target="_blank" rel="noopener">Use with RevoGrid -></a>
+        <a :href="useWithRevoGridUrl" class="rg-btn rg-btn-secondary" target="_blank" rel="noopener"
+          >Use with RevoGrid -></a
+        >
       </div>
       <div class="frameworks">
         <span class="fw-label">Works with</span>

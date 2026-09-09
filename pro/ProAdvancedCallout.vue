@@ -6,11 +6,13 @@
           <div class="callout-eyebrow">Included in {{ plan.name }}</div>
           <h2 class="callout-title">{{ title }}</h2>
           <p class="callout-desc">
-            {{ product.name }} is included with {{ plan.name }}, together with
-            original private source access, unlimited product usage, and priority support.
+            {{ product.name }} is included with {{ plan.name }}, together with original private
+            source access, unlimited product usage, and priority support.
           </p>
           <div class="callout-actions">
-            <ProDocButton :href="proAdvancedLink" @click="handleStripeClientReferenceClick">See Pro Advanced pricing</ProDocButton>
+            <ProDocButton :href="proAdvancedLink" @click="handleStripeClientReferenceClick"
+              >See Pro Advanced pricing</ProDocButton
+            >
             <ProDocButton href="/pro/" variant="secondary">Explore Pro bundle</ProDocButton>
           </div>
         </div>
@@ -88,7 +90,11 @@ const INCLUDED = [
   padding: 50px 60px;
   border: 1px solid var(--callout-accent-border);
   border-radius: 16px;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--callout-accent) 7%, transparent), color-mix(in srgb, var(--callout-blue) 4%, transparent));
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--callout-accent) 7%, transparent),
+    color-mix(in srgb, var(--callout-blue) 4%, transparent)
+  );
 
   @media (max-width: 820px) {
     grid-template-columns: 1fr;

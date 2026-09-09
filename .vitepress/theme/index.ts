@@ -31,42 +31,42 @@ import DemoFeedbackSurvey from './DemoFeedbackSurvey.vue'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 
 export default {
-    extends: DefaultTheme,
-    Layout: () => {
-        return h(DefaultTheme.Layout, null, {
-            // https://vitepress.dev/guide/extending-default-theme#layout-slots
-            'layout-top': () => [
-                h(DemoNavigation),
-                h(HeaderNavControls),
-                h(HomePageColors),
-                h(DemoThemeBridge),
-                h(ExternalHomeLinks),
-                h(DemoFeedbackSurvey),
-            ],
-            'home-hero-image': () => h(HomeHero),
-            'home-hero-actions-before-actions': () => h(HomeHeroActions),
-            'home-hero-info-before': () => h(HomeHeroInfoBefore),
-            'home-hero-actions-after': () => h(HomeHeroInfoAfter),
-            'home-hero-after': () => [
-                h(HomeSocialProof),
-                h(HomeUseCases),
-                h(HomeLicensing),
-                h(HomeFeatureStats),
-                h(HomeCtaBanner),
-            ],
-        })
-    },
-    enhanceApp({ app, router, siteData }) {
-        app.provide(ZINDEX_INJECTION_KEY, { current: 0 })
-        app.provide(ID_INJECTION_KEY, { prefix: 1024, current: 0 })
-        enhanceAppWithTabs(app)
-        app.component('custom', CustomLayout)
-        app.component('revogrid-home', RevoGridHomeLayout)
-        app.component('Mermaid', Mermaid)
-        app.component('ProDemoFrame', ProDemoFrame)
-        app.component('DemoWidgetFrame', DemoWidgetFrame)
-        app.component('DemoPageLayout', DemoPageLayout)
-        app.component('QuickStartCdnExample', QuickStartCdnExample)
-        app.component('TreeDataProDemo', TreeDataProDemo)
-    },
+  extends: DefaultTheme,
+  Layout: () => {
+    return h(DefaultTheme.Layout, null, {
+      // https://vitepress.dev/guide/extending-default-theme#layout-slots
+      'layout-top': () => [
+        h(DemoNavigation),
+        h(HeaderNavControls),
+        h(HomePageColors),
+        h(DemoThemeBridge),
+        h(ExternalHomeLinks),
+        h(DemoFeedbackSurvey),
+      ],
+      'home-hero-image': () => h(HomeHero),
+      'home-hero-actions-before-actions': () => h(HomeHeroActions),
+      'home-hero-info-before': () => h(HomeHeroInfoBefore),
+      'home-hero-actions-after': () => h(HomeHeroInfoAfter),
+      'home-hero-after': () => [
+        h(HomeSocialProof),
+        h(HomeUseCases),
+        h(HomeLicensing),
+        h(HomeFeatureStats),
+        h(HomeCtaBanner),
+      ],
+    })
+  },
+  enhanceApp({ app, router, siteData }) {
+    app.provide(ZINDEX_INJECTION_KEY, { current: 0 })
+    app.provide(ID_INJECTION_KEY, { prefix: 1024, current: 0 })
+    enhanceAppWithTabs(app)
+    app.component('custom', CustomLayout)
+    app.component('revogrid-home', RevoGridHomeLayout)
+    app.component('Mermaid', Mermaid)
+    app.component('ProDemoFrame', ProDemoFrame)
+    app.component('DemoWidgetFrame', DemoWidgetFrame)
+    app.component('DemoPageLayout', DemoPageLayout)
+    app.component('QuickStartCdnExample', QuickStartCdnExample)
+    app.component('TreeDataProDemo', TreeDataProDemo)
+  },
 } satisfies Theme

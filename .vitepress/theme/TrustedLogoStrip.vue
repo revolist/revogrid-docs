@@ -3,7 +3,9 @@
     class="trusted-logo-strip"
     :class="variantClasses"
     :aria-labelledby="resolvedSection.title && props.variant !== 'home' ? titleId : undefined"
-    :aria-label="resolvedSection.title && props.variant !== 'home' ? undefined : resolvedSection.kicker"
+    :aria-label="
+      resolvedSection.title && props.variant !== 'home' ? undefined : resolvedSection.kicker
+    "
   >
     <div class="trusted-logo-strip__inner">
       <div class="trusted-logo-strip__copy">
@@ -54,16 +56,19 @@ type TrustedLogoMetric = {
   label: string
 }
 
-const props = withDefaults(defineProps<{
-  section?: TrustedLogoSection
-  titleId?: string
-  variant?: 'home' | 'pivot' | 'trial'
-  metrics?: TrustedLogoMetric[]
-}>(), {
-  titleId: 'trusted-logo-strip-title',
-  variant: 'home',
-  metrics: () => [],
-})
+const props = withDefaults(
+  defineProps<{
+    section?: TrustedLogoSection
+    titleId?: string
+    variant?: 'home' | 'pivot' | 'trial'
+    metrics?: TrustedLogoMetric[]
+  }>(),
+  {
+    titleId: 'trusted-logo-strip-title',
+    variant: 'home',
+    metrics: () => [],
+  },
+)
 
 const LOGO_COMPONENTS = {
   axon: AxonLogo,
@@ -95,11 +100,11 @@ const resolvedSection = computed(() => ({
 
 const trustedLogos = computed(() => {
   return resolvedSection.value.logos
-    .map((logo) => ({
+    .map(logo => ({
       ...logo,
       component: LOGO_COMPONENTS[logo.id],
     }))
-    .filter((logo) => Boolean(logo.component))
+    .filter(logo => Boolean(logo.component))
 })
 
 const variantClasses = computed(() => ({
@@ -210,7 +215,7 @@ const variantClasses = computed(() => ({
   align-items: center;
   color: var(--rg-text);
   justify-content: center;
-  gap: clamp(2.6rem,3vw,4.5rem);
+  gap: clamp(2.6rem, 3vw, 4.5rem);
 }
 
 .trusted-logo-strip__logo {
@@ -297,7 +302,7 @@ const variantClasses = computed(() => ({
   --trusted-logo-height: 35px;
 }
 
-:global([data-theme="light"]) .trusted-logo-strip__logo--siemens  {
+:global([data-theme='light']) .trusted-logo-strip__logo--siemens {
   --sui-header-logo-color: #009999;
 }
 

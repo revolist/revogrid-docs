@@ -10,19 +10,19 @@ const route = useRoute()
 const { homeLink } = useHomeLink()
 
 const rewriteLinks = async () => {
-    await nextTick()
-    if (!frontmatter.value.externalHomeLinks || typeof document === 'undefined') {
-        return
-    }
+  await nextTick()
+  if (!frontmatter.value.externalHomeLinks || typeof document === 'undefined') {
+    return
+  }
 
-    document
-        .querySelectorAll<HTMLAnchorElement>('.VPNav a[href^="/"], .VPFooter a[href^="/"]')
-        .forEach((link) => {
-            const href = link.getAttribute('href')
-            if (href) {
-                link.setAttribute('href', homeLink(href))
-            }
-        })
+  document
+    .querySelectorAll<HTMLAnchorElement>('.VPNav a[href^="/"], .VPFooter a[href^="/"]')
+    .forEach(link => {
+      const href = link.getAttribute('href')
+      if (href) {
+        link.setAttribute('href', homeLink(href))
+      }
+    })
 }
 
 onMounted(rewriteLinks)

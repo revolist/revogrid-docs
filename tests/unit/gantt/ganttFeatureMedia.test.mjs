@@ -3,11 +3,21 @@ import assert from 'node:assert/strict'
 import { existsSync, readFileSync } from 'node:fs'
 
 const pageSource = readFileSync(new URL('../../../gantt.md', import.meta.url), 'utf8')
-const componentSource = readFileSync(new URL('../../../pro/ProFeatureGrid.vue', import.meta.url), 'utf8')
-const pageLayoutSource = readFileSync(new URL('../../../gantt/GanttPageLayout.vue', import.meta.url), 'utf8')
-const configSource = readFileSync(new URL('../../../gantt/ganttLanding.ts', import.meta.url), 'utf8')
-const featureSection = pageSource.match(/  features:\n([\s\S]*?)\n  positioning:/)?.[1] ?? ''
-const integrationsSection = pageSource.match(/  integrations:\n([\s\S]*?)\n  featureComparison:/)?.[1] ?? ''
+const componentSource = readFileSync(
+  new URL('../../../pro/ProFeatureGrid.vue', import.meta.url),
+  'utf8',
+)
+const pageLayoutSource = readFileSync(
+  new URL('../../../gantt/GanttPageLayout.vue', import.meta.url),
+  'utf8',
+)
+const configSource = readFileSync(
+  new URL('../../../gantt/ganttLanding.ts', import.meta.url),
+  'utf8',
+)
+const featureSection = pageSource.match(/ {2}features:\n([\s\S]*?)\n {2}positioning:/)?.[1] ?? ''
+const integrationsSection =
+  pageSource.match(/ {2}integrations:\n([\s\S]*?)\n {2}featureComparison:/)?.[1] ?? ''
 
 test('keeps the exact category-first RevoGrid Gantt product title', () => {
   assert.match(pageSource, /^title: "JavaScript Gantt Chart Component \| RevoGrid Gantt"$/m)
@@ -15,9 +25,9 @@ test('keeps the exact category-first RevoGrid Gantt product title', () => {
 })
 
 test('presents ten real Gantt workflows with visual media and live examples', () => {
-  assert.equal(featureSection.match(/^      - icon: '\d{2}'$/gm)?.length, 10)
-  assert.equal(featureSection.match(/^        media: /gm)?.length, 10)
-  assert.equal(featureSection.match(/^        href: https:\/\/demo\.rv-grid\.com\//gm)?.length, 10)
+  assert.equal(featureSection.match(/^ {6}- icon: '\d{2}'$/gm)?.length, 10)
+  assert.equal(featureSection.match(/^ {8}media: /gm)?.length, 10)
+  assert.equal(featureSection.match(/^ {8}href: https:\/\/demo\.rv-grid\.com\//gm)?.length, 10)
 
   for (const capability of [
     'Dependencies with lead and lag',
@@ -35,8 +45,9 @@ test('presents ten real Gantt workflows with visual media and live examples', ()
 })
 
 test('keeps every local Gantt feature asset available from VitePress public', () => {
-  const localMedia = [...featureSection.matchAll(/^        (?:media|poster): (\/(?:img|video)\/[^\n]+)$/gm)]
-    .map(([, path]) => path)
+  const localMedia = [
+    ...featureSection.matchAll(/^ {8}(?:media|poster): (\/(?:img|video)\/[^\n]+)$/gm),
+  ].map(([, path]) => path)
 
   assert.ok(localMedia.length >= 11)
   for (const mediaPath of localMedia) {
@@ -57,7 +68,10 @@ test('renders optional feature media without changing the text-only contract', (
   assert.match(componentSource, /v-if="feature\.href" class="feature-link"/)
   assert.match(configSource, /media\?: string/)
   assert.match(configSource, /featured\?: boolean/)
-  assert.match(pageLayoutSource, /<ProFeatureGrid :features="page\.features\.items" :show-icons="false" \/>/)
+  assert.match(
+    pageLayoutSource,
+    /<ProFeatureGrid :features="page\.features\.items" :show-icons="false" \/>/,
+  )
 })
 
 test('uses the shared framework SVG assets in Gantt integration cards', () => {

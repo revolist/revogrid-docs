@@ -8,8 +8,8 @@
     </p>
 
     <p>
-      This comparison is for teams evaluating {{ competitorName }} against RevoGrid
-      for {{ useCases }}.
+      This comparison is for teams evaluating {{ competitorName }} against RevoGrid for
+      {{ useCases }}.
     </p>
 
     <CompareCta
@@ -20,8 +20,8 @@
     />
 
     <p class="compare-note">
-      Last reviewed: {{ reviewedDate }}. Vendor pricing, license terms, and feature
-      packaging can change. Verify official vendor pages before purchase.
+      Last reviewed: {{ reviewedDate }}. Vendor pricing, license terms, and feature packaging can
+      change. Verify official vendor pages before purchase.
     </p>
   </div>
 </template>
@@ -29,27 +29,30 @@
 <script lang="ts" setup>
 import CompareCta from './CompareCta.vue'
 
-withDefaults(defineProps<{
-  competitorName: string
-  competitorSummary: string
-  useCases: string
-  eyebrow?: string
-  primaryCtaHref?: string
-  primaryCtaLabel?: string
-  revoSummary?: string
-  reviewedDate?: string
-  secondaryCtaHref?: string
-  secondaryCtaLabel?: string
-}>(), {
-  eyebrow: 'Deep technical comparison for product teams',
-  primaryCtaHref: '/trial',
-  primaryCtaLabel: 'Get Pro Trial',
-  revoSummary:
-    'RevoGrid Core and RevoGrid Pro are best understood as a fast data-grid foundation plus optional advanced workflow modules.',
-  reviewedDate: 'June 4, 2026',
-  secondaryCtaHref: '/pricing#pro-advanced',
-  secondaryCtaLabel: 'Buy Pro',
-})
+withDefaults(
+  defineProps<{
+    competitorName: string
+    competitorSummary: string
+    useCases: string
+    eyebrow?: string
+    primaryCtaHref?: string
+    primaryCtaLabel?: string
+    revoSummary?: string
+    reviewedDate?: string
+    secondaryCtaHref?: string
+    secondaryCtaLabel?: string
+  }>(),
+  {
+    eyebrow: 'Deep technical comparison for product teams',
+    primaryCtaHref: '/trial',
+    primaryCtaLabel: 'Get Pro Trial',
+    revoSummary:
+      'RevoGrid Core and RevoGrid Pro are best understood as a fast data-grid foundation plus optional advanced workflow modules.',
+    reviewedDate: 'June 4, 2026',
+    secondaryCtaHref: '/pricing#pro-advanced',
+    secondaryCtaLabel: 'Buy Pro',
+  },
+)
 </script>
 
 <style scoped>

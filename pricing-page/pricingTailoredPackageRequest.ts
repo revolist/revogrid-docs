@@ -13,13 +13,11 @@ export type TailoredPackageRequestInput = {
 
 const SOURCE = 'pricing-tailored-package'
 
-export const createTailoredPackageRequestPayload = (
-  input: TailoredPackageRequestInput,
-) => {
+export const createTailoredPackageRequestPayload = (input: TailoredPackageRequestInput) => {
   const selectedCapabilities = input.selectedCapabilities.map(({ id }) => id)
   const selectedCapabilityNames = input.selectedCapabilities.map(({ name }) => name)
   const capabilitySummary = selectedCapabilityNames.length
-    ? selectedCapabilityNames.map((name) => `- ${name}`).join('\n')
+    ? selectedCapabilityNames.map(name => `- ${name}`).join('\n')
     : 'None — described in own words'
   const message = [
     'Request details:',

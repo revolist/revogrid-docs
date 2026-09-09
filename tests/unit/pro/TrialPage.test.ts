@@ -4,7 +4,10 @@ import test from 'node:test'
 
 const trialPage = readFileSync(new URL('../../../pro/TrialPage.vue', import.meta.url), 'utf8')
 const trialRoute = readFileSync(new URL('../../../trial.md', import.meta.url), 'utf8')
-const trialRequestForm = readFileSync(new URL('../../../pro/TrialRequestForm.vue', import.meta.url), 'utf8')
+const trialRequestForm = readFileSync(
+  new URL('../../../pro/TrialRequestForm.vue', import.meta.url),
+  'utf8',
+)
 
 test('keeps immediate public trial access ahead of the optional contact form', () => {
   assert.match(trialPage, /<h1>Evaluate RevoGrid Pro now<\/h1>/)
@@ -16,7 +19,10 @@ test('keeps immediate public trial access ahead of the optional contact form', (
     trialPage,
     /<ProDocButton[\s\S]*?href="https:\/\/github\.com\/revolist\/revogrid-pro-trial"[\s\S]*?variant="secondary"[\s\S]*?>\s*Clone Trial Starter\s*<\/ProDocButton>/,
   )
-  assert.match(trialPage, /npm config set &quot;@revolist:registry=https:\/\/trial\.rv-grid\.com&quot;/)
+  assert.match(
+    trialPage,
+    /npm config set &quot;@revolist:registry=https:\/\/trial\.rv-grid\.com&quot;/,
+  )
   assert.match(trialPage, /No npm login or authentication token is required\./)
   assert.match(trialPage, /No license key is required to start the trial\./)
   assert.match(trialPage, /No approval email is required\./)
@@ -26,7 +32,10 @@ test('keeps immediate public trial access ahead of the optional contact form', (
 })
 
 test('keeps contact optional without changing trial form submission ownership', () => {
-  assert.match(trialPage, /Want evaluation help, architecture guidance, or commercial information\? Contact our team\./)
+  assert.match(
+    trialPage,
+    /Want evaluation help, architecture guidance, or commercial information\? Contact our team\./,
+  )
   assert.match(trialPage, /<TrialRequestForm[\s\S]*?request-type="trial"[\s\S]*?\/>/)
   assert.doesNotMatch(trialPage, /private npm access/i)
   assert.doesNotMatch(trialPage, /we(?:’|')ll send (?:trial )?access details/i)
@@ -61,7 +70,9 @@ test('keeps query-aware package installation instructions on the public trial pa
 
 test('keeps the trial trust strip without the metrics row', () => {
   assert.match(trialPage, /<TrustedLogoStrip[\s\S]*?variant="trial"[\s\S]*?\/>/)
-  assert.ok(trialPage.indexOf('<TrustedLogoStrip') < trialPage.indexOf('<section class="trial-steps"'))
+  assert.ok(
+    trialPage.indexOf('<TrustedLogoStrip') < trialPage.indexOf('<section class="trial-steps"'),
+  )
   assert.doesNotMatch(trialPage, /:metrics=/)
   assert.doesNotMatch(trialPage, /const metrics\s*=/)
   assert.doesNotMatch(trialPage, /typical access time|jsDelivr downloads \/ mo/)

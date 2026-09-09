@@ -34,7 +34,7 @@
           :style="feature.mediaPosition ? { objectPosition: feature.mediaPosition } : undefined"
           loading="lazy"
           decoding="async"
-        >
+        />
       </div>
 
       <div class="feature-copy">
@@ -80,12 +80,15 @@ interface ProFeatureItem {
   featured?: boolean
 }
 
-const props = withDefaults(defineProps<{
-  features: readonly ProFeatureItem[]
-  showIcons?: boolean
-}>(), {
-  showIcons: true,
-})
+const props = withDefaults(
+  defineProps<{
+    features: readonly ProFeatureItem[]
+    showIcons?: boolean
+  }>(),
+  {
+    showIcons: true,
+  },
+)
 
 const hasVisualFeatures = computed(() => props.features.some(feature => feature.media))
 </script>
@@ -124,7 +127,11 @@ const hasVisualFeatures = computed(() => props.features.some(feature => feature.
 .feature-card {
   padding: 30px 26px;
   background: var(--vp-c-bg);
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
   &:hover {
     background: var(--vp-c-bg-soft);
@@ -152,7 +159,11 @@ const hasVisualFeatures = computed(() => props.features.some(feature => feature.
   border-radius: 18px;
 
   &:hover {
-    border-color: color-mix(in srgb, var(--pro-doc-accent, var(--gantt-accent, #1d4ed8)) 35%, var(--vp-c-divider));
+    border-color: color-mix(
+      in srgb,
+      var(--pro-doc-accent, var(--gantt-accent, #1d4ed8)) 35%,
+      var(--vp-c-divider)
+    );
     transform: translateY(-3px);
     box-shadow: 0 18px 46px rgba(0, 0, 0, 0.12);
   }
@@ -238,7 +249,8 @@ const hasVisualFeatures = computed(() => props.features.some(feature => feature.
   width: 42px;
   height: 42px;
   margin-bottom: 18px;
-  border: 1px solid color-mix(in srgb, var(--pro-doc-accent, var(--gantt-accent, #1d4ed8)) 20%, transparent);
+  border: 1px solid
+    color-mix(in srgb, var(--pro-doc-accent, var(--gantt-accent, #1d4ed8)) 20%, transparent);
   border-radius: 10px;
   color: var(--pro-doc-accent, var(--gantt-accent, #1d4ed8));
   background: var(--pro-doc-soft, var(--gantt-soft, rgba(29, 78, 216, 0.09)));
@@ -294,5 +306,4 @@ const hasVisualFeatures = computed(() => props.features.some(feature => feature.
     }
   }
 }
-
 </style>

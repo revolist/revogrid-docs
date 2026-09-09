@@ -8,8 +8,8 @@
       <span class="tailored-new-badge">New</span>
       <h3 id="tailored-package-heading">Need only part of RevoGrid?</h3>
       <p>
-        Choose the grid capabilities required for your project, and we'll suggest
-        a tailored package.
+        Choose the grid capabilities required for your project, and we'll suggest a tailored
+        package.
       </p>
       <button class="rg-btn tailored-action" type="button" @click="$emit('contact-sales')">
         Tell us what you need
@@ -81,7 +81,11 @@ defineEmits<{
   border: 1px solid color-mix(in srgb, var(--rg-font-green) 30%, var(--rg-border));
   border-radius: 14px;
   background:
-    radial-gradient(circle at 80% 50%, color-mix(in srgb, var(--rg-font-green) 8%, transparent), transparent 42%),
+    radial-gradient(
+      circle at 80% 50%,
+      color-mix(in srgb, var(--rg-font-green) 8%, transparent),
+      transparent 42%
+    ),
     color-mix(in srgb, var(--rg-font-green) 3%, var(--rg-bg));
 }
 

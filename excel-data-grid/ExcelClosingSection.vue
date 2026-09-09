@@ -1,5 +1,7 @@
 <template>
-  <section class="excel-faq-section"><div class="excel-container"><CommercialFaq id="excel-data-grid-faq" /></div></section>
+  <section class="excel-faq-section">
+    <div class="excel-container"><CommercialFaq id="excel-data-grid-faq" /></div>
+  </section>
   <section class="excel-final-cta" aria-labelledby="excel-final-title">
     <div class="excel-grid-pattern" aria-hidden="true"></div>
     <div class="excel-container">

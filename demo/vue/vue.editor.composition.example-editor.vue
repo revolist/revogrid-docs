@@ -1,22 +1,22 @@
 // vue.editor.composition.example-editor.vue
 <template>
-    <button @click="onBtn">Finish edit</button>
+  <button @click="onBtn">Finish edit</button>
 </template>
 <script lang="ts" setup>
 import { type EditorType, dispatchByEvent } from '@revolist/vue3-datagrid'
 
 type MyType = EditorType & {
-    close: () => void
+  close: () => void
 }
 const props = defineProps<MyType>()
 
 const onBtn = (e: MouseEvent) => {
-    // create and dispatch event
-    dispatchByEvent(e, 'cell', { row: props.model })
+  // create and dispatch event
+  dispatchByEvent(e, 'cell', { row: props.model })
 
-    e.stopPropagation()
-    if (typeof props.close === 'function') {
-        ;(props.close as () => void)()
-    }
+  e.stopPropagation()
+  if (typeof props.close === 'function') {
+    ;(props.close as () => void)()
+  }
 }
 </script>

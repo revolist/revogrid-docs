@@ -6,32 +6,30 @@ Route: `/demo/ai-prompts`. Catalog ID: `ai-prompt-library`. Priority: P0 means b
 
 ## Evidence and setup
 
-Source reviewed on 2026-09-08 against docs commit `b0c0bd9f851772dfcd30549d6d0a71ab84be12f6`. The workspace already contained changes to `.vitepress/theme/DemoNavigation.vue` and `.vitepress/theme/style.scss`; visual conclusions apply to that working tree. Code cases below are source-derived. Coordinating root reviewer supplied the limited browser observations listed below; entire multi-step cases are not claimed as executed passes.
+Source fixtures refreshed on 2026-09-09. The workspace already contained unrelated changes; code cases below are source-derived and the full multi-step cases are not claimed as executed passes.
 
 Start each case with a hard reload and Category = All, empty Search, closed header filters. A hard reload is important: edits modify bundled row objects in memory and an ordinary client-side route revisit may retain the imported objects. Wait for `.prompt-grid` data cells, not merely the docs shell. Scope all row assertions to the grid, excluding source-panel text. Use the shared docs-shell scenarios in addition to these cases.
 
-## Recorded browser observation
+## Browser evidence status
 
-The coordinating reviewer additionally inspected the initial route at 1440×900 in dark theme and 390×844 in light theme. Consult the central evidence matrix for the final per-viewport findings; the detailed interactions below were not automatically repeated in those viewports.
-
-Root reviewer opened and screenshotted this route in light theme at 1280×720. Entered a no-match query: data rows disappeared while headers remained. Cleared query and selected Engineering: Pull request reviewer and Test case designer appeared. Prompt editing, sorting, dark and narrow layouts were not exercised.
+Earlier screenshots used the retired generic prompt fixtures. Re-record the initial, filtered, and editor states with the RevoGrid-specific catalog before treating visual evidence as current.
 
 ## Scenarios
 
 ### PROMPT-001 · P0 · Initial readable prompt catalog
 
 1. Open the route in a fresh page → Search and Category controls, the editing hint, and the Prompt role / Category / Prompt / Tags headers appear.
-2. Inspect the first record → `Blog outline architect`, `Content`, and `writing, seo` belong to the same row; prompt starts `Create a structured article outline`.
+2. Inspect the first record → `Minimal grid starter`, `Setup`, and `quickstart, typescript` belong to the same row; prompt starts `Create the smallest working RevoGrid example`.
 3. Scroll down and horizontally to Tags → later records render, and scrolling back restores the first record without duplicated cells or detached headers.
 
 Visual checks: 108px rows contain wrapped prompt text; the long Prompt column can scroll inside the workspace; text must not overlap the next row. Automation: `.prompt-grid`, header names, and fixture title are concrete targets. Do not equate rendered row count with the full dataset under virtualization.
 
 ### PROMPT-002 · P0 · Search and category combine
 
-1. Enter `  BLOG OUTLINE ARCHITECT  ` in `Role, prompt, or tag…` → the first fixture remains; trimming and case-insensitive matching work.
-2. Select Engineering while keeping that search → no data rows match; controls and headers remain usable.
-3. Clear Search while Engineering remains selected → Engineering rows return, including `Pull request reviewer`; Content records are absent from the filtered source.
-4. Choose All and search `writing, seo` → `Blog outline architect` returns through its Tags field.
+1. Enter `  MINIMAL GRID STARTER  ` in `Role, prompt, or tag…` → the first fixture remains; trimming and case-insensitive matching work.
+2. Select Extensions while keeping that search → no data rows match; controls and headers remain usable.
+3. Clear Search while Extensions remains selected → Extension rows return, including `Plugin scaffold`; Setup records are absent from the filtered source.
+4. Choose All and search `quickstart, typescript` → `Minimal grid starter` returns through its Tags field.
 5. Clear Search → full source returns with no stale empty state.
 
 Visual checks: no stale cells from the previous category in an empty result. Automation: use the labelled Category select and search placeholder; compare filtered row identities against `filterPrompts` fixtures independently, not against screen-only row totals.

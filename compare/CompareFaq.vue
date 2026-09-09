@@ -23,11 +23,7 @@
           <span class="answer-toggle" aria-hidden="true">+</span>
         </button>
 
-        <div
-          v-show="openAnswers[index]"
-          :id="`compare-faq-answer-${index}`"
-          class="answer-body"
-        >
+        <div v-show="openAnswers[index]" :id="`compare-faq-answer-${index}`" class="answer-body">
           <p>{{ item.description }}</p>
           <div v-if="item.links?.length" class="answer-links">
             <a

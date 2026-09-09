@@ -280,10 +280,13 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
   },
-} as const satisfies Record<DemoId, {
-  docsUrl: string
-  verificationOptions: readonly { code: string, label: string }[]
-}>
+} as const satisfies Record<
+  DemoId,
+  {
+    docsUrl: string
+    verificationOptions: readonly { code: string; label: string }[]
+  }
+>
 
 export const DEMO_FEEDBACK_COPY = {
   card: {
@@ -312,8 +315,7 @@ export const DEMO_FEEDBACK_COPY = {
 
 export type DemoFeedbackPrimaryAnswer = (typeof DEMO_FEEDBACK_PRIMARY_OPTIONS)[number]['code']
 export type DemoFeedbackCardResponse =
-  | (typeof DEMO_FEEDBACK_CARD_OPTIONS)[number]['code']
-  | typeof DEMO_FEEDBACK_BROWSING_OPTION.code
+  (typeof DEMO_FEEDBACK_CARD_OPTIONS)[number]['code'] | typeof DEMO_FEEDBACK_BROWSING_OPTION.code
 export type DemoFeedbackNotFitReason = (typeof DEMO_FEEDBACK_NOT_FIT_OPTIONS)[number]['code']
 export type DemoFeedbackRowVolume = (typeof DEMO_FEEDBACK_ROW_VOLUME_OPTIONS)[number]['code']
 export type DemoFeedbackVerificationCode = {
@@ -322,13 +324,11 @@ export type DemoFeedbackVerificationCode = {
 export type DemoFeedbackOptionQuestionId = 'verification' | 'row_volume' | 'not_fit'
 export type DemoFeedbackTextQuestionId = 'not_fit_follow_up'
 export type DemoFeedbackTextLengthBucket = '1_50' | '51_100' | '101_200'
-export type DemoFeedbackBranch = 'ready' | 'needs_information' | 'comparing' | 'not_fit' | 'complete'
+export type DemoFeedbackBranch =
+  'ready' | 'needs_information' | 'comparing' | 'not_fit' | 'complete'
 export type DemoFeedbackFlowStep = 'ready' | 'needs_information' | 'not_fit' | 'confirmation'
 export type DemoFeedbackNextAction =
-  | 'start_pro_trial'
-  | 'use_open_source'
-  | 'explore_pro_features'
-  | 'view_documentation'
+  'start_pro_trial' | 'use_open_source' | 'explore_pro_features' | 'view_documentation'
 export type DemoFeedbackAnalyticsEvent =
   | 'demo_feedback_eligible'
   | 'demo_feedback_shown'
@@ -350,7 +350,8 @@ export const DEMO_FEEDBACK_ELEMENT_IDS = {
   },
   step: (step: DemoFeedbackFlowStep) => `demo-feedback-step-${step}`,
   cardResponse: (response: DemoFeedbackCardResponse) => `demo-feedback-card-response-${response}`,
-  verificationOption: (code: DemoFeedbackVerificationCode) => `demo-feedback-verification-option-${code}`,
+  verificationOption: (code: DemoFeedbackVerificationCode) =>
+    `demo-feedback-verification-option-${code}`,
   verification: (code: DemoFeedbackVerificationCode) => `demo-feedback-verification-${code}`,
   rowVolumeOption: (code: DemoFeedbackRowVolume) => `demo-feedback-row-volume-option-${code}`,
   rowVolume: (code: DemoFeedbackRowVolume) => `demo-feedback-row-volume-${code}`,
@@ -393,10 +394,7 @@ export interface DemoFeedbackSessionState {
 export type DemoFeedbackPromptOutcome = 'dismissed' | 'submitted'
 export type DemoFeedbackStoredPromptOutcome = 'shown' | DemoFeedbackPromptOutcome
 export type DemoFeedbackCooldownPolicy =
-  | 'first_dismissal_1d'
-  | 'second_dismissal_7d'
-  | 'repeated_dismissal_30d'
-  | 'submitted_90d'
+  'first_dismissal_1d' | 'second_dismissal_7d' | 'repeated_dismissal_30d' | 'submitted_90d'
 
 export interface DemoFeedbackCooldownEntry {
   lastPromptedAt: number
@@ -551,8 +549,10 @@ const primaryLabels = new Map<string, string>(
   DEMO_FEEDBACK_PRIMARY_OPTIONS.map(({ code, label }) => [code, label]),
 )
 const cardResponseLabels = new Map<string, string>(
-  [...DEMO_FEEDBACK_CARD_OPTIONS, DEMO_FEEDBACK_BROWSING_OPTION]
-    .map(({ code, label }) => [code, label]),
+  [...DEMO_FEEDBACK_CARD_OPTIONS, DEMO_FEEDBACK_BROWSING_OPTION].map(({ code, label }) => [
+    code,
+    label,
+  ]),
 )
 const notFitLabels = new Map<string, string>(
   DEMO_FEEDBACK_NOT_FIT_OPTIONS.map(({ code, label }) => [code, label]),
@@ -580,12 +580,17 @@ export const normalizeDemoPath = (value: string): string => {
 }
 
 const demosByPath = new Map<string, CatalogDemo>(
-  Object.values(PRODUCT_CATALOG.demos).map((demo) => [normalizeDemoPath(demo.pageUrl), demo]),
+  Object.values(PRODUCT_CATALOG.demos).map(demo => [normalizeDemoPath(demo.pageUrl), demo]),
 )
 
 export const getDemoByPath = (value: string): CatalogDemo | undefined =>
-  demosByPath.get(normalizeDemoPath(value))
-  ?? ({ '/demo/planning': PRODUCT_CATALOG.demos.planning, '/demo/hr': PRODUCT_CATALOG.demos['grid-at-scale'] } as const)[normalizeDemoPath(value) as '/demo/planning' | '/demo/hr']
+  demosByPath.get(normalizeDemoPath(value)) ??
+  (
+    {
+      '/demo/planning': PRODUCT_CATALOG.demos.planning,
+      '/demo/hr': PRODUCT_CATALOG.demos['grid-at-scale'],
+    } as const
+  )[normalizeDemoPath(value) as '/demo/planning' | '/demo/hr']
 
 export const createInitialDemoFeedbackSession = (
   context: DemoFeedbackSessionContext,
@@ -630,42 +635,56 @@ export const parseDemoFeedbackSession = (
       }
     }
 
-    const primaryAnswer = typeof candidate.primaryAnswer === 'string'
-      && knownPrimaryAnswers.has(candidate.primaryAnswer)
-      ? candidate.primaryAnswer as DemoFeedbackPrimaryAnswer
-      : undefined
-    const cardResponse = typeof candidate.cardResponse === 'string'
-      && knownCardResponses.has(candidate.cardResponse)
-      ? candidate.cardResponse as DemoFeedbackCardResponse
-      : undefined
-    const feedbackDemoId = typeof candidate.feedbackDemoId === 'string'
-      && knownDemoIds.has(candidate.feedbackDemoId as DemoId)
-      ? candidate.feedbackDemoId as DemoId
-      : undefined
+    const primaryAnswer =
+      typeof candidate.primaryAnswer === 'string' &&
+      knownPrimaryAnswers.has(candidate.primaryAnswer)
+        ? (candidate.primaryAnswer as DemoFeedbackPrimaryAnswer)
+        : undefined
+    const cardResponse =
+      typeof candidate.cardResponse === 'string' && knownCardResponses.has(candidate.cardResponse)
+        ? (candidate.cardResponse as DemoFeedbackCardResponse)
+        : undefined
+    const feedbackDemoId =
+      typeof candidate.feedbackDemoId === 'string' &&
+      knownDemoIds.has(candidate.feedbackDemoId as DemoId)
+        ? (candidate.feedbackDemoId as DemoId)
+        : undefined
     const eligibleDemoIds = Array.isArray(candidate.eligibleDemoIds)
-      ? unique(candidate.eligibleDemoIds.filter((value): value is DemoId =>
-          typeof value === 'string' && knownDemoIds.has(value as DemoId)))
+      ? unique(
+          candidate.eligibleDemoIds.filter(
+            (value): value is DemoId =>
+              typeof value === 'string' && knownDemoIds.has(value as DemoId),
+          ),
+        )
       : []
     const promptedDemoIds = Array.isArray(candidate.promptedDemoIds)
-      ? unique(candidate.promptedDemoIds.filter((value): value is DemoId =>
-          typeof value === 'string' && knownDemoIds.has(value as DemoId)))
-      : feedbackDemoId && (candidate.shown === true || candidate.submitted === true || candidate.dismissed === true)
+      ? unique(
+          candidate.promptedDemoIds.filter(
+            (value): value is DemoId =>
+              typeof value === 'string' && knownDemoIds.has(value as DemoId),
+          ),
+        )
+      : feedbackDemoId &&
+          (candidate.shown === true || candidate.submitted === true || candidate.dismissed === true)
         ? [feedbackDemoId]
         : []
     const lastPromptedAt = finiteNumber(candidate.lastPromptedAt, -1)
 
     return {
       version: DEMO_FEEDBACK_STATE_VERSION,
-      anonymousSessionId: typeof candidate.anonymousSessionId === 'string'
-        && candidate.anonymousSessionId.length <= 100
-        ? candidate.anonymousSessionId
-        : initial.anonymousSessionId,
-      landingPage: typeof candidate.landingPage === 'string'
-        ? candidate.landingPage.slice(0, 500)
-        : initial.landingPage,
-      trafficSource: typeof candidate.trafficSource === 'string'
-        ? candidate.trafficSource.slice(0, 200)
-        : initial.trafficSource,
+      anonymousSessionId:
+        typeof candidate.anonymousSessionId === 'string' &&
+        candidate.anonymousSessionId.length <= 100
+          ? candidate.anonymousSessionId
+          : initial.anonymousSessionId,
+      landingPage:
+        typeof candidate.landingPage === 'string'
+          ? candidate.landingPage.slice(0, 500)
+          : initial.landingPage,
+      trafficSource:
+        typeof candidate.trafficSource === 'string'
+          ? candidate.trafficSource.slice(0, 200)
+          : initial.trafficSource,
       eligibleDemoIds,
       promptedDemoIds,
       ...(lastPromptedAt >= 0 ? { lastPromptedAt } : {}),
@@ -674,8 +693,11 @@ export const parseDemoFeedbackSession = (
       dismissed: candidate.dismissed === true,
       ctaSuppressed: candidate.ctaSuppressed === true,
       analyticsKeys: Array.isArray(candidate.analyticsKeys)
-        ? unique(candidate.analyticsKeys.filter((value): value is string =>
-            typeof value === 'string' && value.length <= 100)).slice(0, 50)
+        ? unique(
+            candidate.analyticsKeys.filter(
+              (value): value is string => typeof value === 'string' && value.length <= 100,
+            ),
+          ).slice(0, 50)
         : [],
       demoEngagement,
       ...(feedbackDemoId ? { feedbackDemoId } : {}),
@@ -693,11 +715,12 @@ export const serializeDemoFeedbackSession = (state: DemoFeedbackSessionState): s
 export const shouldRestoreDemoFeedbackCard = (
   state: DemoFeedbackSessionState,
   demoId: DemoId,
-): boolean => state.feedbackDemoId === demoId
-  && state.shown
-  && !state.dismissed
-  && !state.submitted
-  && !state.ctaSuppressed
+): boolean =>
+  state.feedbackDemoId === demoId &&
+  state.shown &&
+  !state.dismissed &&
+  !state.submitted &&
+  !state.ctaSuppressed
 
 export const createInitialDemoFeedbackCooldownState = (): DemoFeedbackCooldownState => ({
   version: DEMO_FEEDBACK_COOLDOWN_STATE_VERSION,
@@ -737,11 +760,12 @@ export const parseDemoFeedbackCooldownState = (raw: string | null): DemoFeedback
         const dismissalCount = finiteInteger(rawEntry.dismissalCount, -1)
         const submittedAt = finiteNumber(rawEntry.submittedAt, -1)
         if (
-          lastPromptedAt < 0
-          || dismissalCount < 0
-          || (lastOutcome !== 'dismissed' && lastOutcome !== 'submitted')
-          || (lastOutcome === 'dismissed' && dismissalCount < 1)
-        ) continue
+          lastPromptedAt < 0 ||
+          dismissalCount < 0 ||
+          (lastOutcome !== 'dismissed' && lastOutcome !== 'submitted') ||
+          (lastOutcome === 'dismissed' && dismissalCount < 1)
+        )
+          continue
         demos[demoId as DemoId] = {
           lastPromptedAt,
           lastOutcome,
@@ -758,9 +782,10 @@ export const parseDemoFeedbackCooldownState = (raw: string | null): DemoFeedback
         const displayedAt = finiteNumber(rawPrompt.displayedAt, -1)
         const outcome = rawPrompt.outcome
         if (
-          displayedAt < 0
-          || (outcome !== 'shown' && outcome !== 'dismissed' && outcome !== 'submitted')
-        ) continue
+          displayedAt < 0 ||
+          (outcome !== 'shown' && outcome !== 'dismissed' && outcome !== 'submitted')
+        )
+          continue
         const key = `${rawPrompt.demoId}:${displayedAt}`
         if (seen.has(key)) continue
         seen.add(key)
@@ -791,15 +816,16 @@ export const recordDemoView = (
   state: DemoFeedbackSessionState,
   demoId: DemoId,
   viewedAt: number,
-): DemoFeedbackSessionState => state.demoEngagement[demoId]
-  ? state
-  : {
-      ...state,
-      demoEngagement: {
-        ...state.demoEngagement,
-        [demoId]: createEngagement(viewedAt),
-      },
-    }
+): DemoFeedbackSessionState =>
+  state.demoEngagement[demoId]
+    ? state
+    : {
+        ...state,
+        demoEngagement: {
+          ...state.demoEngagement,
+          [demoId]: createEngagement(viewedAt),
+        },
+      }
 
 export const addDemoVisibleTime = (
   state: DemoFeedbackSessionState,
@@ -822,13 +848,13 @@ export const addDemoVisibleTime = (
 export const recordDemoInteraction = (
   state: DemoFeedbackSessionState,
   demoId: DemoId,
-  options: { at: number, manipulatedData: boolean },
-): { state: DemoFeedbackSessionState, recorded: boolean } => {
+  options: { at: number; manipulatedData: boolean },
+): { state: DemoFeedbackSessionState; recorded: boolean } => {
   const current = state.demoEngagement[demoId] || createEngagement(options.at)
   if (
-    current.lastInteractionAt !== undefined
-    && options.at >= current.lastInteractionAt
-    && options.at - current.lastInteractionAt < DEMO_FEEDBACK_INTERACTION_DEDUPE_MS
+    current.lastInteractionAt !== undefined &&
+    options.at >= current.lastInteractionAt &&
+    options.at - current.lastInteractionAt < DEMO_FEEDBACK_INTERACTION_DEDUPE_MS
   ) {
     return { state, recorded: false }
   }
@@ -877,34 +903,40 @@ export const getDemoFeedbackCooldownDuration = (
 
 export const getNextDemoFeedbackAllowedAt = (
   entry: DemoFeedbackCooldownEntry | undefined,
-): number | undefined => entry
-  ? (entry.lastOutcome === 'submitted' ? entry.submittedAt ?? entry.lastPromptedAt : entry.lastPromptedAt)
-    + getDemoFeedbackCooldownDuration(entry)
-  : undefined
+): number | undefined =>
+  entry
+    ? (entry.lastOutcome === 'submitted'
+        ? (entry.submittedAt ?? entry.lastPromptedAt)
+        : entry.lastPromptedAt) + getDemoFeedbackCooldownDuration(entry)
+    : undefined
 
 export const isDemoFeedbackGlobalLimitReached = (
   state: DemoFeedbackCooldownState,
   at: number,
-): boolean => state.prompts.filter(({ displayedAt }) =>
-  at < displayedAt || at - displayedAt < DEMO_FEEDBACK_GLOBAL_WINDOW_MS).length
-  >= DEMO_FEEDBACK_GLOBAL_MAX_PROMPTS
+): boolean =>
+  state.prompts.filter(
+    ({ displayedAt }) => at < displayedAt || at - displayedAt < DEMO_FEEDBACK_GLOBAL_WINDOW_MS,
+  ).length >= DEMO_FEEDBACK_GLOBAL_MAX_PROMPTS
 
 export const canRequestDemoFeedback = (
   state: DemoFeedbackSessionState,
   demoId: DemoId,
-  options: { at?: number, cooldownState?: DemoFeedbackCooldownState } = {},
+  options: { at?: number; cooldownState?: DemoFeedbackCooldownState } = {},
 ): boolean => {
   const at = finiteNumber(options.at)
   const currentPromptOpen = state.shown && !state.submitted && !state.dismissed
-  const spacingActive = state.lastPromptedAt !== undefined
-    && (at < state.lastPromptedAt || at - state.lastPromptedAt < DEMO_FEEDBACK_PROMPT_SPACING_MS)
-  return !state.ctaSuppressed
-    && !currentPromptOpen
-    && state.promptedDemoIds.length < DEMO_FEEDBACK_MAX_PROMPTS_PER_SESSION
-    && !state.promptedDemoIds.includes(demoId)
-    && !spacingActive
-    && !(options.cooldownState && isDemoFeedbackInCooldown(options.cooldownState, demoId, at))
-    && !(options.cooldownState && isDemoFeedbackGlobalLimitReached(options.cooldownState, at))
+  const spacingActive =
+    state.lastPromptedAt !== undefined &&
+    (at < state.lastPromptedAt || at - state.lastPromptedAt < DEMO_FEEDBACK_PROMPT_SPACING_MS)
+  return (
+    !state.ctaSuppressed &&
+    !currentPromptOpen &&
+    state.promptedDemoIds.length < DEMO_FEEDBACK_MAX_PROMPTS_PER_SESSION &&
+    !state.promptedDemoIds.includes(demoId) &&
+    !spacingActive &&
+    !(options.cooldownState && isDemoFeedbackInCooldown(options.cooldownState, demoId, at)) &&
+    !(options.cooldownState && isDemoFeedbackGlobalLimitReached(options.cooldownState, at))
+  )
 }
 
 export const evaluateDemoFeedbackEligibility = (
@@ -915,12 +947,12 @@ export const evaluateDemoFeedbackEligibility = (
     at?: number
     cooldownState?: DemoFeedbackCooldownState
   } = {},
-): { state: DemoFeedbackSessionState, becameEligible: boolean } => {
+): { state: DemoFeedbackSessionState; becameEligible: boolean } => {
   const demoId = options.activeDemoId
   if (
-    !demoId
-    || state.eligibleDemoIds.includes(demoId)
-    || !canRequestDemoFeedback(state, demoId, options)
+    !demoId ||
+    state.eligibleDemoIds.includes(demoId) ||
+    !canRequestDemoFeedback(state, demoId, options)
   ) {
     return { state, becameEligible: false }
   }
@@ -947,7 +979,7 @@ export const markDemoFeedbackShown = (
   shownAt: number,
 ): DemoFeedbackSessionState => ({
   ...state,
-  eligibleDemoIds: state.eligibleDemoIds.filter((demoId) => demoId !== feedbackDemoId),
+  eligibleDemoIds: state.eligibleDemoIds.filter(demoId => demoId !== feedbackDemoId),
   promptedDemoIds: unique([...state.promptedDemoIds, feedbackDemoId]),
   lastPromptedAt: finiteNumber(shownAt),
   shown: true,
@@ -964,7 +996,9 @@ export const recordDemoFeedbackPromptDisplay = (
   displayedAt: number,
 ): DemoFeedbackCooldownState => {
   const normalizedAt = finiteNumber(displayedAt)
-  if (state.prompts.some((prompt) => prompt.demoId === demoId && prompt.displayedAt === normalizedAt)) {
+  if (
+    state.prompts.some(prompt => prompt.demoId === demoId && prompt.displayedAt === normalizedAt)
+  ) {
     return state
   }
   const prompt: DemoFeedbackPromptDisplay = { demoId, displayedAt: normalizedAt, outcome: 'shown' }
@@ -983,13 +1017,15 @@ export const recordDemoFeedbackOutcome = (
   promptedAt: number,
 ): DemoFeedbackCooldownState => {
   const normalizedAt = finiteNumber(promptedAt)
-  const promptIndex = state.prompts.findIndex((prompt) =>
-    prompt.demoId === demoId && prompt.displayedAt === normalizedAt)
+  const promptIndex = state.prompts.findIndex(
+    prompt => prompt.demoId === demoId && prompt.displayedAt === normalizedAt,
+  )
   if (promptIndex < 0 || state.prompts[promptIndex]?.outcome !== 'shown') return state
 
   const previous = state.demos[demoId]
   const prompts = state.prompts.map((prompt, index): DemoFeedbackPromptDisplay =>
-    index === promptIndex ? { ...prompt, outcome } : prompt)
+    index === promptIndex ? { ...prompt, outcome } : prompt,
+  )
   return {
     ...state,
     demos: {
@@ -1000,7 +1036,9 @@ export const recordDemoFeedbackOutcome = (
         dismissalCount: (previous?.dismissalCount || 0) + (outcome === 'dismissed' ? 1 : 0),
         ...(outcome === 'submitted'
           ? { submittedAt: normalizedAt }
-          : previous?.submittedAt !== undefined ? { submittedAt: previous.submittedAt } : {}),
+          : previous?.submittedAt !== undefined
+            ? { submittedAt: previous.submittedAt }
+            : {}),
       },
     },
     prompts,
@@ -1012,10 +1050,11 @@ export const getDemoPromptNumber = (
   demoId: DemoId,
   promptedAt?: number,
 ): number => {
-  const demoPrompts = state.prompts.filter((prompt) => prompt.demoId === demoId)
-  const currentIndex = promptedAt === undefined
-    ? -1
-    : demoPrompts.findIndex((prompt) => prompt.displayedAt === promptedAt)
+  const demoPrompts = state.prompts.filter(prompt => prompt.demoId === demoId)
+  const currentIndex =
+    promptedAt === undefined
+      ? -1
+      : demoPrompts.findIndex(prompt => prompt.displayedAt === promptedAt)
   const currentPrompt = currentIndex >= 0 ? demoPrompts[currentIndex] : undefined
   const persistedDismissalsBeforePrompt = Math.max(
     0,
@@ -1032,25 +1071,29 @@ export const getDemoFeedbackPromptFrequencyContext = (
   outcome?: DemoFeedbackPromptOutcome,
 ): DemoFeedbackPromptFrequencyContext => {
   const promptNumber = getDemoPromptNumber(state, demoId, promptedAt)
-  const dismissalCount = state.prompts.filter((prompt) =>
-    prompt.demoId === demoId
-    && prompt.outcome === 'dismissed'
-    && (promptedAt === undefined || prompt.displayedAt < promptedAt)).length
+  const dismissalCount = state.prompts.filter(
+    prompt =>
+      prompt.demoId === demoId &&
+      prompt.outcome === 'dismissed' &&
+      (promptedAt === undefined || prompt.displayedAt < promptedAt),
+  ).length
   const persistedDismissals = state.demos[demoId]?.dismissalCount || 0
-  const currentPrompt = promptedAt === undefined
-    ? undefined
-    : state.prompts.find((prompt) => prompt.demoId === demoId && prompt.displayedAt === promptedAt)
+  const currentPrompt =
+    promptedAt === undefined
+      ? undefined
+      : state.prompts.find(prompt => prompt.demoId === demoId && prompt.displayedAt === promptedAt)
   const dismissalCountBeforePrompt = Math.max(
     dismissalCount,
     persistedDismissals - (currentPrompt?.outcome === 'dismissed' ? 1 : 0),
   )
-  const cooldownPolicy: DemoFeedbackCooldownPolicy = outcome === 'submitted'
-    ? 'submitted_90d'
-    : dismissalCountBeforePrompt === 0
-      ? 'first_dismissal_1d'
-      : dismissalCountBeforePrompt === 1
-        ? 'second_dismissal_7d'
-        : 'repeated_dismissal_30d'
+  const cooldownPolicy: DemoFeedbackCooldownPolicy =
+    outcome === 'submitted'
+      ? 'submitted_90d'
+      : dismissalCountBeforePrompt === 0
+        ? 'first_dismissal_1d'
+        : dismissalCountBeforePrompt === 1
+          ? 'second_dismissal_7d'
+          : 'repeated_dismissal_30d'
 
   return {
     prompt_number_for_demo: promptNumber,
@@ -1087,7 +1130,7 @@ export const suppressDemoFeedbackForCta = (
 export const recordDemoFeedbackAnalyticsKey = (
   state: DemoFeedbackSessionState,
   key: string,
-): { state: DemoFeedbackSessionState, shouldEmit: boolean } => {
+): { state: DemoFeedbackSessionState; shouldEmit: boolean } => {
   if (state.analyticsKeys.includes(key)) return { state, shouldEmit: false }
   return {
     shouldEmit: true,
@@ -1095,24 +1138,24 @@ export const recordDemoFeedbackAnalyticsKey = (
   }
 }
 
-export const getBranchForPrimaryAnswer = (
-  answer: DemoFeedbackPrimaryAnswer,
-): DemoFeedbackBranch => ({
-  ready_to_try: 'ready',
-  needs_more_information: 'needs_information',
-  comparing_options: 'comparing',
-  not_a_fit: 'not_fit',
-  just_exploring: 'complete',
-})[answer] as DemoFeedbackBranch
+export const getBranchForPrimaryAnswer = (answer: DemoFeedbackPrimaryAnswer): DemoFeedbackBranch =>
+  ({
+    ready_to_try: 'ready',
+    needs_more_information: 'needs_information',
+    comparing_options: 'comparing',
+    not_a_fit: 'not_fit',
+    just_exploring: 'complete',
+  })[answer] as DemoFeedbackBranch
 
 export const getPrimaryAnswerForCardResponse = (
   response: DemoFeedbackCardResponse,
-): DemoFeedbackPrimaryAnswer => ({
-  yes: 'ready_to_try',
-  not_yet: 'needs_more_information',
-  no: 'not_a_fit',
-  just_browsing: 'just_exploring',
-})[response] as DemoFeedbackPrimaryAnswer
+): DemoFeedbackPrimaryAnswer =>
+  ({
+    yes: 'ready_to_try',
+    not_yet: 'needs_more_information',
+    no: 'not_a_fit',
+    just_browsing: 'just_exploring',
+  })[response] as DemoFeedbackPrimaryAnswer
 
 export const createInitialDemoFeedbackAnswers = (): DemoFeedbackAnswers => ({
   verificationAnswers: [],
@@ -1187,9 +1230,7 @@ const hasMeaningfulFormValue = (value: unknown): boolean => {
 
 export const hasMeaningfulDemoFeedbackAnswers = (
   answers?: Partial<DemoFeedbackAnswers> | null,
-): boolean => Boolean(
-  answers && Object.values(answers).some(hasMeaningfulFormValue),
-)
+): boolean => Boolean(answers && Object.values(answers).some(hasMeaningfulFormValue))
 
 export const getDemoFeedbackTextLengthBucket = (
   value: string,
@@ -1208,11 +1249,15 @@ const normalizedAnswers = (
 ) => {
   if (primaryAnswer === 'needs_more_information') {
     const codes = verificationCodesByDemo[demo.id]
-    return unique(answers.verificationAnswers)
-      .filter((answer) => codes.has(answer)) as DemoFeedbackVerificationCode[]
+    return unique(answers.verificationAnswers).filter(answer =>
+      codes.has(answer),
+    ) as DemoFeedbackVerificationCode[]
   }
-  if (primaryAnswer === 'not_a_fit' && answers.notFitReason
-    && knownNotFitReasons.has(answers.notFitReason)) {
+  if (
+    primaryAnswer === 'not_a_fit' &&
+    answers.notFitReason &&
+    knownNotFitReasons.has(answers.notFitReason)
+  ) {
     return [answers.notFitReason]
   }
   return []
@@ -1225,10 +1270,11 @@ const detailLabel = (
   primaryAnswer: DemoFeedbackPrimaryAnswer,
   code: DemoFeedbackVerificationCode | DemoFeedbackNotFitReason,
 ): string => {
-  const label = primaryAnswer === 'not_a_fit'
-    ? notFitLabels.get(code)
-    : DEMO_FEEDBACK_DEMO_CONFIG[demoId].verificationOptions
-        .find((option) => option.code === code)?.label
+  const label =
+    primaryAnswer === 'not_a_fit'
+      ? notFitLabels.get(code)
+      : DEMO_FEEDBACK_DEMO_CONFIG[demoId].verificationOptions.find(option => option.code === code)
+          ?.label
   return label ? `${label} (${code})` : code
 }
 
@@ -1249,13 +1295,13 @@ export const createDemoFeedbackApplicationInfo = (
     `Card response: ${cardLabel}${payload.cardResponse ? ` (${payload.cardResponse})` : ''}`,
     `Evaluation status: ${primaryLabel} (${payload.primaryAnswer})`,
     ...(payload.detailAnswers?.length
-      ? [`Details: ${payload.detailAnswers
-          .map((code) => detailLabel(payload.demoSlug, payload.primaryAnswer, code))
-          .join(', ')}`]
+      ? [
+          `Details: ${payload.detailAnswers
+            .map(code => detailLabel(payload.demoSlug, payload.primaryAnswer, code))
+            .join(', ')}`,
+        ]
       : []),
-    ...(payload.expectedRowVolume
-      ? [`Expected row volume: ${payload.expectedRowVolume}`]
-      : []),
+    ...(payload.expectedRowVolume ? [`Expected row volume: ${payload.expectedRowVolume}`] : []),
     ...(payload.freeText ? [`Visitor note: ${asEmailLine(payload.freeText)}`] : []),
     ...(payload.nextAction ? [`Next action: ${payload.nextAction}`] : []),
     `Time on selected demo: ${payload.timeOnDemo} seconds`,
@@ -1278,19 +1324,21 @@ export const createDemoFeedbackPayload = ({
   activeElapsedMs = 0,
 }: CreateDemoFeedbackPayloadOptions): DemoFeedbackPayload => {
   if (!knownPrimaryAnswers.has(primaryAnswer)) throw new Error('A valid primary answer is required')
-  if (nextAction && !knownNextActions.has(nextAction)) throw new Error('Invalid feedback next action')
+  if (nextAction && !knownNextActions.has(nextAction))
+    throw new Error('Invalid feedback next action')
 
   const engagement = state.demoEngagement[demo.id] || createEngagement(0)
   const detailAnswers = normalizedAnswers(demo, primaryAnswer, answers)
   const freeText = normalizeDemoFeedbackText(
     primaryAnswer === 'comparing_options' ? answers.comparison : answers.freeText,
   )
-  const expectedRowVolume = primaryAnswer === 'needs_more_information'
-    && shouldShowRowVolumeQuestion(demo.id, answers.verificationAnswers)
-    && answers.rowVolume
-    && knownRowVolumes.has(answers.rowVolume)
-    ? answers.rowVolume
-    : undefined
+  const expectedRowVolume =
+    primaryAnswer === 'needs_more_information' &&
+    shouldShowRowVolumeQuestion(demo.id, answers.verificationAnswers) &&
+    answers.rowVolume &&
+    knownRowVolumes.has(answers.rowVolume)
+      ? answers.rowVolume
+      : undefined
 
   const payload: Omit<DemoFeedbackPayload, 'applicationInfo'> = {
     requestType: 'contact',
@@ -1307,8 +1355,9 @@ export const createDemoFeedbackPayload = ({
     ...(freeText ? { freeText } : {}),
     ...(expectedRowVolume ? { expectedRowVolume } : {}),
     ...(nextAction ? { nextAction } : {}),
-    timeOnDemo: Math.floor((engagement.timeMs
-      + (activeDemoId === demo.id ? finiteNumber(activeElapsedMs) : 0)) / 1000),
+    timeOnDemo: Math.floor(
+      (engagement.timeMs + (activeDemoId === demo.id ? finiteNumber(activeElapsedMs) : 0)) / 1000,
+    ),
     demoInteractions: engagement.interactions,
     demosViewedInSession: getDemosViewedInSession(state),
     trafficSource: state.trafficSource,
@@ -1376,15 +1425,17 @@ export const deriveDemoFeedbackTrafficSource = (href: string, referrer = ''): st
   }
 }
 
-export const createDemoFeedbackSessionId = (
-  now: number,
-  randomValue: number,
-): string => `demo_${Math.floor(now).toString(36)}_${Math.floor(Math.max(0, Math.min(1, randomValue)) * 0x100000000).toString(36)}`
+export const createDemoFeedbackSessionId = (now: number, randomValue: number): string =>
+  `demo_${Math.floor(now).toString(36)}_${Math.floor(Math.max(0, Math.min(1, randomValue)) * 0x100000000).toString(36)}`
 
 export const isDemoFeedbackConversionCta = (href: string, label = ''): boolean => {
   if (href && getDemoByPath(href)) return false
   const normalizedLabel = label.trim().toLowerCase().replace(/\s+/g, ' ')
-  if (/\b(start|request) (a )?(pro )?trial\b|\bbuy\b|\bpricing\b|\bgithub\b|\bnpm\b|\bdocs?\b|\bdocumentation\b|\binstall\b|\bget started\b/.test(normalizedLabel)) {
+  if (
+    /\b(start|request) (a )?(pro )?trial\b|\bbuy\b|\bpricing\b|\bgithub\b|\bnpm\b|\bdocs?\b|\bdocumentation\b|\binstall\b|\bget started\b/.test(
+      normalizedLabel,
+    )
+  ) {
     return true
   }
   if (!href || href.startsWith('#')) return false
@@ -1392,12 +1443,18 @@ export const isDemoFeedbackConversionCta = (href: string, label = ''): boolean =
 
   try {
     const url = new URL(href, 'https://rv-grid.com')
-    if (['github.com', 'www.github.com', 'npmjs.com', 'www.npmjs.com', 'buy.stripe.com'].includes(url.hostname)) {
+    if (
+      ['github.com', 'www.github.com', 'npmjs.com', 'www.npmjs.com', 'buy.stripe.com'].includes(
+        url.hostname,
+      )
+    ) {
       return true
     }
     if (url.origin !== 'https://rv-grid.com') return false
-    return /^\/(trial|pricing)(\/|$)/.test(url.pathname)
-      || /^\/(guide|pro|pivot|gantt|jsscheduler)(\/|$)/.test(url.pathname)
+    return (
+      /^\/(trial|pricing)(\/|$)/.test(url.pathname) ||
+      /^\/(guide|pro|pivot|gantt|jsscheduler)(\/|$)/.test(url.pathname)
+    )
   } catch {
     return false
   }

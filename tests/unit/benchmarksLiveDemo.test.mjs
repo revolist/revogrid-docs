@@ -3,12 +3,21 @@ import { readFileSync } from 'node:fs'
 import test from 'node:test'
 
 const pageSource = readFileSync(new URL('../../benchmarks.md', import.meta.url), 'utf8')
-const runnerSource = readFileSync(new URL('../../scripts/run-benchmark.mjs', import.meta.url), 'utf8')
-const themeSource = readFileSync(new URL('../../.vitepress/theme/style.scss', import.meta.url), 'utf8')
+const runnerSource = readFileSync(
+  new URL('../../scripts/run-benchmark.mjs', import.meta.url),
+  'utf8',
+)
+const themeSource = readFileSync(
+  new URL('../../.vitepress/theme/style.scss', import.meta.url),
+  'utf8',
+)
 const componentUrl = new URL('../../.vitepress/theme/BenchmarkLiveDemo.vue', import.meta.url)
 
 test('benchmarks page mounts the shared Grid at Scale demo for browser-local measurements', () => {
-  assert.match(pageSource, /import BenchmarkLiveDemo from '\.\/\.vitepress\/theme\/BenchmarkLiveDemo\.vue'/)
+  assert.match(
+    pageSource,
+    /import BenchmarkLiveDemo from '\.\/\.vitepress\/theme\/BenchmarkLiveDemo\.vue'/,
+  )
   assert.match(pageSource, /<ClientOnly>[\s\S]*<BenchmarkLiveDemo \/>[\s\S]*<\/ClientOnly>/)
   assert.match(pageSource, /Measure performance in your browser/)
   assert.doesNotMatch(pageSource, /select a dataset and theme, then scroll and edit the grid/i)

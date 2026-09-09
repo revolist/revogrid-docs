@@ -23,7 +23,7 @@
               :src="resolveLink(integration.iconSrc)"
               alt=""
               aria-hidden="true"
-            >
+            />
             <template v-else>{{ integration.icon }}</template>
           </span>
           <strong>{{ integration.name }}</strong>
@@ -116,7 +116,9 @@ defineProps<{
   background: var(--rg-bg-2);
   text-align: center;
   text-decoration: none;
-  transition: transform 0.18s ease, border-color 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease;
 
   &[href]:hover {
     border-color: var(--rg-border-hover);

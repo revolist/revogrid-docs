@@ -1,5 +1,9 @@
 <template>
-  <section id="positioning" class="excel-story-section excel-story-section--positioning" aria-labelledby="positioning-title">
+  <section
+    id="positioning"
+    class="excel-story-section excel-story-section--positioning"
+    aria-labelledby="positioning-title"
+  >
     <div class="excel-container">
       <div class="excel-positioning-heading">
         <span class="excel-section-index">{{ content.index }}</span>
@@ -11,12 +15,18 @@
         <article>
           <span>{{ content.spreadsheet.label }}</span>
           <h3>{{ content.spreadsheet.title }}</h3>
-          <ul><li v-for="item in content.spreadsheet.items" :key="item"><i>—</i>{{ item }}</li></ul>
+          <ul>
+            <li v-for="item in content.spreadsheet.items" :key="item"><i>—</i>{{ item }}</li>
+          </ul>
         </article>
         <article class="is-revogrid">
           <span>{{ content.revogrid.label }}</span>
           <h3>{{ content.revogrid.title }}</h3>
-          <ul><li v-for="item in content.revogrid.items" :key="item"><FontAwesomeSvgIcon name="check" />{{ item }}</li></ul>
+          <ul>
+            <li v-for="item in content.revogrid.items" :key="item">
+              <FontAwesomeSvgIcon name="check" />{{ item }}
+            </li>
+          </ul>
         </article>
       </div>
     </div>

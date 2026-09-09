@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="rg-module-preview"
-    :class="[`rg-module-preview--${type}`, { 'is-playing': playing }]"
-  >
+  <div class="rg-module-preview" :class="[`rg-module-preview--${type}`, { 'is-playing': playing }]">
     <div class="rg-module-preview-inner">
       <div v-show="!playing" class="rg-module-front">
         <img v-if="thumbnail" :src="thumbnail" :alt="title" />
@@ -154,7 +151,9 @@ onBeforeUnmount(close)
   padding: 0;
   cursor: pointer;
   box-shadow: 0 7px 20px rgba(2, 122, 82, 0.24);
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
 
   &:hover {
     background: var(--rg-green-hover, #078b5d);

@@ -4,12 +4,12 @@ import { features } from './showoff-banner.features'
 </script>
 
 <template>
-    <VPTeamMembers :members="features" size="small" />
+  <VPTeamMembers :members="features" size="small" />
 </template>
 <style lang="scss" scoped>
 :deep() {
-    .avatar {
-        display: none;
-    }
+  .avatar {
+    display: none;
+  }
 }
 </style>

@@ -25,7 +25,11 @@
           readonly
         />
         <div class="excel-table-status">
-          <div><span>{{ groupingProps.length }} grouping levels · {{ projectRows.length }} projects</span></div>
+          <div>
+            <span
+              >{{ groupingProps.length }} grouping levels · {{ projectRows.length }} projects</span
+            >
+          </div>
           <span>Region → Department</span>
         </div>
       </div>
@@ -36,7 +40,13 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import type { CellTemplate, ColumnProp, GroupCellTemplateFunc, GroupingOptions, VNode } from '@revolist/revogrid'
+import type {
+  CellTemplate,
+  ColumnProp,
+  GroupCellTemplateFunc,
+  GroupingOptions,
+  VNode,
+} from '@revolist/revogrid'
 import { expandSvgIconVNode } from '@revolist/revogrid'
 import { getGroupingData } from '@revolist/revogrid-pro'
 import ExcelRevoGrid from './ExcelRevoGrid.vue'
@@ -57,19 +67,21 @@ interface ProjectRow {
 }
 
 type ProjectTuple = [string, string, string, string, number, number, string]
-const projectRows: ProjectRow[] = ([
-  ['warehouse', 'EMEA', 'Operations', 'Warehouse automation', 480000, 412300, 'K. Duarte'],
-  ['fleet', 'EMEA', 'Operations', 'Fleet telemetry', 265000, 291400, 'J. Kowalski'],
-  ['returns', 'EMEA', 'Operations', 'Returns processing', 132000, 108900, 'K. Duarte'],
-  ['consolidation', 'EMEA', 'Finance', 'Consolidation rewrite', 340000, 318700, 'L. Marchetti'],
-  ['treasury', 'EMEA', 'Finance', 'Treasury reporting', 158000, 142100, 'P. Novak'],
-  ['distribution', 'AMER', 'Operations', 'Distribution planning', 512000, 498600, 'D. Okonjo'],
-  ['replenishment', 'AMER', 'Operations', 'Store replenishment', 224000, 236800, 'T. Vasquez'],
-  ['forecasting', 'AMER', 'R&D', 'Forecasting models', 398000, 344500, 'H. Ibarra'],
-  ['platform', 'AMER', 'R&D', 'Data platform', 276000, 263200, 'C. Whitfield'],
-  ['ports', 'APAC', 'Operations', 'Port integrations', 187000, 171400, 'Y. Tanabe'],
-  ['tax', 'APAC', 'Finance', 'Local tax engine', 96000, 88300, 'M. Rahman'],
-] as ProjectTuple[]).map(([id, region, department, project, budget, spent, owner]) => ({
+const projectRows: ProjectRow[] = (
+  [
+    ['warehouse', 'EMEA', 'Operations', 'Warehouse automation', 480000, 412300, 'K. Duarte'],
+    ['fleet', 'EMEA', 'Operations', 'Fleet telemetry', 265000, 291400, 'J. Kowalski'],
+    ['returns', 'EMEA', 'Operations', 'Returns processing', 132000, 108900, 'K. Duarte'],
+    ['consolidation', 'EMEA', 'Finance', 'Consolidation rewrite', 340000, 318700, 'L. Marchetti'],
+    ['treasury', 'EMEA', 'Finance', 'Treasury reporting', 158000, 142100, 'P. Novak'],
+    ['distribution', 'AMER', 'Operations', 'Distribution planning', 512000, 498600, 'D. Okonjo'],
+    ['replenishment', 'AMER', 'Operations', 'Store replenishment', 224000, 236800, 'T. Vasquez'],
+    ['forecasting', 'AMER', 'R&D', 'Forecasting models', 398000, 344500, 'H. Ibarra'],
+    ['platform', 'AMER', 'R&D', 'Data platform', 276000, 263200, 'C. Whitfield'],
+    ['ports', 'APAC', 'Operations', 'Port integrations', 187000, 171400, 'Y. Tanabe'],
+    ['tax', 'APAC', 'Finance', 'Local tax engine', 96000, 88300, 'M. Rahman'],
+  ] as ProjectTuple[]
+).map(([id, region, department, project, budget, spent, owner]) => ({
   id,
   region,
   department,
@@ -90,14 +102,15 @@ const groupCellTemplate: GroupCellTemplateFunc = (h, props) => {
     itemIndex: props.rowIndex,
     currentDepth: props.group.depth,
     columnProp,
-    aggregator: columnProp === 'budget' || columnProp === 'spent' || columnProp === 'variance'
-      ? values => values.reduce((total, row) => total + Number(row[columnProp] ?? 0), 0)
-      : columnProp === 'owner'
-        ? values => {
-            const owners = [...new Set(values.map(row => String(row.owner ?? '')))]
-            return owners.length === 1 ? owners[0] : 'Mixed'
-          }
-        : undefined,
+    aggregator:
+      columnProp === 'budget' || columnProp === 'spent' || columnProp === 'variance'
+        ? values => values.reduce((total, row) => total + Number(row[columnProp] ?? 0), 0)
+        : columnProp === 'owner'
+          ? values => {
+              const owners = [...new Set(values.map(row => String(row.owner ?? '')))]
+              return owners.length === 1 ? owners[0] : 'Mixed'
+            }
+          : undefined,
   })
 
   if (props.group.isLabelColumn) {
@@ -105,26 +118,42 @@ const groupCellTemplate: GroupCellTemplateFunc = (h, props) => {
     const icon = expandSvgIconVNode(props.group.expanded)
     icon.$attrs$.width = '12px'
     icon.$attrs$.height = '12px'
-    return h('button', {
-      class: 'excel-core-group-toggle',
-      style: { '--excel-group-depth-indent': groupIndent },
-      type: 'button',
-      'aria-expanded': String(props.group.expanded),
-      'aria-label': `${props.group.expanded ? 'Collapse' : 'Expand'} ${props.group.name}`,
-      onClick: props.group.onExpand,
-    }, [icon, h('strong', null, props.group.name), h('small', null, `(${aggregation.count})`)] as VNode[])
+    return h(
+      'button',
+      {
+        class: 'excel-core-group-toggle',
+        style: { '--excel-group-depth-indent': groupIndent },
+        type: 'button',
+        'aria-expanded': String(props.group.expanded),
+        'aria-label': `${props.group.expanded ? 'Collapse' : 'Expand'} ${props.group.name}`,
+        onClick: props.group.onExpand,
+      },
+      [
+        icon,
+        h('strong', null, props.group.name),
+        h('small', null, `(${aggregation.count})`),
+      ] as VNode[],
+    )
   }
 
   if (columnProp === 'budget' || columnProp === 'spent') {
-    return h('span', {
-      class: 'excel-group-summary excel-group-summary--number',
-    }, Number(aggregation.aggregationValue).toLocaleString('en-US'))
+    return h(
+      'span',
+      {
+        class: 'excel-group-summary excel-group-summary--number',
+      },
+      Number(aggregation.aggregationValue).toLocaleString('en-US'),
+    )
   }
   if (columnProp === 'variance') {
     const value = Number(aggregation.aggregationValue)
-    return h('span', {
-      class: `excel-group-summary excel-group-summary--number ${value < 0 ? 'excel-negative' : 'excel-positive'}`,
-    }, `${value >= 0 ? '+' : ''}${value.toLocaleString('en-US')}`)
+    return h(
+      'span',
+      {
+        class: `excel-group-summary excel-group-summary--number ${value < 0 ? 'excel-negative' : 'excel-positive'}`,
+      },
+      `${value >= 0 ? '+' : ''}${value.toLocaleString('en-US')}`,
+    )
   }
   if (columnProp === 'owner') return String(aggregation.aggregationValue)
   return ''
@@ -139,10 +168,14 @@ const grouping = computed<GroupingOptions>(() => ({
 
 const groupLeafCellTemplate: CellTemplate<ProjectRow> = (h, props) => {
   const leafIndent = `calc(${groupingProps.value.length} * 24px)`
-  return h('span', {
-    class: 'excel-group-leaf-value',
-    style: { '--excel-group-leaf-indent': leafIndent },
-  }, String(props.value ?? ''))
+  return h(
+    'span',
+    {
+      class: 'excel-group-leaf-value',
+      style: { '--excel-group-leaf-indent': leafIndent },
+    },
+    String(props.value ?? ''),
+  )
 }
 
 function collapseAllGroups() {
@@ -154,12 +187,24 @@ function expandAllGroups() {
 }
 
 const groupColumns = [
-  { name: 'Region', prop: 'region', size: 150, readonly: true, cellTemplate: groupLeafCellTemplate },
+  {
+    name: 'Region',
+    prop: 'region',
+    size: 150,
+    readonly: true,
+    cellTemplate: groupLeafCellTemplate,
+  },
   { name: 'Department', prop: 'department', size: 170, readonly: true },
   { name: 'Project', prop: 'project', size: 300, readonly: true },
   { name: 'Budget', prop: 'budget', size: 140, readonly: true, dataGridFormat: excelNumberFormat },
   { name: 'Spent', prop: 'spent', size: 140, readonly: true, dataGridFormat: excelNumberFormat },
-  { name: 'Variance', prop: 'variance', size: 140, readonly: true, dataGridFormat: excelSignedIntegerFormat },
+  {
+    name: 'Variance',
+    prop: 'variance',
+    size: 140,
+    readonly: true,
+    dataGridFormat: excelSignedIntegerFormat,
+  },
   { name: 'Owner', prop: 'owner', size: 150, readonly: true },
 ]
 </script>

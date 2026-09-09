@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 defineProps<{
-  items: readonly { value: string, label: string }[]
+  items: readonly { value: string; label: string }[]
   ariaLabel?: string
 }>()
 </script>

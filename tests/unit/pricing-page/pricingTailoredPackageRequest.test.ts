@@ -19,8 +19,14 @@ test('includes every selected capability and provided field in the email payload
   assert.equal(payload.email, 'buyer@example.com')
   assert.deepEqual(payload.selectedCapabilities, ['advanced-editing', 'undo-redo-history'])
   assert.deepEqual(payload.selectedCapabilityNames, ['Advanced editing', 'Undo, redo & history'])
-  assert.match(payload.message, /Selected capabilities:\n- Advanced editing\n- Undo, redo & history/)
-  assert.match(payload.message, /Request details:\nWe need these tools for a planning application\./)
+  assert.match(
+    payload.message,
+    /Selected capabilities:\n- Advanced editing\n- Undo, redo & history/,
+  )
+  assert.match(
+    payload.message,
+    /Request details:\nWe need these tools for a planning application\./,
+  )
   assert.match(payload.message, /Describe it myself: No/)
   assert.match(payload.message, /Source: pricing-tailored-package/)
   assert.match(payload.message, /Page URL: https:\/\/rv-grid\.com\/pricing/)

@@ -2,12 +2,25 @@ import assert from 'node:assert/strict'
 import { existsSync, readFileSync } from 'node:fs'
 import test from 'node:test'
 
-const articleSource = readFileSync(new URL('../../../compare/ag-grid-alternative.md', import.meta.url), 'utf8')
+const articleSource = readFileSync(
+  new URL('../../../compare/ag-grid-alternative.md', import.meta.url),
+  'utf8',
+)
 const ctaSource = readFileSync(new URL('../../../compare/CompareCta.vue', import.meta.url), 'utf8')
-const heroSource = readFileSync(new URL('../../../compare/CompareHero.vue', import.meta.url), 'utf8')
-const productVisualsSource = readFileSync(new URL('../../../compare/CompareProductVisuals.vue', import.meta.url), 'utf8')
-const commercialFaqSource = readFileSync(new URL('../../../pro/CommercialFaq.vue', import.meta.url), 'utf8')
-const featureTableHeader = '| Feature | RevoGrid | AG Grid Community | AG Grid Enterprise / Bundle | Notes |'
+const heroSource = readFileSync(
+  new URL('../../../compare/CompareHero.vue', import.meta.url),
+  'utf8',
+)
+const productVisualsSource = readFileSync(
+  new URL('../../../compare/CompareProductVisuals.vue', import.meta.url),
+  'utf8',
+)
+const commercialFaqSource = readFileSync(
+  new URL('../../../pro/CommercialFaq.vue', import.meta.url),
+  'utf8',
+)
+const featureTableHeader =
+  '| Feature | RevoGrid | AG Grid Community | AG Grid Enterprise / Bundle | Notes |'
 
 function parseFeatureTables(source) {
   const lines = source.split('\n')
@@ -51,7 +64,10 @@ function parseH2Headings(source) {
 test('opens the AG Grid comparison with a clear search and decision promise', () => {
   assert.match(articleSource, /^title: "AG Grid Alternative: RevoGrid vs AG Grid \(2026\)"$/m)
   assert.match(articleSource, /^description: Compare RevoGrid vs AG Grid on licensing, pricing,/m)
-  assert.match(articleSource, /rel: canonical\n\s+href: https:\/\/rv-grid\.com\/compare\/ag-grid-alternative/)
+  assert.match(
+    articleSource,
+    /rel: canonical\n\s+href: https:\/\/rv-grid\.com\/compare\/ag-grid-alternative/,
+  )
   assert.match(articleSource, /"@id": "https:\/\/rv-grid\.com\/compare\/ag-grid-alternative"/)
   assert.match(articleSource, /"dateModified": "2026-08-13"/)
   assert.match(articleSource, /^# AG Grid Alternative: RevoGrid vs AG Grid \(2026\)$/m)
@@ -82,7 +98,10 @@ test('preserves the indexed URL, search coverage, and long-form comparison', () 
     '../pricing.md',
     '../trial.md',
   ]) {
-    assert.ok(existsSync(new URL(path, new URL('../../../compare/', import.meta.url))), `Missing linked destination: ${path}`)
+    assert.ok(
+      existsSync(new URL(path, new URL('../../../compare/', import.meta.url))),
+      `Missing linked destination: ${path}`,
+    )
   }
 })
 
@@ -118,7 +137,7 @@ test('shows real RevoGrid and AG Grid interfaces with accessible reusable figure
   assert.ok(visualIndex > articleSource.indexOf('### Start with your goal'))
   assert.ok(visualIndex < articleSource.indexOf('## Quick comparison'))
 
-  assert.match(productVisualsSource, /<figure\n\s+v-for="product in products"/)
+  assert.match(productVisualsSource, /<figure\s+v-for="product in products"/)
   assert.match(productVisualsSource, /<figcaption>/)
   assert.match(productVisualsSource, /:alt="product\.alt"/)
   assert.match(productVisualsSource, /:width="product\.width"/)
@@ -138,7 +157,10 @@ test('uses reader-focused section labels while preserving every legacy fragment'
     ['1. Open-source licensing and upgrade path', '_1-RevoGrid-starts-with-an-MIT-licensed-core'],
     ['2. Framework portability', '_2-RevoGrid-works-across-modern-frontend-frameworks'],
     ['3. Large-dataset performance', '_3-RevoGrid-is-built-for-large-datasets'],
-    ['4. Spreadsheet-like editing and workflows', '_4-RevoGrid-gives-users-spreadsheet-like-UX-inside-your-app'],
+    [
+      '4. Spreadsheet-like editing and workflows',
+      '_4-RevoGrid-gives-users-spreadsheet-like-UX-inside-your-app',
+    ],
     ['5. Deployment and licensing model', '_5-RevoGrid-avoids-deployment-counting-friction'],
     ['6. Implementation complexity', '_6-RevoGrid-is-simpler-for-product-teams'],
     ['7. SaaS product fit', '_7-RevoGrid-is-a-practical-AG-Grid-alternative-for-SaaS'],
@@ -146,9 +168,15 @@ test('uses reader-focused section labels while preserving every legacy fragment'
     ['9. Best-fit product use cases', '_9-Use-RevoGrid-when-the-grid-is-part-of-your-product'],
     ['10. When AG Grid is the right choice', '_10-When-AG-Grid-may-still-be-the-right-choice'],
     ['11. When to choose RevoGrid', '_11-When-RevoGrid-is-the-better-AG-Grid-alternative'],
-    ['12. Migration checklist', '_12-Migration-checklist-evaluating-RevoGrid-as-an-AG-Grid-replacement'],
+    [
+      '12. Migration checklist',
+      '_12-Migration-checklist-evaluating-RevoGrid-as-an-AG-Grid-replacement',
+    ],
     ['13. Build vs buy', '_13-RevoGrid-vs-building-your-own-data-grid'],
-    ['14. AI-assisted development', '_14-RevoGrid-as-an-AG-Grid-alternative-for-AI-assisted-development'],
+    [
+      '14. AI-assisted development',
+      '_14-RevoGrid-as-an-AG-Grid-alternative-for-AI-assisted-development',
+    ],
     ['15. Decision framework', '_15-Recommended-decision-framework'],
   ])
 
@@ -157,9 +185,18 @@ test('uses reader-focused section labels while preserving every legacy fragment'
   }
 
   const visibleHeadings = parseH2Headings(articleSource)
-  assert.equal(visibleHeadings.filter(heading => /^(?:\d+\.\s+)?RevoGrid\b/.test(heading)).length, 0)
-  assert.doesNotMatch(visibleHeadings.join('\n'), /RevoGrid (starts|works|is built|gives|avoids|is simpler)/)
-  assert.match(articleSource, /\[Jump to the feature matrix\]\(#AG-Grid-vs-RevoGrid-Advanced-Feature-Support-Matrix\)/)
+  assert.equal(
+    visibleHeadings.filter(heading => /^(?:\d+\.\s+)?RevoGrid\b/.test(heading)).length,
+    0,
+  )
+  assert.doesNotMatch(
+    visibleHeadings.join('\n'),
+    /RevoGrid (starts|works|is built|gives|avoids|is simpler)/,
+  )
+  assert.match(
+    articleSource,
+    /\[Jump to the feature matrix\]\(#AG-Grid-vs-RevoGrid-Advanced-Feature-Support-Matrix\)/,
+  )
 })
 
 test('keeps shared commercial CTA defaults for other comparison pages', () => {
@@ -198,28 +235,34 @@ test('puts RevoGrid advantages before shared baseline features in every comparis
 
   for (const rows of tables) {
     const tiers = rows.map(advantageTier)
-    assert.deepEqual(tiers, [...tiers].sort((left, right) => left - right))
+    assert.deepEqual(
+      tiers,
+      [...tiers].sort((left, right) => left - right),
+    )
   }
 })
 
 test('marks and prioritizes performance caching and mini filtering', () => {
   const tables = parseFeatureTables(articleSource)
-  const performanceRows = tables.find(rows => rows.some(row => row.feature === 'Value cache / performance cache'))
+  const performanceRows = tables.find(rows =>
+    rows.some(row => row.feature === 'Value cache / performance cache'),
+  )
   const filteringRows = tables.find(rows => rows.some(row => row.feature === 'Mini filter'))
 
   assert.ok(performanceRows)
   assert.ok(filteringRows)
-  assert.deepEqual(performanceRows.slice(0, 3).map(row => row.feature), [
-    'Trimmed rows',
-    'Infinite scroll',
-    'Value cache / performance cache',
-  ])
-  assert.deepEqual(filteringRows.slice(0, 3).map(row => row.feature), [
-    'Selection filter cascade',
-    'Advanced slider filtering',
-    'Mini filter',
-  ])
-  assert.equal(performanceRows.find(row => row.feature === 'Value cache / performance cache').revoGrid, '✅ Core')
+  assert.deepEqual(
+    performanceRows.slice(0, 3).map(row => row.feature),
+    ['Trimmed rows', 'Infinite scroll', 'Value cache / performance cache'],
+  )
+  assert.deepEqual(
+    filteringRows.slice(0, 3).map(row => row.feature),
+    ['Selection filter cascade', 'Advanced slider filtering', 'Mini filter'],
+  )
+  assert.equal(
+    performanceRows.find(row => row.feature === 'Value cache / performance cache').revoGrid,
+    '✅ Core',
+  )
   assert.equal(filteringRows.find(row => row.feature === 'Mini filter').revoGrid, '✅ Pro')
 })
 
@@ -240,25 +283,24 @@ test('cross-links each major evaluation topic to a relevant internal resource', 
     ['## 1. Open-source licensing and upgrade path', ['/pro/feature-table']],
     ['## 2. Framework portability', ['/guide/data-sync']],
     ['## 3. Large-dataset performance', ['/guide/performance']],
-    ['## 4. Spreadsheet-like editing and workflows', [
-      '/guide/editing',
-      '/guide/clipboard',
-      '/guide/data-grid-export-excel',
-    ]],
+    [
+      '## 4. Spreadsheet-like editing and workflows',
+      ['/guide/editing', '/guide/clipboard', '/guide/data-grid-export-excel'],
+    ],
     ['## 7. SaaS product fit', ['/blog/building-enterprise-dashboards']],
     ['## 8. Value beyond the license price', ['/guide/patterns']],
-    ['## 9. Best-fit product use cases', [
-      '/guide/realtime-updates',
-      '/guide/filters',
-      '/guide/server-side-data',
-      '/demo/pivot',
-      '/demo/gantt',
-    ]],
+    [
+      '## 9. Best-fit product use cases',
+      [
+        '/guide/realtime-updates',
+        '/guide/filters',
+        '/guide/server-side-data',
+        '/demo/pivot',
+        '/demo/gantt',
+      ],
+    ],
     ['## 10. When AG Grid is the right choice', ['/blog/best-js-datagrid-in-2026']],
-    ['## 14. AI-assisted development', [
-      '/guide/mcp',
-      '/demo/ai-prompts',
-    ]],
+    ['## 14. AI-assisted development', ['/guide/mcp', '/demo/ai-prompts']],
   ])
 
   for (const [heading, links] of sectionLinks) {
@@ -298,6 +340,9 @@ test('keeps every contextual internal-link destination backed by a local page', 
     '../guide/mcp.md',
     '../demo/ai-prompts.md',
   ]) {
-    assert.ok(existsSync(new URL(path, new URL('../../../compare/', import.meta.url))), `Missing linked page: ${path}`)
+    assert.ok(
+      existsSync(new URL(path, new URL('../../../compare/', import.meta.url))),
+      `Missing linked page: ${path}`,
+    )
   }
 })

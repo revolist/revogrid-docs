@@ -1,156 +1,1549 @@
-import type { DemoId } from '../../commercial/productCatalog';
+import type { DemoId } from '../../commercial/productCatalog'
 
-export type DemoSourceFramework = 'vue' | 'ts' | 'react' | 'angular';
-export type DemoSourceFile = { path: string; label: string; lang: string; load: () => Promise<string> };
-export type DemoSourceEntry = { label: string; command: string; documentationUrl: string; files: readonly DemoSourceFile[] };
+export type DemoSourceFramework = 'vue' | 'ts' | 'react' | 'angular'
+export type DemoSourceFile = {
+  path: string
+  label: string
+  lang: string
+  load: () => Promise<string>
+}
+export type DemoSourceEntry = {
+  label: string
+  command: string
+  documentationUrl: string
+  files: readonly DemoSourceFile[]
+}
 
 const sourceFile = (path: string, load: () => Promise<string>): DemoSourceFile => ({
   path,
   label: path.split('/').at(-1) ?? path,
-  lang: path.endsWith('.vue') ? 'vue' : path.endsWith('.tsx') ? 'tsx' : path.endsWith('.scss') || path.endsWith('.css') ? 'css' : 'ts',
+  lang: path.endsWith('.vue')
+    ? 'vue'
+    : path.endsWith('.tsx')
+      ? 'tsx'
+      : path.endsWith('.scss') || path.endsWith('.css')
+        ? 'css'
+        : 'ts',
   load,
-});
+})
 
 const planningSupportingFiles = [
-  sourceFile('pro-advanced-planning/src/composables/usePlanningWorkspace.ts', () => import('../../revogrid-demos/pro-advanced-planning/src/composables/usePlanningWorkspace.ts?raw').then(module => module.default)),
-  sourceFile('pro-advanced-planning/src/data/columns.ts', () => import('../../revogrid-demos/pro-advanced-planning/src/data/columns.ts?raw').then(module => module.default)),
-  sourceFile('pro-advanced-planning/src/data/formatting.ts', () => import('../../revogrid-demos/pro-advanced-planning/src/data/formatting.ts?raw').then(module => module.default)),
-  sourceFile('pro-advanced-planning/src/data/planning.structured.ts', () => import('../../revogrid-demos/pro-advanced-planning/src/data/planning.structured.ts?raw').then(module => module.default)),
-  sourceFile('pro-advanced-planning/src/data/fixtures.ts', () => import('../../revogrid-demos/pro-advanced-planning/src/data/fixtures.ts?raw').then(module => module.default)),
-  sourceFile('pro-advanced-planning/src/data/source.ts', () => import('../../revogrid-demos/pro-advanced-planning/src/data/source.ts?raw').then(module => module.default)),
-  sourceFile('pro-advanced-planning/src/data/workspace.ts', () => import('../../revogrid-demos/pro-advanced-planning/src/data/workspace.ts?raw').then(module => module.default)),
-  sourceFile('pro-advanced-planning/src/planning.scss', () => import('../../revogrid-demos/pro-advanced-planning/src/planning.scss?raw').then(module => module.default)),
-] as const;
+  sourceFile('pro-advanced-planning/src/composables/usePlanningWorkspace.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/composables/usePlanningWorkspace.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('pro-advanced-planning/src/data/columns.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/columns.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('pro-advanced-planning/src/data/formatting.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/formatting.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('pro-advanced-planning/src/data/planning.structured.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/planning.structured.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('pro-advanced-planning/src/data/fixtures.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/fixtures.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('pro-advanced-planning/src/data/source.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/source.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('pro-advanced-planning/src/data/workspace.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/workspace.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('pro-advanced-planning/src/planning.scss', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/planning.scss?raw').then(
+      module => module.default,
+    ),
+  ),
+] as const
 
 export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, DemoSourceEntry>> = {
-  'planning': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-advanced-planning dev:vue', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-planning/src/planning.vue', () => import('../../revogrid-demos/pro-advanced-planning/src/planning.vue?raw').then(module => module.default)), ...planningSupportingFiles] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-advanced-planning dev:ts', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-planning/src/planning.ts', () => import('../../revogrid-demos/pro-advanced-planning/src/planning.ts?raw').then(module => module.default)), ...planningSupportingFiles] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-advanced-planning dev:react', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-planning/src/planning.react.tsx', () => import('../../revogrid-demos/pro-advanced-planning/src/planning.react.tsx?raw').then(module => module.default)), ...planningSupportingFiles] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-advanced-planning dev:angular', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-planning/src/planning.angular.ts', () => import('../../revogrid-demos/pro-advanced-planning/src/planning.angular.ts?raw').then(module => module.default)), ...planningSupportingFiles] },
+  planning: {
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-planning dev:vue',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile('pro-advanced-planning/src/planning.vue', () =>
+          import('../../revogrid-demos/pro-advanced-planning/src/planning.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+        ...planningSupportingFiles,
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-planning dev:ts',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile('pro-advanced-planning/src/planning.ts', () =>
+          import('../../revogrid-demos/pro-advanced-planning/src/planning.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        ...planningSupportingFiles,
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-planning dev:react',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile('pro-advanced-planning/src/planning.react.tsx', () =>
+          import('../../revogrid-demos/pro-advanced-planning/src/planning.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        ...planningSupportingFiles,
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-planning dev:angular',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile('pro-advanced-planning/src/planning.angular.ts', () =>
+          import('../../revogrid-demos/pro-advanced-planning/src/planning.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        ...planningSupportingFiles,
+      ],
+    },
   },
   'grid-at-scale': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/core-free dev:vue', documentationUrl: '/guide/', files: [sourceFile('core-free/src/hr.vue', () => import('../../revogrid-demos/core-free/src/hr.vue?raw').then(module => module.default)), sourceFile('core-free/src/hr.css', () => import('../../revogrid-demos/core-free/src/hr.css?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/core-free dev:ts', documentationUrl: '/guide/', files: [sourceFile('core-free/src/hr.ts', () => import('../../revogrid-demos/core-free/src/hr.ts?raw').then(module => module.default)), sourceFile('core-free/src/hr.css', () => import('../../revogrid-demos/core-free/src/hr.css?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/core-free dev:react', documentationUrl: '/guide/', files: [sourceFile('core-free/src/hr.react.tsx', () => import('../../revogrid-demos/core-free/src/hr.react.tsx?raw').then(module => module.default)), sourceFile('core-free/src/hr.css', () => import('../../revogrid-demos/core-free/src/hr.css?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/core-free dev:angular', documentationUrl: '/guide/', files: [sourceFile('core-free/src/hr.angular.ts', () => import('../../revogrid-demos/core-free/src/hr.angular.ts?raw').then(module => module.default)), sourceFile('core-free/src/hr.css', () => import('../../revogrid-demos/core-free/src/hr.css?raw').then(module => module.default))] },
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/core-free dev:vue',
+      documentationUrl: '/guide/',
+      files: [
+        sourceFile('core-free/src/hr.vue', () =>
+          import('../../revogrid-demos/core-free/src/hr.vue?raw').then(module => module.default),
+        ),
+        sourceFile('core-free/src/hr.css', () =>
+          import('../../revogrid-demos/core-free/src/hr.css?raw').then(module => module.default),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/core-free dev:ts',
+      documentationUrl: '/guide/',
+      files: [
+        sourceFile('core-free/src/hr.ts', () =>
+          import('../../revogrid-demos/core-free/src/hr.ts?raw').then(module => module.default),
+        ),
+        sourceFile('core-free/src/hr.css', () =>
+          import('../../revogrid-demos/core-free/src/hr.css?raw').then(module => module.default),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/core-free dev:react',
+      documentationUrl: '/guide/',
+      files: [
+        sourceFile('core-free/src/hr.react.tsx', () =>
+          import('../../revogrid-demos/core-free/src/hr.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('core-free/src/hr.css', () =>
+          import('../../revogrid-demos/core-free/src/hr.css?raw').then(module => module.default),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/core-free dev:angular',
+      documentationUrl: '/guide/',
+      files: [
+        sourceFile('core-free/src/hr.angular.ts', () =>
+          import('../../revogrid-demos/core-free/src/hr.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('core-free/src/hr.css', () =>
+          import('../../revogrid-demos/core-free/src/hr.css?raw').then(module => module.default),
+        ),
+      ],
+    },
   },
   'ai-prompt-library': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/core-ai-prompts dev:vue', documentationUrl: '/guide/', files: [sourceFile('core-ai-prompts/src/prompt-library.vue', () => import('../../revogrid-demos/core-ai-prompts/src/prompt-library.vue?raw').then(module => module.default)), sourceFile('core-ai-prompts/src/prompt-library.css', () => import('../../revogrid-demos/core-ai-prompts/src/prompt-library.css?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/core-ai-prompts dev:ts', documentationUrl: '/guide/', files: [sourceFile('core-ai-prompts/src/prompt-library.ts', () => import('../../revogrid-demos/core-ai-prompts/src/prompt-library.ts?raw').then(module => module.default)), sourceFile('core-ai-prompts/src/prompt-library.css', () => import('../../revogrid-demos/core-ai-prompts/src/prompt-library.css?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/core-ai-prompts dev:react', documentationUrl: '/guide/', files: [sourceFile('core-ai-prompts/src/prompt-library.react.tsx', () => import('../../revogrid-demos/core-ai-prompts/src/prompt-library.react.tsx?raw').then(module => module.default)), sourceFile('core-ai-prompts/src/prompt-library.css', () => import('../../revogrid-demos/core-ai-prompts/src/prompt-library.css?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/core-ai-prompts dev:angular', documentationUrl: '/guide/', files: [sourceFile('core-ai-prompts/src/prompt-library.angular.ts', () => import('../../revogrid-demos/core-ai-prompts/src/prompt-library.angular.ts?raw').then(module => module.default)), sourceFile('core-ai-prompts/src/prompt-library.css', () => import('../../revogrid-demos/core-ai-prompts/src/prompt-library.css?raw').then(module => module.default))] },
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/core-ai-prompts dev:vue',
+      documentationUrl: '/guide/',
+      files: [
+        sourceFile('core-ai-prompts/src/prompt-library.vue', () =>
+          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('core-ai-prompts/src/prompt-library.css', () =>
+          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.css?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/core-ai-prompts dev:ts',
+      documentationUrl: '/guide/',
+      files: [
+        sourceFile('core-ai-prompts/src/prompt-library.ts', () =>
+          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('core-ai-prompts/src/prompt-library.css', () =>
+          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.css?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/core-ai-prompts dev:react',
+      documentationUrl: '/guide/',
+      files: [
+        sourceFile('core-ai-prompts/src/prompt-library.react.tsx', () =>
+          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('core-ai-prompts/src/prompt-library.css', () =>
+          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.css?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/core-ai-prompts dev:angular',
+      documentationUrl: '/guide/',
+      files: [
+        sourceFile('core-ai-prompts/src/prompt-library.angular.ts', () =>
+          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('core-ai-prompts/src/prompt-library.css', () =>
+          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.css?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
   'project-portfolio': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/core-project-portfolio dev:vue', documentationUrl: '/guide/', files: [sourceFile('core-project-portfolio/src/project-portfolio.vue', () => import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.vue?raw').then(module => module.default)), sourceFile('core-project-portfolio/src/project-portfolio.css', () => import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.css?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/core-project-portfolio dev:ts', documentationUrl: '/guide/', files: [sourceFile('core-project-portfolio/src/project-portfolio.ts', () => import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.ts?raw').then(module => module.default)), sourceFile('core-project-portfolio/src/project-portfolio.css', () => import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.css?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/core-project-portfolio dev:react', documentationUrl: '/guide/', files: [sourceFile('core-project-portfolio/src/project-portfolio.react.tsx', () => import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.react.tsx?raw').then(module => module.default)), sourceFile('core-project-portfolio/src/project-portfolio.css', () => import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.css?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/core-project-portfolio dev:angular', documentationUrl: '/guide/', files: [sourceFile('core-project-portfolio/src/project-portfolio.angular.ts', () => import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.angular.ts?raw').then(module => module.default)), sourceFile('core-project-portfolio/src/project-portfolio.css', () => import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.css?raw').then(module => module.default))] },
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/core-project-portfolio dev:vue',
+      documentationUrl: '/guide/',
+      files: [
+        sourceFile('core-project-portfolio/src/project-portfolio.vue', () =>
+          import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('core-project-portfolio/src/project-portfolio.css', () =>
+          import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.css?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/core-project-portfolio dev:ts',
+      documentationUrl: '/guide/',
+      files: [
+        sourceFile('core-project-portfolio/src/project-portfolio.ts', () =>
+          import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('core-project-portfolio/src/project-portfolio.css', () =>
+          import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.css?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/core-project-portfolio dev:react',
+      documentationUrl: '/guide/',
+      files: [
+        sourceFile('core-project-portfolio/src/project-portfolio.react.tsx', () =>
+          import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('core-project-portfolio/src/project-portfolio.css', () =>
+          import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.css?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/core-project-portfolio dev:angular',
+      documentationUrl: '/guide/',
+      files: [
+        sourceFile('core-project-portfolio/src/project-portfolio.angular.ts', () =>
+          import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('core-project-portfolio/src/project-portfolio.css', () =>
+          import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.css?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
   'project-tracker': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-project-table dev:vue', documentationUrl: '/pro/', files: [sourceFile('pro-project-table/src/project-table.vue', () => import('../../revogrid-demos/pro-project-table/src/project-table.vue?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-project-table dev:ts', documentationUrl: '/pro/', files: [sourceFile('pro-project-table/src/project-table.ts', () => import('../../revogrid-demos/pro-project-table/src/project-table.ts?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-project-table dev:react', documentationUrl: '/pro/', files: [sourceFile('pro-project-table/src/project-table.react.tsx', () => import('../../revogrid-demos/pro-project-table/src/project-table.react.tsx?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-project-table dev:angular', documentationUrl: '/pro/', files: [sourceFile('pro-project-table/src/project-table.angular.ts', () => import('../../revogrid-demos/pro-project-table/src/project-table.angular.ts?raw').then(module => module.default))] },
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-project-table dev:vue',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-project-table/src/project-table.vue', () =>
+          import('../../revogrid-demos/pro-project-table/src/project-table.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-project-table dev:ts',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-project-table/src/project-table.ts', () =>
+          import('../../revogrid-demos/pro-project-table/src/project-table.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-project-table dev:react',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-project-table/src/project-table.react.tsx', () =>
+          import('../../revogrid-demos/pro-project-table/src/project-table.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-project-table dev:angular',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-project-table/src/project-table.angular.ts', () =>
+          import('../../revogrid-demos/pro-project-table/src/project-table.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
-  'filtering': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-filtering dev:vue', documentationUrl: '/pro/', files: [sourceFile('pro-filtering/src/filtering.vue', () => import('../../revogrid-demos/pro-filtering/src/filtering.vue?raw').then(module => module.default)), sourceFile('pro-filtering/src/filtering.scss', () => import('../../revogrid-demos/pro-filtering/src/filtering.scss?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-filtering dev:ts', documentationUrl: '/pro/', files: [sourceFile('pro-filtering/src/filtering.ts', () => import('../../revogrid-demos/pro-filtering/src/filtering.ts?raw').then(module => module.default)), sourceFile('pro-filtering/src/filtering.scss', () => import('../../revogrid-demos/pro-filtering/src/filtering.scss?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-filtering dev:react', documentationUrl: '/pro/', files: [sourceFile('pro-filtering/src/filtering.react.tsx', () => import('../../revogrid-demos/pro-filtering/src/filtering.react.tsx?raw').then(module => module.default)), sourceFile('pro-filtering/src/filtering.scss', () => import('../../revogrid-demos/pro-filtering/src/filtering.scss?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-filtering dev:angular', documentationUrl: '/pro/', files: [sourceFile('pro-filtering/src/filtering.angular.ts', () => import('../../revogrid-demos/pro-filtering/src/filtering.angular.ts?raw').then(module => module.default)), sourceFile('pro-filtering/src/filtering.scss', () => import('../../revogrid-demos/pro-filtering/src/filtering.scss?raw').then(module => module.default))] },
+  filtering: {
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-filtering dev:vue',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-filtering/src/filtering.vue', () =>
+          import('../../revogrid-demos/pro-filtering/src/filtering.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-filtering/src/filtering.scss', () =>
+          import('../../revogrid-demos/pro-filtering/src/filtering.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-filtering dev:ts',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-filtering/src/filtering.ts', () =>
+          import('../../revogrid-demos/pro-filtering/src/filtering.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-filtering/src/filtering.scss', () =>
+          import('../../revogrid-demos/pro-filtering/src/filtering.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-filtering dev:react',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-filtering/src/filtering.react.tsx', () =>
+          import('../../revogrid-demos/pro-filtering/src/filtering.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-filtering/src/filtering.scss', () =>
+          import('../../revogrid-demos/pro-filtering/src/filtering.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-filtering dev:angular',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-filtering/src/filtering.angular.ts', () =>
+          import('../../revogrid-demos/pro-filtering/src/filtering.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-filtering/src/filtering.scss', () =>
+          import('../../revogrid-demos/pro-filtering/src/filtering.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
   'tree-data': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-tree-data dev:vue', documentationUrl: '/pro/', files: [sourceFile('pro-tree-data/src/tree.vue', () => import('../../revogrid-demos/pro-tree-data/src/tree.vue?raw').then(module => module.default)), sourceFile('pro-tree-data/src/tree.scss', () => import('../../revogrid-demos/pro-tree-data/src/tree.scss?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-tree-data dev:ts', documentationUrl: '/pro/', files: [sourceFile('pro-tree-data/src/tree.ts', () => import('../../revogrid-demos/pro-tree-data/src/tree.ts?raw').then(module => module.default)), sourceFile('pro-tree-data/src/tree.scss', () => import('../../revogrid-demos/pro-tree-data/src/tree.scss?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-tree-data dev:react', documentationUrl: '/pro/', files: [sourceFile('pro-tree-data/src/tree.react.tsx', () => import('../../revogrid-demos/pro-tree-data/src/tree.react.tsx?raw').then(module => module.default)), sourceFile('pro-tree-data/src/tree.scss', () => import('../../revogrid-demos/pro-tree-data/src/tree.scss?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-tree-data dev:angular', documentationUrl: '/pro/', files: [sourceFile('pro-tree-data/src/tree.angular.ts', () => import('../../revogrid-demos/pro-tree-data/src/tree.angular.ts?raw').then(module => module.default)), sourceFile('pro-tree-data/src/tree.scss', () => import('../../revogrid-demos/pro-tree-data/src/tree.scss?raw').then(module => module.default))] },
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-tree-data dev:vue',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-tree-data/src/tree.vue', () =>
+          import('../../revogrid-demos/pro-tree-data/src/tree.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-tree-data/src/tree.scss', () =>
+          import('../../revogrid-demos/pro-tree-data/src/tree.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-tree-data dev:ts',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-tree-data/src/tree.ts', () =>
+          import('../../revogrid-demos/pro-tree-data/src/tree.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-tree-data/src/tree.scss', () =>
+          import('../../revogrid-demos/pro-tree-data/src/tree.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-tree-data dev:react',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-tree-data/src/tree.react.tsx', () =>
+          import('../../revogrid-demos/pro-tree-data/src/tree.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-tree-data/src/tree.scss', () =>
+          import('../../revogrid-demos/pro-tree-data/src/tree.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-tree-data dev:angular',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-tree-data/src/tree.angular.ts', () =>
+          import('../../revogrid-demos/pro-tree-data/src/tree.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-tree-data/src/tree.scss', () =>
+          import('../../revogrid-demos/pro-tree-data/src/tree.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
   'infinity-scroll': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-infinity-scroll dev:vue', documentationUrl: '/pro/', files: [sourceFile('pro-infinity-scroll/src/infinity-scroll.vue', () => import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.vue?raw').then(module => module.default)), sourceFile('pro-infinity-scroll/src/infinity-scroll.scss', () => import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.scss?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-infinity-scroll dev:ts', documentationUrl: '/pro/', files: [sourceFile('pro-infinity-scroll/src/infinity-scroll.ts', () => import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.ts?raw').then(module => module.default)), sourceFile('pro-infinity-scroll/src/infinity-scroll.scss', () => import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.scss?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-infinity-scroll dev:react', documentationUrl: '/pro/', files: [sourceFile('pro-infinity-scroll/src/infinity-scroll.react.tsx', () => import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.react.tsx?raw').then(module => module.default)), sourceFile('pro-infinity-scroll/src/infinity-scroll.scss', () => import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.scss?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-infinity-scroll dev:angular', documentationUrl: '/pro/', files: [sourceFile('pro-infinity-scroll/src/infinity-scroll.angular.ts', () => import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.angular.ts?raw').then(module => module.default)), sourceFile('pro-infinity-scroll/src/infinity-scroll.scss', () => import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.scss?raw').then(module => module.default))] },
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-infinity-scroll dev:vue',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-infinity-scroll/src/infinity-scroll.vue', () =>
+          import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-infinity-scroll/src/infinity-scroll.scss', () =>
+          import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-infinity-scroll dev:ts',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-infinity-scroll/src/infinity-scroll.ts', () =>
+          import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-infinity-scroll/src/infinity-scroll.scss', () =>
+          import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-infinity-scroll dev:react',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-infinity-scroll/src/infinity-scroll.react.tsx', () =>
+          import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-infinity-scroll/src/infinity-scroll.scss', () =>
+          import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-infinity-scroll dev:angular',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-infinity-scroll/src/infinity-scroll.angular.ts', () =>
+          import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-infinity-scroll/src/infinity-scroll.scss', () =>
+          import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
   'column-collapse': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-column-collapse dev:vue', documentationUrl: '/pro/', files: [sourceFile('pro-column-collapse/src/column-collapse.vue', () => import('../../revogrid-demos/pro-column-collapse/src/column-collapse.vue?raw').then(module => module.default)), sourceFile('pro-column-collapse/src/column-collapse.scss', () => import('../../revogrid-demos/pro-column-collapse/src/column-collapse.scss?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-column-collapse dev:ts', documentationUrl: '/pro/', files: [sourceFile('pro-column-collapse/src/column-collapse.ts', () => import('../../revogrid-demos/pro-column-collapse/src/column-collapse.ts?raw').then(module => module.default)), sourceFile('pro-column-collapse/src/column-collapse.scss', () => import('../../revogrid-demos/pro-column-collapse/src/column-collapse.scss?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-column-collapse dev:react', documentationUrl: '/pro/', files: [sourceFile('pro-column-collapse/src/column-collapse.react.tsx', () => import('../../revogrid-demos/pro-column-collapse/src/column-collapse.react.tsx?raw').then(module => module.default)), sourceFile('pro-column-collapse/src/column-collapse.scss', () => import('../../revogrid-demos/pro-column-collapse/src/column-collapse.scss?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-column-collapse dev:angular', documentationUrl: '/pro/', files: [sourceFile('pro-column-collapse/src/column-collapse.angular.ts', () => import('../../revogrid-demos/pro-column-collapse/src/column-collapse.angular.ts?raw').then(module => module.default)), sourceFile('pro-column-collapse/src/column-collapse.scss', () => import('../../revogrid-demos/pro-column-collapse/src/column-collapse.scss?raw').then(module => module.default))] },
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-column-collapse dev:vue',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-column-collapse/src/column-collapse.vue', () =>
+          import('../../revogrid-demos/pro-column-collapse/src/column-collapse.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-column-collapse/src/column-collapse.scss', () =>
+          import('../../revogrid-demos/pro-column-collapse/src/column-collapse.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-column-collapse dev:ts',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-column-collapse/src/column-collapse.ts', () =>
+          import('../../revogrid-demos/pro-column-collapse/src/column-collapse.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-column-collapse/src/column-collapse.scss', () =>
+          import('../../revogrid-demos/pro-column-collapse/src/column-collapse.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-column-collapse dev:react',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-column-collapse/src/column-collapse.react.tsx', () =>
+          import('../../revogrid-demos/pro-column-collapse/src/column-collapse.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-column-collapse/src/column-collapse.scss', () =>
+          import('../../revogrid-demos/pro-column-collapse/src/column-collapse.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-column-collapse dev:angular',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-column-collapse/src/column-collapse.angular.ts', () =>
+          import('../../revogrid-demos/pro-column-collapse/src/column-collapse.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-column-collapse/src/column-collapse.scss', () =>
+          import('../../revogrid-demos/pro-column-collapse/src/column-collapse.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
   'context-menu': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-data-grid-context-menu dev:vue', documentationUrl: '/pro/', files: [sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.vue', () => import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.vue?raw').then(module => module.default)), sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.scss', () => import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.scss?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-data-grid-context-menu dev:ts', documentationUrl: '/pro/', files: [sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.ts', () => import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.ts?raw').then(module => module.default)), sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.scss', () => import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.scss?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-data-grid-context-menu dev:react', documentationUrl: '/pro/', files: [sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.react.tsx', () => import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.react.tsx?raw').then(module => module.default)), sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.scss', () => import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.scss?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-data-grid-context-menu dev:angular', documentationUrl: '/pro/', files: [sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.angular.ts', () => import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.angular.ts?raw').then(module => module.default)), sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.scss', () => import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.scss?raw').then(module => module.default))] },
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-data-grid-context-menu dev:vue',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.vue', () =>
+          import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.scss', () =>
+          import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-data-grid-context-menu dev:ts',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.ts', () =>
+          import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.scss', () =>
+          import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-data-grid-context-menu dev:react',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.react.tsx', () =>
+          import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.scss', () =>
+          import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-data-grid-context-menu dev:angular',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.angular.ts', () =>
+          import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.scss', () =>
+          import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
   'row-master': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-row-master dev:vue', documentationUrl: '/pro/', files: [sourceFile('pro-row-master/src/row-master.vue', () => import('../../revogrid-demos/pro-row-master/src/row-master.vue?raw').then(module => module.default)), sourceFile('pro-row-master/src/row-master.scss', () => import('../../revogrid-demos/pro-row-master/src/row-master.scss?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-row-master dev:ts', documentationUrl: '/pro/', files: [sourceFile('pro-row-master/src/row-master.ts', () => import('../../revogrid-demos/pro-row-master/src/row-master.ts?raw').then(module => module.default)), sourceFile('pro-row-master/src/row-master.scss', () => import('../../revogrid-demos/pro-row-master/src/row-master.scss?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-row-master dev:react', documentationUrl: '/pro/', files: [sourceFile('pro-row-master/src/row-master.react.tsx', () => import('../../revogrid-demos/pro-row-master/src/row-master.react.tsx?raw').then(module => module.default)), sourceFile('pro-row-master/src/row-master.scss', () => import('../../revogrid-demos/pro-row-master/src/row-master.scss?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-row-master dev:angular', documentationUrl: '/pro/', files: [sourceFile('pro-row-master/src/row-master.angular.ts', () => import('../../revogrid-demos/pro-row-master/src/row-master.angular.ts?raw').then(module => module.default)), sourceFile('pro-row-master/src/row-master.scss', () => import('../../revogrid-demos/pro-row-master/src/row-master.scss?raw').then(module => module.default))] },
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-row-master dev:vue',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-row-master/src/row-master.vue', () =>
+          import('../../revogrid-demos/pro-row-master/src/row-master.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-row-master/src/row-master.scss', () =>
+          import('../../revogrid-demos/pro-row-master/src/row-master.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-row-master dev:ts',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-row-master/src/row-master.ts', () =>
+          import('../../revogrid-demos/pro-row-master/src/row-master.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-row-master/src/row-master.scss', () =>
+          import('../../revogrid-demos/pro-row-master/src/row-master.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-row-master dev:react',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-row-master/src/row-master.react.tsx', () =>
+          import('../../revogrid-demos/pro-row-master/src/row-master.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-row-master/src/row-master.scss', () =>
+          import('../../revogrid-demos/pro-row-master/src/row-master.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-row-master dev:angular',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-row-master/src/row-master.angular.ts', () =>
+          import('../../revogrid-demos/pro-row-master/src/row-master.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-row-master/src/row-master.scss', () =>
+          import('../../revogrid-demos/pro-row-master/src/row-master.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
   'audit-history': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-audit-history dev:vue', documentationUrl: '/pro/', files: [sourceFile('pro-audit-history/src/audit-history.vue', () => import('../../revogrid-demos/pro-audit-history/src/audit-history.vue?raw').then(module => module.default)), sourceFile('pro-audit-history/src/audit-history.scss', () => import('../../revogrid-demos/pro-audit-history/src/audit-history.scss?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-audit-history dev:ts', documentationUrl: '/pro/', files: [sourceFile('pro-audit-history/src/audit-history.ts', () => import('../../revogrid-demos/pro-audit-history/src/audit-history.ts?raw').then(module => module.default)), sourceFile('pro-audit-history/src/audit-history.scss', () => import('../../revogrid-demos/pro-audit-history/src/audit-history.scss?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-audit-history dev:react', documentationUrl: '/pro/', files: [sourceFile('pro-audit-history/src/audit-history.react.tsx', () => import('../../revogrid-demos/pro-audit-history/src/audit-history.react.tsx?raw').then(module => module.default)), sourceFile('pro-audit-history/src/audit-history.scss', () => import('../../revogrid-demos/pro-audit-history/src/audit-history.scss?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-audit-history dev:angular', documentationUrl: '/pro/', files: [sourceFile('pro-audit-history/src/audit-history.angular.ts', () => import('../../revogrid-demos/pro-audit-history/src/audit-history.angular.ts?raw').then(module => module.default)), sourceFile('pro-audit-history/src/audit-history.scss', () => import('../../revogrid-demos/pro-audit-history/src/audit-history.scss?raw').then(module => module.default))] },
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-audit-history dev:vue',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-audit-history/src/audit-history.vue', () =>
+          import('../../revogrid-demos/pro-audit-history/src/audit-history.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-audit-history/src/audit-history.scss', () =>
+          import('../../revogrid-demos/pro-audit-history/src/audit-history.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-audit-history dev:ts',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-audit-history/src/audit-history.ts', () =>
+          import('../../revogrid-demos/pro-audit-history/src/audit-history.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-audit-history/src/audit-history.scss', () =>
+          import('../../revogrid-demos/pro-audit-history/src/audit-history.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-audit-history dev:react',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-audit-history/src/audit-history.react.tsx', () =>
+          import('../../revogrid-demos/pro-audit-history/src/audit-history.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-audit-history/src/audit-history.scss', () =>
+          import('../../revogrid-demos/pro-audit-history/src/audit-history.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-audit-history dev:angular',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-audit-history/src/audit-history.angular.ts', () =>
+          import('../../revogrid-demos/pro-audit-history/src/audit-history.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-audit-history/src/audit-history.scss', () =>
+          import('../../revogrid-demos/pro-audit-history/src/audit-history.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
-  'excel': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-excel dev:vue', documentationUrl: '/pro/', files: [sourceFile('pro-excel/src/excel.vue', () => import('../../revogrid-demos/pro-excel/src/excel.vue?raw').then(module => module.default)), sourceFile('pro-excel/src/spreadsheet.scss', () => import('../../revogrid-demos/pro-excel/src/spreadsheet.scss?raw').then(module => module.default)), sourceFile('pro-excel/src/spreadsheet.shared.ts', () => import('../../revogrid-demos/pro-excel/src/spreadsheet.shared.ts?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-excel dev:ts', documentationUrl: '/pro/', files: [sourceFile('pro-excel/src/excel.ts', () => import('../../revogrid-demos/pro-excel/src/excel.ts?raw').then(module => module.default)), sourceFile('pro-excel/src/spreadsheet.scss', () => import('../../revogrid-demos/pro-excel/src/spreadsheet.scss?raw').then(module => module.default)), sourceFile('pro-excel/src/spreadsheet.shared.ts', () => import('../../revogrid-demos/pro-excel/src/spreadsheet.shared.ts?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-excel dev:react', documentationUrl: '/pro/', files: [sourceFile('pro-excel/src/excel.react.tsx', () => import('../../revogrid-demos/pro-excel/src/excel.react.tsx?raw').then(module => module.default)), sourceFile('pro-excel/src/spreadsheet.scss', () => import('../../revogrid-demos/pro-excel/src/spreadsheet.scss?raw').then(module => module.default)), sourceFile('pro-excel/src/spreadsheet.shared.ts', () => import('../../revogrid-demos/pro-excel/src/spreadsheet.shared.ts?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-excel dev:angular', documentationUrl: '/pro/', files: [sourceFile('pro-excel/src/excel.angular.ts', () => import('../../revogrid-demos/pro-excel/src/excel.angular.ts?raw').then(module => module.default)), sourceFile('pro-excel/src/spreadsheet.scss', () => import('../../revogrid-demos/pro-excel/src/spreadsheet.scss?raw').then(module => module.default)), sourceFile('pro-excel/src/spreadsheet.shared.ts', () => import('../../revogrid-demos/pro-excel/src/spreadsheet.shared.ts?raw').then(module => module.default))] },
+  excel: {
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-excel dev:vue',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-excel/src/excel.vue', () =>
+          import('../../revogrid-demos/pro-excel/src/excel.vue?raw').then(module => module.default),
+        ),
+        sourceFile('pro-excel/src/spreadsheet.scss', () =>
+          import('../../revogrid-demos/pro-excel/src/spreadsheet.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-excel/src/spreadsheet.shared.ts', () =>
+          import('../../revogrid-demos/pro-excel/src/spreadsheet.shared.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-excel dev:ts',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-excel/src/excel.ts', () =>
+          import('../../revogrid-demos/pro-excel/src/excel.ts?raw').then(module => module.default),
+        ),
+        sourceFile('pro-excel/src/spreadsheet.scss', () =>
+          import('../../revogrid-demos/pro-excel/src/spreadsheet.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-excel/src/spreadsheet.shared.ts', () =>
+          import('../../revogrid-demos/pro-excel/src/spreadsheet.shared.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-excel dev:react',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-excel/src/excel.react.tsx', () =>
+          import('../../revogrid-demos/pro-excel/src/excel.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-excel/src/spreadsheet.scss', () =>
+          import('../../revogrid-demos/pro-excel/src/spreadsheet.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-excel/src/spreadsheet.shared.ts', () =>
+          import('../../revogrid-demos/pro-excel/src/spreadsheet.shared.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-excel dev:angular',
+      documentationUrl: '/pro/',
+      files: [
+        sourceFile('pro-excel/src/excel.angular.ts', () =>
+          import('../../revogrid-demos/pro-excel/src/excel.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-excel/src/spreadsheet.scss', () =>
+          import('../../revogrid-demos/pro-excel/src/spreadsheet.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-excel/src/spreadsheet.shared.ts', () =>
+          import('../../revogrid-demos/pro-excel/src/spreadsheet.shared.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
-  'pivot': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-advanced-pivot dev:vue', documentationUrl: '/pivot/', files: [sourceFile('pro-advanced-pivot/src/pivot.vue', () => import('../../revogrid-demos/pro-advanced-pivot/src/pivot.vue?raw').then(module => module.default)), sourceFile('pro-advanced-pivot/src/financial.pivot.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/financial.pivot.ts?raw').then(module => module.default)), sourceFile('pro-advanced-pivot/src/financial.analytics.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/financial.analytics.ts?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-advanced-pivot dev:ts', documentationUrl: '/pivot/', files: [sourceFile('pro-advanced-pivot/src/pivot.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/pivot.ts?raw').then(module => module.default)), sourceFile('pro-advanced-pivot/src/financial.pivot.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/financial.pivot.ts?raw').then(module => module.default)), sourceFile('pro-advanced-pivot/src/financial.analytics.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/financial.analytics.ts?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-advanced-pivot dev:react', documentationUrl: '/pivot/', files: [sourceFile('pro-advanced-pivot/src/pivot.react.tsx', () => import('../../revogrid-demos/pro-advanced-pivot/src/pivot.react.tsx?raw').then(module => module.default)), sourceFile('pro-advanced-pivot/src/financial.pivot.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/financial.pivot.ts?raw').then(module => module.default)), sourceFile('pro-advanced-pivot/src/financial.analytics.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/financial.analytics.ts?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-advanced-pivot dev:angular', documentationUrl: '/pivot/', files: [sourceFile('pro-advanced-pivot/src/pivot.angular.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/pivot.angular.ts?raw').then(module => module.default)), sourceFile('pro-advanced-pivot/src/financial.pivot.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/financial.pivot.ts?raw').then(module => module.default)), sourceFile('pro-advanced-pivot/src/financial.analytics.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/financial.analytics.ts?raw').then(module => module.default))] },
+  pivot: {
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-pivot dev:vue',
+      documentationUrl: '/pivot/',
+      files: [
+        sourceFile('pro-advanced-pivot/src/pivot.vue', () =>
+          import('../../revogrid-demos/pro-advanced-pivot/src/pivot.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-pivot/src/financial.pivot.ts', () =>
+          import('../../revogrid-demos/pro-advanced-pivot/src/financial.pivot.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-pivot/src/financial.analytics.ts', () =>
+          import('../../revogrid-demos/pro-advanced-pivot/src/financial.analytics.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-pivot dev:ts',
+      documentationUrl: '/pivot/',
+      files: [
+        sourceFile('pro-advanced-pivot/src/pivot.ts', () =>
+          import('../../revogrid-demos/pro-advanced-pivot/src/pivot.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-pivot/src/financial.pivot.ts', () =>
+          import('../../revogrid-demos/pro-advanced-pivot/src/financial.pivot.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-pivot/src/financial.analytics.ts', () =>
+          import('../../revogrid-demos/pro-advanced-pivot/src/financial.analytics.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-pivot dev:react',
+      documentationUrl: '/pivot/',
+      files: [
+        sourceFile('pro-advanced-pivot/src/pivot.react.tsx', () =>
+          import('../../revogrid-demos/pro-advanced-pivot/src/pivot.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-pivot/src/financial.pivot.ts', () =>
+          import('../../revogrid-demos/pro-advanced-pivot/src/financial.pivot.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-pivot/src/financial.analytics.ts', () =>
+          import('../../revogrid-demos/pro-advanced-pivot/src/financial.analytics.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-pivot dev:angular',
+      documentationUrl: '/pivot/',
+      files: [
+        sourceFile('pro-advanced-pivot/src/pivot.angular.ts', () =>
+          import('../../revogrid-demos/pro-advanced-pivot/src/pivot.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-pivot/src/financial.pivot.ts', () =>
+          import('../../revogrid-demos/pro-advanced-pivot/src/financial.pivot.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-pivot/src/financial.analytics.ts', () =>
+          import('../../revogrid-demos/pro-advanced-pivot/src/financial.analytics.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
-  'gantt': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:vue', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.vue', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.vue?raw').then(module => module.default)), sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.scss', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.scss?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:ts', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.ts', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.ts?raw').then(module => module.default)), sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.scss', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.scss?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:react', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.react.tsx', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.react.tsx?raw').then(module => module.default)), sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.scss', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.scss?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:angular', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.angular.ts', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.angular.ts?raw').then(module => module.default)), sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.scss', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.scss?raw').then(module => module.default))] },
+  gantt: {
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:vue',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.vue', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.scss', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:ts',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.ts', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.scss', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:react',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.react.tsx', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.scss', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:angular',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.angular.ts', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-gantt/src/examples/showcase/gantt.scss', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/showcase/gantt.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
   'gantt-big-data': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:vue', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.vue', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.vue?raw').then(module => module.default)), sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:ts', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.ts', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.ts?raw').then(module => module.default)), sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:react', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.react.tsx', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.react.tsx?raw').then(module => module.default)), sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:angular', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.angular.ts', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.angular.ts?raw').then(module => module.default)), sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss?raw').then(module => module.default))] },
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:vue',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.vue', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:ts',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.ts', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:react',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.react.tsx', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:angular',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.angular.ts', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss', () =>
+          import('../../revogrid-demos/pro-advanced-gantt/src/examples/big-data/gantt-big-data.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
   'gantt-horizontal-big-data': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:vue', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.vue', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.vue?raw').then(module => module.default)), sourceFile('pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:ts', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.ts', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.ts?raw').then(module => module.default)), sourceFile('pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:react', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.react.tsx', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.react.tsx?raw').then(module => module.default)), sourceFile('pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:angular', documentationUrl: '/gantt/', files: [sourceFile('pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.angular.ts', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.angular.ts?raw').then(module => module.default)), sourceFile('pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss', () => import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss?raw').then(module => module.default))] },
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:vue',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile(
+          'pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.vue',
+          () =>
+            import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.vue?raw').then(
+              module => module.default,
+            ),
+        ),
+        sourceFile(
+          'pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss',
+          () =>
+            import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss?raw').then(
+              module => module.default,
+            ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:ts',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile(
+          'pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.ts',
+          () =>
+            import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.ts?raw').then(
+              module => module.default,
+            ),
+        ),
+        sourceFile(
+          'pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss',
+          () =>
+            import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss?raw').then(
+              module => module.default,
+            ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:react',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile(
+          'pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.react.tsx',
+          () =>
+            import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.react.tsx?raw').then(
+              module => module.default,
+            ),
+        ),
+        sourceFile(
+          'pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss',
+          () =>
+            import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss?raw').then(
+              module => module.default,
+            ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-gantt dev:angular',
+      documentationUrl: '/gantt/',
+      files: [
+        sourceFile(
+          'pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.angular.ts',
+          () =>
+            import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.angular.ts?raw').then(
+              module => module.default,
+            ),
+        ),
+        sourceFile(
+          'pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss',
+          () =>
+            import('../../revogrid-demos/pro-advanced-gantt/src/examples/horizontal-big-data/gantt-horizontal-big-data.scss?raw').then(
+              module => module.default,
+            ),
+        ),
+      ],
+    },
   },
-  'kanban': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:vue', documentationUrl: '/kanban/', files: [sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.vue', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.vue?raw').then(module => module.default)), sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.scss', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.scss?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:ts', documentationUrl: '/kanban/', files: [sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.ts', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.ts?raw').then(module => module.default)), sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.scss', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.scss?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:react', documentationUrl: '/kanban/', files: [sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.react.tsx', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.react.tsx?raw').then(module => module.default)), sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.scss', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.scss?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:angular', documentationUrl: '/kanban/', files: [sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.angular.ts', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.angular.ts?raw').then(module => module.default)), sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.scss', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.scss?raw').then(module => module.default))] },
+  kanban: {
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:vue',
+      documentationUrl: '/kanban/',
+      files: [
+        sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.vue', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.scss', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:ts',
+      documentationUrl: '/kanban/',
+      files: [
+        sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.ts', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.scss', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:react',
+      documentationUrl: '/kanban/',
+      files: [
+        sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.react.tsx', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.scss', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:angular',
+      documentationUrl: '/kanban/',
+      files: [
+        sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.angular.ts', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-kanban/src/examples/showcase/kanban.scss', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
   'kanban-performance': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:vue', documentationUrl: '/kanban/', files: [sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.vue', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.vue?raw').then(module => module.default)), sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.scss', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.scss?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:ts', documentationUrl: '/kanban/', files: [sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.ts', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.ts?raw').then(module => module.default)), sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.scss', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.scss?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:react', documentationUrl: '/kanban/', files: [sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.react.tsx', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.react.tsx?raw').then(module => module.default)), sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.scss', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.scss?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:angular', documentationUrl: '/kanban/', files: [sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.angular.ts', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.angular.ts?raw').then(module => module.default)), sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.scss', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.scss?raw').then(module => module.default))] },
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:vue',
+      documentationUrl: '/kanban/',
+      files: [
+        sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.vue', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.scss', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:ts',
+      documentationUrl: '/kanban/',
+      files: [
+        sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.ts', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.scss', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:react',
+      documentationUrl: '/kanban/',
+      files: [
+        sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.react.tsx', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.scss', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:angular',
+      documentationUrl: '/kanban/',
+      files: [
+        sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.angular.ts', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile('pro-advanced-kanban/src/examples/performance/kanban-board.scss', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.scss?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
   'kanban-server-loading': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:vue', documentationUrl: '/kanban/', files: [sourceFile('pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.vue', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.vue?raw').then(module => module.default)), sourceFile('pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:ts', documentationUrl: '/kanban/', files: [sourceFile('pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.ts', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.ts?raw').then(module => module.default)), sourceFile('pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:react', documentationUrl: '/kanban/', files: [sourceFile('pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.react.tsx', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.react.tsx?raw').then(module => module.default)), sourceFile('pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:angular', documentationUrl: '/kanban/', files: [sourceFile('pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.angular.ts', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.angular.ts?raw').then(module => module.default)), sourceFile('pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss', () => import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss?raw').then(module => module.default))] },
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:vue',
+      documentationUrl: '/kanban/',
+      files: [
+        sourceFile(
+          'pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.vue',
+          () =>
+            import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.vue?raw').then(
+              module => module.default,
+            ),
+        ),
+        sourceFile(
+          'pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss',
+          () =>
+            import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss?raw').then(
+              module => module.default,
+            ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:ts',
+      documentationUrl: '/kanban/',
+      files: [
+        sourceFile('pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.ts', () =>
+          import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        sourceFile(
+          'pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss',
+          () =>
+            import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss?raw').then(
+              module => module.default,
+            ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:react',
+      documentationUrl: '/kanban/',
+      files: [
+        sourceFile(
+          'pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.react.tsx',
+          () =>
+            import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.react.tsx?raw').then(
+              module => module.default,
+            ),
+        ),
+        sourceFile(
+          'pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss',
+          () =>
+            import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss?raw').then(
+              module => module.default,
+            ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-kanban dev:angular',
+      documentationUrl: '/kanban/',
+      files: [
+        sourceFile(
+          'pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.angular.ts',
+          () =>
+            import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.angular.ts?raw').then(
+              module => module.default,
+            ),
+        ),
+        sourceFile(
+          'pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss',
+          () =>
+            import('../../revogrid-demos/pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.scss?raw').then(
+              module => module.default,
+            ),
+        ),
+      ],
+    },
   },
   'event-scheduler': {
-    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:vue', documentationUrl: '/scheduler/', files: [sourceFile('pro-advanced-scheduler/src/scheduler.vue', () => import('../../revogrid-demos/pro-advanced-scheduler/src/scheduler.vue?raw').then(module => module.default))] },
-    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:ts', documentationUrl: '/scheduler/', files: [sourceFile('pro-advanced-scheduler/src/scheduler.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/scheduler.ts?raw').then(module => module.default))] },
-    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:react', documentationUrl: '/scheduler/', files: [sourceFile('pro-advanced-scheduler/src/scheduler.react.tsx', () => import('../../revogrid-demos/pro-advanced-scheduler/src/scheduler.react.tsx?raw').then(module => module.default))] },
-    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:angular', documentationUrl: '/scheduler/', files: [sourceFile('pro-advanced-scheduler/src/scheduler.angular.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/scheduler.angular.ts?raw').then(module => module.default))] },
+    vue: {
+      label: 'Vue',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:vue',
+      documentationUrl: '/scheduler/',
+      files: [
+        sourceFile('pro-advanced-scheduler/src/scheduler.vue', () =>
+          import('../../revogrid-demos/pro-advanced-scheduler/src/scheduler.vue?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:ts',
+      documentationUrl: '/scheduler/',
+      files: [
+        sourceFile('pro-advanced-scheduler/src/scheduler.ts', () =>
+          import('../../revogrid-demos/pro-advanced-scheduler/src/scheduler.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:react',
+      documentationUrl: '/scheduler/',
+      files: [
+        sourceFile('pro-advanced-scheduler/src/scheduler.react.tsx', () =>
+          import('../../revogrid-demos/pro-advanced-scheduler/src/scheduler.react.tsx?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:angular',
+      documentationUrl: '/scheduler/',
+      files: [
+        sourceFile('pro-advanced-scheduler/src/scheduler.angular.ts', () =>
+          import('../../revogrid-demos/pro-advanced-scheduler/src/scheduler.angular.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+      ],
+    },
   },
-};
+}
 
-export const getDemoSources = (demoId: DemoId) => DEMO_SOURCE_REGISTRY[demoId];
-export const loadDemoSource = (source: DemoSourceFile): Promise<string> => source.load();
-export const getRegisteredDemoSourcePaths = () => Object.values(DEMO_SOURCE_REGISTRY).flatMap(group => Object.values(group).flatMap(entry => entry.files.map(item => item.path)));
+export const getDemoSources = (demoId: DemoId) => DEMO_SOURCE_REGISTRY[demoId]
+export const loadDemoSource = (source: DemoSourceFile): Promise<string> => source.load()
+export const getRegisteredDemoSourcePaths = () =>
+  Object.values(DEMO_SOURCE_REGISTRY).flatMap(group =>
+    Object.values(group).flatMap(entry => entry.files.map(item => item.path)),
+  )

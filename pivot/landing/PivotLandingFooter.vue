@@ -12,8 +12,8 @@
       </div>
       <div class="footer-bottom">
         RevoGrid is a powerful data grid library made by
-        <a :href="revolistUrl" target="_blank" rel="noopener">Revolist OU</a>.
-        Copyright © {{ year }}-present.
+        <a :href="revolistUrl" target="_blank" rel="noopener">Revolist OU</a>. Copyright ©
+        {{ year }}-present.
       </div>
     </div>
   </footer>
@@ -23,7 +23,6 @@
 import { RV_GRID_BASE_URL } from './pivotLandingData'
 
 const year = new Date().getFullYear()
-const revoGridBaseUrl = `${RV_GRID_BASE_URL}/`
 const privacyUrl = `${RV_GRID_BASE_URL}/pro/policies/privacy`
 const termsUrl = `${RV_GRID_BASE_URL}/pro/policies/terms`
 const securityUrl = `${RV_GRID_BASE_URL}/pro/policies/security`

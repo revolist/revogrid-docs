@@ -7,21 +7,21 @@ dotenv.config()
 // const PRO_BADGE = '<a href="/pro" rel="noopener noreferrer" target="_blank"><span class="VPBadge info">P</span></a>';
 
 export const sidebarEn: DefaultTheme.Sidebar = {
-    '/guide/': sidebarGuideEn,
-    '/demo/': sidebarDemonEn,
+  '/guide/': sidebarGuideEn,
+  '/demo/': sidebarDemonEn,
 
-    '/pro/': [
-        {
-            text: 'RevoGrid Pro',
-            link: '/pro/',
-        },
-        {
-            text: 'Kanban',
-            link: '/kanban',
-        },
-        {
-            text: 'Gantt',
-            link: '/gantt',
-        },
-    ],
+  '/pro/': [
+    {
+      text: 'RevoGrid Pro',
+      link: '/pro/',
+    },
+    {
+      text: 'Kanban',
+      link: '/kanban',
+    },
+    {
+      text: 'Gantt',
+      link: '/gantt',
+    },
+  ],
 }

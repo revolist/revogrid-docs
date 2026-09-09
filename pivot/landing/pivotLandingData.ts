@@ -1,7 +1,8 @@
 export type AggMode = 'sum' | 'avg' | 'count'
 
 export const RV_GRID_BASE_URL = import.meta.env.VITE_RV_GRID_BASE_URL || 'https://rv-grid.com'
-export const RV_GRID_PRO_BASE_URL = import.meta.env.VITE_RV_GRID_PRO_BASE_URL || 'https://pro.rv-grid.com'
+export const RV_GRID_PRO_BASE_URL =
+  import.meta.env.VITE_RV_GRID_PRO_BASE_URL || 'https://pro.rv-grid.com'
 
 export type PivotRawRow = {
   region: string
@@ -60,12 +61,42 @@ export const STATS = [
 ]
 
 export const CAPABILITIES = [
-  { icon: 'DND', tone: 'blue', title: 'Drag-and-drop field config', text: 'Move fields between rows, columns, and values at runtime. Updates are diffed and applied incrementally - no full re-render.' },
-  { icon: 'SUM', tone: 'green', title: 'Client-side aggregation', text: 'Sum, average, count, min, max - computed in the browser. Zero latency, zero server round-trip.' },
-  { icon: '100K', tone: 'amber', title: 'Large dataset support', text: "RevoGrid's virtual rendering keeps 100k+ row pivot computation smooth. Only visible cells are in the DOM." },
-  { icon: 'RT', tone: 'red', title: 'Instant recalculation', text: 'Source data updates recalculate pivot results without grid teardown. Built for live data subscriptions and dashboards.' },
-  { icon: 'FN', tone: 'purple', title: 'Custom aggregation functions', text: 'Pass any reduce function - weighted averages, percentile ranks, custom business metrics. No library patching.' },
-  { icon: 'COL', tone: 'gray', title: 'Flexible column structure', text: "Dynamic column generation from data values. Fully compatible with RevoGrid's column type system." },
+  {
+    icon: 'DND',
+    tone: 'blue',
+    title: 'Drag-and-drop field config',
+    text: 'Move fields between rows, columns, and values at runtime. Updates are diffed and applied incrementally - no full re-render.',
+  },
+  {
+    icon: 'SUM',
+    tone: 'green',
+    title: 'Client-side aggregation',
+    text: 'Sum, average, count, min, max - computed in the browser. Zero latency, zero server round-trip.',
+  },
+  {
+    icon: '100K',
+    tone: 'amber',
+    title: 'Large dataset support',
+    text: "RevoGrid's virtual rendering keeps 100k+ row pivot computation smooth. Only visible cells are in the DOM.",
+  },
+  {
+    icon: 'RT',
+    tone: 'red',
+    title: 'Instant recalculation',
+    text: 'Source data updates recalculate pivot results without grid teardown. Built for live data subscriptions and dashboards.',
+  },
+  {
+    icon: 'FN',
+    tone: 'purple',
+    title: 'Custom aggregation functions',
+    text: 'Pass any reduce function - weighted averages, percentile ranks, custom business metrics. No library patching.',
+  },
+  {
+    icon: 'COL',
+    tone: 'gray',
+    title: 'Flexible column structure',
+    text: "Dynamic column generation from data values. Fully compatible with RevoGrid's column type system.",
+  },
 ]
 
 export const TYPICAL = [
@@ -87,18 +118,58 @@ export const REVO = [
 export const COMPARE = [
   { feature: 'Client-side aggregation', revo: '✓ Smart Cache', ag: '✓', generic: '✓' },
   { feature: 'Virtual row + column rendering', revo: '✓ Native', ag: '✓', generic: '✕ DOM-heavy' },
-  { feature: 'Custom cell renderers in pivot', revo: '✓ Full access', ag: '~ Limited', generic: '✕' },
-  { feature: 'Switch pivot / flat / group at runtime', revo: '✓ Config flag', ag: '~ Separate', generic: '✕' },
-  { feature: 'Framework support', revo: 'React, Vue, Angular, Svelte, JS', ag: 'React, Vue, Angular', generic: 'Varies' },
+  {
+    feature: 'Custom cell renderers in pivot',
+    revo: '✓ Full access',
+    ag: '~ Limited',
+    generic: '✕',
+  },
+  {
+    feature: 'Switch pivot / flat / group at runtime',
+    revo: '✓ Config flag',
+    ag: '~ Separate',
+    generic: '✕',
+  },
+  {
+    feature: 'Framework support',
+    revo: 'React, Vue, Angular, Svelte, JS',
+    ag: 'React, Vue, Angular',
+    generic: 'Varies',
+  },
   { feature: 'Open-source base layer', revo: '✓ MIT core', ag: '✕ Fully commercial', generic: '✓' },
-  { feature: 'Pricing model', revo: 'Per-seat, no row/app limits', ag: 'Per-dev, costly at scale', generic: 'Free / inconsistent' },
+  {
+    feature: 'Pricing model',
+    revo: 'Per-seat, no row/app limits',
+    ag: 'Per-dev, costly at scale',
+    generic: 'Free / inconsistent',
+  },
 ]
 
 export const USE_CASES = [
-  { num: '01', title: 'Financial analytics', text: 'P&L tables, budget-vs-actual comparisons, multi-dimensional cost rollups with instant recalculation.', tag: 'finance · ERP · planning' },
-  { num: '02', title: 'Reporting dashboards', text: 'Embed pivot directly in your SaaS product so users configure their own breakdown.', tag: 'SaaS · embedded analytics' },
-  { num: '03', title: 'Internal tooling', text: 'Ops dashboards, support ticket breakdowns, sales pipeline by rep and stage.', tag: 'ops · admin panels · CRM' },
-  { num: '04', title: 'Business intelligence UI', text: 'Replace a BI iframe with a native pivot that matches your design system.', tag: 'BI · data product · analytics' },
+  {
+    num: '01',
+    title: 'Financial analytics',
+    text: 'P&L tables, budget-vs-actual comparisons, multi-dimensional cost rollups with instant recalculation.',
+    tag: 'finance · ERP · planning',
+  },
+  {
+    num: '02',
+    title: 'Reporting dashboards',
+    text: 'Embed pivot directly in your SaaS product so users configure their own breakdown.',
+    tag: 'SaaS · embedded analytics',
+  },
+  {
+    num: '03',
+    title: 'Internal tooling',
+    text: 'Ops dashboards, support ticket breakdowns, sales pipeline by rep and stage.',
+    tag: 'ops · admin panels · CRM',
+  },
+  {
+    num: '04',
+    title: 'Business intelligence UI',
+    text: 'Replace a BI iframe with a native pivot that matches your design system.',
+    tag: 'BI · data product · analytics',
+  },
 ]
 
 export const REVO_FEATURES = [

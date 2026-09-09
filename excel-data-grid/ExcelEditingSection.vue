@@ -28,7 +28,10 @@
           <div class="excel-keyboard-card">
             <strong>{{ content.keyboardTitle }}</strong>
             <dl>
-              <div v-for="item in content.keys" :key="item.key"><dt>{{ item.key }}</dt><dd>{{ item.detail }}</dd></div>
+              <div v-for="item in content.keys" :key="item.key">
+                <dt>{{ item.key }}</dt>
+                <dd>{{ item.detail }}</dd>
+              </div>
             </dl>
           </div>
           <div class="excel-event-card">
@@ -63,13 +66,62 @@ const editingContextMenu = {}
 const editingColumnTypes = { statusDropdown: ColumnDropdown }
 
 const editingRows = ref([
-  { supplier: 'Meridian Alloys Ltd', sku: 'MA-2210', cost: '42.15', qty: '860', delivery: '2026-09-04', status: 'Confirmed' },
-  { supplier: 'Kesselring GmbH', sku: 'KG-9042', cost: '11.80', qty: '5,200', delivery: '2026-09-06', status: 'Pending' },
-  { supplier: 'Nordvind Plastics', sku: 'NP-1177', cost: '3.45', qty: '18,000', delivery: '2026-09-09', status: 'Confirmed' },
-  { supplier: 'Tessera Optics', sku: 'TO-3390', cost: '96.20', qty: '340', delivery: '2026-09-10', status: 'Delayed' },
-  { supplier: 'Brightforge Steel', sku: 'BS-5514', cost: '58.90', qty: '1,240', delivery: '2026-09-11', status: 'Confirmed' },
-  { supplier: 'Anvil Fasteners', sku: 'AF-0208', cost: '0.94', qty: '64,000', delivery: '2026-09-12', status: 'Pending' },
-  { supplier: 'Larsen Components AS', sku: 'LC-4471', cost: '18.40', qty: '2,400', delivery: '2026-09-12', status: 'Confirmed' },
+  {
+    supplier: 'Meridian Alloys Ltd',
+    sku: 'MA-2210',
+    cost: '42.15',
+    qty: '860',
+    delivery: '2026-09-04',
+    status: 'Confirmed',
+  },
+  {
+    supplier: 'Kesselring GmbH',
+    sku: 'KG-9042',
+    cost: '11.80',
+    qty: '5,200',
+    delivery: '2026-09-06',
+    status: 'Pending',
+  },
+  {
+    supplier: 'Nordvind Plastics',
+    sku: 'NP-1177',
+    cost: '3.45',
+    qty: '18,000',
+    delivery: '2026-09-09',
+    status: 'Confirmed',
+  },
+  {
+    supplier: 'Tessera Optics',
+    sku: 'TO-3390',
+    cost: '96.20',
+    qty: '340',
+    delivery: '2026-09-10',
+    status: 'Delayed',
+  },
+  {
+    supplier: 'Brightforge Steel',
+    sku: 'BS-5514',
+    cost: '58.90',
+    qty: '1,240',
+    delivery: '2026-09-11',
+    status: 'Confirmed',
+  },
+  {
+    supplier: 'Anvil Fasteners',
+    sku: 'AF-0208',
+    cost: '0.94',
+    qty: '64,000',
+    delivery: '2026-09-12',
+    status: 'Pending',
+  },
+  {
+    supplier: 'Larsen Components AS',
+    sku: 'LC-4471',
+    cost: '18.40',
+    qty: '2,400',
+    delivery: '2026-09-12',
+    status: 'Confirmed',
+  },
 ])
 const editingColumns = [
   { name: 'Supplier', prop: 'supplier', size: 188, dataGridFormat: excelBoldFormat },
@@ -86,5 +138,7 @@ const editingColumns = [
   },
 ]
 const editMessage = ref(props.content.eventDetail)
-function onEdit() { editMessage.value = 'Edit committed. The source and lifecycle event now contain the new value.' }
+function onEdit() {
+  editMessage.value = 'Edit committed. The source and lifecycle event now contain the new value.'
+}
 </script>

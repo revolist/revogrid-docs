@@ -12,7 +12,14 @@ import { createFilterConfig } from '../../shared/filterConfig'
 import { treeRows } from './data'
 
 export const treeColumns: ColumnRegular[] = [
-  { name: 'Organization', prop: 'company', size: 196, tree: true, sortable: true, filter: 'string' },
+  {
+    name: 'Organization',
+    prop: 'company',
+    size: 196,
+    tree: true,
+    sortable: true,
+    filter: 'string',
+  },
   { ...ownerColumn, size: 148, filter: [FIlTER_SELECTION] },
   { ...growthColumn, size: 100, filter: ['number', FIlTER_SLIDER] },
   { ...statusColumn, size: 112, filter: [FIlTER_SELECTION] },
@@ -40,6 +47,6 @@ export const treeExample = defineCapabilityExample({
   },
   rowSize: 40,
   height: 304,
-  theme: (isDark) => isDark ? 'darkMaterial' : 'material',
+  theme: isDark => (isDark ? 'darkMaterial' : 'material'),
   syncFilterColumns: true,
 })

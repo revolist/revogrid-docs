@@ -1,9 +1,5 @@
 import type { ColumnRegular } from '@revolist/revogrid'
-import {
-  avatarWithTextRenderer,
-  badgeRenderer,
-  heatmapRenderer,
-} from '@revolist/revogrid-pro'
+import { avatarWithTextRenderer, badgeRenderer, heatmapRenderer } from '@revolist/revogrid-pro'
 import { heatmapOptions, statusBadgeStyles } from './presentation'
 
 const syncedBadgeStyle = {
@@ -24,18 +20,27 @@ function titleCaseNormalizedLabel(value: unknown) {
   const label = String(value ?? '').trim()
   if (!label || label !== label.toLocaleLowerCase()) return label
 
-  return label.replace(/(^|\s)(\p{L})/gu, (_match, separator: string, letter: string) => (
-    `${separator}${letter.toLocaleUpperCase()}`
-  ))
+  return label.replace(
+    /(^|\s)(\p{L})/gu,
+    (_match, separator: string, letter: string) => `${separator}${letter.toLocaleUpperCase()}`,
+  )
 }
 
 function canonicalStatusLabel(value: unknown) {
-  const normalized = String(value ?? '').trim().toLocaleLowerCase()
-  return Object.keys(statusBadgeStyles).find(label => label.toLocaleLowerCase() === normalized)
-    ?? String(value ?? '')
+  const normalized = String(value ?? '')
+    .trim()
+    .toLocaleLowerCase()
+  return (
+    Object.keys(statusBadgeStyles).find(label => label.toLocaleLowerCase() === normalized) ??
+    String(value ?? '')
+  )
 }
 
-export const statusBadgeCellTemplate: ColumnRegular['cellTemplate'] = (h, props, additionalData) => {
+export const statusBadgeCellTemplate: ColumnRegular['cellTemplate'] = (
+  h,
+  props,
+  additionalData,
+) => {
   const createElement = h as unknown as (
     tag: string,
     data: Record<string, unknown>,
@@ -45,23 +50,32 @@ export const statusBadgeCellTemplate: ColumnRegular['cellTemplate'] = (h, props,
     tag: string,
     data: Record<string, unknown> = {},
     children: unknown,
-  ) => createElement(tag, {
-    ...data,
-    style: {
-      ...(typeof data.style === 'object' && data.style ? data.style : {}),
-      ...syncedBadgeStyle,
-    },
-  }, children)) as typeof h
+  ) =>
+    createElement(
+      tag,
+      {
+        ...data,
+        style: {
+          ...(typeof data.style === 'object' && data.style ? data.style : {}),
+          ...syncedBadgeStyle,
+        },
+      },
+      children,
+    )) as typeof h
 
   const canonicalValue = canonicalStatusLabel(props.value)
-  return badgeRenderer?.(syncedCreateElement, {
-    ...props,
-    value: canonicalValue,
-    model: {
-      ...props.model,
-      [props.prop ?? props.column.prop]: canonicalValue,
+  return badgeRenderer?.(
+    syncedCreateElement,
+    {
+      ...props,
+      value: canonicalValue,
+      model: {
+        ...props.model,
+        [props.prop ?? props.column.prop]: canonicalValue,
+      },
     },
-  }, additionalData)
+    additionalData,
+  )
 }
 
 export const ownerCellTemplate: ColumnRegular['cellTemplate'] = (h, props, additionalData) => {
@@ -71,23 +85,30 @@ export const ownerCellTemplate: ColumnRegular['cellTemplate'] = (h, props, addit
 
   if (!String(labelValue ?? '').trim()) return ''
 
-  return avatarWithTextRenderer(h, {
-    ...props,
-    value: labelValue,
-    model: {
-      ...model,
-      ...(column.avatarLabelProp ? { [column.avatarLabelProp]: labelValue } : {}),
+  return avatarWithTextRenderer(
+    h,
+    {
+      ...props,
+      value: labelValue,
+      model: {
+        ...model,
+        ...(column.avatarLabelProp ? { [column.avatarLabelProp]: labelValue } : {}),
+      },
     },
-  }, additionalData)
+    additionalData,
+  )
 }
 
-export const percentageHeatmapCellTemplate: ColumnRegular['cellTemplate'] = (h, props, additionalData) => (
+export const percentageHeatmapCellTemplate: ColumnRegular['cellTemplate'] = (
+  h,
+  props,
+  additionalData,
+) =>
   heatmapRenderer?.(
     ((tag, data) => h(tag, data, `${props.value}%`)) as typeof h,
     props,
     additionalData,
   )
-)
 
 export const ownerColumn: ColumnRegular = {
   name: 'Owner',

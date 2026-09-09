@@ -33,13 +33,15 @@ defineProps<{
 }>()
 
 const plugins = ref([GanttPlugin])
-const gridRef = ref<(InstanceType<typeof RevoGrid> & { $el?: HTMLRevoGridElement }) | HTMLRevoGridElement | null>(null)
+const gridRef = ref<
+  (InstanceType<typeof RevoGrid> & { $el?: HTMLRevoGridElement }) | HTMLRevoGridElement | null
+>(null)
 let applyFrame = 0
 
 function getGridEl(): HTMLRevoGridElement | null {
   const refValue = gridRef.value
   if (!refValue) return null
-  return '$el' in refValue ? refValue.$el ?? null : refValue
+  return '$el' in refValue ? (refValue.$el ?? null) : refValue
 }
 
 function applyGanttProperties() {

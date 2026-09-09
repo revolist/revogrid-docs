@@ -1,9 +1,5 @@
 <template>
-  <section
-    :id="id"
-    class="compare-product-visuals"
-    :aria-labelledby="headingId"
-  >
+  <section :id="id" class="compare-product-visuals" :aria-labelledby="headingId">
     <div class="compare-product-visuals__heading">
       <p>{{ eyebrow }}</p>
       <h2 :id="headingId">{{ heading }}</h2>
@@ -11,11 +7,7 @@
     </div>
 
     <div class="compare-product-visuals__grid">
-      <figure
-        v-for="product in products"
-        :key="product.name"
-        class="compare-product-visuals__card"
-      >
+      <figure v-for="product in products" :key="product.name" class="compare-product-visuals__card">
         <div class="compare-product-visuals__label">
           <strong>{{ product.name }}</strong>
           <span>{{ product.badge }}</span>
@@ -69,19 +61,22 @@ interface ComparisonProductVisual {
   external?: boolean
 }
 
-const props = withDefaults(defineProps<{
-  id?: string
-  eyebrow?: string
-  heading: string
-  description?: string
-  note?: string
-  products: ComparisonProductVisual[]
-}>(), {
-  id: 'compare-product-visuals',
-  eyebrow: 'Product interface preview',
-  description: undefined,
-  note: 'These are product snapshots, not like-for-like benchmarks. Feature availability can vary by tier and configuration.',
-})
+const props = withDefaults(
+  defineProps<{
+    id?: string
+    eyebrow?: string
+    heading: string
+    description?: string
+    note?: string
+    products: ComparisonProductVisual[]
+  }>(),
+  {
+    id: 'compare-product-visuals',
+    eyebrow: 'Product interface preview',
+    description: undefined,
+    note: 'These are product snapshots, not like-for-like benchmarks. Feature availability can vary by tier and configuration.',
+  },
+)
 
 const headingId = `${props.id}-heading`
 </script>

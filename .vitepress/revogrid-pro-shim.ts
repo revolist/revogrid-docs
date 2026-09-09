@@ -10,11 +10,11 @@ export {
   RowOddPlugin,
   bindObservableProp,
   commonAggregators,
-} from '@revolist/revogrid-pro';
+} from '@revolist/revogrid-pro'
 export type {
   ColumnCollapsePlaceholder,
   ObservablePropSource,
   PageChangeEvent,
   PaginationFullConfig,
   PluginDependency,
-} from '@revolist/revogrid-pro';
+} from '@revolist/revogrid-pro'

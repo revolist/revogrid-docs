@@ -31,17 +31,43 @@ const controlHeatmapOptions = {
 
 const growthPercentFormat = { kind: 'preset', preset: 'percent', decimalPlaces: 1 } as const
 const builtInHeatmap = DATA_GRID_BUILT_IN_ADVANCED_FORMATS.find(({ id }) => id === 'heatmap')!
-const percentageHeatmapRenderer: CellTemplate = (h, props, additionalData) => heatmapRenderer!(
-  ((tag, data) => h(tag, data, formatDataGridValue(props.value, growthPercentFormat))) as typeof h,
-  props,
-  additionalData,
-)
+const percentageHeatmapRenderer: CellTemplate = (h, props, additionalData) =>
+  heatmapRenderer!(
+    ((tag, data) =>
+      h(tag, data, formatDataGridValue(props.value, growthPercentFormat))) as typeof h,
+    props,
+    additionalData,
+  )
 
 export const controlColumns: ColumnRegular[] = [
   { name: 'Customer', prop: 'company', size: 164, sortable: true, filter: 'string' },
-  { ...ownerColumn, size: 156, columnType: 'ownerSelect', source: ownerOptions, labelKey: 'owner', valueKey: 'owner', syncCellTemplate: true, filter: [FIlTER_SELECTION] },
-  { name: 'Growth %', prop: 'growth', size: 112, sortable: true, order: 'desc', columnType: 'growthNumber', filter: ['number', FIlTER_SLIDER] },
-  { ...statusColumn, size: 116, columnType: 'select', source: statusOptions, syncCellTemplate: true, filter: [FIlTER_SELECTION] },
+  {
+    ...ownerColumn,
+    size: 156,
+    columnType: 'ownerSelect',
+    source: ownerOptions,
+    labelKey: 'owner',
+    valueKey: 'owner',
+    syncCellTemplate: true,
+    filter: [FIlTER_SELECTION],
+  },
+  {
+    name: 'Growth %',
+    prop: 'growth',
+    size: 112,
+    sortable: true,
+    order: 'desc',
+    columnType: 'growthNumber',
+    filter: ['number', FIlTER_SLIDER],
+  },
+  {
+    ...statusColumn,
+    size: 116,
+    columnType: 'select',
+    source: statusOptions,
+    syncCellTemplate: true,
+    filter: [FIlTER_SELECTION],
+  },
 ]
 
 const formattingConfig: DataGridFormattingPresetState = {
@@ -84,6 +110,6 @@ const formatting = { columns: [{ column: 2,
   canMoveColumns: true,
   rowSize: 32,
   height: 224,
-  theme: (isDark) => isDark ? 'darkCompact' : 'compact',
+  theme: isDark => (isDark ? 'darkCompact' : 'compact'),
   syncFilterColumns: true,
 })

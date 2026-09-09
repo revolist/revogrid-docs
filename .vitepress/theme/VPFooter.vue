@@ -20,9 +20,9 @@ const footerLink = (text: string, link: string) => {
 }
 
 const footerSections = computed(() =>
-  (theme.value.footer?.items ?? []).map((section) => ({
+  (theme.value.footer?.items ?? []).map(section => ({
     ...section,
-    links: section.links.map((item) => ({
+    links: section.links.map(item => ({
       ...item,
       link: item.link ? footerLink(item.text, item.link) : undefined,
     })),
@@ -159,7 +159,10 @@ const contactUrl = computed(() => homeLink('/contact/'))
     border-radius: 8px;
     color: #f8fafc;
     text-decoration: none;
-    transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+    transition:
+      border-color 0.2s,
+      background-color 0.2s,
+      color 0.2s;
 
     &:hover {
       border-color: var(--vp-c-brand-2);

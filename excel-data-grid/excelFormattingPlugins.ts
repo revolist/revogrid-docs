@@ -7,7 +7,7 @@ import type { GridPlugin } from '@revolist/revogrid'
  */
 /** Add the maintained formatting and menu runtimes without duplicating section plugins. */
 export function withExcelFormattingPlugins(plugins: GridPlugin[] = []) {
-  const sectionPlugins = plugins.filter((plugin) => plugin !== DataGridFormattingPlugin)
+  const sectionPlugins = plugins.filter(plugin => plugin !== DataGridFormattingPlugin)
   return [...sectionPlugins, DataGridFormattingPlugin]
 }
 
@@ -75,15 +75,15 @@ export const excelPercentFormat = {
   },
 }
 
-export function createBadgeFormat(styles: Record<string, { backgroundColor: string; color: string }>) {
+export function createBadgeFormat(
+  styles: Record<string, { backgroundColor: string; color: string }>,
+) {
   return ({ model, prop }: { model?: Record<string, unknown>; prop?: string }) => {
     const value = String(model?.[String(prop)] ?? '')
     const style = styles[value]
     return {
       presentation: { id: 'badge' },
-      appearance: style
-        ? { fillColor: style.backgroundColor, textColor: style.color }
-        : undefined,
+      appearance: style ? { fillColor: style.backgroundColor, textColor: style.color } : undefined,
     }
   }
 }
@@ -110,37 +110,37 @@ export function createHierarchyFormattingState(
   const rowPresets = rows.map((row, index) => ({
     row: index,
     format: {
-      appearance: options.groupStyle === 'plain'
-        ? { bold: Boolean(row.hasChildren) }
-        : options.groupStyle === 'border'
-          ? {
-              bold: Boolean(row.hasChildren),
-              borders: row.hasChildren
-                ? { bottom: { width: 1, style: 'solid' as const, color: 'var(--xl-line)' } }
-                : undefined,
-            }
-          : {
-              fillColor: row.hasChildren
-                ? Number(row.depth ?? 0) === 0
-                  ? 'var(--xl-hierarchy-level-0)'
-                  : 'var(--xl-hierarchy-level-1)'
-                : 'var(--xl-surface)',
-              bold: Boolean(row.hasChildren),
-            },
+      appearance:
+        options.groupStyle === 'plain'
+          ? { bold: Boolean(row.hasChildren) }
+          : options.groupStyle === 'border'
+            ? {
+                bold: Boolean(row.hasChildren),
+                borders: row.hasChildren
+                  ? { bottom: { width: 1, style: 'solid' as const, color: 'var(--xl-line)' } }
+                  : undefined,
+              }
+            : {
+                fillColor: row.hasChildren
+                  ? Number(row.depth ?? 0) === 0
+                    ? 'var(--xl-hierarchy-level-0)'
+                    : 'var(--xl-hierarchy-level-1)'
+                  : 'var(--xl-surface)',
+                bold: Boolean(row.hasChildren),
+              },
     },
   }))
-  const cellPresets = varianceColumn === undefined
-    ? []
-    : rows.map((row, index) => ({
-        range: { start: { row: index, column: varianceColumn } },
-        format: {
-          appearance: {
-            textColor: Number(row.variance) < 0
-              ? 'var(--xl-danger)'
-              : 'var(--xl-accent)',
+  const cellPresets =
+    varianceColumn === undefined
+      ? []
+      : rows.map((row, index) => ({
+          range: { start: { row: index, column: varianceColumn } },
+          format: {
+            appearance: {
+              textColor: Number(row.variance) < 0 ? 'var(--xl-danger)' : 'var(--xl-accent)',
+            },
           },
-        },
-      }))
+        }))
 
   return { rows: rowPresets, cells: cellPresets }
 }

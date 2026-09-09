@@ -1,10 +1,5 @@
 <template>
-  <section
-    v-if="faq.items.length"
-    :id="id"
-    class="commercial-faq"
-    :aria-labelledby="headingId"
-  >
+  <section v-if="faq.items.length" :id="id" class="commercial-faq" :aria-labelledby="headingId">
     <div class="commercial-faq__heading">
       <p>FAQ</p>
       <h2 :id="headingId">{{ faq.heading || 'Frequently asked questions' }}</h2>
@@ -56,13 +51,16 @@ interface CommercialFaqData {
   items?: CommercialFaqItem[]
 }
 
-const props = withDefaults(defineProps<{
-  data?: CommercialFaqData
-  id?: string
-}>(), {
-  data: undefined,
-  id: 'commercial-faq',
-})
+const props = withDefaults(
+  defineProps<{
+    data?: CommercialFaqData
+    id?: string
+  }>(),
+  {
+    data: undefined,
+    id: 'commercial-faq',
+  },
+)
 
 const { frontmatter } = useData()
 const faq = computed(() => {
@@ -117,7 +115,9 @@ const toggle = (index: number) => {
   border: 1px solid var(--vp-c-divider);
   border-radius: 10px;
   background: var(--vp-c-bg);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .commercial-faq__item.open {
@@ -162,7 +162,9 @@ const toggle = (index: number) => {
   color: var(--vp-c-text-3);
   font-size: 1.4rem;
   line-height: 1;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .commercial-faq__item.open .commercial-faq__toggle {

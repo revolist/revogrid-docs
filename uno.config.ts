@@ -30,11 +30,16 @@ export default defineConfig({
     'rv-btn-secondary': `${BTN_BASE} bg-[var(--rv-ui-btn-secondary-bg)] text-[var(--rv-ui-btn-secondary-fg)] hover:bg-[var(--rv-ui-btn-secondary-bg-hover)] active:bg-[var(--rv-ui-btn-secondary-bg-hover)]`,
     'rv-btn-ghost': `${BTN_BASE} bg-transparent text-current hover:bg-[var(--rv-ui-btn-ghost-hover-bg)] active:bg-[var(--rv-ui-btn-ghost-active-bg)]`,
     'rv-switch-label': 'inline-flex items-center gap-2 cursor-pointer select-none text-sm',
-    'rv-switch-track': 'relative inline-flex items-center flex-shrink-0 w-9 h-5 rounded-full bg-[var(--rv-ui-switch-track-off)] transition-[background-color] duration-200',
-    'rv-switch-thumb': 'absolute left-0.5 w-4 h-4 rounded-full bg-[var(--rv-ui-switch-thumb)] shadow-sm transition-transform duration-200',
-    'rv-btn-group': 'inline-flex rounded-[var(--rv-ui-radius,6px)] border border-[var(--rv-ui-group-border)] overflow-hidden',
-    'rv-btn-group-item': 'relative inline-flex [&>input]:sr-only [&>input:checked~span]:bg-[var(--rv-ui-accent)] [&>input:checked~span]:text-[var(--rv-ui-accent-fg)] hover:[&>span]:bg-[var(--rv-ui-group-hover-bg)]',
-    'rv-badge': 'absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] rounded-full bg-[var(--rv-ui-badge-bg)] text-[var(--rv-ui-badge-fg)] text-[10px] font-bold flex items-center justify-center px-1 leading-none pointer-events-none',
+    'rv-switch-track':
+      'relative inline-flex items-center flex-shrink-0 w-9 h-5 rounded-full bg-[var(--rv-ui-switch-track-off)] transition-[background-color] duration-200',
+    'rv-switch-thumb':
+      'absolute left-0.5 w-4 h-4 rounded-full bg-[var(--rv-ui-switch-thumb)] shadow-sm transition-transform duration-200',
+    'rv-btn-group':
+      'inline-flex rounded-[var(--rv-ui-radius,6px)] border border-[var(--rv-ui-group-border)] overflow-hidden',
+    'rv-btn-group-item':
+      'relative inline-flex [&>input]:sr-only [&>input:checked~span]:bg-[var(--rv-ui-accent)] [&>input:checked~span]:text-[var(--rv-ui-accent-fg)] hover:[&>span]:bg-[var(--rv-ui-group-hover-bg)]',
+    'rv-badge':
+      'absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] rounded-full bg-[var(--rv-ui-badge-bg)] text-[var(--rv-ui-badge-fg)] text-[10px] font-bold flex items-center justify-center px-1 leading-none pointer-events-none',
   },
   content: {
     filesystem: [

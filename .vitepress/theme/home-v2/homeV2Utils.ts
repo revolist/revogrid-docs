@@ -11,8 +11,8 @@ export function useHomeV2Links() {
     return homeLink(href)
   }
 
-  const targetOf = (href?: string) => href && /^https?:/.test(href) ? '_blank' : undefined
-  const relOf = (href?: string) => href && /^https?:/.test(href) ? 'noopener' : undefined
+  const targetOf = (href?: string) => (href && /^https?:/.test(href) ? '_blank' : undefined)
+  const relOf = (href?: string) => (href && /^https?:/.test(href) ? 'noopener' : undefined)
 
   return { linkOf, targetOf, relOf }
 }
@@ -35,10 +35,13 @@ export function emphasizeText(value: string | undefined, emphasis?: string) {
 export function linkProductMentions(value: string | undefined, linkOf: (href?: string) => string) {
   if (!value) return ''
 
-  return escapeHtml(value).replace(/\b(Pivot Grid|Gantt Chart|Switch to Pro|Go Pro|Pivot|Gantt|pivot|gantt)\b/g, (label) => {
-    const href = /pivot/i.test(label) ? '/pivot' : /gantt/i.test(label) ? '/gantt' : '/pro'
-    return `<a class="rg-product-link" href="${escapeHtml(linkOf(href))}">${label}</a>`
-  })
+  return escapeHtml(value).replace(
+    /\b(Pivot Grid|Gantt Chart|Switch to Pro|Go Pro|Pivot|Gantt|pivot|gantt)\b/g,
+    label => {
+      const href = /pivot/i.test(label) ? '/pivot' : /gantt/i.test(label) ? '/gantt' : '/pro'
+      return `<a class="rg-product-link" href="${escapeHtml(linkOf(href))}">${label}</a>`
+    },
+  )
 }
 
 export function iconText(icon: string) {

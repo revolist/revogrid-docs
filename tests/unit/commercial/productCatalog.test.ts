@@ -51,7 +51,12 @@ test('resolves currencies and checkout destinations from the catalog', () => {
 })
 
 test('preserves plan inheritance and feature ownership', () => {
-  assert.deepEqual(getPlanChain('enterprise'), ['open-source', 'pro-lite', 'pro-advanced', 'enterprise'])
+  assert.deepEqual(getPlanChain('enterprise'), [
+    'open-source',
+    'pro-lite',
+    'pro-advanced',
+    'enterprise',
+  ])
   assert.equal(planIncludesFeature('pro-lite', 'pivot'), false)
   assert.equal(planIncludesFeature('pro-advanced', 'pivot'), true)
   assert.equal(planIncludesFeature('enterprise', 'pivot'), true)
@@ -91,7 +96,10 @@ test('defines Kanban as a stable Pro Advanced product and offer', () => {
   assert.equal(PRODUCT_CATALOG.demos['kanban-performance'].pageUrl, '/demo/kanban-performance')
   assert.equal(PRODUCT_CATALOG.demos['kanban-performance'].planId, 'pro-advanced')
   assert.equal(PRODUCT_CATALOG.demos['kanban-performance'].title, '50K-Task Kanban')
-  assert.equal(PRODUCT_CATALOG.demos['kanban-server-loading'].pageUrl, '/demo/kanban-server-loading')
+  assert.equal(
+    PRODUCT_CATALOG.demos['kanban-server-loading'].pageUrl,
+    '/demo/kanban-server-loading',
+  )
   assert.equal(PRODUCT_CATALOG.demos['kanban-server-loading'].planId, 'pro-advanced')
   assert.equal(PRODUCT_CATALOG.demos['kanban-server-loading'].title, '100K Server-Loaded Kanban')
 })
@@ -106,23 +114,41 @@ test('keeps JavaScript Scheduler products on the canonical landing experience', 
   assert.equal(scheduler.pageUrl, '/jsscheduler')
   assert.equal(eventScheduler.pageUrl, '/jsscheduler')
   assert.equal(scheduler.demoUrl, '/demo/event-scheduler')
-  assert.match(schedulerLanding, /^title: "JavaScript Scheduler & Event Calendar \| RevoGrid Scheduler"$/m)
+  assert.match(
+    schedulerLanding,
+    /^title: "JavaScript Scheduler & Event Calendar \| RevoGrid Scheduler"$/m,
+  )
   assert.match(schedulerLanding, /^titleTemplate: false$/m)
   assert.match(schedulerLanding, /^\s+catalogProductId: event-scheduler$/m)
   assert.match(schedulerLanding, /^\s+kind: eventScheduler$/m)
   assert.match(schedulerLanding, /^\s+eyebrow: RevoGrid Scheduler$/m)
-  assert.match(schedulerLanding, /^\s+title: 'RevoGrid Scheduler: JavaScript Scheduler for your product\.'$/m)
+  assert.match(
+    schedulerLanding,
+    /^\s+title: 'RevoGrid Scheduler: JavaScript Scheduler for your product\.'$/m,
+  )
   assert.match(schedulerLanding, /^\s+href: \/demo\/event-scheduler$/m)
-  assert.match(proFeatures, /title: 'Scheduler JS',[\s\S]*?videoUrl: '\/video\/event-scheduler\.mp4'/)
+  assert.match(
+    proFeatures,
+    /title: 'Scheduler JS',[\s\S]*?videoUrl: '\/video\/event-scheduler\.mp4'/,
+  )
   assert.ok(existsSync(new URL('../../../public/video/event-scheduler.mp4', import.meta.url)))
-  assert.doesNotMatch(schedulerLanding, /(?:href|primaryHref): (?:https:\/\/pro\.rv-grid\.com\/guides\/gantt\/|\/demo\/gantt)/)
+  assert.doesNotMatch(
+    schedulerLanding,
+    /(?:href|primaryHref): (?:https:\/\/pro\.rv-grid\.com\/guides\/gantt\/|\/demo\/gantt)/,
+  )
 })
 
 test('keeps Scheduler-family page chrome full width', () => {
-  const ganttPageLayout = readFileSync(new URL('../../../gantt/GanttPageLayout.vue', import.meta.url), 'utf8')
+  const ganttPageLayout = readFileSync(
+    new URL('../../../gantt/GanttPageLayout.vue', import.meta.url),
+    'utf8',
+  )
 
   assert.doesNotMatch(ganttPageLayout, /:global\(\.gantt-page-doc\)\s*\{[^}]*max-width/s)
-  assert.match(ganttPageLayout, /:global\(\.gantt-page-doc \.VPDoc \.container\),\s*:global\(\.gantt-page-doc \.VPDoc \.content\)/)
+  assert.match(
+    ganttPageLayout,
+    /:global\(\.gantt-page-doc \.VPDoc \.container\),\s*:global\(\.gantt-page-doc \.VPDoc \.content\)/,
+  )
 })
 
 test('defines the immediately installable public npm trial lifecycle', () => {
@@ -172,8 +198,11 @@ test('generates commercial FAQs, demo badges, and pricing view facts', () => {
   assert.equal(evaluation.options[1].action.href, '/trial')
   assert.match(evaluation.options[1].features[0], /30-day public npm trial/)
   assert.equal(differences.length, 4)
-  assert.ok(differences.some((row) =>
-    typeof row.feature !== 'string' && row.feature.text === 'Priority support'))
+  assert.ok(
+    differences.some(
+      row => typeof row.feature !== 'string' && row.feature.text === 'Priority support',
+    ),
+  )
   assert.equal(differences.at(-1)?.enterprise.kind, 'included')
 })
 
@@ -192,10 +221,13 @@ test('generates route-aware structured-data offers', () => {
 
   const software = JSON.parse(String(softwareEntry[2]))
   assert.equal(software.name, 'RevoGrid Pivot')
-  assert.deepEqual(software.offers.map((offer: { price: number, priceCurrency: string }) => ({
-    price: offer.price,
-    currency: offer.priceCurrency,
-  })), [{ price: 375, currency: 'USD' }])
+  assert.deepEqual(
+    software.offers.map((offer: { price: number; priceCurrency: string }) => ({
+      price: offer.price,
+      currency: offer.priceCurrency,
+    })),
+    [{ price: 375, currency: 'USD' }],
+  )
   assert.equal(software.offers[0].url, 'https://rv-grid.com/pricing')
 
   const kanbanHead = createStructuredDataHead({
@@ -203,7 +235,9 @@ test('generates route-aware structured-data offers', () => {
     relativePath: 'kanban.md',
     title: 'JavaScript Kanban Board Component | RevoGrid Kanban',
   })
-  const kanbanSoftwareEntry = kanbanHead.find(([, attrs]) => attrs?.id === 'software-application-json-ld')
+  const kanbanSoftwareEntry = kanbanHead.find(
+    ([, attrs]) => attrs?.id === 'software-application-json-ld',
+  )
 
   assert.ok(kanbanSoftwareEntry)
   const kanbanSoftware = JSON.parse(String(kanbanSoftwareEntry[2]))
@@ -212,13 +246,19 @@ test('generates route-aware structured-data offers', () => {
   assert.equal(kanbanSoftware.applicationSubCategory, 'JavaScript Kanban Board Component')
   assert.equal(kanbanSoftware['@id'], 'https://rv-grid.com/kanban#software')
   assert.equal(kanbanSoftware.url, 'https://rv-grid.com/kanban')
-  assert.equal(kanbanSoftware.image, 'https://rv-grid.com/blog/kanban-product-development-polished.png')
+  assert.equal(
+    kanbanSoftware.image,
+    'https://rv-grid.com/blog/kanban-product-development-polished.png',
+  )
   assert.match(kanbanSoftware.description, /JavaScript Kanban board component/i)
   assert.ok(kanbanSoftware.featureList.includes('Virtualized workflow columns and card rows'))
-  assert.deepEqual(kanbanSoftware.offers.map((offer: { price: number, priceCurrency: string }) => ({
-    price: offer.price,
-    currency: offer.priceCurrency,
-  })), [{ price: 375, currency: 'USD' }])
+  assert.deepEqual(
+    kanbanSoftware.offers.map((offer: { price: number; priceCurrency: string }) => ({
+      price: offer.price,
+      currency: offer.priceCurrency,
+    })),
+    [{ price: 375, currency: 'USD' }],
+  )
 })
 
 test('classifies RevoGrid Scheduler as a JavaScript Scheduler in structured data', () => {
@@ -232,7 +272,10 @@ test('classifies RevoGrid Scheduler as a JavaScript Scheduler in structured data
   assert.ok(softwareEntry)
   const software = JSON.parse(String(softwareEntry[2]))
   assert.equal(software.name, 'RevoGrid Scheduler')
-  assert.deepEqual(software.alternateName, ['RevoGrid Event Scheduler', 'RevoGrid JavaScript Scheduler'])
+  assert.deepEqual(software.alternateName, [
+    'RevoGrid Event Scheduler',
+    'RevoGrid JavaScript Scheduler',
+  ])
   assert.equal(software.applicationSubCategory, 'JavaScript Scheduler and Event Calendar')
   assert.equal(software.url, 'https://rv-grid.com/jsscheduler')
   assert.equal(software.image, 'https://rv-grid.com/blog/scheduler.png')
@@ -252,7 +295,10 @@ test('classifies RevoGrid Gantt as a JavaScript Gantt chart in structured data',
   const software = JSON.parse(String(softwareEntry[2]))
   assert.equal(software.name, 'RevoGrid Gantt')
   assert.equal(software.alternateName, undefined)
-  assert.equal(software.applicationSubCategory, 'JavaScript Gantt Chart and Project Scheduling Component')
+  assert.equal(
+    software.applicationSubCategory,
+    'JavaScript Gantt Chart and Project Scheduling Component',
+  )
   assert.equal(software.url, 'https://rv-grid.com/gantt')
   assert.equal(software.image, 'https://rv-grid.com/img/gantt-preview.png')
   assert.match(software.description, /JavaScript Gantt chart component/i)

@@ -1,168 +1,140 @@
 <template>
-    <div class="table-container">
-        <table class="pricing-table">
-            <!-- Header Row -->
-            <thead>
-                <tr>
-                    <th></th>
-                    <th v-for="plan in plans" :key="plan.name">
-                        <div class="plan-title">
-                            {{ plan.name }}
-                            <a
-                                v-if="plan.ai"
-                                href="/pro/ai"
-                                class="VPBadge danger"
-                                >AI</a
-                            >
-                        </div>
-                        <div class="plan-price" v-if="plan.price">
-                            <div>
-                                <span class="price-value"
-                                    >${{ plan.priceYear ?? plan.price * 12 }}</span
-                                >
-                                <span v-if="plan.compareAtPriceYear" class="price-compare">
-                                    ${{ plan.compareAtPriceYear }}
-                                </span>
-                                <span v-if="plan.compareAtPriceYear" class="price-discount">
-                                    25% off
-                                </span>
-                                / year
-                            </div>
-                            <div class="summary">
-                                {{ plan.billingSummary }}
-                            </div>
-                        </div>
-                        <ul class="plan-details" v-if="plan.details">
-                            <li v-for="detail in plan.details" :key="detail">
-                                {{ detail }}
-                            </li>
-                        </ul>
-                        <VPButton
-                            v-if="plan.link"
-                            size="medium"
-                            :text="plan.buttonText"
-                            :href="plan.link"
-                            :theme="plan.buttonTheme"
-                            @click="handleStripeClientReferenceClick"
-                        />
-                    </th>
-                </tr>
-            </thead>
+  <div class="table-container">
+    <table class="pricing-table">
+      <!-- Header Row -->
+      <thead>
+        <tr>
+          <th></th>
+          <th v-for="plan in plans" :key="plan.name">
+            <div class="plan-title">
+              {{ plan.name }}
+              <a v-if="plan.ai" href="/pro/ai" class="VPBadge danger">AI</a>
+            </div>
+            <div v-if="plan.price" class="plan-price">
+              <div>
+                <span class="price-value">${{ plan.priceYear ?? plan.price * 12 }}</span>
+                <span v-if="plan.compareAtPriceYear" class="price-compare">
+                  ${{ plan.compareAtPriceYear }}
+                </span>
+                <span v-if="plan.compareAtPriceYear" class="price-discount"> 25% off </span>
+                / year
+              </div>
+              <div class="summary">
+                {{ plan.billingSummary }}
+              </div>
+            </div>
+            <ul v-if="plan.details" class="plan-details">
+              <li v-for="detail in plan.details" :key="detail">
+                {{ detail }}
+              </li>
+            </ul>
+            <VPButton
+              v-if="plan.link"
+              size="medium"
+              :text="plan.buttonText"
+              :href="plan.link"
+              :theme="plan.buttonTheme"
+              @click="handleStripeClientReferenceClick"
+            />
+          </th>
+        </tr>
+      </thead>
 
-            <!-- Body -->
-            <tbody>
-                <template
-                    v-for="(group, groupIndex) in features"
-                    :key="groupIndex"
+      <!-- Body -->
+      <tbody>
+        <template v-for="(group, groupIndex) in features" :key="groupIndex">
+          <tr class="group-header" @click="toggleGroup(groupIndex)">
+            <td>
+              <span v-if="expandedGroups[groupIndex]" class="expand-icon">▼</span>
+              <span v-else class="expand-icon">▶</span>
+              <h5>{{ group.name }}</h5>
+            </td>
+            <td v-for="plan in plans" :key="plan.name"></td>
+          </tr>
+          <template v-if="expandedGroups[groupIndex]">
+            <tr
+              v-for="feature in visibleFeatures(group)"
+              :key="`${groupIndex}-${feature.name}`"
+              :class="{
+                'nested-feature': feature.nesting > 0,
+                'collapsible-feature': feature.collapsible,
+              }"
+            >
+              <td
+                :style="{
+                  paddingLeft: `${feature.nesting ? 20 * feature.nesting : 20}px`,
+                }"
+                class="feature-card"
+              >
+                <button
+                  v-if="feature.collapsible"
+                  class="feature-expand"
+                  type="button"
+                  :aria-expanded="isFeatureExpanded(group.name, feature.name)"
+                  @click.stop="toggleFeature(group.name, feature.name)"
                 >
-                    <tr class="group-header" @click="toggleGroup(groupIndex)">
-                        <td>
-                            <span
-                                class="expand-icon"
-                                v-if="expandedGroups[groupIndex]"
-                                >▼</span
-                            >
-                            <span class="expand-icon" v-else>▶</span>
-                            <h5>{{ group.name }}</h5>
-                        </td>
-                        <td v-for="plan in plans"></td>
-                    </tr>
-                    <template v-if="expandedGroups[groupIndex]">
-                        <tr
-                            v-for="feature in visibleFeatures(group)"
-                            :key="`${groupIndex}-${feature.name}`"
-                            :class="{
-                                'nested-feature': feature.nesting > 0,
-                                'collapsible-feature': feature.collapsible,
-                            }"
-                        >
-                            <td
-                                :style="{
-                                    paddingLeft: `${feature.nesting ? 20 * feature.nesting : 20}px`,
-                                }"
-                                class="feature-card"
-                            >
-                                <button
-                                    v-if="feature.collapsible"
-                                    class="feature-expand"
-                                    type="button"
-                                    :aria-expanded="isFeatureExpanded(group.name, feature.name)"
-                                    @click.stop="toggleFeature(group.name, feature.name)"
-                                >
-                                    {{ isFeatureExpanded(group.name, feature.name) ? '▼' : '▶' }}
-                                </button>
-                                <span
-                                    class="feature-name-text"
-                                >{{ feature.name }}</span>
+                  {{ isFeatureExpanded(group.name, feature.name) ? '▼' : '▶' }}
+                </button>
+                <span class="feature-name-text">{{ feature.name }}</span>
 
-                                <span v-if="hasFeatureActions(feature)" class="feature-actions">
-                                    <a
-                                        v-if="feature.link"
-                                        class="rg-btn rg-btn-secondary feature-action-link docs-preview"
-                                        :href="feature.link"
-                                        :target="isExternalHref(feature.link) ? '_blank' : undefined"
-                                        :rel="isExternalHref(feature.link) ? 'noopener' : undefined"
-                                        title="Documentation"
-                                    >
-                                        Docs
-                                    </a>
-                                    <a
-                                        v-if="feature.demoUrl"
-                                        class="rg-btn rg-btn-secondary feature-action-link demo-preview"
-                                        :href="feature.demoUrl"
-                                        target="_blank"
-                                        rel="noopener"
-                                        title="Interactive demo"
-                                    >
-                                        Demo
-                                    </a>
-                                    <button
-                                        v-if="feature.video"
-                                        :id="featureId(group, feature)"
-                                        class="video-preview fc-feat-title-link"
-                                        type="button"
-                                        title="Video preview"
-                                        :aria-label="`Watch ${feature.name} video preview`"
-                                        @click.stop="openPreview(feature.video)"
-                                    >
-                                        <VPImage
-                                            class="video-preview-icon"
-                                            :image="{ src: 'video.svg' }"
-                                            aria-hidden="true"
-                                        />
-                                    </button>
-                                </span>
-                            </td>
-                            <td
-                                v-for="(plan, planIndex) in plans"
-                                :key="planIndex"
-                            >
-                                <VPImage
-                                    v-if="feature.supported.includes(plan.name)"
-                                    :image="{ src: 'check.svg' }"
-                                />
-                                <span v-else>-</span>
-                            </td>
-                        </tr>
-                    </template>
-                    <!-- Add separator row after group -->
-                    <tr class="separator-row">
-                        <td v-for="(_, index) in [0, ...plans]" :key="index"></td>
-                    </tr>
-                </template>
-            </tbody>
-        </table>
-    </div>
-    <ElDialog v-model="dialogVisible" width="600">
-        <video
-            class="video"
-            :src="videoUrl"
-            loop
-            muted
-            playsinline
-            autoplay
-        ></video>
-    </ElDialog>
+                <span v-if="hasFeatureActions(feature)" class="feature-actions">
+                  <a
+                    v-if="feature.link"
+                    class="rg-btn rg-btn-secondary feature-action-link docs-preview"
+                    :href="feature.link"
+                    :target="isExternalHref(feature.link) ? '_blank' : undefined"
+                    :rel="isExternalHref(feature.link) ? 'noopener' : undefined"
+                    title="Documentation"
+                  >
+                    Docs
+                  </a>
+                  <a
+                    v-if="feature.demoUrl"
+                    class="rg-btn rg-btn-secondary feature-action-link demo-preview"
+                    :href="feature.demoUrl"
+                    target="_blank"
+                    rel="noopener"
+                    title="Interactive demo"
+                  >
+                    Demo
+                  </a>
+                  <button
+                    v-if="feature.video"
+                    :id="featureId(group, feature)"
+                    class="video-preview fc-feat-title-link"
+                    type="button"
+                    title="Video preview"
+                    :aria-label="`Watch ${feature.name} video preview`"
+                    @click.stop="openPreview(feature.video)"
+                  >
+                    <VPImage
+                      class="video-preview-icon"
+                      :image="{ src: 'video.svg' }"
+                      aria-hidden="true"
+                    />
+                  </button>
+                </span>
+              </td>
+              <td v-for="(plan, planIndex) in plans" :key="planIndex">
+                <VPImage
+                  v-if="feature.supported.includes(plan.name)"
+                  :image="{ src: 'check.svg' }"
+                />
+                <span v-else>-</span>
+              </td>
+            </tr>
+          </template>
+          <!-- Add separator row after group -->
+          <tr class="separator-row">
+            <td v-for="(_, index) in [0, ...plans]" :key="index"></td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </div>
+  <ElDialog v-model="dialogVisible" width="600">
+    <video class="video" :src="videoUrl" loop muted playsinline autoplay></video>
+  </ElDialog>
 </template>
 
 <script lang="ts" setup>
@@ -179,41 +151,41 @@ const videoUrl = ref('')
 
 // Props
 interface Plan {
-    name: string
-    price?: number
-    priceYear?: number
-    compareAtPriceYear?: number
-    details?: string[]
-    billingSummary?: string
-    buttonText?: string
-    link?: string
-    ai?: boolean
-    buttonTheme?: 'alt'
+  name: string
+  price?: number
+  priceYear?: number
+  compareAtPriceYear?: number
+  details?: string[]
+  billingSummary?: string
+  buttonText?: string
+  link?: string
+  ai?: boolean
+  buttonTheme?: 'alt'
 }
 
 interface Feature {
-    name: string
-    supported: string[]
-    nesting: number
-    parent?: string
-    collapsible?: boolean
-    expanded?: boolean
-    children?: Feature[]
-    link?: string
-    demoUrl?: string
-    video?: string
-    beta?: boolean
+  name: string
+  supported: string[]
+  nesting: number
+  parent?: string
+  collapsible?: boolean
+  expanded?: boolean
+  children?: Feature[]
+  link?: string
+  demoUrl?: string
+  video?: string
+  beta?: boolean
 }
 
 interface FeatureGroup {
-    name: string
-    expanded: boolean
-    features: Feature[]
+  name: string
+  expanded: boolean
+  features: Feature[]
 }
 
 const props = defineProps<{
-    plans: Plan[]
-    features: FeatureGroup[]
+  plans: Plan[]
+  features: FeatureGroup[]
 }>()
 
 // State
@@ -222,7 +194,8 @@ const expandedFeatures = ref<Record<string, boolean>>({})
 
 const getFeatureKey = (groupName: string, featureName: string) => `${groupName}::${featureName}`
 
-const slugify = (value: string) => value
+const slugify = (value: string) =>
+  value
     .trim()
     .toLowerCase()
     .replace(/&/g, 'and')
@@ -230,354 +203,359 @@ const slugify = (value: string) => value
     .replace(/^-|-$/g, '')
 
 const featureId = (group: FeatureGroup, feature: Feature) => {
-    const baseId = `${slugify(group.name)}-${slugify(feature.name)}`
-    const duplicateIndex = group.features
-        .filter((candidate) => candidate.name === feature.name)
-        .indexOf(feature)
+  const baseId = `${slugify(group.name)}-${slugify(feature.name)}`
+  const duplicateIndex = group.features
+    .filter(candidate => candidate.name === feature.name)
+    .indexOf(feature)
 
-    return duplicateIndex > 0 ? `${baseId}-${duplicateIndex + 1}` : baseId
+  return duplicateIndex > 0 ? `${baseId}-${duplicateIndex + 1}` : baseId
 }
 
 // Initialize expanded state based on props
 props.features.forEach((group, index) => {
-    expandedGroups.value[index] = group.expanded
-    group.features.forEach((feature) => {
-        if (feature.collapsible) {
-            expandedFeatures.value[getFeatureKey(group.name, feature.name)] = Boolean(feature.expanded)
-        }
-    })
+  expandedGroups.value[index] = group.expanded
+  group.features.forEach(feature => {
+    if (feature.collapsible) {
+      expandedFeatures.value[getFeatureKey(group.name, feature.name)] = Boolean(feature.expanded)
+    }
+  })
 })
 
 // Methods
 const toggleGroup = (index: number) => {
-    expandedGroups.value[index] = !expandedGroups.value[index]
+  expandedGroups.value[index] = !expandedGroups.value[index]
 }
 
 const isFeatureExpanded = (groupName: string, featureName: string) => {
-    return expandedFeatures.value[getFeatureKey(groupName, featureName)] ?? true
+  return expandedFeatures.value[getFeatureKey(groupName, featureName)] ?? true
 }
 
 const toggleFeature = (groupName: string, featureName: string) => {
-    const key = getFeatureKey(groupName, featureName)
-    expandedFeatures.value[key] = !isFeatureExpanded(groupName, featureName)
+  const key = getFeatureKey(groupName, featureName)
+  expandedFeatures.value[key] = !isFeatureExpanded(groupName, featureName)
 }
 
 const visibleFeatures = (group: FeatureGroup) => {
-    return group.features.filter((feature) => {
-        if (!feature.parent) return true
-        return isFeatureExpanded(group.name, feature.parent)
-    })
+  return group.features.filter(feature => {
+    if (!feature.parent) return true
+    return isFeatureExpanded(group.name, feature.parent)
+  })
 }
 
-const hasFeatureActions = (feature: Feature) => Boolean(feature.link || feature.demoUrl || feature.video)
+const hasFeatureActions = (feature: Feature) =>
+  Boolean(feature.link || feature.demoUrl || feature.video)
 
 const isExternalHref = (href: string) => /^https?:\/\//.test(href)
 
 const openPreview = (video: string) => {
-    videoUrl.value = video
-    dialogVisible.value = true
+  videoUrl.value = video
+  dialogVisible.value = true
 }
 </script>
 
 <style lang="scss" scoped>
 .table-container {
-    overflow-x: auto;
-    margin-top: 20px;
+  overflow-x: auto;
+  margin-top: 20px;
 }
 
 .feature-actions {
-    float: right;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .feature-action-link {
-    height: 24px;
-    min-width: 24px;
-    padding: 0 8px;
-    border-radius: 6px;
-    font-size: 11px;
-    line-height: 1;
+  height: 24px;
+  min-width: 24px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 1;
 }
 
 .video-preview {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    border: 0;
-    border-radius: 4px;
-    padding: 0;
-    color: var(--vp-c-brand-1);
-    background: transparent;
-    cursor: pointer;
-    box-shadow: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 4px;
+  padding: 0;
+  color: var(--vp-c-brand-1);
+  background: transparent;
+  cursor: pointer;
+  box-shadow: none;
 
-    &:hover {
-        color: var(--vp-c-brand-2);
-        background: var(--vp-c-brand-soft);
-    }
+  &:hover {
+    color: var(--vp-c-brand-2);
+    background: var(--vp-c-brand-soft);
+  }
 
-    &:focus-visible {
-        outline: 2px solid var(--vp-c-brand-1);
-        outline-offset: 2px;
-    }
+  &:focus-visible {
+    outline: 2px solid var(--vp-c-brand-1);
+    outline-offset: 2px;
+  }
 }
 
 :deep(.video-preview-icon) {
-    display: block;
-    width: 18px;
-    height: 18px;
-    color: currentColor;
-    fill: none;
+  display: block;
+  width: 18px;
+  height: 18px;
+  color: currentColor;
+  fill: none;
 }
 
 :deep(.video-preview-icon.fill-current) {
-    fill: none;
+  fill: none;
 }
 
 .fc-feat-title-link {
-    transition: color 0.2s, background-color 0.2s;
+  transition:
+    color 0.2s,
+    background-color 0.2s;
 }
 
 .docs-preview,
 .demo-preview {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .feature-link {
-    color: inherit;
-    font-weight: inherit;
+  color: inherit;
+  font-weight: inherit;
 }
 
 .feature-expand {
-    width: 16px;
-    border: 0;
-    padding: 0;
-    margin-right: 4px;
-    background: transparent;
-    color: var(--vp-c-text-3);
-    cursor: pointer;
-    font-size: 10px;
-    line-height: 1;
+  width: 16px;
+  border: 0;
+  padding: 0;
+  margin-right: 4px;
+  background: transparent;
+  color: var(--vp-c-text-3);
+  cursor: pointer;
+  font-size: 10px;
+  line-height: 1;
 }
 
 .pricing-table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+  display: table;
+
+  .separator-row {
+    height: 20px;
     border: none;
-    display: table;
-
-    .separator-row {
-        height: 20px;
-        border: none;
-        box-shadow: 0 2px 1px rgba(0, 0, 0, 0.02) inset, 0 5px 1px rgba(0, 0, 0, 0.01) inset,
-            0 1px 0 rgba(0, 0, 0, 0.02) inset;
-        td {
-            border: none;
-            background: transparent !important;
-        }
-        &:hover {
-            background-color: transparent !important;
-        }
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    thead {
-        a {
-            font-weight: 600;
-        }
-        tr {
-            border: 0;
-
-            th {
-                border-color: transparent;
-            }
-        }
-    }
-
-    tr {
-        &:nth-child(2n) {
-            background-color: transparent;
-        }
-        &:hover {
-            background-color: var(--vp-c-bg-soft);
-        }
-    }
-
-    th {
-        background-color: transparent;
-        color: inherit;
-        text-align: left;
-
-        &:not(:first-child) {
-            padding: 20px;
-            text-align: left;
-        }
-    }
-
-    th,
+    box-shadow:
+      0 2px 1px rgba(0, 0, 0, 0.02) inset,
+      0 5px 1px rgba(0, 0, 0, 0.01) inset,
+      0 1px 0 rgba(0, 0, 0, 0.02) inset;
     td {
-        padding: 6px 10px;
-        box-sizing: border-box;
-        text-align: left;
-        border-bottom: 0;
-        &:first-child {
-            border-left-width: 0;
-            width: 40%;
-            min-width: 250px;
-        }
-        &:last-child {
-            border-right-width: 0;
-        }
-        &:not(:first-child) {
-            min-width: 220px;
-            max-width: 220px;
-        }
+      border: none;
+      background: transparent !important;
+    }
+    &:hover {
+      background-color: transparent !important;
+    }
+  }
 
-        &:nth-of-type(3) {
-            background-color: var(--vp-c-success-soft);
-            border-color: var(--vp-c-success-soft);
-        }
+  a {
+    text-decoration: none;
+  }
+
+  thead {
+    a {
+      font-weight: 600;
+    }
+    tr {
+      border: 0;
+
+      th {
+        border-color: transparent;
+      }
+    }
+  }
+
+  tr {
+    &:nth-child(2n) {
+      background-color: transparent;
+    }
+    &:hover {
+      background-color: var(--vp-c-bg-soft);
+    }
+  }
+
+  th {
+    background-color: transparent;
+    color: inherit;
+    text-align: left;
+
+    &:not(:first-child) {
+      padding: 20px;
+      text-align: left;
+    }
+  }
+
+  th,
+  td {
+    padding: 6px 10px;
+    box-sizing: border-box;
+    text-align: left;
+    border-bottom: 0;
+    &:first-child {
+      border-left-width: 0;
+      width: 40%;
+      min-width: 250px;
+    }
+    &:last-child {
+      border-right-width: 0;
+    }
+    &:not(:first-child) {
+      min-width: 220px;
+      max-width: 220px;
     }
 
-    td:not(:first-child) {
-        text-align: center;
+    &:nth-of-type(3) {
+      background-color: var(--vp-c-success-soft);
+      border-color: var(--vp-c-success-soft);
+    }
+  }
 
-        :deep(svg) {
-            margin: 0 auto;
-            width: 15px;
-        }
+  td:not(:first-child) {
+    text-align: center;
+
+    :deep(svg) {
+      margin: 0 auto;
+      width: 15px;
+    }
+  }
+
+  .expand-icon {
+    font-size: 10px;
+    opacity: 0.8;
+  }
+
+  .group-header {
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    color: var(--vp-c-text-1);
+    border: 1px solid transparent;
+
+    h5 {
+      font-size: inherit;
+      font-weight: inherit;
+      margin: 0;
+      padding: 0;
+      padding-left: 5px;
+      display: inline-block;
     }
 
-    .expand-icon {
-        font-size: 10px;
-        opacity: 0.8;
+    > td {
+      background-color: var(--vp-c-bg-alt);
+      &:first-child {
+        border-radius: 8px 0 0 0;
+      }
+      &:last-child {
+        border-radius: 0 8px 0 0;
+      }
+      border: 0;
+
+      &:nth-of-type(3) {
+        background-color: var(--vp-c-success-soft);
+        position: relative;
+        &::before {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 100%;
+          background-color: var(--vp-c-success-soft);
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
     }
 
-    .group-header {
-        font-weight: bold;
-        text-align: left;
-        cursor: pointer;
-        color: var(--vp-c-text-1);
-        border: 1px solid transparent;
+    + tr {
+      border-top: none;
 
-        h5 {
-            font-size: inherit;
-            font-weight: inherit;
-            margin: 0;
-            padding: 0;
-            padding-left: 5px;
-            display: inline-block;
-        }
+      td {
+        border-top-width: 0;
+      }
+    }
+  }
 
-        > td {
-            background-color: var(--vp-c-bg-alt);
-            &:first-child {
-                border-radius: 8px 0 0 0;
-            }
-            &:last-child {
-                border-radius: 0 8px 0 0;
-            }
-            border: 0;
+  .plan-title {
+    font-weight: bold;
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
 
-            &:nth-of-type(3) {
-                background-color: var(--vp-c-success-soft);
-                position: relative;
-                &::before {
-                    content: '';
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    background-color: var(--vp-c-success-soft);
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                }
-            }
-        }
+  .plan-price {
+    font-weight: normal;
+    font-size: 14px;
+    margin-bottom: 10px;
+    min-height: 18px;
+    line-height: 21px;
 
-        + tr {
-            border-top: none;
-
-            td {
-                border-top-width: 0;
-            }
-        }
+    .price-value {
+      font-size: 18px;
+      font-weight: bold;
     }
 
-    .plan-title {
-        font-weight: bold;
-        font-size: 21px;
-        margin-bottom: 10px;
+    .price-compare {
+      color: var(--vp-c-text-3);
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
     }
 
-    .plan-price {
-        font-weight: normal;
-        font-size: 14px;
-        margin-bottom: 10px;
-        min-height: 18px;
-        line-height: 21px;
-
-        .price-value {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .price-compare {
-            color: var(--vp-c-text-3);
-            font-size: 12px;
-            font-weight: 600;
-            text-decoration: line-through;
-            text-decoration-thickness: 2px;
-        }
-
-        .price-discount {
-            display: inline-flex;
-            align-items: center;
-            color: var(--vp-c-brand-1);
-            border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 28%, transparent);
-            border-radius: 999px;
-            padding: 1px 6px;
-            font-size: 10px;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .summary {
-            font-size: 12px;
-            font-weight: normal;
-        }
+    .price-discount {
+      display: inline-flex;
+      align-items: center;
+      color: var(--vp-c-brand-1);
+      border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 28%, transparent);
+      border-radius: 999px;
+      padding: 1px 6px;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.2;
     }
 
-    .plan-details {
-        list-style: none;
-        padding: 0;
-        text-align: left;
-
-        li {
-            font-size: 14px;
-            color: #555;
-            margin: 5px 0;
-        }
-
-        button {
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-
-            &:hover {
-                background-color: #0056b3;
-            }
-        }
+    .summary {
+      font-size: 12px;
+      font-weight: normal;
     }
+  }
+
+  .plan-details {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+
+    li {
+      font-size: 14px;
+      color: #555;
+      margin: 5px 0;
+    }
+
+    button {
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
 }
 </style>

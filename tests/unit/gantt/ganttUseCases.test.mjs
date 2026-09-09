@@ -3,11 +3,23 @@ import assert from 'node:assert/strict'
 import { existsSync, readFileSync } from 'node:fs'
 
 const pageSource = readFileSync(new URL('../../../gantt.md', import.meta.url), 'utf8')
-const componentSource = readFileSync(new URL('../../../gantt/GanttPageLayout.vue', import.meta.url), 'utf8')
-const configSource = readFileSync(new URL('../../../gantt/ganttLanding.ts', import.meta.url), 'utf8')
-const libraryPageSource = readFileSync(new URL('../../../gantt/GanttUseCasesPage.vue', import.meta.url), 'utf8')
-const libraryRouteSource = readFileSync(new URL('../../../gantt/use-cases.md', import.meta.url), 'utf8')
-const useCasesSection = pageSource.match(/  useCases:\n([\s\S]*?)\n  faq:/)?.[1] ?? ''
+const componentSource = readFileSync(
+  new URL('../../../gantt/GanttPageLayout.vue', import.meta.url),
+  'utf8',
+)
+const configSource = readFileSync(
+  new URL('../../../gantt/ganttLanding.ts', import.meta.url),
+  'utf8',
+)
+const libraryPageSource = readFileSync(
+  new URL('../../../gantt/GanttUseCasesPage.vue', import.meta.url),
+  'utf8',
+)
+const libraryRouteSource = readFileSync(
+  new URL('../../../gantt/use-cases.md', import.meta.url),
+  'utf8',
+)
+const useCasesSection = pageSource.match(/ {2}useCases:\n([\s\S]*?)\n {2}faq:/)?.[1] ?? ''
 
 const slugs = [
   'erp',
@@ -19,17 +31,18 @@ const slugs = [
 ]
 
 test('presents six linked Gantt use cases with accessible visual previews', () => {
-  assert.equal(useCasesSection.match(/^      - title: /gm)?.length, 6)
-  assert.equal(useCasesSection.match(/^        media: \/img\/gantt-use-cases\//gm)?.length, 6)
+  assert.equal(useCasesSection.match(/^ {6}- title: /gm)?.length, 6)
+  assert.equal(useCasesSection.match(/^ {8}media: \/img\/gantt-use-cases\//gm)?.length, 6)
   assert.doesNotMatch(useCasesSection, /\/video\/gantt-use-cases\//)
-  assert.doesNotMatch(useCasesSection, /^        mediaKind: video$/m)
-  assert.doesNotMatch(useCasesSection, /^        poster:/m)
-  assert.equal(useCasesSection.match(/^        mediaAlt: /gm)?.length, 6)
-  assert.equal(useCasesSection.match(/^        href: \/gantt\//gm)?.length, 6)
-  assert.equal(useCasesSection.match(/^        cta: /gm)?.length, 6)
+  assert.doesNotMatch(useCasesSection, /^ {8}mediaKind: video$/m)
+  assert.doesNotMatch(useCasesSection, /^ {8}poster:/m)
+  assert.equal(useCasesSection.match(/^ {8}mediaAlt: /gm)?.length, 6)
+  assert.equal(useCasesSection.match(/^ {8}href: \/gantt\//gm)?.length, 6)
+  assert.equal(useCasesSection.match(/^ {8}cta: /gm)?.length, 6)
 
-  const mediaPaths = [...useCasesSection.matchAll(/^        media: (\/img\/gantt-use-cases\/[^\n]+)$/gm)]
-    .map(([, path]) => path)
+  const mediaPaths = [
+    ...useCasesSection.matchAll(/^ {8}media: (\/img\/gantt-use-cases\/[^\n]+)$/gm),
+  ].map(([, path]) => path)
   for (const mediaPath of mediaPaths) {
     const filePath = mediaPath.split('?')[0]
     assert.ok(
@@ -38,8 +51,9 @@ test('presents six linked Gantt use cases with accessible visual previews', () =
     )
   }
 
-  const articleLinks = [...useCasesSection.matchAll(/^        href: (\/gantt\/[^\n]+)$/gm)]
-    .map(([, href]) => href)
+  const articleLinks = [...useCasesSection.matchAll(/^ {8}href: (\/gantt\/[^\n]+)$/gm)].map(
+    ([, href]) => href,
+  )
   for (const href of articleLinks) {
     const slug = href.replace('/gantt/', '')
     assert.ok(
@@ -50,7 +64,7 @@ test('presents six linked Gantt use cases with accessible visual previews', () =
 })
 
 test('keeps the customer use-case library separate from demo routes', () => {
-  assert.match(useCasesSection, /benefits:\n      label: .+\n      href: \/gantt\/use-cases/)
+  assert.match(useCasesSection, /benefits:\n {6}label: .+\n {6}href: \/gantt\/use-cases/)
   assert.match(libraryRouteSource, /<GanttUseCasesPage \/>/)
   assert.doesNotMatch(libraryRouteSource, /\/demo\//)
   assert.equal(libraryPageSource.match(/image: '\/img\/gantt-use-cases\//g)?.length, 6)
@@ -74,7 +88,7 @@ test('uses the canonical Gantt content width without repeated screenshot badges'
 test('keeps use-case screenshots wider than copy on both alternating card layouts', () => {
   assert.match(
     libraryPageSource,
-    /\.use-case-panel:nth-child\(even\)\s*\{[^}]*grid-template-columns:\s*minmax\(330px,\s*\.58fr\)\s+minmax\(0,\s*1\.42fr\)/s,
+    /\.use-case-panel:nth-child\(even\)\s*\{[^}]*grid-template-columns:\s*minmax\(330px,\s*0\.58fr\)\s+minmax\(0,\s*1\.42fr\)/s,
   )
   assert.match(
     libraryPageSource,
@@ -83,7 +97,10 @@ test('keeps use-case screenshots wider than copy on both alternating card layout
 })
 
 test('reuses the canonical Pro Advanced pricing module instead of a custom closing CTA', () => {
-  assert.match(libraryPageSource, /import ProAdvancedCallout from '\.\.\/pro\/ProAdvancedCallout\.vue'/)
+  assert.match(
+    libraryPageSource,
+    /import ProAdvancedCallout from '\.\.\/pro\/ProAdvancedCallout\.vue'/,
+  )
   assert.match(
     libraryPageSource,
     /<ProAdvancedCallout\s+title="RevoGrid Gantt is part of the Pro Advanced bundle\."\s+product-id="gantt"\s*\/>/,
@@ -106,7 +123,10 @@ test('keeps the custom use-case hero balanced at laptop widths', () => {
 test('uses only the real screenshot in every human-oriented article', () => {
   const articles = {
     erp: { path: './erp-gantt.md', useCase: 'industry-erp' },
-    'professional-services': { path: './professional-services-gantt.md', useCase: 'industry-professional-services' },
+    'professional-services': {
+      path: './professional-services-gantt.md',
+      useCase: 'industry-professional-services',
+    },
     construction: { path: './construction-gantt.md', useCase: 'industry-construction' },
     manufacturing: { path: './manufacturing-gantt.md', useCase: 'industry-manufacturing' },
     'resource-planning': { path: './resource-planning.md', useCase: 'industry-resource-planning' },
@@ -115,8 +135,14 @@ test('uses only the real screenshot in every human-oriented article', () => {
 
   for (const slug of slugs) {
     const article = articles[slug]
-    const articleSource = readFileSync(new URL(article.path, new URL('../../../gantt/', import.meta.url)), 'utf8')
-    assert.match(articleSource, new RegExp(`image: /img/gantt-use-cases/${slug}\\.webp(?:\\?v=[^\\s]+)?`))
+    const articleSource = readFileSync(
+      new URL(article.path, new URL('../../../gantt/', import.meta.url)),
+      'utf8',
+    )
+    assert.match(
+      articleSource,
+      new RegExp(`image: /img/gantt-use-cases/${slug}\\.webp(?:\\?v=[^\\s]+)?`),
+    )
     assert.match(articleSource, /import GanttUseCaseMedia from '\.\/GanttUseCaseMedia\.vue'/)
     assert.match(articleSource, new RegExp(`slug="${slug}"`))
     assert.match(
@@ -125,7 +151,10 @@ test('uses only the real screenshot in every human-oriented article', () => {
     )
     assert.doesNotMatch(articleSource, /\/video\/gantt-use-cases\//)
     assert.doesNotMatch(articleSource, /\?example=industry-/)
-    assert.doesNotMatch(articleSource, /Conceptual|conceptual product preview|conceptual planning view/)
+    assert.doesNotMatch(
+      articleSource,
+      /Conceptual|conceptual product preview|conceptual planning view/,
+    )
   }
 })
 
@@ -141,16 +170,22 @@ test('renders visual use-case cards as lazy, focusable links with a text fallbac
   assert.match(configSource, /mediaAlt\?: string/)
   assert.match(configSource, /mediaKind\?: 'image' \| 'video'/)
   assert.match(configSource, /poster\?: string/)
-  assert.match(configSource, /benefits\?: \{ label: string, href: string \}/)
+  assert.match(configSource, /benefits\?: \{ label: string; href: string \}/)
 })
 
 test('keeps the shared Gantt article media component image-only', () => {
-  const articleMediaSource = readFileSync(new URL('../../../gantt/GanttUseCaseMedia.vue', import.meta.url), 'utf8')
+  const articleMediaSource = readFileSync(
+    new URL('../../../gantt/GanttUseCaseMedia.vue', import.meta.url),
+    'utf8',
+  )
 
   assert.match(articleMediaSource, /\/img\/gantt-use-cases\/\$\{slug\}\.webp/)
   assert.match(articleMediaSource, /mediaRevisions\[slug\]/)
   assert.match(articleMediaSource, /liveHref: string/)
-  assert.match(articleMediaSource, /<a :href="liveHref" target="_blank" rel="noopener noreferrer">Open the interactive plan ↗<\/a>/)
+  assert.match(
+    articleMediaSource,
+    /<a :href="liveHref" target="_blank" rel="noopener noreferrer"\s*>Open the interactive plan ↗<\/a/s,
+  )
   assert.match(articleMediaSource, /&:focus-visible/)
   assert.match(articleMediaSource, /@media \(max-width: 620px\)/)
   assert.doesNotMatch(articleMediaSource, /<video|\/video\/gantt-use-cases\//)
@@ -164,7 +199,14 @@ test('cross-links capacity-oriented Gantt guides to the canonical Scheduler page
     './manufacturing-gantt.md',
     './construction-gantt.md',
   ]) {
-    const source = readFileSync(new URL(article, new URL('../../../gantt/', import.meta.url)), 'utf8')
-    assert.match(source, /\[JavaScript Scheduler[^\]]*\]\(\/jsscheduler\)/, `${article} should link to /jsscheduler`)
+    const source = readFileSync(
+      new URL(article, new URL('../../../gantt/', import.meta.url)),
+      'utf8',
+    )
+    assert.match(
+      source,
+      /\[JavaScript Scheduler[^\]]*\]\(\/jsscheduler\)/,
+      `${article} should link to /jsscheduler`,
+    )
   }
 })

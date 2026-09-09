@@ -1,15 +1,15 @@
 <script lang="ts">
-  import type { EditorType } from '@revolist/svelte-datagrid';
+  import type { EditorType } from '@revolist/svelte-datagrid'
 
-  let { val, value, save, close }: EditorType = $props();
-  let currentValue = $state('');
+  let { val, value, save, close }: EditorType = $props()
+  let currentValue = $state('')
 
   $effect(() => {
-    currentValue = String(val ?? value ?? '');
-  });
+    currentValue = String(val ?? value ?? '')
+  })
 
   export function getValue() {
-    return currentValue;
+    return currentValue
   }
 </script>
 

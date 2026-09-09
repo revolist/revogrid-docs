@@ -5,7 +5,10 @@ import test from 'node:test'
 const docsRoot = new URL('../../../../../', import.meta.url)
 const homepage = readFileSync(new URL('index.md', docsRoot), 'utf8')
 const layout = readFileSync(new URL('.vitepress/theme/RevoGridHomeLayout.vue', docsRoot), 'utf8')
-const component = readFileSync(new URL('.vitepress/theme/home-v2/HomeFeedbackCloud.vue', docsRoot), 'utf8')
+const component = readFileSync(
+  new URL('.vitepress/theme/home-v2/HomeFeedbackCloud.vue', docsRoot),
+  'utf8',
+)
 
 test('places the source-backed feedback cloud directly before Advanced Modules', () => {
   assert.ok(homepage.indexOf('\nfeedback:') < homepage.indexOf('\nadvanced:'))
@@ -21,7 +24,10 @@ test('keeps mailbox praise anonymous and links only public GitHub sources', () =
   assert.doesNotMatch(feedback, /mailto:|@(?:gmail|revolist|rv-grid|gastova|hanmi)/i)
   assert.doesNotMatch(feedback, /message[_ -]?id|thread[_ -]?id/i)
   assert.match(feedback, /attribution: RevoGrid Pro customer/)
-  assert.match(feedback, /source: GitHub\n\s+link: https:\/\/github\.com\/revolist\/revogrid\/issues\//)
+  assert.match(
+    feedback,
+    /source: GitHub\n\s+link: https:\/\/github\.com\/revolist\/revogrid\/issues\//,
+  )
 })
 
 test('uses semantic quotes and responsive cloud breakpoints', () => {

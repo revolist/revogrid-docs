@@ -5,8 +5,16 @@
       <h2>{{ title }}</h2>
       <p>{{ description }}</p>
       <div class="cta-actions">
-        <ProDocButton :href="primaryHref" :target="primaryTarget" :rel="primaryRel" arrow>{{ primaryLabel }}</ProDocButton>
-        <ProDocButton :href="secondaryHref" :target="secondaryTarget" :rel="secondaryRel" variant="secondary">{{ secondaryLabel }}</ProDocButton>
+        <ProDocButton :href="primaryHref" :target="primaryTarget" :rel="primaryRel" arrow>{{
+          primaryLabel
+        }}</ProDocButton>
+        <ProDocButton
+          :href="secondaryHref"
+          :target="secondaryTarget"
+          :rel="secondaryRel"
+          variant="secondary"
+          >{{ secondaryLabel }}</ProDocButton
+        >
       </div>
     </div>
   </section>
@@ -51,7 +59,11 @@ defineProps<{
   width: 700px;
   height: 380px;
   pointer-events: none;
-  background: radial-gradient(ellipse, var(--pro-doc-soft, var(--gantt-soft, rgba(29, 78, 216, 0.09))) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse,
+    var(--pro-doc-soft, var(--gantt-soft, rgba(29, 78, 216, 0.09))) 0%,
+    transparent 70%
+  );
   transform: translateX(-50%);
 }
 

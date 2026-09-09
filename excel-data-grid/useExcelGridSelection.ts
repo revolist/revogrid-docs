@@ -25,14 +25,15 @@ export function useExcelGridSelection(
       grid.getColumns(),
     ])
     const colType = range?.colType ?? 'rgCol'
-    const pinnedStartCount = visibleColumns.filter((column) => column.pin === 'colPinStart').length
-    const pinnedEndCount = visibleColumns.filter((column) => column.pin === 'colPinEnd').length
-    const rangeColumns = visibleColumns.filter((column) => (column.pin ?? 'rgCol') === colType)
-    const columnOffset = colType === 'rgCol'
-      ? pinnedStartCount
-      : colType === 'colPinEnd'
-        ? visibleColumns.length - pinnedEndCount
-        : 0
+    const pinnedStartCount = visibleColumns.filter(column => column.pin === 'colPinStart').length
+    const pinnedEndCount = visibleColumns.filter(column => column.pin === 'colPinEnd').length
+    const rangeColumns = visibleColumns.filter(column => (column.pin ?? 'rgCol') === colType)
+    const columnOffset =
+      colType === 'rgCol'
+        ? pinnedStartCount
+        : colType === 'colPinEnd'
+          ? visibleColumns.length - pinnedEndCount
+          : 0
     onSelectionChange({
       range,
       visibleSource,
@@ -61,10 +62,7 @@ export function useExcelGridSelection(
     selectionEventsGrid.addEventListener('setrange', scheduleSelectionChange)
   }
 
-  async function selectRange(
-    start: { x: number; y: number },
-    end?: { x: number; y: number },
-  ) {
+  async function selectRange(start: { x: number; y: number }, end?: { x: number; y: number }) {
     const grid = getGridElement()
     if (!grid?.setCellsFocus) return
     await grid.setCellsFocus(start, end)
@@ -73,7 +71,8 @@ export function useExcelGridSelection(
 
   onBeforeUnmount(() => {
     selectionEventsGrid?.removeEventListener('setrange', scheduleSelectionChange)
-    if (selectionTimer !== undefined && typeof window !== 'undefined') window.clearTimeout(selectionTimer)
+    if (selectionTimer !== undefined && typeof window !== 'undefined')
+      window.clearTimeout(selectionTimer)
   })
 
   return { emitSelectionChange, scheduleSelectionChange, selectRange, startSelectionTracking }

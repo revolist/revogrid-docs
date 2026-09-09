@@ -2,7 +2,10 @@
   <section class="section">
     <div class="section-label">Use Cases</div>
     <h2>Built for data-heavy <span>production apps</span></h2>
-    <p class="section-copy">Pivot is a UI primitive, not a reporting add-on. It replaces heavy backend analytics infrastructure in these contexts.</p>
+    <p class="section-copy">
+      Pivot is a UI primitive, not a reporting add-on. It replaces heavy backend analytics
+      infrastructure in these contexts.
+    </p>
     <div class="use-grid">
       <article v-for="useCase in USE_CASES" :key="useCase.title" class="use-card">
         <div>{{ useCase.num }} -</div>

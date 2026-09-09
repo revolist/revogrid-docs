@@ -9,8 +9,8 @@ export function usePricingLinks() {
     return homeLink(href)
   }
 
-  const targetOf = (href?: string) => href && /^https?:/.test(href) ? '_blank' : undefined
-  const relOf = (href?: string) => href && /^https?:/.test(href) ? 'noopener' : undefined
+  const targetOf = (href?: string) => (href && /^https?:/.test(href) ? '_blank' : undefined)
+  const relOf = (href?: string) => (href && /^https?:/.test(href) ? 'noopener' : undefined)
 
   return { linkOf, targetOf, relOf }
 }

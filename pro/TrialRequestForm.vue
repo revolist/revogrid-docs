@@ -190,10 +190,7 @@ const isFormValid = computed(() => {
   const hasRequiredName = isTrialRequest.value || Boolean(form.value.fullName)
   const hasRequiredCompany = isTrialRequest.value || Boolean(form.value.companyName)
   return Boolean(
-    hasRequiredName &&
-      hasRequiredCompany &&
-      form.value.businessEmail &&
-      form.value.consent,
+    hasRequiredName && hasRequiredCompany && form.value.businessEmail && form.value.consent,
   )
 })
 
@@ -201,9 +198,10 @@ const pushAnalytics = (
   action: AnalyticsAction,
   properties: Record<string, string | number | boolean | undefined> = {},
 ) => {
-  const event = props.requestType === 'trial' && action === 'submitted'
-    ? 'trial_contact_submit'
-    : `${props.requestType}_request_form_${action}`
+  const event =
+    props.requestType === 'trial' && action === 'submitted'
+      ? 'trial_contact_submit'
+      : `${props.requestType}_request_form_${action}`
   trackSiteAnalytics(event, {
     request_type: props.requestType,
     ...(props.demoId ? { demo_id: props.demoId } : {}),
@@ -227,9 +225,10 @@ const fieldNames: Record<string, string> = {
 
 const handleInvalid = (event: Event) => {
   handleFormStart()
-  const field = event.target instanceof HTMLInputElement
-    ? fieldNames[event.target.id] ?? 'unknown'
-    : 'unknown'
+  const field =
+    event.target instanceof HTMLInputElement
+      ? (fieldNames[event.target.id] ?? 'unknown')
+      : 'unknown'
   pushAnalytics('validation_error', { field })
 }
 
@@ -270,7 +269,8 @@ const handleSubmit = async () => {
   } catch (error) {
     console.error('Error sending trial request:', error)
     pushAnalytics('submit_failed')
-    errorMessage.value = 'We could not send the request. Please try again or email contact@revolist.eu.'
+    errorMessage.value =
+      'We could not send the request. Please try again or email contact@revolist.eu.'
   } finally {
     isSubmitting.value = false
   }

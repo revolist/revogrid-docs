@@ -53,7 +53,7 @@ export type PivotLandingPage = {
     enabled: boolean
   }
   statsAriaLabel: string
-  stats: { value: string, label: string }[]
+  stats: { value: string; label: string }[]
   features: {
     id: string
     kicker: string
@@ -66,7 +66,7 @@ export type PivotLandingPage = {
     kicker: string
     title: string
     description: string
-    items: { icon: string, name: string, badge?: string, href?: string }[]
+    items: { icon: string; name: string; badge?: string; href?: string }[]
   }
   useCases: {
     enabled: boolean

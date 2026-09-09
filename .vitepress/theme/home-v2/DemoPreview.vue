@@ -38,18 +38,17 @@
       <div class="custom-pill status"><span>●</span> Active</div>
       <div class="custom-pill progress-text">▓▓▓▓░░ 65%</div>
       <div class="custom-pill rating">
-        <span class="on">★</span><span class="on">★</span><span class="on">★</span><span>★</span><span>★</span>
+        <span class="on">★</span><span class="on">★</span><span class="on">★</span><span>★</span
+        ><span>★</span>
       </div>
       <div class="custom-divider"></div>
       <small>custom renderers</small>
     </div>
     <div v-else class="realtime-mini">
-      <div
-        v-for="bar in realtimeBars"
-        :key="bar.color"
-        class="realtime-bar"
-      >
-        <i :style="{ width: `${bar.width}%`, background: bar.color, animationDelay: bar.delay }"></i>
+      <div v-for="bar in realtimeBars" :key="bar.color" class="realtime-bar">
+        <i
+          :style="{ width: `${bar.width}%`, background: bar.color, animationDelay: bar.delay }"
+        ></i>
       </div>
       <small>live data updates</small>
     </div>
@@ -69,7 +68,11 @@ const gridRows = computed(() => {
     return [
       ['ID', 'Name', 'Val'],
       ['001', 'Alpha Corp', '149'],
-      [{ text: '002', class: 'selected' }, { text: 'Beta Inc', class: 'selected' }, { text: '382', class: 'selected' }],
+      [
+        { text: '002', class: 'selected' },
+        { text: 'Beta Inc', class: 'selected' },
+        { text: '382', class: 'selected' },
+      ],
       ['003', 'Gamma LLC', '211'],
       ['...', { text: '100,000+ rows', class: 'muted-small' }, '...'],
     ]
@@ -84,7 +87,11 @@ const gridRows = computed(() => {
   }
   if (props.type === 'grouping') {
     return [
-      [{ text: '', class: 'header no-border' }, { text: 'Q1 Results', class: 'header group-head accent', span: 2 }, { text: 'Q2 Forecast', class: 'header group-head', span: 2 }],
+      [
+        { text: '', class: 'header no-border' },
+        { text: 'Q1 Results', class: 'header group-head accent', span: 2 },
+        { text: 'Q2 Forecast', class: 'header group-head', span: 2 },
+      ],
       ['Region', 'Revenue', 'Margin', 'Revenue', 'Margin'],
       ['EMEA', '2.1M', '34%', '2.4M', '36%'],
       ['APAC', '1.8M', '28%', '2.1M', '31%'],
@@ -245,7 +252,12 @@ const realtimeBars = [
 }
 
 @keyframes rgPreviewShimmer {
-  0%, 100% { opacity: 0.65; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 </style>

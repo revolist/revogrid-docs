@@ -1,7 +1,9 @@
 <template>
   <div class="mock-window">
     <div class="mock-titlebar">
-      <div class="window-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+      <div class="window-dots">
+        <span class="red"></span><span class="yellow"></span><span class="green"></span>
+      </div>
       <span class="mock-title">Sales Pivot · RevoGrid</span>
     </div>
     <div class="mock-fields">
@@ -72,36 +74,39 @@ const columnTypes = {
   integer: new NumberColumnType('0,0'),
 }
 
-const pivotConfig = computed(() => ({
-  dimensions: [
-    { prop: 'region', name: 'Region', sortable: true },
-    { prop: 'product', name: 'Product', sortable: true, size: 150 },
-    { prop: 'quarter', name: 'Quarter', sortable: true },
-    {
-      prop: 'rev',
-      name: 'Revenue',
-      sortable: true,
-      columnType: agg.value === 'count' ? 'integer' : 'currency',
-      aggregators: {
-        sum: commonAggregators.sum,
-        avg: commonAggregators.avg,
-        count: commonAggregators.count,
+const pivotConfig = computed(
+  () =>
+    ({
+      dimensions: [
+        { prop: 'region', name: 'Region', sortable: true },
+        { prop: 'product', name: 'Product', sortable: true, size: 150 },
+        { prop: 'quarter', name: 'Quarter', sortable: true },
+        {
+          prop: 'rev',
+          name: 'Revenue',
+          sortable: true,
+          columnType: agg.value === 'count' ? 'integer' : 'currency',
+          aggregators: {
+            sum: commonAggregators.sum,
+            avg: commonAggregators.avg,
+            count: commonAggregators.count,
+          },
+        },
+      ],
+      rows: ['region', 'product'],
+      columns: ['quarter'],
+      values: [{ prop: 'rev', aggregator: agg.value }],
+      collapsed: true,
+      expanded: Object.fromEntries(REGIONS.map(region => [region, true])),
+      groupAggregations: true,
+      groupLabelColumn: 'firstVisible',
+      mergeValueHeaders: true,
+      totals: {
+        subtotals: false,
+        grandTotal: true,
+        subtotalLabel: 'Subtotal',
+        grandTotalLabel: 'Grand Total',
       },
-    },
-  ],
-  rows: ['region', 'product'],
-  columns: ['quarter'],
-  values: [{ prop: 'rev', aggregator: agg.value }],
-  collapsed: true,
-  expanded: Object.fromEntries(REGIONS.map((region) => [region, true])),
-  groupAggregations: true,
-  groupLabelColumn: 'firstVisible',
-  mergeValueHeaders: true,
-  totals: {
-    subtotals: false,
-    grandTotal: true,
-    subtotalLabel: 'Subtotal',
-    grandTotalLabel: 'Grand Total',
-  },
-} satisfies PivotConfig))
+    }) satisfies PivotConfig,
+)
 </script>

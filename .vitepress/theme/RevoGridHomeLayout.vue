@@ -152,7 +152,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   padding-right: 9px;
 }
 
-.rg-home revogr-viewport-scroll.colPinStart  .rgCell {
+.rg-home revogr-viewport-scroll.colPinStart .rgCell {
   overflow: hidden;
   text-overflow: inherit;
 }
@@ -240,7 +240,6 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   flex-wrap: wrap;
   gap: 10px;
 }
-
 
 .rg-play {
   width: 0;
@@ -352,7 +351,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.18);
+    background: rgba(255, 255, 255, 0.18);
   }
 }
 
@@ -481,8 +480,12 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   font-size: 12px;
 }
 
-.perf-up { color: var(--rg-font-green); }
-.perf-dn { color: #f87171; }
+.perf-up {
+  color: var(--rg-font-green);
+}
+.perf-dn {
+  color: #f87171;
+}
 
 .rg-section-header {
   text-align: center;
@@ -646,7 +649,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   padding: 4px 12px;
   font-size: 13px;
   font-weight: 500;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 
   &.active {
     background: var(--rg-green);

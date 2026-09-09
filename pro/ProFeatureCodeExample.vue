@@ -2,11 +2,24 @@
   <div v-if="example === 'pivot'" class="code-snippet" aria-label="Pivot API example">
     <div><span class="c-kw">const</span> plugins = [<span class="c-name">PivotPlugin</span>]</div>
     <div><span class="c-kw">const</span> pivot = {{ '{' }}</div>
-    <div>&nbsp;&nbsp;<span class="c-prop">rows</span>: [<span class="c-str">'City'</span>, <span class="c-str">'Membership Type'</span>],</div>
-    <div>&nbsp;&nbsp;<span class="c-prop">columns</span>: [<span class="c-str">'Discount Applied'</span>],</div>
-    <div>&nbsp;&nbsp;<span class="c-prop">values</span>: [{{ '{' }} <span class="c-prop">prop</span>: <span class="c-str">'Total Spend'</span>, <span class="c-prop">aggregator</span>: <span class="c-str">'sum'</span> {{ '}' }}],</div>
+    <div>
+      &nbsp;&nbsp;<span class="c-prop">rows</span>: [<span class="c-str">'City'</span>,
+      <span class="c-str">'Membership Type'</span>],
+    </div>
+    <div>
+      &nbsp;&nbsp;<span class="c-prop">columns</span>: [<span class="c-str">'Discount Applied'</span
+      >],
+    </div>
+    <div>
+      &nbsp;&nbsp;<span class="c-prop">values</span>: [{{ '{' }} <span class="c-prop">prop</span>:
+      <span class="c-str">'Total Spend'</span>, <span class="c-prop">aggregator</span>:
+      <span class="c-str">'sum'</span> {{ '}' }}],
+    </div>
     <div>{{ '}' }} <span class="c-kw">satisfies</span> <span class="c-name">PivotConfig</span></div>
-    <div>&lt;<span class="c-name">RevoGrid</span> plugins=&quot;plugins&quot; pivot=&quot;pivot&quot; /&gt;</div>
+    <div>
+      &lt;<span class="c-name">RevoGrid</span> plugins=&quot;plugins&quot; pivot=&quot;pivot&quot;
+      /&gt;
+    </div>
   </div>
 </template>
 

@@ -9,7 +9,10 @@ const sources = [
   '../revogrid-demos/pro-advanced-pivot/src/pivot.ts',
   '../revogrid-demos/pro-advanced-pivot/src/financial.analytics.ts',
   '../revogrid-demos/pro-advanced-pivot/demo-host.css',
-].map((path) => [path, readFileSync(new URL(path, new URL('../../../demo/', import.meta.url)), 'utf8')])
+].map(path => [
+  path,
+  readFileSync(new URL(path, new URL('../../../demo/', import.meta.url)), 'utf8'),
+])
 
 test('does not render the analytics toolbar in any Pivot demo framework', () => {
   for (const [path, source] of sources) {

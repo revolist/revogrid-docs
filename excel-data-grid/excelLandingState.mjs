@@ -1,11 +1,34 @@
 export function buildVirtualPipelineRows(seedRows, totalRows) {
   if (totalRows <= seedRows.length) return seedRows.slice(0, Math.max(0, totalRows))
 
-  const accounts = ['Nordlys Telecom', 'Brightwater Utilities', 'Peregrine Insurance', 'Aperture Systems', 'Bluehaven Foods', 'Stonebridge Labs', 'Redwood Mobility', 'Silverline Health']
-  const owners = ['M. Halvorsen', 'R. Okafor', 'S. Lindqvist', 'A. Brenner', 'K. Duarte', 'D. Okonjo']
+  const accounts = [
+    'Nordlys Telecom',
+    'Brightwater Utilities',
+    'Peregrine Insurance',
+    'Aperture Systems',
+    'Bluehaven Foods',
+    'Stonebridge Labs',
+    'Redwood Mobility',
+    'Silverline Health',
+  ]
+  const owners = [
+    'M. Halvorsen',
+    'R. Okafor',
+    'S. Lindqvist',
+    'A. Brenner',
+    'K. Duarte',
+    'D. Okonjo',
+  ]
   const stages = ['Negotiation', 'Discovery', 'Proposal']
   const regions = ['EMEA', 'AMER', 'APAC']
-  const closeDates = ['2026-09-24', '2026-10-16', '2026-11-08', '2026-12-12', '2027-01-18', '2027-02-26']
+  const closeDates = [
+    '2026-09-24',
+    '2026-10-16',
+    '2026-11-08',
+    '2026-12-12',
+    '2027-01-18',
+    '2027-02-26',
+  ]
   const generatedRows = Array.from({ length: totalRows - seedRows.length }, (_, offset) => {
     const index = seedRows.length + offset
     const arr = 60_000 + ((index * 7_919) % 380_000)
@@ -24,9 +47,7 @@ export function buildVirtualPipelineRows(seedRows, totalRows) {
 }
 
 export function summarizePipelineRows(rows) {
-  const values = rows
-    .map((row) => Number(row.arr))
-    .filter(Number.isFinite)
+  const values = rows.map(row => Number(row.arr)).filter(Number.isFinite)
   const sum = values.reduce((total, value) => total + value, 0)
 
   return {
@@ -51,30 +72,36 @@ function escapeClipboardHtml(value) {
 
 export function buildExcelClipboardPayload(columns, rows) {
   const plainRows = [
-    columns.map((column) => column.name ?? column.prop),
-    ...rows.map((row) => columns.map((column) => row[column.prop] ?? '')),
+    columns.map(column => column.name ?? column.prop),
+    ...rows.map(row => columns.map(column => row[column.prop] ?? '')),
   ]
-  const plainText = plainRows.map((row) => row.join('\t')).join('\n')
+  const plainText = plainRows.map(row => row.join('\t')).join('\n')
   const border = 'border:1px solid #b8c2bd;'
   const cellStyle = `${border}padding:5px 9px;font-family:Arial,sans-serif;font-size:11pt;`
-  const headerCells = columns.map((column) => (
-    `<th style="${cellStyle}background:#e2f0d9;color:#1f3328;font-weight:700;text-align:left;">${escapeClipboardHtml(column.name ?? column.prop)}</th>`
-  )).join('')
-  const bodyRows = rows.map((row) => {
-    const cells = columns.map((column) => {
-      const rawValue = row[column.prop] ?? ''
-      const numericValue = typeof rawValue === 'number'
-        ? rawValue
-        : Number(String(rawValue).replaceAll(',', ''))
-      const hasNumberFormat = column.excelNumberFormat && Number.isFinite(numericValue)
-      const numberStyle = hasNumberFormat
-        ? `text-align:right;mso-number-format:&quot;${escapeClipboardHtml(column.excelNumberFormat)}&quot;;`
-        : ''
-      const value = hasNumberFormat ? numericValue : rawValue
-      return `<td style="${cellStyle}${numberStyle}">${escapeClipboardHtml(value)}</td>`
-    }).join('')
-    return `<tr>${cells}</tr>`
-  }).join('')
+  const headerCells = columns
+    .map(
+      column =>
+        `<th style="${cellStyle}background:#e2f0d9;color:#1f3328;font-weight:700;text-align:left;">${escapeClipboardHtml(column.name ?? column.prop)}</th>`,
+    )
+    .join('')
+  const bodyRows = rows
+    .map(row => {
+      const cells = columns
+        .map(column => {
+          const rawValue = row[column.prop] ?? ''
+          const numericValue =
+            typeof rawValue === 'number' ? rawValue : Number(String(rawValue).replaceAll(',', ''))
+          const hasNumberFormat = column.excelNumberFormat && Number.isFinite(numericValue)
+          const numberStyle = hasNumberFormat
+            ? `text-align:right;mso-number-format:&quot;${escapeClipboardHtml(column.excelNumberFormat)}&quot;;`
+            : ''
+          const value = hasNumberFormat ? numericValue : rawValue
+          return `<td style="${cellStyle}${numberStyle}">${escapeClipboardHtml(value)}</td>`
+        })
+        .join('')
+      return `<tr>${cells}</tr>`
+    })
+    .join('')
   const html = `<html><head><meta charset="utf-8"></head><body><table style="border-collapse:collapse;"><thead><tr>${headerCells}</tr></thead><tbody>${bodyRows}</tbody></table></body></html>`
 
   return { plainText, html }
@@ -83,9 +110,9 @@ export function buildExcelClipboardPayload(columns, rows) {
 export function filterAndSortCustomers(rows, region, statuses, sortDirection = 'desc') {
   const enabledStatuses = new Set(statuses)
   return rows
-    .filter((row) => (region === 'All' || row.region === region) && enabledStatuses.has(row.status))
+    .filter(row => (region === 'All' || row.region === region) && enabledStatuses.has(row.status))
     .slice()
-    .sort((a, b) => sortDirection === 'desc' ? b.arr - a.arr : a.arr - b.arr)
+    .sort((a, b) => (sortDirection === 'desc' ? b.arr - a.arr : a.arr - b.arr))
 }
 
 function normalizeCustomerFilterOption(value) {
@@ -96,7 +123,7 @@ function createSelectionExclusion(options, activeOptions, id) {
   const included = new Set(activeOptions.map(normalizeCustomerFilterOption))
   const excluded = options
     .map(normalizeCustomerFilterOption)
-    .filter((option) => !included.has(option))
+    .filter(option => !included.has(option))
 
   if (!excluded.length) return undefined
   return {
@@ -125,13 +152,16 @@ export function createCustomerAdvancedFilter({ regions, statuses, activeRegions,
 }
 
 function includedSelectionOptions(filterItems, prop, options) {
-  const selectionFilter = filterItems?.[prop]?.find((item) => item.type === 'selection')
+  const selectionFilter = filterItems?.[prop]?.find(item => item.type === 'selection')
   if (!selectionFilter) return [...options]
   const excluded = new Set(
-    [...(selectionFilter.value instanceof Set ? selectionFilter.value : selectionFilter.value ?? [])]
-      .map(normalizeCustomerFilterOption),
+    [
+      ...(selectionFilter.value instanceof Set
+        ? selectionFilter.value
+        : (selectionFilter.value ?? [])),
+    ].map(normalizeCustomerFilterOption),
   )
-  return options.filter((option) => !excluded.has(normalizeCustomerFilterOption(option)))
+  return options.filter(option => !excluded.has(normalizeCustomerFilterOption(option)))
 }
 
 export function readCustomerAdvancedFilterState(filterItems, { regions, statuses }) {
@@ -142,16 +172,18 @@ export function readCustomerAdvancedFilterState(filterItems, { regions, statuses
 }
 
 export function flattenGroups(groups, collapsed) {
-  return groups.flatMap((group) => [
+  return groups.flatMap(group => [
     { ...group, kind: 'group' },
-    ...(collapsed[group.id] ? [] : group.children.map((row) => ({ ...row, kind: 'row', groupId: group.id }))),
+    ...(collapsed[group.id]
+      ? []
+      : group.children.map(row => ({ ...row, kind: 'row', groupId: group.id }))),
   ])
 }
 
 export function flattenTree(nodes, expanded, parentId = null, depth = 0) {
   return nodes
-    .filter((node) => (node.parentId ?? null) === parentId)
-    .flatMap((node) => [
+    .filter(node => (node.parentId ?? null) === parentId)
+    .flatMap(node => [
       { ...node, depth },
       ...(expanded[node.id] ? flattenTree(nodes, expanded, node.id, depth + 1) : []),
     ])
@@ -168,7 +200,7 @@ export function summarizeGridSelection(range, visibleRows, regionProp = 'region'
   const regions = new Set(
     visibleRows
       .slice(startY, endY + 1)
-      .map((row) => row?.[regionProp])
+      .map(row => row?.[regionProp])
       .filter(Boolean),
   )
 
@@ -189,7 +221,12 @@ function spreadsheetColumnLabel(index) {
   return label
 }
 
-export function summarizeNumericGridSelection(range, visibleRows, visibleColumns, columnOffset = 0) {
+export function summarizeNumericGridSelection(
+  range,
+  visibleRows,
+  visibleColumns,
+  columnOffset = 0,
+) {
   if (!range) return { range: '—', sum: 0 }
 
   const startX = Math.min(range.x, range.x1)
@@ -205,7 +242,8 @@ export function summarizeNumericGridSelection(range, visibleRows, visibleColumns
       const prop = visibleColumns[columnIndex]?.prop
       if (prop === undefined) continue
       const rawValue = row[prop]
-      const numericValue = typeof rawValue === 'number' ? rawValue : Number(String(rawValue ?? '').replaceAll(',', ''))
+      const numericValue =
+        typeof rawValue === 'number' ? rawValue : Number(String(rawValue ?? '').replaceAll(',', ''))
       if (Number.isFinite(numericValue)) sum += numericValue
     }
   }
@@ -224,16 +262,19 @@ export function summarizeHierarchyRows(rows) {
   }, [])
 }
 
-export function queryRemoteRows(rows, {
-  query = '',
-  sortDirection = 'desc',
-  page = 0,
-  pageSize = 24,
-} = {}) {
+export function queryRemoteRows(
+  rows,
+  { query = '', sortDirection = 'desc', page = 0, pageSize = 24 } = {},
+) {
   const normalizedQuery = query.trim().toLocaleLowerCase()
   const filteredRows = normalizedQuery
-    ? rows.filter((row) => [row.id, row.customer, row.region, row.status]
-      .some((value) => String(value ?? '').toLocaleLowerCase().includes(normalizedQuery)))
+    ? rows.filter(row =>
+        [row.id, row.customer, row.region, row.status].some(value =>
+          String(value ?? '')
+            .toLocaleLowerCase()
+            .includes(normalizedQuery),
+        ),
+      )
     : [...rows]
   const sortedRows = filteredRows.sort((left, right) => {
     const difference = Number(left.amount ?? 0) - Number(right.amount ?? 0)

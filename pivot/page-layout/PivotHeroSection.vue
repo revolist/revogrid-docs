@@ -8,7 +8,9 @@
         </div>
         <h1 class="hero-title fade-up-2">
           <span v-if="hero.titleHighlightParts.length" class="hero-title-highlight">
-            <span v-for="part in hero.titleHighlightParts" :key="part" class="hero-title-part">{{ part }}</span>
+            <span v-for="part in hero.titleHighlightParts" :key="part" class="hero-title-part">{{
+              part
+            }}</span>
           </span>
           {{ hero.titleSuffix }}
         </h1>

@@ -41,12 +41,7 @@
     >
       {{ card.action }}
     </a>
-    <button
-      v-else
-      class="rg-btn rg-btn-secondary"
-      type="button"
-      @click="emit('contact-sales')"
-    >
+    <button v-else class="rg-btn rg-btn-secondary" type="button" @click="emit('contact-sales')">
       {{ card.action }}
     </button>
   </article>
@@ -70,10 +65,12 @@ const emit = defineEmits<{
 const { linkOf, targetOf, relOf } = usePricingLinks()
 const isPurchasable = computed(() => props.card.id === 'light' || props.card.id === 'advanced')
 
-const featureText = (feature: PricingFeatureEntry) => typeof feature === 'string' ? feature : feature.text
-const featureHref = (feature: PricingFeatureEntry) => typeof feature === 'string' ? undefined : feature.link
-const featureKey = (feature: PricingFeatureEntry) => `${featureText(feature)}:${featureHref(feature) ?? ''}`
-
+const featureText = (feature: PricingFeatureEntry) =>
+  typeof feature === 'string' ? feature : feature.text
+const featureHref = (feature: PricingFeatureEntry) =>
+  typeof feature === 'string' ? undefined : feature.link
+const featureKey = (feature: PricingFeatureEntry) =>
+  `${featureText(feature)}:${featureHref(feature) ?? ''}`
 </script>
 
 <style lang="scss" scoped>

@@ -23,10 +23,17 @@
       </div>
     </div>
     <div class="nav-right">
-      <button class="theme-toggle" type="button" title="Toggle theme" @click="$emit('toggle-theme')">
+      <button
+        class="theme-toggle"
+        type="button"
+        title="Toggle theme"
+        @click="$emit('toggle-theme')"
+      >
         <span></span>
       </button>
-      <a class="nav-cta" :href="useWithRevoGridUrl" target="_blank" rel="noopener">Use with RevoGrid -></a>
+      <a class="nav-cta" :href="useWithRevoGridUrl" target="_blank" rel="noopener"
+        >Use with RevoGrid -></a
+      >
     </div>
   </nav>
 </template>

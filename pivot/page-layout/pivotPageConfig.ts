@@ -18,7 +18,8 @@ const DEFAULT_PAGE: PivotLandingPage = {
     eyebrow: 'RevoGrid Pivot',
     titleHighlightParts: ['JavaScript'],
     titleSuffix: 'Pivot Table',
-    description: 'Feature-rich JavaScript Pivot Table with linked charts. Group, filter, aggregate, visualize, drill into, and export large datasets without leaving the page.',
+    description:
+      'Feature-rich JavaScript Pivot Table with linked charts. Group, filter, aggregate, visualize, drill into, and export large datasets without leaving the page.',
     actions: [
       { label: 'View Demo', href: 'https://rv-grid.com/demo/pivot', arrow: true },
       { label: 'Get Pro Trial', href: 'https://rv-grid.com/trial', variant: 'secondary' },
@@ -45,12 +46,14 @@ const DEFAULT_PAGE: PivotLandingPage = {
     id: 'features',
     kicker: 'Features',
     title: 'A production-ready \nJavaScript Pivot Table',
-    description: 'Not a summary view bolted on top. A full-featured pivot engine built on RevoGrid\'s high-performance rendering core.',
+    description:
+      "Not a summary view bolted on top. A full-featured pivot engine built on RevoGrid's high-performance rendering core.",
     items: [
       {
         icon: 'DnD',
         title: 'Drag-and-Drop Dimensions',
-        description: 'Move fields between Rows, Columns, Data, and Filters slots at runtime. The pivot table updates instantly.',
+        description:
+          'Move fields between Rows, Columns, Data, and Filters slots at runtime. The pivot table updates instantly.',
         tags: ['Drag fields', 'Runtime pivot', 'Zero reload'],
         media: {
           src: '/img/pivot-features/fields-panel.png',
@@ -67,7 +70,8 @@ const DEFAULT_PAGE: PivotLandingPage = {
       {
         icon: 'SUM',
         title: 'Multi-Level Aggregation',
-        description: 'Sum, average, count, min/max, median, or bring your own aggregation function. Use multiple aggregations on the same field.',
+        description:
+          'Sum, average, count, min/max, median, or bring your own aggregation function. Use multiple aggregations on the same field.',
         tags: ['SUM / AVG / CNT', 'Custom agg fn', 'Multi-agg'],
         media: {
           src: '/img/pivot-feature.png',
@@ -83,7 +87,8 @@ const DEFAULT_PAGE: PivotLandingPage = {
       {
         icon: 'CHRT',
         title: 'Linked Pivot Charts & Heatmaps',
-        description: 'Create interactive column, line, area, pie, and other charts from the active Pivot result. Charts stay linked as fields, filters, and drill state change, while heatmap cells highlight trends and outliers in the grid.',
+        description:
+          'Create interactive column, line, area, pie, and other charts from the active Pivot result. Charts stay linked as fields, filters, and drill state change, while heatmap cells highlight trends and outliers in the grid.',
         tags: ['Linked charts', 'Chart drill-down', 'Heatmap cells'],
         media: {
           src: '/img/pivot-features/linked-chart.png',
@@ -99,7 +104,8 @@ const DEFAULT_PAGE: PivotLandingPage = {
       {
         icon: 'ROW',
         title: 'Row & Column Grouping',
-        description: 'Drag any dimension field to Rows or Columns. Subtotals and grand totals are computed automatically at every group level.',
+        description:
+          'Drag any dimension field to Rows or Columns. Subtotals and grand totals are computed automatically at every group level.',
         tags: ['Subtotals', 'Grand total', 'Nested groups'],
         media: {
           src: '/img/pivot-preview.jpg',
@@ -115,7 +121,8 @@ const DEFAULT_PAGE: PivotLandingPage = {
       {
         icon: 'CPU',
         title: 'Client-Side at Scale',
-        description: 'No server round-trip on pivot operations. Bind the pivot config directly and run aggregations against the grid source.',
+        description:
+          'No server round-trip on pivot operations. Bind the pivot config directly and run aggregations against the grid source.',
         tags: ['350K rows', 'In-memory', 'PivotPlugin'],
         media: {
           src: '/img/react-pivot-table-large-datasets.webp',
@@ -131,7 +138,8 @@ const DEFAULT_PAGE: PivotLandingPage = {
       {
         icon: 'CSV',
         title: 'Export & Saved Views',
-        description: 'Export the visible Pivot result to CSV or TSV, and round-trip the active analytical layout as versioned state JSON.',
+        description:
+          'Export the visible Pivot result to CSV or TSV, and round-trip the active analytical layout as versioned state JSON.',
         tags: ['CSV / TSV', 'State JSON', 'Saved layouts'],
         media: {
           src: '/img/pivot-features/export-state.png',
@@ -150,7 +158,8 @@ const DEFAULT_PAGE: PivotLandingPage = {
     id: 'integrations',
     kicker: 'Integrations',
     title: 'Pivot analytics for your frontend stack',
-    description: 'Ship the same embedded analytics experience across JavaScript, React, Vue, Angular, and Svelte applications.',
+    description:
+      'Ship the same embedded analytics experience across JavaScript, React, Vue, Angular, and Svelte applications.',
     items: [],
   },
   useCases: {
@@ -161,7 +170,8 @@ const DEFAULT_PAGE: PivotLandingPage = {
   },
   cta: {
     title: 'Embed a pivot table component\nin your product.',
-    description: 'Client-side pivot tables with linked charts for React, Vue, Angular, Svelte, and vanilla JS. Included in Pro Advanced.',
+    description:
+      'Client-side pivot tables with linked charts for React, Vue, Angular, Svelte, and vanilla JS. Included in Pro Advanced.',
     primaryHref: 'https://rv-grid.com/demo/pivot',
     primaryLabel: 'View Demo',
     secondaryHref: 'https://rv-grid.com/trial',
@@ -179,11 +189,10 @@ export function mergePivotPageConfig(config: PivotLandingPageConfig = {}): Pivot
     features: { ...DEFAULT_PAGE.features, ...config.features },
     integrations: { ...DEFAULT_PAGE.integrations, ...config.integrations },
     useCases: { ...DEFAULT_PAGE.useCases, ...config.useCases },
-    advancedCallout: config.advancedCallout === null
-      ? undefined
-      : { ...DEFAULT_PAGE.advancedCallout, ...config.advancedCallout },
-    cta: config.cta === null
-      ? undefined
-      : { ...DEFAULT_PAGE.cta, ...config.cta },
+    advancedCallout:
+      config.advancedCallout === null
+        ? undefined
+        : { ...DEFAULT_PAGE.advancedCallout, ...config.advancedCallout },
+    cta: config.cta === null ? undefined : { ...DEFAULT_PAGE.cta, ...config.cta },
   }
 }

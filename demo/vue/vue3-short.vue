@@ -1,5 +1,5 @@
 <template>
-    <RevoGrid :columns="columns" :source="rows" />
+  <RevoGrid :columns="columns" :source="rows" />
 </template>
 
 <script setup>

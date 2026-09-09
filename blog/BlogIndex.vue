@@ -14,7 +14,7 @@
       <div v-if="posts.length" class="blog-grid">
         <article v-for="post in posts" :key="post.url" class="blog-card">
           <a class="blog-card__media" :href="post.url" :aria-label="post.title">
-            <img :src="post.image" :alt="post.imageAlt" loading="lazy" decoding="async">
+            <img :src="post.image" :alt="post.imageAlt" loading="lazy" decoding="async" />
           </a>
           <div class="blog-card__content">
             <div class="blog-card__topline">
@@ -35,7 +35,9 @@
         </article>
       </div>
 
-      <p v-else class="blog-empty">New articles will appear here when Markdown files are added to the blog directory.</p>
+      <p v-else class="blog-empty">
+        New articles will appear here when Markdown files are added to the blog directory.
+      </p>
     </section>
   </main>
 </template>
@@ -91,7 +93,7 @@ const titleFromPath = (path: string) => {
 
   return slug
     .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
 }
 
@@ -138,7 +140,10 @@ const posts = computed<BlogPost[]>(() =>
       const frontmatter = module.__pageData?.frontmatter || {}
       const rawContent = rawModules[path] || ''
       const title = frontmatter.title || module.__pageData?.title || titleFromPath(path)
-      const description = frontmatter.description || module.__pageData?.description || 'Read the latest RevoGrid engineering article.'
+      const description =
+        frontmatter.description ||
+        module.__pageData?.description ||
+        'Read the latest RevoGrid engineering article.'
       const image = frontmatter.image || '/og-image.jpg'
       const parsedDate = toDate(frontmatter.date)
 
@@ -156,7 +161,7 @@ const posts = computed<BlogPost[]>(() =>
         featured: Boolean(frontmatter.featured),
       }
     })
-    .sort((a, b) => b.dateValue - a.dateValue || a.title.localeCompare(b.title))
+    .sort((a, b) => b.dateValue - a.dateValue || a.title.localeCompare(b.title)),
 )
 </script>
 
@@ -238,7 +243,10 @@ const posts = computed<BlogPost[]>(() =>
   display: flex;
   flex-direction: column;
   min-width: 0;
-  transition: border-color 0.18s, transform 0.18s, background-color 0.18s;
+  transition:
+    border-color 0.18s,
+    transform 0.18s,
+    background-color 0.18s;
   overflow: hidden;
 
   &:hover {
@@ -277,7 +285,7 @@ const posts = computed<BlogPost[]>(() =>
   h3 a {
     overflow-wrap: anywhere;
     white-space: normal;
-  word-break: normal;
+    word-break: normal;
   }
 }
 

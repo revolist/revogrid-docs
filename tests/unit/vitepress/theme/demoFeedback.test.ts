@@ -35,7 +35,6 @@ import {
   getDemoFeedbackReadyBranch,
   getDemoFeedbackPromptFrequencyContext,
   getDemoFeedbackTextLengthBucket,
-  getDemosViewedInSession,
   getPrimaryAnswerForCardResponse,
   hasMeaningfulDemoFeedbackAnswers,
   isDemoFeedbackConversionCta,
@@ -76,12 +75,18 @@ test('offers feedback only through a compact user-triggered control', () => {
   assert.match(feedbackSurveySource, /class="demo-feedback-trigger"/)
   assert.match(feedbackSurveySource, /@click="requestFeedback"/)
   assert.match(feedbackSurveySource, /showFeedbackCard\(true\)/)
-  assert.doesNotMatch(feedbackSurveySource, /eligibleDemoIds\.includes\(activeDemoId\).*showFeedbackCard/s)
+  assert.doesNotMatch(
+    feedbackSurveySource,
+    /eligibleDemoIds\.includes\(activeDemoId\).*showFeedbackCard/s,
+  )
   assert.doesNotMatch(feedbackSurveySource, /shouldRestoreDemoFeedbackCard/)
 })
 
 test('matches only catalogued demo routes after normalizing URLs, queries, and trailing slashes', () => {
-  assert.equal(normalizeDemoPath('https://rv-grid.com/demo/pivot/?source=pricing#demo'), '/demo/pivot')
+  assert.equal(
+    normalizeDemoPath('https://rv-grid.com/demo/pivot/?source=pricing#demo'),
+    '/demo/pivot',
+  )
   assert.equal(getDemoByPath('/demo/')?.id, 'planning')
   assert.equal(getDemoByPath('/demo/planning')?.id, 'planning')
   assert.equal(getDemoByPath('/demo/grid-at-scale')?.id, 'grid-at-scale')
@@ -97,26 +102,26 @@ test('parses session state safely without ever persisting answer text', () => {
 
   let state = recordDemoView(initial(), 'gantt', NOW)
   state = recordDemoInteraction(state, 'gantt', { at: NOW + 1, manipulatedData: true }).state
-  const parsed = parseDemoFeedbackSession(JSON.stringify({
-    ...state,
-    freeText: 'must never enter browser state',
-    answers: ['secret'],
-    demoEngagement: {
-      ...state.demoEngagement,
-      unknown: { timeMs: 1, interactions: 100 },
-      pivot: { timeMs: -2, interactions: 'bad', manipulatedData: false, viewedAt: NOW + 2 },
-    },
-  }), context)
+  const parsed = parseDemoFeedbackSession(
+    JSON.stringify({
+      ...state,
+      freeText: 'must never enter browser state',
+      answers: ['secret'],
+      demoEngagement: {
+        ...state.demoEngagement,
+        unknown: { timeMs: 1, interactions: 100 },
+        pivot: { timeMs: -2, interactions: 'bad', manipulatedData: false, viewedAt: NOW + 2 },
+      },
+    }),
+    context,
+  )
 
   assert.equal('freeText' in parsed, false)
   assert.equal('answers' in parsed, false)
   assert.equal('unknown' in parsed.demoEngagement, false)
   assert.equal(parsed.demoEngagement.pivot?.timeMs, 0)
   assert.equal(parsed.demoEngagement.pivot?.interactions, 0)
-  assert.deepEqual(
-    parseDemoFeedbackSession(serializeDemoFeedbackSession(parsed), context),
-    parsed,
-  )
+  assert.deepEqual(parseDemoFeedbackSession(serializeDemoFeedbackSession(parsed), context), parsed)
 })
 
 test('requires exactly 20 seconds of visible demo time without an interaction', () => {
@@ -144,24 +149,39 @@ test('does not count hidden-tab time toward eligibility', () => {
   let state = recordDemoView(initial(), 'pivot', NOW)
   state = addDemoVisibleTime(state, 'pivot', 10_000)
   // Ten seconds hidden: no visible-time transition is recorded.
-  assert.equal(evaluateDemoFeedbackEligibility(state, {
-    activeDemoId: 'pivot',
-    at: NOW + 30_000,
-  }).becameEligible, false)
+  assert.equal(
+    evaluateDemoFeedbackEligibility(state, {
+      activeDemoId: 'pivot',
+      at: NOW + 30_000,
+    }).becameEligible,
+    false,
+  )
 
   state = addDemoVisibleTime(state, 'pivot', 10_000)
-  assert.equal(evaluateDemoFeedbackEligibility(state, {
-    activeDemoId: 'pivot',
-    at: NOW + 40_000,
-  }).becameEligible, true)
+  assert.equal(
+    evaluateDemoFeedbackEligibility(state, {
+      activeDemoId: 'pivot',
+      at: NOW + 40_000,
+    }).becameEligible,
+    true,
+  )
 })
 
 test('deduplicates one interaction burst and remembers data manipulation', () => {
   let state = recordDemoView(initial(), 'ecommerce', NOW)
-  const first = recordDemoInteraction(state, 'ecommerce', { at: NOW + 1_000, manipulatedData: false })
+  const first = recordDemoInteraction(state, 'ecommerce', {
+    at: NOW + 1_000,
+    manipulatedData: false,
+  })
   state = first.state
-  const duplicate = recordDemoInteraction(state, 'ecommerce', { at: NOW + 1_100, manipulatedData: true })
-  const later = recordDemoInteraction(duplicate.state, 'ecommerce', { at: NOW + 1_500, manipulatedData: true })
+  const duplicate = recordDemoInteraction(state, 'ecommerce', {
+    at: NOW + 1_100,
+    manipulatedData: true,
+  })
+  const later = recordDemoInteraction(duplicate.state, 'ecommerce', {
+    at: NOW + 1_500,
+    manipulatedData: true,
+  })
 
   assert.equal(first.recorded, true)
   assert.equal(duplicate.recorded, false)
@@ -175,17 +195,27 @@ test('allows two spaced prompts for different demos but never repeats one in a s
 
   const pivotShown = markDemoFeedbackShown(initial(), 'pivot', NOW)
   assert.equal(canRequestDemoFeedback(pivotShown, 'pivot', { at: NOW }), false)
-  assert.equal(canRequestDemoFeedback(pivotShown, 'gantt', {
-    at: NOW + DEMO_FEEDBACK_PROMPT_SPACING_MS,
-  }), false, 'an open prompt blocks another prompt')
+  assert.equal(
+    canRequestDemoFeedback(pivotShown, 'gantt', {
+      at: NOW + DEMO_FEEDBACK_PROMPT_SPACING_MS,
+    }),
+    false,
+    'an open prompt blocks another prompt',
+  )
 
   const pivotDismissed = dismissDemoFeedback(pivotShown)
-  assert.equal(canRequestDemoFeedback(pivotDismissed, 'gantt', {
-    at: NOW + DEMO_FEEDBACK_PROMPT_SPACING_MS - 1,
-  }), false)
-  assert.equal(canRequestDemoFeedback(pivotDismissed, 'gantt', {
-    at: NOW + DEMO_FEEDBACK_PROMPT_SPACING_MS,
-  }), true)
+  assert.equal(
+    canRequestDemoFeedback(pivotDismissed, 'gantt', {
+      at: NOW + DEMO_FEEDBACK_PROMPT_SPACING_MS - 1,
+    }),
+    false,
+  )
+  assert.equal(
+    canRequestDemoFeedback(pivotDismissed, 'gantt', {
+      at: NOW + DEMO_FEEDBACK_PROMPT_SPACING_MS,
+    }),
+    true,
+  )
 
   const ganttShown = markDemoFeedbackShown(
     pivotDismissed,
@@ -193,10 +223,17 @@ test('allows two spaced prompts for different demos but never repeats one in a s
     NOW + DEMO_FEEDBACK_PROMPT_SPACING_MS,
   )
   const ganttSubmitted = submitDemoFeedback(ganttShown)
-  assert.equal(canRequestDemoFeedback(ganttSubmitted, 'ecommerce', {
-    at: NOW + (2 * DEMO_FEEDBACK_PROMPT_SPACING_MS),
-  }), false, 'the session prompt ceiling applies across demos')
-  assert.equal(canRequestDemoFeedback(suppressDemoFeedbackForCta(initial()), 'pivot', { at: NOW }), false)
+  assert.equal(
+    canRequestDemoFeedback(ganttSubmitted, 'ecommerce', {
+      at: NOW + 2 * DEMO_FEEDBACK_PROMPT_SPACING_MS,
+    }),
+    false,
+    'the session prompt ceiling applies across demos',
+  )
+  assert.equal(
+    canRequestDemoFeedback(suppressDemoFeedbackForCta(initial()), 'pivot', { at: NOW }),
+    false,
+  )
 })
 
 test('restores an unanswered card after reload until it is dismissed or submitted', () => {
@@ -214,73 +251,158 @@ const displayAndRecord = (
   demoId: 'pivot' | 'gantt' | 'ecommerce',
   outcome: 'dismissed' | 'submitted',
   at: number,
-) => recordDemoFeedbackOutcome(recordDemoFeedbackPromptDisplay(state, demoId, at), demoId, outcome, at)
+) =>
+  recordDemoFeedbackOutcome(recordDemoFeedbackPromptDisplay(state, demoId, at), demoId, outcome, at)
 
 test('uses progressive per-demo dismissal cooldowns', () => {
   assert.equal(DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS, 24 * 60 * 60 * 1_000)
   assert.equal(DEMO_FEEDBACK_SECOND_DISMISSAL_COOLDOWN_MS, 7 * 24 * 60 * 60 * 1_000)
   assert.equal(DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS, 30 * 24 * 60 * 60 * 1_000)
 
-  let cooldown = displayAndRecord(createInitialDemoFeedbackCooldownState(), 'pivot', 'dismissed', NOW)
+  let cooldown = displayAndRecord(
+    createInitialDemoFeedbackCooldownState(),
+    'pivot',
+    'dismissed',
+    NOW,
+  )
   assert.equal(cooldown.demos.pivot?.dismissalCount, 1)
-  assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS - 1), true)
-  assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS), false)
-  assert.equal(canRequestDemoFeedback(initial(), 'pivot', {
-    at: NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS,
-    cooldownState: cooldown,
-  }), true, 'a fresh session can prompt again at the first-dismissal boundary')
+  assert.equal(
+    isDemoFeedbackInCooldown(
+      cooldown,
+      'pivot',
+      NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS - 1,
+    ),
+    true,
+  )
+  assert.equal(
+    isDemoFeedbackInCooldown(cooldown, 'pivot', NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS),
+    false,
+  )
+  assert.equal(
+    canRequestDemoFeedback(initial(), 'pivot', {
+      at: NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS,
+      cooldownState: cooldown,
+    }),
+    true,
+    'a fresh session can prompt again at the first-dismissal boundary',
+  )
 
   const secondAt = NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS
   cooldown = displayAndRecord(cooldown, 'pivot', 'dismissed', secondAt)
   assert.equal(cooldown.demos.pivot?.dismissalCount, 2)
-  assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', secondAt + DEMO_FEEDBACK_SECOND_DISMISSAL_COOLDOWN_MS - 1), true)
-  assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', secondAt + DEMO_FEEDBACK_SECOND_DISMISSAL_COOLDOWN_MS), false)
+  assert.equal(
+    isDemoFeedbackInCooldown(
+      cooldown,
+      'pivot',
+      secondAt + DEMO_FEEDBACK_SECOND_DISMISSAL_COOLDOWN_MS - 1,
+    ),
+    true,
+  )
+  assert.equal(
+    isDemoFeedbackInCooldown(
+      cooldown,
+      'pivot',
+      secondAt + DEMO_FEEDBACK_SECOND_DISMISSAL_COOLDOWN_MS,
+    ),
+    false,
+  )
 
   const thirdAt = secondAt + DEMO_FEEDBACK_SECOND_DISMISSAL_COOLDOWN_MS
   cooldown = displayAndRecord(cooldown, 'pivot', 'dismissed', thirdAt)
   assert.equal(cooldown.demos.pivot?.dismissalCount, 3)
-  assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', thirdAt + DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS - 1), true)
-  assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', thirdAt + DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS), false)
+  assert.equal(
+    isDemoFeedbackInCooldown(
+      cooldown,
+      'pivot',
+      thirdAt + DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS - 1,
+    ),
+    true,
+  )
+  assert.equal(
+    isDemoFeedbackInCooldown(
+      cooldown,
+      'pivot',
+      thirdAt + DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS,
+    ),
+    false,
+  )
 
   const fourthAt = thirdAt + DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS
   cooldown = displayAndRecord(cooldown, 'pivot', 'dismissed', fourthAt)
   assert.equal(cooldown.demos.pivot?.dismissalCount, 4)
-  assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', fourthAt + DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS - 1), true)
+  assert.equal(
+    isDemoFeedbackInCooldown(
+      cooldown,
+      'pivot',
+      fourthAt + DEMO_FEEDBACK_REPEATED_DISMISSAL_COOLDOWN_MS - 1,
+    ),
+    true,
+  )
 })
 
 test('uses a 90-day submission cooldown without incrementing dismissals', () => {
   assert.equal(DEMO_FEEDBACK_SUBMITTED_COOLDOWN_MS, 90 * 24 * 60 * 60 * 1_000)
-  let cooldown = displayAndRecord(createInitialDemoFeedbackCooldownState(), 'gantt', 'dismissed', NOW)
+  let cooldown = displayAndRecord(
+    createInitialDemoFeedbackCooldownState(),
+    'gantt',
+    'dismissed',
+    NOW,
+  )
   const submittedAt = NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS
   cooldown = displayAndRecord(cooldown, 'gantt', 'submitted', submittedAt)
 
   assert.equal(cooldown.demos.gantt?.dismissalCount, 1)
   assert.equal(cooldown.demos.gantt?.submittedAt, submittedAt)
-  assert.equal(isDemoFeedbackInCooldown(cooldown, 'gantt', submittedAt + DEMO_FEEDBACK_SUBMITTED_COOLDOWN_MS - 1), true)
-  assert.equal(isDemoFeedbackInCooldown(cooldown, 'gantt', submittedAt + DEMO_FEEDBACK_SUBMITTED_COOLDOWN_MS), false)
+  assert.equal(
+    isDemoFeedbackInCooldown(
+      cooldown,
+      'gantt',
+      submittedAt + DEMO_FEEDBACK_SUBMITTED_COOLDOWN_MS - 1,
+    ),
+    true,
+  )
+  assert.equal(
+    isDemoFeedbackInCooldown(cooldown, 'gantt', submittedAt + DEMO_FEEDBACK_SUBMITTED_COOLDOWN_MS),
+    false,
+  )
 })
 
 test('keeps cooldown histories independent by demo with a rolling global ceiling', () => {
   assert.equal(DEMO_FEEDBACK_GLOBAL_MAX_PROMPTS, 3)
   assert.equal(DEMO_FEEDBACK_GLOBAL_WINDOW_MS, 30 * 24 * 60 * 60 * 1_000)
-  let cooldown = displayAndRecord(createInitialDemoFeedbackCooldownState(), 'pivot', 'dismissed', NOW)
+  let cooldown = displayAndRecord(
+    createInitialDemoFeedbackCooldownState(),
+    'pivot',
+    'dismissed',
+    NOW,
+  )
 
   assert.equal(isDemoFeedbackInCooldown(cooldown, 'pivot', NOW + 1), true)
   assert.equal(isDemoFeedbackInCooldown(cooldown, 'gantt', NOW + 1), false)
   cooldown = displayAndRecord(cooldown, 'gantt', 'dismissed', NOW + 1)
   cooldown = displayAndRecord(cooldown, 'ecommerce', 'dismissed', NOW + 2)
-  assert.equal(canRequestDemoFeedback(initial(), 'grid-at-scale', {
-    at: NOW + 3,
-    cooldownState: cooldown,
-  }), false)
-  assert.equal(canRequestDemoFeedback(initial(), 'grid-at-scale', {
-    at: NOW + DEMO_FEEDBACK_GLOBAL_WINDOW_MS,
-    cooldownState: cooldown,
-  }), true)
+  assert.equal(
+    canRequestDemoFeedback(initial(), 'grid-at-scale', {
+      at: NOW + 3,
+      cooldownState: cooldown,
+    }),
+    false,
+  )
+  assert.equal(
+    canRequestDemoFeedback(initial(), 'grid-at-scale', {
+      at: NOW + DEMO_FEEDBACK_GLOBAL_WINDOW_MS,
+      cooldownState: cooldown,
+    }),
+    true,
+  )
 })
 
 test('restoration and duplicate close handling do not create another impression or dismissal', () => {
-  let cooldown = recordDemoFeedbackPromptDisplay(createInitialDemoFeedbackCooldownState(), 'pivot', NOW)
+  let cooldown = recordDemoFeedbackPromptDisplay(
+    createInitialDemoFeedbackCooldownState(),
+    'pivot',
+    NOW,
+  )
   cooldown = parseDemoFeedbackCooldownState(serializeDemoFeedbackCooldownState(cooldown))
   cooldown = recordDemoFeedbackPromptDisplay(cooldown, 'pivot', NOW)
   assert.equal(cooldown.prompts.length, 1)
@@ -300,28 +422,53 @@ test('restoration and duplicate close handling do not create another impression 
 })
 
 test('migrates valid version-1 cooldowns conservatively and ignores malformed storage', () => {
-  const dismissed = parseDemoFeedbackCooldownState(JSON.stringify({
-    version: 1,
-    demos: { pivot: { promptedAt: NOW, outcome: 'dismissed' } },
-  }))
+  const dismissed = parseDemoFeedbackCooldownState(
+    JSON.stringify({
+      version: 1,
+      demos: { pivot: { promptedAt: NOW, outcome: 'dismissed' } },
+    }),
+  )
   assert.equal(dismissed.version, 2)
   assert.equal(dismissed.demos.pivot?.dismissalCount, 1)
-  assert.equal(isDemoFeedbackInCooldown(dismissed, 'pivot', NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS - 1), true)
+  assert.equal(
+    isDemoFeedbackInCooldown(
+      dismissed,
+      'pivot',
+      NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS - 1,
+    ),
+    true,
+  )
 
-  const submitted = parseDemoFeedbackCooldownState(JSON.stringify({
-    version: 1,
-    demos: { gantt: { promptedAt: NOW, outcome: 'submitted' } },
-  }))
+  const submitted = parseDemoFeedbackCooldownState(
+    JSON.stringify({
+      version: 1,
+      demos: { gantt: { promptedAt: NOW, outcome: 'submitted' } },
+    }),
+  )
   assert.equal(submitted.demos.gantt?.submittedAt, NOW)
   assert.equal(submitted.demos.gantt?.dismissalCount, 0)
-  assert.equal(isDemoFeedbackInCooldown(submitted, 'gantt', NOW + DEMO_FEEDBACK_SUBMITTED_COOLDOWN_MS - 1), true)
+  assert.equal(
+    isDemoFeedbackInCooldown(submitted, 'gantt', NOW + DEMO_FEEDBACK_SUBMITTED_COOLDOWN_MS - 1),
+    true,
+  )
 
-  assert.deepEqual(parseDemoFeedbackCooldownState('{broken'), createInitialDemoFeedbackCooldownState())
-  assert.deepEqual(parseDemoFeedbackCooldownState(JSON.stringify({ version: 2, demos: 'bad', prompts: ['bad'] })), createInitialDemoFeedbackCooldownState())
+  assert.deepEqual(
+    parseDemoFeedbackCooldownState('{broken'),
+    createInitialDemoFeedbackCooldownState(),
+  )
+  assert.deepEqual(
+    parseDemoFeedbackCooldownState(JSON.stringify({ version: 2, demos: 'bad', prompts: ['bad'] })),
+    createInitialDemoFeedbackCooldownState(),
+  )
 })
 
 test('cooldown persistence contains no answer content and exposes frequency analytics context', () => {
-  let cooldown = displayAndRecord(createInitialDemoFeedbackCooldownState(), 'pivot', 'dismissed', NOW)
+  let cooldown = displayAndRecord(
+    createInitialDemoFeedbackCooldownState(),
+    'pivot',
+    'dismissed',
+    NOW,
+  )
   const nextAt = NOW + DEMO_FEEDBACK_FIRST_DISMISSAL_COOLDOWN_MS
   cooldown = recordDemoFeedbackPromptDisplay(cooldown, 'pivot', nextAt)
   const serialized = serializeDemoFeedbackCooldownState(cooldown)
@@ -342,12 +489,21 @@ test('cooldown persistence contains no answer content and exposes frequency anal
 test('CTA suppression stays in session state and creates no local cooldown outcome', () => {
   const session = suppressDemoFeedbackForCta(initial())
   const cooldown = createInitialDemoFeedbackCooldownState()
-  assert.equal(canRequestDemoFeedback(session, 'pivot', { at: NOW, cooldownState: cooldown }), false)
+  assert.equal(
+    canRequestDemoFeedback(session, 'pivot', { at: NOW, cooldownState: cooldown }),
+    false,
+  )
   assert.deepEqual(cooldown, createInitialDemoFeedbackCooldownState())
-  assert.equal(shouldRestoreDemoFeedbackCard({
-    ...markDemoFeedbackShown(initial(), 'pivot', NOW),
-    ctaSuppressed: true,
-  }, 'pivot'), false)
+  assert.equal(
+    shouldRestoreDemoFeedbackCard(
+      {
+        ...markDemoFeedbackShown(initial(), 'pivot', NOW),
+        ctaSuppressed: true,
+      },
+      'pivot',
+    ),
+    false,
+  )
 })
 
 test('keeps typed verification choices centralized for all catalog demos', () => {
@@ -364,33 +520,58 @@ test('keeps typed verification choices centralized for all catalog demos', () =>
     assert.ok(config.verificationOptions.some(({ code }) => code === 'core_pro_differences'))
     assert.ok(config.verificationOptions.some(({ code }) => code === 'pricing_licensing'))
   }
-  assert.ok(DEMO_FEEDBACK_DEMO_CONFIG.pivot.verificationOptions.some(({ code }) => code === 'own_data'))
-  assert.ok(DEMO_FEEDBACK_DEMO_CONFIG.gantt.verificationOptions.some(({ code }) => code === 'dependencies_scheduling'))
-  assert.ok(DEMO_FEEDBACK_DEMO_CONFIG['event-scheduler'].verificationOptions
-    .some(({ code }) => code === 'recurring_multi_resource'))
+  assert.ok(
+    DEMO_FEEDBACK_DEMO_CONFIG.pivot.verificationOptions.some(({ code }) => code === 'own_data'),
+  )
+  assert.ok(
+    DEMO_FEEDBACK_DEMO_CONFIG.gantt.verificationOptions.some(
+      ({ code }) => code === 'dependencies_scheduling',
+    ),
+  )
+  assert.ok(
+    DEMO_FEEDBACK_DEMO_CONFIG['event-scheduler'].verificationOptions.some(
+      ({ code }) => code === 'recurring_multi_resource',
+    ),
+  )
 })
 
 test('uses the practical compact question and six concise missing reasons', () => {
   assert.equal(DEMO_FEEDBACK_COPY.card.kicker, 'One quick follow-up')
-  assert.equal(DEMO_FEEDBACK_COPY.card.title('Project Tracker'), 'Did Project Tracker show what you needed?')
-  assert.equal(DEMO_FEEDBACK_COPY.notFit.title, 'What would have made this demo more useful for you?')
+  assert.equal(
+    DEMO_FEEDBACK_COPY.card.title('Project Tracker'),
+    'Did Project Tracker show what you needed?',
+  )
+  assert.equal(
+    DEMO_FEEDBACK_COPY.notFit.title,
+    'What would have made this demo more useful for you?',
+  )
   assert.equal(
     DEMO_FEEDBACK_COPY.notFit.description,
     'Choose the option that best reflects your experience.',
   )
-  assert.deepEqual(DEMO_FEEDBACK_CARD_OPTIONS.map(({ label }) => label), ['Yes', 'Not yet', 'No'])
-  assert.equal(DEMO_FEEDBACK_BROWSING_OPTION.label, 'Just browsing')
-  assert.deepEqual(DEMO_FEEDBACK_NOT_FIT_OPTIONS.map(({ label }) => label), [
-    'A feature I need',
-    'It doesn’t match my use case',
-    'Integration looks difficult',
-    'Performance concerns',
-    'Pricing or licensing',
-    'The demo was unclear or didn’t work',
-  ])
   assert.deepEqual(
-    Object.fromEntries(Object.entries(DEMO_FEEDBACK_NOT_FIT_FOLLOW_UPS)
-      .map(([code, followUp]) => [code, followUp.label])),
+    DEMO_FEEDBACK_CARD_OPTIONS.map(({ label }) => label),
+    ['Yes', 'Not yet', 'No'],
+  )
+  assert.equal(DEMO_FEEDBACK_BROWSING_OPTION.label, 'Just browsing')
+  assert.deepEqual(
+    DEMO_FEEDBACK_NOT_FIT_OPTIONS.map(({ label }) => label),
+    [
+      'A feature I need',
+      'It doesn’t match my use case',
+      'Integration looks difficult',
+      'Performance concerns',
+      'Pricing or licensing',
+      'The demo was unclear or didn’t work',
+    ],
+  )
+  assert.deepEqual(
+    Object.fromEntries(
+      Object.entries(DEMO_FEEDBACK_NOT_FIT_FOLLOW_UPS).map(([code, followUp]) => [
+        code,
+        followUp.label,
+      ]),
+    ),
     {
       missing_feature: 'Which feature were you looking for?',
       use_case_mismatch: 'What are you building?',
@@ -415,7 +596,10 @@ test('provides stable unique element IDs for GTM selectors', () => {
   })
 
   assert.equal(DEMO_FEEDBACK_ELEMENT_IDS.step('not_fit'), 'demo-feedback-step-not_fit')
-  assert.equal(DEMO_FEEDBACK_ELEMENT_IDS.cardResponse('not_yet'), 'demo-feedback-card-response-not_yet')
+  assert.equal(
+    DEMO_FEEDBACK_ELEMENT_IDS.cardResponse('not_yet'),
+    'demo-feedback-card-response-not_yet',
+  )
   assert.equal(
     DEMO_FEEDBACK_ELEMENT_IDS.verificationOption('framework_integration'),
     'demo-feedback-verification-option-framework_integration',
@@ -424,18 +608,27 @@ test('provides stable unique element IDs for GTM selectors', () => {
     DEMO_FEEDBACK_ELEMENT_IDS.verification('framework_integration'),
     'demo-feedback-verification-framework_integration',
   )
-  assert.equal(DEMO_FEEDBACK_ELEMENT_IDS.rowVolumeOption('over_1m'), 'demo-feedback-row-volume-option-over_1m')
+  assert.equal(
+    DEMO_FEEDBACK_ELEMENT_IDS.rowVolumeOption('over_1m'),
+    'demo-feedback-row-volume-option-over_1m',
+  )
   assert.equal(DEMO_FEEDBACK_ELEMENT_IDS.rowVolume('over_1m'), 'demo-feedback-row-volume-over_1m')
   assert.equal(
     DEMO_FEEDBACK_ELEMENT_IDS.notFitOption('missing_feature'),
     'demo-feedback-not-fit-option-missing_feature',
   )
-  assert.equal(DEMO_FEEDBACK_ELEMENT_IDS.notFit('missing_feature'), 'demo-feedback-not-fit-missing_feature')
+  assert.equal(
+    DEMO_FEEDBACK_ELEMENT_IDS.notFit('missing_feature'),
+    'demo-feedback-not-fit-missing_feature',
+  )
   assert.equal(
     DEMO_FEEDBACK_ELEMENT_IDS.followUpLabel('missing_feature'),
     'demo-feedback-follow-up-label-missing_feature',
   )
-  assert.equal(DEMO_FEEDBACK_ELEMENT_IDS.followUp('missing_feature'), 'demo-feedback-follow-up-missing_feature')
+  assert.equal(
+    DEMO_FEEDBACK_ELEMENT_IDS.followUp('missing_feature'),
+    'demo-feedback-follow-up-missing_feature',
+  )
   assert.equal(DEMO_FEEDBACK_ELEMENT_IDS.submit('not_fit'), 'demo-feedback-submit-not_fit')
   assert.equal(DEMO_FEEDBACK_ELEMENT_IDS.skip('not_fit'), 'demo-feedback-skip-not_fit')
   assert.equal(
@@ -443,10 +636,13 @@ test('provides stable unique element IDs for GTM selectors', () => {
     'demo-feedback-next-action-start_pro_trial',
   )
 
-  const verificationCodes = Array.from(new Set(
-    Object.values(DEMO_FEEDBACK_DEMO_CONFIG)
-      .flatMap(({ verificationOptions }) => verificationOptions.map(({ code }) => code)),
-  ))
+  const verificationCodes = Array.from(
+    new Set(
+      Object.values(DEMO_FEEDBACK_DEMO_CONFIG).flatMap(({ verificationOptions }) =>
+        verificationOptions.map(({ code }) => code),
+      ),
+    ),
+  )
   const nextActions = [
     'start_pro_trial',
     'use_open_source',
@@ -454,11 +650,12 @@ test('provides stable unique element IDs for GTM selectors', () => {
     'view_documentation',
   ] as const
   const ids = [
-    ...(['ready', 'needs_information', 'not_fit', 'confirmation'] as const)
-      .map(DEMO_FEEDBACK_ELEMENT_IDS.step),
+    ...(['ready', 'needs_information', 'not_fit', 'confirmation'] as const).map(
+      DEMO_FEEDBACK_ELEMENT_IDS.step,
+    ),
     ...DEMO_FEEDBACK_CARD_OPTIONS.map(({ code }) => DEMO_FEEDBACK_ELEMENT_IDS.cardResponse(code)),
     DEMO_FEEDBACK_ELEMENT_IDS.cardResponse(DEMO_FEEDBACK_BROWSING_OPTION.code),
-    ...verificationCodes.flatMap((code) => [
+    ...verificationCodes.flatMap(code => [
       DEMO_FEEDBACK_ELEMENT_IDS.verificationOption(code),
       DEMO_FEEDBACK_ELEMENT_IDS.verification(code),
     ]),
@@ -508,47 +705,65 @@ test('buckets optional text length without exposing its contents', () => {
 
 test('rejects feedback answer objects when every form field is empty', () => {
   assert.equal(hasMeaningfulDemoFeedbackAnswers(undefined), false)
-  assert.equal(hasMeaningfulDemoFeedbackAnswers({
-    verificationAnswers: [],
-    rowVolume: undefined,
-    comparison: undefined,
-    notFitReason: undefined,
-    freeText: '',
-  }), false)
-  assert.equal(hasMeaningfulDemoFeedbackAnswers({
-    verificationAnswers: [],
-    comparison: '   ',
-    freeText: '\n\t',
-  }), false)
-  assert.equal(hasMeaningfulDemoFeedbackAnswers({
-    verificationAnswers: ['framework_integration'],
-  }), true)
-  assert.equal(hasMeaningfulDemoFeedbackAnswers({
-    verificationAnswers: [],
-    freeText: 'Needs resource leveling',
-  }), true)
+  assert.equal(
+    hasMeaningfulDemoFeedbackAnswers({
+      verificationAnswers: [],
+      rowVolume: undefined,
+      comparison: undefined,
+      notFitReason: undefined,
+      freeText: '',
+    }),
+    false,
+  )
+  assert.equal(
+    hasMeaningfulDemoFeedbackAnswers({
+      verificationAnswers: [],
+      comparison: '   ',
+      freeText: '\n\t',
+    }),
+    false,
+  )
+  assert.equal(
+    hasMeaningfulDemoFeedbackAnswers({
+      verificationAnswers: ['framework_integration'],
+    }),
+    true,
+  )
+  assert.equal(
+    hasMeaningfulDemoFeedbackAnswers({
+      verificationAnswers: [],
+      freeText: 'Needs resource leveling',
+    }),
+    true,
+  )
 })
 
 test('builds immediate option and privacy-safe text analytics events', () => {
-  assert.deepEqual(createDemoFeedbackOptionAnalyticsEvent({
-    demo_slug: 'gantt',
-    demo_tier: 'pro-advanced',
-    time_on_demo: 42,
-    demo_interactions: 7,
-  }, {
-    questionId: 'not_fit',
-    answerCode: 'pricing_licensing',
-    isSelected: true,
-  }), {
-    event: 'demo_feedback_option_selected',
-    demo_slug: 'gantt',
-    demo_tier: 'pro-advanced',
-    time_on_demo: 42,
-    demo_interactions: 7,
-    question_id: 'not_fit',
-    answer_code: 'pricing_licensing',
-    is_selected: true,
-  })
+  assert.deepEqual(
+    createDemoFeedbackOptionAnalyticsEvent(
+      {
+        demo_slug: 'gantt',
+        demo_tier: 'pro-advanced',
+        time_on_demo: 42,
+        demo_interactions: 7,
+      },
+      {
+        questionId: 'not_fit',
+        answerCode: 'pricing_licensing',
+        isSelected: true,
+      },
+    ),
+    {
+      event: 'demo_feedback_option_selected',
+      demo_slug: 'gantt',
+      demo_tier: 'pro-advanced',
+      time_on_demo: 42,
+      demo_interactions: 7,
+      question_id: 'not_fit',
+      answer_code: 'pricing_licensing',
+      is_selected: true,
+    },
+  )
 
   const textEvent = createDemoFeedbackTextAnalyticsEvent('gantt', {
     questionId: 'not_fit_follow_up',
@@ -589,8 +804,14 @@ test('builds a normalized anonymous v4 payload with rich evaluation context', ()
   let state = recordDemoView(initial(), 'grid-at-scale', NOW)
   state = addDemoVisibleTime(state, 'grid-at-scale', 50_900)
   state = recordDemoView(state, 'pivot', NOW + 10)
-  state = recordDemoInteraction(state, 'grid-at-scale', { at: NOW + 1_000, manipulatedData: true }).state
-  state = recordDemoInteraction(state, 'grid-at-scale', { at: NOW + 2_000, manipulatedData: true }).state
+  state = recordDemoInteraction(state, 'grid-at-scale', {
+    at: NOW + 1_000,
+    manipulatedData: true,
+  }).state
+  state = recordDemoInteraction(state, 'grid-at-scale', {
+    at: NOW + 2_000,
+    manipulatedData: true,
+  }).state
 
   const payload = createDemoFeedbackPayload({
     demo: PRODUCT_CATALOG.demos['grid-at-scale'],
@@ -623,8 +844,14 @@ test('builds a normalized anonymous v4 payload with rich evaluation context', ()
   assert.equal('consent' in payload, false)
   assert.match(payload.applicationInfo, /RevoGrid demo evaluation feedback/)
   assert.match(payload.applicationInfo, /Demo: Grid at Scale \(grid-at-scale\)/)
-  assert.match(payload.applicationInfo, /Evaluation status: I need to check a few things first \(needs_more_information\)/)
-  assert.match(payload.applicationInfo, /Try it with my own data volume \(performance_data_volume\)/)
+  assert.match(
+    payload.applicationInfo,
+    /Evaluation status: I need to check a few things first \(needs_more_information\)/,
+  )
+  assert.match(
+    payload.applicationInfo,
+    /Try it with my own data volume \(performance_data_volume\)/,
+  )
   assert.match(payload.applicationInfo, /Expected row volume: over_1m/)
   assert.match(payload.applicationInfo, /Time on selected demo: 50 seconds/)
   assert.match(payload.applicationInfo, /Demos viewed: grid-at-scale, pivot/)
@@ -654,21 +881,40 @@ test('uses the comparison field only for the comparison branch and trims it', ()
 test('derives the two Lite and Advanced next actions from the catalog', () => {
   const openSource = getDemoFeedbackReadyBranch(PRODUCT_CATALOG.demos['grid-at-scale'])
   assert.equal(openSource.actions.length, 2)
-  assert.ok(openSource.actions.some(({ code, href }) => code === 'use_open_source' && href?.includes('npmjs.com')))
-  assert.ok(openSource.actions.some(({ code, href }) => code === 'explore_pro_features' && href?.startsWith('/pro/')))
+  assert.ok(
+    openSource.actions.some(
+      ({ code, href }) => code === 'use_open_source' && href?.includes('npmjs.com'),
+    ),
+  )
+  assert.ok(
+    openSource.actions.some(
+      ({ code, href }) => code === 'explore_pro_features' && href?.startsWith('/pro/'),
+    ),
+  )
 
   const pro = getDemoFeedbackReadyBranch(PRODUCT_CATALOG.demos.gantt)
   assert.equal(pro.actions.length, 2)
-  assert.ok(pro.actions.some(({ code, href }) => code === 'start_pro_trial'
-    && href?.startsWith('/trial?')
-    && href.includes('demo=gantt')))
-  assert.ok(pro.actions.some(({ code, href, label }) => code === 'view_documentation'
-    && label === 'View implementation guide'
-    && href?.startsWith('/gantt?')))
+  assert.ok(
+    pro.actions.some(
+      ({ code, href }) =>
+        code === 'start_pro_trial' && href?.startsWith('/trial?') && href.includes('demo=gantt'),
+    ),
+  )
+  assert.ok(
+    pro.actions.some(
+      ({ code, href, label }) =>
+        code === 'view_documentation' &&
+        label === 'View implementation guide' &&
+        href?.startsWith('/gantt?'),
+    ),
+  )
   const lite = getDemoFeedbackReadyBranch(PRODUCT_CATALOG.demos.excel)
   assert.equal(lite.actions.length, 2)
   assert.ok(lite.actions.some(({ code }) => code === 'use_open_source'))
-  assert.equal(lite.actions.some(({ code }) => code === 'start_pro_trial'), false)
+  assert.equal(
+    lite.actions.some(({ code }) => code === 'start_pro_trial'),
+    false,
+  )
 })
 
 test('recognizes conversion CTAs without treating demo navigation as conversion', () => {

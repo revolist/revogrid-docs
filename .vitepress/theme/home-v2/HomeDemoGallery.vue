@@ -57,7 +57,10 @@ const { linkOf } = useHomeV2Links()
   overflow: hidden;
   cursor: pointer;
   text-decoration: none;
-  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    transform 0.15s,
+    box-shadow 0.15s;
 
   &:hover {
     border-color: var(--rg-border-hover);

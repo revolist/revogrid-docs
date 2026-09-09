@@ -30,12 +30,7 @@
                 loop
                 playsinline
               ></video>
-              <img
-                v-else
-                :src="item.media"
-                :alt="item.title"
-                loading="lazy"
-              >
+              <img v-else :src="item.media" :alt="item.title" loading="lazy" />
             </div>
             <div class="demo-copy">
               <h3>{{ item.title }}</h3>
@@ -61,7 +56,8 @@
               :key="action.href"
               :href="resolveLandingLink(action.href)"
               :variant="action.variant"
-            >{{ action.label }}</ProDocButton>
+              >{{ action.label }}</ProDocButton
+            >
           </div>
         </div>
 
@@ -122,7 +118,10 @@
     <section
       v-if="page.useCases"
       :id="page.useCases.id"
-      :class="['content-section', page.useCases.items.some((item) => item.theme) ? 'use-cases-section--themed' : '']"
+      :class="[
+        'content-section',
+        page.useCases.items.some(item => item.theme) ? 'use-cases-section--themed' : '',
+      ]"
     >
       <div class="container">
         <div class="section-kicker">{{ page.useCases.kicker }}</div>
@@ -168,7 +167,7 @@
                 height="675"
                 loading="lazy"
                 decoding="async"
-              >
+              />
             </div>
             <div class="use-case-copy">
               <h3>{{ item.title }}</h3>
@@ -186,7 +185,11 @@
       </div>
     </section>
 
-    <section v-if="page.evaluation" :id="page.evaluation.id" class="content-section evaluation-section">
+    <section
+      v-if="page.evaluation"
+      :id="page.evaluation.id"
+      class="content-section evaluation-section"
+    >
       <div class="container evaluation-shell">
         <div>
           <div class="section-kicker">{{ page.evaluation.kicker }}</div>
@@ -198,7 +201,8 @@
               :key="action.href"
               :href="resolveLandingLink(action.href)"
               :variant="action.variant"
-            >{{ action.label }}</ProDocButton>
+              >{{ action.label }}</ProDocButton
+            >
           </div>
         </div>
         <div class="evaluation-card">
@@ -221,7 +225,11 @@
         </p>
 
         <div class="resource-grid">
-          <div v-for="section in page.linkSections.sections" :key="section.title" class="resource-group">
+          <div
+            v-for="section in page.linkSections.sections"
+            :key="section.title"
+            class="resource-group"
+          >
             <h3>{{ section.title }}</h3>
             <a
               v-for="item in section.items"
@@ -275,8 +283,12 @@ import GanttIntegrations from './GanttIntegrations.vue'
 import { mergeGanttPageConfig } from './ganttLanding'
 
 const { frontmatter, isDark } = useData()
-const rvGridBaseUrl = trimTrailingSlash(import.meta.env.VITE_RV_GRID_BASE_URL || 'https://rv-grid.com')
-const rvGridProBaseUrl = trimTrailingSlash(import.meta.env.VITE_RV_GRID_PRO_BASE_URL || 'https://pro.rv-grid.com')
+const rvGridBaseUrl = trimTrailingSlash(
+  import.meta.env.VITE_RV_GRID_BASE_URL || 'https://rv-grid.com',
+)
+const rvGridProBaseUrl = trimTrailingSlash(
+  import.meta.env.VITE_RV_GRID_PRO_BASE_URL || 'https://pro.rv-grid.com',
+)
 const page = computed(() => {
   const merged = mergeGanttPageConfig(frontmatter.value.ganttLanding ?? {})
   const product = getProduct(merged.catalogProductId)
@@ -301,11 +313,13 @@ const page = computed(() => {
             },
             {
               title: plan.billingSummary,
-              description: 'Licensed applications can be deployed without per-deployment or per-end-user charges, subject to the license terms.',
+              description:
+                'Licensed applications can be deployed without per-deployment or per-end-user charges, subject to the license terms.',
             },
             {
               title: `Full ${plan.name} bundle`,
-              description: 'Includes Pivot, Kanban, Gantt, Scheduler, original private source access, and priority support.',
+              description:
+                'Includes Pivot, Kanban, Gantt, Scheduler, original private source access, and priority support.',
             },
           ],
           actions: [
@@ -317,7 +331,12 @@ const page = computed(() => {
     faq: merged.faq
       ? { ...merged.faq, items: [...merged.faq.items, ...commercialFaqs] }
       : commercialFaqs.length
-        ? { id: `${merged.catalogProductId}-faq`, kicker: 'FAQ', title: `${product.name} questions`, items: commercialFaqs }
+        ? {
+            id: `${merged.catalogProductId}-faq`,
+            kicker: 'FAQ',
+            title: `${product.name} questions`,
+            items: commercialFaqs,
+          }
         : undefined,
     cta: merged.cta
       ? {
@@ -328,9 +347,9 @@ const page = computed(() => {
       : undefined,
   }
 })
-const faqData = computed(() => page.value.faq
-  ? { heading: page.value.faq.title, items: page.value.faq.items }
-  : undefined)
+const faqData = computed(() =>
+  page.value.faq ? { heading: page.value.faq.title, items: page.value.faq.items } : undefined,
+)
 const proAdvancedUsdYear = resolvePlanPrice('pro-advanced').year.USD
 const pageStyle = computed(() => ({
   '--gantt-accent': isDark.value ? page.value.colors.darkAccent : page.value.colors.accent,
@@ -384,7 +403,7 @@ function resolveLandingLink(href: string) {
 }
 
 :global(.gantt-page-doc .VPDoc .container),
-:global(.gantt-page-doc .VPDoc .content)  {
+:global(.gantt-page-doc .VPDoc .content) {
   max-width: 1240px !important;
   padding: 0 !important;
 }
@@ -522,7 +541,10 @@ function resolveLandingLink(href: string) {
   background: var(--rg-bg-2);
   color: inherit;
   text-decoration: none;
-  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
 
   &[href]:hover {
     border-color: var(--rg-border-hover);
@@ -601,47 +623,72 @@ function resolveLandingLink(href: string) {
   border-color: #30364f;
   background: #111522;
 
-  .use-case-media { border-bottom-color: #30364f; }
-  .use-case-copy h3 { color: #f8fafc; }
-  .use-case-copy p { color: #b7bfd0; }
+  .use-case-media {
+    border-bottom-color: #30364f;
+  }
+  .use-case-copy h3 {
+    color: #f8fafc;
+  }
+  .use-case-copy p {
+    color: #b7bfd0;
+  }
 }
 
 .use-case-card--product-delivery {
   background: #0d122c;
 
-  .use-case-copy strong { color: #a99cff; }
+  .use-case-copy strong {
+    color: #a99cff;
+  }
 }
 
 .use-case-card--sales-onboarding {
   border-color: #343b2b;
   background: #10130e;
 
-  .use-case-copy strong { color: #b8e24c; }
+  .use-case-copy strong {
+    color: #b8e24c;
+  }
 }
 
 .use-case-card--content-approvals {
   border-color: #d9c8ba;
   background: #faf2e8;
 
-  .use-case-copy h3 { color: #2b1b18; font-family: Georgia, 'Times New Roman', serif; }
-  .use-case-copy p { color: #735f57; }
-  .use-case-copy strong { color: #a23838; }
+  .use-case-copy h3 {
+    color: #2b1b18;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+  .use-case-copy p {
+    color: #735f57;
+  }
+  .use-case-copy strong {
+    color: #a23838;
+  }
 }
 
 .use-case-card--quality-manufacturing {
   border-color: #42474e;
   background: #202327;
 
-  .use-case-copy strong { color: #ffbd3f; }
+  .use-case-copy strong {
+    color: #ffbd3f;
+  }
 }
 
 .use-case-card--internal-workflows {
   border-color: #c7bde3;
   background: #f4f0ff;
 
-  .use-case-copy h3 { color: #30284b; }
-  .use-case-copy p { color: #6b6280; }
-  .use-case-copy strong { color: #177d5b; }
+  .use-case-copy h3 {
+    color: #30284b;
+  }
+  .use-case-copy p {
+    color: #6b6280;
+  }
+  .use-case-copy strong {
+    color: #177d5b;
+  }
 }
 
 .content-card,
@@ -708,7 +755,9 @@ function resolveLandingLink(href: string) {
   }
 }
 
-.standard-faq-section :deep(.commercial-faq) { margin: 0; }
+.standard-faq-section :deep(.commercial-faq) {
+  margin: 0;
+}
 
 .resource-group {
   padding: 22px;
@@ -742,7 +791,9 @@ function resolveLandingLink(href: string) {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 
-  @media (max-width: 900px) { grid-template-columns: 1fr; }
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .demo-card {
@@ -752,11 +803,19 @@ function resolveLandingLink(href: string) {
   background: var(--rg-bg-2);
   color: inherit;
   text-decoration: none;
-  transition: transform 0.18s ease, border-color 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease;
 
-  &:hover { border-color: var(--rg-border-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); }
+  &:hover {
+    border-color: var(--rg-border-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
 
-  &:only-child { grid-column: 1 / -1; }
+  &:only-child {
+    grid-column: 1 / -1;
+  }
 }
 
 .demo-media {
@@ -765,36 +824,118 @@ function resolveLandingLink(href: string) {
   overflow: hidden;
   background: var(--rg-bg-3);
 
-  img, video { width: 100%; height: 100%; object-position: top right; margin: 0; }
-  img { object-fit: cover; }
-  video { object-fit: fill; }
-  .media-contain { object-fit: contain; }
+  img,
+  video {
+    width: 100%;
+    height: 100%;
+    object-position: top right;
+    margin: 0;
+  }
+  img {
+    object-fit: cover;
+  }
+  video {
+    object-fit: fill;
+  }
+  .media-contain {
+    object-fit: contain;
+  }
 }
 
 .demo-copy {
   padding: 20px;
-  h3 { margin: 0 0 8px; font-size: 17px; }
-  p { min-height: 66px; margin: 0 0 14px; color: var(--rg-text-2); font-size: 14px; line-height: 1.6; }
-  strong { color: var(--rg-font-green); font-size: 13px; }
+  h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+  }
+  p {
+    min-height: 66px;
+    margin: 0 0 14px;
+    color: var(--rg-text-2);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  strong {
+    color: var(--rg-font-green);
+    font-size: 13px;
+  }
 }
-.evaluation-shell { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr); gap: 48px; align-items: center; @media (max-width: 860px) { grid-template-columns: 1fr; } }
-.evaluation-card { padding: 30px; border: 1px solid var(--rg-border); border-radius: 16px; background: var(--rg-bg); > span { color: var(--rg-text-3); font-size: 12px; text-transform: uppercase; } > strong { display: block; margin: 5px 0 22px; color: var(--rg-font-green); font-size: 34px; } article { padding: 15px 0; border-top: 1px solid var(--rg-border); h3 { margin: 0 0 4px; font-size: 14px; } p { margin: 0; color: var(--rg-text-2); font-size: 13px; line-height: 1.6; } } }
-.evaluation-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.evaluation-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr);
+  gap: 48px;
+  align-items: center;
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+  }
+}
+.evaluation-card {
+  padding: 30px;
+  border: 1px solid var(--rg-border);
+  border-radius: 16px;
+  background: var(--rg-bg);
+  > span {
+    color: var(--rg-text-3);
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  > strong {
+    display: block;
+    margin: 5px 0 22px;
+    color: var(--rg-font-green);
+    font-size: 34px;
+  }
+  article {
+    padding: 15px 0;
+    border-top: 1px solid var(--rg-border);
+    h3 {
+      margin: 0 0 4px;
+      font-size: 14px;
+    }
+    p {
+      margin: 0;
+      color: var(--rg-text-2);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+  }
+}
+.evaluation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
 :deep(.pro-stats) {
   margin-top: 30px;
 }
 
-:deep(.pro-stats__item strong) { color: var(--rg-text); }
-:deep(.pro-stats__item span) { color: var(--rg-text-3); }
+:deep(.pro-stats__item strong) {
+  color: var(--rg-text);
+}
+:deep(.pro-stats__item span) {
+  color: var(--rg-text-3);
+}
 
 :deep(.feature-grid) {
   border-radius: 16px;
 }
 
-:deep(.feature-card) { background: var(--rg-bg); }
-:deep(.feature-card:hover) { background: var(--rg-bg-2); }
-:deep(.feature-card h3) { color: var(--rg-text); }
-:deep(.feature-card p) { color: var(--rg-text-2); }
-:deep(.feature-tags span) { border-color: var(--rg-border); color: var(--rg-text-3); background: var(--rg-bg-2); }
+:deep(.feature-card) {
+  background: var(--rg-bg);
+}
+:deep(.feature-card:hover) {
+  background: var(--rg-bg-2);
+}
+:deep(.feature-card h3) {
+  color: var(--rg-text);
+}
+:deep(.feature-card p) {
+  color: var(--rg-text-2);
+}
+:deep(.feature-tags span) {
+  border-color: var(--rg-border);
+  color: var(--rg-text-3);
+  background: var(--rg-bg-2);
+}
 </style>

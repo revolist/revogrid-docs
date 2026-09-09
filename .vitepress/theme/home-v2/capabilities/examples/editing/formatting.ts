@@ -5,9 +5,7 @@ const unitsNumberFormat = {
 } as const
 
 export const spreadsheetFormatting: DataGridFormattingPresetState = {
-  columns: [
-    { column: 2, format: unitsNumberFormat },
-  ],
+  columns: [{ column: 2, format: unitsNumberFormat }],
   cells: [
     {
       range: { start: { row: 3, column: 2 } },

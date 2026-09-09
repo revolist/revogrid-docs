@@ -34,11 +34,13 @@ const props = defineProps<ColumnDataSchemaModel & { model: TreeCellModel }>()
 const indentStyle = computed(() => ({ paddingLeft: `${10 + props.model.depth * 18}px` }))
 
 function toggleBranch(event: MouseEvent) {
-  event.currentTarget?.dispatchEvent(new CustomEvent('tree-toggle', {
-    bubbles: true,
-    composed: true,
-    detail: { id: props.model.id },
-  }))
+  event.currentTarget?.dispatchEvent(
+    new CustomEvent('tree-toggle', {
+      bubbles: true,
+      composed: true,
+      detail: { id: props.model.id },
+    }),
+  )
 }
 </script>
 
@@ -57,9 +59,24 @@ function toggleBranch(event: MouseEvent) {
   text-align: left;
 }
 
-button.excel-tree-cell { cursor: pointer; }
-button.excel-tree-cell:hover { color: var(--xl-accent); }
-button.excel-tree-cell:focus-visible { outline: 2px solid var(--xl-accent); outline-offset: -2px; }
-.excel-tree-cell .fa-svg-icon { flex: 0 0 11px; width: 11px; height: 11px; color: var(--xl-accent); }
-.excel-tree-cell__leaf-space { flex: 0 0 11px; width: 11px; }
+button.excel-tree-cell {
+  cursor: pointer;
+}
+button.excel-tree-cell:hover {
+  color: var(--xl-accent);
+}
+button.excel-tree-cell:focus-visible {
+  outline: 2px solid var(--xl-accent);
+  outline-offset: -2px;
+}
+.excel-tree-cell .fa-svg-icon {
+  flex: 0 0 11px;
+  width: 11px;
+  height: 11px;
+  color: var(--xl-accent);
+}
+.excel-tree-cell__leaf-space {
+  flex: 0 0 11px;
+  width: 11px;
+}
 </style>

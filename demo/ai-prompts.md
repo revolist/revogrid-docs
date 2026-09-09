@@ -1,6 +1,6 @@
 ---
-title: AI Prompt Library Data Grid Demo
-description: Explore a searchable, filterable, and editable AI prompt catalog with multiline content and instant local data loading in the open-source Core grid.
+title: RevoGrid AI Prompt Library Demo
+description: Explore 100 searchable, filterable, and editable prompts for building, debugging, optimizing, and extending RevoGrid.
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false
@@ -11,7 +11,7 @@ editLink: false
 head:
   - - meta
     - name: keywords
-      content: AI prompt library, prompt catalog, editable data grid, multiline grid editor, open source data grid, Vue data grid demo
+      content: RevoGrid AI prompts, RevoGrid prompt library, data grid development, editable data grid, multiline grid editor, open source data grid
 ---
 
 <script setup>

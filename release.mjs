@@ -1,76 +1,69 @@
-import fs from 'fs';
-import path from 'path';
-import chalk from 'chalk';
-import minimist from 'minimist';
-import { execa } from 'execa';
-import { fileURLToPath } from 'url';
+import fs from 'fs'
+import path from 'path'
+import chalk from 'chalk'
+import minimist from 'minimist'
+import { execa } from 'execa'
+import { fileURLToPath } from 'url'
 
 // Define __dirname and __filename for ESM
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
-const dependencyName = '@revolist/vue3-datagrid';
+const dependencyName = '@revolist/vue3-datagrid'
 
 // Parse command-line arguments
-const args = minimist(process.argv.slice(2));
-const newVersion = args.version;
+const args = minimist(process.argv.slice(2))
+const newVersion = args.version
 
 if (!newVersion) {
-  console.error(chalk.red('Error: Please provide a version using --version'));
-  process.exit(1);
+  console.error(chalk.red('Error: Please provide a version using --version'))
+  process.exit(1)
 }
 
 function updateDependencyVersion(packageJson, type, dependencyName, version) {
-    // Update dependency version
-    if (packageJson[type] && packageJson[type][dependencyName]) {
-      packageJson[type][dependencyName] = version;
-      console.log(
-        chalk.green(
-          `Updated dependency ${dependencyName} to version ${version} in ${packageJson.name}`,
-        ),
-      );
-    }
+  // Update dependency version
+  if (packageJson[type] && packageJson[type][dependencyName]) {
+    packageJson[type][dependencyName] = version
+    console.log(
+      chalk.green(
+        `Updated dependency ${dependencyName} to version ${version} in ${packageJson.name}`,
+      ),
+    )
+  }
 }
 
-
-
 async function updatePackageJsonVersion(packageDir, version) {
-  const packageJsonPath = path.join(packageDir, 'package.json');
+  const packageJsonPath = path.join(packageDir, 'package.json')
 
   if (fs.existsSync(packageJsonPath)) {
-    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
-    packageJson.version = version;
-    updateDependencyVersion(packageJson, 'dependencies', dependencyName, version);
-    updateDependencyVersion(packageJson, 'devDependencies', dependencyName, version);
-    updateDependencyVersion(packageJson, 'peerDependencies', dependencyName, version);
+    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'))
+    packageJson.version = version
+    updateDependencyVersion(packageJson, 'dependencies', dependencyName, version)
+    updateDependencyVersion(packageJson, 'devDependencies', dependencyName, version)
+    updateDependencyVersion(packageJson, 'peerDependencies', dependencyName, version)
 
-    fs.writeFileSync(
-      packageJsonPath,
-      JSON.stringify(packageJson, null, 2) + '\n',
-    );
+    fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n')
 
-     // Run npm install to update package-lock.json
-     try {
-      await execa('npm', ['install'], { cwd: packageDir, stdio: 'inherit' });
-      console.log(chalk.green(`Updated package-lock.json for ${packageJson.name}`));
+    // Run npm install to update package-lock.json
+    try {
+      await execa('npm', ['install'], { cwd: packageDir, stdio: 'inherit' })
+      console.log(chalk.green(`Updated package-lock.json for ${packageJson.name}`))
     } catch (error) {
-      console.log(chalk.red(`Failed to update package-lock.json in ${packageDir}`));
-      console.error(error);
+      console.log(chalk.red(`Failed to update package-lock.json in ${packageDir}`))
+      console.error(error)
     }
 
-    console.log(
-      chalk.green(`Updated ${packageJson.name} to version ${version}`),
-    );
+    console.log(chalk.green(`Updated ${packageJson.name} to version ${version}`))
   } else {
-    console.log(chalk.red(`package.json not found in ${packageDir}`));
+    console.log(chalk.red(`package.json not found in ${packageDir}`))
   }
 }
 
 async function main() {
-  const fullPath = path.resolve(__dirname);
-  await updatePackageJsonVersion(fullPath, newVersion);
+  const fullPath = path.resolve(__dirname)
+  await updatePackageJsonVersion(fullPath, newVersion)
 
-  console.log(chalk.blue('Version update complete.'));
+  console.log(chalk.blue('Version update complete.'))
 }
 
-main();
+main()

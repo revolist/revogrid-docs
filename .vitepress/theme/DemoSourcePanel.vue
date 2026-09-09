@@ -1,34 +1,296 @@
 <template>
-  <aside ref="panelRef" class="demo-source" role="dialog" aria-modal="true" aria-labelledby="demo-source-title" @keydown="onKeydown">
-    <header><h2 id="demo-source-title">Use this example</h2><div class="demo-source__header-actions"><button class="demo-source__fullscreen" type="button" :aria-label="fullscreen ? 'Exit full screen code' : 'Full screen code'" :title="fullscreen ? 'Exit full screen' : 'Full screen'" @click="toggleFullscreen"><FontAwesomeSvgIcon name="expand" /></button><button ref="closeRef" type="button" aria-label="Back to demo" @click="$emit('close')"><span class="demo-source__back">Back to demo</span><span class="demo-source__close" aria-hidden="true">×</span></button></div></header>
-    <nav role="tablist" aria-label="Source framework"><button v-for="(entry, id) in sources" :key="id" type="button" role="tab" :aria-selected="framework === id" :class="{ active: framework === id }" @click="selectFramework(id as DemoSourceFramework)">{{ entry.label }}</button></nav>
-    <label class="demo-source__file"><span>File</span><select v-model.number="fileIndex"><option v-for="(item, index) in current.files" :key="item.path" :value="index">{{ item.label }}</option></select></label>
+  <aside
+    ref="panelRef"
+    class="demo-source"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="demo-source-title"
+    @keydown="onKeydown"
+  >
+    <header>
+      <h2 id="demo-source-title">Use this example</h2>
+      <div class="demo-source__header-actions">
+        <button
+          class="demo-source__fullscreen"
+          type="button"
+          :aria-label="fullscreen ? 'Exit full screen code' : 'Full screen code'"
+          :title="fullscreen ? 'Exit full screen' : 'Full screen'"
+          @click="toggleFullscreen"
+        >
+          <FontAwesomeSvgIcon name="expand" /></button
+        ><button ref="closeRef" type="button" aria-label="Back to demo" @click="$emit('close')">
+          <span class="demo-source__back">Back to demo</span
+          ><span class="demo-source__close" aria-hidden="true">×</span>
+        </button>
+      </div>
+    </header>
+    <nav role="tablist" aria-label="Source framework">
+      <button
+        v-for="(entry, id) in sources"
+        :key="id"
+        type="button"
+        role="tab"
+        :aria-selected="framework === id"
+        :class="{ active: framework === id }"
+        @click="selectFramework(id as DemoSourceFramework)"
+      >
+        {{ entry.label }}
+      </button>
+    </nav>
+    <label class="demo-source__file"
+      ><span>File</span
+      ><select v-model.number="fileIndex">
+        <option v-for="(item, index) in current.files" :key="item.path" :value="index">
+          {{ item.label }}
+        </option>
+      </select></label
+    >
     <div class="demo-source__code">
-      <p v-if="loading">Loading source…</p><div v-else-if="error"><p>{{ error }}</p><button type="button" @click="load">Retry</button></div><pre v-else-if="plainText"><code>{{ rawSource }}</code></pre><div v-else v-html="highlighted"></div>
+      <p v-if="loading">Loading source…</p>
+      <div v-else-if="error">
+        <p>{{ error }}</p>
+        <button type="button" @click="load">Retry</button>
+      </div>
+      <pre v-else-if="plainText"><code>{{ rawSource }}</code></pre>
+      <div v-else v-html="highlighted"></div>
     </div>
-    <footer><button type="button" @click="copy(rawSource)">{{ copyState }}</button></footer>
+    <footer>
+      <button type="button" @click="copy(rawSource)">{{ copyState }}</button>
+    </footer>
   </aside>
 </template>
 <script setup lang="ts">
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
-import { codeToHtml } from 'shiki';
-import FontAwesomeSvgIcon from './home-v2/FontAwesomeSvgIcon.vue';
-import { loadDemoSource, type DemoSourceFramework, type DemoSourceEntry } from './demoSources';
-const props = defineProps<{ sources: Record<DemoSourceFramework, DemoSourceEntry>; dark: boolean }>();
-const emit = defineEmits<{ close: []; framework: [value: DemoSourceFramework]; copy: [] }>();
-const remembered = typeof sessionStorage === 'undefined' ? null : sessionStorage.getItem('revogrid-demo-source-framework');
-const framework = ref<DemoSourceFramework>(remembered && remembered in props.sources ? remembered as DemoSourceFramework : 'vue');
-const fileIndex = ref(0); const rawSource = ref(''); const highlighted = ref(''); const plainText = ref(false); const loading = ref(true); const error = ref(''); const copyState = ref('Copy file'); const fullscreen = ref(false); const panelRef = ref<HTMLElement>(); const closeRef = ref<HTMLButtonElement>();
-const current = computed(() => props.sources[framework.value]);
-function selectFramework(value: DemoSourceFramework) { framework.value = value; fileIndex.value = 0; sessionStorage.setItem('revogrid-demo-source-framework', value); emit('framework', value); }
-async function load() { loading.value = true; error.value = ''; plainText.value = false; try { rawSource.value = await loadDemoSource(current.value.files[fileIndex.value]); try { highlighted.value = await codeToHtml(rawSource.value, { lang: current.value.files[fileIndex.value].lang, theme: props.dark ? 'github-dark-high-contrast' : 'github-light' }); } catch { highlighted.value = ''; plainText.value = true; } } catch { rawSource.value = ''; highlighted.value = ''; error.value = 'Source could not be loaded.'; } finally { loading.value = false; } }
-async function copy(value: string) { try { await navigator.clipboard.writeText(value); copyState.value = 'Copied'; emit('copy'); setTimeout(() => copyState.value = 'Copy file', 1400); } catch { copyState.value = 'Copy failed'; } }
-async function toggleFullscreen() { if (!panelRef.value) return; if (document.fullscreenElement === panelRef.value) await document.exitFullscreen(); else await panelRef.value.requestFullscreen(); }
-function syncFullscreen() { fullscreen.value = document.fullscreenElement === panelRef.value; }
-function onKeydown(event: KeyboardEvent) { if (event.key === 'Escape' && !document.fullscreenElement) emit('close'); if (event.key !== 'Tab') return; const focusable = [...(panelRef.value?.querySelectorAll<HTMLElement>('button,a,select') ?? [])].filter(item => !item.hasAttribute('disabled')); if (!focusable.length) return; const first = focusable[0]; const last = focusable.at(-1)!; if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); } else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); } }
-watch([framework, fileIndex, () => props.dark], load, { immediate: true }); onMounted(() => { document.addEventListener('fullscreenchange', syncFullscreen); nextTick(() => closeRef.value?.focus()); }); onBeforeUnmount(() => document.removeEventListener('fullscreenchange', syncFullscreen));
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { codeToHtml } from 'shiki'
+import FontAwesomeSvgIcon from './home-v2/FontAwesomeSvgIcon.vue'
+import { loadDemoSource, type DemoSourceFramework, type DemoSourceEntry } from './demoSources'
+const props = defineProps<{
+  sources: Record<DemoSourceFramework, DemoSourceEntry>
+  dark: boolean
+}>()
+const emit = defineEmits<{ close: []; framework: [value: DemoSourceFramework]; copy: [] }>()
+const remembered =
+  typeof sessionStorage === 'undefined'
+    ? null
+    : sessionStorage.getItem('revogrid-demo-source-framework')
+const framework = ref<DemoSourceFramework>(
+  remembered && remembered in props.sources ? (remembered as DemoSourceFramework) : 'vue',
+)
+const fileIndex = ref(0)
+const rawSource = ref('')
+const highlighted = ref('')
+const plainText = ref(false)
+const loading = ref(true)
+const error = ref('')
+const copyState = ref('Copy file')
+const fullscreen = ref(false)
+const panelRef = ref<HTMLElement>()
+const closeRef = ref<HTMLButtonElement>()
+const current = computed(() => props.sources[framework.value])
+function selectFramework(value: DemoSourceFramework) {
+  framework.value = value
+  fileIndex.value = 0
+  sessionStorage.setItem('revogrid-demo-source-framework', value)
+  emit('framework', value)
+}
+async function load() {
+  loading.value = true
+  error.value = ''
+  plainText.value = false
+  try {
+    rawSource.value = await loadDemoSource(current.value.files[fileIndex.value])
+    try {
+      highlighted.value = await codeToHtml(rawSource.value, {
+        lang: current.value.files[fileIndex.value].lang,
+        theme: props.dark ? 'github-dark-high-contrast' : 'github-light',
+      })
+    } catch {
+      highlighted.value = ''
+      plainText.value = true
+    }
+  } catch {
+    rawSource.value = ''
+    highlighted.value = ''
+    error.value = 'Source could not be loaded.'
+  } finally {
+    loading.value = false
+  }
+}
+async function copy(value: string) {
+  try {
+    await navigator.clipboard.writeText(value)
+    copyState.value = 'Copied'
+    emit('copy')
+    setTimeout(() => (copyState.value = 'Copy file'), 1400)
+  } catch {
+    copyState.value = 'Copy failed'
+  }
+}
+async function toggleFullscreen() {
+  if (!panelRef.value) return
+  if (document.fullscreenElement === panelRef.value) await document.exitFullscreen()
+  else await panelRef.value.requestFullscreen()
+}
+function syncFullscreen() {
+  fullscreen.value = document.fullscreenElement === panelRef.value
+}
+function onKeydown(event: KeyboardEvent) {
+  if (event.key === 'Escape' && !document.fullscreenElement) emit('close')
+  if (event.key !== 'Tab') return
+  const focusable = [
+    ...(panelRef.value?.querySelectorAll<HTMLElement>('button,a,select') ?? []),
+  ].filter(item => !item.hasAttribute('disabled'))
+  if (!focusable.length) return
+  const first = focusable[0]
+  const last = focusable.at(-1)!
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault()
+    last.focus()
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault()
+    first.focus()
+  }
+}
+watch([framework, fileIndex, () => props.dark], load, { immediate: true })
+onMounted(() => {
+  document.addEventListener('fullscreenchange', syncFullscreen)
+  nextTick(() => closeRef.value?.focus())
+})
+onBeforeUnmount(() => document.removeEventListener('fullscreenchange', syncFullscreen))
 </script>
 <style scoped>
-.demo-source{display:grid;grid-template-rows:auto auto auto minmax(0,1fr) auto;width:420px;min-width:420px;height:100%;border-left:1px solid var(--vp-c-divider);background:var(--vp-c-bg);font-size:13px;line-height:20px}.demo-source:fullscreen{width:100%;min-width:0;border-left:0}.demo-source header,.demo-source footer,.demo-source nav,.demo-source__file,.demo-source__header-actions{display:flex;align-items:center}.demo-source header{justify-content:space-between;padding:0 18px 16px}.demo-source h2{margin:0;border:0;font-size:17px}.demo-source button,.demo-source select{border:1px solid var(--vp-c-divider);border-radius:6px;background:var(--vp-c-bg);color:inherit}.demo-source__header-actions{gap:8px}.demo-source header button{height:34px;padding:0 10px;font-size:13px}.demo-source header .demo-source__fullscreen{display:inline-flex;width:34px;align-items:center;justify-content:center;padding:0}.demo-source__back{display:none}.demo-source__close{font-size:22px}.demo-source nav{padding:0 18px;border-bottom:1px solid var(--vp-c-divider)}.demo-source nav button{height:38px;padding:0 10px;border:0;border-bottom:2px solid transparent;border-radius:0}.demo-source nav button.active{border-color:var(--vp-c-brand-1);color:var(--vp-c-brand-1)}.demo-source__file{gap:10px;padding:12px 18px}.demo-source__file select{height:34px;min-width:0;flex:1;padding:0 8px}.demo-source__code{min-height:0;overflow:auto;margin:0 18px 12px;border:1px solid var(--vp-c-divider);border-radius:6px}.demo-source__code :deep(pre){min-height:100%;margin:0!important;padding:14px!important;border-radius:0!important;font-size:12px!important;line-height:19px!important}.demo-source footer{justify-content:flex-start;padding:12px 18px;border-top:1px solid var(--vp-c-divider)}.demo-source footer button{height:30px;padding:0 9px}@media(max-width:1099px){.demo-source{position:absolute;z-index:2;inset:0;width:100%;min-width:0}.demo-source__back{display:inline}.demo-source__close{display:none}}
-.demo-source__code>pre{min-height:100%;margin:0;padding:14px;background:var(--vp-code-block-bg);font-size:12px;line-height:19px;white-space:pre}
+.demo-source {
+  display: grid;
+  grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+  width: 420px;
+  min-width: 420px;
+  height: 100%;
+  border-left: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg);
+  font-size: 13px;
+  line-height: 20px;
+}
+.demo-source:fullscreen {
+  width: 100%;
+  min-width: 0;
+  border-left: 0;
+}
+.demo-source header,
+.demo-source footer,
+.demo-source nav,
+.demo-source__file,
+.demo-source__header-actions {
+  display: flex;
+  align-items: center;
+}
+.demo-source header {
+  justify-content: space-between;
+  padding: 0 18px 16px;
+}
+.demo-source h2 {
+  margin: 0;
+  border: 0;
+  font-size: 17px;
+}
+.demo-source button,
+.demo-source select {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  background: var(--vp-c-bg);
+  color: inherit;
+}
+.demo-source__header-actions {
+  gap: 8px;
+}
+.demo-source header button {
+  height: 34px;
+  padding: 0 10px;
+  font-size: 13px;
+}
+.demo-source header .demo-source__fullscreen {
+  display: inline-flex;
+  width: 34px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.demo-source__back {
+  display: none;
+}
+.demo-source__close {
+  font-size: 22px;
+}
+.demo-source nav {
+  padding: 0 18px;
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+.demo-source nav button {
+  height: 38px;
+  padding: 0 10px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+}
+.demo-source nav button.active {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+.demo-source__file {
+  gap: 10px;
+  padding: 12px 18px;
+}
+.demo-source__file select {
+  height: 34px;
+  min-width: 0;
+  flex: 1;
+  padding: 0 8px;
+}
+.demo-source__code {
+  min-height: 0;
+  overflow: auto;
+  margin: 0 18px 12px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+}
+.demo-source__code :deep(pre) {
+  min-height: 100%;
+  margin: 0 !important;
+  padding: 14px !important;
+  border-radius: 0 !important;
+  font-size: 12px !important;
+  line-height: 19px !important;
+}
+.demo-source footer {
+  justify-content: flex-start;
+  padding: 12px 18px;
+  border-top: 1px solid var(--vp-c-divider);
+}
+.demo-source footer button {
+  height: 30px;
+  padding: 0 9px;
+}
+@media (max-width: 1099px) {
+  .demo-source {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    width: 100%;
+    min-width: 0;
+  }
+  .demo-source__back {
+    display: inline;
+  }
+  .demo-source__close {
+    display: none;
+  }
+}
+.demo-source__code > pre {
+  min-height: 100%;
+  margin: 0;
+  padding: 14px;
+  background: var(--vp-code-block-bg);
+  font-size: 12px;
+  line-height: 19px;
+  white-space: pre;
+}
 </style>

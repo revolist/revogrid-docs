@@ -11,14 +11,17 @@
 import { ref, watch } from 'vue'
 import { codeToHtml } from 'shiki'
 
-const props = withDefaults(defineProps<{
-  code: string
-  language?: string
-  label?: string
-}>(), {
-  language: 'ts',
-  label: 'Code example',
-})
+const props = withDefaults(
+  defineProps<{
+    code: string
+    language?: string
+    label?: string
+  }>(),
+  {
+    language: 'ts',
+    label: 'Code example',
+  },
+)
 
 const highlightedCode = ref('')
 

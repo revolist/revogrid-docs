@@ -10,7 +10,11 @@
         <p class="section-sub">{{ page.serverSide.subtitle }}</p>
 
         <div class="server-pillars">
-          <article v-for="pillar in page.serverSide.pillars" :key="pillar.label" class="server-pillar">
+          <article
+            v-for="pillar in page.serverSide.pillars"
+            :key="pillar.label"
+            class="server-pillar"
+          >
             <div class="server-pillar-value">{{ pillar.value }}</div>
             <h3>{{ pillar.label }}</h3>
             <p>{{ pillar.description }}</p>

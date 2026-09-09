@@ -9,7 +9,9 @@
   >
     <header class="contact-modal-heading">
       <h2 id="contact-dialog-title">Contact the RevoGrid team</h2>
-      <p id="contact-dialog-description">Tell us about your product, team, or licensing question.</p>
+      <p id="contact-dialog-description">
+        Tell us about your product, team, or licensing question.
+      </p>
     </header>
     <TrialRequestForm submit-label="Submit" request-type="contact" @submit="handleSubmit" />
   </ModalDialog>

@@ -19,30 +19,68 @@
         >
           <div class="feature-head">
             <div class="left">
-              <div class="feature-num">{{ String(index + 1).padStart(2, '0') }} / {{ feature.tier }}</div>
-              <h3><em>{{ feature.title }}</em> - {{ feature.titleSuffix }}</h3>
+              <div class="feature-num">
+                {{ String(index + 1).padStart(2, '0') }} / {{ feature.tier }}
+              </div>
+              <h3>
+                <em>{{ feature.title }}</em> - {{ feature.titleSuffix }}
+              </h3>
               <p class="feature-desc">{{ feature.description }}</p>
             </div>
             <div class="feature-saved">
               <div class="label">Saves</div>
-              <div class="value"><em>{{ feature.saves }}</em> {{ feature.unit }}</div>
+              <div class="value">
+                <em>{{ feature.saves }}</em> {{ feature.unit }}
+              </div>
               <div class="unit">{{ feature.savesAgainst }}</div>
             </div>
           </div>
           <div class="feature-body">
-            <img v-if="feature.type === 'pivot'" src="/img/pivot-feature.png" alt="Pivot" class="sheet-img" />
-            <img v-else-if="feature.type === 'gantt'" src="/img/gantt-demo.png" alt="Gantt" class="sheet-img" />
-            <img v-else-if="feature.type === 'kanban'" src="/blog/kanban-product-development-polished.png" alt="RevoGrid Kanban JavaScript Kanban board" class="sheet-img" />
-            <img v-else-if="feature.type === 'sheet'" src="/img/spreadsheet.png" alt="Spreadsheet" class="sheet-img" />
-            <img v-else-if="feature.type === 'tree'" src="/img/hierarchy-master.png" alt="Hierarchy" class="sheet-img" />
-            <img v-else-if="feature.type === 'server'" src="/img/server-grouping.png" alt="Server grouping" class="sheet-img" />
+            <img
+              v-if="feature.type === 'pivot'"
+              src="/img/pivot-feature.png"
+              alt="Pivot"
+              class="sheet-img"
+            />
+            <img
+              v-else-if="feature.type === 'gantt'"
+              src="/img/gantt-demo.png"
+              alt="Gantt"
+              class="sheet-img"
+            />
+            <img
+              v-else-if="feature.type === 'kanban'"
+              src="/blog/kanban-product-development-polished.png"
+              alt="RevoGrid Kanban JavaScript Kanban board"
+              class="sheet-img"
+            />
+            <img
+              v-else-if="feature.type === 'sheet'"
+              src="/img/spreadsheet.png"
+              alt="Spreadsheet"
+              class="sheet-img"
+            />
+            <img
+              v-else-if="feature.type === 'tree'"
+              src="/img/hierarchy-master.png"
+              alt="Hierarchy"
+              class="sheet-img"
+            />
+            <img
+              v-else-if="feature.type === 'server'"
+              src="/img/server-grouping.png"
+              alt="Server grouping"
+              class="sheet-img"
+            />
             <img v-else src="/img/audit.png" alt="Audit" class="sheet-img" />
           </div>
           <div class="feature-foot">
-            <div class="replaces">Replaces - <b>{{ feature.replaces }}</b></div>
+            <div class="replaces">
+              Replaces - <b>{{ feature.replaces }}</b>
+            </div>
             <button
-              class="link fc-feat-title-link"
               :id="featurePreviewId(feature.title)"
+              class="link fc-feat-title-link"
               @click="openModal(feature)"
             >
               Watch preview →
@@ -127,11 +165,14 @@ const activeThumb = computed(() =>
 )
 
 const featureSlug = (title: string) =>
-  title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+  title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
 
 const featurePreviewId = (title: string) => featureSlug(title)
 
-watch(activeVideoUrl, async (url) => {
+watch(activeVideoUrl, async url => {
   if (!url) return
   await nextTick()
   modalVideoEl.value?.play().catch(() => {})

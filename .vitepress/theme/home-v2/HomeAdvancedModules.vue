@@ -9,11 +9,7 @@
         </a>
       </div>
       <div class="rg-modules-grid">
-        <article
-          v-for="item in section?.items"
-          :key="item.title"
-          class="rg-module-card"
-        >
+        <article v-for="item in section?.items" :key="item.title" class="rg-module-card">
           <ModulePreview
             :type="item.type"
             :title="item.title"
@@ -181,7 +177,10 @@ const catalogStatus = (item: HomeV2Record) => catalogFacts(item)?.status ?? 'sta
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 
   &:hover {
     border-color: color-mix(in srgb, var(--rg-green) 42%, var(--rg-border));
@@ -271,7 +270,6 @@ const catalogStatus = (item: HomeV2Record) => catalogFacts(item)?.status ?? 'sta
     flex-direction: column;
     gap: 12px;
   }
-
 }
 
 @media (max-width: 640px) {
@@ -287,7 +285,6 @@ const catalogStatus = (item: HomeV2Record) => catalogFacts(item)?.status ?? 'sta
   .rg-module-card-body {
     padding: 22px 20px 24px;
   }
-
 }
 
 @media (prefers-reduced-motion: reduce) {

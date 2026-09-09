@@ -39,7 +39,11 @@ import { useData } from 'vitepress'
 import NumberColumnType from '@revolist/revogrid-column-numeral'
 import RevoGrid, { type DataType, type GridPlugin } from '@revolist/vue3-datagrid'
 import { PivotPlugin, type PivotConfig } from '../.vitepress/revogrid-pivot-shim'
-import { AdvanceFilterPlugin, RowOddPlugin, commonAggregators } from '../.vitepress/revogrid-pro-shim'
+import {
+  AdvanceFilterPlugin,
+  RowOddPlugin,
+  commonAggregators,
+} from '../.vitepress/revogrid-pro-shim'
 import '@revolist/revogrid-pro/dist/revogrid-pro.css'
 import '@revolist/pivot/styles.css'
 
@@ -52,85 +56,130 @@ const columnTypes = ref({
 })
 
 const pivotRows = ref<DataType[]>([
-  { City: 'Chicago', 'Membership Type': 'Bronze', 'Discount Applied': 'Discount Applied', 'Total Spend': 507.83, 'Average Spend': 507.83, 'Average Rating': 3.5 },
-  { City: 'Houston', 'Membership Type': 'Bronze', 'Discount Applied': 'No Discount', 'Total Spend': 440.7, 'Average Spend': 440.7, 'Average Rating': 3.17 },
-  { City: 'Los Angeles', 'Membership Type': 'Silver', 'Discount Applied': 'No Discount', 'Total Spend': 0, 'Average Spend': 0, 'Average Rating': undefined },
-  { City: 'Miami', 'Membership Type': 'Silver', 'Discount Applied': 'Discount Applied', 'Total Spend': 695.6, 'Average Spend': 695.6, 'Average Rating': 3.8 },
-  { City: 'New York', 'Membership Type': 'Gold', 'Discount Applied': 'Discount Applied', 'Total Spend': 1160.58, 'Average Spend': 1160.58, 'Average Rating': 4.42 },
-  { City: 'San Francisco', 'Membership Type': 'Gold', 'Discount Applied': 'No Discount', 'Total Spend': 1457.17, 'Average Spend': 1457.17, 'Average Rating': 4.73 },
+  {
+    City: 'Chicago',
+    'Membership Type': 'Bronze',
+    'Discount Applied': 'Discount Applied',
+    'Total Spend': 507.83,
+    'Average Spend': 507.83,
+    'Average Rating': 3.5,
+  },
+  {
+    City: 'Houston',
+    'Membership Type': 'Bronze',
+    'Discount Applied': 'No Discount',
+    'Total Spend': 440.7,
+    'Average Spend': 440.7,
+    'Average Rating': 3.17,
+  },
+  {
+    City: 'Los Angeles',
+    'Membership Type': 'Silver',
+    'Discount Applied': 'No Discount',
+    'Total Spend': 0,
+    'Average Spend': 0,
+    'Average Rating': undefined,
+  },
+  {
+    City: 'Miami',
+    'Membership Type': 'Silver',
+    'Discount Applied': 'Discount Applied',
+    'Total Spend': 695.6,
+    'Average Spend': 695.6,
+    'Average Rating': 3.8,
+  },
+  {
+    City: 'New York',
+    'Membership Type': 'Gold',
+    'Discount Applied': 'Discount Applied',
+    'Total Spend': 1160.58,
+    'Average Spend': 1160.58,
+    'Average Rating': 4.42,
+  },
+  {
+    City: 'San Francisco',
+    'Membership Type': 'Gold',
+    'Discount Applied': 'No Discount',
+    'Total Spend': 1457.17,
+    'Average Spend': 1457.17,
+    'Average Rating': 4.73,
+  },
 ])
 
-const pivotConfig = computed(() => ({
-  dimensions: [
-    { prop: 'City', sortable: true, filter: ['string', 'selection'] },
-    { prop: 'Membership Type', sortable: true, filter: ['string', 'selection'] },
-    { prop: 'Discount Applied', sortable: true, filter: ['selection'] },
-    {
-      prop: 'Total Spend',
-      columnType: 'currency',
-      sortable: true,
-      aggregators: {
-        sum: commonAggregators.sum,
-      },
-      cellProperties: ({ value }) => ({
-        class: {
-          'pivot-heat-high': Number(value) >= 1000,
-          'pivot-heat-mid': Number(value) >= 600 && Number(value) < 1000,
-          'pivot-heat-low': Number(value) > 0 && Number(value) < 600,
+const pivotConfig = computed(
+  () =>
+    ({
+      dimensions: [
+        { prop: 'City', sortable: true, filter: ['string', 'selection'] },
+        { prop: 'Membership Type', sortable: true, filter: ['string', 'selection'] },
+        { prop: 'Discount Applied', sortable: true, filter: ['selection'] },
+        {
+          prop: 'Total Spend',
+          columnType: 'currency',
+          sortable: true,
+          aggregators: {
+            sum: commonAggregators.sum,
+          },
+          cellProperties: ({ value }) => ({
+            class: {
+              'pivot-heat-high': Number(value) >= 1000,
+              'pivot-heat-mid': Number(value) >= 600 && Number(value) < 1000,
+              'pivot-heat-low': Number(value) > 0 && Number(value) < 600,
+            },
+          }),
         },
-      }),
-    },
-    {
-      prop: 'Average Spend',
-      columnType: 'currency',
-      sortable: true,
-      aggregators: {
-        avg: commonAggregators.avg,
-      },
-      cellProperties: ({ value }) => ({
-        class: {
-          'pivot-heat-high': Number(value) >= 1000,
-          'pivot-heat-mid': Number(value) >= 600 && Number(value) < 1000,
-          'pivot-heat-low': Number(value) > 0 && Number(value) < 600,
+        {
+          prop: 'Average Spend',
+          columnType: 'currency',
+          sortable: true,
+          aggregators: {
+            avg: commonAggregators.avg,
+          },
+          cellProperties: ({ value }) => ({
+            class: {
+              'pivot-heat-high': Number(value) >= 1000,
+              'pivot-heat-mid': Number(value) >= 600 && Number(value) < 1000,
+              'pivot-heat-low': Number(value) > 0 && Number(value) < 600,
+            },
+          }),
         },
-      }),
-    },
-    {
-      name: 'Average Rating',
-      prop: 'Average Rating',
-      columnType: 'decimal',
-      sortable: true,
-      aggregators: {
-        avg: commonAggregators.avg,
-      },
-      cellProperties: ({ value }) => ({
-        class: {
-          'pivot-heat-high': Number(value) >= 4.2,
-          'pivot-heat-mid': Number(value) >= 3.5 && Number(value) < 4.2,
-          'pivot-heat-low': Number(value) > 0 && Number(value) < 3.5,
+        {
+          name: 'Average Rating',
+          prop: 'Average Rating',
+          columnType: 'decimal',
+          sortable: true,
+          aggregators: {
+            avg: commonAggregators.avg,
+          },
+          cellProperties: ({ value }) => ({
+            class: {
+              'pivot-heat-high': Number(value) >= 4.2,
+              'pivot-heat-mid': Number(value) >= 3.5 && Number(value) < 4.2,
+              'pivot-heat-low': Number(value) > 0 && Number(value) < 3.5,
+            },
+          }),
         },
-      }),
-    },
-  ],
-  rows: ['City', 'Membership Type'],
-  columns: ['Discount Applied'],
-  columnCollapse: {
-    enabled: true,
-    collapsed: true,
-  },
-  values: [
-    { prop: 'Total Spend', aggregator: 'sum' },
-    { prop: 'Average Spend', aggregator: 'avg' },
-    { prop: 'Average Rating', aggregator: 'avg' },
-  ],
-  filters: ['Membership Type'],
-  totals: {
-    subtotals: true,
-    grandTotal: true,
-    subtotalLabel: 'Subtotal',
-    grandTotalLabel: 'Grand Total',
-  },
-} satisfies PivotConfig))
+      ],
+      rows: ['City', 'Membership Type'],
+      columns: ['Discount Applied'],
+      columnCollapse: {
+        enabled: true,
+        collapsed: true,
+      },
+      values: [
+        { prop: 'Total Spend', aggregator: 'sum' },
+        { prop: 'Average Spend', aggregator: 'avg' },
+        { prop: 'Average Rating', aggregator: 'avg' },
+      ],
+      filters: ['Membership Type'],
+      totals: {
+        subtotals: true,
+        grandTotal: true,
+        subtotalLabel: 'Subtotal',
+        grandTotalLabel: 'Grand Total',
+      },
+    }) satisfies PivotConfig,
+)
 </script>
 
 <style lang="scss" scoped>
@@ -147,7 +196,13 @@ const pivotConfig = computed(() => ({
     content: '';
     display: block;
     height: 2px;
-    background: linear-gradient(90deg, transparent 0%, var(--pivot-accent) 35%, var(--pivot-accent-vivid) 65%, transparent 100%);
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--pivot-accent) 35%,
+      var(--pivot-accent-vivid) 65%,
+      transparent 100%
+    );
   }
 }
 
@@ -169,9 +224,15 @@ const pivotConfig = computed(() => ({
   flex: 0 0 auto;
 }
 
-.traffic-red { background: #ff5f57; }
-.traffic-yellow { background: #febc2e; }
-.traffic-green { background: #28c840; }
+.traffic-red {
+  background: #ff5f57;
+}
+.traffic-yellow {
+  background: #febc2e;
+}
+.traffic-green {
+  background: #28c840;
+}
 
 .pd-title {
   flex: 1 1 auto;

@@ -94,7 +94,7 @@ function routeToUrl(route) {
 }
 
 function shouldIncludeSource(source) {
-  return Boolean(source) && !excludedSourcePatterns.some((pattern) => pattern.test(source))
+  return Boolean(source) && !excludedSourcePatterns.some(pattern => pattern.test(source))
 }
 
 function cleanSidebarText(text) {
@@ -137,7 +137,7 @@ function extractSidebarLinks(file) {
 function stripLineComments(content) {
   return content
     .split('\n')
-    .filter((line) => !line.trim().startsWith('//'))
+    .filter(line => !line.trim().startsWith('//'))
     .join('\n')
 }
 
@@ -147,7 +147,7 @@ function collectPages() {
 
   for (const item of [
     ...curatedPages,
-    ...sidebarFiles.flatMap((file) => extractSidebarLinks(file)),
+    ...sidebarFiles.flatMap(file => extractSidebarLinks(file)),
   ]) {
     const route = normalizeRoute(item.link)
     const source = routeToSource(route)
@@ -198,10 +198,11 @@ function parseFrontmatter(raw) {
   }
 
   if (!attrs.description) {
-    const descriptionIndex = lines.findIndex((line) => line.trim() === '- name: description')
-    const contentLine = descriptionIndex >= 0
-      ? lines.slice(descriptionIndex + 1).find((line) => line.trim().startsWith('content:'))
-      : undefined
+    const descriptionIndex = lines.findIndex(line => line.trim() === '- name: description')
+    const contentLine =
+      descriptionIndex >= 0
+        ? lines.slice(descriptionIndex + 1).find(line => line.trim().startsWith('content:'))
+        : undefined
 
     if (contentLine) {
       attrs.description = unquoteYaml(contentLine.replace(/^\s*content:\s*/, ''))
@@ -212,15 +213,15 @@ function parseFrontmatter(raw) {
 }
 
 function unquoteYaml(value) {
-  return value
-    .trim()
-    .replace(/^['"]|['"]$/g, '')
+  return value.trim().replace(/^['"]|['"]$/g, '')
 }
 
 function expandIncludes(content, source, stack = []) {
   return content.replace(/<!--\s*@include:\s*([^>]+?)\s*-->/g, (_match, includePath) => {
     const cleanIncludePath = includePath.trim()
-    const resolved = path.normalize(path.join(path.dirname(path.join(rootDir, source)), cleanIncludePath))
+    const resolved = path.normalize(
+      path.join(path.dirname(path.join(rootDir, source)), cleanIncludePath),
+    )
     const relative = path.relative(rootDir, resolved)
 
     if (!relative || relative.startsWith('..') || !existsSync(resolved)) {
@@ -269,9 +270,7 @@ function relativeLinkToUrl(source, target) {
   const sourceDir = path.posix.dirname(source)
   let route = path.posix.normalize(path.posix.join('/', sourceDir, targetPath))
 
-  route = route
-    .replace(/\.md$/, '')
-    .replace(/\/index$/, '/')
+  route = route.replace(/\.md$/, '').replace(/\/index$/, '/')
 
   if (route !== '/') {
     route = route.replace(/\/$/, '')
@@ -289,7 +288,10 @@ function normalizeMarkdownLinks(content, source) {
       return `${prefix}${relativeLinkToUrl(source, target)}${suffix}`
     })
     .replace(/\bhref="\/([^"]+)"/g, `href="${siteUrl}/$1"`)
-    .replace(/\bhref="((?:\.\.?\/)[^"]+)"/g, (_match, target) => `href="${relativeLinkToUrl(source, target)}"`)
+    .replace(
+      /\bhref="((?:\.\.?\/)[^"]+)"/g,
+      (_match, target) => `href="${relativeLinkToUrl(source, target)}"`,
+    )
 }
 
 function stripVueBlocks(content) {
@@ -301,7 +303,8 @@ function stripVueBlocks(content) {
 }
 
 function stripComponentBlocks(content) {
-  const componentStart = /^\s*<([A-Z][A-Za-z0-9]*|DemoWidgetFrame|QuickStartCdnExample|ClientOnly|template)\b/
+  const componentStart =
+    /^\s*<([A-Z][A-Za-z0-9]*|DemoWidgetFrame|QuickStartCdnExample|ClientOnly|template)\b/
   const lines = content.split('\n')
   const kept = []
   let skipping = false
@@ -329,7 +332,7 @@ function stripComponentBlocks(content) {
 
 function normalizePageContent(content, source) {
   return splitFencedMarkdown(content)
-    .map((part) => {
+    .map(part => {
       if (part.type === 'code') {
         return part.value
       }
@@ -346,8 +349,12 @@ function readPage(page) {
   const raw = readFileSync(sourcePath, 'utf8')
   const { attrs, body } = parseFrontmatter(raw)
   const expanded = expandIncludes(body, page.source, [page.source])
-  const content = removeDuplicateTitleHeading(normalizePageContent(expanded, page.source), attrs.title)
-  const title = attrs.title || firstHeading(content) || titleFallbacks.get(page.route) || page.sidebarText
+  const content = removeDuplicateTitleHeading(
+    normalizePageContent(expanded, page.source),
+    attrs.title,
+  )
+  const title =
+    attrs.title || firstHeading(content) || titleFallbacks.get(page.route) || page.sidebarText
 
   return {
     ...page,
@@ -405,11 +412,11 @@ function pageGroup(page) {
 
 function buildLlmsIndex(pages) {
   const essentials = [
-    pages.find((page) => page.route === '/guide'),
-    pages.find((page) => page.route === '/guide/mcp'),
-    pages.find((page) => page.route === '/guide/installation'),
-    pages.find((page) => page.route === '/guide/api/revoGrid'),
-    pages.find((page) => page.route === '/demo'),
+    pages.find(page => page.route === '/guide'),
+    pages.find(page => page.route === '/guide/mcp'),
+    pages.find(page => page.route === '/guide/installation'),
+    pages.find(page => page.route === '/guide/api/revoGrid'),
+    pages.find(page => page.route === '/demo'),
   ].filter(Boolean)
 
   const grouped = new Map()
@@ -439,7 +446,9 @@ function buildLlmsIndex(pages) {
     '',
     '## Start Here',
     '',
-    ...essentials.map((page) => `- [${page.title}](${page.url})${page.description ? ` - ${page.description}` : ''}`),
+    ...essentials.map(
+      page => `- [${page.title}](${page.url})${page.description ? ` - ${page.description}` : ''}`,
+    ),
     '',
   ]
 
@@ -453,7 +462,10 @@ function buildLlmsIndex(pages) {
     lines.push('')
   }
 
-  return `${lines.join('\n').replace(/\n{3,}/g, '\n\n').trim()}\n`
+  return `${lines
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()}\n`
 }
 
 function buildLlmsFull(pages) {
@@ -475,19 +487,28 @@ function buildLlmsFull(pages) {
     if (page.content) {
       lines.push('', page.content, '')
     } else {
-      lines.push('', 'This page is rendered from VitePress frontmatter and Vue components; no standalone Markdown body is available in the normalized export.', '')
+      lines.push(
+        '',
+        'This page is rendered from VitePress frontmatter and Vue components; no standalone Markdown body is available in the normalized export.',
+        '',
+      )
     }
   }
 
-  return `${lines.join('\n').replace(/\n{3,}/g, '\n\n').trim()}\n`
+  return `${lines
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()}\n`
 }
 
 function main() {
   mkdirSync(outDir, { recursive: true })
 
-  const pages = collectPages().map(readPage).filter((page) => page.content || page.description)
+  const pages = collectPages()
+    .map(readPage)
+    .filter(page => page.content || page.description)
   const duplicateRoutes = pages
-    .map((page) => page.route)
+    .map(page => page.route)
     .filter((route, index, routes) => routes.indexOf(route) !== index)
 
   if (duplicateRoutes.length) {

@@ -1,5 +1,9 @@
 <template>
-  <section id="copy-paste" class="excel-story-section excel-story-section--clipboard" aria-labelledby="copy-paste-title">
+  <section
+    id="copy-paste"
+    class="excel-story-section excel-story-section--clipboard"
+    aria-labelledby="copy-paste-title"
+  >
     <div class="excel-container">
       <div class="excel-copy-heading">
         <div>
@@ -8,13 +12,17 @@
           <p>{{ content.description }}</p>
         </div>
         <div class="excel-copy-actions">
-          <button class="excel-demo-button" type="button" @click="pasteSample">{{ content.action }}</button>
+          <button class="excel-demo-button" type="button" @click="pasteSample">
+            {{ content.action }}
+          </button>
         </div>
       </div>
 
       <div class="excel-transfer-demo">
         <div class="excel-sheet-card excel-sheet-card--source">
-          <div class="excel-sheet-card__bar excel-sheet-card__bar--excel"><span class="excel-file-mark"></span><strong>Q3-forecast.xlsx</strong></div>
+          <div class="excel-sheet-card__bar excel-sheet-card__bar--excel">
+            <span class="excel-file-mark"></span><strong>Q3-forecast.xlsx</strong>
+          </div>
           <ExcelRevoGrid
             ref="sourceGridRef"
             class="excel-live-grid--clipboard-source"
@@ -26,14 +34,19 @@
             :data-grid-formatting="sourceFormatting"
             range
           />
-          <div class="excel-sheet-card__status"><span>A3:D7 source range</span><strong>fx D3 = C3 × 15</strong></div>
+          <div class="excel-sheet-card__status">
+            <span>A3:D7 source range</span><strong>fx D3 = C3 × 15</strong>
+          </div>
         </div>
 
         <div class="excel-transfer-arrow" aria-hidden="true">
           <i></i><b><FontAwesomeSvgIcon name="arrowRight" /></b><i></i>
         </div>
 
-        <div class="excel-sheet-card excel-sheet-card--target" :class="{ 'is-applied': pasteApplied || clipboardPasteRows > 0 }">
+        <div
+          class="excel-sheet-card excel-sheet-card--target"
+          :class="{ 'is-applied': pasteApplied || clipboardPasteRows > 0 }"
+        >
           <div class="excel-sheet-card__bar excel-sheet-card__bar--app">
             <span class="excel-app-mark"></span><strong>Your app · Forecast planner</strong>
             <em>{{ targetHeadline }}</em>
@@ -51,12 +64,18 @@
             range
             @afterpasteapply="onClipboardPaste"
           />
-          <div class="excel-sheet-card__status" aria-live="polite"><strong>{{ targetStatus }}</strong><span>{{ targetDetail }}</span></div>
+          <div class="excel-sheet-card__status" aria-live="polite">
+            <strong>{{ targetStatus }}</strong
+            ><span>{{ targetDetail }}</span>
+          </div>
         </div>
       </div>
 
       <div class="excel-feature-notes">
-        <article v-for="note in content.notes" :key="note.title"><strong>{{ note.title }}</strong><p>{{ note.detail }}</p></article>
+        <article v-for="note in content.notes" :key="note.title">
+          <strong>{{ note.title }}</strong>
+          <p>{{ note.detail }}</p>
+        </article>
       </div>
     </div>
   </section>
@@ -83,30 +102,41 @@ const sourceColumns = [
 const targetColumns = [
   { prop: 'product', name: 'Product line', size: 180 },
   { prop: 'channel', name: 'Channel', size: 126 },
-  { prop: 'units', name: 'Units', size: 94, excelNumberFormat: '#,##0', dataGridFormat: excelNumberFormat },
-  { prop: 'forecast', name: 'Forecast €', size: 116, excelNumberFormat: '#,##0', dataGridFormat: excelNumberFormat },
+  {
+    prop: 'units',
+    name: 'Units',
+    size: 94,
+    excelNumberFormat: '#,##0',
+    dataGridFormat: excelNumberFormat,
+  },
+  {
+    prop: 'forecast',
+    name: 'Forecast €',
+    size: 116,
+    excelNumberFormat: '#,##0',
+    dataGridFormat: excelNumberFormat,
+  },
 ]
 const clipboardPlugins = [FormulaPlugin, MultiRangeSelectionPlugin]
 const clipboardTargetContextMenu = {}
 const { isDark } = useData()
-const clipboardPalette = computed(() => isDark.value
-  ? {
-      accent: '#3ed18c',
-      accentSoft: '#10271c',
-      blue: '#8fb8ff',
-      blueSoft: '#162039',
-    }
-  : {
-      accent: '#0b8a4f',
-      accentSoft: '#e7f7ef',
-      blue: '#2e6be6',
-      blueSoft: '#eaf3ff',
-    })
+const clipboardPalette = computed(() =>
+  isDark.value
+    ? {
+        accent: '#3ed18c',
+        accentSoft: '#10271c',
+        blue: '#8fb8ff',
+        blueSoft: '#162039',
+      }
+    : {
+        accent: '#0b8a4f',
+        accentSoft: '#e7f7ef',
+        blue: '#2e6be6',
+        blueSoft: '#eaf3ff',
+      },
+)
 const sourceGridRef = ref<{
-  selectRange: (
-    start: { x: number; y: number },
-    end?: { x: number; y: number },
-  ) => Promise<void>
+  selectRange: (start: { x: number; y: number }, end?: { x: number; y: number }) => Promise<void>
 } | null>(null)
 const createClipboardFormatting = (rowOffset = 0, palette = clipboardPalette.value) => ({
   cells: [
@@ -118,7 +148,10 @@ const createClipboardFormatting = (rowOffset = 0, palette = clipboardPalette.val
       range: { start: { row: 2 + rowOffset, column: 2 }, end: { row: 6 + rowOffset, column: 3 } },
       format: {
         value: { kind: 'code', formatCode: '#,##0' },
-        appearance: { fontFamily: '"SFMono-Regular", Menlo, Consolas, monospace', horizontal: 'right' },
+        appearance: {
+          fontFamily: '"SFMono-Regular", Menlo, Consolas, monospace',
+          horizontal: 'right',
+        },
       },
     },
     {
@@ -131,7 +164,9 @@ const createClipboardFormatting = (rowOffset = 0, palette = clipboardPalette.val
     },
     {
       range: { start: { row: 4 + rowOffset, column: 3 } },
-      format: { appearance: { fillColor: palette.accentSoft, textColor: palette.accent, bold: true } },
+      format: {
+        appearance: { fillColor: palette.accentSoft, textColor: palette.accent, bold: true },
+      },
     },
     {
       range: { start: { row: 5 + rowOffset, column: 0 } },
@@ -160,16 +195,23 @@ const clipboardSample = [
   { product: 'Nimbus Rack', channel: 'Partner', units: 16, forecast: '=C4*12' },
   { product: 'Nimbus Edge', channel: 'Direct', units: 6, forecast: '=C5*20' },
 ]
-const emptyClipboardRows = clipboardSample.map((_, index) => ({ id: `target-${index}`, product: '', channel: '', units: '', forecast: '' }))
+const emptyClipboardRows = clipboardSample.map((_, index) => ({
+  id: `target-${index}`,
+  product: '',
+  channel: '',
+  units: '',
+  forecast: '',
+}))
 const clipboardRows = ref(emptyClipboardRows)
 const pasteApplied = ref(false)
-const targetFormatting = computed(() => pasteApplied.value
-  ? createClipboardFormatting(-2, clipboardPalette.value)
-  : {})
+const targetFormatting = computed(() =>
+  pasteApplied.value ? createClipboardFormatting(-2, clipboardPalette.value) : {},
+)
 const clipboardPasteRows = ref(0)
 const targetHeadline = computed(() => {
   if (pasteApplied.value) return `${clipboardSample.length} rows pasted`
-  if (clipboardPasteRows.value > 0) return `${clipboardPasteRows.value} ${clipboardPasteRows.value === 1 ? 'row' : 'rows'} pasted`
+  if (clipboardPasteRows.value > 0)
+    return `${clipboardPasteRows.value} ${clipboardPasteRows.value === 1 ? 'row' : 'rows'} pasted`
   return 'Ready to paste'
 })
 const targetStatus = computed(() => {
@@ -189,7 +231,7 @@ function onClipboardPaste(event: CustomEvent<{ parsed?: unknown[][] }>) {
 
 async function pasteSample() {
   await sourceGridRef.value?.selectRange({ x: 0, y: 2 }, { x: 3, y: 6 })
-  await new Promise<void>((resolve) => window.setTimeout(resolve, 280))
+  await new Promise<void>(resolve => window.setTimeout(resolve, 280))
   pasteApplied.value = true
   clipboardRows.value = applyClipboardSample(emptyClipboardRows, clipboardSample)
 }

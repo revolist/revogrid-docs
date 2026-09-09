@@ -4,7 +4,7 @@
       <div class="excel-story-heading excel-story-heading--dark">
         <div>
           <span class="excel-section-index">{{ content.index }}</span>
-          <h2 id="scale-title">{{ content.title }}<br>{{ content.titleLine }}</h2>
+          <h2 id="scale-title">{{ content.title }}<br />{{ content.titleLine }}</h2>
         </div>
         <p>{{ content.description }}</p>
       </div>
@@ -14,7 +14,10 @@
           <div class="excel-grid-card__bar">
             <div class="excel-scale-status">
               <strong>● active</strong>
-              <span>transactions · {{ scaleRows.length.toLocaleString('en-US') }} rows × {{ scaleColumns.length }} columns</span>
+              <span
+                >transactions · {{ scaleRows.length.toLocaleString('en-US') }} rows ×
+                {{ scaleColumns.length }} columns</span
+              >
             </div>
             <span>DOM nodes: {{ scaleStats.domNodes.toLocaleString('en-US') }}</span>
           </div>
@@ -31,7 +34,10 @@
           />
         </div>
         <div class="excel-scale-stats">
-          <article v-for="metric in content.metrics" :key="metric.value"><strong>{{ metric.value }}</strong><span>{{ metric.label }}</span></article>
+          <article v-for="metric in content.metrics" :key="metric.value">
+            <strong>{{ metric.value }}</strong
+            ><span>{{ metric.label }}</span>
+          </article>
           <article class="excel-scale-control">
             <b>{{ content.controlTitle }}</b>
             <span v-for="item in content.controls" :key="item">{{ item }}</span>
@@ -67,7 +73,16 @@ function onScaleStats(stats: { domNodes: number }) {
 }
 
 onMounted(() => {
-  const counterparties = ['Aurora Capital', 'Delphi Trading', 'Granite Holdings', 'Brant Securities', 'Eastgate Bank', 'Hyperion Fund', 'Cormorant AM', 'Fenwick Partners']
+  const counterparties = [
+    'Aurora Capital',
+    'Delphi Trading',
+    'Granite Holdings',
+    'Brant Securities',
+    'Eastgate Bank',
+    'Hyperion Fund',
+    'Cormorant AM',
+    'Fenwick Partners',
+  ]
   const currencies = ['EUR', 'GBP', 'CHF', 'USD', 'SEK']
   const books = ['FX-EU', 'RATES', 'EQ-CASH', 'CREDIT']
   scaleRows.value = Array.from({ length: 50000 }, (_, index) => ({

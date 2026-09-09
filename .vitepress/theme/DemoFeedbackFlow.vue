@@ -61,7 +61,10 @@
         </p>
 
         <form :aria-busy="submissionState === 'submitting'" @submit.prevent="submitDetails">
-          <fieldset :id="DEMO_FEEDBACK_ELEMENT_IDS.question.verification" class="demo-feedback-fieldset">
+          <fieldset
+            :id="DEMO_FEEDBACK_ELEMENT_IDS.question.verification"
+            class="demo-feedback-fieldset"
+          >
             <legend class="demo-feedback-sr-only">Things you still need to verify</legend>
             <label
               v-for="option in verificationOptions"
@@ -69,7 +72,9 @@
               :id="DEMO_FEEDBACK_ELEMENT_IDS.verificationOption(option.code)"
               :for="DEMO_FEEDBACK_ELEMENT_IDS.verification(option.code)"
               class="demo-feedback-choice"
-              :class="{ 'demo-feedback-choice--selected': verificationAnswers.includes(option.code) }"
+              :class="{
+                'demo-feedback-choice--selected': verificationAnswers.includes(option.code),
+              }"
             >
               <input
                 :id="DEMO_FEEDBACK_ELEMENT_IDS.verification(option.code)"
@@ -122,7 +127,9 @@
         :id="DEMO_FEEDBACK_ELEMENT_IDS.step('not_fit')"
         class="demo-feedback-step"
       >
-        <h2 id="demo-feedback-title" ref="stepHeadingRef" tabindex="-1">{{ DEMO_FEEDBACK_COPY.notFit.title }}</h2>
+        <h2 id="demo-feedback-title" ref="stepHeadingRef" tabindex="-1">
+          {{ DEMO_FEEDBACK_COPY.notFit.title }}
+        </h2>
         <p class="demo-feedback-description">{{ DEMO_FEEDBACK_COPY.notFit.description }}</p>
         <form :aria-busy="submissionState === 'submitting'" @submit.prevent="submitDetails">
           <fieldset :id="DEMO_FEEDBACK_ELEMENT_IDS.question.notFit" class="demo-feedback-fieldset">
@@ -229,22 +236,35 @@ import {
 type SubmissionState = 'idle' | 'submitting' | 'succeeded' | 'error'
 export type DemoFeedbackFlowCloseReason = ModalDialogCloseReason | 'skip'
 
-const props = withDefaults(defineProps<{
-  isVisible: boolean
-  demo: CatalogDemo | null
-  initialPrimaryAnswer?: DemoFeedbackPrimaryAnswer
-  submissionState?: SubmissionState
-  errorMessage?: string
-}>(), {
-  initialPrimaryAnswer: undefined,
-  submissionState: 'idle',
-  errorMessage: '',
-})
+const props = withDefaults(
+  defineProps<{
+    isVisible: boolean
+    demo: CatalogDemo | null
+    initialPrimaryAnswer?: DemoFeedbackPrimaryAnswer
+    submissionState?: SubmissionState
+    errorMessage?: string
+  }>(),
+  {
+    initialPrimaryAnswer: undefined,
+    submissionState: 'idle',
+    errorMessage: '',
+  },
+)
 
 const emit = defineEmits<{
   (event: 'close', reason: DemoFeedbackFlowCloseReason): void
-  (event: 'submit', value: { primaryAnswer: DemoFeedbackPrimaryAnswer, answers: DemoFeedbackAnswers }): void
-  (event: 'next-action', value: { action: DemoFeedbackAction, primaryAnswer: DemoFeedbackPrimaryAnswer, answers: DemoFeedbackAnswers }): void
+  (
+    event: 'submit',
+    value: { primaryAnswer: DemoFeedbackPrimaryAnswer; answers: DemoFeedbackAnswers },
+  ): void
+  (
+    event: 'next-action',
+    value: {
+      action: DemoFeedbackAction
+      primaryAnswer: DemoFeedbackPrimaryAnswer
+      answers: DemoFeedbackAnswers
+    },
+  ): void
   (event: 'option-selected', value: DemoFeedbackOptionSelection): void
   (event: 'text-used', value: DemoFeedbackTextUsage): void
 }>()
@@ -258,30 +278,39 @@ const DemoFeedbackFormFooter = defineComponent({
   },
   emits: ['skip'],
   setup(footerProps, { emit: footerEmit }) {
-    return () => h('div', { class: 'demo-feedback-form-footer' }, [
-      footerProps.errorMessage
-        ? h('p', { class: 'demo-feedback-error', role: 'alert' }, footerProps.errorMessage)
-        : null,
-      h('div', { class: 'demo-feedback-actions' }, [
-        h('button', {
-          id: DEMO_FEEDBACK_ELEMENT_IDS.skip(footerProps.step),
-          class: 'demo-feedback-text-button',
-          type: 'button',
-          disabled: footerProps.busy,
-          onClick: () => footerEmit('skip'),
-        }, DEMO_FEEDBACK_COPY.skip),
-        h('button', {
-          id: DEMO_FEEDBACK_ELEMENT_IDS.submit(footerProps.step),
-          class: 'rg-btn',
-          type: 'submit',
-          disabled: footerProps.busy,
-        }, footerProps.busy
-          ? 'Sending…'
-          : footerProps.errorMessage
-            ? 'Retry'
-            : DEMO_FEEDBACK_COPY.submit),
-      ]),
-    ])
+    return () =>
+      h('div', { class: 'demo-feedback-form-footer' }, [
+        footerProps.errorMessage
+          ? h('p', { class: 'demo-feedback-error', role: 'alert' }, footerProps.errorMessage)
+          : null,
+        h('div', { class: 'demo-feedback-actions' }, [
+          h(
+            'button',
+            {
+              id: DEMO_FEEDBACK_ELEMENT_IDS.skip(footerProps.step),
+              class: 'demo-feedback-text-button',
+              type: 'button',
+              disabled: footerProps.busy,
+              onClick: () => footerEmit('skip'),
+            },
+            DEMO_FEEDBACK_COPY.skip,
+          ),
+          h(
+            'button',
+            {
+              id: DEMO_FEEDBACK_ELEMENT_IDS.submit(footerProps.step),
+              class: 'rg-btn',
+              type: 'submit',
+              disabled: footerProps.busy,
+            },
+            footerProps.busy
+              ? 'Sending…'
+              : footerProps.errorMessage
+                ? 'Retry'
+                : DEMO_FEEDBACK_COPY.submit,
+          ),
+        ]),
+      ])
   },
 })
 
@@ -295,26 +324,24 @@ const validationMessage = ref('')
 const stepHeadingRef = ref<HTMLElement | null>(null)
 const emittedTextBuckets = new Set<DemoFeedbackTextLengthBucket>()
 
-const readyBranch = computed(() => props.demo
-  ? getDemoFeedbackReadyBranch(props.demo)
-  : { title: '', actions: [] })
-const verificationOptions = computed(() => props.demo
-  ? getDemoFeedbackVerificationOptions(props.demo.id)
-  : [])
-const showRowVolume = computed(() => Boolean(
-  props.demo && shouldShowRowVolumeQuestion(props.demo.id, verificationAnswers.value),
-))
-const notFitFollowUp = computed(() => notFitReason.value
-  ? DEMO_FEEDBACK_NOT_FIT_FOLLOW_UPS[notFitReason.value]
-  : undefined)
+const readyBranch = computed(() =>
+  props.demo ? getDemoFeedbackReadyBranch(props.demo) : { title: '', actions: [] },
+)
+const verificationOptions = computed(() =>
+  props.demo ? getDemoFeedbackVerificationOptions(props.demo.id) : [],
+)
+const showRowVolume = computed(() =>
+  Boolean(props.demo && shouldShowRowVolumeQuestion(props.demo.id, verificationAnswers.value)),
+)
+const notFitFollowUp = computed(() =>
+  notFitReason.value ? DEMO_FEEDBACK_NOT_FIT_FOLLOW_UPS[notFitReason.value] : undefined,
+)
 const reset = () => {
   primaryAnswer.value = props.initialPrimaryAnswer
   const branch = primaryAnswer.value
     ? getBranchForPrimaryAnswer(primaryAnswer.value)
     : 'needs_information'
-  step.value = branch === 'ready' || branch === 'not_fit'
-    ? branch
-    : 'needs_information'
+  step.value = branch === 'ready' || branch === 'not_fit' ? branch : 'needs_information'
   const answers = createInitialDemoFeedbackAnswers()
   verificationAnswers.value = answers.verificationAnswers
   rowVolume.value = undefined
@@ -379,19 +406,25 @@ const chooseNextAction = (action: DemoFeedbackAction) => {
   emit('next-action', { action, primaryAnswer: primaryAnswer.value, answers: currentAnswers() })
 }
 
-watch(() => props.isVisible, (isVisible) => {
-  if (isVisible) reset()
-})
+watch(
+  () => props.isVisible,
+  isVisible => {
+    if (isVisible) reset()
+  },
+)
 
-watch(() => props.submissionState, (submissionState) => {
-  if (submissionState === 'succeeded') step.value = 'confirmation'
-})
+watch(
+  () => props.submissionState,
+  submissionState => {
+    if (submissionState === 'succeeded') step.value = 'confirmation'
+  },
+)
 
 watch(notFitReason, (reason, previousReason) => {
   if (previousReason !== undefined && reason !== previousReason) notFitFreeText.value = ''
 })
 
-watch(notFitFreeText, (value) => {
+watch(notFitFreeText, value => {
   const textLengthBucket = getDemoFeedbackTextLengthBucket(value)
   if (!textLengthBucket || emittedTextBuckets.has(textLengthBucket)) return
   emittedTextBuckets.add(textLengthBucket)
@@ -467,7 +500,9 @@ watch(step, async () => {
     color: var(--vp-c-text-1);
     font: inherit;
     font-weight: 400;
-    transition: border-color 0.16s ease, box-shadow 0.16s ease;
+    transition:
+      border-color 0.16s ease,
+      box-shadow 0.16s ease;
 
     &:focus {
       border-color: var(--vp-c-brand-1);
@@ -494,7 +529,9 @@ watch(step, async () => {
   font-size: 0.88rem;
   line-height: 1.4;
   cursor: pointer;
-  transition: border-color 0.16s ease, background-color 0.16s ease;
+  transition:
+    border-color 0.16s ease,
+    background-color 0.16s ease;
 
   &:hover,
   &--selected {

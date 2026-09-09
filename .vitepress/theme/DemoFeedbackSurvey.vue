@@ -216,9 +216,8 @@ const persistCooldownState = (): boolean => {
   }
 }
 
-const activeElapsedMs = (): number => activeStartedAt === null
-  ? 0
-  : Math.max(0, Date.now() - activeStartedAt)
+const activeElapsedMs = (): number =>
+  activeStartedAt === null ? 0 : Math.max(0, Date.now() - activeStartedAt)
 
 const analyticsProperties = (
   primaryAnswer?: DemoFeedbackPrimaryAnswer,
@@ -231,15 +230,17 @@ const analyticsProperties = (
 
   if (primaryAnswer) {
     return {
-      ...createDemoFeedbackAnalyticsProperties(createDemoFeedbackPayload({
-        demo,
-        state: feedbackState,
-        primaryAnswer,
-        ...(answers ? { answers } : {}),
-        ...(nextAction ? { nextAction } : {}),
-        activeDemoId,
-        activeElapsedMs: activeElapsedMs(),
-      })),
+      ...createDemoFeedbackAnalyticsProperties(
+        createDemoFeedbackPayload({
+          demo,
+          state: feedbackState,
+          primaryAnswer,
+          ...(answers ? { answers } : {}),
+          ...(nextAction ? { nextAction } : {}),
+          activeDemoId,
+          activeElapsedMs: activeElapsedMs(),
+        }),
+      ),
       ...getDemoFeedbackPromptFrequencyContext(
         feedbackCooldownState,
         demo.id,
@@ -259,8 +260,9 @@ const analyticsProperties = (
     demo_tier: demo.planId,
     feedback_trigger: DEMO_FEEDBACK_TRIGGER,
     ...(feedbackState.cardResponse ? { card_response: feedbackState.cardResponse } : {}),
-    time_on_demo: Math.floor(((engagement?.timeMs || 0)
-      + (activeDemoId === demo.id ? activeElapsedMs() : 0)) / 1000),
+    time_on_demo: Math.floor(
+      ((engagement?.timeMs || 0) + (activeDemoId === demo.id ? activeElapsedMs() : 0)) / 1000,
+    ),
     demo_interactions: engagement?.interactions || 0,
     demos_viewed_in_session: getDemosViewedInSession(feedbackState),
     traffic_source: feedbackState.trafficSource,
@@ -303,27 +305,31 @@ const recordOptionSelection = ({
   if (!properties) return
   const analyticsWindow = window as DataLayerWindow
   analyticsWindow.dataLayer ??= []
-  analyticsWindow.dataLayer.push(createDemoFeedbackOptionAnalyticsEvent({
-    demo_slug: properties.demo_slug,
-    demo_tier: properties.demo_tier,
-    time_on_demo: properties.time_on_demo,
-    demo_interactions: properties.demo_interactions,
-  }, { questionId, answerCode, isSelected }))
+  analyticsWindow.dataLayer.push(
+    createDemoFeedbackOptionAnalyticsEvent(
+      {
+        demo_slug: properties.demo_slug,
+        demo_tier: properties.demo_tier,
+        time_on_demo: properties.time_on_demo,
+        demo_interactions: properties.demo_interactions,
+      },
+      { questionId, answerCode, isSelected },
+    ),
+  )
 }
 
-const recordTextUsage = ({
-  questionId,
-  hasText,
-  textLengthBucket,
-}: DemoFeedbackTextUsage) => {
+const recordTextUsage = ({ questionId, hasText, textLengthBucket }: DemoFeedbackTextUsage) => {
   const properties = analyticsProperties()
   if (!properties) return
   const analyticsWindow = window as DataLayerWindow
   analyticsWindow.dataLayer ??= []
-  analyticsWindow.dataLayer.push(createDemoFeedbackTextAnalyticsEvent(
-    properties.demo_slug,
-    { questionId, hasText, textLengthBucket },
-  ))
+  analyticsWindow.dataLayer.push(
+    createDemoFeedbackTextAnalyticsEvent(properties.demo_slug, {
+      questionId,
+      hasText,
+      textLengthBucket,
+    }),
+  )
 }
 
 const flushActiveTime = (restart = false) => {
@@ -349,10 +355,14 @@ const recordPromptOutcome = (outcome: 'dismissed' | 'submitted') => {
 const showFeedbackCard = (requestedByUser = false) => {
   if (!activeDemoId) return
   const now = Date.now()
-  if (!requestedByUser && !canRequestDemoFeedback(feedbackState, activeDemoId, {
-    at: now,
-    cooldownState: feedbackCooldownState,
-  })) return
+  if (
+    !requestedByUser &&
+    !canRequestDemoFeedback(feedbackState, activeDemoId, {
+      at: now,
+      cooldownState: feedbackCooldownState,
+    })
+  )
+    return
   const demo = getDemoByPath(route.path)
   if (!demo || demo.id !== activeDemoId) return
 
@@ -389,11 +399,17 @@ const scheduleEligibilityCheck = () => {
   if (!isActive || !activeDemoId || document.visibilityState !== 'visible') return
 
   const now = Date.now()
-  const nextAllowedAt = Math.max(now, (feedbackState.lastPromptedAt || 0) + DEMO_FEEDBACK_PROMPT_SPACING_MS)
-  if (!canRequestDemoFeedback(feedbackState, activeDemoId, {
-    at: nextAllowedAt,
-    cooldownState: feedbackCooldownState,
-  })) return
+  const nextAllowedAt = Math.max(
+    now,
+    (feedbackState.lastPromptedAt || 0) + DEMO_FEEDBACK_PROMPT_SPACING_MS,
+  )
+  if (
+    !canRequestDemoFeedback(feedbackState, activeDemoId, {
+      at: nextAllowedAt,
+      cooldownState: feedbackCooldownState,
+    })
+  )
+    return
 
   const engagementRemaining = Math.max(
     0,
@@ -422,9 +438,8 @@ const recordInteraction = (manipulatedData: boolean) => {
 }
 
 const directGridEvent = (eventName: string) => {
-  const interaction = DEMO_FEEDBACK_INTERACTION_EVENTS[
-    eventName as keyof typeof DEMO_FEEDBACK_INTERACTION_EVENTS
-  ]
+  const interaction =
+    DEMO_FEEDBACK_INTERACTION_EVENTS[eventName as keyof typeof DEMO_FEEDBACK_INTERACTION_EVENTS]
   if (interaction) recordInteraction(interaction.manipulatedData)
 }
 
@@ -455,9 +470,8 @@ const handleDocumentInteractionEvent = (event: Event) => {
   directGridEvent(event.type)
 }
 
-const clickedElement = (event: Event): Element | null => event.target instanceof Element
-  ? event.target
-  : null
+const clickedElement = (event: Event): Element | null =>
+  event.target instanceof Element ? event.target : null
 
 const handleDocumentClick = (event: MouseEvent) => {
   const target = clickedElement(event)
@@ -465,8 +479,14 @@ const handleDocumentClick = (event: MouseEvent) => {
 
   const action = target.closest<HTMLElement>('a, button, [role="button"]')
   if (action) {
-    const href = action instanceof HTMLAnchorElement ? action.href : action.getAttribute('data-href') || ''
-    if (isDemoFeedbackConversionCta(href, action.textContent || action.getAttribute('aria-label') || '')) {
+    const href =
+      action instanceof HTMLAnchorElement ? action.href : action.getAttribute('data-href') || ''
+    if (
+      isDemoFeedbackConversionCta(
+        href,
+        action.textContent || action.getAttribute('aria-label') || '',
+      )
+    ) {
       feedbackState = suppressDemoFeedbackForCta(feedbackState)
       persistState()
       cardVisible.value = false
@@ -483,7 +503,11 @@ const handleDocumentClick = (event: MouseEvent) => {
   }
 
   if (!activeDemoId || !target.closest('.demo-main-widget')) return
-  if (target.closest('button, [role="button"], select, input[type="checkbox"], input[type="radio"], input[type="range"]')) {
+  if (
+    target.closest(
+      'button, [role="button"], select, input[type="checkbox"], input[type="radio"], input[type="range"]',
+    )
+  ) {
     recordInteraction(true)
   }
 }
@@ -531,9 +555,14 @@ const dismissCard = () => {
   feedbackState = dismissDemoFeedback(feedbackState)
   recordPromptOutcome('dismissed')
   persistState()
-  pushAnalytics('demo_feedback_closed', 'closed', analyticsProperties(undefined, undefined, undefined, 'dismissed'), {
-    close_reason: 'card_dismissed',
-  })
+  pushAnalytics(
+    'demo_feedback_closed',
+    'closed',
+    analyticsProperties(undefined, undefined, undefined, 'dismissed'),
+    {
+      close_reason: 'card_dismissed',
+    },
+  )
   scheduleEligibilityCheck()
 }
 
@@ -569,14 +598,19 @@ const closeFlow = (reason: DemoFeedbackFlowCloseReason) => {
     recordPromptOutcome('dismissed')
   }
   persistState()
-  pushAnalytics('demo_feedback_closed', 'closed', analyticsProperties(
-    feedbackState.primaryAnswer,
-    undefined,
-    undefined,
-    feedbackState.submitted ? 'submitted' : 'dismissed',
-  ), {
-    close_reason: reason,
-  })
+  pushAnalytics(
+    'demo_feedback_closed',
+    'closed',
+    analyticsProperties(
+      feedbackState.primaryAnswer,
+      undefined,
+      undefined,
+      feedbackState.submitted ? 'submitted' : 'dismissed',
+    ),
+    {
+      close_reason: reason,
+    },
+  )
   scheduleEligibilityCheck()
 }
 
@@ -584,11 +618,7 @@ const recordPrimaryAnswer = (answer: DemoFeedbackPrimaryAnswer) => {
   feedbackState = setDemoFeedbackPrimaryAnswer(feedbackState, answer)
   initialPrimaryAnswer.value = answer
   persistState()
-  pushAnalytics(
-    'demo_feedback_primary_answer',
-    `primary:${answer}`,
-    analyticsProperties(answer),
-  )
+  pushAnalytics('demo_feedback_primary_answer', `primary:${answer}`, analyticsProperties(answer))
 }
 
 const sendPayload = async (payload: DemoFeedbackPayload): Promise<void> => {
@@ -602,7 +632,8 @@ const sendPayload = async (payload: DemoFeedbackPayload): Promise<void> => {
       body: JSON.stringify(payload),
       signal: controller.signal,
     })
-    if (!response.ok) throw new Error(response.statusText || `Feedback request failed (${response.status})`)
+    if (!response.ok)
+      throw new Error(response.statusText || `Feedback request failed (${response.status})`)
   } finally {
     window.clearTimeout(timeout)
     if (activeAbortController === controller) activeAbortController = null
@@ -612,10 +643,8 @@ const sendPayload = async (payload: DemoFeedbackPayload): Promise<void> => {
 const sendPayloadInBackground = (payload: DemoFeedbackPayload) => {
   const body = JSON.stringify(payload)
   try {
-    if (navigator.sendBeacon?.(
-      contactApiUrl,
-      new Blob([body], { type: 'application/json' }),
-    )) return
+    if (navigator.sendBeacon?.(contactApiUrl, new Blob([body], { type: 'application/json' })))
+      return
   } catch {
     // Fall back to keepalive fetch when Beacon is unavailable or blocked.
   }
@@ -624,16 +653,22 @@ const sendPayloadInBackground = (payload: DemoFeedbackPayload) => {
     headers: { 'Content-Type': 'application/json' },
     body,
     keepalive: true,
-  }).catch((error) => console.error('Error sending demo feedback:', error))
+  }).catch(error => console.error('Error sending demo feedback:', error))
 }
 
 const submitDetailedAnswer = async ({
   primaryAnswer,
   answers,
-}: { primaryAnswer: DemoFeedbackPrimaryAnswer, answers: DemoFeedbackAnswers }) => {
-  if (!feedbackDemo.value
-    || submissionState.value === 'submitting'
-    || !hasMeaningfulDemoFeedbackAnswers(answers)) return
+}: {
+  primaryAnswer: DemoFeedbackPrimaryAnswer
+  answers: DemoFeedbackAnswers
+}) => {
+  if (
+    !feedbackDemo.value ||
+    submissionState.value === 'submitting' ||
+    !hasMeaningfulDemoFeedbackAnswers(answers)
+  )
+    return
   feedbackState = setDemoFeedbackPrimaryAnswer(feedbackState, primaryAnswer)
   persistState()
   const payload = createDemoFeedbackPayload({
@@ -661,16 +696,20 @@ const submitDetailedAnswer = async ({
   } catch (error) {
     console.error('Error sending demo feedback:', error)
     submissionState.value = 'error'
-    errorMessage.value = error instanceof DOMException && error.name === 'AbortError'
-      ? 'The request timed out. Please try again.'
-      : 'We could not send your feedback. Please try again.'
+    errorMessage.value =
+      error instanceof DOMException && error.name === 'AbortError'
+        ? 'The request timed out. Please try again.'
+        : 'We could not send your feedback. Please try again.'
   }
 }
 
 const completeWithoutDetails = ({
   primaryAnswer,
   answers,
-}: { primaryAnswer: DemoFeedbackPrimaryAnswer, answers: DemoFeedbackAnswers }) => {
+}: {
+  primaryAnswer: DemoFeedbackPrimaryAnswer
+  answers: DemoFeedbackAnswers
+}) => {
   if (!feedbackDemo.value) return
   feedbackState = setDemoFeedbackPrimaryAnswer(feedbackState, primaryAnswer)
   const payload = createDemoFeedbackPayload({
@@ -686,14 +725,14 @@ const completeWithoutDetails = ({
   persistState()
   sendPayloadInBackground(payload)
   flowVisible.value = false
-  pushAnalytics('demo_feedback_closed', 'closed', analyticsProperties(
-    primaryAnswer,
-    answers,
-    undefined,
-    'submitted',
-  ), {
-    close_reason: 'completed',
-  })
+  pushAnalytics(
+    'demo_feedback_closed',
+    'closed',
+    analyticsProperties(primaryAnswer, answers, undefined, 'submitted'),
+    {
+      close_reason: 'completed',
+    },
+  )
   scheduleEligibilityCheck()
 }
 
@@ -728,20 +767,23 @@ const takeNextAction = ({
     sendPayloadInBackground(payload)
   }
   flowVisible.value = false
-  pushAnalytics('demo_feedback_closed', 'closed', analyticsProperties(
-    primaryAnswer,
-    answers,
-    action.code,
-    'submitted',
-  ), {
-    close_reason: 'next_action',
-  })
+  pushAnalytics(
+    'demo_feedback_closed',
+    'closed',
+    analyticsProperties(primaryAnswer, answers, action.code, 'submitted'),
+    {
+      close_reason: 'next_action',
+    },
+  )
   scheduleEligibilityCheck()
 }
 
-watch(() => route.path, (path) => {
-  void activateRoute(path)
-})
+watch(
+  () => route.path,
+  path => {
+    void activateRoute(path)
+  },
+)
 
 onMounted(() => {
   if (!featureEnabled || !contactApiUrl) return
@@ -761,7 +803,7 @@ onMounted(() => {
   document.addEventListener('click', handleDocumentClick, true)
   document.addEventListener('change', handleDocumentChange, true)
   document.addEventListener('visibilitychange', handleVisibilityChange)
-  interactionEventNames.forEach((eventName) => {
+  interactionEventNames.forEach(eventName => {
     document.addEventListener(eventName, handleDocumentInteractionEvent, true)
   })
   gridObserver = new MutationObserver(scanForGrids)
@@ -778,7 +820,7 @@ onBeforeUnmount(() => {
   document.removeEventListener('click', handleDocumentClick, true)
   document.removeEventListener('change', handleDocumentChange, true)
   document.removeEventListener('visibilitychange', handleVisibilityChange)
-  interactionEventNames.forEach((eventName) => {
+  interactionEventNames.forEach(eventName => {
     document.removeEventListener(eventName, handleDocumentInteractionEvent, true)
   })
   directGridHandlers.forEach((handlers, grid) => {
@@ -927,7 +969,9 @@ onBeforeUnmount(() => {
 
 .demo-feedback-card-enter-active,
 .demo-feedback-card-leave-active {
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
 }
 
 .demo-feedback-card-enter-from,

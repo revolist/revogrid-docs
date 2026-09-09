@@ -13,29 +13,44 @@ export const PivotMockup = defineComponent({
       ['Grand total', 'EUR 401,800', 'EUR 467,760', 'EUR 534,200', 'EUR 614,460', 'EUR 2,018,220'],
     ]
 
-    return () => h('div', { class: 'mockup-pivot' }, [
-      h('div', { class: 'pivot-grid' }, cells.flatMap((row, rowIndex) =>
-        row.map((cell, colIndex) => h('div', {
-          class: [
-            rowIndex === 0 ? 'ph' : 'pl',
-            colIndex > 0 ? 'num' : '',
-            rowIndex > 1 && rowIndex < 4 && colIndex === 0 ? 'indent' : '',
-            colIndex === 5 ? 'tot' : '',
-            rowIndex === 6 ? 'gtot' : '',
-            rowIndex > 0 && (rowIndex === 1 || rowIndex === 4 || rowIndex === 5) && colIndex === 0 ? 'head' : '',
-          ],
-        }, cell)),
-      )),
-      h('div', { class: 'pivot-config' }, [
-        h('span', { class: 'chip-label' }, 'Rows ->'),
-        h('span', { class: 'chip row' }, 'Region'),
-        h('span', { class: 'chip row' }, 'Country'),
-        h('span', { class: 'chip-label' }, 'Columns ->'),
-        h('span', { class: 'chip col' }, 'Quarter'),
-        h('span', { class: 'chip-label' }, 'Values ->'),
-        h('span', { class: 'chip val' }, 'SUM(Revenue)'),
-      ]),
-    ])
+    return () =>
+      h('div', { class: 'mockup-pivot' }, [
+        h(
+          'div',
+          { class: 'pivot-grid' },
+          cells.flatMap((row, rowIndex) =>
+            row.map((cell, colIndex) =>
+              h(
+                'div',
+                {
+                  class: [
+                    rowIndex === 0 ? 'ph' : 'pl',
+                    colIndex > 0 ? 'num' : '',
+                    rowIndex > 1 && rowIndex < 4 && colIndex === 0 ? 'indent' : '',
+                    colIndex === 5 ? 'tot' : '',
+                    rowIndex === 6 ? 'gtot' : '',
+                    rowIndex > 0 &&
+                    (rowIndex === 1 || rowIndex === 4 || rowIndex === 5) &&
+                    colIndex === 0
+                      ? 'head'
+                      : '',
+                  ],
+                },
+                cell,
+              ),
+            ),
+          ),
+        ),
+        h('div', { class: 'pivot-config' }, [
+          h('span', { class: 'chip-label' }, 'Rows ->'),
+          h('span', { class: 'chip row' }, 'Region'),
+          h('span', { class: 'chip row' }, 'Country'),
+          h('span', { class: 'chip-label' }, 'Columns ->'),
+          h('span', { class: 'chip col' }, 'Quarter'),
+          h('span', { class: 'chip-label' }, 'Values ->'),
+          h('span', { class: 'chip val' }, 'SUM(Revenue)'),
+        ]),
+      ])
   },
 })
 
@@ -53,36 +68,43 @@ export const GanttMockup = defineComponent({
       ['Launch', 'rose', '80%', '18%', ''],
     ]
 
-    return () => h('div', { class: 'mockup-gantt' }, [
-      h('div', { class: 'gantt-head' }, [
-        h('div', { class: 'gh-label' }, 'Task / Phase'),
-        h('div', { class: 'gh-weeks' }, ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8'].map((week) =>
-          h('span', { class: week === 'W4' ? 'today' : '' }, week),
-        )),
-      ]),
-      ...rows.map(([label, tone, left, width, text]) => h('div', { class: 'gantt-row' }, [
-        h('div', { class: ['gr-label', tone.includes('child') ? 'child' : ''] }, [
-          !tone.includes('child') ? h('span', { class: ['ind', tone.split(' ')[0]] }) : null,
-          label,
+    return () =>
+      h('div', { class: 'mockup-gantt' }, [
+        h('div', { class: 'gantt-head' }, [
+          h('div', { class: 'gh-label' }, 'Task / Phase'),
+          h(
+            'div',
+            { class: 'gh-weeks' },
+            ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8'].map(week =>
+              h('span', { class: week === 'W4' ? 'today' : '' }, week),
+            ),
+          ),
         ]),
-        h('div', { class: 'gr-track' }, [
-          h('div', { class: ['bar', tone.split(' ')[0]], style: { left, width } }, [
-            h('span', { class: 'pct', style: { width: text ? text : '100%' } }),
-            text,
+        ...rows.map(([label, tone, left, width, text]) =>
+          h('div', { class: 'gantt-row' }, [
+            h('div', { class: ['gr-label', tone.includes('child') ? 'child' : ''] }, [
+              !tone.includes('child') ? h('span', { class: ['ind', tone.split(' ')[0]] }) : null,
+              label,
+            ]),
+            h('div', { class: 'gr-track' }, [
+              h('div', { class: ['bar', tone.split(' ')[0]], style: { left, width } }, [
+                h('span', { class: 'pct', style: { width: text ? text : '100%' } }),
+                text,
+              ]),
+              tone.includes('violet') || tone.includes('teal') || tone.includes('rose')
+                ? h('div', { class: 'gantt-today', style: { left: '37.5%' } })
+                : null,
+            ]),
           ]),
-          tone.includes('violet') || tone.includes('teal') || tone.includes('rose')
-            ? h('div', { class: 'gantt-today', style: { left: '37.5%' } })
-            : null,
+        ),
+        h('div', { class: 'gantt-foot' }, [
+          h('div', { class: 'leg' }, [h('i', { class: 'coral' }), 'Discovery']),
+          h('div', { class: 'leg' }, [h('i', { class: 'violet' }), 'Design']),
+          h('div', { class: 'leg' }, [h('i', { class: 'teal' }), 'Engineering']),
+          h('div', { class: 'leg' }, [h('i', { class: 'rose' }), 'Launch']),
+          h('div', { class: 'gantt-summary' }, 'Critical path: 6w - Slack: 2d - Resources: 4'),
         ]),
-      ])),
-      h('div', { class: 'gantt-foot' }, [
-        h('div', { class: 'leg' }, [h('i', { class: 'coral' }), 'Discovery']),
-        h('div', { class: 'leg' }, [h('i', { class: 'violet' }), 'Design']),
-        h('div', { class: 'leg' }, [h('i', { class: 'teal' }), 'Engineering']),
-        h('div', { class: 'leg' }, [h('i', { class: 'rose' }), 'Launch']),
-        h('div', { class: 'gantt-summary' }, 'Critical path: 6w - Slack: 2d - Resources: 4'),
-      ]),
-    ])
+      ])
   },
 })
 
@@ -99,53 +121,103 @@ export const SheetMockup = defineComponent({
       ['7', 'Total', 'EUR 1,236,290', '-', '-', '-'],
     ]
 
-    return () => h('div', { class: 'mockup-sheet' }, [
-      h('div', { class: 'sheet-formula' }, [
-        h('span', { class: 'cell-ref' }, 'F7'),
-        h('span', { class: 'fx' }, 'fx'),
-        h('span', { class: 'input' }, '=SUM(B2:B6)*(1+C7)'),
-      ]),
-      h('div', { class: 'sheet-grid' }, [
-        h('div', { class: 'row-h' }),
-        ...['A', 'B', 'C', 'D', 'E'].map((col) => h('div', { class: 'col-h' }, col)),
-        ...rows.flatMap((row, rowIndex) => [
-          h('div', { class: 'row-h' }, row[0]),
-          ...row.slice(1).map((cell, colIndex) => h('div', {
-            class: [
-              'cell',
-              colIndex === 0 ? 'left' : '',
-              colIndex === 1 && rowIndex > 0 && rowIndex < 6 ? 'range' : '',
-              colIndex === 1 && rowIndex === 5 ? 'range-corner' : '',
-              rowIndex === 6 && colIndex === 1 ? 'total' : '',
-              cell.startsWith('+') ? 'green' : '',
-            ],
-          }, [
-            cell,
-            colIndex === 1 && rowIndex === 5 ? h('span', { class: 'fill-handle' }) : null,
-          ])),
+    return () =>
+      h('div', { class: 'mockup-sheet' }, [
+        h('div', { class: 'sheet-formula' }, [
+          h('span', { class: 'cell-ref' }, 'F7'),
+          h('span', { class: 'fx' }, 'fx'),
+          h('span', { class: 'input' }, '=SUM(B2:B6)*(1+C7)'),
         ]),
-      ]),
-    ])
+        h('div', { class: 'sheet-grid' }, [
+          h('div', { class: 'row-h' }),
+          ...['A', 'B', 'C', 'D', 'E'].map(col => h('div', { class: 'col-h' }, col)),
+          ...rows.flatMap((row, rowIndex) => [
+            h('div', { class: 'row-h' }, row[0]),
+            ...row.slice(1).map((cell, colIndex) =>
+              h(
+                'div',
+                {
+                  class: [
+                    'cell',
+                    colIndex === 0 ? 'left' : '',
+                    colIndex === 1 && rowIndex > 0 && rowIndex < 6 ? 'range' : '',
+                    colIndex === 1 && rowIndex === 5 ? 'range-corner' : '',
+                    rowIndex === 6 && colIndex === 1 ? 'total' : '',
+                    cell.startsWith('+') ? 'green' : '',
+                  ],
+                },
+                [
+                  cell,
+                  colIndex === 1 && rowIndex === 5 ? h('span', { class: 'fill-handle' }) : null,
+                ],
+              ),
+            ),
+          ]),
+        ]),
+      ])
   },
 })
 
 export const TreeMockup = defineComponent({
   name: 'TreeMockup',
   setup() {
-    return () => h('div', { class: 'mockup-tree' }, [
-      h('div', { class: 'tree-row head' }, [h('div', 'Account'), h('div', 'Users'), h('div', 'Status'), h('div')]),
-      h('div', { class: 'tree-row' }, [h('div', { class: 'tree-name' }, '▸ Acme Industries'), h('div', { class: 'num' }, '142'), h('div', [h('span', { class: 'badge badge-good' }, 'Active')]), h('div', { class: 'actions' }, '...')]),
-      h('div', { class: 'tree-row' }, [h('div', { class: 'tree-name open' }, '▸ Northwind GmbH'), h('div', { class: 'num' }, '86'), h('div', [h('span', { class: 'badge badge-good' }, 'Active')]), h('div', { class: 'actions' }, '...')]),
-      h('div', { class: 'tree-detail' }, [
-        h('div', { class: 'det' }, [h('div', { class: 'lbl' }, 'Plan'), h('div', { class: 'val accent' }, 'Pro Advanced')]),
-        h('div', { class: 'det' }, [h('div', { class: 'lbl' }, 'MRR'), h('div', { class: 'val' }, 'EUR 14,210')]),
-        h('div', { class: 'det' }, [h('div', { class: 'lbl' }, 'Renewal'), h('div', { class: 'val' }, 'Apr 12, 2026')]),
-        h('div', { class: 'det' }, [h('div', { class: 'lbl' }, 'Health'), h('div', { class: 'val good' }, '92 / 100')]),
-      ]),
-      h('div', { class: 'tree-row' }, [h('div', { class: 'tree-name' }, '▾ Initech Holdings'), h('div', { class: 'num' }, '38'), h('div', [h('span', { class: 'badge badge-warn' }, 'Trial')]), h('div', { class: 'actions' }, '...')]),
-      h('div', { class: 'tree-row' }, [h('div', { class: 'tree-name depth-1' }, '▸ Initech UK'), h('div', { class: 'num' }, '22'), h('div', [h('span', { class: 'badge badge-warn' }, 'Trial')]), h('div', { class: 'actions' }, '...')]),
-      h('div', { class: 'tree-row' }, [h('div', { class: 'tree-name' }, '▸ Globex SA'), h('div', { class: 'num' }, '11'), h('div', [h('span', { class: 'badge badge-info' }, 'Onboarding')]), h('div', { class: 'actions' }, '...')]),
-    ])
+    return () =>
+      h('div', { class: 'mockup-tree' }, [
+        h('div', { class: 'tree-row head' }, [
+          h('div', 'Account'),
+          h('div', 'Users'),
+          h('div', 'Status'),
+          h('div'),
+        ]),
+        h('div', { class: 'tree-row' }, [
+          h('div', { class: 'tree-name' }, '▸ Acme Industries'),
+          h('div', { class: 'num' }, '142'),
+          h('div', [h('span', { class: 'badge badge-good' }, 'Active')]),
+          h('div', { class: 'actions' }, '...'),
+        ]),
+        h('div', { class: 'tree-row' }, [
+          h('div', { class: 'tree-name open' }, '▸ Northwind GmbH'),
+          h('div', { class: 'num' }, '86'),
+          h('div', [h('span', { class: 'badge badge-good' }, 'Active')]),
+          h('div', { class: 'actions' }, '...'),
+        ]),
+        h('div', { class: 'tree-detail' }, [
+          h('div', { class: 'det' }, [
+            h('div', { class: 'lbl' }, 'Plan'),
+            h('div', { class: 'val accent' }, 'Pro Advanced'),
+          ]),
+          h('div', { class: 'det' }, [
+            h('div', { class: 'lbl' }, 'MRR'),
+            h('div', { class: 'val' }, 'EUR 14,210'),
+          ]),
+          h('div', { class: 'det' }, [
+            h('div', { class: 'lbl' }, 'Renewal'),
+            h('div', { class: 'val' }, 'Apr 12, 2026'),
+          ]),
+          h('div', { class: 'det' }, [
+            h('div', { class: 'lbl' }, 'Health'),
+            h('div', { class: 'val good' }, '92 / 100'),
+          ]),
+        ]),
+        h('div', { class: 'tree-row' }, [
+          h('div', { class: 'tree-name' }, '▾ Initech Holdings'),
+          h('div', { class: 'num' }, '38'),
+          h('div', [h('span', { class: 'badge badge-warn' }, 'Trial')]),
+          h('div', { class: 'actions' }, '...'),
+        ]),
+        h('div', { class: 'tree-row' }, [
+          h('div', { class: 'tree-name depth-1' }, '▸ Initech UK'),
+          h('div', { class: 'num' }, '22'),
+          h('div', [h('span', { class: 'badge badge-warn' }, 'Trial')]),
+          h('div', { class: 'actions' }, '...'),
+        ]),
+        h('div', { class: 'tree-row' }, [
+          h('div', { class: 'tree-name' }, '▸ Globex SA'),
+          h('div', { class: 'num' }, '11'),
+          h('div', [h('span', { class: 'badge badge-info' }, 'Onboarding')]),
+          h('div', { class: 'actions' }, '...'),
+        ]),
+      ])
   },
 })
 
@@ -161,20 +233,27 @@ export const AuditMockup = defineComponent({
       ['14:22:48', 'system validation failed on D5  "value out of range"', 'REJECT'],
     ]
 
-    return () => h('div', { class: 'mockup-audit' }, [
-      h('div', { class: 'audit-head' }, [
-        h('div', 'Audit log - q4-revenue.grid - last 24h'),
-        h('div', { class: 'actions' }, [
-          h('button', { class: 'primary', type: 'button' }, 'Undo last'),
-          h('button', { type: 'button' }, 'Redo'),
-          h('button', { type: 'button' }, 'Export CSV'),
+    return () =>
+      h('div', { class: 'mockup-audit' }, [
+        h('div', { class: 'audit-head' }, [
+          h('div', 'Audit log - q4-revenue.grid - last 24h'),
+          h('div', { class: 'actions' }, [
+            h('button', { class: 'primary', type: 'button' }, 'Undo last'),
+            h('button', { type: 'button' }, 'Redo'),
+            h('button', { type: 'button' }, 'Export CSV'),
+          ]),
         ]),
-      ]),
-      h('div', { class: 'audit-list' }, items.map(([time, msg, tag]) => h('div', { class: ['audit-item', tag === 'UNDONE' ? 'undone' : ''] }, [
-        h('div', { class: 'time' }, time),
-        h('div', { class: 'msg' }, msg),
-        h('div', { class: ['tag', tag.toLowerCase()] }, tag),
-      ]))),
-    ])
+        h(
+          'div',
+          { class: 'audit-list' },
+          items.map(([time, msg, tag]) =>
+            h('div', { class: ['audit-item', tag === 'UNDONE' ? 'undone' : ''] }, [
+              h('div', { class: 'time' }, time),
+              h('div', { class: 'msg' }, msg),
+              h('div', { class: ['tag', tag.toLowerCase()] }, tag),
+            ]),
+          ),
+        ),
+      ])
   },
 })

@@ -23,13 +23,15 @@ const props = defineProps<{
   features: PivotLandingPage['features']
 }>()
 
-const featureCards = computed(() => props.features.items.map(feature => ({
-  ...feature,
-  media: feature.media?.src,
-  mediaAlt: feature.media?.alt,
-  mediaWidth: feature.media?.width,
-  mediaHeight: feature.media?.height,
-  mediaFit: feature.media ? 'contain' as const : undefined,
-  mediaPosition: feature.media?.position,
-})))
+const featureCards = computed(() =>
+  props.features.items.map(feature => ({
+    ...feature,
+    media: feature.media?.src,
+    mediaAlt: feature.media?.alt,
+    mediaWidth: feature.media?.width,
+    mediaHeight: feature.media?.height,
+    mediaFit: feature.media ? ('contain' as const) : undefined,
+    mediaPosition: feature.media?.position,
+  })),
+)
 </script>

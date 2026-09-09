@@ -6,8 +6,8 @@ defineProps<{
   introduction: string
   problemTitle: string
   problem: string
-  benefits: Array<{ title: string, description: string }>
-  details: Array<{ label: string, value: string }>
+  benefits: Array<{ title: string; description: string }>
+  details: Array<{ label: string; value: string }>
 }>()
 </script>
 
@@ -66,11 +66,18 @@ defineProps<{
 </template>
 
 <style>
-.kanban-use-case-page .VPDoc { padding: 0 !important; }
+.kanban-use-case-page .VPDoc {
+  padding: 0 !important;
+}
 .kanban-use-case-page .VPDoc .container,
 .kanban-use-case-page .VPDoc .content,
-.kanban-use-case-page .VPDoc .content-container { max-width: none !important; padding: 0 !important; }
-.kanban-use-case-page .vp-doc > div { margin: 0 !important; }
+.kanban-use-case-page .VPDoc .content-container {
+  max-width: none !important;
+  padding: 0 !important;
+}
+.kanban-use-case-page .vp-doc > div {
+  margin: 0 !important;
+}
 
 .kanban-story {
   --story-accent: #5b73e8;
@@ -121,8 +128,14 @@ defineProps<{
   font-size: clamp(17px, 2vw, 22px);
   line-height: 1.55;
 }
-.kanban-story__board { height: min(760px, calc(100vh - 72px)); min-height: 650px; border-bottom: 1px solid var(--story-border); }
-.kanban-story__board > * { min-height: 0 !important; }
+.kanban-story__board {
+  height: min(760px, calc(100vh - 72px));
+  min-height: 650px;
+  border-bottom: 1px solid var(--story-border);
+}
+.kanban-story__board > * {
+  min-height: 0 !important;
+}
 .kanban-story__content {
   display: grid;
   max-width: 1180px;
@@ -153,15 +166,54 @@ defineProps<{
   border: 1px solid var(--story-border);
   border-radius: 16px;
 }
-.kanban-story__details div { padding: 18px 20px; border-bottom: 1px solid var(--story-border); }
-.kanban-story__details div:last-child { border-bottom: 0; }
-.kanban-story__details span { display: block; color: var(--vp-c-text-3); font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
-.kanban-story__details strong { display: block; margin-top: 5px; color: var(--vp-c-text-1); font-size: 15px; line-height: 1.45; }
-.kanban-story__benefits { grid-column: 1 / -1; }
-.kanban-story__benefit-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 36px; }
-.kanban-story__benefit-grid article { padding: 26px; border: 1px solid var(--story-border); border-radius: 16px; background: var(--vp-c-bg-soft); }
-.kanban-story__benefit-grid h3 { margin: 0 0 10px; color: var(--vp-c-text-1); font-size: 17px; }
-.kanban-story__benefit-grid p { margin: 0; color: var(--vp-c-text-2); font-size: 14px; line-height: 1.65; }
+.kanban-story__details div {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--story-border);
+}
+.kanban-story__details div:last-child {
+  border-bottom: 0;
+}
+.kanban-story__details span {
+  display: block;
+  color: var(--vp-c-text-3);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.kanban-story__details strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--vp-c-text-1);
+  font-size: 15px;
+  line-height: 1.45;
+}
+.kanban-story__benefits {
+  grid-column: 1 / -1;
+}
+.kanban-story__benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 36px;
+}
+.kanban-story__benefit-grid article {
+  padding: 26px;
+  border: 1px solid var(--story-border);
+  border-radius: 16px;
+  background: var(--vp-c-bg-soft);
+}
+.kanban-story__benefit-grid h3 {
+  margin: 0 0 10px;
+  color: var(--vp-c-text-1);
+  font-size: 17px;
+}
+.kanban-story__benefit-grid p {
+  margin: 0;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  line-height: 1.65;
+}
 .kanban-story__footer {
   display: flex;
   grid-column: 1 / -1;
@@ -171,27 +223,106 @@ defineProps<{
   padding-top: 64px;
   border-top: 1px solid var(--story-border);
 }
-.kanban-story__footer h2 { max-width: 720px; margin-bottom: 0; font-size: clamp(28px, 3vw, 40px); }
-.kanban-story__actions { display: flex; flex: 0 0 auto; flex-direction: column; gap: 10px; }
-.kanban-story__actions a { padding: 13px 18px; border: 1px solid var(--story-accent); border-radius: 8px; color: #fff; background: var(--story-accent); font-size: 13px; font-weight: 750; text-align: center; text-decoration: none; }
-.kanban-story__actions .kanban-story__secondary { color: var(--story-accent); background: transparent; }
+.kanban-story__footer h2 {
+  max-width: 720px;
+  margin-bottom: 0;
+  font-size: clamp(28px, 3vw, 40px);
+}
+.kanban-story__actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+}
+.kanban-story__actions a {
+  padding: 13px 18px;
+  border: 1px solid var(--story-accent);
+  border-radius: 8px;
+  color: #fff;
+  background: var(--story-accent);
+  font-size: 13px;
+  font-weight: 750;
+  text-align: center;
+  text-decoration: none;
+}
+.kanban-story__actions .kanban-story__secondary {
+  color: var(--story-accent);
+  background: transparent;
+}
 
-.kanban-story--product-delivery { --story-accent: #8b7cff; --story-hero: #0d122c; --story-hero-text: #f8f9ff; --story-hero-muted: #abb6d9; --story-border: #303a66; }
-.kanban-story--support-operations { --story-accent: #047fbe; --story-hero: #058bd4; --story-hero-text: #fff; --story-hero-muted: #d7f4ff; --story-border: #52add9; }
-.kanban-story--sales-onboarding { --story-accent: #7fa520; --story-hero: #10130e; --story-hero-text: #fbfff1; --story-hero-muted: #bdc5b1; --story-border: #343b2b; }
-.kanban-story--content-approvals { --story-accent: #a23838; --story-hero: #faf2e8; --story-hero-text: #2b1b18; --story-hero-muted: #735f57; --story-border: #d9c8ba; }
-.kanban-story--quality-manufacturing { --story-accent: #b67900; --story-hero: #202327; --story-hero-text: #f7f9fb; --story-hero-muted: #bdc4cc; --story-border: #484d54; }
-.kanban-story--internal-workflows { --story-accent: #197c5a; --story-hero: #5f4d91; --story-hero-text: #fff; --story-hero-muted: #e3ddf4; --story-border: #9f92c6; }
+.kanban-story--product-delivery {
+  --story-accent: #8b7cff;
+  --story-hero: #0d122c;
+  --story-hero-text: #f8f9ff;
+  --story-hero-muted: #abb6d9;
+  --story-border: #303a66;
+}
+.kanban-story--support-operations {
+  --story-accent: #047fbe;
+  --story-hero: #058bd4;
+  --story-hero-text: #fff;
+  --story-hero-muted: #d7f4ff;
+  --story-border: #52add9;
+}
+.kanban-story--sales-onboarding {
+  --story-accent: #7fa520;
+  --story-hero: #10130e;
+  --story-hero-text: #fbfff1;
+  --story-hero-muted: #bdc5b1;
+  --story-border: #343b2b;
+}
+.kanban-story--content-approvals {
+  --story-accent: #a23838;
+  --story-hero: #faf2e8;
+  --story-hero-text: #2b1b18;
+  --story-hero-muted: #735f57;
+  --story-border: #d9c8ba;
+}
+.kanban-story--quality-manufacturing {
+  --story-accent: #b67900;
+  --story-hero: #202327;
+  --story-hero-text: #f7f9fb;
+  --story-hero-muted: #bdc4cc;
+  --story-border: #484d54;
+}
+.kanban-story--internal-workflows {
+  --story-accent: #197c5a;
+  --story-hero: #5f4d91;
+  --story-hero-text: #fff;
+  --story-hero-muted: #e3ddf4;
+  --story-border: #9f92c6;
+}
 
 @media (max-width: 760px) {
-  .kanban-story__hero { min-height: 0; padding: 40px 22px 48px; }
-  .kanban-story__back { margin-bottom: 34px; }
-  .kanban-story__board { height: 680px; min-height: 620px; }
-  .kanban-story__content { grid-template-columns: 1fr; gap: 48px; padding: 64px 22px 80px; }
+  .kanban-story__hero {
+    min-height: 0;
+    padding: 40px 22px 48px;
+  }
+  .kanban-story__back {
+    margin-bottom: 34px;
+  }
+  .kanban-story__board {
+    height: 680px;
+    min-height: 620px;
+  }
+  .kanban-story__content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 64px 22px 80px;
+  }
   .kanban-story__benefits,
-  .kanban-story__footer { grid-column: 1; }
-  .kanban-story__benefit-grid { grid-template-columns: 1fr; }
-  .kanban-story__footer { align-items: stretch; flex-direction: column; }
-  .kanban-story__actions { width: 100%; }
+  .kanban-story__footer {
+    grid-column: 1;
+  }
+  .kanban-story__benefit-grid {
+    grid-template-columns: 1fr;
+  }
+  .kanban-story__footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .kanban-story__actions {
+    width: 100%;
+  }
 }
 </style>

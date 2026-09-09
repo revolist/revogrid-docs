@@ -76,10 +76,13 @@ const schedulePromotionRefresh = () => {
     return
   }
 
-  promotionTimer = setTimeout(() => {
-    pricingClock.value = new Date()
-    schedulePromotionRefresh()
-  }, Math.min(remaining + 100, 2_147_483_647))
+  promotionTimer = setTimeout(
+    () => {
+      pricingClock.value = new Date()
+      schedulePromotionRefresh()
+    },
+    Math.min(remaining + 100, 2_147_483_647),
+  )
 }
 
 onMounted(schedulePromotionRefresh)

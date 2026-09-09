@@ -4,8 +4,8 @@
       <div class="section-tag">Use Cases</div>
       <h2 class="section-title">What teams build with it.</h2>
       <p class="section-sub">
-        RevoGrid Pivot ships with linked charts for BI dashboards, analytics
-        products, financial reporting tools, and data-heavy internal apps.
+        RevoGrid Pivot ships with linked charts for BI dashboards, analytics products, financial
+        reporting tools, and data-heavy internal apps.
       </p>
 
       <div class="usecase-grid">
@@ -18,7 +18,7 @@
               :height="useCase.image.height"
               loading="lazy"
               decoding="async"
-            >
+            />
           </figure>
 
           <div class="usecase-content">
@@ -48,7 +48,8 @@ const USE_CASES = [
     number: '01',
     title: 'Revenue Analytics',
     href: '/pivot/use-cases/revenue-analytics',
-    description: 'Turn raw sales records into an interactive revenue view by region, channel, and quarter. Teams can expand a market, compare its channels, and see linked chart updates without building a separate reporting workflow.',
+    description:
+      'Turn raw sales records into an interactive revenue view by region, channel, and quarter. Teams can expand a market, compare its channels, and see linked chart updates without building a separate reporting workflow.',
     features: [
       'Revenue by region, channel, and quarter',
       'Linked charts update with pivot context',
@@ -66,7 +67,8 @@ const USE_CASES = [
     number: '02',
     title: 'Customer Analytics',
     href: '/pivot/use-cases/customer-analytics',
-    description: 'Turn customer behavior into clear, actionable segments. Compare spend, ratings, membership tiers, cities, and discount usage in one interactive pivot, then follow patterns instantly through linked charts and heatmapped values.',
+    description:
+      'Turn customer behavior into clear, actionable segments. Compare spend, ratings, membership tiers, cities, and discount usage in one interactive pivot, then follow patterns instantly through linked charts and heatmapped values.',
     features: [
       'Segment customers by city and membership tier',
       'Compare spend and ratings with heatmapped values',
@@ -84,7 +86,8 @@ const USE_CASES = [
     number: '03',
     title: 'Financial Reporting',
     href: '/pivot/use-cases/financial-reporting',
-    description: 'Turn live finance data into board-ready P&L, cost-center, and budget-versus-actual views. Teams can drill from consolidated totals into departmental variances while filters, subtotals, and linked charts remain synchronized inside their application.',
+    description:
+      'Turn live finance data into board-ready P&L, cost-center, and budget-versus-actual views. Teams can drill from consolidated totals into departmental variances while filters, subtotals, and linked charts remain synchronized inside their application.',
     features: [
       'Budget vs actuals with variance highlighting',
       'Expandable department and cost-center rollups',
@@ -169,7 +172,10 @@ const USE_CASES = [
   border-radius: 16px;
   background: var(--rg-bg);
   box-shadow: var(--pro-doc-shadow-sm);
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
 
   &:hover {
     border-color: var(--pivot-accent-border);

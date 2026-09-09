@@ -11,7 +11,10 @@
 
       <div class="excel-integration-layout">
         <div class="excel-code-panel">
-          <div class="excel-code-panel__bar"><span>workbook.{{ activeFramework.toLowerCase() }}</span><a :href="frameworkGuide">{{ content.gettingStarted }}</a></div>
+          <div class="excel-code-panel__bar">
+            <span>workbook.{{ activeFramework.toLowerCase() }}</span
+            ><a :href="frameworkGuide">{{ content.gettingStarted }}</a>
+          </div>
           <ExcelHighlightedCode
             class="excel-code-panel__sample"
             :code="frameworkCode"
@@ -36,12 +39,17 @@
               :aria-selected="activeFramework === framework"
               :class="{ active: activeFramework === framework }"
               @click="activeFramework = framework"
-            >{{ framework }}</button>
+            >
+              {{ framework }}
+            </button>
           </div>
           <div class="excel-extension-list">
             <article v-for="extension in content.extensions" :key="extension.title">
               <FontAwesomeSvgIcon :name="extension.icon" />
-              <div><strong>{{ extension.title }}</strong><p>{{ extension.detail }}</p></div>
+              <div>
+                <strong>{{ extension.title }}</strong>
+                <p>{{ extension.detail }}</p>
+              </div>
             </article>
           </div>
         </div>
@@ -62,18 +70,34 @@ defineProps<{ content: ExcelLandingContent['developer'] }>()
 const frameworks = Object.keys(FRAMEWORK_SAMPLES)
 const activeFramework = ref('React')
 const frameworkCode = computed(() => FRAMEWORK_SAMPLES[activeFramework.value])
-const frameworkLanguage = computed(() => ({
-  React: 'tsx', Vue: 'vue', Angular: 'ts', JavaScript: 'js', TypeScript: 'ts',
-})[activeFramework.value])
-const frameworkPackage = computed(() => ({
-  React: '@revolist/react-datagrid', Vue: '@revolist/vue3-datagrid', Angular: '@revolist/angular-datagrid',
-  JavaScript: '@revolist/revogrid', TypeScript: '@revolist/revogrid',
-})[activeFramework.value])
-const frameworkGuide = computed(() => ({
-  React: '/guide/react/',
-  Vue: '/guide/vue3/',
-  Angular: '/guide/angular/',
-  JavaScript: '/guide/',
-  TypeScript: '/guide/ts/',
-})[activeFramework.value])
+const frameworkLanguage = computed(
+  () =>
+    ({
+      React: 'tsx',
+      Vue: 'vue',
+      Angular: 'ts',
+      JavaScript: 'js',
+      TypeScript: 'ts',
+    })[activeFramework.value],
+)
+const frameworkPackage = computed(
+  () =>
+    ({
+      React: '@revolist/react-datagrid',
+      Vue: '@revolist/vue3-datagrid',
+      Angular: '@revolist/angular-datagrid',
+      JavaScript: '@revolist/revogrid',
+      TypeScript: '@revolist/revogrid',
+    })[activeFramework.value],
+)
+const frameworkGuide = computed(
+  () =>
+    ({
+      React: '/guide/react/',
+      Vue: '/guide/vue3/',
+      Angular: '/guide/angular/',
+      JavaScript: '/guide/',
+      TypeScript: '/guide/ts/',
+    })[activeFramework.value],
+)
 </script>

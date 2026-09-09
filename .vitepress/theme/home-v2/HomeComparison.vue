@@ -6,14 +6,22 @@
         <table class="rg-comparison">
           <thead>
             <tr>
-              <th v-for="(col, index) in section?.columns" :key="col" :class="{ highlight: index === 2 }">
+              <th
+                v-for="(col, index) in section?.columns"
+                :key="col"
+                :class="{ highlight: index === 2 }"
+              >
                 {{ col }}
               </th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="row in section?.rows" :key="row[0]">
-              <td v-for="(cell, index) in row" :key="`${row[0]}-${index}`" :class="comparisonClass(cell, index)">
+              <td
+                v-for="(cell, index) in row"
+                :key="`${row[0]}-${index}`"
+                :class="comparisonClass(cell, index)"
+              >
                 {{ comparisonText(cell) }}
               </td>
             </tr>
@@ -33,7 +41,6 @@ defineProps<{
 }>()
 </script>
 <style lang="scss" scoped>
-
 .rg-comparison-wrap {
   width: 100%;
   max-width: 100%;

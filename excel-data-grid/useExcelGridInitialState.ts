@@ -32,15 +32,17 @@ export function useExcelGridInitialState(options: {
     const end = initialRange.end ?? initialRange.start
     // setCellsFocus paints the programmatic range but does not emit the public
     // range event consumed by Pro surfaces such as the formatting toolbar.
-    grid.dispatchEvent(new CustomEvent('setrange', {
-      detail: {
-        x: initialRange.start.x,
-        y: initialRange.start.y,
-        x1: end.x,
-        y1: end.y,
-        type: 'rgCol',
-      },
-    }))
+    grid.dispatchEvent(
+      new CustomEvent('setrange', {
+        detail: {
+          x: initialRange.start.x,
+          y: initialRange.start.y,
+          x1: end.x,
+          y1: end.y,
+          type: 'rgCol',
+        },
+      }),
+    )
     initialRangeApplied = true
     await options.afterRangeApplied()
   }
@@ -56,7 +58,13 @@ export function useExcelGridInitialState(options: {
   }
 
   function startInitialRangeObserver() {
-    if (!options.getInitialRange() || initialRangeVisible || initialRangeObserver || typeof window === 'undefined') return
+    if (
+      !options.getInitialRange() ||
+      initialRangeVisible ||
+      initialRangeObserver ||
+      typeof window === 'undefined'
+    )
+      return
     const grid = options.getGridElement()
     if (!grid) return
     if (typeof IntersectionObserver === 'undefined') {
@@ -64,14 +72,17 @@ export function useExcelGridInitialState(options: {
       void applyInitialState()
       return
     }
-    initialRangeObserver = new IntersectionObserver((entries) => {
-      const entry = entries[0]
-      if (!entry?.isIntersecting) return
-      initialRangeVisible = true
-      initialRangeObserver?.disconnect()
-      initialRangeObserver = null
-      void applyInitialState()
-    }, { threshold: 0.15 })
+    initialRangeObserver = new IntersectionObserver(
+      entries => {
+        const entry = entries[0]
+        if (!entry?.isIntersecting) return
+        initialRangeVisible = true
+        initialRangeObserver?.disconnect()
+        initialRangeObserver = null
+        void applyInitialState()
+      },
+      { threshold: 0.15 },
+    )
     initialRangeObserver.observe(grid)
   }
 

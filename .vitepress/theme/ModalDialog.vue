@@ -41,27 +41,30 @@ import VPImage from './VPImage.vue'
 
 export type ModalDialogCloseReason = 'close' | 'escape' | 'backdrop'
 
-const props = withDefaults(defineProps<{
-  isVisible: boolean
-  titleId: string
-  descriptionId?: string
-  closeLabel?: string
-  dialogId?: string
-  closeButtonId?: string
-  initialFocus?: string
-  size?: 'default' | 'wide'
-  mobilePresentation?: 'dialog' | 'sheet'
-  closeOnBackdrop?: boolean
-}>(), {
-  descriptionId: '',
-  closeLabel: 'Close dialog',
-  dialogId: '',
-  closeButtonId: '',
-  initialFocus: '',
-  size: 'default',
-  mobilePresentation: 'dialog',
-  closeOnBackdrop: true,
-})
+const props = withDefaults(
+  defineProps<{
+    isVisible: boolean
+    titleId: string
+    descriptionId?: string
+    closeLabel?: string
+    dialogId?: string
+    closeButtonId?: string
+    initialFocus?: string
+    size?: 'default' | 'wide'
+    mobilePresentation?: 'dialog' | 'sheet'
+    closeOnBackdrop?: boolean
+  }>(),
+  {
+    descriptionId: '',
+    closeLabel: 'Close dialog',
+    dialogId: '',
+    closeButtonId: '',
+    initialFocus: '',
+    size: 'default',
+    mobilePresentation: 'dialog',
+    closeOnBackdrop: true,
+  },
+)
 
 const emit = defineEmits<{
   (event: 'close', reason: ModalDialogCloseReason): void
@@ -83,9 +86,9 @@ const focusableSelector = [
 
 const visibleFocusableElements = () => {
   if (!dialogRef.value) return []
-  return Array.from(
-    dialogRef.value.querySelectorAll<HTMLElement>(focusableSelector),
-  ).filter((element) => element.offsetParent !== null)
+  return Array.from(dialogRef.value.querySelectorAll<HTMLElement>(focusableSelector)).filter(
+    element => element.offsetParent !== null,
+  )
 }
 
 const handleDialogKeydown = (event: KeyboardEvent) => {
@@ -131,15 +134,14 @@ const handleBackdrop = () => {
 
 watch(
   () => props.isVisible,
-  async (isVisible) => {
+  async isVisible => {
     if (!isVisible) {
       restorePageState()
       return
     }
 
-    previouslyFocused = document.activeElement instanceof HTMLElement
-      ? document.activeElement
-      : null
+    previouslyFocused =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null
     previousBodyOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
     document.addEventListener('keydown', handleDialogKeydown)

@@ -1,14 +1,14 @@
 // vue.editor.composition.example.vue
 <template>
-    <RevoGrid
-        hide-attribution
-        :editors="gridEditors"
-        :source="source"
-        :columns="columns"
-        @cell="testAction"
-        style="height: 400px"
-        :theme="isDark ? 'darkCompact' : 'compact'"
-    />
+  <RevoGrid
+    hide-attribution
+    :editors="gridEditors"
+    :source="source"
+    :columns="columns"
+    style="height: 400px"
+    :theme="isDark ? 'darkCompact' : 'compact'"
+    @cell="testAction"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -32,23 +32,23 @@ const MY_EDITOR = 'custom-editor'
 const gridEditors: Editors = { [MY_EDITOR]: VGridVueEditor(Editor) }
 // Define columns
 const columns = [
-    {
-        prop: 'name',
-        name: 'First',
-        // editor type
-        editor: MY_EDITOR,
-    },
+  {
+    prop: 'name',
+    name: 'First',
+    // editor type
+    editor: MY_EDITOR,
+  },
 ]
 // Define source
 const source = [
-    {
-        name: '1',
-        details: 'Item 1',
-    },
+  {
+    name: '1',
+    details: 'Item 1',
+  },
 ]
 
 // For testing events
 function testAction(e: CustomEvent) {
-    console.log('Editor action', e)
+  console.log('Editor action', e)
 }
 </script>

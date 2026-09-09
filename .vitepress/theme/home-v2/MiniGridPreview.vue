@@ -5,7 +5,10 @@
         v-for="(cell, cellIndex) in row"
         :key="`${rowIndex}-${cellIndex}`"
         class="mini-cell"
-        :class="[cellClass(cell), { header: rowIndex === 0 && !cellClass(cell).includes('group-head') }]"
+        :class="[
+          cellClass(cell),
+          { header: rowIndex === 0 && !cellClass(cell).includes('group-head') },
+        ]"
         :style="{ flex: cellSpan(cell) }"
       >
         {{ cellText(cell) }}
@@ -15,22 +18,24 @@
 </template>
 
 <script lang="ts" setup>
-type MiniCell = string | {
-  text: string
-  class?: string
-  span?: number
-}
+type MiniCell =
+  | string
+  | {
+      text: string
+      class?: string
+      span?: number
+    }
 
 defineProps<{
   rows: MiniCell[][]
 }>()
 
-const cellText = (cell: MiniCell) => typeof cell === 'string' ? cell.replace('*', '') : cell.text
+const cellText = (cell: MiniCell) => (typeof cell === 'string' ? cell.replace('*', '') : cell.text)
 const cellClass = (cell: MiniCell) => {
   if (typeof cell !== 'string') return cell.class ?? ''
   return cell.includes('*') ? 'selected' : ''
 }
-const cellSpan = (cell: MiniCell) => typeof cell === 'string' ? undefined : cell.span
+const cellSpan = (cell: MiniCell) => (typeof cell === 'string' ? undefined : cell.span)
 </script>
 
 <style lang="scss" scoped>

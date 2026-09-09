@@ -112,7 +112,7 @@ watch(
       highlightedCode.value = highlighted
     }
   },
-  { immediate: true }
+  { immediate: true },
 )
 
 async function copyCode() {

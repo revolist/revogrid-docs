@@ -3,8 +3,12 @@ import assert from 'node:assert/strict'
 import { existsSync, readFileSync } from 'node:fs'
 
 const schedulerPage = readFileSync(new URL('../../../jsscheduler.md', import.meta.url), 'utf8')
-const integrationsComponent = readFileSync(new URL('../../../gantt/GanttIntegrations.vue', import.meta.url), 'utf8')
-const integrationsSection = schedulerPage.match(/  integrations:\n([\s\S]*?)\n  advancedCallout:/)?.[1] ?? ''
+const integrationsComponent = readFileSync(
+  new URL('../../../gantt/GanttIntegrations.vue', import.meta.url),
+  'utf8',
+)
+const integrationsSection =
+  schedulerPage.match(/ {2}integrations:\n([\s\S]*?)\n {2}advancedCallout:/)?.[1] ?? ''
 
 test('uses the shared framework SVG assets in Scheduler integration cards', () => {
   for (const asset of ['js.svg', 'vuejs.svg', 'react.svg', 'angular.svg', 'svelte.svg']) {

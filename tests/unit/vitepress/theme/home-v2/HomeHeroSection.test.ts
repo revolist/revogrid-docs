@@ -2,7 +2,10 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import test from 'node:test'
 
-const hero = readFileSync(new URL('../../../../../.vitepress/theme/home-v2/HomeHeroSection.vue', import.meta.url), 'utf8')
+const hero = readFileSync(
+  new URL('../../../../../.vitepress/theme/home-v2/HomeHeroSection.vue', import.meta.url),
+  'utf8',
+)
 
 test('places linked jsDelivr, GitHub, and feedback badges below the grid preview', () => {
   assert.ok(hero.indexOf('<HomeHero') < hero.indexOf('class="rg-hero-proof-badges"'))
@@ -19,5 +22,8 @@ test('places linked jsDelivr, GitHub, and feedback badges below the grid preview
 
 test('keeps the badge row contained and mobile-centered', () => {
   assert.match(hero, /\.rg-hero-proof-badges\s*\{[\s\S]*?flex-wrap: wrap;/)
-  assert.match(hero, /@media \(max-width: 640px\)[\s\S]*?\.rg-hero-proof-badges\s*\{[\s\S]*?justify-content: center;/)
+  assert.match(
+    hero,
+    /@media \(max-width: 640px\)[\s\S]*?\.rg-hero-proof-badges\s*\{[\s\S]*?justify-content: center;/,
+  )
 })

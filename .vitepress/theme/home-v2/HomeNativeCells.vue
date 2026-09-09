@@ -8,7 +8,11 @@
           <p class="rg-native-desc" v-html="sectionDescription"></p>
         </div>
         <div class="rg-native-examples" aria-label="Native framework cell examples">
-          <article v-for="example in section?.examples" :key="example.framework" class="rg-native-card">
+          <article
+            v-for="example in section?.examples"
+            :key="example.framework"
+            class="rg-native-card"
+          >
             <div class="rg-native-card-top">
               <span :style="{ background: example.color }"></span>
               {{ example.framework }}
@@ -17,11 +21,7 @@
           </article>
         </div>
         <div class="rg-native-links">
-          <a
-            v-for="link in section?.links"
-            :key="link.text"
-            :href="linkOf(link.href)"
-          >
+          <a v-for="link in section?.links" :key="link.text" :href="linkOf(link.href)">
             {{ link.text }}
           </a>
         </div>
@@ -47,20 +47,20 @@ const sectionDescription = computed(() => linkFrameworkMentions(props.section?.d
 
 watch(
   examples,
-  async (items) => {
+  async items => {
     const highlighted = await Promise.all(
-      items.map(async (example) => {
+      items.map(async example => {
         const code = decodeCode(example.code ?? '')
         const html = await codeToHtml(code, {
           lang: example.lang ?? 'ts',
           theme: 'github-dark-high-contrast',
         })
         return [example.framework, html] as const
-      })
+      }),
     )
     highlightedExamples.value = Object.fromEntries(highlighted)
   },
-  { immediate: true }
+  { immediate: true },
 )
 
 function decodeCode(code: string) {
@@ -77,7 +77,7 @@ function linkFrameworkMentions(value: string | undefined) {
     Svelte: '/guide/svelte/',
   }
 
-  return escapeHtml(value).replace(/\b(React|Vue|Angular|Svelte)\b/g, (label) => {
+  return escapeHtml(value).replace(/\b(React|Vue|Angular|Svelte)\b/g, label => {
     return `<a class="rg-product-link" href="${escapeHtml(linkOf(links[label]))}">${label}</a>`
   })
 }

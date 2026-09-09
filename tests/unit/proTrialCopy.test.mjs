@@ -13,16 +13,19 @@ const ignoredDirectories = new Set([
   'revogrid-demos',
 ])
 const sourceExtensions = new Set(['.md', '.mjs', '.mts', '.ts', '.vue'])
-const obsoleteTrialCopy = new RegExp([
-  'request(?:ing)?\\s+(?:a\\s+|the\\s+)?(?:revoGrid\\s+)?(?:pro(?:\\s+advanced)?\\s+)?trial',
-  'trial[^\\n]{0,50}(?:available\\s+(?:on|by)|granted\\s+upon)\\s+request',
-  '(?:access|packages?)[^\\n]{0,50}(?:provided|available|delivered)[^\\n]{0,20}request',
-  'private\\s+npm\\s+trial',
-  'request\\s+approved\\s+private\\s+npm',
-].join('|'), 'i')
+const obsoleteTrialCopy = new RegExp(
+  [
+    'request(?:ing)?\\s+(?:a\\s+|the\\s+)?(?:revoGrid\\s+)?(?:pro(?:\\s+advanced)?\\s+)?trial',
+    'trial[^\\n]{0,50}(?:available\\s+(?:on|by)|granted\\s+upon)\\s+request',
+    '(?:access|packages?)[^\\n]{0,50}(?:provided|available|delivered)[^\\n]{0,20}request',
+    'private\\s+npm\\s+trial',
+    'request\\s+approved\\s+private\\s+npm',
+  ].join('|'),
+  'i',
+)
 
 function collectSourceFiles(directory) {
-  return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+  return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
     const path = join(directory, entry.name)
     if (entry.isDirectory()) {
       return ignoredDirectories.has(entry.name) ? [] : collectSourceFiles(path)

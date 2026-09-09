@@ -12,7 +12,10 @@ test('every catalog demo mounts in the shared docs shell', async ({ page }) => {
 })
 
 test('compatibility routes resolve to the canonical demo identity', async ({ page }) => {
-  for (const [path, demoId] of [['/demo/planning', 'planning'], ['/demo/hr', 'grid-at-scale']] as const) {
+  for (const [path, demoId] of [
+    ['/demo/planning', 'planning'],
+    ['/demo/hr', 'grid-at-scale'],
+  ] as const) {
     await page.goto(path)
     await expect(page.locator('.demo-page-layout')).toHaveAttribute('data-demo-id', demoId)
   }
@@ -31,13 +34,15 @@ test('navigation search filters examples without changing the route', async ({ p
 test('mobile navigation opens on an opaque full-width surface', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/demo/')
-  await page.getByRole('button', { name: 'Examples', exact: true }).click()
+  await page.locator('.VPLocalNav .menu').click()
 
   const drawer = page.locator('.demo-nav')
   await expect(drawer).toHaveClass(/open/)
+  await expect(page.locator('body')).toHaveCSS('overflow', 'hidden')
   await expect.poll(async () => (await drawer.boundingBox())?.x).toBe(0)
-  expect(await drawer.evaluate(element => getComputedStyle(element).backgroundColor))
-    .not.toBe('rgba(0, 0, 0, 0)')
+  expect(await drawer.evaluate(element => getComputedStyle(element).backgroundColor)).not.toBe(
+    'rgba(0, 0, 0, 0)',
+  )
   const bounds = await drawer.boundingBox()
   expect(bounds).not.toBeNull()
   expect(bounds!.y).toBe(0)
@@ -45,7 +50,7 @@ test('mobile navigation opens on an opaque full-width surface', async ({ page })
   expect(bounds!.height).toBe(844)
 })
 
-test('mobile demo header starts below the Examples toolbar', async ({ page }) => {
+test('mobile demo header starts below the local navigation toolbar', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/demo/')
 
@@ -59,7 +64,15 @@ test('Code and GitHub header actions use matching typography', async ({ page }) 
   await page.goto('/demo/')
 
   const typography = await page.evaluate(() => {
-    const properties = ['fontFamily', 'fontSize', 'fontStyle', 'fontVariant', 'fontWeight', 'letterSpacing', 'lineHeight'] as const
+    const properties = [
+      'fontFamily',
+      'fontSize',
+      'fontStyle',
+      'fontVariant',
+      'fontWeight',
+      'letterSpacing',
+      'lineHeight',
+    ] as const
     const read = (selector: string) => {
       const style = getComputedStyle(document.querySelector(selector)!)
       return Object.fromEntries(properties.map(property => [property, style[property]]))
@@ -127,7 +140,9 @@ test('source panel uses real files and preserves the live workspace', async ({ p
   await page.getByRole('tab', { name: 'React' }).click()
   await expect(page.getByLabel('File')).toContainText('planning.react.tsx')
   await page.getByRole('button', { name: 'Full screen code' }).click()
-  await expect.poll(() => page.evaluate(() => document.fullscreenElement?.classList.contains('demo-source'))).toBe(true)
+  await expect
+    .poll(() => page.evaluate(() => document.fullscreenElement?.classList.contains('demo-source')))
+    .toBe(true)
   await page.getByRole('button', { name: 'Exit full screen code' }).click()
   await expect.poll(() => page.evaluate(() => document.fullscreenElement)).toBeNull()
   await page.keyboard.press('Escape')
@@ -199,10 +214,10 @@ test('deleting selected rows clears Grid selection', async ({ page }) => {
   await checkboxes.nth(2).click()
   await expect(page.locator('.planning-demo__footer')).toContainText('2 selected')
 
-  await page.locator('revo-grid').evaluate(async (element) => {
+  await page.locator('revo-grid').evaluate(async element => {
     const grid = element as any
-    const contextMenu = (await grid.getPlugins()).find((plugin: any) =>
-      plugin.config?.commandHandlers?.['row.delete'],
+    const contextMenu = (await grid.getPlugins()).find(
+      (plugin: any) => plugin.config?.commandHandlers?.['row.delete'],
     )
     contextMenu.config.commandHandlers['row.delete']({
       rows: grid.source.slice(0, 2).map((model: unknown) => ({ model })),
@@ -211,10 +226,14 @@ test('deleting selected rows clears Grid selection', async ({ page }) => {
 
   await expect(page.locator('.planning-demo__footer')).toContainText('98 of 98 tasks')
   await expect(page.locator('.planning-demo__footer')).not.toContainText('selected')
-  await expect.poll(() => checkboxes.nth(0).evaluate((element) => ({
-    checked: (element as HTMLInputElement).checked,
-    indeterminate: (element as HTMLInputElement).indeterminate,
-  }))).toEqual({ checked: false, indeterminate: false })
+  await expect
+    .poll(() =>
+      checkboxes.nth(0).evaluate(element => ({
+        checked: (element as HTMLInputElement).checked,
+        indeterminate: (element as HTMLInputElement).indeterminate,
+      })),
+    )
+    .toEqual({ checked: false, indeterminate: false })
 })
 
 test('grid and Kanban content stays aligned inside its cells', async ({ page }) => {
@@ -224,7 +243,9 @@ test('grid and Kanban content stays aligned inside its cells', async ({ page }) 
 
   const gridMetrics = await page.evaluate(() => {
     const avatar = document.querySelector('.avatar-cell__image') as HTMLElement
-    const readonlyCells = Array.from(document.querySelectorAll('revogr-data .rgCell.disabled')) as HTMLElement[]
+    const readonlyCells = Array.from(
+      document.querySelectorAll('revogr-data .rgCell.disabled'),
+    ) as HTMLElement[]
     return {
       avatarSize: avatar?.getBoundingClientRect().height,
       avatarMargin: avatar ? getComputedStyle(avatar).margin : null,
@@ -238,8 +259,12 @@ test('grid and Kanban content stays aligned inside its cells', async ({ page }) 
   await page.getByRole('tab', { name: 'Kanban' }).click()
   await expect(page.locator('.kanban-card').first()).toBeVisible()
   const kanbanMetrics = await page.evaluate(() => ({
-    columns: Array.from(document.querySelectorAll('.kanban-column-header-cell')).map(column => column.getBoundingClientRect().width),
-    cards: Array.from(document.querySelectorAll('.kanban-card')).slice(0, 4).map(card => card.getBoundingClientRect().width),
+    columns: Array.from(document.querySelectorAll('.kanban-column-header-cell')).map(
+      column => column.getBoundingClientRect().width,
+    ),
+    cards: Array.from(document.querySelectorAll('.kanban-card'))
+      .slice(0, 4)
+      .map(card => card.getBoundingClientRect().width),
   }))
   expect(kanbanMetrics.columns).toEqual([228, 228, 228, 228])
   expect(kanbanMetrics.cards.every(width => width >= 190)).toBe(true)
@@ -274,7 +299,9 @@ test('planning layout stays usable at the target viewports', async ({ page }) =>
     await page.goto('/demo/')
     await expect(page.locator('body')).toBeVisible()
     await expect(page.locator('.planning-demo__grid')).toBeVisible()
-    const pageOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
+    const pageOverflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    )
     expect(pageOverflow).toBeLessThanOrEqual(1)
     const edgeAlignment = await page.evaluate(() => {
       const header = document.querySelector('.demo-page-header')!.getBoundingClientRect()
@@ -287,7 +314,7 @@ test('planning layout stays usable at the target viewports', async ({ page }) =>
     expect(edgeAlignment.left).toBeLessThanOrEqual(1)
     expect(edgeAlignment.right).toBeLessThanOrEqual(1)
     if (viewport.width < 1100) {
-      await expect(page.getByRole('button', { name: 'Examples', exact: true })).toBeVisible()
+      await expect(page.locator('.VPLocalNav .menu')).toBeVisible()
     } else {
       await expect(page.locator('.demo-nav')).toBeVisible()
       const shellGeometry = await page.evaluate(() => {
@@ -296,7 +323,9 @@ test('planning layout stays usable at the target viewports', async ({ page }) =>
         const layout = document.querySelector('.demo-page-layout')!.getBoundingClientRect()
         const divider = document.querySelector('.VPNavBar .divider-line')!.getBoundingClientRect()
         const title = document.querySelector('.VPNavBarTitle .title')!
-        const primaryAction = document.querySelector('.demo-page-button--primary')!.getBoundingClientRect()
+        const primaryAction = document
+          .querySelector('.demo-page-button--primary')!
+          .getBoundingClientRect()
         const githubAction = document.querySelector('.demo-page-github')!.getBoundingClientRect()
         const stage = document.querySelector('.demo-page-stage')!
         const grid = document.querySelector('.planning-demo__grid')!
@@ -346,20 +375,25 @@ test('planning layout stays usable at the target viewports', async ({ page }) =>
   }
 })
 
-test('demo surfaces stay transparent while controls and grid borders retain contrast', async ({ page }) => {
-  const readSurfaces = () => page.evaluate(() => {
-    const color = (selector: string, property: 'backgroundColor' | 'borderColor' = 'backgroundColor') =>
-      getComputedStyle(document.querySelector(selector) as Element)[property]
-    return {
-      canvas: color('.demo-page-layout'),
-      sidebar: color('.demo-nav'),
-      stage: color('.demo-page-stage'),
-      grid: color('.planning-demo__grid'),
-      gridHeader: color('.planning-demo__grid revogr-header .rgHeaderCell'),
-      controlBorder: color('.planning-demo__search', 'borderColor'),
-      gridBorder: color('.planning-demo__grid', 'borderColor'),
-    }
-  })
+test('demo surfaces stay transparent while controls and grid borders retain contrast', async ({
+  page,
+}) => {
+  const readSurfaces = () =>
+    page.evaluate(() => {
+      const color = (
+        selector: string,
+        property: 'backgroundColor' | 'borderColor' = 'backgroundColor',
+      ) => getComputedStyle(document.querySelector(selector) as Element)[property]
+      return {
+        canvas: color('.demo-page-layout'),
+        sidebar: color('.demo-nav'),
+        stage: color('.demo-page-stage'),
+        grid: color('.planning-demo__grid'),
+        gridHeader: color('.planning-demo__grid revogr-header .rgHeaderCell'),
+        controlBorder: color('.planning-demo__search', 'borderColor'),
+        gridBorder: color('.planning-demo__grid', 'borderColor'),
+      }
+    })
 
   await page.goto('/demo/')
   await page.evaluate(() => localStorage.setItem('vitepress-theme-appearance', 'light'))
@@ -401,7 +435,9 @@ test('planning Gantt uses varied schedules and aligns the Today marker', async (
 
   const timeline = await page.evaluate(() => {
     const cap = document.querySelector('.gantt-header-flag-cap--today')!.getBoundingClientRect()
-    const line = document.querySelector('.gantt-background__flag-line--today')!.getBoundingClientRect()
+    const line = document
+      .querySelector('.gantt-background__flag-line--today')!
+      .getBoundingClientRect()
     const widths = Array.from(document.querySelectorAll('.gantt-bar--task'))
       .map(bar => bar.getBoundingClientRect().width)
       .filter(width => width > 0)

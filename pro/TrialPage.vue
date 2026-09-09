@@ -51,7 +51,9 @@
           </p>
           <div class="command-block">
             <span>Registry setup command</span>
-            <pre tabindex="0"><code>npm config set &quot;@revolist:registry=https://trial.rv-grid.com&quot;</code></pre>
+            <pre
+              tabindex="0"
+            ><code>npm config set &quot;@revolist:registry=https://trial.rv-grid.com&quot;</code></pre>
           </div>
           <div class="command-block">
             <span>{{ selectedTrial.name }} packages</span>
@@ -60,7 +62,8 @@
           <p v-if="selectedTrial.id !== 'pro'" class="quick-start-note">
             Standalone product trials build on the Pro trial, so keep
             <code>@revolist/revogrid</code> and <code>@revolist/rv-pro-trial</code> installed with
-            <code>{{ selectedTrial.packageName }}</code>.
+            <code>{{ selectedTrial.packageName }}</code
+            >.
           </p>
           <p class="quick-start-note">
             Trial packages use trial-specific package and CSS names. Follow the guide when moving
@@ -85,17 +88,16 @@
       </div>
     </section>
 
-    <TrustedLogoStrip
-      title-id="trial-trust-title"
-      variant="trial"
-    />
+    <TrustedLogoStrip title-id="trial-trust-title" variant="trial" />
 
     <section class="trial-steps" aria-labelledby="trial-steps-title">
       <div class="trial-container">
         <div class="steps-heading">
           <p class="eyebrow">Choose your starting point</p>
           <h2 id="trial-steps-title">Start evaluating in minutes</h2>
-          <p>Use the package path or the ready-to-run starter, then test against your own workflow.</p>
+          <p>
+            Use the package path or the ready-to-run starter, then test against your own workflow.
+          </p>
         </div>
 
         <div class="steps-grid">
@@ -119,7 +121,8 @@
           <p class="eyebrow">Optional support</p>
           <h2 id="trial-support-title">Talk through your evaluation</h2>
           <p>
-            Want evaluation help, architecture guidance, or commercial information? Contact our team.
+            Want evaluation help, architecture guidance, or commercial information? Contact our
+            team.
           </p>
           <p>
             This form is optional. Installation instructions and the public starter are available
@@ -155,7 +158,10 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import FontAwesomeSvgIcon from '../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
-import { getAnalyticsExperimentVariant, trackSiteAnalytics } from '../.vitepress/theme/siteAnalytics'
+import {
+  getAnalyticsExperimentVariant,
+  trackSiteAnalytics,
+} from '../.vitepress/theme/siteAnalytics'
 import TrustedLogoStrip from '../.vitepress/theme/TrustedLogoStrip.vue'
 import { getPlan } from '../commercial/productCatalog'
 import CommercialFaq from './CommercialFaq.vue'
@@ -176,10 +182,7 @@ interface TrialOption {
   commands: string[]
 }
 
-const baseInstallCommands = [
-  'pnpm i @revolist/revogrid',
-  'pnpm i @revolist/rv-pro-trial',
-]
+const baseInstallCommands = ['pnpm i @revolist/revogrid', 'pnpm i @revolist/rv-pro-trial']
 
 const trialOptions: TrialOption[] = [
   {
@@ -194,7 +197,8 @@ const trialOptions: TrialOption[] = [
     id: 'pivot',
     name: 'Pivot Trial',
     shortName: 'Pivot',
-    description: 'Pivot requires the core grid, the Pro trial, and the standalone Pivot trial package.',
+    description:
+      'Pivot requires the core grid, the Pro trial, and the standalone Pivot trial package.',
     packageName: '@revolist/pivot-trial',
     commands: [...baseInstallCommands, 'pnpm i @revolist/pivot-trial'],
   },
@@ -202,7 +206,8 @@ const trialOptions: TrialOption[] = [
     id: 'kanban',
     name: 'Kanban Trial',
     shortName: 'Kanban',
-    description: 'Kanban requires the core grid, the Pro trial, and the standalone Kanban trial package.',
+    description:
+      'Kanban requires the core grid, the Pro trial, and the standalone Kanban trial package.',
     packageName: '@revolist/kanban-trial',
     commands: [...baseInstallCommands, 'pnpm i @revolist/kanban-trial'],
   },
@@ -210,7 +215,8 @@ const trialOptions: TrialOption[] = [
     id: 'gantt',
     name: 'Gantt Trial',
     shortName: 'Gantt',
-    description: 'Gantt requires the core grid, the Pro trial, and the standalone Gantt trial package.',
+    description:
+      'Gantt requires the core grid, the Pro trial, and the standalone Gantt trial package.',
     packageName: '@revolist/gantt-trial',
     commands: [...baseInstallCommands, 'pnpm i @revolist/gantt-trial'],
   },
@@ -218,7 +224,8 @@ const trialOptions: TrialOption[] = [
     id: 'scheduler',
     name: 'Scheduler Trial',
     shortName: 'Scheduler',
-    description: 'Scheduler requires the core grid, the Pro trial, and the standalone Scheduler trial package.',
+    description:
+      'Scheduler requires the core grid, the Pro trial, and the standalone Scheduler trial package.',
     packageName: '@revolist/scheduler-trial',
     commands: [...baseInstallCommands, 'pnpm i @revolist/scheduler-trial'],
   },
@@ -245,9 +252,8 @@ onMounted(() => {
   const product = query.get('product')
   selectedTrial.value = findTrialOption(product)
   const incomingDemoId = query.get('demo_id')?.trim()
-  demoId.value = incomingDemoId && /^[a-z0-9-]{1,80}$/i.test(incomingDemoId)
-    ? incomingDemoId
-    : undefined
+  demoId.value =
+    incomingDemoId && /^[a-z0-9-]{1,80}$/i.test(incomingDemoId) ? incomingDemoId : undefined
   experimentVariant.value = getAnalyticsExperimentVariant(window.location)
 })
 
@@ -255,11 +261,15 @@ function trackTrialClick(
   event: 'trial_install_click' | 'trial_starter_click',
   placement: 'hero_install' | 'hero_starter',
 ) {
-  trackSiteAnalytics(event, {
-    placement,
-    ...(demoId.value ? { demo_id: demoId.value } : {}),
-    ...(experimentVariant.value ? { experiment_variant: experimentVariant.value } : {}),
-  }, `${event}:${placement}:${demoId.value ?? 'direct'}`)
+  trackSiteAnalytics(
+    event,
+    {
+      placement,
+      ...(demoId.value ? { demo_id: demoId.value } : {}),
+      ...(experimentVariant.value ? { experiment_variant: experimentVariant.value } : {}),
+    },
+    `${event}:${placement}:${demoId.value ?? 'direct'}`,
+  )
 }
 
 const accessDetails = [
@@ -274,13 +284,15 @@ const steps = [
     number: '01',
     icon: 'arrowDown',
     title: 'Install the Pro trial package',
-    description: 'Configure the public registry and follow the guide for the current trial package and CSS names.',
+    description:
+      'Configure the public registry and follow the guide for the current trial package and CSS names.',
   },
   {
     number: '02',
     icon: 'github',
     title: 'Clone the public starter',
-    description: 'Run the working starter immediately and inspect its package setup, imports, and examples.',
+    description:
+      'Run the working starter immediately and inspect its package setup, imports, and examples.',
   },
   {
     number: '03',
@@ -305,7 +317,11 @@ const steps = [
 .trial-hero {
   border-top: 1px solid var(--vp-c-divider);
   background:
-    radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--vp-c-brand-1), transparent 91%), transparent 30rem),
+    radial-gradient(
+      circle at 18% 18%,
+      color-mix(in srgb, var(--vp-c-brand-1), transparent 91%),
+      transparent 30rem
+    ),
     var(--vp-c-bg);
   padding: clamp(3.5rem, 6vw, 5.75rem) 0;
 }

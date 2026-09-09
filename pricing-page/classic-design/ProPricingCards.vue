@@ -1,9 +1,13 @@
 <template>
-  <div :class="['pricing-grid', `pricing-grid--${variant}`, { 'with-enterprise': includeEnterprise }]">
+  <div
+    :class="['pricing-grid', `pricing-grid--${variant}`, { 'with-enterprise': includeEnterprise }]"
+  >
     <div class="price-card">
       <div class="card-label subtle">Pro Lite</div>
       <div class="card-name">Pro Lite</div>
-      <div class="card-tagline">For teams building production data apps that need advanced column types and export.</div>
+      <div class="card-tagline">
+        For teams building production data apps that need advanced column types and export.
+      </div>
       <div class="card-price-row">
         <span class="price-currency">$</span>
         <span class="price-num">{{ lightUsdYr }}</span>
@@ -13,7 +17,9 @@
       </div>
       <div v-if="lightPromotion" class="price-promo">{{ lightPromotion.label }} discount</div>
       <div class="price-note">1 developer seat · 1 app usage</div>
-      <a :href="lightPrice.link" class="card-cta ghost" @click="handleStripeClientReferenceClick">Start Pro Lite</a>
+      <a :href="lightPrice.link" class="card-cta ghost" @click="handleStripeClientReferenceClick"
+        >Start Pro Lite</a
+      >
       <div class="card-divider"></div>
       <ul class="card-features">
         <li v-for="feature in PRO_LIGHT_FEATURES" :key="feature" class="card-feature">
@@ -26,17 +32,28 @@
     <div class="price-card featured">
       <div class="card-label accent">Most Popular</div>
       <div class="card-name">Pro Advanced</div>
-      <div class="card-tagline">For teams building complex, plugin-driven data platforms at scale.</div>
+      <div class="card-tagline">
+        For teams building complex, plugin-driven data platforms at scale.
+      </div>
       <div class="card-price-row">
         <span class="price-currency">$</span>
         <span class="price-num">{{ advUsdYr }}</span>
-        <span v-if="advancedCompareAtUsdYr" class="price-compare">${{ advancedCompareAtUsdYr }}</span>
-        <span v-if="advancedPromotion" class="price-discount">{{ advancedPromotion.discountLabel }}</span>
+        <span v-if="advancedCompareAtUsdYr" class="price-compare"
+          >${{ advancedCompareAtUsdYr }}</span
+        >
+        <span v-if="advancedPromotion" class="price-discount">{{
+          advancedPromotion.discountLabel
+        }}</span>
         <span class="price-period">/ year</span>
       </div>
       <div v-if="advancedPromotion" class="price-promo">{{ advancedPromotion.label }} discount</div>
       <div class="price-note">1 developer seat · Unlimited production usage</div>
-      <a :href="advancedPrice.link" class="card-cta primary" @click="handleStripeClientReferenceClick">Start Pro Advanced</a>
+      <a
+        :href="advancedPrice.link"
+        class="card-cta primary"
+        @click="handleStripeClientReferenceClick"
+        >Start Pro Advanced</a
+      >
       <div class="card-divider"></div>
       <ul class="card-features">
         <li v-for="feature in PRO_ADV_FEATURES" :key="feature" class="card-feature">
@@ -49,7 +66,9 @@
     <div v-if="includeEnterprise" class="price-card enterprise-tile">
       <div class="card-label purple">Enterprise</div>
       <div class="card-name">Enterprise</div>
-      <div class="card-tagline">For large teams that need custom contracts, SLA support, and dedicated engineering.</div>
+      <div class="card-tagline">
+        For large teams that need custom contracts, SLA support, and dedicated engineering.
+      </div>
       <div class="card-price-row">
         <span class="price-num">&nbsp;</span>
       </div>
@@ -72,13 +91,16 @@ import { resolvePlanPrice } from '../prices'
 import { handleStripeClientReferenceClick } from '../stripeClientReference'
 import { ENTERPRISE_FEATURES, PRO_ADV_FEATURES, PRO_LIGHT_FEATURES } from './pricingPlans'
 
-withDefaults(defineProps<{
-  includeEnterprise?: boolean
-  variant?: 'pricing' | 'tiers'
-}>(), {
-  includeEnterprise: false,
-  variant: 'tiers',
-})
+withDefaults(
+  defineProps<{
+    includeEnterprise?: boolean
+    variant?: 'pricing' | 'tiers'
+  }>(),
+  {
+    includeEnterprise: false,
+    variant: 'tiers',
+  },
+)
 
 const lightPrice = resolvePlanPrice('light')
 const advancedPrice = resolvePlanPrice('advanced')
@@ -125,7 +147,9 @@ const advancedPromotion = advancedPrice.promotion
   padding: 32px 28px;
   display: flex;
   flex-direction: column;
-  transition: border-color 0.2s, transform 0.2s;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
 
   &:hover {
     transform: translateY(-3px);
@@ -320,8 +344,12 @@ const advancedPromotion = advancedPrice.promotion
   flex-shrink: 0;
   margin-top: 1px;
 
-  &.check { color: var(--green); }
-  &.ent { color: oklch(0.75 0.18 290); }
+  &.check {
+    color: var(--green);
+  }
+  &.ent {
+    color: oklch(0.75 0.18 290);
+  }
 }
 
 .enterprise-tile {

@@ -51,14 +51,27 @@
   --timeline-grid-line: rgba(24, 31, 42, 0.095);
   --section-band: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   background:
-    radial-gradient(ellipse 70% 18% at 50% 0%, color-mix(in srgb, var(--accent) 7.5%, transparent), transparent 64%),
-    radial-gradient(ellipse 46% 20% at 100% 0%, color-mix(in srgb, var(--accent-2) 5.5%, transparent), transparent 58%),
+    radial-gradient(
+      ellipse 70% 18% at 50% 0%,
+      color-mix(in srgb, var(--accent) 7.5%, transparent),
+      transparent 64%
+    ),
+    radial-gradient(
+      ellipse 46% 20% at 100% 0%,
+      color-mix(in srgb, var(--accent-2) 5.5%, transparent),
+      transparent 58%
+    ),
     var(--bg);
 }
 
 @keyframes proPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .pro-landing-doc {
@@ -96,7 +109,7 @@
   --line-bright: rgba(255, 255, 255, 0.22);
   --text: #f5f5f7;
   --text-muted: rgba(245, 245, 247, 0.62);
-  --text-dim: rgba(245, 245, 247, 0.40);
+  --text-dim: rgba(245, 245, 247, 0.4);
   --accent: var(--vp-c-brand-3);
   --accent-2: var(--vp-c-brand-2);
   --accent-soft: var(--vp-c-brand-soft);
@@ -115,7 +128,7 @@
   --pattern-line: rgba(255, 255, 255, 0.03);
   --timeline-grid-line: var(--line);
   --section-band: linear-gradient(135deg, var(--bg-elev-1), var(--bg));
-  --font-mono: "JetBrains Mono", var(--vp-font-family-mono);
+  --font-mono: 'JetBrains Mono', var(--vp-font-family-mono);
   --radius: 10px;
   --radius-lg: 16px;
   --radius-xl: 24px;
@@ -126,8 +139,16 @@
   padding-top: var(--vp-nav-height, 64px);
   color: var(--text);
   background:
-    radial-gradient(ellipse 80% 18% at 50% 0%, color-mix(in srgb, var(--accent) 11%, transparent), transparent 62%),
-    radial-gradient(ellipse 52% 22% at 100% 0%, color-mix(in srgb, var(--accent-2) 6%, transparent), transparent 55%),
+    radial-gradient(
+      ellipse 80% 18% at 50% 0%,
+      color-mix(in srgb, var(--accent) 11%, transparent),
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse 52% 22% at 100% 0%,
+      color-mix(in srgb, var(--accent-2) 6%, transparent),
+      transparent 55%
+    ),
     var(--bg);
   font-size: 16px;
   line-height: 1.55;
@@ -260,7 +281,11 @@
     font-weight: 500;
     line-height: 1;
     white-space: nowrap;
-    transition: border-color 0.15s, background 0.15s, box-shadow 0.15s, transform 0.15s;
+    transition:
+      border-color 0.15s,
+      background 0.15s,
+      box-shadow 0.15s,
+      transform 0.15s;
 
     &-primary {
       color: #1a0a05;
@@ -953,14 +978,30 @@
   }
 
   .c,
-  .pun { color: var(--text-dim); }
-  .kw { color: var(--violet); }
-  .fn { color: var(--accent-2); }
-  .str { color: var(--good); }
-  .prop { color: var(--info); }
-  .type { color: var(--teal); }
-  .tx { color: var(--text); }
-  .ok { color: var(--good); }
+  .pun {
+    color: var(--text-dim);
+  }
+  .kw {
+    color: var(--violet);
+  }
+  .fn {
+    color: var(--accent-2);
+  }
+  .str {
+    color: var(--good);
+  }
+  .prop {
+    color: var(--info);
+  }
+  .type {
+    color: var(--teal);
+  }
+  .tx {
+    color: var(--text);
+  }
+  .ok {
+    color: var(--good);
+  }
 
   .features {
     display: grid;
@@ -971,7 +1012,9 @@
   .feature {
     overflow: hidden;
     border-radius: var(--radius-lg);
-    transition: border-color 0.15s, transform 0.15s;
+    transition:
+      border-color 0.15s,
+      transform 0.15s;
 
     &:hover {
       border-color: var(--line-bright);
@@ -1304,11 +1347,25 @@
     line-height: 20px;
   }
 
-  .coral { background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 62%, #fff)); }
-  .amber { background: linear-gradient(90deg, var(--accent-2), color-mix(in srgb, var(--accent-2) 50%, #fff)); }
-  .violet { background: linear-gradient(90deg, var(--violet), #c4b5fd); }
-  .teal { background: linear-gradient(90deg, var(--teal), #5eead4); }
-  .rose { background: linear-gradient(90deg, var(--rose), #fda4af); }
+  .coral {
+    background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 62%, #fff));
+  }
+  .amber {
+    background: linear-gradient(
+      90deg,
+      var(--accent-2),
+      color-mix(in srgb, var(--accent-2) 50%, #fff)
+    );
+  }
+  .violet {
+    background: linear-gradient(90deg, var(--violet), #c4b5fd);
+  }
+  .teal {
+    background: linear-gradient(90deg, var(--teal), #5eead4);
+  }
+  .rose {
+    background: linear-gradient(90deg, var(--rose), #fda4af);
+  }
 
   .leg {
     display: flex;
@@ -1575,7 +1632,9 @@
   .uc {
     padding: 28px;
     border-radius: var(--radius-lg);
-    transition: border-color 0.15s, transform 0.15s;
+    transition:
+      border-color 0.15s,
+      transform 0.15s;
 
     &:hover {
       border-color: var(--line-bright);
@@ -1724,7 +1783,7 @@
         height: 4px;
         border-radius: 50%;
         background: var(--text-dim);
-        content: "";
+        content: '';
       }
     }
   }
@@ -1803,7 +1862,10 @@
     border-radius: 10px;
     background: var(--bg-elev-1);
     cursor: pointer;
-    transition: border-color 0.18s, transform 0.2s, box-shadow 0.2s;
+    transition:
+      border-color 0.18s,
+      transform 0.2s,
+      box-shadow 0.2s;
     display: flex;
     flex-direction: column;
 
@@ -1885,19 +1947,45 @@
   }
 
   /* ── Thumbnail background tints per category ── */
-  .th-mgmt  { background: linear-gradient(155deg, #0d1525, #131e32); }
-  .th-struct { background: linear-gradient(155deg, #0d1e1b, #12221f); }
-  .th-grid  { background: linear-gradient(155deg, #0f1422, #131828); }
-  .th-filter { background: linear-gradient(155deg, #14101e, #1a1528); }
-  .th-valid { background: linear-gradient(155deg, #0d1a12, #11201a); }
-  .th-style { background: linear-gradient(155deg, #1a1408, #201a0d); }
-  .th-viz   { background: linear-gradient(155deg, #1a0d12, #220e18); }
-  .th-perf  { background: linear-gradient(155deg, #0a1520, #0f1e28); }
-  .th-calc  { background: linear-gradient(155deg, #18140a, #201c0d); }
-  .th-ux    { background: linear-gradient(155deg, #12101e, #18162a); }
-  .th-entry { background: linear-gradient(155deg, #0d1a1e, #10202a); }
-  .th-dev   { background: linear-gradient(155deg, #101018, #141420); }
-  .th-ent   { background: linear-gradient(155deg, #1e0e0a, #280f0a); }
+  .th-mgmt {
+    background: linear-gradient(155deg, #0d1525, #131e32);
+  }
+  .th-struct {
+    background: linear-gradient(155deg, #0d1e1b, #12221f);
+  }
+  .th-grid {
+    background: linear-gradient(155deg, #0f1422, #131828);
+  }
+  .th-filter {
+    background: linear-gradient(155deg, #14101e, #1a1528);
+  }
+  .th-valid {
+    background: linear-gradient(155deg, #0d1a12, #11201a);
+  }
+  .th-style {
+    background: linear-gradient(155deg, #1a1408, #201a0d);
+  }
+  .th-viz {
+    background: linear-gradient(155deg, #1a0d12, #220e18);
+  }
+  .th-perf {
+    background: linear-gradient(155deg, #0a1520, #0f1e28);
+  }
+  .th-calc {
+    background: linear-gradient(155deg, #18140a, #201c0d);
+  }
+  .th-ux {
+    background: linear-gradient(155deg, #12101e, #18162a);
+  }
+  .th-entry {
+    background: linear-gradient(155deg, #0d1a1e, #10202a);
+  }
+  .th-dev {
+    background: linear-gradient(155deg, #101018, #141420);
+  }
+  .th-ent {
+    background: linear-gradient(155deg, #1e0e0a, #280f0a);
+  }
 
   /* ── Feature preview modal ── */
   .feat-modal {
@@ -2067,8 +2155,16 @@
     padding: 72px 56px;
     border-radius: var(--radius-xl);
     background:
-      radial-gradient(ellipse at top right, color-mix(in srgb, var(--accent) 20%, transparent), transparent 60%),
-      radial-gradient(ellipse at bottom left, color-mix(in srgb, var(--accent-2) 10%, transparent), transparent 60%),
+      radial-gradient(
+        ellipse at top right,
+        color-mix(in srgb, var(--accent) 20%, transparent),
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse at bottom left,
+        color-mix(in srgb, var(--accent-2) 10%, transparent),
+        transparent 60%
+      ),
       var(--bg-elev-1);
 
     &::before {
@@ -2079,7 +2175,7 @@
         linear-gradient(var(--pattern-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--pattern-line) 1px, transparent 1px);
       background-size: 32px 32px;
-      content: "";
+      content: '';
       mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
       -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
     }
@@ -2123,7 +2219,9 @@
   .reveal {
     opacity: 0;
     transform: translateY(16px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
 
     &.in {
       opacity: 1;

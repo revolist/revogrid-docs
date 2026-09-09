@@ -11,18 +11,21 @@
 </template>
 
 <script lang="ts" setup>
-withDefaults(defineProps<{
-  inline?: boolean
-  primaryHref?: string
-  primaryLabel?: string
-  secondaryHref?: string
-  secondaryLabel?: string
-}>(), {
-  primaryHref: '/trial',
-  primaryLabel: 'Get Pro Trial',
-  secondaryHref: '/pricing#pro-advanced',
-  secondaryLabel: 'Buy Pro',
-})
+withDefaults(
+  defineProps<{
+    inline?: boolean
+    primaryHref?: string
+    primaryLabel?: string
+    secondaryHref?: string
+    secondaryLabel?: string
+  }>(),
+  {
+    primaryHref: '/trial',
+    primaryLabel: 'Get Pro Trial',
+    secondaryHref: '/pricing#pro-advanced',
+    secondaryLabel: 'Buy Pro',
+  },
+)
 </script>
 
 <style scoped>

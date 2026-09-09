@@ -1,7 +1,4 @@
 import {
-  SUMMER_SALE_CUTOFF,
-  SUMMER_SALE_EXPIRES_AT,
-  formatFrameworkPricingNote,
   resolvePlanPrice as resolveCatalogPlanPrice,
   type PriceTimestamp,
   type ResolvedPromotion,

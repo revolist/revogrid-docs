@@ -11,10 +11,22 @@ import {
 } from '../../../../.vitepress/theme/demoPageLayout'
 import { sidebarDemonEn } from '../../../../.vitepress/configs/sidebar/en.demo'
 
-const demoSidebarSource = readFileSync(new URL('../../../../.vitepress/configs/sidebar/en.demo.ts', import.meta.url), 'utf8')
-const vitepressConfigSource = readFileSync(new URL('../../../../.vitepress/config.mts', import.meta.url), 'utf8')
-const docsThemeSource = readFileSync(new URL('../../../../.vitepress/theme/style.scss', import.meta.url), 'utf8')
-const demoPageLayoutSource = readFileSync(new URL('../../../../.vitepress/theme/DemoPageLayout.vue', import.meta.url), 'utf8')
+const demoSidebarSource = readFileSync(
+  new URL('../../../../.vitepress/configs/sidebar/en.demo.ts', import.meta.url),
+  'utf8',
+)
+const vitepressConfigSource = readFileSync(
+  new URL('../../../../.vitepress/config.mts', import.meta.url),
+  'utf8',
+)
+const docsThemeSource = readFileSync(
+  new URL('../../../../.vitepress/theme/style.scss', import.meta.url),
+  'utf8',
+)
+const demoPageLayoutSource = readFileSync(
+  new URL('../../../../.vitepress/theme/DemoPageLayout.vue', import.meta.url),
+  'utf8',
+)
 const planningDemoStyleSource = readFileSync(
   new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.scss', import.meta.url),
   'utf8',
@@ -43,7 +55,10 @@ const demoSeoFiles = [
   'excel.md',
 ] as const
 const pivotHeaderStyleSource = readFileSync(
-  new URL('../../../../revogrid-demos/pro-advanced-pivot/src/financial-pivot-header/financial-pivot-header.scss', import.meta.url),
+  new URL(
+    '../../../../revogrid-demos/pro-advanced-pivot/src/financial-pivot-header/financial-pivot-header.scss',
+    import.meta.url,
+  ),
   'utf8',
 )
 
@@ -51,7 +66,7 @@ test('provides complete reusable layout content for every catalog demo', () => {
   const configs = getAllDemoPageConfigs()
 
   assert.equal(configs.length, Object.keys(PRODUCT_CATALOG.demos).length)
-  configs.forEach((config) => {
+  configs.forEach(config => {
     assert.equal(config.demo, PRODUCT_CATALOG.demos[config.demo.id])
     assert.ok(config.title.length > 4)
     assert.match(config.description, /\.$/)
@@ -88,17 +103,28 @@ test('links advanced demos to their standalone implementation repositories', () 
 })
 
 test('keeps every demo page on the shared SEO and social metadata contract', () => {
-  const entries = demoSeoFiles.map((file) => {
+  const entries = demoSeoFiles.map(file => {
     const source = readFileSync(new URL(`../../../../demo/${file}`, import.meta.url), 'utf8')
     const frontmatter = source.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? ''
     const title = frontmatter.match(/^title:\s*(.+)$/m)?.[1] ?? ''
     const description = frontmatter.match(/^description:\s*(.+)$/m)?.[1] ?? ''
 
     assert.ok(title.length >= 20 && title.length <= 60, `${file} needs a concise title`)
-    assert.ok(description.length >= 90 && description.length <= 180, `${file} needs a useful description`)
+    assert.ok(
+      description.length >= 90 && description.length <= 180,
+      `${file} needs a useful description`,
+    )
     assert.match(frontmatter, /name:\s*keywords\n\s+content:\s*\S+/, `${file} needs search terms`)
-    assert.doesNotMatch(frontmatter, /name:\s*description/, `${file} duplicates its frontmatter description`)
-    assert.doesNotMatch(frontmatter, /property:\s*og:(?:title|description|url)/, `${file} bypasses shared Open Graph tags`)
+    assert.doesNotMatch(
+      frontmatter,
+      /name:\s*description/,
+      `${file} duplicates its frontmatter description`,
+    )
+    assert.doesNotMatch(
+      frontmatter,
+      /property:\s*og:(?:title|description|url)/,
+      `${file} bypasses shared Open Graph tags`,
+    )
 
     return { file, title, description }
   })
@@ -106,7 +132,14 @@ test('keeps every demo page on the shared SEO and social metadata contract', () 
   assert.equal(new Set(entries.map(({ title }) => title)).size, entries.length - 1)
   assert.equal(new Set(entries.map(({ description }) => description)).size, entries.length - 2)
 
-  for (const tag of ['canonical', 'og:title', 'og:description', 'og:url', 'twitter:title', 'twitter:description']) {
+  for (const tag of [
+    'canonical',
+    'og:title',
+    'og:description',
+    'og:url',
+    'twitter:title',
+    'twitter:description',
+  ]) {
     assert.match(vitepressConfigSource, new RegExp(tag.replace(':', '\\:')))
   }
   assert.match(vitepressConfigSource, /property:\s*'og:image:alt'/)
@@ -126,14 +159,17 @@ test('provides source-attributed feature badges only for paid demos', () => {
   const paid = configs.filter(config => config.demo.planId !== 'open-source')
 
   assert.deepEqual(openSource?.featureBadges, [])
-  assert.equal(paid.length, Object.values(PRODUCT_CATALOG.demos).filter(demo => demo.planId !== 'open-source').length)
-  paid.forEach((config) => {
+  assert.equal(
+    paid.length,
+    Object.values(PRODUCT_CATALOG.demos).filter(demo => demo.planId !== 'open-source').length,
+  )
+  paid.forEach(config => {
     assert.ok(config.featureBadges.length >= 3)
     assert.equal(
       new Set(config.featureBadges.map(feature => feature.label)).size,
       config.featureBadges.length,
     )
-    config.featureBadges.forEach((feature) => {
+    config.featureBadges.forEach(feature => {
       assert.ok(feature.label.length > 3)
       assert.ok(feature.source.length > 3)
     })
@@ -152,60 +188,51 @@ test('uses the requested Context Menu & Formatting feature badges', () => {
     getDemoPageConfig('context-menu').description,
     'Selection-aware commands and rich formatting across cells, rows, columns, and headers.',
   )
-  assert.deepEqual(
-    getDemoPageConfig('context-menu').featureBadges,
-    [
-      { label: 'Context menu', source: 'DataGridContextMenuPlugin' },
-      { label: 'Cell formats', source: 'DataGridContextMenuPlugin formatting runtime' },
-      { label: 'Multi-range selection', source: 'MultiRangeSelectionPlugin' },
-      { label: 'Context filters', source: 'AdvanceFilterPlugin' },
-      { label: 'Excel export', source: 'ExportExcelPlugin' },
-    ],
-  )
+  assert.deepEqual(getDemoPageConfig('context-menu').featureBadges, [
+    { label: 'Context menu', source: 'DataGridContextMenuPlugin' },
+    { label: 'Cell formats', source: 'DataGridContextMenuPlugin formatting runtime' },
+    { label: 'Multi-range selection', source: 'MultiRangeSelectionPlugin' },
+    { label: 'Context filters', source: 'AdvanceFilterPlugin' },
+    { label: 'Excel export', source: 'ExportExcelPlugin' },
+  ])
 })
 
 test('uses the requested Audit History feature badges', () => {
-  assert.deepEqual(
-    getDemoPageConfig('audit-history').featureBadges,
-    [
-      { label: 'Change log', source: 'AuditHistoryPlugin' },
-      { label: 'Audit panel', source: 'defineAuditHistoryPanel' },
-      { label: 'Compare revisions', source: 'AuditHistoryPanelOptions.allowCompare' },
-      { label: 'Export audit records', source: 'AuditHistoryPanelOptions.allowExport' },
-      { label: 'Restore changes', source: 'AuditHistoryPanelOptions.restoreActions' },
-      { label: 'Change highlighting', source: 'CellFlashPlugin' },
-    ],
-  )
+  assert.deepEqual(getDemoPageConfig('audit-history').featureBadges, [
+    { label: 'Change log', source: 'AuditHistoryPlugin' },
+    { label: 'Audit panel', source: 'defineAuditHistoryPanel' },
+    { label: 'Compare revisions', source: 'AuditHistoryPanelOptions.allowCompare' },
+    { label: 'Export audit records', source: 'AuditHistoryPanelOptions.allowExport' },
+    { label: 'Restore changes', source: 'AuditHistoryPanelOptions.restoreActions' },
+    { label: 'Change highlighting', source: 'CellFlashPlugin' },
+  ])
 })
 
 test('uses the requested Tree Data feature badges', () => {
-  assert.deepEqual(
-    getDemoPageConfig('tree-data').featureBadges,
-    [
-      { label: 'Hierarchical rows', source: 'TreeDataPlugin' },
-      { label: 'Sticky parents', source: 'StickyCellsPlugin + TreeConfig.stickyParents' },
-      { label: 'Animated expansion', source: 'DimensionAnimationPlugin' },
-      { label: 'Reorder rows', source: 'RowOrderPlugin' },
-      { label: 'Advanced filters', source: 'AdvanceFilterPlugin' },
-      { label: 'Row selection', source: 'RowSelectPlugin' },
-      { label: 'Excel export', source: 'ExportExcelPlugin' },
-    ],
-  )
+  assert.deepEqual(getDemoPageConfig('tree-data').featureBadges, [
+    { label: 'Hierarchical rows', source: 'TreeDataPlugin' },
+    { label: 'Sticky parents', source: 'StickyCellsPlugin + TreeConfig.stickyParents' },
+    { label: 'Animated expansion', source: 'DimensionAnimationPlugin' },
+    { label: 'Reorder rows', source: 'RowOrderPlugin' },
+    { label: 'Advanced filters', source: 'AdvanceFilterPlugin' },
+    { label: 'Row selection', source: 'RowSelectPlugin' },
+    { label: 'Excel export', source: 'ExportExcelPlugin' },
+  ])
 })
 
 test('describes the requested active Gantt capabilities without an export badge', () => {
-  assert.deepEqual(
-    getDemoPageConfig('gantt').featureBadges,
-    [
-      { label: 'Gantt', source: 'GanttPlugin' },
-      { label: 'Dependencies & critical path', source: 'GanttDependencyOverlayPlugin + GanttTaskBarsPlugin' },
-      { label: 'Task hierarchy', source: 'TreeDataPlugin' },
-      { label: 'Zoom', source: 'GanttTimelineHeaderPlugin + zoomPreset' },
-      { label: 'Context menus', source: 'ContextMenuPlugin' },
-      { label: 'Calendars', source: 'GanttPlugin + ganttCalendars' },
-      { label: 'Undo / redo', source: 'HistoryPlugin' },
-    ],
-  )
+  assert.deepEqual(getDemoPageConfig('gantt').featureBadges, [
+    { label: 'Gantt', source: 'GanttPlugin' },
+    {
+      label: 'Dependencies & critical path',
+      source: 'GanttDependencyOverlayPlugin + GanttTaskBarsPlugin',
+    },
+    { label: 'Task hierarchy', source: 'TreeDataPlugin' },
+    { label: 'Zoom', source: 'GanttTimelineHeaderPlugin + zoomPreset' },
+    { label: 'Context menus', source: 'ContextMenuPlugin' },
+    { label: 'Calendars', source: 'GanttPlugin + ganttCalendars' },
+    { label: 'Undo / redo', source: 'HistoryPlugin' },
+  ])
 })
 
 test('uses the JavaScript Gantt Chart demo heading', () => {
@@ -214,14 +241,18 @@ test('uses the JavaScript Gantt Chart demo heading', () => {
 
 test('does not advertise full-dataset export in the Infinity Scroll header', () => {
   assert.equal(
-    getDemoPageConfig('infinity-scroll').featureBadges.some(({ label }) => label === 'Full-dataset export'),
+    getDemoPageConfig('infinity-scroll').featureBadges.some(
+      ({ label }) => label === 'Full-dataset export',
+    ),
     false,
   )
 })
 
 test('does not advertise responsive columns in the Row Master header', () => {
   assert.equal(
-    getDemoPageConfig('row-master').featureBadges.some(({ label }) => label === 'Responsive columns'),
+    getDemoPageConfig('row-master').featureBadges.some(
+      ({ label }) => label === 'Responsive columns',
+    ),
     false,
   )
 })
@@ -244,23 +275,20 @@ test('describes the 100K Kanban server-loading example', () => {
 })
 
 test('describes the requested Scheduler capabilities without filter or history badges', () => {
-  assert.deepEqual(
-    getDemoPageConfig('event-scheduler').featureBadges,
-    [
-      { label: 'Scheduler & Calendar', source: 'EventSchedulerPlugin' },
-      { label: 'Event editing', source: 'EventSchedulerPlugin: create, move, resize, delete' },
-      { label: 'Conflicts', source: 'EventSchedulerPlugin' },
-      { label: 'Context menus', source: 'ContextMenuPlugin' },
-      {
-        label: 'Working calendars',
-        source: 'EventSchedulerPlugin calendars: weekday, open coverage, and training',
-      },
-      {
-        label: 'Shifts & blocked time',
-        source: 'EventSchedulerPlugin: open shifts, locked events, and closed slots',
-      },
-    ],
-  )
+  assert.deepEqual(getDemoPageConfig('event-scheduler').featureBadges, [
+    { label: 'Scheduler & Calendar', source: 'EventSchedulerPlugin' },
+    { label: 'Event editing', source: 'EventSchedulerPlugin: create, move, resize, delete' },
+    { label: 'Conflicts', source: 'EventSchedulerPlugin' },
+    { label: 'Context menus', source: 'ContextMenuPlugin' },
+    {
+      label: 'Working calendars',
+      source: 'EventSchedulerPlugin calendars: weekday, open coverage, and training',
+    },
+    {
+      label: 'Shifts & blocked time',
+      source: 'EventSchedulerPlugin: open shifts, locked events, and closed slots',
+    },
+  ])
 })
 
 test('uses an implementation GitHub link without guided steps', () => {
@@ -277,10 +305,7 @@ test('does not repeat the header CTA inside the demo workspace', () => {
 })
 
 test('uses the Pro Advanced violet palette for Advanced sidebar badges', () => {
-  assert.match(
-    docsThemeSource,
-    /\.demo-sidebar-badge\s*\{[\s\S]*?font-weight:\s*500;/,
-  )
+  assert.match(docsThemeSource, /\.demo-sidebar-badge\s*\{[\s\S]*?font-weight:\s*500;/)
   assert.match(
     docsThemeSource,
     /\.demo-sidebar-badge--pro-advanced\s*\{[\s\S]*?border-color:\s*color-mix\(in srgb, #8b5cf6 28%, transparent\);[\s\S]*?background:\s*color-mix\(in srgb, #8b5cf6 14%, transparent\);[\s\S]*?color:\s*#7c3aed;/,
@@ -295,11 +320,14 @@ test('shows plan badges once on top-level demo groups instead of every demo row'
   assert.match(topLevelText[2], />Pro Advanced<\/span>[\s\S]*>Adv<\/span>/)
   topLevelText.forEach(text => assert.match(text, /aria-hidden="true"/))
 
-  const itemText = (items: DefaultTheme.SidebarItem[] = []): string[] => items.flatMap(item => [
-    String(item.text ?? ''),
-    ...itemText(item.items ?? []),
-  ])
-  assert.equal(itemText(sidebarDemonEn.flatMap(group => group.items ?? [])).some(text => text.includes('demo-sidebar-badge')), false)
+  const itemText = (items: DefaultTheme.SidebarItem[] = []): string[] =>
+    items.flatMap(item => [String(item.text ?? ''), ...itemText(item.items ?? [])])
+  assert.equal(
+    itemText(sidebarDemonEn.flatMap(group => group.items ?? [])).some(text =>
+      text.includes('demo-sidebar-badge'),
+    ),
+    false,
+  )
 })
 
 test('groups demo navigation by plan and Pro Advanced product family', () => {
@@ -310,7 +338,11 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
       links: group.items?.map(item => item.link),
     })),
     [
-      { text: 'Core', collapsed: false, links: ['/demo/grid-at-scale', '/demo/ai-prompts', '/demo/project-portfolio'] },
+      {
+        text: 'Core',
+        collapsed: false,
+        links: ['/demo/grid-at-scale', '/demo/ai-prompts', '/demo/project-portfolio'],
+      },
       {
         text: 'Pro',
         collapsed: false,
@@ -334,8 +366,8 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
   assert.equal(proAdvanced.collapsed, false)
   assert.equal(proAdvanced.items?.[0]?.link, '/demo/')
   assert.match(String(proAdvanced.items?.[0]?.text), /All-in-One Planning/)
-  assert.match(String(proAdvanced.items?.[1]?.items?.[1]?.text), /10K-Task Gantt/)
-  assert.match(String(proAdvanced.items?.[1]?.items?.[2]?.text), /20Y-Timeline Gantt/)
+  assert.match(String(proAdvanced.items?.[2]?.items?.[1]?.text), /10K tasks/)
+  assert.match(String(proAdvanced.items?.[2]?.items?.[2]?.text), /20-year timeline/)
   assert.deepEqual(
     proAdvanced.items?.slice(1, 5).map(group => ({
       text: group.text,
@@ -343,10 +375,18 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
       links: group.items?.map(item => item.link),
     })),
     [
-      { text: 'Gantt Chart', collapsed: false, links: ['/demo/gantt', '/demo/gantt-big-data', '/demo/gantt-horizontal-big-data'] },
+      { text: 'Pivot table', collapsed: false, links: ['/demo/pivot'] },
+      {
+        text: 'Gantt Chart',
+        collapsed: false,
+        links: ['/demo/gantt', '/demo/gantt-big-data', '/demo/gantt-horizontal-big-data'],
+      },
       { text: 'Scheduler', collapsed: false, links: ['/demo/event-scheduler'] },
-      { text: 'Kanban', collapsed: false, links: ['/demo/kanban', '/demo/kanban-performance', '/demo/kanban-server-loading'] },
-      { text: 'Pivot Table', collapsed: false, links: ['/demo/pivot'] },
+      {
+        text: 'Kanban',
+        collapsed: false,
+        links: ['/demo/kanban', '/demo/kanban-performance', '/demo/kanban-server-loading'],
+      },
     ],
   )
 })
@@ -356,7 +396,7 @@ test('resolves the requested public plan labels and try-in-project destinations'
     'grid-at-scale': { plan: 'Core', destination: '/guide/' },
     'project-tracker': { plan: 'Pro Lite', destination: 'https://rv-grid.com/trial' },
     pivot: { plan: 'Pro Advanced', destination: 'https://rv-grid.com/trial' },
-  } as const satisfies Partial<Record<DemoId, { plan: string, destination: string }>>
+  } as const satisfies Partial<Record<DemoId, { plan: string; destination: string }>>
 
   Object.entries(expected).forEach(([demoId, value]) => {
     const config = getDemoPageConfig(demoId as DemoId)

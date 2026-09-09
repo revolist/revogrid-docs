@@ -126,7 +126,10 @@ onUnmounted(() => {
   cursor: pointer;
   height: 10px;
   padding: 0;
-  transition: background 0.2s ease, transform 0.2s ease, width 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    width 0.2s ease;
   width: 10px;
 }
 

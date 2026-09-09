@@ -14,7 +14,10 @@ type LandingTask = TaskEntity & {
   estimatedCost?: number
 }
 
-function task(data: Omit<LandingTask, 'projectId' | 'calendarId' | 'isCritical' | 'tags'> & Partial<Pick<LandingTask, 'calendarId' | 'isCritical' | 'tags'>>): LandingTask {
+function task(
+  data: Omit<LandingTask, 'projectId' | 'calendarId' | 'isCritical' | 'tags'> &
+    Partial<Pick<LandingTask, 'calendarId' | 'isCritical' | 'tags'>>,
+): LandingTask {
   return {
     ...data,
     projectId: GANTT_PROJECT_ID,
@@ -37,7 +40,16 @@ function taskColumn(
   }
 }
 
-function getLandingTaskBarColor({ row }: { row: { id: string, tags?: readonly string[], taskKind?: string, assigneeDetails?: readonly unknown[] } }) {
+function getLandingTaskBarColor({
+  row,
+}: {
+  row: {
+    id: string
+    tags?: readonly string[]
+    taskKind?: string
+    assigneeDetails?: readonly unknown[]
+  }
+}) {
   const hasAssignee = (row.assigneeDetails?.length ?? 0) > 0
   if (row.taskKind === 'summary') {
     return {
@@ -299,24 +311,105 @@ export const tasks: LandingTask[] = [
 ]
 
 export const resources: ResourceEntity[] = [
-  { id: 'am', name: 'Ava Morgan', role: 'Product', calendarId: GANTT_CALENDAR_ID, allocationCapacity: 100, hourlyCost: 120 },
-  { id: 'mk', name: 'Maks Kim', role: 'Backend', calendarId: GANTT_CALENDAR_ID, allocationCapacity: 100, hourlyCost: 110 },
-  { id: 'ns', name: 'Nina Stone', role: 'Design', calendarId: GANTT_CALENDAR_ID, allocationCapacity: 100, hourlyCost: 95 },
-  { id: 'jd', name: 'Jon Diaz', role: 'Frontend', calendarId: GANTT_CALENDAR_ID, allocationCapacity: 100, hourlyCost: 105 },
-  { id: 'rp', name: 'Ravi Patel', role: 'QA', calendarId: GANTT_CALENDAR_ID, allocationCapacity: 100, hourlyCost: 90 },
+  {
+    id: 'am',
+    name: 'Ava Morgan',
+    role: 'Product',
+    calendarId: GANTT_CALENDAR_ID,
+    allocationCapacity: 100,
+    hourlyCost: 120,
+  },
+  {
+    id: 'mk',
+    name: 'Maks Kim',
+    role: 'Backend',
+    calendarId: GANTT_CALENDAR_ID,
+    allocationCapacity: 100,
+    hourlyCost: 110,
+  },
+  {
+    id: 'ns',
+    name: 'Nina Stone',
+    role: 'Design',
+    calendarId: GANTT_CALENDAR_ID,
+    allocationCapacity: 100,
+    hourlyCost: 95,
+  },
+  {
+    id: 'jd',
+    name: 'Jon Diaz',
+    role: 'Frontend',
+    calendarId: GANTT_CALENDAR_ID,
+    allocationCapacity: 100,
+    hourlyCost: 105,
+  },
+  {
+    id: 'rp',
+    name: 'Ravi Patel',
+    role: 'QA',
+    calendarId: GANTT_CALENDAR_ID,
+    allocationCapacity: 100,
+    hourlyCost: 90,
+  },
 ]
 
 export const assignments: AssignmentEntity[] = [
-  { id: 'asg-launch', taskId: 'launch', resourceId: 'am', allocationUnits: 50, responsibility: 'Owner' },
-  { id: 'asg-backend', taskId: 'backend', resourceId: 'mk', allocationUnits: 100, responsibility: 'Owner' },
-  { id: 'asg-design', taskId: 'design', resourceId: 'ns', allocationUnits: 100, responsibility: 'Owner' },
-  { id: 'asg-frontend', taskId: 'frontend', resourceId: 'jd', allocationUnits: 100, responsibility: 'Owner' },
-  { id: 'asg-iac', taskId: 'iac', resourceId: 'mk', allocationUnits: 50, responsibility: 'Support' },
-  { id: 'asg-pipeline', taskId: 'pipeline', resourceId: 'mk', allocationUnits: 75, responsibility: 'Owner' },
-  { id: 'asg-test-plan', taskId: 'test-plan', resourceId: 'rp', allocationUnits: 100, responsibility: 'Owner' },
-  { id: 'asg-integration-tests', taskId: 'integration-tests', resourceId: 'rp', allocationUnits: 100, responsibility: 'Owner' },
+  {
+    id: 'asg-launch',
+    taskId: 'launch',
+    resourceId: 'am',
+    allocationUnits: 50,
+    responsibility: 'Owner',
+  },
+  {
+    id: 'asg-backend',
+    taskId: 'backend',
+    resourceId: 'mk',
+    allocationUnits: 100,
+    responsibility: 'Owner',
+  },
+  {
+    id: 'asg-design',
+    taskId: 'design',
+    resourceId: 'ns',
+    allocationUnits: 100,
+    responsibility: 'Owner',
+  },
+  {
+    id: 'asg-frontend',
+    taskId: 'frontend',
+    resourceId: 'jd',
+    allocationUnits: 100,
+    responsibility: 'Owner',
+  },
+  {
+    id: 'asg-iac',
+    taskId: 'iac',
+    resourceId: 'mk',
+    allocationUnits: 50,
+    responsibility: 'Support',
+  },
+  {
+    id: 'asg-pipeline',
+    taskId: 'pipeline',
+    resourceId: 'mk',
+    allocationUnits: 75,
+    responsibility: 'Owner',
+  },
+  {
+    id: 'asg-test-plan',
+    taskId: 'test-plan',
+    resourceId: 'rp',
+    allocationUnits: 100,
+    responsibility: 'Owner',
+  },
+  {
+    id: 'asg-integration-tests',
+    taskId: 'integration-tests',
+    resourceId: 'rp',
+    allocationUnits: 100,
+    responsibility: 'Owner',
+  },
 ]
 
-export const columns = [
-  taskColumn('name', 230, { name: 'Task' }),
-]
+export const columns = [taskColumn('name', 230, { name: 'Task' })]

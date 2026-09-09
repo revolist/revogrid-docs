@@ -4,7 +4,10 @@ import type { CapabilityExample } from '../types'
 type ExampleConfig = Pick<
   CapabilityExample,
   'id' | 'code' | 'source' | 'columns' | 'rowSize' | 'height' | 'theme'
-> & Partial<Omit<CapabilityExample, 'id' | 'code' | 'source' | 'columns' | 'rowSize' | 'height' | 'theme'>>
+> &
+  Partial<
+    Omit<CapabilityExample, 'id' | 'code' | 'source' | 'columns' | 'rowSize' | 'height' | 'theme'>
+  >
 
 export function defineCapabilityExample(config: ExampleConfig): CapabilityExample {
   return {

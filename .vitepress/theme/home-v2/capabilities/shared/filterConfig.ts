@@ -36,10 +36,10 @@ export function createFilterConfig({
     slider: {
       showRangeDisplay: true,
       showRangeInputs: true,
-      formatValue: applyGrowthFilter ? formatGrowthPercent : (value) => `${value}%`,
+      formatValue: applyGrowthFilter ? formatGrowthPercent : value => `${value}%`,
       formatInputValue: applyGrowthFilter ? formatGrowthPercent : undefined,
       parseInputValue: applyGrowthFilter
-        ? (value) => Number(value.replace('%', '').trim()) / 100
+        ? value => Number(value.replace('%', '').trim()) / 100
         : undefined,
     },
   }

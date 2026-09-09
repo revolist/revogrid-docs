@@ -9,6 +9,7 @@ import linkedinIcon from '@fortawesome/fontawesome-free/svgs/brands/linkedin.svg
 import starOutlineIcon from '@fortawesome/fontawesome-free/svgs/regular/star.svg?raw'
 import arrowDownIcon from '@fortawesome/fontawesome-free/svgs/solid/arrow-down.svg?raw'
 import arrowRightIcon from '@fortawesome/fontawesome-free/svgs/solid/arrow-right.svg?raw'
+import arrowsLeftRightToLineIcon from '@fortawesome/fontawesome-free/svgs/solid/arrows-left-right-to-line.svg?raw'
 import caretDownIcon from '@fortawesome/fontawesome-free/svgs/solid/caret-down.svg?raw'
 import caretRightIcon from '@fortawesome/fontawesome-free/svgs/solid/caret-right.svg?raw'
 import borderAllIcon from '@fortawesome/fontawesome-free/svgs/solid/border-all.svg?raw'
@@ -16,6 +17,7 @@ import bookOpenIcon from '@fortawesome/fontawesome-free/svgs/solid/book-open.svg
 import boxesStackedIcon from '@fortawesome/fontawesome-free/svgs/solid/boxes-stacked.svg?raw'
 import buildingColumnsIcon from '@fortawesome/fontawesome-free/svgs/solid/building-columns.svg?raw'
 import calendarDaysIcon from '@fortawesome/fontawesome-free/svgs/solid/calendar-days.svg?raw'
+import chartGanttIcon from '@fortawesome/fontawesome-free/svgs/solid/chart-gantt.svg?raw'
 import chartLineIcon from '@fortawesome/fontawesome-free/svgs/solid/chart-line.svg?raw'
 import chartColumnIcon from '@fortawesome/fontawesome-free/svgs/solid/chart-column.svg?raw'
 import checkIcon from '@fortawesome/fontawesome-free/svgs/solid/check.svg?raw'
@@ -40,6 +42,7 @@ import puzzlePieceIcon from '@fortawesome/fontawesome-free/svgs/solid/puzzle-pie
 import rectangleListIcon from '@fortawesome/fontawesome-free/svgs/solid/rectangle-list.svg?raw'
 import scaleBalancedIcon from '@fortawesome/fontawesome-free/svgs/solid/scale-balanced.svg?raw'
 import screwdriverWrenchIcon from '@fortawesome/fontawesome-free/svgs/solid/screwdriver-wrench.svg?raw'
+import serverIcon from '@fortawesome/fontawesome-free/svgs/solid/server.svg?raw'
 import shieldIcon from '@fortawesome/fontawesome-free/svgs/solid/shield.svg?raw'
 import sitemapIcon from '@fortawesome/fontawesome-free/svgs/solid/sitemap.svg?raw'
 import tableColumnsIcon from '@fortawesome/fontawesome-free/svgs/solid/table-columns.svg?raw'
@@ -58,6 +61,8 @@ const icons: Record<string, string> = {
   starOutline: starOutlineIcon,
   arrowDown: arrowDownIcon,
   arrowRight: arrowRightIcon,
+  collapseColumns: arrowsLeftRightToLineIcon,
+  gantt: chartGanttIcon,
   caretDown: caretDownIcon,
   caretRight: caretRightIcon,
   pulse: gaugeHighIcon,
@@ -80,6 +85,7 @@ const icons: Record<string, string> = {
   listCheck: listCheckIcon,
   app: tabletScreenButtonIcon,
   tool: screwdriverWrenchIcon,
+  server: serverIcon,
   shield: shieldIcon,
   check: checkIcon,
   circle: circleIcon,

@@ -32,7 +32,9 @@
       @viewportscroll="scheduleRenderStats"
     />
     <template #fallback>
-      <div class="excel-grid-loading" aria-label="Loading RevoGrid example">Loading RevoGrid example…</div>
+      <div class="excel-grid-loading" aria-label="Loading RevoGrid example">
+        Loading RevoGrid example…
+      </div>
     </template>
   </ClientOnly>
 </template>
@@ -41,7 +43,13 @@
 import { computed, nextTick, ref, useAttrs, watch } from 'vue'
 import { useData } from 'vitepress'
 import VGrid from '@revolist/vue3-datagrid'
-import type { ColumnProp, ColumnTypes, GridPlugin, GroupingOptions, RowHeaders } from '@revolist/revogrid'
+import type {
+  ColumnProp,
+  ColumnTypes,
+  GridPlugin,
+  GroupingOptions,
+  RowHeaders,
+} from '@revolist/revogrid'
 import type {
   ColumnGroupPanelConfig,
   DataGridContextMenuConfig,
@@ -52,7 +60,11 @@ import type {
 } from '@revolist/revogrid-pro'
 import { withExcelFormattingPlugins } from './excelFormattingPlugins'
 import { resolveExcelContextMenu } from './excelContextMenu'
-import { useExcelGridInitialState, type ExcelGridInitialEdit, type ExcelGridInitialRange } from './useExcelGridInitialState'
+import {
+  useExcelGridInitialState,
+  type ExcelGridInitialEdit,
+  type ExcelGridInitialRange,
+} from './useExcelGridInitialState'
 import { useExcelGridRenderStats, type ExcelGridRenderStats } from './useExcelGridRenderStats'
 import { useExcelGridSelection, type ExcelGridSelectionPayload } from './useExcelGridSelection'
 import { useExcelGridFormattingSurface } from './useExcelGridFormattingSurface'
@@ -60,60 +72,68 @@ import { useExcelGridDataReadonly } from './useExcelGridDataReadonly'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<{
-  source: Record<string, unknown>[]
-  columns: Record<string, unknown>[]
-  columnTypes?: ColumnTypes
-  themeMode?: 'site' | 'dark' | 'light'
-  initialRange?: ExcelGridInitialRange
-  initialEdit?: ExcelGridInitialEdit
-  trackStats?: boolean
-  readonly?: boolean
-  /** Keep source values immutable while still allowing Pro presentation formatting. */
-  dataReadonly?: boolean
-  filter?: boolean | Record<string, unknown>
-  plugins?: GridPlugin[]
-  dataGridFormatting?: Record<string, unknown>
-  dataGridFormattingPanel?: boolean | Record<string, unknown>
-  infinityScroll?: Partial<InfinityScrollConfig>
-  tree?: TreeConfig
-  grouping?: GroupingOptions
-  columnGroupPanel?: ColumnGroupPanelConfig
-  rowHeaders?: RowHeaders | boolean
-  rowOrder?: RowOrderPluginConfig | false
-  multiRangeSelection?: MultiRangeSelectionConfig
-  dataGridContextMenu?: DataGridContextMenuConfig
-}>(), {
-  themeMode: 'site',
-  trackStats: false,
-  readonly: false,
-  dataReadonly: false,
-})
+const props = withDefaults(
+  defineProps<{
+    source: Record<string, unknown>[]
+    columns: Record<string, unknown>[]
+    columnTypes?: ColumnTypes
+    themeMode?: 'site' | 'dark' | 'light'
+    initialRange?: ExcelGridInitialRange
+    initialEdit?: ExcelGridInitialEdit
+    trackStats?: boolean
+    readonly?: boolean
+    /** Keep source values immutable while still allowing Pro presentation formatting. */
+    dataReadonly?: boolean
+    filter?: boolean | Record<string, unknown>
+    plugins?: GridPlugin[]
+    dataGridFormatting?: Record<string, unknown>
+    dataGridFormattingPanel?: boolean | Record<string, unknown>
+    infinityScroll?: Partial<InfinityScrollConfig>
+    tree?: TreeConfig
+    grouping?: GroupingOptions
+    columnGroupPanel?: ColumnGroupPanelConfig
+    rowHeaders?: RowHeaders | boolean
+    rowOrder?: RowOrderPluginConfig | false
+    multiRangeSelection?: MultiRangeSelectionConfig
+    dataGridContextMenu?: DataGridContextMenuConfig
+  }>(),
+  {
+    themeMode: 'site',
+    trackStats: false,
+    readonly: false,
+    dataReadonly: false,
+  },
+)
 
 const emit = defineEmits<{
   gridReady: []
   selectionChange: [payload: ExcelGridSelectionPayload]
   renderStats: [payload: ExcelGridRenderStats]
-  filterChange: [payload: {
-    visibleSource: Record<string, unknown>[]
-    filterItems: Record<string, unknown[]>
-  }]
-  sourceChange: [payload: {
-    type: string
-    source: Record<string, unknown>[]
-  }]
+  filterChange: [
+    payload: {
+      visibleSource: Record<string, unknown>[]
+      filterItems: Record<string, unknown[]>
+    },
+  ]
+  sourceChange: [
+    payload: {
+      type: string
+      source: Record<string, unknown>[]
+    },
+  ]
   groupingChange: [payload: { props: ColumnProp[]; grouping: GroupingOptions }]
 }>()
 
-const attrs = useAttrs(), defaultFormattingState = {}
+const attrs = useAttrs(),
+  defaultFormattingState = {}
 const rowResize = { minHeight: 28, maxHeight: 160, fullRow: true }
 const gridRef = ref<{ $el?: HTMLRevoGridElement } | HTMLRevoGridElement | null>(null)
 const { isDark } = useData()
-const resolvedPlugins = computed(() => withExcelFormattingPlugins(props.plugins)), resolvedFormatting = computed(() => props.dataGridFormatting ?? defaultFormattingState)
-const resolvedContextMenu = computed(() => resolveExcelContextMenu(
-  props.dataGridContextMenu,
-  props.dataReadonly,
-))
+const resolvedPlugins = computed(() => withExcelFormattingPlugins(props.plugins)),
+  resolvedFormatting = computed(() => props.dataGridFormatting ?? defaultFormattingState)
+const resolvedContextMenu = computed(() =>
+  resolveExcelContextMenu(props.dataGridContextMenu, props.dataReadonly),
+)
 const resolvedTheme = computed(() => {
   if (props.themeMode === 'dark') return 'darkCompact'
   if (props.themeMode === 'light') return 'compact'
@@ -121,63 +141,68 @@ const resolvedTheme = computed(() => {
 })
 
 function getGridElement() {
-  return ('$el' in (gridRef.value ?? {}) ? gridRef.value?.$el : gridRef.value) as HTMLRevoGridElement | undefined
+  return ('$el' in (gridRef.value ?? {}) ? gridRef.value?.$el : gridRef.value) as
+    HTMLRevoGridElement | undefined
 }
 
-const { emitSelectionChange, scheduleSelectionChange, selectRange, startSelectionTracking } = useExcelGridSelection(
-  getGridElement,
-  (payload) => emit('selectionChange', payload),
-)
+const { emitSelectionChange, scheduleSelectionChange, selectRange, startSelectionTracking } =
+  useExcelGridSelection(getGridElement, payload => emit('selectionChange', payload))
 
-const { applyInitialState, resetInitialState, startInitialRangeObserver } = useExcelGridInitialState({
-  getGridElement,
-  getInitialRange: () => props.initialRange,
-  getInitialEdit: () => props.initialEdit,
-  afterRangeApplied: emitSelectionChange,
-})
+const { applyInitialState, resetInitialState, startInitialRangeObserver } =
+  useExcelGridInitialState({
+    getGridElement,
+    getInitialRange: () => props.initialRange,
+    getInitialEdit: () => props.initialEdit,
+    afterRangeApplied: emitSelectionChange,
+  })
 
 const { scheduleRenderStats, startStatsTracking } = useExcelGridRenderStats({
   getGridElement,
   isEnabled: () => props.trackStats,
   getRowCount: () => props.source.length,
   getColumnCount: () => props.columns.length,
-  onStats: (payload) => emit('renderStats', payload),
+  onStats: payload => emit('renderStats', payload),
 })
 const { connectFormattingSurface } = useExcelGridFormattingSurface(getGridElement)
-const { connectDataReadonly } = useExcelGridDataReadonly(
-  getGridElement,
-  () => props.dataReadonly,
-)
+const { connectDataReadonly } = useExcelGridDataReadonly(getGridElement, () => props.dataReadonly)
 
-async function emitFilterChange(event: CustomEvent<{
-  multiFilterItems?: Record<string, unknown[]>
-}>) {
+async function emitFilterChange(
+  event: CustomEvent<{
+    multiFilterItems?: Record<string, unknown[]>
+  }>,
+) {
   const grid = getGridElement()
   if (!grid?.getVisibleSource) return
   emit('filterChange', {
-    visibleSource: await grid.getVisibleSource() as Record<string, unknown>[],
+    visibleSource: (await grid.getVisibleSource()) as Record<string, unknown>[],
     filterItems: event.detail?.multiFilterItems ?? {},
   })
 }
 
-function emitSourceChange(event: CustomEvent<{
-  type: string
-  source: Record<string, unknown>[]
-}>) {
+function emitSourceChange(
+  event: CustomEvent<{
+    type: string
+    source: Record<string, unknown>[]
+  }>,
+) {
   if (event.detail?.type !== 'rgRow') return
   emit('sourceChange', event.detail)
 }
 
-function emitGroupingChange(event: CustomEvent<{ props: ColumnProp[]; grouping: GroupingOptions }>) {
+function emitGroupingChange(
+  event: CustomEvent<{ props: ColumnProp[]; grouping: GroupingOptions }>,
+) {
   emit('groupingChange', event.detail)
 }
 async function applyFilterItems(filterItems: Record<string, unknown[]>) {
   const grid = getGridElement()
   if (!grid?.getPlugins) return
   const plugins = await grid.getPlugins()
-  const filterPlugin = plugins.find((plugin) => (
-    'getSelectionList' in plugin && typeof (plugin as { onFilterChange?: unknown }).onFilterChange === 'function'
-  )) as { onFilterChange?: (items: Record<string, unknown[]>) => Promise<void> } | undefined
+  const filterPlugin = plugins.find(
+    plugin =>
+      'getSelectionList' in plugin &&
+      typeof (plugin as { onFilterChange?: unknown }).onFilterChange === 'function',
+  ) as { onFilterChange?: (items: Record<string, unknown[]>) => Promise<void> } | undefined
   await filterPlugin?.onFilterChange?.(filterItems)
 }
 

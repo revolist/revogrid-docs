@@ -1,12 +1,26 @@
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.pivot-page .fade-up { animation: fadeUp 0.6s ease both; }
-.pivot-page .fade-up-2 { animation: fadeUp 0.6s 0.08s ease both; }
-.pivot-page .fade-up-3 { animation: fadeUp 0.6s 0.16s ease both; }
-.pivot-page .fade-up-4 { animation: fadeUp 0.6s 0.24s ease both; }
+.pivot-page .fade-up {
+  animation: fadeUp 0.6s ease both;
+}
+.pivot-page .fade-up-2 {
+  animation: fadeUp 0.6s 0.08s ease both;
+}
+.pivot-page .fade-up-3 {
+  animation: fadeUp 0.6s 0.16s ease both;
+}
+.pivot-page .fade-up-4 {
+  animation: fadeUp 0.6s 0.24s ease both;
+}
 
 .pivot-page-doc .VPDoc {
   padding: 0;

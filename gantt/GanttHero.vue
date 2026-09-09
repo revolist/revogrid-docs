@@ -30,7 +30,10 @@
         </div>
       </div>
 
-      <div v-if="preview.enabled && preview.kind === 'image' && heroImageSrc" class="hero-preview hero-image-wrap fade-up-3">
+      <div
+        v-if="preview.enabled && preview.kind === 'image' && heroImageSrc"
+        class="hero-preview hero-image-wrap fade-up-3"
+      >
         <img
           class="hero-image"
           :src="heroImageSrc"
@@ -42,9 +45,21 @@
       </div>
 
       <ClientOnly v-else-if="preview.enabled">
-        <EventSchedulerPreview v-if="preview.kind === 'eventScheduler'" class="hero-preview fade-up-3" />
-        <KanbanPreviewGrid v-else-if="preview.kind === 'kanban'" class="hero-preview fade-up-3" :preview="preview" />
-        <GanttPreviewGrid v-else class="hero-preview fade-up-3" :preview="preview" :is-dark="isDark" />
+        <EventSchedulerPreview
+          v-if="preview.kind === 'eventScheduler'"
+          class="hero-preview fade-up-3"
+        />
+        <KanbanPreviewGrid
+          v-else-if="preview.kind === 'kanban'"
+          class="hero-preview fade-up-3"
+          :preview="preview"
+        />
+        <GanttPreviewGrid
+          v-else
+          class="hero-preview fade-up-3"
+          :preview="preview"
+          :is-dark="isDark"
+        />
       </ClientOnly>
     </div>
   </section>
@@ -78,14 +93,28 @@ const heroImageAlt = computed(() => props.preview.alt || 'RevoGrid Gantt preview
 
 <style lang="scss" scoped>
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.fade-up { animation: fadeUp 0.6s ease both; }
-.fade-up-2 { animation: fadeUp 0.6s 0.08s ease both; }
-.fade-up-3 { animation: fadeUp 0.6s 0.16s ease both; }
-.fade-up-4 { animation: fadeUp 0.6s 0.24s ease both; }
+.fade-up {
+  animation: fadeUp 0.6s ease both;
+}
+.fade-up-2 {
+  animation: fadeUp 0.6s 0.08s ease both;
+}
+.fade-up-3 {
+  animation: fadeUp 0.6s 0.16s ease both;
+}
+.fade-up-4 {
+  animation: fadeUp 0.6s 0.24s ease both;
+}
 
 .container {
   width: 100%;
@@ -103,7 +132,6 @@ const heroImageAlt = computed(() => props.preview.alt || 'RevoGrid Gantt preview
   position: relative;
   padding: 96px 0 0;
 }
-
 
 .hero-inner {
   display: flex;
@@ -220,5 +248,4 @@ const heroImageAlt = computed(() => props.preview.alt || 'RevoGrid Gantt preview
     gap: 40px;
   }
 }
-
 </style>

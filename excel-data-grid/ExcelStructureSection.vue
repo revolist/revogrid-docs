@@ -26,10 +26,18 @@
           readonly
           @selection-change="onStructureSelectionChange"
         />
-        <div class="excel-table-status"><div><span>Pinned: Store</span><span>Range {{ structureSummary.range }}</span><span>Sum {{ formatMoney(structureSummary.sum) }}</span></div></div>
+        <div class="excel-table-status">
+          <div>
+            <span>Pinned: Store</span><span>Range {{ structureSummary.range }}</span
+            ><span>Sum {{ formatMoney(structureSummary.sum) }}</span>
+          </div>
+        </div>
       </div>
       <div class="excel-feature-notes excel-feature-notes--five">
-        <article v-for="note in content.notes" :key="note.title"><strong>{{ note.title }}</strong><p>{{ note.detail }}</p></article>
+        <article v-for="note in content.notes" :key="note.title">
+          <strong>{{ note.title }}</strong>
+          <p>{{ note.detail }}</p>
+        </article>
       </div>
     </div>
   </section>
@@ -73,11 +81,33 @@ const structureRows = [
   ['Helsinki Kamppi', 'Standard', 2640, 2720, 2580, 2690, 2750, 2810],
   ['Aarhus Vest', 'Compact', 980, 1040, 920, 1010, 1060, 1120],
   ['Gothenburg Nordstan', 'Flagship', 3860, 3980, 3740, 3910, 4020, 4140],
-].map((row) => ({ store: row[0], format: row[1], w32: row[2], w33: row[3], w34: row[4], w35: row[5], w36: row[6], w37: row[7] }))
+].map(row => ({
+  store: row[0],
+  format: row[1],
+  w32: row[2],
+  w33: row[3],
+  w34: row[4],
+  w35: row[5],
+  w36: row[6],
+  w37: row[7],
+}))
 const structureColumns = [
-  { name: 'Store ▮', prop: 'store', size: 200, pin: 'colPinStart', readonly: true, dataGridFormat: excelBoldFormat },
+  {
+    name: 'Store ▮',
+    prop: 'store',
+    size: 200,
+    pin: 'colPinStart',
+    readonly: true,
+    dataGridFormat: excelBoldFormat,
+  },
   { name: 'Format', prop: 'format', size: 118, readonly: true },
-  ...['w32', 'w33', 'w34', 'w35', 'w36', 'w37'].map((prop, index) => ({ name: `Wk ${32 + index}`, prop, size: index % 2 ? 108 : 104, readonly: true, dataGridFormat: excelNumberFormat })),
+  ...['w32', 'w33', 'w34', 'w35', 'w36', 'w37'].map((prop, index) => ({
+    name: `Wk ${32 + index}`,
+    prop,
+    size: index % 2 ? 108 : 104,
+    readonly: true,
+    dataGridFormat: excelNumberFormat,
+  })),
 ]
 const structureSummary = ref(summarizeNumericGridSelection(null, structureRows, structureColumns))
 function onStructureSelectionChange(payload: {
@@ -86,7 +116,14 @@ function onStructureSelectionChange(payload: {
   visibleColumns: Record<string, unknown>[]
   columnOffset: number
 }) {
-  structureSummary.value = summarizeNumericGridSelection(payload.range, payload.visibleSource, payload.visibleColumns, payload.columnOffset)
+  structureSummary.value = summarizeNumericGridSelection(
+    payload.range,
+    payload.visibleSource,
+    payload.visibleColumns,
+    payload.columnOffset,
+  )
 }
-function formatMoney(value: number) { return value.toLocaleString('en-US') }
+function formatMoney(value: number) {
+  return value.toLocaleString('en-US')
+}
 </script>

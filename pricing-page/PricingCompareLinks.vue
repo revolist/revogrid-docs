@@ -59,7 +59,11 @@ const { linkOf } = usePricingLinks()
   gap: 26px;
   padding: 24px 30px;
   background:
-    radial-gradient(circle at 12% 50%, color-mix(in srgb, var(--vp-c-brand-1) 7%, transparent), transparent 28%),
+    radial-gradient(
+      circle at 12% 50%,
+      color-mix(in srgb, var(--vp-c-brand-1) 7%, transparent),
+      transparent 28%
+    ),
     color-mix(in srgb, var(--vp-c-brand-soft) 28%, var(--rg-bg));
 }
 

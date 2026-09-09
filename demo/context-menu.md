@@ -1,6 +1,6 @@
 ---
-title: Context Menu & Cell Formatting Demo
-description: Open selection-aware menus for cells, rows, columns, and grouped headers, then apply rich cell formatting in this RevoGrid Pro data grid demo.
+title: Grid Formatting Demo
+description: Apply rich formatting to cells, rows, columns, and grouped headers using the toolbar and selection-aware menus in this RevoGrid Pro data grid demo.
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false

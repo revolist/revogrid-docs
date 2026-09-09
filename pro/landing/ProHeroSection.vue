@@ -5,13 +5,15 @@
         <span class="eyebrow"><span class="dot"></span>{{ page.hero.badge }}</span>
         <h1>
           {{ page.hero.title.prefix }}
-          <em>{{ page.hero.title.highlight }}</em>,
+          <em>{{ page.hero.title.highlight }}</em
+          >,
           {{ page.hero.title.suffix }}
         </h1>
-        <p class="lead">{{ page.hero.subtitle }}<br>{{ page.hero.subtitleNote }}</p>
+        <p class="lead">{{ page.hero.subtitle }}<br />{{ page.hero.subtitleNote }}</p>
         <div class="hero-cta">
           <a :href="page.hero.actions.primary.href" class="pro-btn pro-btn-primary pro-btn-lg">
-            {{ page.hero.actions.primary.label }} <span>{{ page.hero.actions.primary.detail }}</span>
+            {{ page.hero.actions.primary.label }}
+            <span>{{ page.hero.actions.primary.detail }}</span>
           </a>
           <a
             v-if="page.hero.actions.trial"
@@ -26,7 +28,9 @@
           </button>
         </div>
         <div class="hero-meta">
-          <span v-for="item in page.hero.meta" :key="item"><span class="check">✓</span>{{ item }}</span>
+          <span v-for="item in page.hero.meta" :key="item"
+            ><span class="check">✓</span>{{ item }}</span
+          >
         </div>
       </div>
 
@@ -181,8 +185,14 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
 }
 
 @keyframes demoIn {
-  from { opacity: 0; transform: scale(0.96) translateY(12px); }
-  to   { opacity: 1; transform: scale(1) translateY(0); }
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .demo-modal-close {

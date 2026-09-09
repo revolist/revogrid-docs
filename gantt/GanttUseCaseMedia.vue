@@ -26,10 +26,12 @@ const mediaRevisions: Readonly<Record<string, string>> = {
         height="675"
         loading="eager"
         decoding="async"
-      >
+      />
       <figcaption class="gantt-use-case-media__caption">
         <span>{{ caption }}</span>
-        <a :href="liveHref" target="_blank" rel="noopener noreferrer">Open the interactive plan ↗</a>
+        <a :href="liveHref" target="_blank" rel="noopener noreferrer"
+          >Open the interactive plan ↗</a
+        >
       </figcaption>
     </figure>
   </div>
@@ -65,7 +67,9 @@ figure {
     font-size: 13px;
     line-height: 1.55;
 
-    span { min-width: 0; }
+    span {
+      min-width: 0;
+    }
 
     a {
       flex: 0 0 auto;
@@ -95,5 +99,4 @@ figure {
     gap: 8px;
   }
 }
-
 </style>

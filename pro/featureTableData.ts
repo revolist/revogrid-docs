@@ -80,80 +80,93 @@ export const featureTablePlans: FeatureTablePlan[] = [
 
 const planNamesForFeature = (featureId: string) =>
   publishedPlanIds
-    .filter((planId) => planIncludesFeature(planId, featureId))
-    .map((planId) => getPlan(planId).name)
+    .filter(planId => planIncludesFeature(planId, featureId))
+    .map(planId => getPlan(planId).name)
 
-const featuresByGroup = getCatalogProFeatures().reduce<Record<string, FeatureTableGroup>>((acc, feature) => {
-  if (!acc[feature.group]) {
-    acc[feature.group] = {
-      name: feature.group,
-      expanded: true,
-      features: [],
+const featuresByGroup = getCatalogProFeatures().reduce<Record<string, FeatureTableGroup>>(
+  (acc, feature) => {
+    if (!acc[feature.group]) {
+      acc[feature.group] = {
+        name: feature.group,
+        expanded: true,
+        features: [],
+      }
     }
-  }
 
-  const supported = planNamesForFeature(feature.id)
-  acc[feature.group].features.push({
-    id: feature.id,
-    name: feature.title,
-    supported,
-    nesting: 1,
-    collapsible: Boolean(feature.subFeatures?.length),
-    expanded: false,
-    link: feature.link,
-    demoUrl: feature.demoUrl,
-    video: feature.videoUrl,
-    status: feature.status,
-  })
-
-  feature.subFeatures?.forEach((subFeature) => {
+    const supported = planNamesForFeature(feature.id)
     acc[feature.group].features.push({
-      id: `${feature.id}:${subFeature.title}`,
-      name: subFeature.title,
+      id: feature.id,
+      name: feature.title,
       supported,
-      nesting: 2,
-      parent: feature.title,
-      link: subFeature.link,
+      nesting: 1,
+      collapsible: Boolean(feature.subFeatures?.length),
+      expanded: false,
+      link: feature.link,
+      demoUrl: feature.demoUrl,
+      video: feature.videoUrl,
       status: feature.status,
     })
-  })
 
-  return acc
-}, {})
+    feature.subFeatures?.forEach(subFeature => {
+      acc[feature.group].features.push({
+        id: `${feature.id}:${subFeature.title}`,
+        name: subFeature.title,
+        supported,
+        nesting: 2,
+        parent: feature.title,
+        link: subFeature.link,
+        status: feature.status,
+      })
+    })
+
+    return acc
+  },
+  {},
+)
 
 export const featureTableGroups: FeatureTableGroup[] = Object.values(featuresByGroup)
 
-const dataVisualizationGroup = featureTableGroups.find((group) => group.name === 'Data Visualization')
+const dataVisualizationGroup = featureTableGroups.find(group => group.name === 'Data Visualization')
 if (dataVisualizationGroup) {
-  dataVisualizationGroup.features.push(...chartFeatureTableItems.map((feature) => ({
-    id: feature.featureId,
-    name: feature.name,
-    supported: feature.planIds.map((planId) => getPlan(planId).name),
-    nesting: feature.nesting,
-    parent: feature.parent,
-    collapsible: feature.collapsible,
-    expanded: feature.expanded,
-    status: feature.featureId ? PRODUCT_CATALOG.features.find(({ id }) => id === feature.featureId)?.status : 'stable',
-  })))
+  dataVisualizationGroup.features.push(
+    ...chartFeatureTableItems.map(feature => ({
+      id: feature.featureId,
+      name: feature.name,
+      supported: feature.planIds.map(planId => getPlan(planId).name),
+      nesting: feature.nesting,
+      parent: feature.parent,
+      collapsible: feature.collapsible,
+      expanded: feature.expanded,
+      status: feature.featureId
+        ? PRODUCT_CATALOG.features.find(({ id }) => id === feature.featureId)?.status
+        : 'stable',
+    })),
+  )
 }
 
-featureTableGroups.push(...featureTableSupplementalGroups.map((group) => ({
-  name: group.name,
-  expanded: group.expanded,
-  features: group.features.map((feature) => ({
-    id: feature.featureId,
-    name: feature.name,
-    supported: feature.planIds.map((planId) => getPlan(planId).name),
-    nesting: feature.nesting,
-    parent: feature.parent,
-    collapsible: feature.collapsible,
-    expanded: feature.expanded,
-    link: feature.link,
-    status: feature.featureId ? PRODUCT_CATALOG.features.find(({ id }) => id === feature.featureId)?.status : 'stable',
+featureTableGroups.push(
+  ...featureTableSupplementalGroups.map(group => ({
+    name: group.name,
+    expanded: group.expanded,
+    features: group.features.map(feature => ({
+      id: feature.featureId,
+      name: feature.name,
+      supported: feature.planIds.map(planId => getPlan(planId).name),
+      nesting: feature.nesting,
+      parent: feature.parent,
+      collapsible: feature.collapsible,
+      expanded: feature.expanded,
+      link: feature.link,
+      status: feature.featureId
+        ? PRODUCT_CATALOG.features.find(({ id }) => id === feature.featureId)?.status
+        : 'stable',
+    })),
   })),
-})))
+)
 
-const advancedModulesIndex = featureTableGroups.findIndex((group) => group.name === 'Pro Advanced Modules')
+const advancedModulesIndex = featureTableGroups.findIndex(
+  group => group.name === 'Pro Advanced Modules',
+)
 if (advancedModulesIndex >= 0) {
   featureTableGroups.push(featureTableGroups.splice(advancedModulesIndex, 1)[0])
 }

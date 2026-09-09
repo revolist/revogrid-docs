@@ -16,7 +16,8 @@ export function useExcelGridFormattingSurface(
   }
 
   function connectFormattingSurface() {
-    const nextSurface = getGridElement()?.querySelector<HTMLElement>('.rv-data-grid-formatting-panel') ?? null
+    const nextSurface =
+      getGridElement()?.querySelector<HTMLElement>('.rv-data-grid-formatting-panel') ?? null
     if (nextSurface === surface) return
     disconnect()
     surface = nextSurface

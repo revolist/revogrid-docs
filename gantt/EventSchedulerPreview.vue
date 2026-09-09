@@ -29,7 +29,10 @@
 
     <div class="scheduler-footer">
       <span class="status-dot"></span>
-      <span>Actual EventSchedulerPlugin preview: week view, resources, editable event blocks, availability, and overlap conflicts.</span>
+      <span
+        >Actual EventSchedulerPlugin preview: week view, resources, editable event blocks,
+        availability, and overlap conflicts.</span
+      >
     </div>
   </div>
 </template>
@@ -50,7 +53,9 @@ import '@revolist/scheduler/styles.css'
 
 const { isDark } = useData()
 const plugins = ref<unknown[]>([])
-const gridRef = ref<(InstanceType<typeof RevoGrid> & { $el?: HTMLRevoGridElement }) | HTMLRevoGridElement | null>(null)
+const gridRef = ref<
+  (InstanceType<typeof RevoGrid> & { $el?: HTMLRevoGridElement }) | HTMLRevoGridElement | null
+>(null)
 const events = ref<EventSchedulerEventEntity[]>([
   {
     id: 'front-desk-mon',
@@ -164,7 +169,7 @@ const schedulerConfig: EventSchedulerConfig = {
   currentTimeMarker: { enabled: true, dateTime: '2026-06-10T11:30:00.000Z' },
   dayHeaderShiftCount: {
     enabled: true,
-    formatter: (count) => `${count} ${count === 1 ? 'event' : 'events'}`,
+    formatter: count => `${count} ${count === 1 ? 'event' : 'events'}`,
   },
   todayHighlight: false,
   weekendHighlight: { enabled: true, days: [0, 6] },
@@ -182,7 +187,7 @@ let applyFrame = 0
 function getGridEl(): HTMLRevoGridElement | null {
   const refValue = gridRef.value
   if (!refValue) return null
-  return '$el' in refValue ? refValue.$el ?? null : refValue
+  return '$el' in refValue ? (refValue.$el ?? null) : refValue
 }
 
 function applySchedulerProperties() {
@@ -240,7 +245,13 @@ watch(isDark, () => {
     content: '';
     display: block;
     height: 2px;
-    background: linear-gradient(90deg, transparent 0%, var(--gantt-accent) 35%, var(--gantt-accent-2) 65%, transparent 100%);
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--gantt-accent) 35%,
+      var(--gantt-accent-2) 65%,
+      transparent 100%
+    );
   }
 }
 
@@ -269,9 +280,15 @@ watch(isDark, () => {
   border-radius: 50%;
 }
 
-.red { background: #ff5f57; }
-.yellow { background: #febc2e; }
-.green { background: #28c840; }
+.red {
+  background: #ff5f57;
+}
+.yellow {
+  background: #febc2e;
+}
+.green {
+  background: #28c840;
+}
 
 .scheduler-title {
   flex: 1;

@@ -1,5 +1,8 @@
 <template>
-  <ProductPreviewFrame :preview="preview" aria-label="Interactive RevoGrid Kanban JavaScript Kanban board preview">
+  <ProductPreviewFrame
+    :preview="preview"
+    aria-label="Interactive RevoGrid Kanban JavaScript Kanban board preview"
+  >
     <div class="kanban-grid-stage">
       <KanbanShowcase />
     </div>
@@ -17,8 +20,8 @@ defineProps<{
   preview: GanttLandingPage['preview']
 }>()
 
-const KanbanShowcase = defineAsyncComponent(() =>
-  import('@revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.vue'),
+const KanbanShowcase = defineAsyncComponent(
+  () => import('@revogrid-demos/pro-advanced-kanban/src/examples/showcase/kanban.vue'),
 )
 </script>
 

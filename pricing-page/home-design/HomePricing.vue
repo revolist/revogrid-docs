@@ -1,11 +1,11 @@
 <template>
-  <section id="pricing" class="rg-section pricing-plans-section" aria-labelledby="pricing-page-title">
+  <section
+    id="pricing"
+    class="rg-section pricing-plans-section"
+    aria-labelledby="pricing-page-title"
+  >
     <div class="rg-container">
-      <PricingSectionHeader
-        :section="section"
-        heading-level="h1"
-        heading-id="pricing-page-title"
-      />
+      <PricingSectionHeader :section="section" heading-level="h1" heading-id="pricing-page-title" />
       <div class="rg-pricing-grid">
         <HomePricingCard
           v-for="card in pricingCards"

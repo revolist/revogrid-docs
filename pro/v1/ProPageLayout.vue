@@ -1,6 +1,5 @@
 <template>
   <div class="pro-page">
-
     <!-- Hero -->
     <section class="pro-hero">
       <div class="hero-glow" aria-hidden="true"></div>
@@ -18,13 +17,21 @@
           <a :href="pageText.hero.actions.primary.href" class="rg-btn">
             {{ pageText.hero.actions.primary.label }}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M3 7h8M8 4l3 3-3 3"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </a>
-          <a :href="pageText.hero.actions.secondary.href" class="rg-btn rg-btn-secondary">{{ pageText.hero.actions.secondary.label }}</a>
+          <a :href="pageText.hero.actions.secondary.href" class="rg-btn rg-btn-secondary">{{
+            pageText.hero.actions.secondary.label
+          }}</a>
         </div>
         <DemoSlider class="fade-up-4" />
-        <br/><br/>
+        <br /><br />
         <div class="hero-stats fade-up-4">
           <div v-for="s in pageText.hero.stats" :key="s.label" class="hero-stat">
             <div class="hero-stat-label">{{ s.label }}</div>
@@ -35,31 +42,25 @@
     </section>
 
     <!-- Features -->
-    <section class="features-section" :id="pageText.features.id">
+    <section :id="pageText.features.id" class="features-section">
       <div class="container">
         <div class="eyebrow">{{ pageText.features.eyebrow }}</div>
-        <h2 class="section-title">{{ pageText.features.title.main }}<br />{{ pageText.features.title.highlight }}</h2>
+        <h2 class="section-title">
+          {{ pageText.features.title.main }}<br />{{ pageText.features.title.highlight }}
+        </h2>
         <p class="section-sub">
           {{ PRO_FEATURE_COUNT }} {{ pageText.features.description.prefix }}
           {{ PRO_CATEGORIES.length }} {{ pageText.features.description.suffix }}
         </p>
 
         <div class="feature-grid">
-          <div
-            v-for="cat in PRO_CATEGORIES"
-            :key="cat.label"
-            class="feature-card"
-          >
+          <div v-for="cat in PRO_CATEGORIES" :key="cat.label" class="feature-card">
             <div class="fc-header">
               <div class="fc-icon">{{ cat.icon }}</div>
               <div class="fc-label">{{ cat.label }}</div>
             </div>
             <div class="fc-features">
-              <div
-                v-for="f in cat.features"
-                :key="f.title"
-                class="fc-feat"
-              >
+              <div v-for="f in cat.features" :key="f.title" class="fc-feat">
                 <span class="fc-check">✓</span>
                 <a
                   v-if="f.href"
@@ -94,8 +95,16 @@
                   @click="openVideo(f.videoUrl)"
                 >
                   <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path d="M5.25 4.25v5.5L9.75 7 5.25 4.25Z" fill="currentColor"/>
-                    <rect x="1.5" y="2.5" width="11" height="9" rx="2" stroke="currentColor" stroke-width="1.4"/>
+                    <path d="M5.25 4.25v5.5L9.75 7 5.25 4.25Z" fill="currentColor" />
+                    <rect
+                      x="1.5"
+                      y="2.5"
+                      width="11"
+                      height="9"
+                      rx="2"
+                      stroke="currentColor"
+                      stroke-width="1.4"
+                    />
                   </svg>
                 </button>
               </div>
@@ -107,7 +116,13 @@
           <a :href="pageText.features.link.href" class="features-link">
             {{ pageText.features.link.label }}
             <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
-              <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M3 7h8M8 4l3 3-3 3"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </a>
         </div>
@@ -117,23 +132,47 @@
     <!-- CTA -->
     <section class="cta-section">
       <div class="cta-glow" aria-hidden="true"></div>
-      <h2 class="cta-title">{{ pageText.cta.title.main }}<br />{{ pageText.cta.title.highlight }}</h2>
+      <h2 class="cta-title">
+        {{ pageText.cta.title.main }}<br />{{ pageText.cta.title.highlight }}
+      </h2>
       <p class="cta-sub">{{ pageText.cta.subtitle }}</p>
       <div class="cta-actions">
         <a :href="pageText.cta.actions.primary.href" class="rg-btn">
           {{ pageText.cta.actions.primary.label }}
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path
+              d="M3 7h8M8 4l3 3-3 3"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
         </a>
-        <a :href="pageText.cta.actions.secondary.href" class="rg-btn rg-btn-secondary">{{ pageText.cta.actions.secondary.label }}</a>
+        <a :href="pageText.cta.actions.secondary.href" class="rg-btn rg-btn-secondary">{{
+          pageText.cta.actions.secondary.label
+        }}</a>
       </div>
       <div class="cta-note">{{ pageText.cta.note }}</div>
     </section>
 
-    <div v-if="activeVideoUrl" class="video-modal" role="dialog" aria-modal="true" :aria-label="pageText.modal.ariaLabel" @click.self="closeVideo">
+    <div
+      v-if="activeVideoUrl"
+      class="video-modal"
+      role="dialog"
+      aria-modal="true"
+      :aria-label="pageText.modal.ariaLabel"
+      @click.self="closeVideo"
+    >
       <div class="video-modal-panel">
-        <button type="button" class="video-modal-close" :aria-label="pageText.modal.closeLabel" @click="closeVideo">×</button>
+        <button
+          type="button"
+          class="video-modal-close"
+          :aria-label="pageText.modal.closeLabel"
+          @click="closeVideo"
+        >
+          ×
+        </button>
         <video
           class="video-modal-player"
           :src="activeVideoUrl"
@@ -143,7 +182,6 @@
         ></video>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -158,47 +196,57 @@ type ProFeature = (typeof featuresPro)[number]
 const { frontmatter } = useData()
 const pageText = computed(() => frontmatter.value.proPage)
 
-const featureHref = (feature: ProFeature) =>
-  feature.demoUrl
+const featureHref = (feature: ProFeature) => feature.demoUrl
 
 const isExternalLink = (href: string) => /^https?:\/\//.test(href)
 const featureInfoId = (title: string) =>
   `pro-feature-info-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
 const featureDescription = (description?: string) =>
-  description?.replace(/<[^>]+>/g, ' ').replace(/`/g, '').replace(/\s+/g, ' ').trim()
+  description
+    ?.replace(/<[^>]+>/g, ' ')
+    .replace(/`/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
 
 const PRO_CATEGORIES = computed(() => {
-  const groups = featuresPro.reduce((groups, feature) => {
-    const label = feature.group || pageText.value.features.defaultGroupLabel
+  const groups = featuresPro.reduce(
+    (groups, feature) => {
+      const label = feature.group || pageText.value.features.defaultGroupLabel
 
-    if (!groups[label]) {
-      groups[label] = {
-        label,
-        icon: pageText.value.features.groupIcons?.[label] || pageText.value.features.defaultGroupIcon,
-        features: [],
+      if (!groups[label]) {
+        groups[label] = {
+          label,
+          icon:
+            pageText.value.features.groupIcons?.[label] || pageText.value.features.defaultGroupIcon,
+          features: [],
+        }
       }
-    }
 
-    groups[label].features.push({
-      title: feature.title,
-      href: featureHref(feature),
-      videoUrl: feature.videoUrl,
-      beta: feature.beta,
-      description: featureDescription(feature.description),
-    })
+      groups[label].features.push({
+        title: feature.title,
+        href: featureHref(feature),
+        videoUrl: feature.videoUrl,
+        beta: feature.beta,
+        description: featureDescription(feature.description),
+      })
 
-    return groups
-  }, {} as Record<string, {
-    label: string
-    icon: string
-    features: Array<{
-      title: string
-      href?: string
-      videoUrl?: string
-      beta?: boolean
-      description?: string
-    }>
-  }>)
+      return groups
+    },
+    {} as Record<
+      string,
+      {
+        label: string
+        icon: string
+        features: Array<{
+          title: string
+          href?: string
+          videoUrl?: string
+          beta?: boolean
+          description?: string
+        }>
+      }
+    >,
+  )
 
   const groupOrder = Object.keys(pageText.value.features.groupIcons || {})
   const orderByLabel = new Map(groupOrder.map((label, index) => [label, index]))
@@ -221,18 +269,31 @@ function openVideo(videoUrl: string) {
 function closeVideo() {
   activeVideoUrl.value = ''
 }
-
 </script>
 
 <style lang="scss" scoped>
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.fade-up   { animation: fadeUp 0.6s ease both; }
-.fade-up-2 { animation: fadeUp 0.6s 0.1s ease both; }
-.fade-up-3 { animation: fadeUp 0.6s 0.2s ease both; }
-.fade-up-4 { animation: fadeUp 0.6s 0.3s ease both; }
+.fade-up {
+  animation: fadeUp 0.6s ease both;
+}
+.fade-up-2 {
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+.fade-up-3 {
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+.fade-up-4 {
+  animation: fadeUp 0.6s 0.3s ease both;
+}
 
 .pro-page {
   --pro: var(--vp-c-brand-1);
@@ -303,8 +364,13 @@ function closeVideo() {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.3; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
 }
 
 .hero-title {
@@ -418,7 +484,9 @@ function closeVideo() {
   border: 1px solid var(--vp-c-divider);
   border-radius: 12px;
   padding: 24px 22px;
-  transition: border-color 0.2s, transform 0.2s;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
 
   &:hover {
     border-color: var(--vp-c-brand-2);
@@ -528,7 +596,11 @@ function closeVideo() {
   font-weight: 600;
   line-height: 1;
   padding: 0;
-  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+  transition:
+    border-color 0.18s ease,
+    color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
 }
 
 .fc-info:hover,
@@ -550,7 +622,9 @@ function closeVideo() {
   background: color-mix(in srgb, var(--vp-c-bg-elv) 94%, transparent);
   border: 1px solid color-mix(in srgb, var(--vp-c-divider) 78%, var(--vp-c-brand-1));
   border-radius: 8px;
-  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.18), 0 2px 8px rgba(15, 23, 42, 0.08);
+  box-shadow:
+    0 18px 44px rgba(15, 23, 42, 0.18),
+    0 2px 8px rgba(15, 23, 42, 0.08);
   font-size: 12px;
   font-weight: 500;
   line-height: 1.5;
@@ -558,7 +632,9 @@ function closeVideo() {
   padding: 10px 12px;
   pointer-events: none;
   transform: translate(-50%, 4px);
-  transition: opacity 0.16s ease, transform 0.16s ease;
+  transition:
+    opacity 0.16s ease,
+    transform 0.16s ease;
   visibility: hidden;
 }
 
@@ -571,7 +647,7 @@ function closeVideo() {
   background: var(--vp-c-bg-elv);
   border-right: 1px solid color-mix(in srgb, var(--vp-c-divider) 78%, var(--vp-c-brand-1));
   border-bottom: 1px solid color-mix(in srgb, var(--vp-c-divider) 78%, var(--vp-c-brand-1));
-  content: "";
+  content: '';
   transform: translate(-50%, -5px) rotate(45deg);
 }
 
@@ -594,7 +670,9 @@ function closeVideo() {
   flex-shrink: 0;
   margin-top: 2px;
   padding: 0;
-  transition: color 0.2s, transform 0.2s;
+  transition:
+    color 0.2s,
+    transform 0.2s;
 
   &:hover {
     color: var(--vp-c-brand-2);

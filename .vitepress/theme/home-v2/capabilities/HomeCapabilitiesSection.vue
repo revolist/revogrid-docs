@@ -8,17 +8,10 @@
         <h2 class="rg-showcase-title" v-html="sectionTitle"></h2>
         <p class="rg-showcase-description">{{ section?.description }}</p>
 
-        <CapabilityFeatureList
-          :features="features"
-          :active-id="activeId"
-          @select="selectFeature"
-        />
+        <CapabilityFeatureList :features="features" :active-id="activeId" @select="selectFeature" />
       </div>
 
-      <CapabilityPreview
-        :feature="activeFeature"
-        :example="activeExample"
-      />
+      <CapabilityPreview :feature="activeFeature" :example="activeExample" />
     </div>
   </section>
 </template>
@@ -35,7 +28,9 @@ const props = defineProps<{
   section?: HomeV2Record
 }>()
 
-const sectionTitle = computed(() => emphasizeText(props.section?.title ?? '', props.section?.emphasis))
+const sectionTitle = computed(() =>
+  emphasizeText(props.section?.title ?? '', props.section?.emphasis),
+)
 const activeId = ref<FeatureId>('formatting')
 
 const fallbackFeature: ShowcaseFeature = {
@@ -49,16 +44,19 @@ const fallbackFeature: ShowcaseFeature = {
 const features = computed<ShowcaseFeature[]>(() =>
   Array.isArray(props.section?.items)
     ? (props.section.items as ShowcaseFeature[])
-    : [fallbackFeature]
+    : [fallbackFeature],
 )
 
-const activeFeature = computed<ShowcaseFeature>(() =>
-  features.value.find((feature) => feature.id === activeId.value)
-    ?? features.value[0]
-    ?? fallbackFeature
+const activeFeature = computed<ShowcaseFeature>(
+  () =>
+    features.value.find(feature => feature.id === activeId.value) ??
+    features.value[0] ??
+    fallbackFeature,
 )
 
-const activeExample = computed(() => capabilityExamples[activeFeature.value.id] ?? capabilityExamples.editing)
+const activeExample = computed(
+  () => capabilityExamples[activeFeature.value.id] ?? capabilityExamples.editing,
+)
 
 function selectFeature(id: FeatureId) {
   activeId.value = id

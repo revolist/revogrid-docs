@@ -2,10 +2,15 @@
   <section id="code" class="section">
     <div class="section-label">Code</div>
     <h2>Up in minutes, <span>not days</span></h2>
-    <p class="section-copy">Install RevoGrid, register the pivot plugin, configure your fields. No separate pivot server, no extra build pipeline.</p>
+    <p class="section-copy">
+      Install RevoGrid, register the pivot plugin, configure your fields. No separate pivot server,
+      no extra build pipeline.
+    </p>
     <div class="code-card">
       <div class="code-bar">
-        <div class="window-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+        <div class="window-dots">
+          <span class="red"></span><span class="yellow"></span><span class="green"></span>
+        </div>
         <span>SalesAnalytics.tsx</span>
         <button type="button" @click="copyCode">{{ copied ? 'Copied!' : 'Copy' }}</button>
       </div>
@@ -48,7 +53,11 @@ export function SalesAnalytics({ data }) {
     /&gt;
   );
 }</code></pre>
-      <div class="code-note">Pivot is available via the <a :href="revoGridProUrl" target="_blank" rel="noopener">RevoGrid Pro plugin</a>. The MIT open-source core includes grouping, sorting, and virtual rendering.</div>
+      <div class="code-note">
+        Pivot is available via the
+        <a :href="revoGridProUrl" target="_blank" rel="noopener">RevoGrid Pro plugin</a>. The MIT
+        open-source core includes grouping, sorting, and virtual rendering.
+      </div>
     </div>
   </section>
 </template>
@@ -65,6 +74,8 @@ const copyCode = async () => {
   if (!codeEl.value) return
   await navigator.clipboard.writeText(codeEl.value.innerText)
   copied.value = true
-  window.setTimeout(() => { copied.value = false }, 1800)
+  window.setTimeout(() => {
+    copied.value = false
+  }, 1800)
 }
 </script>

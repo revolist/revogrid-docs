@@ -65,17 +65,17 @@ const props = defineProps<{
 const { isDark } = useData()
 const gridRef = ref<{ $el?: HTMLRevoGridElement } | HTMLRevoGridElement | null>(null)
 const gridTheme = computed(() => props.example.theme(isDark.value))
-const gridFilter = computed(() => props.example.syncFilterColumns ? false : props.example.filter)
+const gridFilter = computed(() => (props.example.syncFilterColumns ? false : props.example.filter))
 const highlightedCode = ref('')
 
 function getGrid() {
   const current = gridRef.value
-  return current && '$el' in current ? current.$el : current ?? undefined
+  return current && '$el' in current ? current.$el : (current ?? undefined)
 }
 
 watch(
   () => props.example,
-  async (example) => {
+  async example => {
     if (!example.syncFilterColumns) return
     await nextTick()
     const grid = getGrid()
@@ -89,7 +89,7 @@ watch(
 
 watch(
   () => props.example.code,
-  async (code) => {
+  async code => {
     const html = await codeToHtml(code, {
       lang: 'tsx',
       theme: 'github-dark-high-contrast',

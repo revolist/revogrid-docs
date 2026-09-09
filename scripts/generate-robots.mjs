@@ -3,7 +3,9 @@ import { join } from 'node:path'
 
 const trimTrailingSlash = value => value.replace(/\/+$/, '')
 const siteUrl = trimTrailingSlash(process.env.DOCS_SITE_URL || 'https://rv-grid.com')
-const canonicalSiteUrl = trimTrailingSlash(process.env.DOCS_CANONICAL_SITE_URL || 'https://rv-grid.com')
+const canonicalSiteUrl = trimTrailingSlash(
+  process.env.DOCS_CANONICAL_SITE_URL || 'https://rv-grid.com',
+)
 
 function hostname(value) {
   try {
@@ -18,7 +20,8 @@ function truthyEnv(value) {
 }
 
 const archiveHostnames = new Set(['v3.rv-grid.com'])
-const isArchiveBuild = truthyEnv(process.env.DOCS_ARCHIVE) || archiveHostnames.has(hostname(siteUrl))
+const isArchiveBuild =
+  truthyEnv(process.env.DOCS_ARCHIVE) || archiveHostnames.has(hostname(siteUrl))
 const distDir = join(process.cwd(), '.vitepress', 'dist')
 
 if (!existsSync(distDir)) {

@@ -27,7 +27,9 @@
           <p>{{ page.useCases.frameworks.description }}</p>
         </div>
         <div class="logos">
-          <span v-for="framework in page.useCases.frameworks.items" :key="framework">{{ framework }}</span>
+          <span v-for="framework in page.useCases.frameworks.items" :key="framework">{{
+            framework
+          }}</span>
         </div>
       </div>
     </div>

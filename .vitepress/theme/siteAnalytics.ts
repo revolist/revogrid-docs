@@ -24,8 +24,9 @@ const isDebugEnabled = (location: Location): boolean =>
 
 const safeAnalyticsProperties = (properties: AnalyticsProperties): AnalyticsProperties =>
   Object.fromEntries(
-    Object.entries(properties).filter(([key, value]) =>
-      ALLOWED_ANALYTICS_PROPERTIES.has(key) && value !== undefined),
+    Object.entries(properties).filter(
+      ([key, value]) => ALLOWED_ANALYTICS_PROPERTIES.has(key) && value !== undefined,
+    ),
   )
 
 export const trackSiteAnalytics = (

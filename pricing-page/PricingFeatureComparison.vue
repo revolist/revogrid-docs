@@ -25,10 +25,7 @@
             <tr v-for="row in differences.rows" :key="featureText(row.feature)">
               <th scope="row">
                 <span class="capability-layout">
-                  <FontAwesomeSvgIcon
-                    class="capability-icon"
-                    :name="featureIcon(row.feature)"
-                  />
+                  <FontAwesomeSvgIcon class="capability-icon" :name="featureIcon(row.feature)" />
                   <span class="capability-copy">
                     <span class="capability-title">
                       <template
@@ -98,7 +95,7 @@ const featureDescription = (feature: PricingDifferenceFeature) =>
   typeof feature === 'string' ? undefined : feature.description
 
 const featureIcon = (feature: PricingDifferenceFeature) =>
-  typeof feature === 'string' ? 'grid' : feature.icon ?? 'grid'
+  typeof feature === 'string' ? 'grid' : (feature.icon ?? 'grid')
 </script>
 
 <style lang="scss" scoped>

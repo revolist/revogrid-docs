@@ -102,7 +102,11 @@ defineProps<{
   border: 1px solid color-mix(in srgb, var(--feedback-tint) 24%, var(--rg-border));
   border-radius: 20px;
   background:
-    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--feedback-tint) 13%, transparent), transparent 44%),
+    radial-gradient(
+      circle at 100% 0%,
+      color-mix(in srgb, var(--feedback-tint) 13%, transparent),
+      transparent 44%
+    ),
     var(--rg-bg);
   display: flex;
   flex-direction: column;

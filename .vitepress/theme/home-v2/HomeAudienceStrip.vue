@@ -6,11 +6,7 @@
         <h2 id="rg-audience-title">{{ section?.details }}</h2>
       </header>
 
-      <article
-        v-for="item in section?.features"
-        :key="item.title"
-        class="rg-audience-item"
-      >
+      <article v-for="item in section?.features" :key="item.title" class="rg-audience-item">
         <span class="rg-audience-icon" aria-hidden="true">
           <component :is="iconOf(item.icon?.src)" />
         </span>
@@ -39,7 +35,7 @@ const icons: Record<string, unknown> = {
   'org.svg': OrganizationIcon,
 }
 
-const iconOf = (src?: string) => src ? icons[src] : undefined
+const iconOf = (src?: string) => (src ? icons[src] : undefined)
 </script>
 
 <style lang="scss" scoped>

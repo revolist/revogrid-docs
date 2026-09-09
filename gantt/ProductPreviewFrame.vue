@@ -39,7 +39,13 @@ defineProps<{
     content: '';
     display: block;
     height: 2px;
-    background: linear-gradient(90deg, transparent 0%, var(--gantt-accent) 35%, var(--gantt-accent-2) 65%, transparent 100%);
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--gantt-accent) 35%,
+      var(--gantt-accent-2) 65%,
+      transparent 100%
+    );
   }
 }
 
@@ -59,9 +65,15 @@ defineProps<{
   border-radius: 50%;
 }
 
-.red { background: #ff5f57; }
-.yellow { background: #febc2e; }
-.green { background: #28c840; }
+.red {
+  background: #ff5f57;
+}
+.yellow {
+  background: #febc2e;
+}
+.green {
+  background: #28c840;
+}
 
 .product-preview-title {
   min-width: 0;
