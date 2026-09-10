@@ -8,7 +8,7 @@ Route: `/demo/infinity-scroll`. Catalog ID: `infinity-scroll`.
 
 Source reviewed on 2026-09-08 against docs commit `b0c0bd9f851772dfcd30549d6d0a71ab84be12f6`. Pre-existing dirty `.vitepress/theme/DemoNavigation.vue` and `.vitepress/theme/style.scss` are part of this working tree. Code cases below are source-derived. Browser observations were supplied by the coordinating root reviewer and are limited to the actions explicitly listed below; they do not mark entire multi-step cases passed.
 
-P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. No automated tests or demo fixes were added during this review.
+P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. Automated coverage is recorded below; no demo fixes were added during this review.
 
 Hard reload restores a simulated remote directory of 1,000 rows, 50-row chunks, a 150-row buffer, and preload threshold 0.75. This is a bundled local loader with remote-shaped requests, not a live external service. Pinned status and support records are separate from those 1,000 data records.
 
@@ -70,6 +70,6 @@ Target `.infinity-grid`, `.infinity-status`, Export all to Excel, and ID/name id
 
 Repeat initial and primary interaction states in light and dark docs themes at 1440×900 and 390×844. Check readable labels, visible focus, contained grid scrolling, reachable controls, and no page-wide horizontal overflow. Initial dark desktop and narrow light views were subsequently inspected by the coordinator; repeat the deeper interaction states in those views during E2E. The central matrix records baseline findings and supersedes earlier pending visual notes.
 
-Current coverage: [docs shell suite](../demo-experience.spec.ts) checks the canonical shell; it does not establish the workflow cases above. [Infinity source tests](../../../../revogrid-demos/pro-infinity-scroll/tests/infinity-scroll.test.mjs) cover loader logic; buffering, scrolling and docs layout still need browser coverage.
+Automated docs evidence: [Core/Pro docs suite](../core-pro-scenarios.spec.ts) passed on 2026-09-10 for INFINITY-001/002 initial loading and scrolling, INFINITY-003 remote ascending/descending/reset sorting after buffered traversal, and the rendered export control from INFINITY-005. [Infinity source tests](../../../../revogrid-demos/pro-infinity-scroll/tests/infinity-scroll.test.mjs) cover additional loader logic.
 
 References: [route](../../../../demo/infinity-scroll.md), [view](../../../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.vue), [loader and fixtures](../../../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.shared.ts), [export](../../../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.export.ts).

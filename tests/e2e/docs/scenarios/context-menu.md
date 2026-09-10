@@ -8,7 +8,7 @@ Route: `/demo/context-menu`. Catalog ID: `context-menu`.
 
 Source reviewed on 2026-09-08 against docs commit `b0c0bd9f851772dfcd30549d6d0a71ab84be12f6`. Pre-existing dirty `.vitepress/theme/DemoNavigation.vue` and `.vitepress/theme/style.scss` are part of this working tree. Code cases below are source-derived. Browser observations were supplied by the coordinating root reviewer and are limited to the actions explicitly listed below; they do not mark entire multi-step cases passed.
 
-P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. No automated tests or demo fixes were added during this review.
+P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. Automated coverage is recorded below; no demo fixes were added during this review.
 
 Hard reload restores nine flat team rows, IDs 101–109. ID is readonly; Score is readonly specifically for Archived records. The plugin provides a Formatting toolbar (Automatic value format, currency/percent and typography controls), disabled until a target is selected. Context menus provide additional actions on cells, row headers, individual column headers and grouped Identity header.
 
@@ -16,7 +16,7 @@ Hard reload restores nine flat team rows, IDs 101–109. ID is readonly; Score i
 
 The coordinating reviewer additionally inspected the initial route at 1440×900 in dark theme and 390×844 in light theme. Consult the central evidence matrix for the final per-viewport findings; the detailed interactions below were not automatically repeated in those viewports.
 
-Root reviewer opened and screenshotted this route in light theme at 1280×720. Right-click Ada opened menu with Edit cell, Copy options, Clear contents, Format, Rows, Filter, Export, Inspect cell and View employee profile. Escape closed it. The Formatting toolbar was initially disabled and became enabled with selection. Mutating menu commands and formatting were not exercised.
+Root reviewer opened and screenshotted this route in light theme at 1280×720. Right-click Ada opened menu with Edit cell, Copy options, Clear contents, Format, Rows, Filter, Export, Inspect cell and View employee profile. Escape closed it. The Formatting toolbar was initially disabled and became enabled with selection. The duplicate/insert workflow, Status dropdown, cell-level format, row-pinning, and mixed-readonly Score-header paths below were subsequently executed in the docs host.
 
 ## Scenarios
 
@@ -33,7 +33,7 @@ Visual checks and automation notes: Status dropdowns, booleans, score progress a
 
 1. Right-click Ada Name cell → Edit cell, Copy options, Clear contents, Format, Rows, Filter, Export, Inspect cell, and View employee profile appear near the target.
 2. Press Escape → menu closes; Ada data remains unchanged.
-3. Right-click Ada Name again and choose View employee profile → Employee profile dialog identifies Employee #101, Ada Lovelace · Platform, Status Active, Score98 and Owner Avery Stone; close dialog. Right-click a row header → View row details is available; Name header offers View column summary.
+3. Right-click Ada Name again and choose View employee profile → Employee profile dialog identifies Employee #101, Ada Lovelace · Platform, Status Active, Score 98 / 100 and Owner Avery Stone; close dialog. Right-click a row header → View row details is available; Name header offers View column summary.
 4. Right-click Identity group header and choose View column-group summary → Column-group summary dialog describes Identity; group surface replaces default commands with this custom inspection action.
 
 Visual checks and automation notes: Menu targets differ materially. Do not require all surfaces to expose the same commands. Capture actual accessible command names on first browser pass.
@@ -42,10 +42,10 @@ Visual checks and automation notes: Menu targets differ materially. Do not requi
 
 1. Edit Ada Score98 to88 using its active format editor → displayed score/progress reflects88.
 2. Invoke available Undo action/shortcut through HistoryPlugin → score returns98.
-3. Select a range that includes an editable score and Archived Alan score; apply a clearing/paste action → editable destinations follow the action while readonly Alan score remains99.
+3. Inspect Archived Alan's Score → its five-star rating presentation retains the accessible raw value `99/5`; double-clicking it does not open an editor because the archived-score rule applies.
 4. Reload → authored values restore.
 
-Visual checks and automation notes: Use exact menu/shortcut actually exposed by the plugin. Clipboard cases require a deterministic permission setup and known payload; never overwrite unrelated user clipboard without isolating the browser test context.
+Visual checks and automation notes: Use exact menu/shortcut actually exposed by the plugin. The star presentation has no text node, so assert its `img` role, `99/5` accessible name, disabled cell class, and no editor rather than text content. Clipboard cases require a deterministic permission setup and known payload; never overwrite unrelated user clipboard without isolating the browser test context.
 
 ### CONTEXT-004 · P1 · Duplicate and insert preserve schema identity
 
@@ -59,7 +59,7 @@ Visual checks and automation notes: Source createRow deep-copies schedule events
 ### CONTEXT-005 · P1 · Cell formatting, column formatting and pinning
 
 1. Right-click Grace Hopper Score95, open Format, and choose Circular progress presentation → Grace score renders as a circle, while numeric value remains95 and other rows keep their existing presentations.
-2. Open Score column header Format and choose Progress line → rows without cell overrides use line presentation, while Grace retains the new circular override and Ada retains its authored circular-progress cell override (value98).
+2. Right-click the Score column header → Format is not offered because the column contains Archived readonly scores. Confirm Ada retains its authored circular-progress presentation and Grace retains the authored progress-line presentation; apply any new score format at an editable cell instead of through the mixed-readonly column header.
 3. Double-click Ada Status → Status dropdown offers Active, Review, Archived and Not set; choose Review → cell becomes Review badge and reopening shows Review selected. Format options omit Pie, which the demo disables.
 4. Pin a row with its row command then unpin → record moves to/from pinned presentation without duplication.
 
@@ -82,6 +82,6 @@ Target `.data-grid-context-menu-grid`, data record IDs, cell props and context s
 
 Repeat initial and primary interaction states in light and dark docs themes at 1440×900 and 390×844. Check readable labels, visible focus, contained grid scrolling, reachable controls, and no page-wide horizontal overflow. Initial dark desktop and narrow light views were subsequently inspected by the coordinator; repeat the deeper interaction states in those views during E2E. The central matrix records baseline findings and supersedes earlier pending visual notes.
 
-Current coverage: [docs shell suite](../demo-experience.spec.ts) checks the canonical shell; it does not establish the workflow cases above. [Context-menu source checks](../../../../revogrid-demos/pro-data-grid-context-menu/tests/data-grid-context-menu.test.mjs) exist; end-to-end menu actions need docs-route verification.
+Automated docs evidence: [Core/Pro docs suite](../core-pro-scenarios.spec.ts) passed on 2026-09-10 for CONTEXT-001 authored employee fields plus readonly/editable command availability, CONTEXT-002 dismissal plus cell, row-header, column-header, and grouped-header detail dialogs, CONTEXT-003 edit, history-ready Ctrl+Z recovery, and archived-score protection, CONTEXT-004 duplicate/edit/insert/reload recovery, CONTEXT-005 cell-level Circular progress, omitted Pie presentation, Status selection and reopening, mixed-readonly Score-header format omission, and row pin/unpin recovery, and CONTEXT-006 selection-aware formatting and recovery. [Context-menu source checks](../../../../revogrid-demos/pro-data-grid-context-menu/tests/data-grid-context-menu.test.mjs) cover additional actions and formatting configuration.
 
 References: [route](../../../../demo/context-menu.md), [view](../../../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.vue), [fixtures and readonly rules](../../../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.data.ts), [menu configuration](../../../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.shared.ts), [custom formats](../../../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.formats.ts).

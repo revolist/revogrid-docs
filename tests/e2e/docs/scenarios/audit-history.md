@@ -8,7 +8,7 @@ Route: `/demo/audit-history`. Catalog ID: `audit-history`.
 
 Source reviewed on 2026-09-08 against docs commit `b0c0bd9f851772dfcd30549d6d0a71ab84be12f6`. Pre-existing dirty `.vitepress/theme/DemoNavigation.vue` and `.vitepress/theme/style.scss` are part of this working tree. Code cases below are source-derived. Browser observations were supplied by the coordinating root reviewer and are limited to the actions explicitly listed below; they do not mark entire multi-step cases passed.
 
-P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. No automated tests or demo fixes were added during this review.
+P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. Automated coverage is recorded below; no demo fixes were added during this review.
 
 Hard reload restores eight invoice rows and four seed transactions in memory. Audit timestamps are relative to Date.now(); use a fixed clock in future E2E. Current user is Avery Stone. Each seed transaction can contain multiple changes, so record counts and cell-change counts are different.
 
@@ -70,6 +70,6 @@ Target `.audit-grid`, `.rv-audit-history-panel`, `.audit-panel-host`, invoice ID
 
 Repeat initial and primary interaction states in light and dark docs themes at 1440×900 and 390×844. Check readable labels, visible focus, contained grid scrolling, reachable controls, and no page-wide horizontal overflow. Initial dark desktop and narrow light views were subsequently inspected by the coordinator; repeat the deeper interaction states in those views during E2E. The central matrix records baseline findings and supersedes earlier pending visual notes.
 
-Current coverage: [docs shell suite](../demo-experience.spec.ts) checks the canonical shell; it does not establish the workflow cases above. [Standalone gallery E2E](../../../../revogrid-demos/tests/e2e/gallery.spec.ts) already checks Northwind Labs produces record five; [source checks](../../../../revogrid-demos/pro-audit-history/tests/audit-history.test.mjs) cover configuration. Neither proves docs panel compare/restore behavior.
+Automated docs evidence: [Core/Pro docs suite](../core-pro-scenarios.spec.ts) passed on 2026-09-10 for AUDIT-001/002/003 and export paths in AUDIT-005: rendered ledger, attributed edit, compare, restore, JSON and CSV downloads. [Source checks](../../../../revogrid-demos/pro-audit-history/tests/audit-history.test.mjs) cover additional configuration.
 
 References: [route](../../../../demo/audit-history.md), [view](../../../../revogrid-demos/pro-audit-history/src/audit-history.vue), [invoices, seed records and options](../../../../revogrid-demos/pro-audit-history/src/audit-history.shared.ts).

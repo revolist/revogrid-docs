@@ -16,7 +16,7 @@ Sources: [docs route](../../../../demo/kanban.md), [Vue mount](../../../../revog
 
 ### KAN-001 · P0 · Initial board and rich cards
 
-Execution: Partially executed: initial column/lane counts and initial screenshot; detailed card metadata assertions are source-derived.
+Execution: Partially executed: automated initial-load coverage passed on 2026-09-10 at 1280×720, confirming the four workflow counts, Product and Platform lanes, KAN-101 title/description/priority/progress, and its rendered owner initials `MA`. Full avatar names remain source-derived because the card renderer exposes initials only.
 
 1. Open the clean route and wait for the first card ⇒ four columns in order Backlog, In progress, Review, Done; Product team and Platform team lanes are available; counts reflect all 10 cards, not only rendered cards.
 2. Inspect `KAN-101` Customer interview synthesis in Product/Backlog ⇒ High priority, Research, Due Aug 12, 20% progress, Maya and Ari avatars, description “Turn research notes into opportunity themes.”
@@ -28,7 +28,7 @@ Automation: scope to `.kanban-showcase__grid`; identify `[data-kanban-card-id="K
 
 ### KAN-002 · P0 · Move a card and preserve its identity
 
-Execution: Partially executed: keyboard cross-column move and counts; pointer drag, move-back and full metadata checks are source-derived.
+Execution: Partially executed: automated keyboard move to Product/In progress passed on 2026-09-10 at 1280×720, including the 3→2/3→4 count change, moved-card presence, and WIP header. Pointer drag, move-back and full metadata checks are source-derived.
 
 1. Fresh load; drag KAN-101 by its Move card handle from Product/Backlog into Product/In progress, or focus the card and press Space → ArrowRight three times → Space ⇒ one card moves, Backlog count 3→2 and In progress 3→4. The keyboard path was executed and matched; the pointer path remains unexecuted.
 2. Inspect moved card ⇒ ID, title, 20% progress, priority and avatars remain unchanged; no duplicate remains in Backlog.
@@ -38,7 +38,7 @@ Visual: drag preview follows the pointer, target marker is inside the destinatio
 
 ### KAN-003 · P0 · WIP warning permits the move
 
-Execution: Code-derived; not executed in this review.
+Execution: Partially executed: the automated KAN-101 keyboard move reached Product/In progress and rendered its configured `4 of 4 WIP` warning on 2026-09-10 at 1280×720. Review/Platform limit combinations and pointer behavior remain source-derived.
 
 1. Fresh load; verify Review has KAN-104 and KAN-204, with global WIP limit 2 and Platform limit 1 ⇒ Review starts at capacity.
 2. Move KAN-201 from Platform/Backlog to Platform/Review ⇒ move succeeds because `wipBehavior` is `warn`; Review becomes 3 and Platform/Review becomes 2 despite exceeding limits.
@@ -48,7 +48,7 @@ Visual: warning state remains readable and does not obscure the card. Do not ass
 
 ### KAN-004 · P1 · Collapse lanes and their label column
 
-Execution: Partially executed: Product lane collapse/expand; label-column and workflow-column collapse are source-derived.
+Execution: Automated and executed on 2026-09-10 at 1280×720: Product lane collapse/expand hid and restored KAN-101 while Platform remained visible; swimlane-label and Backlog workflow collapse/expand controls also restored the card.
 
 1. Fresh load; activate Collapse swimlane for Product ⇒ Product cards disappear from that lane; Platform remains reachable with its original cards/counts.
 2. Activate Expand swimlane ⇒ Product's five original cards return in their original stacks/order.
@@ -60,7 +60,7 @@ Visual: count/header alignment, clipping and horizontal scrolling before/after e
 
 ### KAN-005 · P1 · Selection, keyboard cancel and context menu restrictions
 
-Execution: Code-derived; not executed in this review.
+Execution: Partially executed: automated keyboard pickup followed by ArrowRight and Escape passed on 2026-09-10 at 1280×720; KAN-101 remained in Product/Backlog and all counts remained 3/3/2/2. Selection styling and context-menu restrictions remain source-derived.
 
 1. Fresh load; focus KAN-101 and select it ⇒ selected state is visually distinct.
 2. Press Space, ArrowRight, then Escape ⇒ pickup is cancelled; KAN-101 stays in Product/Backlog and counts remain 3/3/2/2.

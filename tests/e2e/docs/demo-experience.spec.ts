@@ -112,6 +112,32 @@ test('mobile navigation opens on an opaque full-width surface', async ({ page })
   expect(bounds!.height).toBe(844)
 })
 
+test('closed off-canvas navigation does not reserve workspace width at tablet size', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 960, height: 800 })
+  await page.goto('/demo/')
+  await expect(page.locator('.planning-demo__grid')).toBeVisible()
+
+  const closedGeometry = await page.evaluate(() => {
+    const layout = document.querySelector('.demo-page-layout')!.getBoundingClientRect()
+    const header = document.querySelector('.demo-page-header')!.getBoundingClientRect()
+    const navigation = document.querySelector('.demo-nav')!.getBoundingClientRect()
+    return { layout, header, navigation }
+  })
+  expect(closedGeometry.layout.x).toBe(0)
+  expect(closedGeometry.layout.width).toBe(960)
+  expect(closedGeometry.header.x).toBe(16)
+  expect(closedGeometry.navigation.right).toBeLessThanOrEqual(0)
+
+  await page.locator('.VPLocalNav .menu').click()
+  await expect(page.locator('.demo-nav')).toHaveClass(/open/)
+  const openGeometry = await page.locator('.demo-nav').boundingBox()
+  expect(openGeometry).not.toBeNull()
+  expect(openGeometry!.x).toBe(0)
+  expect(openGeometry!.width).toBe(960)
+})
+
 test('mobile demo header starts below the local navigation toolbar', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/demo/')
@@ -158,13 +184,14 @@ test('Progress renders a slider in the Grid filter header', async ({ page }) => 
   await expect(progressSlider.locator('input[type="range"]')).toHaveCount(2)
 })
 
-test('planning views retain shared filter badges', async ({ page }) => {
+test('planning quick search persists across workspace views', async ({ page }) => {
   await page.goto('/demo/')
-  await page.getByRole('button', { name: 'Active tasks' }).click()
-  const badge = page.locator('.planning-demo__filter-badge-host .planning-demo__filter-badge')
-  await expect(badge).toContainText('Status: 3 selected')
+  const search = page.getByRole('searchbox', { name: 'Quick search tasks' })
+  await search.fill('Maya')
+  await expect(page.locator('.planning-demo__footer')).toContainText('20 of 100 tasks')
   await page.getByRole('tab', { name: 'Kanban' }).click()
-  await expect(badge).toContainText('Status: 3 selected')
+  await expect(search).toHaveValue('Maya')
+  await expect(page.locator('.planning-demo__footer')).toContainText('20 of 100 tasks')
 })
 
 test('demo pages do not render guided steps', async ({ page }) => {
@@ -178,9 +205,9 @@ test('demo pages do not render guided steps', async ({ page }) => {
 test('source panel uses real files and preserves the live workspace', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 720 })
   await page.goto('/demo/')
-  const taskSearch = page.getByPlaceholder('Search tasks…')
+  const taskSearch = page.getByRole('searchbox', { name: 'Quick search tasks' })
   await taskSearch.fill('Maya')
-  await expect(page.getByText(/of 100 tasks/)).toBeVisible()
+  await expect(page.locator('.planning-demo__footer')).toContainText('20 of 100 tasks')
 
   await page.getByRole('button', { name: 'Code' }).click()
   const sourcePanel = page.getByRole('dialog', { name: 'Example source code' })
@@ -345,22 +372,14 @@ test('grid and Kanban content stays aligned inside its cells', async ({ page }) 
   expect(kanbanMetrics.cards.every(width => width >= 190)).toBe(true)
 })
 
-test('workspace popovers close after actions, outside clicks and Escape', async ({ page }) => {
+test('planning quick search clears without leaving stale workspace results', async ({ page }) => {
   await page.goto('/demo/')
-  const more = page.locator('.planning-demo__actions details')
-  await more.locator('summary').click()
-  await expect(more).toHaveAttribute('open', '')
-  await more.getByRole('button', { name: 'Reset' }).click()
-  await expect(more).not.toHaveAttribute('open', '')
-
-  await page.getByRole('button', { name: 'Filter', exact: true }).click()
-  await expect(page.locator('.planning-demo__filter-popover')).toBeVisible()
-  await page.getByRole('heading', { name: 'Project workspace' }).click()
-  await expect(page.locator('.planning-demo__filter-popover')).toBeHidden()
-
-  await page.getByRole('button', { name: 'Filter', exact: true }).click()
-  await page.keyboard.press('Escape')
-  await expect(page.locator('.planning-demo__filter-popover')).toBeHidden()
+  const search = page.getByRole('searchbox', { name: 'Quick search tasks' })
+  await search.fill('zz-no-task-qa-2026')
+  await expect(page.locator('.planning-demo__footer')).toContainText('0 of 100 tasks')
+  await search.press('ControlOrMeta+A')
+  await search.press('Backspace')
+  await expect(page.locator('.planning-demo__footer')).toContainText('100 of 100 tasks')
 })
 
 test('planning layout stays usable at the target viewports', async ({ page }) => {
@@ -509,9 +528,11 @@ test('planning Gantt uses varied schedules and aligns the Today marker', async (
   await expect(page.locator('.gantt-bar--task').first()).toBeVisible()
 
   const timeline = await page.evaluate(() => {
-    const grid = document.querySelector<HTMLElement & {
-      gantt?: { zoom?: { defaultLevelId?: string } }
-    }>('.planning-demo revo-grid.gantt-plugin')!
+    const grid = document.querySelector<
+      HTMLElement & {
+        gantt?: { zoom?: { defaultLevelId?: string } }
+      }
+    >('.planning-demo revo-grid.gantt-plugin')!
     const cap = document.querySelector('.gantt-header-flag-cap--today')!.getBoundingClientRect()
     const line = document
       .querySelector('.gantt-background__flag-line--today')!
@@ -563,15 +584,17 @@ test('planning Gantt keeps additional assignees selected', async ({ page }) => {
 test('planning filters persist across every workspace view', async ({ page }) => {
   await page.goto('/demo/')
   const count = page.locator('.planning-demo__footer span').first()
+  const search = page.getByRole('searchbox', { name: 'Quick search tasks' })
 
   await expect(count).toContainText('100 of 100 tasks')
   await expect(page.getByText('Activity time', { exact: true })).toBeVisible()
   await expect(page.getByText('Time', { exact: true })).toBeVisible()
-  await page.getByRole('button', { name: 'Active tasks' }).click()
-  await expect(count).toContainText('60 of 100 tasks')
+  await search.fill('Maya')
+  await expect(count).toContainText('20 of 100 tasks')
 
   for (const view of ['kanban', 'gantt', 'scheduler', 'calendar', 'grid']) {
     await page.getByRole('tab', { name: view }).click()
-    await expect(count).toContainText('60 of 100 tasks')
+    await expect(search).toHaveValue('Maya')
+    await expect(count).toContainText('20 of 100 tasks')
   }
 })

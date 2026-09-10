@@ -57,7 +57,7 @@ The [package E2E](../../../../revogrid-demos/pro-advanced-gantt/tests/e2e/featur
 
 ### GANTT10K-03 — Horizontal timeline range and return (P0)
 
-**Evidence:** Source-derived; not executed in this review.
+**Evidence:** Executed in the docs host: the 10K timeline's visible horizontal viewport scrolled while Task 1 remained visible in the task pane.
 
 **Setup/reset:** Reload. Task 1 starts Jan 1 and ends Jan 2 2026; later tasks cover Q1 2026.
 

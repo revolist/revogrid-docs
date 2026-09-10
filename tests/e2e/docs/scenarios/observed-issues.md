@@ -1,65 +1,86 @@
 # Observed issues and verification limits
 
-Review date: **2026-09-08**. Target: `http://127.0.0.1:4173`, revisions/live-tree caveats in [README](README.md#scope-and-review-baseline). Screenshots were visually inspected in the browser-tool conversation; no screenshot file attachments were persisted. Reproduction steps and DOM/source evidence below are the durable record. Priorities describe scenario coverage impact, not an assigned product bug severity. These findings are not fixes or accepted golden baselines.
+Review date: **2026-09-08**, with fixes verified on the current tree. Screenshots were visually inspected in the browser-tool conversation; no screenshot file attachments were persisted. Reproduction steps and DOM/source evidence below are the durable record. Priorities describe scenario coverage impact, not an assigned product bug severity.
 
-## ISSUE-001 · P1 · Mobile Examples drawer lets workspace text show through
+## ISSUE-001 · Resolved · Mobile Examples drawer surface
 
 Related: SHELL-07 in [shared shell](shared-shell.md).
 
 - **Reproduce:** `/demo/`, 390×844/light; wait for workspace, activate Examples, allow drawer transition to finish.
-- **Actual:** underlying heading/task content remains visible through the navigation panel, mixing with its labels. Close examples returns to the page.
-- **Expected:** drawer surface visually separates navigation from the workspace; labels remain legible without underlying text interference.
-- **Evidence/source:** open-drawer screenshot; [DemoNavigation.vue](../../../../.vitepress/theme/DemoNavigation.vue) sets `.demo-nav` background transparent and its narrow breakpoint does not add an opaque surface. This file was already dirty; review does not attribute the change to a commit.
-- **Retest:** opening/closing, scrolling and choosing a link at 390×844 in both themes; ensure scrim, drawer and source overlay have distinct stacking/close behavior.
+- **Fix:** [DemoNavigation.vue](../../../../.vitepress/theme/DemoNavigation.vue) gives the off-canvas `.demo-nav` the docs background surface at widths through 1099px.
+- **Verification:** `mobile navigation opens on an opaque full-width surface` verifies the 390×844 drawer is full-width, has a non-transparent computed background, and locks page scrolling.
 
-## ISSUE-002 · P1 · Scheduler period text overlaps view controls
+## ISSUE-002 · Resolved · Scheduler period and view controls
 
 Related: SCHED-01/03/09 in [Scheduler](event-scheduler.md), SHELL-07.
 
 - **Reproduce:** `/demo/event-scheduler`, 1280×720/light, initial Calendar/Week with review clock September 8, 2026.
-- **Actual:** Sep 7–13 period text and Day/Week/Month/Year pill occupy overlapping space in the header.
-- **Expected:** period and four view choices remain distinct, readable and individually operable without overlapping text.
-- **Evidence/source:** initial desktop screenshot; [scheduler layout](../../../../revogrid-demos/pro-advanced-scheduler/src/scheduler.vue). At 1440×900/dark controls fit; at 390×844/light they wrap into separate rows. Failure is width-dependent, not universal scheduler loading failure.
-- **Retest:** all range labels, including longer month/year labels, and Resource/Table switches at both desktop sizes.
+- **Fix:** [Scheduler styles](../../../../revogrid-demos/pro-advanced-scheduler/src/styles.scss) enter the compact toolbar layout at 1360px, which accounts for the docs host's persistent desktop navigation.
+- **Verification:** the Scheduler docs E2E compares heading and view-control rectangles at 1280×720 and requires no intersection. Browser retest confirmed distinct rows for range, view selection, and calendar preset.
 
-## ISSUE-003 · P1 · Project tracker mobile bulk-action labels collide
+## ISSUE-003 · Resolved · Project tracker mobile bulk actions
 
 Related: TRACKER-001/003/006 in [Project tracker](project-tracker.md), SHELL-07.
 
 - **Reproduce:** `/demo/color`, 390×844/light, fresh 16-project fixture; inspect the bulk action row before selecting a project.
-- **Actual:** selection count and Mark ready, Block selected, Move to launch and Delete text are crowded/overlapping across the narrow row.
-- **Expected:** distinct readable action labels with independent targets, through wrapping or another usable responsive presentation; disabled initial state still needs readable labels.
-- **Evidence/source:** initial mobile screenshot and [tracker responsive styles](../../../../revogrid-demos/pro-project-table/src/project-tracker-styles/_responsive.scss), [shell styles](../../../../revogrid-demos/pro-project-table/src/project-tracker-styles/_shell.scss).
-- **Retest:** zero/one/multiple selections and clearing, confirming each visible action targets only selected projects. Mobile mutations were not executed in this review.
+- **Fix:** [tracker responsive styles](../../../../revogrid-demos/pro-project-table/src/project-tracker-styles/_responsive.scss) give the selection count its own row and lay actions out in two full-width columns at 640px and below.
+- **Verification:** the 390×844 E2E regression test confirms all five controls are visible, inside the viewport, and have distinct rectangles. The project-table unit suite passed 12 tests.
 
-## ISSUE-004 · P1 · Closed sidebar still reserves width at 960px
+## ISSUE-004 · Resolved · Closed off-canvas navigation releases workspace width
 
 Related: SHELL-02/07, PLAN-09 in [Planning](planning.md).
 
 - **Reproduce:** `/demo/planning` or `/demo/` at 960×800/light with Examples drawer closed; also open `/demo/hr` at the same size.
-- **Actual:** navigation is offscreen and Examples trigger appears, but Planning demo container starts at x=256 with width 704, leaving a 256px empty strip. Heading starts near x=272. HR alias shows the same unused gutter.
-- **Expected:** once navigation is offcanvas, closed navigation should release its reserved width so workspace can use the available content area.
-- **Evidence/source:** screenshot plus DOM rectangle `{x:256,width:704,right:960}`; [navigation breakpoint](../../../../.vitepress/theme/DemoNavigation.vue) and [theme layout breakpoints](../../../../.vitepress/theme/style.scss). No specific selector is claimed as a proven root cause.
-- **Retest:** just below/above the navigation breakpoint as well as 960×800, with drawer open/closed and source open/closed.
+- **Fix:** [DemoPageLayout.vue](../../../../.vitepress/theme/DemoPageLayout.vue) applies the desktop navigation offset only from 1100px upward, matching the off-canvas navigation breakpoint.
+- **Verification:** `closed off-canvas navigation does not reserve workspace width at tablet size` verifies a 960px Planning layout begins at x=0, occupies the viewport width when closed, and that opening Examples produces a full-width drawer.
 
-## ISSUE-005 · P1 · Scheduler Year label and presentation need clarification
+## ISSUE-005 · Resolved · Scheduler Year presentation
 
 Related: SCHED-03 in [Scheduler](event-scheduler.md).
 
 - **Reproduce:** open `/demo/event-scheduler`, choose Year after Month/Day navigation.
-- **Actual:** header shows 2026 and “12-month overview”, but visible calendar has a month-shaped date grid.
-- **Source contract:** [date/configuration helpers](../../../../revogrid-demos/pro-advanced-scheduler/src/data.ts) map the plugin's Year selection to month view with year-specific data/navigation. This explains current rendering; it does not establish that the label accurately describes it.
-- **Expected:** user-facing period description should accurately explain the rendered range. Treat this as a copy/behavior discrepancy requiring product intent confirmation; do not invent a twelve-mini-calendar acceptance requirement.
-- **Evidence:** 1280×720/light changed-state screenshot and configuration review. Other Year mutation/navigation combinations remain unexecuted.
+- **Fix:** [Scheduler data](../../../../revogrid-demos/pro-advanced-scheduler/src/data.ts) now labels the month grid as `January 2026` with `Calendar month · year navigation`, accurately describing the year-at-a-time behavior.
+- **Verification:** unit assertions cover the title/subtitle contract and the docs E2E checks the copy after selecting Year.
 
-## ISSUE-006 · Coverage drift · Existing Planning selectors refer to older controls
+## ISSUE-006 · Resolved · Planning E2E selectors match the current toolbar
 
 Related: PLAN-02/05/10 and SHELL-03/08.
 
-- **Reproduce by inspection:** compare [docs E2E](../demo-experience.spec.ts) helper expecting `Search tasks…` and generic Filter/Reset toolbar steps with current [Planning mount](../../../../revogrid-demos/pro-advanced-planning/src/planning.vue).
-- **Actual:** browser exposes `Quick search tasks…` and header/active filter controls; old expected controls are absent in the current docs view. Existing test code still contains the former selectors.
-- **Expected:** future E2E should exercise current visible controls and their specific filter semantics from this catalog. Hidden standalone controls must not be manufactured as docs steps.
-- **Evidence:** source inspection and browser controls; the existing suite was **not run**, so no failing test execution is claimed. Test files changed concurrently during review; reconcile this finding with the final test revision before implementing replacements.
+- **Reproduce by inspection:** compare the former docs E2E selectors with current [Planning mount](../../../../revogrid-demos/pro-advanced-planning/src/planning.vue).
+- **Fix:** [docs E2E](../demo-experience.spec.ts) now uses the accessible `Quick search tasks` control and the current 100-task fixture: Maya yields 20 tasks, an unmatched query yields zero, and clearing restores 100.
+- **Verification:** four focused Planning/source-panel tests passed; legacy `Search tasks…`, Active tasks, Filter, and Reset selectors are absent from the suite.
+
+## ISSUE-007 · Resolved · 50K Kanban Cancel closes an edited card
+
+Related: KPERF-003 in [50K Kanban](kanban-performance.md).
+
+- **Reproduce:** `/demo/kanban-performance`, open KAN-101, change its title, then activate Cancel. The generic dirty-draft confirmation was dismissed by automated browsers, leaving the editor open and preventing the documented cancel/reopen workflow.
+- **Fix:** [performance editor fixture](../../../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board-data.ts) sets `confirmDiscard: false`, matching the demo's immediate-discard Cancel behavior.
+- **Verification:** the 50K cancellation E2E changes the title, activates Cancel, verifies the editor closes, and reopens the original five-point card. The performance fixture unit suite passed 65 tests.
+
+## ISSUE-008 · Resolved · 50K created cards were undiscoverable in the current virtual viewport
+
+Related: KPERF-004 in [50K Kanban](kanban-performance.md).
+
+- **Reproduce:** `/demo/kanban-performance`; use Add card here for Product/Backlog and save a uniquely titled card. Backlog increases from 5000 to 5001, but the new end-ranked card is outside the mounted virtual range, so its normal card delete action is not reachable from the current view.
+- **Fix:** [performance board mount](../../../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.vue) exposes a brief created-card status strip with the generated title and a targeted delete action. The action updates the demo's source and clears the strip, keeping this benchmark workflow reversible without navigating through thousands of virtual rows.
+- **Verification:** the focused docs E2E creates `E2E disposable card`, sees Backlog 5001 and the status strip, deletes the generated card, verifies Backlog 5000 and then checks the 390×844 page has no horizontal overflow. It passed on 2026-09-10 in 10.8 seconds.
+
+## ISSUE-009 · Resolved · 50K moved cards were undiscoverable after an end-ranked move
+
+Related: KPERF-005 in [50K Kanban](kanban-performance.md).
+
+- **Reproduce:** `/demo/kanban-performance`; use KAN-101's context menu to move Product/Backlog to Product/Triage. Triage becomes 5001, but the moved end-ranked card leaves the mounted virtual range and cannot be returned through its normal context menu.
+- **Fix:** [performance board mount](../../../../revogrid-demos/pro-advanced-kanban/src/examples/performance/kanban-board.vue) synchronizes the plugin's changed-card details into the source and exposes a Moved card status strip. Its targeted return control restores the exact canonical `previousCards` record, then clears the strip.
+- **Verification:** the focused docs E2E moves KAN-101 through the context-menu submenu, verifies 4999/5001, uses Return recently moved card, verifies 5000/5000, and collapses/expands Product to prove KAN-101 remounts. It passed on 2026-09-10 in 12.9 seconds.
+
+## ISSUE-010 · Resolved · Pivot Product filter had no member choices
+
+Related: PIV-004 in [Pivot table](pivot.md).
+
+- **Reproduce:** `/demo/pivot`, Sales Overview, open Configure at 1280×720. Product is listed in Filters but has no `Product filter value` selector, while Discount Band has one.
+- **Fix:** [financial pivot configuration](../../../../revogrid-demos/pro-advanced-pivot/src/financial.pivot.ts) supplies the five deterministic Product fixture values as `filterOptions`.
+- **Verification:** focused docs E2E selects Discount Band=Medium, then Product=Apex Suite, confirms the aggregate changes, clears Product with All, and confirms the Medium aggregate returns. It passed on 2026-09-10.
 
 ## Environmental interruptions and remaining verification
 

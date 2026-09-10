@@ -8,7 +8,7 @@ Route: `/demo/tree-data`. Catalog ID: `tree-data`.
 
 Source reviewed on 2026-09-08 against docs commit `b0c0bd9f851772dfcd30549d6d0a71ab84be12f6`. Pre-existing dirty `.vitepress/theme/DemoNavigation.vue` and `.vitepress/theme/style.scss` are part of this working tree. Code cases below are source-derived. Browser observations were supplied by the coordinating root reviewer and are limited to the actions explicitly listed below; they do not mark entire multi-step cases passed.
 
-P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. No automated tests or demo fixes were added during this review.
+P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. Automated coverage is recorded below; no demo fixes were added during this review.
 
 Hard reload restores 26 organization records. Root Product/Maya Chen and Data/Ava Martin are initially expanded, while deeper branches are not all expanded. Sticky parents starts checked. Grid editing is readonly; hierarchy movement, filtering, and selection are separate supported interactions.
 
@@ -69,6 +69,6 @@ Target `.tree-grid`, toolbar button names, Sticky parents checkbox, and fullName
 
 Repeat initial and primary interaction states in light and dark docs themes at 1440×900 and 390×844. Check readable labels, visible focus, contained grid scrolling, reachable controls, and no page-wide horizontal overflow. Initial dark desktop and narrow light views were subsequently inspected by the coordinator; repeat the deeper interaction states in those views during E2E. The central matrix records baseline findings and supersedes earlier pending visual notes.
 
-Current coverage: [docs shell suite](../demo-experience.spec.ts) checks the canonical shell; it does not establish the workflow cases above. [Tree source tests](../../../../revogrid-demos/pro-tree-data/tests/tree.test.mjs) cover configuration; future docs E2E must assert the rendered interactions.
+Automated docs evidence: [Core/Pro docs suite](../core-pro-scenarios.spec.ts) passed on 2026-09-10 for TREE-001 authored controls and initial hierarchy, TREE-002/003 collapse-expand and sticky reversal, plus the rendered Excel export control from TREE-005. [Tree source tests](../../../../revogrid-demos/pro-tree-data/tests/tree.test.mjs) cover additional configuration.
 
 References: [route](../../../../demo/tree-data.md), [view](../../../../revogrid-demos/pro-tree-data/src/tree.vue), [hierarchy/configuration](../../../../revogrid-demos/pro-tree-data/src/tree.shared.ts), [export policy](../../../../revogrid-demos/pro-tree-data/src/tree.excel.ts).

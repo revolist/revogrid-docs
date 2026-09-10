@@ -38,8 +38,8 @@ Automation: prefer the exact aria-label on `.portfolio-toggle`; assert identitie
 ### PORTFOLIO-003 · P0 · One branch changes independently
 
 1. Collapse Product using its group expander → Product children disappear while Engineering children remain.
-2. Reopen Product, then collapse only its On track subgroup → Mobile onboarding disappears while Pricing experiments under At risk remains.
-3. Reopen the subgroup → Mobile onboarding returns once with unchanged owner and progress.
+2. Reopen Product → its On track, At risk, and Planning subgroup headers return collapsed; expand Product / On track and Product / At risk so Mobile onboarding and Pricing experiments are both visible.
+3. Collapse only Product / On track → Mobile onboarding disappears while Pricing experiments under At risk remains. Reopen On track → Mobile onboarding returns once with unchanged owner and progress.
 
 Automation: scope expansion to the group label and hierarchy level, avoiding duplicate On track labels under other departments. Visual checks: every expander stays aligned with its label, and adjacent department rows do not shift horizontally.
 
@@ -62,6 +62,6 @@ Expected filtered-group policy should be confirmed in the first browser run: thi
 
 Primary targets: `.portfolio-grid`, `.portfolio-toggle`, column props `project`, `owner`, `progress`, `status`, `budget`, and fixture project identities. Reset with hard reload because PROJECTS is module-level data. Await rendered data/group state rather than arbitrary sleeps. Screenshot acceptance should cover initial, globally collapsed, and one-branch-collapsed states at 1440×900 and 390×844.
 
-Existing [docs shell checks](../demo-experience.spec.ts) do not exercise these group interactions. [Source tests](../../../../revogrid-demos/core-project-portfolio/tests/project-portfolio.test.mjs) are unit/source coverage, not browser proof.
+Automated docs evidence: [Core/Pro docs suite](../core-pro-scenarios.spec.ts) passed on 2026-09-10 for PORTFOLIO-001 authored grouped-record values, PORTFOLIO-002 global collapse and restoration, and PORTFOLIO-003 independent Product branches. The latter confirms Core grouping’s intentional behavior: reopening a collapsed parent first restores its collapsed subgroup headers. [Source tests](../../../../revogrid-demos/core-project-portfolio/tests/project-portfolio.test.mjs) cover additional grouping configuration.
 
 References: [route](../../../../demo/project-portfolio.md), [Vue component](../../../../revogrid-demos/core-project-portfolio/src/project-portfolio.vue), [fixtures, renderers and grouping](../../../../revogrid-demos/core-project-portfolio/src/project-portfolio.shared.ts).

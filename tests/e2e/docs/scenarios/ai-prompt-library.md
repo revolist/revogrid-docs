@@ -55,6 +55,6 @@ Visual checks: no header/body misalignment after horizontal scrolling. Automatio
 
 Repeat initial, filtered-empty, and editor-open states at 1440×900 and 390×844 in light and dark docs themes. The toolbar must remain reachable, focus visible, and any horizontal overflow contained by the grid. These combinations are acceptance scenarios, not already verified screenshots. P0 is ready for automation once browser mounting succeeds; PROMPT-003's exact editor commit interaction needs first-run confirmation.
 
-Current coverage: [docs demo shell](../demo-experience.spec.ts) checks catalog mounting but not this workflow. [Prompt unit checks](../../../../revogrid-demos/core-ai-prompts/tests/prompt-library.test.mjs) cover source behavior, not the embedded browser experience.
+Automated docs evidence: [Core/Pro docs suite](../core-pro-scenarios.spec.ts) passed on 2026-09-10 for PROMPT-001 initial catalog fixtures, PROMPT-002 search/category, and PROMPT-003 commit/Escape recovery. [Prompt unit checks](../../../../revogrid-demos/core-ai-prompts/tests/prompt-library.test.mjs) cover additional source behavior.
 
 References: [docs route](../../../../demo/ai-prompts.md), [Vue view](../../../../revogrid-demos/core-ai-prompts/src/prompt-library.vue), [filter and columns](../../../../revogrid-demos/core-ai-prompts/src/prompt-library.shared.ts), [fixtures](../../../../revogrid-demos/core-ai-prompts/src/prompts.json), [textarea editor](../../../../revogrid-demos/core-ai-prompts/src/prompt-editor.ts).

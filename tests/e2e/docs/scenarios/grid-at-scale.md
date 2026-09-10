@@ -8,7 +8,7 @@ Route: `/demo/grid-at-scale`. Catalog ID: `grid-at-scale`.
 
 Source reviewed on 2026-09-08 against docs commit `b0c0bd9f851772dfcd30549d6d0a71ab84be12f6`. Pre-existing dirty `.vitepress/theme/DemoNavigation.vue` and `.vitepress/theme/style.scss` are part of this working tree. Code cases below are source-derived. Browser observations were supplied by the coordinating root reviewer and are limited to the actions explicitly listed below; they do not mark entire multi-step cases passed.
 
-P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. No automated tests or demo fixes were added during this review.
+P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. Automated coverage is recorded below; no demo fixes were added during this review.
 
 Use a fresh browser context or remove only `revogrid:grid-at-scale:workspace:v1` before first navigation. Default is 10,000 rows × 100 columns. The demo has persisted view settings and generated data, so capture the chosen row's identity and initial value instead of relying on a random employee name. Reset view restores the default dataset and theme. Wait for the loading overlay to disappear before interacting.
 
@@ -74,13 +74,14 @@ Precondition: fresh default data, no sorting or saved workspace, third source re
 4. Reopen editor, enter 12/25/2021, press Tab → cell displays 12/25/2021 while source joined stores 2021-12-25.
 5. Reopen once more → editor still displays 12/25/2021, not an ISO string or shifted day. Hard reload to restore seed.
 
-Visual checks and automation notes: calendar must fit over the grid without clipping; display, input and storage must refer to the same date. Use row identity/prop rather than column index if saved layout is not cleared. This date scenario was source-reviewed, not executed during the visual pass.
+Visual checks and automation notes: calendar must fit over the grid without clipping; display, input and storage must refer to the same date. Use row identity/prop rather than column index if saved layout is not cleared. The complete rendered date-editor sequence was executed in the docs host on 2026-09-10; broader viewport variations remain separate visual coverage.
+
 ## E2E readiness and visual acceptance
 
 Concrete targets: `.hr-scale-grid`, `.hr-toolbar select`, `.hr-loading-overlay`, `.hr-workspace-status`, and `Browser performance metrics`. Separate dataset readiness from layout assertions. Save/restore tests need isolated local storage.
 
 Repeat initial and primary interaction states in light and dark docs themes at 1440×900 and 390×844. Check readable labels, visible focus, contained grid scrolling, reachable controls, and no page-wide horizontal overflow. Initial dark desktop and narrow light views were subsequently inspected by the coordinator; repeat the deeper interaction states in those views during E2E. The central matrix records baseline findings and supersedes earlier pending visual notes.
 
-Current coverage: [docs shell suite](../demo-experience.spec.ts) checks the canonical shell; it does not establish the workflow cases above. [Standalone date E2E](../../../../revogrid-demos/core-free/tests/e2e/hr-date.spec.ts) and [performance E2E](../../../../revogrid-demos/tests/e2e/core-performance.spec.ts) exist; they should be reviewed for reuse, not treated as docs-route evidence.
+Automated docs evidence: [Core/Pro docs suite](../core-pro-scenarios.spec.ts) passed SCALE-001/002/003/005 subsets and the complete rendered date-editor sequence in SCALE-006 on 2026-09-10. [Standalone performance E2E](../../../../revogrid-demos/tests/e2e/core-performance.spec.ts) remains separate from docs-route evidence.
 
 References: [route](../../../../demo/grid-at-scale.md), [Vue view](../../../../revogrid-demos/core-free/src/hr.vue), [sizes and generator](../../../../revogrid-demos/core-free/src/sys-data/hr.data.ts), [workspace persistence](../../../../revogrid-demos/core-free/src/hr-workspace.ts), [column definitions](../../../../revogrid-demos/core-free/src/sys-data/hr.columns.ts).

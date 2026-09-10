@@ -16,6 +16,7 @@ export interface DemoPageContent {
   title: string
   description: string
   implementationUrl: string
+  implementationLabel?: string
   featureBadges: readonly DemoFeatureBadge[]
 }
 
@@ -317,7 +318,8 @@ const DEMO_PAGE_CONTENT = {
     title: 'Project workspace',
     description: 'Edit once. Explore the same data in every view.',
     implementationUrl:
-      'https://github.com/revolist/revogrid-demos/blob/main/pro-advanced-planning/src/planning.vue',
+      'https://github.com/revolist/revogrid-demos/tree/main/pro-advanced-planning#readme',
+    implementationLabel: 'Run locally',
     featureBadges: [
       { label: 'Shared model', source: 'Reactive task state shared across every planning view' },
       {

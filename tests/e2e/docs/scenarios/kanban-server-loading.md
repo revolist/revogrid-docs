@@ -16,7 +16,7 @@ Sources: [route](../../../../demo/kanban-server-loading.md), [Vue status and mou
 
 ### KSRV-001 · P0 · Initial request resolves to real cards
 
-Execution: Partially executed: initial loaded status and screenshot; individual first-card placement assertions are source-derived.
+Execution: Partially automated and executed on 2026-09-10 in the docs host at 1280×720. The focused test waited for the polite Loaded from server notice, verified its 100,000-card total, then verified real `server-1` content, all four workflow headings and their logical counts. Loading-state timing and the individual server-2–4 placement assertions remain source-derived.
 
 1. Fresh load ⇒ four workflow columns To do, Doing, Review, Done and top-layout swimlanes Product, Platform, Growth are available; a polite live status is present.
 2. During callback, observe “Loading cards from server…” ⇒ placeholders can appear while loading; no fake completed title is shown for an unresolved placeholder.
@@ -49,7 +49,7 @@ Visual: uneven/empty stacks are intentional, not mistaken for missing cards; the
 
 ### KSRV-004 · P1 · Rapid scrolling and final range
 
-Execution: Code-derived; not executed in this review.
+Execution: Partially automated and executed on 2026-09-10 at 1280×720. The focused docs E2E verified the polite live-status attributes, a loaded `server-1`, navigation to the task-board route without a leaked server notice, and a clean fresh remount with loaded `server-1`. The docs shell is slower than the fixture's 450 ms delay, so its first mounted card is already resolved; the transient placeholder state is unavailable for reliable docs-host assertion. Theme/narrow checks remain source-derived.
 
 1. Fresh load; rapidly scroll down/up/down across several unloaded areas ⇒ eventual visible cards correspond to the final viewport, with no duplicate IDs or permanently unresolved placeholders.
 2. Navigate near the logical end using the board's scroll control ⇒ final loaded titles do not exceed Server card 100,000; callback endpoint is capped at 100,000.

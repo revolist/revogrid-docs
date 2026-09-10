@@ -6,7 +6,7 @@ Route: `/demo/pivot` · canonical ID: `pivot` · live implementation: Vue.
 
 ## Evidence and reproducible setup
 
-Reviewed 2026-09-08 at docs commit `b0c0bd9f851772dfcd30549d6d0a71ab84be12f6`, including existing dirty theme files `DemoNavigation.vue` and `style.scss` without changing them. The coordinating agent opened this route in light mode at 1280×720, captured initial/changed screenshots, switched all three presets and visually confirmed every total in the oracle table below. Hide fields/Configure and Expand workspace/Exit expanded workspace toggles were exercised. Sales Overview Discount Band was changed to Medium: Sales $141,041,425.25, Profit $51,791,074.03 and Units Sold 776,029 appeared; High was restored. This partially executes PIV-001/002 (preset selection and totals), PIV-003 (visibility toggles), PIV-004 (Discount Band change/restore) and PIV-009 (expand/exit). It does not prove every axis/filter/geometry assertion, Product filter composition, reload persistence or mobile behavior. Remaining steps are **code-derived, not executed**. Initial/changed screenshots were viewed in the browser-tool conversation only; no image files were persisted. Desktop-dark and narrow-light checks remain future coverage unless the central README matrix records them.
+Reviewed 2026-09-08 at docs commit `b0c0bd9f851772dfcd30549d6d0a71ab84be12f6`, including existing dirty theme files `DemoNavigation.vue` and `style.scss` without changing them. The coordinating agent opened this route in light mode at 1280×720, captured initial/changed screenshots, switched all three presets and visually confirmed every total in the oracle table below. Hide fields/Configure and Expand workspace/Exit expanded workspace toggles were exercised. Sales Overview Discount Band was changed to Medium: Sales $141,041,425.25, Profit $51,791,074.03 and Units Sold 776,029 appeared; High was restored. Focused docs E2E on 2026-09-10 independently rechecked all three preset total sets, Product Performance persistence through reload, and the 390×844 Configure default with a mounted grid. This partially executes PIV-001/002, PIV-003, PIV-004, PIV-008 and PIV-009. It does not prove every axis/filter/geometry assertion or Product filter composition. Remaining steps are **code-derived, not executed**. Initial/changed screenshots were viewed in the browser-tool conversation only; no image files were persisted. Desktop-dark checks remain future coverage unless the central README matrix records them.
 
 Use `http://127.0.0.1:4173/demo/pivot` in a fresh browser context. Before each independent case clear only `revogrid:pivot-showcase:v1` and `revogrid:pivot-showcase:preset:v1`, then reload. Switching back to Sales Overview is not a reliable reset if it is already the active tab, because active-tab clicks do not recreate the preset. The generated source is deterministic: 3,600 rows covering years 2023–2025, twelve months, five countries, four segments and five products. The grid is readonly; aggregation/configuration, not editing source cells, is the primary workflow.
 
@@ -16,17 +16,17 @@ Sources: [docs mount](../../../../demo/pivot.md), [Vue lifecycle and controls](.
 
 These totals were calculated directly from the source fixture with an independent sum on 2026-09-08 and subsequently **matched against the rendered grid by the coordinating agent** for each preset. Compare unrounded numeric values within 0.01 and displayed currency to two decimals. Confirm the target is the overall Grand Total, not a collapsed yearly Period Total.
 
-| Preset / default filter | Included rows | Expected totals across all years |
-|---|---:|---|
-| Sales Overview / Discount Band High | 900 | Sales $129,319,628.28; Profit $42,766,659.96; Units Sold 750,367 |
-| Profitability / Discount Band Medium | 900 | Profit $51,791,074.03; Sales $141,041,425.25; COGS $89,250,351.22 |
-| Product Performance / Month December | 300 | Gross Sales $50,345,536.34; Units Sold 256,808; Discounts $2,778,114.04 |
+| Preset / default filter              | Included rows | Expected totals across all years                                        |
+| ------------------------------------ | ------------: | ----------------------------------------------------------------------- |
+| Sales Overview / Discount Band High  |           900 | Sales $129,319,628.28; Profit $42,766,659.96; Units Sold 750,367        |
+| Profitability / Discount Band Medium |           900 | Profit $51,791,074.03; Sales $141,041,425.25; COGS $89,250,351.22       |
+| Product Performance / Month December |           300 | Gross Sales $50,345,536.34; Units Sold 256,808; Discounts $2,778,114.04 |
 
 ## Cases
 
 ### PIV-001 · P0 · Sales preset mounts and totals are correct
 
-Execution: Partially executed: Sales Overview screenshot and all three numerical totals; detailed axis/header assertions are source-derived.
+Execution: Partially automated and executed on 2026-09-10 at 1280×720. A clean-storage docs E2E verified the Sales Overview currency and unit totals in the oracle, then continued through both alternate presets. Detailed axis/header assertions remain source-derived.
 
 1. Clean storage, open route ⇒ Sales Overview is selected in Financial report presets; desktop shows Hide fields and the field configurator, plus Expand workspace.
 2. Inspect row and column axes ⇒ rows Country then Segment; columns Year then Month; values Sales, Profit, Units Sold; filters Product and Discount Band with High selected.
@@ -37,7 +37,7 @@ Visual: row-axis sort/filter controls fit their headers, currency/number formatt
 
 ### PIV-002 · P0 · Preset switching rebuilds axes, filters and values
 
-Execution: Partially executed: all three preset switches and all numerical totals; complete axis cleanup assertions are source-derived.
+Execution: Partially automated and executed on 2026-09-10 at 1280×720. The focused docs E2E selected Profitability and Product Performance, verified both oracle total sets, and then reloaded Product Performance. Complete axis-cleanup assertions remain source-derived.
 
 1. Clean Sales Overview; click Profitability ⇒ only that tab has `aria-selected=true`; row axes become Segment/Country, values Profit/Sales/COGS, Discount Band filter changes to Medium.
 2. Check overall totals ⇒ profitability oracle matches; no Units Sold measure remains from Sales Overview.
@@ -48,7 +48,7 @@ Visual: no residual header groups from prior preset, duplicated configurators or
 
 ### PIV-003 · P0 · Configure visibility preserves the report
 
-Execution: Partially executed: Hide fields/Configure toggle; cross-preset preservation assertions are source-derived.
+Execution: Partially automated and executed on 2026-09-10 at 1280×720. The focused docs E2E hid the fields, verified Configure and the still-mounted grid, restored the fields, switched to Profitability, then continued into expanded-workspace verification. Exact numeric preservation through the visibility toggles remains source-derived.
 
 1. Clean desktop run; record current filter, axes and a visible numeric value; click Hide fields ⇒ configurator disappears and button becomes Configure; report still has the same data/configuration.
 2. Click Configure ⇒ the same fields, axes and selected filter return; numeric value is unchanged.
@@ -58,7 +58,7 @@ Visual: grid widens into available space and remains scrollable; no clipped head
 
 ### PIV-004 · P0 · Filter changes affect every aggregate and reset cleanly
 
-Execution: Partially executed: Medium numerical totals and High restoration; Product filter combination is source-derived.
+Execution: Automated and executed on 2026-09-10 at 1280×720. Focused docs E2E changed Discount Band from High to Medium, verified Sales $141,041,425.25, Profit $51,791,074.03 and Units Sold 776,029, then restored High and the Sales $129,319,628.28 baseline. A separate focused E2E selected Product=Apex Suite within the Medium subset and cleared it with All, restoring the Medium Sales total. The Product selector regression is resolved.
 
 1. Clean Sales Overview; open Discount Band selection and replace High with Medium ⇒ selected filter reflects Medium and total Sales becomes $141,041,425.25, Profit $51,791,074.03 and Units Sold 776,029 (same source subset as Profitability despite different axes).
 2. Add Product=Apex Suite ⇒ only rows for Apex Suite plus Medium contribute; calculate expected sums from the dataset filtered by both predicates, and compare each visible total to that independent subset.
@@ -68,7 +68,7 @@ Visual: selected filter chips/options remain readable; menus stay within viewpor
 
 ### PIV-005 · P0 · Field placement and aggregation update the result
 
-Execution: Code-derived; not executed in this review.
+Execution: Partially automated and executed on 2026-09-10 at 1280×720. The focused docs E2E removed Segment, dragged the rendered `Drag Product` handle into Rows, selected Sales `avg`, then reloaded and confirmed both Product and `avg` persisted. p90 and numerical group-level mean assertions remain source-derived.
 
 1. Clean Sales Overview; in configurator replace the Segment row field with Product ⇒ rows become Country/Product and monetary Grand Totals remain the same because only grouping changed.
 2. Change Sales aggregation from sum to avg ⇒ cell values equal arithmetic means of source rows matching their group/column and current High filter, not means of already aggregated child rows.
@@ -79,7 +79,7 @@ Visual: dragged field lands in intended zone with one occurrence; measure label 
 
 ### PIV-006 · P0 · Expand/collapse grouped rows and columns
 
-Execution: Code-derived; not executed in this review.
+Execution: Code-derived; not executed in this review. The completed PIV-005 field/aggregation test does not exercise row or column expand controls.
 
 1. Clean Sales Overview; collapse Canada ⇒ its Segment children hide; other countries and Grand Total remain unchanged.
 2. Expand Canada ⇒ children and numeric values return without duplication.
@@ -101,7 +101,7 @@ Visual: chart and its close control fit available space; labels are readable in 
 
 ### PIV-008 · P0 · Report configuration survives reload
 
-Execution: Code-derived; not executed in this review.
+Execution: Partially automated and executed on 2026-09-10 at 1280×720. One focused docs E2E selected Product Performance, confirmed the persisted preset value, reloaded and verified that tab remained selected. A separate focused case seeded invalid config JSON and an unknown preset once before the route, then verified the Sales Overview fallback and its sales total. Filter and field-placement persistence together remain future coverage.
 
 1. Clean load; choose Product Performance, change a filter and one field placement ⇒ wait for report/configuration update.
 2. Reload same origin ⇒ Product Performance remains selected; changed fields/filter selection restore and numeric results agree with the pre-reload report.
@@ -112,7 +112,7 @@ Automation: setup/cleanup may manipulate only the two documented storage keys. D
 
 ### PIV-009 · P1 · Expanded workspace and responsive defaults
 
-Execution: Partially executed: Expand/Exit workspace and changed-state screenshot; responsive/dark and changes while expanded are source-derived.
+Execution: Partially automated and executed on 2026-09-10 at 1280×720 and 390×844. The focused docs E2E expanded the Profitability report, verified the explicit exit control and fixed workspace positioning, then exited and verified the normal Expand workspace control returned. A narrow reload verified Configure is the initial control and the grid is mounted. Dark and changes while expanded remain source-derived.
 
 1. Clean desktop run; click Expand workspace ⇒ report overlays workspace with fixed 8px inset and Exit expanded workspace control; axes, values and current preset remain unchanged.
 2. Toggle fields and switch preset while expanded ⇒ controls work; click Exit expanded workspace ⇒ normal docs layout returns with chosen report intact.

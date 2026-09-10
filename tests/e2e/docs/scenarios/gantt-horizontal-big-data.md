@@ -43,7 +43,7 @@ The [package E2E](../../../../revogrid-demos/pro-advanced-gantt/tests/e2e/featur
 
 ### GANTT20Y-02 — Vertical scrolling reaches distant records (P0)
 
-**Evidence:** Source-derived; not executed in this review.
+**Evidence:** Executed in the docs host: Page Down replaced Program task 001 with later virtualized rows while a Gantt bar remained rendered.
 
 **Setup/reset:** Reload and start at top.
 

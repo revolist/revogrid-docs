@@ -31,6 +31,10 @@ const planningDemoStyleSource = readFileSync(
   new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.scss', import.meta.url),
   'utf8',
 )
+const planningDemoReadme = readFileSync(
+  new URL('../../../../revogrid-demos/pro-advanced-planning/README.md', import.meta.url),
+  'utf8',
+)
 const demoSeoFiles = [
   'index.md',
   'grid-at-scale.md',
@@ -291,12 +295,27 @@ test('describes the requested Scheduler capabilities without filter or history b
   ])
 })
 
-test('uses an implementation GitHub link without guided steps', () => {
+test('keeps Code for source inspection and routes Run locally to the planning README', () => {
   assert.match(demoPageLayoutSource, /class="[^"]*demo-page-github[^"]*"/)
-  assert.match(demoPageLayoutSource, /name="github"\/>GitHub/)
+  assert.match(demoPageLayoutSource, /config\.implementationLabel \?\? 'GitHub'/)
   assert.match(demoPageLayoutSource, /:href="config\.implementationUrl"/)
   assert.doesNotMatch(demoPageLayoutSource, /<summary>Features used<\/summary>/)
   assert.doesNotMatch(demoPageLayoutSource, /demo-page-guide|Show guide|guidedActions/)
+  assert.match(
+    getDemoPageConfig('planning').implementationUrl,
+    /revogrid-demos\/tree\/main\/pro-advanced-planning\?[^#]+#readme/,
+  )
+  assert.equal(getDemoPageConfig('planning').implementationLabel, 'Run locally')
+  assert.match(planningDemoReadme, /This is one workspace inside the \*\*full\*\*/)
+  assert.match(planningDemoReadme, /git clone https:\/\/github\.com\/revolist\/revogrid-demos\.git/)
+  assert.match(planningDemoReadme, /pnpm --filter revogrid-demo-pro-advanced-planning dev:ts/)
+  assert.match(planningDemoReadme, /pnpm --filter revogrid-demo-pro-advanced-planning dev:react/)
+  assert.match(planningDemoReadme, /pnpm --filter revogrid-demo-pro-advanced-planning dev:vue/)
+  assert.match(planningDemoReadme, /pnpm --filter revogrid-demo-pro-advanced-planning dev:angular/)
+  assert.match(planningDemoReadme, /@revolist\/rv-pro-trial@2\.8\.2/)
+  assert.match(planningDemoReadme, /@revolist\/kanban-trial@2\.8\.2/)
+  assert.match(planningDemoReadme, /@revolist\/gantt-trial@2\.8\.2/)
+  assert.match(planningDemoReadme, /@revolist\/scheduler-trial@2\.8\.2/)
 })
 
 test('does not repeat the header CTA inside the demo workspace', () => {

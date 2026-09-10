@@ -65,6 +65,14 @@ test('keeps the source panel compact and expandable', () => {
   }
 })
 
+test('lets the implementation header action size to its label', () => {
+  const layout = readFileSync(
+    new URL('../../../../.vitepress/theme/DemoPageLayout.vue', import.meta.url),
+    'utf8',
+  )
+  assert.match(layout, /\.demo-page-github\s*\{[^}]*width:\s*auto/)
+})
+
 test('keeps demo navigation at its specified breakpoint', () => {
   const navigation = readFileSync(
     new URL('../../../../.vitepress/theme/DemoNavigation.vue', import.meta.url),

@@ -26,7 +26,7 @@ Visual: cards fill their stack without clipping text/avatars, no blank initial v
 
 ### KPERF-002 · P0 · Virtualized scrolling preserves data
 
-Execution: Code-derived; not executed in this review.
+Execution: Automated and executed on 2026-09-10 at 1280×720 in the docs host. The focused test scrolled the virtual row surface until mounted card IDs changed, confirmed fewer than 100 mounted cards with no duplicate IDs, then returned to KAN-101. At this width, four workflow headers are mounted at once by horizontal virtualization; each visible count remained 5000 cards.
 
 1. Fresh load; record first visible Backlog ID/title, then scroll deeply within the Product lane ⇒ later sequence titles and IDs appear, rather than permanently blank cards or repeated first records.
 2. Scroll horizontally while deep in the lane ⇒ visible cards belong to their correct workflow and column headers remain aligned.
@@ -37,7 +37,7 @@ Visual: capture top/deep/returned states; watch blank flashes that never resolve
 
 ### KPERF-003 · P0 · Edit, validate and cancel
 
-Execution: Partially executed: editor open, -1 validation, 13 save/reopen and closing via Cancel; other steps are source-derived.
+Execution: Partially executed: automated validation/save and independent cancel/reopen flows passed on 2026-09-10 at 1280×720. The first retained a negative Story points error, then saved the corrected 13-point/title update; the second discarded an unsaved title and reopened the original five-point card. The same-page save-then-cancel sequence and reload reset remain pending; other steps are source-derived.
 
 1. Fresh load; double-click KAN-101 or focus it and press Enter ⇒ card editor opens with existing title and Story points 5. Progress field is absent (`hiddenFields: ['progress']`).
 2. Set Story points to -1 and attempt save ⇒ “Story points cannot be negative.” is displayed; editor remains open and canonical points remain 5.
@@ -49,24 +49,25 @@ Visual: validation stays associated with its input, save/cancel controls remain 
 
 ### KPERF-004 · P1 · Create and remove a disposable card
 
-Execution: Code-derived; not executed in this review.
+Execution: Automated and executed on 2026-09-10 in the docs host at 1280×720 and 390×844. The focused workflow created a titled Product/Backlog card through the current card action menu, observed Backlog move from 5000 to 5001, used the visible recent-card control to remove only that generated card, and verified the count returned to 5000 with no page-wide horizontal overflow at the narrow viewport.
 
-1. Fresh load; invoke Add card here on Product/Backlog ⇒ editor draft has blank title/description, Medium priority, Story points 3, New tag, empty assignees and Product team.
-2. Enter unique title “E2E temporary backlog card”, points 2, save ⇒ exactly one new card appears in that target stack; Backlog becomes 5001 and other column totals stay 5000.
-3. Reopen the created card ⇒ entered fields persist; remove this disposable card via its Delete card action ⇒ Backlog returns to 5000 and title is absent.
+1. Fresh load; open the context action menu on Product/Backlog KAN-101 and invoke Add card here ⇒ editor draft has blank title/description, Medium priority, Story points 3, New tag, empty assignees and Product team.
+2. Enter unique title “E2E temporary backlog card”, points 2, save ⇒ Backlog becomes 5001 and other column totals stay 5000. The docs demo’s created-card status strip exposes that exact title and its Remove action, because an end-ranked card is outside the current virtual viewport.
+3. Activate the strip’s Remove action ⇒ only the generated title disappears and Backlog returns to 5000. Reload before any independent edit/reopen persistence check.
 
-Visual: new card is reachable and not hidden behind the editor; count and empty-space layout update cleanly. Automation: identify the created card by unique title then record its generated ID; never assume a fixed ID or timestamp. Delete only the test-created record. Browser confirmation is needed for the plugin's create/delete controls and any confirmation dialog.
+Visual: new-card identity and remove target remain reachable above the virtual board, not hidden behind an editor or thousands of end-ranked cards; count and empty-space layout update cleanly. After removal, the 390×844 board has no page-wide horizontal scrolling. Automation: scope the action menu to KAN-101, locate the `status` by its unique title, and use `Delete recently created card`; never assume a generated ID or timestamp. Delete only the test-created record. The performance fixture intentionally disables browser confirmations for repeatable cancel/delete actions.
 
 ### KPERF-005 · P0 · Move under load and warn on WIP
 
-Execution: Code-derived; not executed in this review.
+Execution: Partially automated and executed on 2026-09-10 in the docs host at 1280×720. The focused workflow moved KAN-101 from Product/Backlog to Product/Triage through its rendered context menu, observed Backlog/Triage change to 4999/5001, returned the virtualized end-ranked card through the board's visible last-moved-card control, restored both to 5000, then collapsed and remounted Product to confirm KAN-101 is visible. Cross-lane and WIP-warning behavior remains source-derived.
 
-1. Fresh load; move KAN-101 Product/Backlog to Product/Triage ⇒ Backlog 4999, Triage 5001; metadata unchanged and one occurrence of KAN-101 remains.
-2. Move it across lanes to Platform/Review ⇒ Triage returns to 5000; Review becomes 5001 and Platform/Review 2501.
-3. Inspect WIP ⇒ Platform/Review already exceeds configured limit 260 at baseline; moving another card is permitted because behavior is `warn`, not blocking.
-4. Scroll away/back, then return card to Product/Backlog ⇒ counts restore to 5000; identity and metadata survive virtualization.
+1. Fresh load; open KAN-101's context menu, hover Move card, and choose Product/Triage ⇒ Backlog is 4999 and Triage is 5001. The card retains its title and appears only once.
+2. Observe the Moved card status strip, which names Customer interview synthesis and provides Return recently moved card when the end-ranked destination makes the card leave the mounted virtual range.
+3. Activate Return recently moved card ⇒ the strip closes and both Product/Backlog and Product/Triage return to 5000.
+4. Collapse Product, then expand Product ⇒ KAN-101 remounts and is visible in Backlog, proving the return restored the board's canonical source data.
+5. Move it across lanes to Platform/Review ⇒ Triage returns to 5000; Review becomes 5001 and Platform/Review 2501. Inspect WIP: Platform/Review already exceeds its configured limit 260 at baseline; another move warns rather than blocks. This cross-lane warning path is source-derived and remains a future E2E case.
 
-Visual: no stuck drag ghost; warning remains readable in an already-over-limit lane. Automation: validate destination and totals after each move; use currently rendered geometry, not coordinates recorded before scrolling. Avoid expecting an initially clear Review warning.
+Visual: context and submenu overlays remain readable above the virtual board; the moved-card control remains reachable outside the stack; collapse/remount does not leave a blank lane or stale count. The Review warning must remain readable in its already-over-limit lane. Automation: scope the context menu to KAN-101, hover its Move card menuitem, target the `menuitemradio` named Triage, then locate the `status` by Moved card and use Return recently moved card. Validate counts after each mutation and use the remounted card identity rather than pre-scroll coordinates.
 
 ### KPERF-006 · P1 · Collapse/expand and keyboard recovery
 

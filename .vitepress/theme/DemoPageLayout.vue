@@ -27,7 +27,7 @@
           :href="config.implementationUrl"
           target="_blank"
           rel="noopener noreferrer"
-          ><FontAwesomeSvgIcon name="github" />GitHub</a
+          ><FontAwesomeSvgIcon name="github" />{{ config.implementationLabel ?? 'GitHub' }}</a
         >
         <a
           class="demo-page-button demo-page-button--primary"
@@ -775,6 +775,9 @@ $max-content-width: 1240px;
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
+}
+.demo-page-github {
+  width: auto;
 }
 .demo-page-header-link:hover {
   border-color: var(--vp-c-border);

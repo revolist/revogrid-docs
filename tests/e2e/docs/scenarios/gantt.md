@@ -58,7 +58,7 @@ The [package E2E](../../../../revogrid-demos/pro-advanced-gantt/tests/e2e/featur
 
 ### GANTT-03 — Task editor save and cancel (P0)
 
-**Evidence:** Source-derived; not executed in this review.
+**Evidence:** Executed in the docs host: double-clicking the Design bar opened its task editor, saving `Design QA review` updated the visible bar, and Escape discarded a later unsaved name.
 
 **Setup/reset:** Fresh load; target leaf Design (id design).
 
@@ -73,7 +73,7 @@ The [package E2E](../../../../revogrid-demos/pro-advanced-gantt/tests/e2e/featur
 
 ### GANTT-04 — Move and resize preserve a coherent schedule (P0)
 
-**Evidence:** Source-derived; not executed in this review.
+**Evidence:** Executed in the docs host: Design moved horizontally, then its actual visible end handle resized after the timeline scrolled it into view. The initial failed attempt was an offscreen-handle test gesture, not a demo defect.
 
 **Setup/reset:** Fresh load; locate Design and capture current canonical start/end/duration and connected tasks.
 

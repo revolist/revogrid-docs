@@ -4,7 +4,7 @@ Supplemental viewport/theme observations and live-checkout limitations: [catalog
 
 **Route:** `/demo/`
 
-One canonical 100-task model is shared by Grid, Kanban, Gantt, Scheduler and Calendar. The initial view shows **100 of 100 tasks**. The current toolbar has the five view tabs and Full screen; quick search is inside the grid filter-badge bar. There is no current custom More/Reset button, old Filter popover or project selector. Reload is the reset. Changes stay in memory in this demo.
+One canonical 100-task model is shared by Grid, Kanban, Gantt, Scheduler and Calendar. The initial view shows **100 of 100 tasks**. The current toolbar has five lower-case view tabs, an **Active tasks** preset, **Reset**, and Full screen; quick search is inside the grid filter-badge bar. There is no old Filter popover or project selector. Reset restores the initial in-memory fixture. Changes stay in memory in this demo.
 
 ## Review evidence and execution contract
 
@@ -27,7 +27,7 @@ A concurrent Vite/HMR rebuild at approximately 11:35:50 UTC reset planning state
 - [Fixtures](../../../../revogrid-demos/pro-advanced-planning/src/data/fixtures.ts), [columns and initial filter](../../../../revogrid-demos/pro-advanced-planning/src/data/columns.ts), [cross-view synchronization](../../../../revogrid-demos/pro-advanced-planning/src/data/sync.ts).
 - [Gantt policy](../../../../revogrid-demos/pro-advanced-planning/src/data/gantt.config.ts), [Scheduler/Calendar policy](../../../../revogrid-demos/pro-advanced-planning/src/data/scheduler.config.ts), [Kanban presentation](../../../../revogrid-demos/pro-advanced-planning/src/data/kanban.config.ts).
 
-Existing [docs suite](../demo-experience.spec.ts) covers planning selection, layouts, source drawer and Gantt marker, but several selectors describe an older toolbar (`Search tasks…`, custom Filter/Reset). Treat these as test-maintenance gaps, not evidence those controls exist. [Workspace unit suite](../../../../revogrid-demos/pro-advanced-planning/tests/workspace.test.ts) supports synchronization contracts; it is not browser verification.
+Existing [docs suite](../demo-experience.spec.ts) covers planning selection, layouts, source drawer, current Quick search tasks filtering, and Gantt marker. [Workspace unit suite](../../../../revogrid-demos/pro-advanced-planning/tests/workspace.test.ts) supports synchronization contracts; it is not browser verification.
 
 ## Scenarios
 
@@ -37,15 +37,16 @@ Existing [docs suite](../demo-experience.spec.ts) covers planning selection, lay
 
 **Setup/reset:** Reload /demo/ without saved state.
 
-1. Wait for the grid ⇒ footer settles at `100 of 100 tasks`; `API integration` (task-003, Noah, In progress) and `Define requirements` (task-001, Maya, Done) are visible fixtures.
-2. Click Kanban ⇒ Planned, In progress, Blocked and Done columns render; the same filtered task set is used, so Done starts empty.
-3. Click Gantt ⇒ task table and dated bars render for the filtered set over September 2026.
-4. Click Scheduler ⇒ resource timeline appears with Ava, Noah, Leo, Maya and Nina resources and events for the current task set.
-5. Click Calendar ⇒ September 2026 month layout displays the same events. Return to Grid ⇒ filter and task count remain consistent.
+1. Wait for the grid ⇒ footer settles at `100 of 100 tasks`; `API integration` (task-003, Noah, In progress) and `Define requirements` (task-001, Maya, Done) are visible fixtures. The grid stage has positive height and the rows are not clipped under the filter row.
+2. Click Active tasks ⇒ the active-status subset replaces the grid rows; click Reset ⇒ the footer returns to `100 of 100 tasks` and both seed records return.
+3. Click Kanban ⇒ Planned, In progress, Blocked and Done columns render; the same filtered task set is used, so Done starts empty.
+4. Click Gantt ⇒ task table and dated bars render for the filtered set over September 2026.
+5. Click Scheduler ⇒ resource timeline appears with Ava, Noah, Leo, Maya and Nina resources and events for the current task set.
+6. Click Calendar ⇒ September 2026 month layout displays the same events. Return to Grid ⇒ filter and task count remain consistent.
 
 **Visual checks:** Active tab is distinguishable and aria-selected is correct. Grid/timeline fills its region without blank overlay; labels and avatars fit; events align with their dates. Calendar may legitimately need its own internal scroll.
 
-**Automation/readiness:** Use tablist `Planning view` and exact tab names (source lower-case; CSS may capitalize). Wait for .planning-demo__grid plus view-specific bars/cards/events; compare stable IDs in rendered/public model, not all DOM nodes against 60.
+**Automation/readiness:** Use tablist `Planning view` and exact lower-case tab names. Wait for a positive-height `.planning-demo__grid-stage` plus view-specific bars/cards/events; compare stable IDs in rendered/public model, not all DOM nodes against 100.
 
 ### PLAN-02 — Search, no results and filter persistence across views (P0)
 
@@ -64,7 +65,7 @@ Existing [docs suite](../demo-experience.spec.ts) covers planning selection, lay
 
 ### PLAN-03 — Edit one filtered/sorted row and preserve its identity across views (P0)
 
-**Evidence:** Source-derived; not executed in this review.
+**Evidence:** Executed in the docs host: quick-search isolation, committed task-name edit, stable task-003 Kanban card assertion and Reset restoration all passed.
 
 **Setup/reset:** Reload; search `API integration` to isolate task-003.
 
@@ -80,19 +81,19 @@ Existing [docs suite](../demo-experience.spec.ts) covers planning selection, lay
 
 ### PLAN-04 — Status, progress, read-only columns and selection (P1)
 
-**Evidence:** Source-derived; not executed in this review.
+**Evidence:** Executed in the docs host: selecting one visible row updated the footer to `1 selected`; quick search narrowed to Maya's tasks and cleared back to the full fixture; full screen entered and Escape restored the workspace. Status, progress, read-only-column and bulk-selection variants remain source-derived.
 
 **Setup/reset:** Reload; use API integration.
 
 1. Edit Status from In progress to Blocked ⇒ badge changes and task appears in Blocked in Kanban.
 2. Return Grid and edit Progress to 75 ⇒ displayed progress and Kanban progress agree. Enter out-of-range values -10 and 110 in separate attempts ⇒ canonical committed progress is clamped to 0 and 100 where the editor accepts the values.
 3. Try editing Priority, Due date, Budget and Activity time ⇒ read-only cells do not commit a change.
-4. Select one row checkbox ⇒ footer reports 1 selected and header is mixed. Select header ⇒ all 60 currently visible tasks selected; clear header ⇒ no selected suffix.
+4. Select one row checkbox ⇒ footer reports 1 selected and header is mixed. Select header ⇒ all 100 currently visible tasks selected; clear header ⇒ no selected suffix.
 5. Change Status of a visible task to Done with default filter active ⇒ it leaves filtered views but remains in canonical total; removing Status filter reveals it.
 
 **Visual checks:** Checkbox states are clearly distinct; selection stays in its 48 px pinned column, no unwanted filter icon there. Progress rendering does not exceed its cell.
 
-**Automation/readiness:** Use row-select checkbox within located record; assert .planning-demo__footer. Record editor validation behavior separately from canonical clamp, rather than requiring invalid text to be accepted.
+**Automation/readiness:** Use row-select checkbox within located record; assert .planning-demo\_\_footer. Record editor validation behavior separately from canonical clamp, rather than requiring invalid text to be accepted.
 
 ### PLAN-05 — Structured column filters compose and clear (P1)
 
@@ -112,11 +113,11 @@ Existing [docs suite](../demo-experience.spec.ts) covers planning selection, lay
 
 ### PLAN-06 — Kanban movement updates grid status (P0)
 
-**Evidence:** Source-derived; not executed in this review.
+**Evidence:** Executed in the docs host: task-003 was dragged from In progress to Blocked, then the Grid displayed its Blocked status while the search still isolated that same task.
 
 **Setup/reset:** Reload; choose Kanban; locate API integration in In progress.
 
-1. Drag API integration to Blocked ⇒ card moves once, column counts update and total stays 60 visible/100 total.
+1. Drag API integration to Blocked ⇒ card moves once, column counts update and total stays 100 visible/100 total.
 2. Return Grid and locate the task ⇒ Status is Blocked with same owner/name/dates.
 3. Return Kanban and reorder the card within Blocked ⇒ relative order changes without changing owner/status or duplicating the record.
 4. Reload ⇒ original In progress status/order return.
@@ -127,7 +128,7 @@ Existing [docs suite](../demo-experience.spec.ts) covers planning selection, lay
 
 ### PLAN-07 — Gantt move and resize synchronize dates (P0)
 
-**Evidence:** Source-derived; not executed in this review.
+**Evidence:** Executed in the docs host: task-003's Gantt bar moved and its end handle resized. The same task then rendered in Scheduler and Calendar.
 
 **Setup/reset:** Reload; search API integration then choose Gantt. Original interval Sep 7 2026 08:00–17:00 UTC, 9h.
 
@@ -143,19 +144,19 @@ Existing [docs suite](../demo-experience.spec.ts) covers planning selection, lay
 
 ### PLAN-08 — Scheduler and Calendar edit the shared task (P0)
 
-**Evidence:** Source-derived; not executed in this review.
+**Evidence:** Executed in the docs host: moving task-003 by one Scheduler time slot changed its stable `data-event-scheduler-start-slot`; the same task then remained visible in Calendar. Calendar is intentionally read-only in this workspace configuration.
 
 **Setup/reset:** Reload; search API integration; choose Scheduler.
 
-1. Move event to a later valid slot on Ava resource ⇒ canonical owner becomes Ava and start/end move together.
+1. Move event to a later valid Scheduler time slot ⇒ its canonical start/end move together; assert the stable start-slot attribute or canonical date, rather than assuming a day changes.
 2. Resize event to a later end ⇒ duration changes, with no negative or zero interval.
 3. Open event editor, rename to `API integration scheduler QA` and set Blocked ⇒ save; Grid, Kanban and Gantt reflect those fields for task-003.
-4. Choose Calendar and move the event to another day ⇒ returning Scheduler and Gantt shows updated dates.
+4. Choose Calendar ⇒ the same task remains visible at its updated interval. Calendar is read-only here, so a drag must not be an editing test step.
 5. Inspect create/delete commands ⇒ this planning scheduler has allowCreate=false and allowDelete=false; no new/deleted task should result from attempted empty-slot create or delete shortcut.
 
 **Visual checks:** Resource labels, event title, status and date placement remain coherent; collisions are not marked as errors because planning conflicts are disabled.
 
-**Automation/readiness:** Use event ID task-003 and freeze timezone UTC. Both scheduler views use event-changed handler; keyboard shortcuts are disabled in this demo. Do not port standalone scheduler create/delete expectations.
+**Automation/readiness:** Use event ID task-003 and freeze timezone UTC. The Scheduler supports move and resize; Calendar is configured read-only. Both views use the event-changed handler; keyboard shortcuts are disabled in this demo. Do not port standalone scheduler create/delete expectations.
 
 ### PLAN-09 — Full screen and responsive visual continuity (P1)
 
@@ -174,14 +175,14 @@ Existing [docs suite](../demo-experience.spec.ts) covers planning selection, lay
 
 ### PLAN-10 — Context-menu deletion follows filtered task identity (P1)
 
-**Evidence:** Source-derived; not executed in this review. The demo configures the `row.delete` handler in [formatting.ts](../../../../revogrid-demos/pro-advanced-planning/src/data/formatting.ts); actual menu availability must be verified in the docs before automating this flow.
+**Evidence:** Executed in the docs host: task-003 was quick-search isolated, the visible context menu opened, **Rows** expanded, and **Delete row(s)** removed it. Reset restored the seed fixture. The demo configures the `row.delete` handler in [formatting.ts](../../../../revogrid-demos/pro-advanced-planning/src/data/formatting.ts).
 
 **Setup/reset:** Reload; search `API integration`, isolating task-003. This is disposable local fixture data.
 
 1. Open its row/cell context menu ⇒ menu belongs to the selected record and is not clipped by the pinned columns or docs shell.
 2. Choose the visible row-delete command ⇒ task-003 is removed from canonical tasks, total becomes 99, and selected-count state clears.
 3. Clear search and visit Kanban/Gantt/Scheduler/Calendar ⇒ no task/card/event with task-003 remains; unrelated task-004 Authentication still exists.
-4. Reload ⇒ 100 canonical tasks return with default 60-task filtered view and API integration restored.
+4. Reload or click Reset ⇒ 100 canonical tasks return and API integration is restored.
 
 **Visual checks:** No stale selection outline, orphan timeline bar or ghost Kanban card remains after deletion; empty filtered results leave search and tabs usable.
 

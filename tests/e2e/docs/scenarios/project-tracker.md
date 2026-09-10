@@ -8,7 +8,7 @@ Route: `/demo/color`. Catalog ID: `project-tracker`.
 
 Source reviewed on 2026-09-08 against docs commit `b0c0bd9f851772dfcd30549d6d0a71ab84be12f6`. Pre-existing dirty `.vitepress/theme/DemoNavigation.vue` and `.vitepress/theme/style.scss` are part of this working tree. Code cases below are source-derived. Browser observations were supplied by the coordinating root reviewer and are limited to the actions explicitly listed below; they do not mark entire multi-step cases passed.
 
-P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. No automated tests or demo fixes were added during this review.
+P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. Automated coverage is recorded below; no demo fixes were added during this review.
 
 Hard reload restores 16 seeded projects. Default grouping uses sections such as New requests, Under review, Launch ready and Blocked. This is the Pro project tracker; do not confuse it with the Core Row Grouping page. New project dialog has a prefilled draft, and records are in-memory.
 
@@ -85,12 +85,13 @@ Visual checks and automation notes: resolve rows by ID/title after grouping, nev
 5. Reopen and add Text again → exactly one Text column returns initialized from summary, not the removed E2E note.
 
 Visual checks and automation notes: use Add project column aria-label and popup item Text. Horizontal scroll and the pinned plus trigger remain aligned; original Project name and AI Executive Summary columns must not be removed.
+
 ## E2E readiness and visual acceptance
 
 Target `.project-tracker-grid`, `project-tracker-toolbar`, `[data-toolbar-action]`, `.project-modal`, and fixture title. Custom toolbar dispatches project-tracker-toolbar-action; assertions should validate UI outcome rather than merely event firing. First browser automation should pin current bulk-action behavior to project-tracker shared helpers.
 
 Repeat initial and primary interaction states in light and dark docs themes at 1440×900 and 390×844. Check readable labels, visible focus, contained grid scrolling, reachable controls, and no page-wide horizontal overflow. Initial dark desktop and narrow light views were subsequently inspected by the coordinator; repeat the deeper interaction states in those views during E2E. The central matrix records baseline findings and supersedes earlier pending visual notes.
 
-Current coverage: [docs shell suite](../demo-experience.spec.ts) checks the canonical shell; it does not establish the workflow cases above. [Checkbox styling checks](../../../../revogrid-demos/pro-project-table/tests/project-checkbox-styles.test.mjs) exist but do not cover creating or bulk-updating projects in docs.
+Automated docs evidence: [Core/Pro docs suite](../core-pro-scenarios.spec.ts) passed TRACKER-001 initial fixture/toolbar controls, TRACKER-002 creation and cancellation, TRACKER-003 selection/Mark ready recovery, and the TRACKER-004 visible grouping, sort and reversible owner-column controls on 2026-09-10, including its narrow-layout check. [Checkbox styling checks](../../../../revogrid-demos/pro-project-table/tests/project-checkbox-styles.test.mjs) cover additional styling contracts.
 
 References: [route](../../../../demo/color.md), [view](../../../../revogrid-demos/pro-project-table/src/project-table.vue), [toolbar](../../../../revogrid-demos/pro-project-table/src/project-tracker/toolbar.ts), [seed data/draft](../../../../revogrid-demos/pro-project-table/src/project-tracker/data.ts), [shared contracts](../../../../revogrid-demos/pro-project-table/src/project-tracker.shared.ts).

@@ -100,7 +100,7 @@ Purpose: catch clipped controls, overlay bleed and reserved empty sidebar space.
 
 Automation: use the four exact viewport sizes above; compare settled geometry/screenshots after data readiness. Separate document overflow from intentional grid overflow. Do not approve today's screenshot as a baseline until the findings below are resolved. Color values alone do not establish readability.
 
-Evidence: [matrix](README.md#viewport-and-theme-evidence) specifies inspected combinations. Examples transparency, intermediate gutter and two toolbar collisions are [open findings](observed-issues.md). Complete theme-transition/state-preservation and all-overlay matrix remain unexecuted.
+Evidence: [matrix](README.md#viewport-and-theme-evidence) specifies inspected combinations. The drawer surface, intermediate gutter, and toolbar collisions are resolved in [observed issues](observed-issues.md). Complete theme-transition/state-preservation and all-overlay matrix remain unexecuted.
 
 ### SHELL-08 · P1 · Navigation lifecycle and isolated state
 

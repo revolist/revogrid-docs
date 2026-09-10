@@ -8,7 +8,7 @@ Route: `/demo/excel`. Catalog ID: `excel`.
 
 Source reviewed on 2026-09-08 against docs commit `b0c0bd9f851772dfcd30549d6d0a71ab84be12f6`. Pre-existing dirty `.vitepress/theme/DemoNavigation.vue` and `.vitepress/theme/style.scss` are part of this working tree. Code cases below are source-derived. Browser observations were supplied by the coordinating root reviewer and are limited to the actions explicitly listed below; they do not mark entire multi-step cases passed.
 
-P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. No automated tests or demo fixes were added during this review.
+P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. Automated coverage is recorded below; no demo fixes were added during this review.
 
 Hard reload creates Budget with 40 fixture rows, formula columns and pinned totals. Only Budget tab is rendered in this docs component; do not write scenarios for hidden scenario sheets/import controls merely because helper functions exist. The demo starts an immediate feed update and timers every 1400ms (feed) and 1800ms (presence). Future E2E must install a controllable clock before navigation, permit mount, then freeze/advance deliberately. Without clock control read current values before editing; fixed seed amounts are unsafe.
 
@@ -86,12 +86,13 @@ Precondition: fresh Budget with feed/presence timers controlled; no sorting, row
 6. Undo the committed formula change → F1 returns to =SUM(C1:E1) and dependent values recalculate.
 
 Visual checks and automation notes: formula input focus and reference highlights must stay legible while scrolling. Select by owner plus total prop, because a separate readonly trend column also has Q1 label. Controls live under spreadsheet-formula-host; commit/cancel must be tested as user input, not source assignment.
+
 ## E2E readiness and visual acceptance
 
 Concrete targets already exist: `spreadsheet-workbench`, `spreadsheet-export`, `spreadsheet-sheet-budget`, `spreadsheet-formula-host`, `spreadsheet-workbook-status`, plus `.spreadsheet-grid`. Deterministic time control is required before asserting amounts, flashes or history counters. Test one user workflow at a time and avoid live simulation racing edits.
 
 Repeat initial and primary interaction states in light and dark docs themes at 1440×900 and 390×844. Check readable labels, visible focus, contained grid scrolling, reachable controls, and no page-wide horizontal overflow. Initial dark desktop and narrow light views were subsequently inspected by the coordinator; repeat the deeper interaction states in those views during E2E. The central matrix records baseline findings and supersedes earlier pending visual notes.
 
-Current coverage: [docs shell suite](../demo-experience.spec.ts) checks the canonical shell; it does not establish the workflow cases above. [Spreadsheet unit tests](../../../../revogrid-demos/pro-excel/tests/unit/spreadsheet/) cover export, presentation, simulation and pinned summaries; current docs shell tests do not prove the workbook editing/history workflow.
+Automated docs evidence: [Core/Pro docs suite](../core-pro-scenarios.spec.ts) passed on 2026-09-10 for EXCEL-002 Undo/Redo, EXCEL-003 negative-value rejection with its visible `Enter a non-negative number.` indicator and readonly trend preservation, EXCEL-007 formula commit/Escape recovery/scroll revisit/Undo, and the rendered export control from EXCEL-006, alongside workbook/formula-bar load assertions. [Spreadsheet unit tests](../../../../revogrid-demos/pro-excel/tests/unit/spreadsheet/) cover formulas, presentation and simulation details.
 
 References: [route](../../../../demo/excel.md), [Vue view and timers](../../../../revogrid-demos/pro-excel/src/excel.vue), [seed formulas](../../../../revogrid-demos/pro-excel/src/spreadsheet/data.ts), [columns and readonly](../../../../revogrid-demos/pro-excel/src/spreadsheet/workbook.ts), [clipboard policy](../../../../revogrid-demos/pro-excel/src/spreadsheet/config.ts), [feed simulation](../../../../revogrid-demos/pro-excel/src/spreadsheet.feed.ts).

@@ -17,9 +17,9 @@ The docs embeds the shift scheduler with Calendar, Resource and Table workspaces
 
 Baseline screenshot coverage also includes **1440×900/dark and 1280×720/light** for this route, as recorded by the central reviewer. Baseline inspection does not imply that every interaction below ran at both settings; narrow-screen evidence is tracked centrally.
 
-Central reviewer opened and inspected screenshots at **1280×720, light theme** on 2026-09-08. Initial Week was September 7–13 with five named events: Design Workshop and Client Strategy showed conflict presentation; Release Prep was locked. Table showed five rows. Resource showed four people and Onboarding on Jamie, 08:00–12:00. Next changed to September 14–20 / Week 38. Today then Month showed September; Day from that month state showed September 1. Year showed a 2026 / 12-month overview label over a month-like grid, matching the source's year→month plugin mapping. Open preset was selected, but resulting working-time policy was not independently checked.
+Central reviewer opened and inspected screenshots at **1280×720, light theme** on 2026-09-08. Initial Week was September 7–13 with five named events: Design Workshop and Client Strategy showed conflict presentation; Release Prep was locked. Table showed five rows. Resource showed four people and Onboarding on Jamie, 08:00–12:00. Next changed to September 14–20 / Week 38. Today then Month showed September; Day from that month state showed September 1. Year now labels its month-shaped grid as January 2026 with Calendar month · year navigation, matching the year-at-a-time plugin mapping. Open preset was selected, but resulting working-time policy was not independently checked.
 
-**Observed issue:** At 1280×720, header period text overlapped the Day/Week/Month/Year controls. Track this in the central observed-issues record; do not mark responsive header acceptance as passed. Event editing, dragging, create/delete, locked-operation prevention and conflict resolution were not exercised.
+**Resolved:** At 1280×720, the compact header layout keeps period text, Day/Week/Month/Year controls, and calendar preset in separate readable rows. Event editing, dragging, create/delete, locked-operation prevention and conflict resolution remain separate scenarios.
 
 ## Source and existing coverage
 
@@ -32,7 +32,7 @@ Central reviewer opened and inspected screenshots at **1280×720, light theme** 
 
 ### SCHED-01 — Initial weekly calendar (P0)
 
-**Evidence:** Executed initial weekly screenshot: Sep 7–13, five events, visible conflict/locked presentation. Frozen-clock reproducibility and every data assertion remain source-derived.
+**Evidence:** Clean docs-host E2E run: the Calendar/Week workspace loaded with the Weekday preset, Scheduler workspace/view controls and grid. Stable `shift-sam-locked` and `shift-alex-mon-conflict` attributes exposed locked and conflict presentation. Frozen-clock reproducibility and full fixture-count assertions remain source-derived.
 
 **Setup/reset:** Fresh context; freeze 2026-09-08 10:00 UTC before module load for future E2E; open route.
 
@@ -46,7 +46,7 @@ Central reviewer opened and inspected screenshots at **1280×720, light theme** 
 
 ### SCHED-02 — Calendar, Resource and read-only Table (P0)
 
-**Evidence:** Executed Table (five rows) and Resource (four people; Jamie Onboarding 08:00–12:00). Table readonly/filter interaction not executed.
+**Evidence:** Clean docs-host E2E run: Resource selected and exposed Jamie Chen; Table selected and rendered the `Onboarding Session` fixture; Calendar restored the scheduler grid. Table readonly/filter interaction not executed.
 
 **Setup/reset:** Fresh current week; capture five base event IDs and titles.
 
@@ -61,7 +61,7 @@ Central reviewer opened and inspected screenshots at **1280×720, light theme** 
 
 ### SCHED-03 — Day, Week, Month, Year and period navigation (P0)
 
-**Evidence:** Executed Resource Next→Sep14–20/Week38; Today then Month→September, Day→Sep1, Year→2026 label/month-like grid. Complete per-view round-trip matrix remains source-derived.
+**Evidence:** Clean docs-host E2E run: Day and Week active states changed through their visible controls; Year exposed the `January 2026` year-navigation heading; Month and Today returned to an available scheduler grid. Complete per-view round-trip matrix remains source-derived.
 
 **Setup/reset:** Fresh route with frozen date; no edits.
 
@@ -76,7 +76,7 @@ Central reviewer opened and inspected screenshots at **1280×720, light theme** 
 
 ### SCHED-04 — Calendar presets and working-time shading (P0)
 
-**Evidence:** Executed selecting Open preset only; outcome/slot-policy assertions not checked. Training and restore-to-Weekday remain source-derived.
+**Evidence:** Clean docs-host E2E run: Open changed the preset while the Calendar grid remained usable; Resource stayed selected through the Training change; Weekday restored the default preset and Calendar rendered the scheduler grid again. Precise working-time and holiday slot-policy assertions remain source-derived.
 
 **Setup/reset:** Fresh Week; capture current range title.
 
@@ -90,7 +90,7 @@ Central reviewer opened and inspected screenshots at **1280×720, light theme** 
 
 ### SCHED-05 — Edit event and verify Table projection (P0)
 
-**Evidence:** Source-derived; not executed in this review.
+**Evidence:** Executed in the docs host: the editable `shift-alex-mon-morning` event opened its built-in editor on double-click, saved `Scheduler QA appointment`, and the Table workspace projected that exact saved title.
 
 **Setup/reset:** Fresh Week; target editable shift-alex-mon-morning, resource Jamie Chen despite historical ID name.
 
@@ -106,7 +106,7 @@ Central reviewer opened and inspected screenshots at **1280×720, light theme** 
 
 ### SCHED-06 — Move/resize and locked-event protection (P0)
 
-**Evidence:** Source-derived; not executed in this review.
+**Evidence:** Executed in the docs host Resource timeline: editable `shift-alex-mon-morning` moved and resized through its visible timeline controls. The locked `shift-sam-locked` interval remained unchanged after the same drag attempt. Calendar-week wrapper drags are not a substitute for the Resource timeline controls.
 
 **Setup/reset:** Fresh Week or Resource; select an editable event and record original interval/resource.
 
@@ -121,7 +121,7 @@ Central reviewer opened and inspected screenshots at **1280×720, light theme** 
 
 ### SCHED-07 — Create, cancel and delete within a demo session (P1)
 
-**Evidence:** Source-derived; not executed in this review.
+**Evidence:** Executed in the docs host Resource timeline: clicking an available Alex slot opened the built-in create editor; Cancel closed it without adding an event. Saving `SCHED-07 created event` created one `created-event-*` bar, and its editor Delete action removed it.
 
 **Setup/reset:** Fresh Week; choose an empty valid slot on a working day.
 
@@ -137,7 +137,7 @@ Central reviewer opened and inspected screenshots at **1280×720, light theme** 
 
 ### SCHED-08 — Conflict markers and selection (P1)
 
-**Evidence:** Observed conflict styling on Design Workshop/Client Strategy; did not execute selection gestures or create/resolve overlaps.
+**Evidence:** Executed in the docs host: a conflict-marked event exposed the visible selected state, then Meta-selection preserved it while selecting a second stable event. Create/resolve-overlap gestures remain unexecuted.
 
 **Setup/reset:** Fresh Week with source fixture; choose unlocked event.
 
@@ -152,7 +152,7 @@ Central reviewer opened and inspected screenshots at **1280×720, light theme** 
 
 ### SCHED-09 — Responsive and theme across all workspaces (P1)
 
-**Evidence:** Observed header period/control overlap at 1280×720/light. Header acceptance is not passed at 1280×720/light. Baseline dark/light screenshots were inspected; the full workspace/view/editor interaction matrix remains future coverage, with narrow-screen evidence tracked centrally.
+**Evidence:** Executed in the docs host at 390×844/dark: Resource, Table and Calendar workspaces each became active with visible content and no document-level horizontal overflow. The 1280×720 regression also confirms the period heading and Scheduler view controls do not intersect. Baseline light screenshots were inspected; the full view/editor interaction matrix remains future coverage.
 
 **Setup/reset:** Fresh desktop/light; separate dark and 390×844 contexts.
 
