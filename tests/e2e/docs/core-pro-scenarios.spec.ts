@@ -15,15 +15,15 @@ test.describe('Core and Pro demo scenarios', () => {
   test('grid at scale changes dataset and resets a saved view', async ({ page }) => {
     await openDemo(page, '/demo/grid-at-scale', '.hr-scale-grid')
     const source = page.locator('.hr-toolbar select').first()
-    await expect(source).toHaveValue('10000x100')
+    await expect(source).toHaveValue('100000')
     await expect(page.getByRole('region', { name: 'Browser performance metrics' })).toContainText(
-      '10,000 × 100',
+      '100,000 × 100',
     )
 
-    await source.selectOption('1000x100')
+    await source.selectOption('1000')
     await expect(page.locator('.hr-loading-overlay')).toBeHidden()
     await expect(page.getByRole('region', { name: 'Browser performance metrics' })).toContainText(
-      '1,000 × 100',
+      '1,000 × 1,000',
     )
     await page.getByRole('button', { name: 'Save view' }).click()
     await expect(page.locator('.hr-workspace-status')).toContainText('Saved locally')

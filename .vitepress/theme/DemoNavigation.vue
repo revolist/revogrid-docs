@@ -167,7 +167,6 @@ const featureGroups = [
       createItem('project-portfolio', 'Row Grouping', '/demo/project-portfolio', 'chart', [
         'Project portfolio',
       ]),
-      createItem('project-tracker', 'Project tracker', '/demo/color', 'listCheck', ['Color']),
       createItem('tree-data', 'Tree data', '/demo/tree-data', 'tree'),
       createItem('filtering', 'Advanced filtering', '/demo/filtering', 'filter'),
       createItem('infinity-scroll', 'Server-side scrolling', '/demo/infinity-scroll', 'server'),
@@ -177,6 +176,7 @@ const featureGroups = [
         'Row master',
       ]),
       createItem('audit-history', 'Audit history', '/demo/audit-history', 'edit'),
+      createItem('project-tracker', 'Project tracker', '/demo/color', 'listCheck', ['Color']),
       createItem('excel', 'Collaboration', '/demo/excel', 'users', ['Excel', 'Spreadsheet']),
     ],
   },

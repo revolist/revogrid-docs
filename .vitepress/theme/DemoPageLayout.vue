@@ -556,7 +556,7 @@ $max-content-width: 1240px;
 }
 @media (max-width: 1099px) {
   .demo-page-layout {
-    padding-top: calc(var(--vp-nav-height, 64px) + 54px);
+    padding-top: 16px;
   }
   .demo-page-header {
     padding-top: 0;

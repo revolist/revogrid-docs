@@ -27,44 +27,84 @@ const sourceFile = (path: string, load: () => Promise<string>): DemoSourceFile =
   load,
 })
 
-const planningSupportingFiles = [
-  sourceFile('pro-advanced-planning/src/planning.tips.ts', () =>
-    import('../../revogrid-demos/pro-advanced-planning/src/planning.tips.ts?raw').then(
+const planningDataFile = (file: string, load: () => Promise<string>) =>
+  sourceFile(`pro-advanced-planning/src/data/${file}`, load)
+
+const planningDataFiles = [
+  planningDataFile('index.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/index.ts?raw').then(
       module => module.default,
     ),
   ),
-  sourceFile('pro-advanced-planning/src/composables/usePlanningWorkspace.ts', () =>
-    import('../../revogrid-demos/pro-advanced-planning/src/composables/usePlanningWorkspace.ts?raw').then(
-      module => module.default,
-    ),
-  ),
-  sourceFile('pro-advanced-planning/src/data/columns.ts', () =>
+  planningDataFile('columns.ts', () =>
     import('../../revogrid-demos/pro-advanced-planning/src/data/columns.ts?raw').then(
       module => module.default,
     ),
   ),
-  sourceFile('pro-advanced-planning/src/data/formatting.ts', () =>
-    import('../../revogrid-demos/pro-advanced-planning/src/data/formatting.ts?raw').then(
-      module => module.default,
-    ),
-  ),
-  sourceFile('pro-advanced-planning/src/data/planning.structured.ts', () =>
-    import('../../revogrid-demos/pro-advanced-planning/src/data/planning.structured.ts?raw').then(
-      module => module.default,
-    ),
-  ),
-  sourceFile('pro-advanced-planning/src/data/fixtures.ts', () =>
+  planningDataFile('fixtures.ts', () =>
     import('../../revogrid-demos/pro-advanced-planning/src/data/fixtures.ts?raw').then(
       module => module.default,
     ),
   ),
-  sourceFile('pro-advanced-planning/src/data/source.ts', () =>
+  planningDataFile('formatting.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/formatting.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  planningDataFile('gantt.config.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/gantt.config.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  planningDataFile('kanban.config.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/kanban.config.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  planningDataFile('planning.structured.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/planning.structured.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  planningDataFile('scheduler.config.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/scheduler.config.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  planningDataFile('selection.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/selection.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  planningDataFile('source.ts', () =>
     import('../../revogrid-demos/pro-advanced-planning/src/data/source.ts?raw').then(
       module => module.default,
     ),
   ),
-  sourceFile('pro-advanced-planning/src/data/workspace.ts', () =>
+  planningDataFile('sync.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/sync.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  planningDataFile('types.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/types.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  planningDataFile('workspace.ts', () =>
     import('../../revogrid-demos/pro-advanced-planning/src/data/workspace.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+] as const
+
+const planningSharedFiles = [
+  sourceFile('composables/useRandomData.ts', () =>
+    import('../../revogrid-demos/composables/useRandomData.ts?raw').then(module => module.default),
+  ),
+  ...planningDataFiles,
+  sourceFile('pro-advanced-planning/src/planning.kanban.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/planning.kanban.ts?raw').then(
       module => module.default,
     ),
   ),
@@ -72,6 +112,51 @@ const planningSupportingFiles = [
     import('../../revogrid-demos/pro-advanced-planning/src/planning.scss?raw').then(
       module => module.default,
     ),
+  ),
+] as const
+
+const gridAtScaleSupportingFiles = [
+  sourceFile('core-free/src/hr-age-indicator.ts', () =>
+    import('../../revogrid-demos/core-free/src/hr-age-indicator.ts?raw').then(module => module.default),
+  ),
+  sourceFile('core-free/src/hr-color-select.ts', () =>
+    import('../../revogrid-demos/core-free/src/hr-color-select.ts?raw').then(module => module.default),
+  ),
+  sourceFile('core-free/src/hr-company-avatar.ts', () =>
+    import('../../revogrid-demos/core-free/src/hr-company-avatar.ts?raw').then(module => module.default),
+  ),
+  sourceFile('core-free/src/hr-performance.ts', () =>
+    import('../../revogrid-demos/core-free/src/hr-performance.ts?raw').then(module => module.default),
+  ),
+  sourceFile('core-free/src/hr-themes.ts', () =>
+    import('../../revogrid-demos/core-free/src/hr-themes.ts?raw').then(module => module.default),
+  ),
+  sourceFile('core-free/src/hr-workspace.ts', () =>
+    import('../../revogrid-demos/core-free/src/hr-workspace.ts?raw').then(module => module.default),
+  ),
+  sourceFile('core-free/src/sys-data/hr.columns.ts', () =>
+    import('../../revogrid-demos/core-free/src/sys-data/hr.columns.ts?raw').then(module => module.default),
+  ),
+  sourceFile('core-free/src/sys-data/hr.data.ts', () =>
+    import('../../revogrid-demos/core-free/src/sys-data/hr.data.ts?raw').then(module => module.default),
+  ),
+  sourceFile('core-free/src/sys-data/hr.data.generator.ts', () =>
+    import('../../revogrid-demos/core-free/src/sys-data/hr.data.generator.ts?raw').then(module => module.default),
+  ),
+  sourceFile('core-free/src/hr.css', () =>
+    import('../../revogrid-demos/core-free/src/hr.css?raw').then(module => module.default),
+  ),
+] as const
+
+const gridAtScaleVueFiles = [
+  sourceFile('composables/useRandomData.ts', () =>
+    import('../../revogrid-demos/composables/useRandomData.ts?raw').then(module => module.default),
+  ),
+] as const
+
+const gridAtScaleVanillaFiles = [
+  sourceFile('core-free/src/hr-loading.ts', () =>
+    import('../../revogrid-demos/core-free/src/hr-loading.ts?raw').then(module => module.default),
   ),
 ] as const
 
@@ -87,7 +172,12 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        ...planningSupportingFiles,
+        sourceFile('pro-advanced-planning/src/composables/usePlanningWorkspace.ts', () =>
+          import('../../revogrid-demos/pro-advanced-planning/src/composables/usePlanningWorkspace.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        ...planningSharedFiles,
       ],
     },
     ts: {
@@ -100,7 +190,12 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        ...planningSupportingFiles,
+        sourceFile('pro-advanced-planning/src/planning.tips.ts', () =>
+          import('../../revogrid-demos/pro-advanced-planning/src/planning.tips.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        ...planningSharedFiles,
       ],
     },
     react: {
@@ -113,7 +208,12 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        ...planningSupportingFiles,
+        sourceFile('pro-advanced-planning/src/planning.tips.ts', () =>
+          import('../../revogrid-demos/pro-advanced-planning/src/planning.tips.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        ...planningSharedFiles,
       ],
     },
     angular: {
@@ -126,7 +226,12 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        ...planningSupportingFiles,
+        sourceFile('pro-advanced-planning/src/planning.tips.ts', () =>
+          import('../../revogrid-demos/pro-advanced-planning/src/planning.tips.ts?raw').then(
+            module => module.default,
+          ),
+        ),
+        ...planningSharedFiles,
       ],
     },
   },
@@ -139,9 +244,8 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
         sourceFile('core-free/src/hr.vue', () =>
           import('../../revogrid-demos/core-free/src/hr.vue?raw').then(module => module.default),
         ),
-        sourceFile('core-free/src/hr.css', () =>
-          import('../../revogrid-demos/core-free/src/hr.css?raw').then(module => module.default),
-        ),
+        ...gridAtScaleSupportingFiles,
+        ...gridAtScaleVueFiles,
       ],
     },
     ts: {
@@ -152,9 +256,8 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
         sourceFile('core-free/src/hr.ts', () =>
           import('../../revogrid-demos/core-free/src/hr.ts?raw').then(module => module.default),
         ),
-        sourceFile('core-free/src/hr.css', () =>
-          import('../../revogrid-demos/core-free/src/hr.css?raw').then(module => module.default),
-        ),
+        ...gridAtScaleSupportingFiles,
+        ...gridAtScaleVanillaFiles,
       ],
     },
     react: {
@@ -167,9 +270,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('core-free/src/hr.css', () =>
-          import('../../revogrid-demos/core-free/src/hr.css?raw').then(module => module.default),
-        ),
+        ...gridAtScaleSupportingFiles,
       ],
     },
     angular: {
@@ -182,9 +283,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('core-free/src/hr.css', () =>
-          import('../../revogrid-demos/core-free/src/hr.css?raw').then(module => module.default),
-        ),
+        ...gridAtScaleSupportingFiles,
       ],
     },
   },

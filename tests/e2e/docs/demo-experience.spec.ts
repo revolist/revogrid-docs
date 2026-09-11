@@ -372,6 +372,24 @@ test('grid and Kanban content stays aligned inside its cells', async ({ page }) 
   expect(kanbanMetrics.cards.every(width => width >= 190)).toBe(true)
 })
 
+test('planning Kanban editor reuses the portrait shown on its card', async ({ page }) => {
+  await page.goto('/demo/')
+  await page.getByRole('tab', { name: 'Kanban' }).click()
+
+  const card = page.locator('.kanban-card').filter({ hasText: 'API integration' })
+  await expect(card).toBeVisible()
+  const cardPortrait = card.locator('.planning-card__avatar img')
+  await expect(cardPortrait).toBeVisible()
+
+  await card.dblclick()
+  const dialog = page.getByRole('dialog')
+  const editorPortrait = dialog.locator(
+    '[data-kanban-card-editor-row="assignees"] .rv-resource-picker__chip img',
+  )
+  await expect(editorPortrait).toBeVisible()
+  await expect(editorPortrait).toHaveAttribute('src', await cardPortrait.getAttribute('src'))
+})
+
 test('planning quick search clears without leaving stale workspace results', async ({ page }) => {
   await page.goto('/demo/')
   const search = page.getByRole('searchbox', { name: 'Quick search tasks' })

@@ -10,20 +10,20 @@ Source reviewed on 2026-09-08 against docs commit `b0c0bd9f851772dfcd30549d6d0a7
 
 P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. Automated coverage is recorded below; no demo fixes were added during this review.
 
-Use a fresh browser context or remove only `revogrid:grid-at-scale:workspace:v1` before first navigation. Default is 10,000 rows × 100 columns. The demo has persisted view settings and generated data, so capture the chosen row's identity and initial value instead of relying on a random employee name. Reset view restores the default dataset and theme. Wait for the loading overlay to disappear before interacting.
+Use a fresh browser context or remove only `revogrid:grid-at-scale:workspace:v1` before first navigation. Default is 100,000 rows × 100 columns. The demo has persisted view settings and generated data, so capture the chosen row's identity and initial value instead of relying on a random employee name. Reset view restores the default dataset and theme. Wait for the loading overlay to disappear before interacting.
 
 ## Recorded browser observation
 
 The coordinating reviewer additionally inspected the initial route at 1440×900 in dark theme and 390×844 in light theme. Consult the central evidence matrix for the final per-viewport findings; the detailed interactions below were not automatically repeated in those viewports.
 
-Root reviewer opened and screenshotted this route in light theme at 1280×720. Selected 1,000 rows × 100 columns and saw the metric update; clicked Save view and Reset view. Saved-state persistence across reload, date editing, and deep virtualization were not exercised.
+Root reviewer opened and screenshotted this route in light theme at 1280×720; clicked Save view and Reset view. Saved-state persistence across reload, date editing, and deep virtualization were not exercised.
 
 ## Scenarios
 
 ### SCALE-001 · P0 · Default dataset completes loading
 
-1. Open the route with no saved workspace → Data Source selects `10,000 rows × 100 columns`; grid and performance panel render.
-2. Observe data preparation → percentage/loading feedback is shown during generation and removed when ready; dataset selector is usable again.
+1. Open the route with no saved workspace → Data Source selects `100,000 rows × 100 columns`; grid and performance panel render.
+2. Observe data preparation → `Preparing rows…` is shown during generation and removed when ready; dataset selector is usable again.
 3. Scroll vertically down several viewports and back → different employee records render and the original first record returns; no persistent blank strip remains.
 
 Visual checks and automation notes: Check 36px rows, grouped month headers, company/avatar rendering and scroll alignment. Performance numbers are live browser measurements; require a valid displayed measurement or documented unavailable state, never a fixed millisecond/FPS value.
@@ -32,14 +32,14 @@ Visual checks and automation notes: Check 36px rows, grouped month headers, comp
 
 1. Select `100 rows × 1,000 columns` → loading resolves and data source uses 100 records with 1,000 columns.
 2. Scroll horizontally well beyond the initial month headers → later month columns render with matching body cells and no duplicate headers.
-3. Select `1,000 rows × 100 columns` → the previous thousand-column shape is replaced by 100 columns and 1,000 rows.
-4. Return to `10,000 rows × 100 columns` → original shape restores and grid remains editable.
+3. Select `1,000 rows × 1,000 columns` → the data source contains 1,000 records with 1,000 columns.
+4. Return to `100,000 rows × 100 columns` → original shape restores and grid remains editable.
 
 Visual checks and automation notes: Use the visible select labels and public source/column data for total-size assertions. Rendered cell counts are intentionally smaller. Run the million-row option separately as P1 resource-intensive coverage; do not make a low-memory browser crash look like a normal loading pass.
 
 ### SCALE-003 · P0 · Save, reload, and reset view
 
-1. Select `1,000 rows × 100 columns`, choose a different Theme option, and resize a visible column → status becomes Unsaved changes for tracked edits.
+1. Select `1,000 rows × 1,000 columns`, choose a different Theme option, and resize a visible column → status becomes Unsaved changes for tracked edits.
 2. Click Save view → status says Saved locally.
 3. Reload → selected dataset/theme and saved column dimensions restore.
 4. Click Reset view → status says View reset, 10,000-row default returns, and saved view is cleared.

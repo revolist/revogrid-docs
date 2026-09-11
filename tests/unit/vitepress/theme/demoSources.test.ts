@@ -4,6 +4,7 @@ import test from 'node:test'
 import { PRODUCT_CATALOG } from '../../../../commercial/productCatalog'
 import {
   DEMO_SOURCE_REGISTRY,
+  getDemoSources,
   getRegisteredDemoSourcePaths,
 } from '../../../../.vitepress/theme/demoSources'
 
@@ -30,6 +31,28 @@ test('points every source panel file at an existing local source file', () => {
       sourcePath,
     )
   }
+})
+
+test('registers every Grid at Scale source module under its consuming framework', () => {
+  const sharedFiles = [
+    'hr-age-indicator.ts',
+    'hr-color-select.ts',
+    'hr-company-avatar.ts',
+    'hr-performance.ts',
+    'hr-themes.ts',
+    'hr-workspace.ts',
+    'hr.columns.ts',
+    'hr.data.ts',
+    'hr.data.generator.ts',
+    'hr.css',
+  ]
+  const files = (framework: 'vue' | 'ts' | 'react' | 'angular') =>
+    DEMO_SOURCE_REGISTRY['grid-at-scale'][framework].files.map(file => file.label)
+
+  assert.deepEqual(files('vue'), ['hr.vue', ...sharedFiles, 'useRandomData.ts'])
+  assert.deepEqual(files('ts'), ['hr.ts', ...sharedFiles, 'hr-loading.ts'])
+  assert.deepEqual(files('react'), ['hr.react.tsx', ...sharedFiles])
+  assert.deepEqual(files('angular'), ['hr.angular.ts', ...sharedFiles])
 })
 
 test('keeps the source panel compact and expandable', () => {
@@ -119,6 +142,18 @@ test('releases the demo sidebar layout reservation when navigation is off-canvas
     styles,
     /@media \(max-width: 1099px\)\s*\{[\s\S]*?\.demo-page-class\s*\{[^}]*--vp-sidebar-width: 0px/,
   )
+})
+
+test('keeps tablet demo headers close to the local navigation', () => {
+  const layout = readFileSync(
+    new URL('../../../../.vitepress/theme/DemoPageLayout.vue', import.meta.url),
+    'utf8',
+  )
+  const tabletStyles = layout.match(
+    /@media \(max-width: 1099px\) \{([\s\S]*?)\n\}\n@media \(max-width: 700px\)/,
+  )?.[1]
+  assert.ok(tabletStyles)
+  assert.match(tabletStyles, /\.demo-page-layout\s*\{[^}]*padding-top:\s*16px/)
 })
 
 test('keeps the demo title in flow beside search while the sidebar is off-canvas', () => {
@@ -297,6 +332,47 @@ test('keeps planning tabs simple and leaves only working shared top actions', ()
     /demo-page-header-link\{[^}]*border:1px solid var\(--vp-c-divider\)[^}]*background:var\(--vp-c-bg\)/,
   )
   assert.doesNotMatch(layout, /v-if="demoId !== 'planning'"/)
+})
+
+test('registers every Planning source dependency for the selected framework', () => {
+  const sharedPaths = [
+    'composables/useRandomData.ts',
+    'pro-advanced-planning/src/data/index.ts',
+    'pro-advanced-planning/src/data/columns.ts',
+    'pro-advanced-planning/src/data/fixtures.ts',
+    'pro-advanced-planning/src/data/formatting.ts',
+    'pro-advanced-planning/src/data/gantt.config.ts',
+    'pro-advanced-planning/src/data/kanban.config.ts',
+    'pro-advanced-planning/src/data/planning.structured.ts',
+    'pro-advanced-planning/src/data/scheduler.config.ts',
+    'pro-advanced-planning/src/data/selection.ts',
+    'pro-advanced-planning/src/data/source.ts',
+    'pro-advanced-planning/src/data/sync.ts',
+    'pro-advanced-planning/src/data/types.ts',
+    'pro-advanced-planning/src/data/workspace.ts',
+    'pro-advanced-planning/src/planning.kanban.ts',
+    'pro-advanced-planning/src/planning.scss',
+  ]
+  const planningSources = getDemoSources('planning')
+
+  for (const framework of ['vue', 'ts', 'react', 'angular'] as const) {
+    const paths = planningSources[framework].files.map(file => file.path)
+    for (const path of sharedPaths) assert.ok(paths.includes(path), `${framework}: ${path}`)
+  }
+
+  const vuePaths = planningSources.vue.files.map(file => file.path)
+  assert.ok(
+    vuePaths.includes('pro-advanced-planning/src/composables/usePlanningWorkspace.ts'),
+  )
+  assert.ok(!vuePaths.includes('pro-advanced-planning/src/planning.tips.ts'))
+
+  for (const framework of ['ts', 'react', 'angular'] as const) {
+    assert.ok(
+      planningSources[framework].files
+        .map(file => file.path)
+        .includes('pro-advanced-planning/src/planning.tips.ts'),
+    )
+  }
 })
 
 test('uses native advanced filters, quick search, and plugin-owned badges in the planning grid', () => {
