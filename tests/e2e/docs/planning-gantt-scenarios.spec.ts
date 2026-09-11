@@ -215,11 +215,25 @@ test.describe('docs planning, Gantt and scheduler scenarios', () => {
         bar.evaluate(element => getComputedStyle(element).getPropertyValue('--gantt-bar-width')),
       )
       .not.toBe(initial.width)
+    const committed = await bar.evaluate(element => ({
+      left: getComputedStyle(element).getPropertyValue('--gantt-bar-left'),
+      width: getComputedStyle(element).getPropertyValue('--gantt-bar-width'),
+    }))
 
     for (const view of ['scheduler', 'calendar'] as const) {
       await page.getByRole('tab', { name: view, exact: true }).click()
       await expect(workspace.locator('[data-event-scheduler-event-id="task-003"]')).toBeVisible()
     }
+    await page.getByRole('tab', { name: 'gantt', exact: true }).click()
+    const restoredBar = workspace.locator('.gantt-bar[data-gantt-task-id="task-003"]')
+    await expect
+      .poll(() =>
+        restoredBar.evaluate(element => ({
+          left: getComputedStyle(element).getPropertyValue('--gantt-bar-left'),
+          width: getComputedStyle(element).getPropertyValue('--gantt-bar-width'),
+        })),
+      )
+      .toEqual(committed)
     expect(errors).toEqual([])
   })
 
@@ -244,9 +258,15 @@ test.describe('docs planning, Gantt and scheduler scenarios', () => {
     await expect
       .poll(() => event.getAttribute('data-event-scheduler-start-slot'))
       .not.toBe(initialStartSlot)
+    const movedStartSlot = await event.getAttribute('data-event-scheduler-start-slot')
 
     await page.getByRole('tab', { name: 'calendar', exact: true }).click()
     await expect(workspace.locator('[data-event-scheduler-event-id="task-003"]')).toBeVisible()
+    await page.getByRole('tab', { name: 'scheduler', exact: true }).click()
+    await expect(workspace.locator('[data-event-scheduler-event-id="task-003"]')).toHaveAttribute(
+      'data-event-scheduler-start-slot',
+      movedStartSlot!,
+    )
     expect(errors).toEqual([])
   })
 
