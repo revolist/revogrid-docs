@@ -55,6 +55,137 @@ test('registers every Grid at Scale source module under its consuming framework'
   assert.deepEqual(files('angular'), ['hr.angular.ts', ...sharedFiles])
 })
 
+test('registers every AI Prompt Library source module under each framework', () => {
+  const sharedFiles = [
+    'prompt-library.shared.ts',
+    'prompt-editor.ts',
+    'prompts.json',
+    'prompt-library.css',
+  ]
+  const files = (framework: 'vue' | 'ts' | 'react' | 'angular') =>
+    DEMO_SOURCE_REGISTRY['ai-prompt-library'][framework].files.map(file => file.label)
+
+  assert.deepEqual(files('vue'), ['prompt-library.vue', ...sharedFiles])
+  assert.deepEqual(files('ts'), ['prompt-library.ts', ...sharedFiles])
+  assert.deepEqual(files('react'), ['prompt-library.react.tsx', ...sharedFiles])
+  assert.deepEqual(files('angular'), ['prompt-library.angular.ts', ...sharedFiles])
+  assert.equal(
+    DEMO_SOURCE_REGISTRY['ai-prompt-library'].vue.files.find(file => file.label === 'prompts.json')
+      ?.lang,
+    'json',
+  )
+})
+
+test('registers every Project Portfolio source module under each framework', () => {
+  const sharedFiles = ['project-portfolio.shared.ts', 'project-portfolio.css']
+  const files = (framework: 'vue' | 'ts' | 'react' | 'angular') =>
+    DEMO_SOURCE_REGISTRY['project-portfolio'][framework].files.map(file => file.label)
+
+  assert.deepEqual(files('vue'), ['project-portfolio.vue', ...sharedFiles])
+  assert.deepEqual(files('ts'), ['project-portfolio.ts', ...sharedFiles])
+  assert.deepEqual(files('react'), ['project-portfolio.react.tsx', ...sharedFiles])
+  assert.deepEqual(files('angular'), ['project-portfolio.angular.ts', ...sharedFiles])
+})
+
+test('registers every Tree Data source module under each framework', () => {
+  const sharedFiles = [
+    'useRandomData.ts',
+    'tree.shared.ts',
+    'tree.excel.ts',
+    'tree.scss',
+  ]
+  const files = (framework: 'vue' | 'ts' | 'react' | 'angular') =>
+    DEMO_SOURCE_REGISTRY['tree-data'][framework].files.map(file => file.label)
+
+  assert.deepEqual(files('vue'), ['tree.vue', ...sharedFiles])
+  assert.deepEqual(files('ts'), ['tree.ts', ...sharedFiles])
+  assert.deepEqual(files('react'), ['tree.react.tsx', ...sharedFiles])
+  assert.deepEqual(files('angular'), ['tree.angular.ts', ...sharedFiles])
+})
+
+test('registers every Advanced Filtering source module under each framework', () => {
+  const sharedFiles = [
+    'useRandomData.ts',
+    'filtering.shared.ts',
+    'filtering.columns.ts',
+    'filtering.config.ts',
+    'filtering.data.ts',
+    'filtering.structured.ts',
+    'filtering.scss',
+  ]
+  const files = (framework: 'vue' | 'ts' | 'react' | 'angular') =>
+    DEMO_SOURCE_REGISTRY.filtering[framework].files.map(file => file.label)
+
+  assert.deepEqual(files('vue'), ['filtering.vue', ...sharedFiles])
+  assert.deepEqual(files('ts'), ['filtering.ts', ...sharedFiles])
+  assert.deepEqual(files('react'), ['filtering.react.tsx', ...sharedFiles])
+  assert.deepEqual(files('angular'), ['filtering.angular.ts', ...sharedFiles])
+})
+
+test('registers every Infinity Scroll source module under each framework', () => {
+  const sharedFiles = [
+    'useRandomData.ts',
+    'infinity-scroll.shared.ts',
+    'infinity-scroll.export.ts',
+    'infinity-scroll.scss',
+  ]
+  const files = (framework: 'vue' | 'ts' | 'react' | 'angular') =>
+    DEMO_SOURCE_REGISTRY['infinity-scroll'][framework].files.map(file => file.label)
+
+  assert.deepEqual(files('vue'), ['infinity-scroll.vue', ...sharedFiles])
+  assert.deepEqual(files('ts'), ['infinity-scroll.ts', ...sharedFiles])
+  assert.deepEqual(files('react'), ['infinity-scroll.react.tsx', ...sharedFiles])
+  assert.deepEqual(files('angular'), ['infinity-scroll.angular.ts', ...sharedFiles])
+})
+
+test('registers every Column Collapse source module under each framework', () => {
+  const sharedFiles = [
+    'useRandomData.ts',
+    'column-collapse.shared.ts',
+    'column-collapse.scss',
+  ]
+  const files = (framework: 'vue' | 'ts' | 'react' | 'angular') =>
+    DEMO_SOURCE_REGISTRY['column-collapse'][framework].files.map(file => file.label)
+
+  assert.deepEqual(files('vue'), ['column-collapse.vue', ...sharedFiles])
+  assert.deepEqual(files('ts'), ['column-collapse.ts', ...sharedFiles])
+  assert.deepEqual(files('react'), ['column-collapse.react.tsx', ...sharedFiles])
+  assert.deepEqual(files('angular'), ['column-collapse.angular.ts', ...sharedFiles])
+})
+
+test('registers every Context Menu source module under each framework', () => {
+  const sharedFiles = [
+    'useRandomData.ts',
+    'data-grid-context-menu.shared.ts',
+    'data-grid-context-menu.data.ts',
+    'data-grid-context-menu.details.ts',
+    'data-grid-context-menu.formats.ts',
+    'data-grid-context-menu.scss',
+  ]
+  const files = (framework: 'vue' | 'ts' | 'react' | 'angular') =>
+    DEMO_SOURCE_REGISTRY['context-menu'][framework].files.map(file => file.label)
+
+  assert.deepEqual(files('vue'), ['data-grid-context-menu.vue', ...sharedFiles])
+  assert.deepEqual(files('ts'), ['data-grid-context-menu.ts', ...sharedFiles])
+  assert.deepEqual(files('react'), ['data-grid-context-menu.react.tsx', ...sharedFiles])
+  assert.deepEqual(files('angular'), ['data-grid-context-menu.angular.ts', ...sharedFiles])
+})
+
+test('registers every Row Master source module under each framework', () => {
+  const sharedFiles = [
+    'useRandomData.ts',
+    'row-master.shared.ts',
+    'row-master.scss',
+  ]
+  const files = (framework: 'vue' | 'ts' | 'react' | 'angular') =>
+    DEMO_SOURCE_REGISTRY['row-master'][framework].files.map(file => file.label)
+
+  assert.deepEqual(files('vue'), ['row-master.vue', ...sharedFiles])
+  assert.deepEqual(files('ts'), ['row-master.ts', ...sharedFiles])
+  assert.deepEqual(files('react'), ['row-master.react.tsx', ...sharedFiles])
+  assert.deepEqual(files('angular'), ['row-master.angular.ts', ...sharedFiles])
+})
+
 test('keeps the source panel compact and expandable', () => {
   const layout = readFileSync(
     new URL('../../../../.vitepress/theme/DemoPageLayout.vue', import.meta.url),
@@ -347,10 +478,10 @@ test('registers every Planning source dependency for the selected framework', ()
     'pro-advanced-planning/src/data/scheduler.config.ts',
     'pro-advanced-planning/src/data/selection.ts',
     'pro-advanced-planning/src/data/source.ts',
+    'pro-advanced-planning/src/data/store.ts',
     'pro-advanced-planning/src/data/sync.ts',
     'pro-advanced-planning/src/data/types.ts',
     'pro-advanced-planning/src/data/workspace.ts',
-    'pro-advanced-planning/src/planning.kanban.ts',
     'pro-advanced-planning/src/planning.scss',
   ]
   const planningSources = getDemoSources('planning')
@@ -361,14 +492,12 @@ test('registers every Planning source dependency for the selected framework', ()
   }
 
   const vuePaths = planningSources.vue.files.map(file => file.path)
-  assert.ok(
-    vuePaths.includes('pro-advanced-planning/src/composables/usePlanningWorkspace.ts'),
-  )
+  assert.ok(vuePaths.includes('pro-advanced-planning/src/composables/usePlanningWorkspace.ts'))
   assert.ok(!vuePaths.includes('pro-advanced-planning/src/planning.tips.ts'))
 
-  for (const framework of ['ts', 'react', 'angular'] as const) {
+  for (const framework of ['vue', 'ts', 'react', 'angular'] as const) {
     assert.ok(
-      planningSources[framework].files
+      !planningSources[framework].files
         .map(file => file.path)
         .includes('pro-advanced-planning/src/planning.tips.ts'),
     )
@@ -443,7 +572,7 @@ test('uses native advanced filters, quick search, and plugin-owned badges in the
       'pro-advanced-planning/src/composables/usePlanningWorkspace.ts',
     ),
   )
-  assert.ok(getRegisteredDemoSourcePaths().includes('pro-advanced-planning/src/planning.tips.ts'))
+  assert.ok(!getRegisteredDemoSourcePaths().includes('pro-advanced-planning/src/planning.tips.ts'))
   const tsSource = readFileSync(
     new URL('../../../../revogrid-demos/pro-advanced-planning/src/planning.ts', import.meta.url),
     'utf8',

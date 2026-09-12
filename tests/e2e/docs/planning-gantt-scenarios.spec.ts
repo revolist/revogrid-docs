@@ -117,6 +117,80 @@ test.describe('docs planning, Gantt and scheduler scenarios', () => {
     expect(errors).toEqual([])
   })
 
+  test('PLAN-05: a Grid row drop commits once and keeps its order across views', async ({ page }) => {
+    const errors = docsErrors(page)
+    await page.goto('/demo/')
+
+    const workspace = page.locator('.planning-demo')
+    const grid = workspace.locator('revo-grid:visible')
+    const firstTask = grid.getByRole('gridcell', { name: 'Define requirements', exact: true })
+    const targetTask = grid.getByRole('gridcell', { name: 'API integration', exact: true })
+    await expect(firstTask).toBeVisible()
+    await page.waitForTimeout(300)
+    await grid.evaluate(element => {
+      element.setAttribute('data-source-sets', '0')
+      element.setAttribute('data-row-renders', '0')
+      element.setAttribute('data-cell-renders', '0')
+      element.addEventListener('beforesourceset', () => {
+        element.setAttribute(
+          'data-source-sets',
+          String(Number(element.getAttribute('data-source-sets') ?? 0) + 1),
+        )
+      })
+      element.addEventListener('beforerowrender', () => {
+        element.setAttribute(
+          'data-row-renders',
+          String(Number(element.getAttribute('data-row-renders') ?? 0) + 1),
+        )
+      })
+      element.addEventListener('beforecellrender', () => {
+        element.setAttribute(
+          'data-cell-renders',
+          String(Number(element.getAttribute('data-cell-renders') ?? 0) + 1),
+        )
+      })
+    })
+
+    const handleBox = await firstTask.locator('.revo-draggable').boundingBox()
+    const targetBox = await targetTask.boundingBox()
+    expect(handleBox).not.toBeNull()
+    expect(targetBox).not.toBeNull()
+    await page.mouse.move(
+      handleBox!.x + handleBox!.width / 2,
+      handleBox!.y + handleBox!.height / 2,
+    )
+    await page.mouse.down()
+    await page.mouse.move(
+      handleBox!.x + handleBox!.width / 2,
+      targetBox!.y + targetBox!.height - 3,
+      { steps: 10 },
+    )
+    await expect(grid).toHaveAttribute('data-source-sets', '0')
+    await expect(grid).toHaveAttribute('data-row-renders', '0')
+    await expect(grid).toHaveAttribute('data-cell-renders', '0')
+    await page.mouse.up()
+    await expect
+      .poll(() =>
+        grid.evaluate(async element =>
+          (await element.getVisibleSource()).slice(0, 3).map(row => row.id),
+        ),
+      )
+      .toEqual(['task-002', 'task-003', 'task-001'])
+    await expect(grid).toHaveAttribute('data-source-sets', '0')
+
+    await page.getByRole('tab', { name: 'kanban', exact: true }).click()
+    await page.getByRole('tab', { name: 'grid', exact: true }).click()
+    const restoredGrid = workspace.locator('revo-grid:visible')
+    await expect
+      .poll(() =>
+        restoredGrid.evaluate(async element =>
+          (await element.getVisibleSource()).slice(0, 3).map(row => row.id),
+        ),
+      )
+      .toEqual(['task-002', 'task-003', 'task-001'])
+    expect(errors).toEqual([])
+  })
+
   test('PLAN-06: moving a Kanban card changes the same task status in Grid', async ({ page }) => {
     const errors = docsErrors(page)
     await page.goto('/demo/')
@@ -128,8 +202,19 @@ test.describe('docs planning, Gantt and scheduler scenarios', () => {
     const blocked = workspace.locator('[data-kanban-stack][aria-label="Blocked, Cards"]')
     await expect(card).toBeVisible()
     await expect(blocked).toBeVisible()
+    const kanban = workspace.locator('revo-grid:visible')
+    await kanban.evaluate(element => {
+      element.setAttribute('data-source-sets', '0')
+      element.addEventListener('beforesourceset', () => {
+        element.setAttribute(
+          'data-source-sets',
+          String(Number(element.getAttribute('data-source-sets') ?? 0) + 1),
+        )
+      })
+    })
     await card.dragTo(blocked)
     await expect(blocked.locator('[data-kanban-card-id="task-003"]')).toBeVisible()
+    await expect(kanban).toHaveAttribute('data-source-sets', '0')
 
     await page.getByRole('tab', { name: 'grid', exact: true }).click()
     const taskRow = workspace.locator('.rgRow').filter({ hasText: 'API integration' })
@@ -173,6 +258,13 @@ test.describe('docs planning, Gantt and scheduler scenarios', () => {
     const gantt = workspace.locator('revo-grid:visible')
     const bar = gantt.locator('.gantt-bar[data-gantt-task-id="task-003"]')
     await expect(bar).toBeVisible()
+    await gantt.evaluate(element => {
+      element.setAttribute('data-external-source-sets', '0')
+      element.addEventListener('beforesourceset', () => {
+        const count = Number(element.getAttribute('data-external-source-sets') ?? 0)
+        element.setAttribute('data-external-source-sets', String(count + 1))
+      })
+    })
     const initial = await bar.evaluate(element => ({
       left: getComputedStyle(element).getPropertyValue('--gantt-bar-left'),
       width: getComputedStyle(element).getPropertyValue('--gantt-bar-width'),
@@ -195,6 +287,7 @@ test.describe('docs planning, Gantt and scheduler scenarios', () => {
         bar.evaluate(element => getComputedStyle(element).getPropertyValue('--gantt-bar-width')),
       )
       .toBe(initial.width)
+    await expect(gantt).toHaveAttribute('data-external-source-sets', '0')
 
     const resizeEnd = bar.locator('.gantt-bar__resize-handle--end')
     await resizeEnd.scrollIntoViewIfNeeded()
@@ -215,6 +308,7 @@ test.describe('docs planning, Gantt and scheduler scenarios', () => {
         bar.evaluate(element => getComputedStyle(element).getPropertyValue('--gantt-bar-width')),
       )
       .not.toBe(initial.width)
+    await expect(gantt).toHaveAttribute('data-external-source-sets', '0')
     const committed = await bar.evaluate(element => ({
       left: getComputedStyle(element).getPropertyValue('--gantt-bar-left'),
       width: getComputedStyle(element).getPropertyValue('--gantt-bar-width'),
@@ -237,6 +331,53 @@ test.describe('docs planning, Gantt and scheduler scenarios', () => {
     expect(errors).toEqual([])
   })
 
+  test('PLAN-07B: a Gantt hierarchy drop keeps every planning view populated', async ({ page }) => {
+    const errors = docsErrors(page)
+    await page.goto('/demo/')
+
+    const workspace = page.locator('.planning-demo')
+    const footer = workspace.locator('.planning-demo__footer')
+    await page.getByRole('tab', { name: 'gantt', exact: true }).click()
+    const gantt = workspace.locator('revo-grid:visible')
+    const draggedTask = gantt.getByRole('gridcell', { name: 'Design system', exact: true }).first()
+    const parentTask = gantt
+      .getByRole('gridcell', { name: 'Define requirements', exact: true })
+      .first()
+    await expect(draggedTask).toBeVisible()
+
+    const handleBox = await draggedTask.locator('.revo-draggable').boundingBox()
+    const parentBox = await parentTask.boundingBox()
+    expect(handleBox).not.toBeNull()
+    expect(parentBox).not.toBeNull()
+    await page.mouse.move(
+      handleBox!.x + handleBox!.width / 2,
+      handleBox!.y + handleBox!.height / 2,
+    )
+    await page.mouse.down()
+    await page.mouse.move(
+      parentBox!.x + parentBox!.width / 2,
+      parentBox!.y + parentBox!.height / 2,
+      { steps: 10 },
+    )
+    await page.mouse.up()
+
+    await page.getByRole('tab', { name: 'grid', exact: true }).click()
+    await expect(footer).toContainText('100 of 100 tasks')
+    await expect(workspace.getByText('Define requirements', { exact: true })).toBeVisible()
+    await expect(workspace.getByText('Design system', { exact: true })).toBeVisible()
+
+    await page.getByRole('tab', { name: 'kanban', exact: true }).click()
+    await expect(workspace.locator('[data-kanban-card-id="task-001"]')).toBeVisible()
+    await expect(workspace.locator('[data-kanban-card-id="task-002"]')).toBeVisible()
+
+    await page.getByRole('tab', { name: 'scheduler', exact: true }).click()
+    await expect
+      .poll(() => workspace.locator('[data-event-scheduler-event-id]').count())
+      .toBeGreaterThan(0)
+    await expect(workspace.locator('[data-event-scheduler-event-id="task-002"]')).toBeVisible()
+    expect(errors).toEqual([])
+  })
+
   test('PLAN-08: moving the Scheduler event keeps the stable task visible in Calendar', async ({
     page,
   }) => {
@@ -248,17 +389,46 @@ test.describe('docs planning, Gantt and scheduler scenarios', () => {
     await page.getByRole('tab', { name: 'scheduler', exact: true }).click()
     const event = workspace.locator('[data-event-scheduler-event-id="task-003"]')
     await expect(event).toBeVisible()
+    const scheduler = workspace.locator('revo-grid:visible')
+    await page.waitForTimeout(300)
+    await scheduler.evaluate(element => {
+      element.setAttribute('data-source-sets', '0')
+      element.setAttribute('data-row-renders', '0')
+      element.setAttribute('data-cell-renders', '0')
+      element.addEventListener('beforesourceset', () => {
+        element.setAttribute(
+          'data-source-sets',
+          String(Number(element.getAttribute('data-source-sets') ?? 0) + 1),
+        )
+      })
+      element.addEventListener('beforerowrender', () => {
+        element.setAttribute(
+          'data-row-renders',
+          String(Number(element.getAttribute('data-row-renders') ?? 0) + 1),
+        )
+      })
+      element.addEventListener('beforecellrender', () => {
+        element.setAttribute(
+          'data-cell-renders',
+          String(Number(element.getAttribute('data-cell-renders') ?? 0) + 1),
+        )
+      })
+    })
     const initialStartSlot = await event.getAttribute('data-event-scheduler-start-slot')
     const eventBox = await event.boundingBox()
     expect(eventBox).not.toBeNull()
     await page.mouse.move(eventBox!.x + 80, eventBox!.y + eventBox!.height / 2)
     await page.mouse.down()
     await page.mouse.move(eventBox!.x + 160, eventBox!.y + eventBox!.height / 2, { steps: 10 })
+    await expect(scheduler).toHaveAttribute('data-source-sets', '0')
+    await expect(scheduler).toHaveAttribute('data-row-renders', '0')
+    await expect(scheduler).toHaveAttribute('data-cell-renders', '0')
     await page.mouse.up()
     await expect
       .poll(() => event.getAttribute('data-event-scheduler-start-slot'))
       .not.toBe(initialStartSlot)
     const movedStartSlot = await event.getAttribute('data-event-scheduler-start-slot')
+    await expect(scheduler).toHaveAttribute('data-source-sets', '0')
 
     await page.getByRole('tab', { name: 'calendar', exact: true }).click()
     await expect(workspace.locator('[data-event-scheduler-event-id="task-003"]')).toBeVisible()

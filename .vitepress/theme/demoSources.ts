@@ -21,6 +21,8 @@ const sourceFile = (path: string, load: () => Promise<string>): DemoSourceFile =
     ? 'vue'
     : path.endsWith('.tsx')
       ? 'tsx'
+      : path.endsWith('.json')
+        ? 'json'
       : path.endsWith('.scss') || path.endsWith('.css')
         ? 'css'
         : 'ts',
@@ -81,6 +83,11 @@ const planningDataFiles = [
       module => module.default,
     ),
   ),
+  planningDataFile('store.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/store.ts?raw').then(
+      module => module.default,
+    ),
+  ),
   planningDataFile('sync.ts', () =>
     import('../../revogrid-demos/pro-advanced-planning/src/data/sync.ts?raw').then(
       module => module.default,
@@ -103,11 +110,6 @@ const planningSharedFiles = [
     import('../../revogrid-demos/composables/useRandomData.ts?raw').then(module => module.default),
   ),
   ...planningDataFiles,
-  sourceFile('pro-advanced-planning/src/planning.kanban.ts', () =>
-    import('../../revogrid-demos/pro-advanced-planning/src/planning.kanban.ts?raw').then(
-      module => module.default,
-    ),
-  ),
   sourceFile('pro-advanced-planning/src/planning.scss', () =>
     import('../../revogrid-demos/pro-advanced-planning/src/planning.scss?raw').then(
       module => module.default,
@@ -160,6 +162,263 @@ const gridAtScaleVanillaFiles = [
   ),
 ] as const
 
+const aiPromptLibrarySupportingFiles = [
+  sourceFile('core-ai-prompts/src/prompt-library.shared.ts', () =>
+    import('../../revogrid-demos/core-ai-prompts/src/prompt-library.shared.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('core-ai-prompts/src/prompt-editor.ts', () =>
+    import('../../revogrid-demos/core-ai-prompts/src/prompt-editor.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('core-ai-prompts/src/prompts.json', () =>
+    import('../../revogrid-demos/core-ai-prompts/src/prompts.json?raw').then(module => module.default),
+  ),
+  sourceFile('core-ai-prompts/src/prompt-library.css', () =>
+    import('../../revogrid-demos/core-ai-prompts/src/prompt-library.css?raw').then(
+      module => module.default,
+    ),
+  ),
+] as const
+
+const projectPortfolioSupportingFiles = [
+  sourceFile('core-project-portfolio/src/project-portfolio.shared.ts', () =>
+    import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.shared.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('core-project-portfolio/src/project-portfolio.css', () =>
+    import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.css?raw').then(
+      module => module.default,
+    ),
+  ),
+] as const
+
+const treeDataSupportingFiles = [
+  sourceFile('composables/useRandomData.ts', () =>
+    import('../../revogrid-demos/composables/useRandomData.ts?raw').then(module => module.default),
+  ),
+  sourceFile('pro-tree-data/src/tree.shared.ts', () =>
+    import('../../revogrid-demos/pro-tree-data/src/tree.shared.ts?raw').then(module => module.default),
+  ),
+  sourceFile('pro-tree-data/src/tree.excel.ts', () =>
+    import('../../revogrid-demos/pro-tree-data/src/tree.excel.ts?raw').then(module => module.default),
+  ),
+  sourceFile('pro-tree-data/src/tree.scss', () =>
+    import('../../revogrid-demos/pro-tree-data/src/tree.scss?raw').then(module => module.default),
+  ),
+] as const
+
+const filteringSupportingFiles = [
+  sourceFile('composables/useRandomData.ts', () =>
+    import('../../revogrid-demos/composables/useRandomData.ts?raw').then(module => module.default),
+  ),
+  sourceFile('pro-filtering/src/filtering.shared.ts', () =>
+    import('../../revogrid-demos/pro-filtering/src/filtering.shared.ts?raw').then(module => module.default),
+  ),
+  sourceFile('pro-filtering/src/filtering.columns.ts', () =>
+    import('../../revogrid-demos/pro-filtering/src/filtering.columns.ts?raw').then(module => module.default),
+  ),
+  sourceFile('pro-filtering/src/filtering.config.ts', () =>
+    import('../../revogrid-demos/pro-filtering/src/filtering.config.ts?raw').then(module => module.default),
+  ),
+  sourceFile('pro-filtering/src/filtering.data.ts', () =>
+    import('../../revogrid-demos/pro-filtering/src/filtering.data.ts?raw').then(module => module.default),
+  ),
+  sourceFile('pro-filtering/src/filtering.structured.ts', () =>
+    import('../../revogrid-demos/pro-filtering/src/filtering.structured.ts?raw').then(module => module.default),
+  ),
+  sourceFile('pro-filtering/src/filtering.scss', () =>
+    import('../../revogrid-demos/pro-filtering/src/filtering.scss?raw').then(module => module.default),
+  ),
+] as const
+
+const infinityScrollSupportingFiles = [
+  sourceFile('composables/useRandomData.ts', () =>
+    import('../../revogrid-demos/composables/useRandomData.ts?raw').then(module => module.default),
+  ),
+  sourceFile('pro-infinity-scroll/src/infinity-scroll.shared.ts', () =>
+    import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.shared.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('pro-infinity-scroll/src/infinity-scroll.export.ts', () =>
+    import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.export.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('pro-infinity-scroll/src/infinity-scroll.scss', () =>
+    import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.scss?raw').then(
+      module => module.default,
+    ),
+  ),
+] as const
+
+const columnCollapseSupportingFiles = [
+  sourceFile('composables/useRandomData.ts', () =>
+    import('../../revogrid-demos/composables/useRandomData.ts?raw').then(module => module.default),
+  ),
+  sourceFile('pro-column-collapse/src/column-collapse.shared.ts', () =>
+    import('../../revogrid-demos/pro-column-collapse/src/column-collapse.shared.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('pro-column-collapse/src/column-collapse.scss', () =>
+    import('../../revogrid-demos/pro-column-collapse/src/column-collapse.scss?raw').then(
+      module => module.default,
+    ),
+  ),
+] as const
+
+const contextMenuSupportingFiles = [
+  sourceFile('composables/useRandomData.ts', () =>
+    import('../../revogrid-demos/composables/useRandomData.ts?raw').then(module => module.default),
+  ),
+  sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.shared.ts', () =>
+    import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.shared.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.data.ts', () =>
+    import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.data.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.details.ts', () =>
+    import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.details.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.formats.ts', () =>
+    import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.formats.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.scss', () =>
+    import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.scss?raw').then(
+      module => module.default,
+    ),
+  ),
+] as const
+
+const rowMasterSupportingFiles = [
+  sourceFile('composables/useRandomData.ts', () =>
+    import('../../revogrid-demos/composables/useRandomData.ts?raw').then(module => module.default),
+  ),
+  sourceFile('pro-row-master/src/row-master.shared.ts', () =>
+    import('../../revogrid-demos/pro-row-master/src/row-master.shared.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  sourceFile('pro-row-master/src/row-master.scss', () =>
+    import('../../revogrid-demos/pro-row-master/src/row-master.scss?raw').then(
+      module => module.default,
+    ),
+  ),
+] as const
+
+const projectTrackerSupportingFiles = [
+  'pro-project-table/src/project-tracker.scss',
+  'pro-project-table/src/project-tracker.shared.ts',
+  'pro-project-table/src/project-tracker/options.ts',
+  'pro-project-table/src/project-tracker/types.ts',
+  'pro-project-table/src/project-tracker/plugins.ts',
+  'pro-project-table/src/project-tracker/column-types.ts',
+  'pro-project-table/src/project-tracker/filters.ts',
+  'pro-project-table/src/project-tracker/renderers.ts',
+  'pro-project-table/src/project-tracker/data.ts',
+  'pro-project-table/src/project-tracker/summary.ts',
+  'pro-project-table/src/project-tracker/utils.ts',
+  'pro-project-table/src/project-tracker/columns.ts',
+  'pro-project-table/src/project-tracker/editors.ts',
+  'pro-project-table/src/project-tracker/grouping.ts',
+  'pro-project-table/src/project-tracker/actions.ts',
+  'pro-project-table/src/project-tracker/dom.ts',
+  'pro-project-table/src/project-tracker/context-menus.ts',
+  'pro-project-table/src/project-tracker/toolbar.ts',
+] as const
+
+const auditHistorySupportingFiles = [
+  'composables/useRandomData.ts',
+  'pro-audit-history/src/audit-history.shared.ts',
+] as const
+
+const excelSupportingFiles = [
+  'pro-excel/src/spreadsheet/models.ts',
+  'pro-excel/src/spreadsheet/config.ts',
+  'pro-excel/src/spreadsheet/workbook.ts',
+  'pro-excel/src/spreadsheet/columns.ts',
+  'pro-excel/src/spreadsheet/data.ts',
+  'pro-excel/src/spreadsheet/dropdown.ts',
+  'pro-excel/src/spreadsheet/presentation.ts',
+  'pro-excel/src/spreadsheet/status.ts',
+  'pro-excel/src/spreadsheet/theme.ts',
+  'pro-excel/src/spreadsheet/interactions.ts',
+  'pro-excel/src/spreadsheet/interaction-config.ts',
+  'pro-excel/src/spreadsheet/interaction-edit-guards.ts',
+  'pro-excel/src/spreadsheet/interaction-icons.ts',
+  'pro-excel/src/spreadsheet.simulation.ts',
+  'pro-excel/src/spreadsheet.presence.ts',
+  'pro-excel/src/spreadsheet.feed.ts',
+] as const
+
+const pivotSupportingFiles = [
+  'pro-advanced-pivot/src/shared/theme.ts',
+  'pro-advanced-pivot/src/financial-dataset.ts',
+  'pro-advanced-pivot/src/financial.heatmap.ts',
+  'pro-advanced-pivot/src/financial-pivot-header/financial-pivot-header.ts',
+  'pro-advanced-pivot/src/financial-pivot-header/financial-pivot-header.scss',
+] as const
+
+const ganttShowcaseSupportingFiles = [
+  'pro-advanced-gantt/src/examples/showcase/data/gantt-project-data.ts',
+  'pro-advanced-gantt/src/examples/showcase/data/gantt-project-base-data.ts',
+  'pro-advanced-gantt/src/examples/showcase/data/gantt-showcase-data.ts',
+  'pro-advanced-gantt/src/examples/showcase/data/gantt-showcase-timeline.ts',
+  'pro-advanced-gantt/src/examples/showcase/data/gantt-showcase-columns.ts',
+  'pro-advanced-gantt/src/examples/showcase/data/gantt-showcase-icons.ts',
+  'pro-advanced-gantt/src/theme.ts',
+] as const
+
+const ganttBigDataSupportingFiles = [
+  'pro-advanced-gantt/src/examples/big-data/gantt-big-data-data.ts',
+  'pro-advanced-gantt/src/theme.ts',
+] as const
+
+const kanbanShowcaseSupportingFiles = [
+  'pro-advanced-kanban/src/theme.ts',
+  'pro-advanced-kanban/src/examples/showcase/kanban.shared.ts',
+] as const
+
+const kanbanPerformanceSupportingFiles = [
+  'pro-advanced-kanban/src/theme.ts',
+  'pro-advanced-kanban/src/examples/performance/kanban-board-data.ts',
+] as const
+
+const kanbanServerLoadingSupportingFiles = [
+  'pro-advanced-kanban/src/theme.ts',
+  'pro-advanced-kanban/src/examples/server-loading/kanban-server-loading.shared.ts',
+] as const
+
+const schedulerSupportingFiles = [
+  'pro-advanced-scheduler/src/shared/theme.ts',
+  'pro-advanced-scheduler/src/data.ts',
+  'pro-advanced-scheduler/src/resource-range.ts',
+  'pro-advanced-scheduler/src/time-label.ts',
+  'pro-advanced-scheduler/src/components/index.ts',
+  'pro-advanced-scheduler/src/components/scheduler-dialog/scheduler-dialog.ts',
+  'pro-advanced-scheduler/src/components/scheduler-header/scheduler-header.ts',
+  'pro-advanced-scheduler/src/styles.scss',
+] as const
+
+const demoSourceFile = (path: string) => sourceFile(path, () =>
+  import(`../../revogrid-demos/${path}?raw`).then(module => module.default),
+)
+
+const supportFiles = (paths: readonly string[]) => paths.map(demoSourceFile)
+
 export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, DemoSourceEntry>> = {
   planning: {
     vue: {
@@ -190,11 +449,6 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-advanced-planning/src/planning.tips.ts', () =>
-          import('../../revogrid-demos/pro-advanced-planning/src/planning.tips.ts?raw').then(
-            module => module.default,
-          ),
-        ),
         ...planningSharedFiles,
       ],
     },
@@ -208,11 +462,6 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-advanced-planning/src/planning.tips.ts', () =>
-          import('../../revogrid-demos/pro-advanced-planning/src/planning.tips.ts?raw').then(
-            module => module.default,
-          ),
-        ),
         ...planningSharedFiles,
       ],
     },
@@ -223,11 +472,6 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
       files: [
         sourceFile('pro-advanced-planning/src/planning.angular.ts', () =>
           import('../../revogrid-demos/pro-advanced-planning/src/planning.angular.ts?raw').then(
-            module => module.default,
-          ),
-        ),
-        sourceFile('pro-advanced-planning/src/planning.tips.ts', () =>
-          import('../../revogrid-demos/pro-advanced-planning/src/planning.tips.ts?raw').then(
             module => module.default,
           ),
         ),
@@ -298,11 +542,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('core-ai-prompts/src/prompt-library.css', () =>
-          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.css?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...aiPromptLibrarySupportingFiles,
       ],
     },
     ts: {
@@ -315,11 +555,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('core-ai-prompts/src/prompt-library.css', () =>
-          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.css?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...aiPromptLibrarySupportingFiles,
       ],
     },
     react: {
@@ -332,11 +568,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('core-ai-prompts/src/prompt-library.css', () =>
-          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.css?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...aiPromptLibrarySupportingFiles,
       ],
     },
     angular: {
@@ -349,11 +581,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('core-ai-prompts/src/prompt-library.css', () =>
-          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.css?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...aiPromptLibrarySupportingFiles,
       ],
     },
   },
@@ -368,11 +596,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('core-project-portfolio/src/project-portfolio.css', () =>
-          import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.css?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...projectPortfolioSupportingFiles,
       ],
     },
     ts: {
@@ -385,11 +609,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('core-project-portfolio/src/project-portfolio.css', () =>
-          import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.css?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...projectPortfolioSupportingFiles,
       ],
     },
     react: {
@@ -402,11 +622,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('core-project-portfolio/src/project-portfolio.css', () =>
-          import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.css?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...projectPortfolioSupportingFiles,
       ],
     },
     angular: {
@@ -419,11 +635,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('core-project-portfolio/src/project-portfolio.css', () =>
-          import('../../revogrid-demos/core-project-portfolio/src/project-portfolio.css?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...projectPortfolioSupportingFiles,
       ],
     },
   },
@@ -438,6 +650,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(projectTrackerSupportingFiles),
       ],
     },
     ts: {
@@ -450,6 +663,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(projectTrackerSupportingFiles),
       ],
     },
     react: {
@@ -462,6 +676,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(projectTrackerSupportingFiles),
       ],
     },
     angular: {
@@ -474,6 +689,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(projectTrackerSupportingFiles),
       ],
     },
   },
@@ -488,11 +704,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-filtering/src/filtering.scss', () =>
-          import('../../revogrid-demos/pro-filtering/src/filtering.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...filteringSupportingFiles,
       ],
     },
     ts: {
@@ -505,11 +717,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-filtering/src/filtering.scss', () =>
-          import('../../revogrid-demos/pro-filtering/src/filtering.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...filteringSupportingFiles,
       ],
     },
     react: {
@@ -522,11 +730,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-filtering/src/filtering.scss', () =>
-          import('../../revogrid-demos/pro-filtering/src/filtering.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...filteringSupportingFiles,
       ],
     },
     angular: {
@@ -539,11 +743,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-filtering/src/filtering.scss', () =>
-          import('../../revogrid-demos/pro-filtering/src/filtering.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...filteringSupportingFiles,
       ],
     },
   },
@@ -558,11 +758,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-tree-data/src/tree.scss', () =>
-          import('../../revogrid-demos/pro-tree-data/src/tree.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...treeDataSupportingFiles,
       ],
     },
     ts: {
@@ -575,11 +771,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-tree-data/src/tree.scss', () =>
-          import('../../revogrid-demos/pro-tree-data/src/tree.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...treeDataSupportingFiles,
       ],
     },
     react: {
@@ -592,11 +784,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-tree-data/src/tree.scss', () =>
-          import('../../revogrid-demos/pro-tree-data/src/tree.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...treeDataSupportingFiles,
       ],
     },
     angular: {
@@ -609,11 +797,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-tree-data/src/tree.scss', () =>
-          import('../../revogrid-demos/pro-tree-data/src/tree.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...treeDataSupportingFiles,
       ],
     },
   },
@@ -628,11 +812,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-infinity-scroll/src/infinity-scroll.scss', () =>
-          import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...infinityScrollSupportingFiles,
       ],
     },
     ts: {
@@ -645,11 +825,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-infinity-scroll/src/infinity-scroll.scss', () =>
-          import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...infinityScrollSupportingFiles,
       ],
     },
     react: {
@@ -662,11 +838,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-infinity-scroll/src/infinity-scroll.scss', () =>
-          import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...infinityScrollSupportingFiles,
       ],
     },
     angular: {
@@ -679,11 +851,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-infinity-scroll/src/infinity-scroll.scss', () =>
-          import('../../revogrid-demos/pro-infinity-scroll/src/infinity-scroll.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...infinityScrollSupportingFiles,
       ],
     },
   },
@@ -698,11 +866,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-column-collapse/src/column-collapse.scss', () =>
-          import('../../revogrid-demos/pro-column-collapse/src/column-collapse.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...columnCollapseSupportingFiles,
       ],
     },
     ts: {
@@ -715,11 +879,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-column-collapse/src/column-collapse.scss', () =>
-          import('../../revogrid-demos/pro-column-collapse/src/column-collapse.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...columnCollapseSupportingFiles,
       ],
     },
     react: {
@@ -732,11 +892,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-column-collapse/src/column-collapse.scss', () =>
-          import('../../revogrid-demos/pro-column-collapse/src/column-collapse.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...columnCollapseSupportingFiles,
       ],
     },
     angular: {
@@ -749,11 +905,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-column-collapse/src/column-collapse.scss', () =>
-          import('../../revogrid-demos/pro-column-collapse/src/column-collapse.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...columnCollapseSupportingFiles,
       ],
     },
   },
@@ -768,11 +920,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.scss', () =>
-          import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...contextMenuSupportingFiles,
       ],
     },
     ts: {
@@ -785,11 +933,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.scss', () =>
-          import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...contextMenuSupportingFiles,
       ],
     },
     react: {
@@ -802,11 +946,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.scss', () =>
-          import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...contextMenuSupportingFiles,
       ],
     },
     angular: {
@@ -819,11 +959,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-data-grid-context-menu/src/data-grid-context-menu.scss', () =>
-          import('../../revogrid-demos/pro-data-grid-context-menu/src/data-grid-context-menu.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...contextMenuSupportingFiles,
       ],
     },
   },
@@ -838,11 +974,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-row-master/src/row-master.scss', () =>
-          import('../../revogrid-demos/pro-row-master/src/row-master.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...rowMasterSupportingFiles,
       ],
     },
     ts: {
@@ -855,11 +987,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-row-master/src/row-master.scss', () =>
-          import('../../revogrid-demos/pro-row-master/src/row-master.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...rowMasterSupportingFiles,
       ],
     },
     react: {
@@ -872,11 +1000,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-row-master/src/row-master.scss', () =>
-          import('../../revogrid-demos/pro-row-master/src/row-master.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...rowMasterSupportingFiles,
       ],
     },
     angular: {
@@ -889,11 +1013,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
-        sourceFile('pro-row-master/src/row-master.scss', () =>
-          import('../../revogrid-demos/pro-row-master/src/row-master.scss?raw').then(
-            module => module.default,
-          ),
-        ),
+        ...rowMasterSupportingFiles,
       ],
     },
   },
@@ -913,6 +1033,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(auditHistorySupportingFiles),
       ],
     },
     ts: {
@@ -930,6 +1051,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(auditHistorySupportingFiles),
       ],
     },
     react: {
@@ -947,6 +1069,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(auditHistorySupportingFiles),
       ],
     },
     angular: {
@@ -964,6 +1087,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(auditHistorySupportingFiles),
       ],
     },
   },
@@ -986,6 +1110,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(excelSupportingFiles),
       ],
     },
     ts: {
@@ -1006,6 +1131,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(excelSupportingFiles),
       ],
     },
     react: {
@@ -1028,6 +1154,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(excelSupportingFiles),
       ],
     },
     angular: {
@@ -1050,6 +1177,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(excelSupportingFiles),
       ],
     },
   },
@@ -1074,6 +1202,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(pivotSupportingFiles),
       ],
     },
     ts: {
@@ -1096,6 +1225,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(pivotSupportingFiles),
       ],
     },
     react: {
@@ -1118,6 +1248,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(pivotSupportingFiles),
       ],
     },
     angular: {
@@ -1140,6 +1271,7 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
             module => module.default,
           ),
         ),
+        ...supportFiles(pivotSupportingFiles),
       ],
     },
   },
