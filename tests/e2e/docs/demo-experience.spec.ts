@@ -318,10 +318,15 @@ test('deleting selected rows clears Grid selection', async ({ page }) => {
 
   await page.locator('revo-grid').evaluate(async element => {
     const grid = element as any
-    const contextMenu = (await grid.getPlugins()).find(
+    const plugins = await grid.getPlugins()
+    const contextMenu = plugins.find(
       (plugin: any) => plugin.config?.commandHandlers?.['row.delete'],
     )
+    const planning = plugins.find(
+      (plugin: any) => typeof plugin.clearRowSelection === 'function',
+    )
     contextMenu.config.commandHandlers['row.delete']({
+      menu: { providers: planning.providers },
       rows: grid.source.slice(0, 2).map((model: unknown) => ({ model })),
     })
   })
@@ -388,6 +393,25 @@ test('planning Kanban editor reuses the portrait shown on its card', async ({ pa
   )
   await expect(editorPortrait).toBeVisible()
   await expect(editorPortrait).toHaveAttribute('src', await cardPortrait.getAttribute('src'))
+})
+
+test('planning Kanban refreshes its portrait after a mapped owner edit', async ({ page }) => {
+  await page.goto('/demo/')
+  await page.getByRole('tab', { name: 'Kanban' }).click()
+
+  const card = page.locator('.kanban-card').filter({ hasText: 'Define requirements' })
+  const portrait = card.locator('.planning-card__avatar img')
+  await expect(portrait).toBeVisible()
+  const initialPortrait = await portrait.getAttribute('src')
+
+  await card.dblclick()
+  const dialog = page.getByRole('dialog')
+  await dialog.locator('[data-kanban-card-editor-row="assignees"] .rv-resource-picker__control').click()
+  await page.locator('.rv-resource-picker__portal').getByRole('option', { name: /Noah/ }).click()
+  await dialog.getByRole('button', { name: 'Save', exact: true }).click()
+
+  await expect(card).toContainText('Noah')
+  await expect.poll(() => portrait.getAttribute('src')).not.toBe(initialPortrait)
 })
 
 test('planning quick search clears without leaving stale workspace results', async ({ page }) => {
@@ -577,26 +601,16 @@ test('planning Gantt uses varied schedules and aligns the Today marker', async (
   expect(Math.max(...timeline.widths) - Math.min(...timeline.widths)).toBeGreaterThan(30)
 })
 
-test('planning Gantt keeps additional assignees selected', async ({ page }) => {
+test('planning Gantt keeps its mapped scalar assignee read-only', async ({ page }) => {
   await page.goto('/demo/')
   await page.getByRole('tab', { name: 'gantt', exact: true }).click()
 
   const grid = page.locator('.planning-demo revo-grid.gantt-plugin')
-  const assigneeCell = grid.locator('.gantt-assignee-selected-list').first()
-  await expect(assigneeCell).toContainText('Maya')
-  await assigneeCell.click()
-
-  const menu = page.locator('.revo-dropdown-menu.gantt-assignee-dropdown')
-  const ava = menu.locator('.gantt-assignee-select-option').filter({ hasText: 'Ava' })
-  await expect(menu).toBeVisible()
-  await ava.click()
-
-  await expect(ava).toHaveAttribute('aria-selected', 'true')
-  await expect(ava.locator('input')).toBeChecked()
-
-  await page.keyboard.press('Escape')
-  await expect(menu).toBeHidden()
-  await expect(assigneeCell.locator('.gantt-assignee-avatar')).toHaveCount(2)
+  const assigneeCell = grid.getByRole('gridcell', { name: /Maya/ }).first()
+  await expect(assigneeCell).toBeVisible()
+  await expect(assigneeCell.locator('.avatar-cell__image')).toBeVisible()
+  await assigneeCell.dblclick()
+  await expect(page.locator('.revo-dropdown-menu.gantt-assignee-dropdown')).toHaveCount(0)
 })
 
 test('planning filters persist across every workspace view', async ({ page }) => {
@@ -615,4 +629,37 @@ test('planning filters persist across every workspace view', async ({ page }) =>
     await expect(search).toHaveValue('Maya')
     await expect(count).toContainText('20 of 100 tasks')
   }
+})
+
+test('planning quick search applies when entered from Kanban, Gantt, or Scheduler', async ({
+  page,
+}) => {
+  const search = page.getByRole('searchbox', { name: 'Quick search tasks' })
+  const count = page.locator('.planning-demo__footer span').first()
+
+  for (const view of ['kanban', 'gantt', 'scheduler']) {
+    await page.goto('/demo/')
+    await page.getByRole('tab', { name: view }).click()
+    await search.fill('Maya')
+    await expect(count).toContainText('20 of 100 tasks')
+  }
+
+  await page.goto('/demo/')
+  await search.fill('Maya')
+  for (const view of ['kanban', 'gantt', 'scheduler']) {
+    await page.getByRole('tab', { name: view }).click()
+    await expect(search).toHaveValue('Maya')
+    await expect(count).toContainText('20 of 100 tasks')
+  }
+})
+
+test('planning Kanban renders only cards matching quick search', async ({ page }) => {
+  await page.goto('/demo/')
+  await page.getByRole('tab', { name: 'kanban' }).click()
+  await page.getByRole('searchbox', { name: 'Quick search tasks' }).fill('Define requirements')
+
+  await expect(
+    page.locator('.kanban-card').filter({ hasText: 'Define requirements' }),
+  ).toBeVisible()
+  await expect(page.locator('.kanban-card').filter({ hasText: 'Analytics dashboard' })).toBeHidden()
 })

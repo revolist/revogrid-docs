@@ -4,7 +4,7 @@ Supplemental viewport/theme observations and live-checkout limitations: [catalog
 
 **Route:** `/demo/event-scheduler`
 
-The docs embeds the shift scheduler with Calendar, Resource and Table workspaces, Day/Week/Month/Year range controls and Weekday/Open/Training calendar presets. It starts in Calendar/Week/Weekday with dates derived from today's anchor; freeze the browser clock/timezone in future E2E. The template has no current search sidebar or custom external New event button. Events can be created/edited through the scheduler's own interaction surface. Period, view and calendar-preset changes regenerate seed events; this demo is not a persistent scheduling application.
+The docs embeds the shift scheduler with Resource, Calendar and Table workspaces, Day/Week/Month/Year range controls and Weekday/Open/Training calendar presets. It starts in Resource/Week/Weekday with dates derived from today's anchor; freeze the browser clock/timezone in future E2E. The template has no current search sidebar or custom external New event button. Events can be created/edited through the scheduler's own interaction surface. Period, view and calendar-preset changes regenerate seed events; this demo is not a persistent scheduling application.
 
 ## Review evidence and execution contract
 
@@ -30,14 +30,14 @@ Central reviewer opened and inspected screenshots at **1280×720, light theme** 
 
 ## Scenarios
 
-### SCHED-01 — Initial weekly calendar (P0)
+### SCHED-01 — Initial weekly resource schedule (P0)
 
-**Evidence:** Clean docs-host E2E run: the Calendar/Week workspace loaded with the Weekday preset, Scheduler workspace/view controls and grid. Stable `shift-sam-locked` and `shift-alex-mon-conflict` attributes exposed locked and conflict presentation. Frozen-clock reproducibility and full fixture-count assertions remain source-derived.
+**Evidence:** The Resource/Week workspace loads with the Weekday preset, Scheduler workspace/view controls and grid. Stable `shift-sam-locked` and `shift-alex-mon-conflict` attributes expose locked and conflict presentation. Frozen-clock reproducibility and full fixture-count assertions remain source-derived.
 
 **Setup/reset:** Fresh context; freeze 2026-09-08 10:00 UTC before module load for future E2E; open route.
 
-1. Wait for Scheduler workspace tabs, Scheduler view controls, Calendar preset and first event ⇒ Calendar and Week are selected, Weekday preset active.
-2. Inspect week containing Sep 8 2026 ⇒ calendar shows date/time axes and seed events, with 06:00–18:00 configured time range.
+1. Wait for Scheduler workspace tabs, Scheduler view controls, Calendar preset and first event ⇒ Resource and Week are selected, Weekday preset active.
+2. Inspect week containing Sep 8 2026 ⇒ resource timeline shows date/time axes and seed events, with 06:00–18:00 configured time range.
 3. Locate resources/event fixtures by stable IDs ⇒ resource set is Alex Kim, Mina Patel, Sam Rivera and Jamie Chen; shift-sam-locked is locked, while other seed events remain editable.
 
 **Visual checks:** Header and time grid align; event titles/times/avatars fit; current-time/today marker and weekend/non-working shading do not obscure events.

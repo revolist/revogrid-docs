@@ -73,8 +73,8 @@ const planningDataFiles = [
       module => module.default,
     ),
   ),
-  planningDataFile('selection.ts', () =>
-    import('../../revogrid-demos/pro-advanced-planning/src/data/selection.ts?raw').then(
+  planningDataFile('workspace.plugin.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/workspace.plugin.ts?raw').then(
       module => module.default,
     ),
   ),
