@@ -21,6 +21,7 @@ Comprehensive keyboard navigation ensures that all users, including those who re
 
 - **Tab Sequence Management**: Following WAI-ARIA practices, grid ensures that only the relevant focusable elements are included in the tab sequence, making navigation intuitive.
 - **Arrow Keys**: Navigate between cell elements using the arrow keys, ensuring that users can move horizontally and vertically across the grid.
+- **Jump to Grid Edges**: Use <kbd>Ctrl</kbd> + <kbd>Arrow</kbd> on Windows and Linux, or <kbd>Cmd</kbd> + <kbd>Arrow</kbd> on macOS, to move the focused cell directly to the first or last row or column. When range selection is enabled, hold <kbd>Shift</kbd> as well to extend the active range to that edge. See [Keyboard Navigation](/guide/keyboard) for the complete shortcut reference.
 - **Ctrl/CMD + A Keys**: Quickly all cells of the entire grid.
 - **Enter/Escape**: Select a cell or row for editing, or exit the edit mode using `Enter` or `Escape`.
 - **Ctrl/CMD + C/V Keys**: Copy and paste cells.

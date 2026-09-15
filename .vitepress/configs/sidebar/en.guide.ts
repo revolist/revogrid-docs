@@ -64,6 +64,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
                 link: '/guide/programmatic-control',
             },
             {
+                text: 'Keyboard Navigation',
+                link: '/guide/keyboard',
+            },
+            {
                 text: 'Proxy Source Editing',
                 link: '/guide/proxy-source',
             },

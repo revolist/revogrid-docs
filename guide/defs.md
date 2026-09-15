@@ -119,7 +119,7 @@ Autofill extends a selected value or pattern across a dragged range. Advanced au
 
 ## Keyboard support
 
-RevoGrid includes keyboard navigation for moving focus, editing cells, selecting ranges, and copying or pasting data. Custom features should integrate with keyboard behavior rather than bypassing it.
+RevoGrid includes keyboard navigation for moving focus, editing cells, selecting ranges, and copying or pasting data. See [Keyboard Navigation](/guide/keyboard) for supported shortcuts and customization.
 
 ## Method
 
