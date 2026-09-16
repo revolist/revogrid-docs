@@ -152,6 +152,32 @@
   display: none !important;
 }
 
+// Demo navigation is rendered independently, so it must not reserve the
+// default VitePress sidebar space in the global header.
+@media (min-width: 960px) {
+  .demo-page-class .VPNavBar.has-sidebar .wrapper {
+    padding: 0 32px;
+  }
+
+  .demo-page-class .VPNavBar.has-sidebar .container {
+    max-width: calc(var(--vp-layout-max-width) - 64px);
+  }
+
+  .demo-page-class .VPNavBar.has-sidebar .title {
+    position: static;
+    z-index: auto;
+    padding: 0;
+    width: auto;
+    background-color: transparent;
+  }
+
+  .demo-page-class .VPNavBar.has-sidebar .content,
+  .demo-page-class .VPNavBar.has-sidebar .divider {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 @media (min-width: 1100px) {
   .demo-page-class .VPContent.has-sidebar {
     padding-left: 0 !important;

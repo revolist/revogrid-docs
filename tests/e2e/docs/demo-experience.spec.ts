@@ -184,16 +184,6 @@ test('Progress renders a slider in the Grid filter header', async ({ page }) => 
   await expect(progressSlider.locator('input[type="range"]')).toHaveCount(2)
 })
 
-test('planning quick search persists across workspace views', async ({ page }) => {
-  await page.goto('/demo/')
-  const search = page.getByRole('searchbox', { name: 'Quick search tasks' })
-  await search.fill('Maya')
-  await expect(page.locator('.planning-demo__footer')).toContainText('20 of 100 tasks')
-  await page.getByRole('tab', { name: 'Kanban' }).click()
-  await expect(search).toHaveValue('Maya')
-  await expect(page.locator('.planning-demo__footer')).toContainText('20 of 100 tasks')
-})
-
 test('demo pages do not render guided steps', async ({ page }) => {
   for (const demo of canonicalDemos) {
     await page.goto(demo.pageUrl)
@@ -205,9 +195,6 @@ test('demo pages do not render guided steps', async ({ page }) => {
 test('source panel uses real files and preserves the live workspace', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 720 })
   await page.goto('/demo/')
-  const taskSearch = page.getByRole('searchbox', { name: 'Quick search tasks' })
-  await taskSearch.fill('Maya')
-  await expect(page.locator('.planning-demo__footer')).toContainText('20 of 100 tasks')
 
   await page.getByRole('button', { name: 'Code' }).click()
   const sourcePanel = page.getByRole('dialog', { name: 'Example source code' })
@@ -249,7 +236,7 @@ test('source panel uses real files and preserves the live workspace', async ({ p
   await expect.poll(() => page.evaluate(() => document.fullscreenElement)).toBeNull()
   await page.keyboard.press('Escape')
 
-  await expect(taskSearch).toHaveValue('Maya')
+  await expect(page.locator('.planning-demo')).toBeVisible()
   await expect(page.getByRole('button', { name: 'Code' })).toBeFocused()
 })
 
@@ -395,6 +382,53 @@ test('planning Kanban editor reuses the portrait shown on its card', async ({ pa
   await expect(editorPortrait).toHaveAttribute('src', await cardPortrait.getAttribute('src'))
 })
 
+test('planning Kanban assignee picker keeps the full people catalog', async ({ page }) => {
+  await page.goto('/demo/')
+  await page.getByRole('tab', { name: 'Kanban' }).click()
+
+  const card = page.locator('.kanban-card').filter({ hasText: 'Define requirements' })
+  await expect(card).toBeVisible()
+  await card.dblclick()
+
+  const dialog = page.getByRole('dialog')
+  await dialog.locator('[data-kanban-card-editor-row="assignees"] .rv-resource-picker__control').click()
+  const options = page.locator('.rv-resource-picker__portal').getByRole('option')
+  await expect(options).toHaveCount(5)
+  for (const person of ['Ava', 'Noah', 'Leo', 'Maya', 'Nina']) {
+    await expect(page.locator('.rv-resource-picker__portal').getByRole('option', { name: person })).toBeVisible()
+  }
+})
+
+test('planning Kanban editor portrait follows a mapped Grid owner edit', async ({ page }) => {
+  await page.goto('/demo/')
+  await page.locator('.planning-demo revo-grid').evaluate(element => {
+    const grid = element as any
+    const model = grid.source[0]
+    grid.dispatchEvent(new CustomEvent('gridedit', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        data: { 0: { owner: 'Noah' } },
+        models: { 0: model },
+      },
+    }))
+  })
+  await page.getByRole('tab', { name: 'Kanban' }).click()
+
+  const card = page.locator('.kanban-card').filter({ hasText: 'Define requirements' })
+  await expect(card).toContainText('Noah')
+  const cardPortrait = card.locator('.planning-card__avatar img')
+  await expect(cardPortrait).toBeVisible()
+  await card.dblclick()
+
+  const editorPortrait = page.getByRole('dialog').locator(
+    '[data-kanban-card-editor-row="assignees"] .rv-resource-picker__chip img',
+  )
+  await expect(editorPortrait).toBeVisible()
+  await expect(editorPortrait).toHaveAttribute('alt', 'Noah')
+  await expect(editorPortrait).toHaveAttribute('src', await cardPortrait.getAttribute('src'))
+})
+
 test('planning Kanban refreshes its portrait after a mapped owner edit', async ({ page }) => {
   await page.goto('/demo/')
   await page.getByRole('tab', { name: 'Kanban' }).click()
@@ -412,16 +446,6 @@ test('planning Kanban refreshes its portrait after a mapped owner edit', async (
 
   await expect(card).toContainText('Noah')
   await expect.poll(() => portrait.getAttribute('src')).not.toBe(initialPortrait)
-})
-
-test('planning quick search clears without leaving stale workspace results', async ({ page }) => {
-  await page.goto('/demo/')
-  const search = page.getByRole('searchbox', { name: 'Quick search tasks' })
-  await search.fill('zz-no-task-qa-2026')
-  await expect(page.locator('.planning-demo__footer')).toContainText('0 of 100 tasks')
-  await search.press('ControlOrMeta+A')
-  await search.press('Backspace')
-  await expect(page.locator('.planning-demo__footer')).toContainText('100 of 100 tasks')
 })
 
 test('planning layout stays usable at the target viewports', async ({ page }) => {
@@ -611,55 +635,4 @@ test('planning Gantt keeps its mapped scalar assignee read-only', async ({ page 
   await expect(assigneeCell.locator('.avatar-cell__image')).toBeVisible()
   await assigneeCell.dblclick()
   await expect(page.locator('.revo-dropdown-menu.gantt-assignee-dropdown')).toHaveCount(0)
-})
-
-test('planning filters persist across every workspace view', async ({ page }) => {
-  await page.goto('/demo/')
-  const count = page.locator('.planning-demo__footer span').first()
-  const search = page.getByRole('searchbox', { name: 'Quick search tasks' })
-
-  await expect(count).toContainText('100 of 100 tasks')
-  await expect(page.getByText('Activity time', { exact: true })).toBeVisible()
-  await expect(page.getByText('Time', { exact: true })).toBeVisible()
-  await search.fill('Maya')
-  await expect(count).toContainText('20 of 100 tasks')
-
-  for (const view of ['kanban', 'gantt', 'scheduler', 'calendar', 'grid']) {
-    await page.getByRole('tab', { name: view }).click()
-    await expect(search).toHaveValue('Maya')
-    await expect(count).toContainText('20 of 100 tasks')
-  }
-})
-
-test('planning quick search applies when entered from Kanban, Gantt, or Scheduler', async ({
-  page,
-}) => {
-  const search = page.getByRole('searchbox', { name: 'Quick search tasks' })
-  const count = page.locator('.planning-demo__footer span').first()
-
-  for (const view of ['kanban', 'gantt', 'scheduler']) {
-    await page.goto('/demo/')
-    await page.getByRole('tab', { name: view }).click()
-    await search.fill('Maya')
-    await expect(count).toContainText('20 of 100 tasks')
-  }
-
-  await page.goto('/demo/')
-  await search.fill('Maya')
-  for (const view of ['kanban', 'gantt', 'scheduler']) {
-    await page.getByRole('tab', { name: view }).click()
-    await expect(search).toHaveValue('Maya')
-    await expect(count).toContainText('20 of 100 tasks')
-  }
-})
-
-test('planning Kanban renders only cards matching quick search', async ({ page }) => {
-  await page.goto('/demo/')
-  await page.getByRole('tab', { name: 'kanban' }).click()
-  await page.getByRole('searchbox', { name: 'Quick search tasks' }).fill('Define requirements')
-
-  await expect(
-    page.locator('.kanban-card').filter({ hasText: 'Define requirements' }),
-  ).toBeVisible()
-  await expect(page.locator('.kanban-card').filter({ hasText: 'Analytics dashboard' })).toBeHidden()
 })

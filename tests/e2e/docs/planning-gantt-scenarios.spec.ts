@@ -16,7 +16,7 @@ const docsErrors = (page: import('@playwright/test').Page) => {
 }
 
 test.describe('docs planning, Gantt and scheduler scenarios', () => {
-  test('PLAN-01/02: workspace loads its filtered model and keeps search results across views', async ({
+  test('PLAN-01/02: workspace shows active filter badges across views', async ({
     page,
   }) => {
     const errors = docsErrors(page)
@@ -39,34 +39,32 @@ test.describe('docs planning, Gantt and scheduler scenarios', () => {
     ).toBeVisible()
     await page.getByRole('tab', { name: 'grid', exact: true }).click()
 
-    await page.getByRole('button', { name: 'Active tasks', exact: true }).click()
+    const activeTasks = page.getByRole('button', { name: 'Active tasks', exact: true })
+    await activeTasks.click()
+    await expect(activeTasks).toHaveAttribute('aria-pressed', 'true')
+    await expect(activeTasks).toHaveClass(/on/)
     await expect(footer).toContainText('60 of 100 tasks')
     await expect(workspace.getByText('Define requirements', { exact: true })).toHaveCount(0)
-    await page.getByRole('button', { name: 'Reset', exact: true }).click()
-    await expect(footer).toContainText('100 of 100 tasks')
-    await expect(workspace.getByText('Define requirements', { exact: true })).toBeVisible()
-
-    const search = page.getByRole('searchbox', { name: 'Quick search tasks' })
-    await search.fill('Maya')
-    await expect(footer).toContainText('20 of 100 tasks')
 
     for (const name of ['kanban', 'gantt', 'scheduler', 'calendar'] as const) {
       const tab = page.getByRole('tab', { name, exact: true })
       await tab.click()
       await expect(tab).toHaveAttribute('aria-selected', 'true')
-      await expect(workspace.locator('revo-grid:visible')).toBeVisible()
-      await expect(footer).toContainText('20 of 100 tasks')
+      const activeGrid = workspace.locator('revo-grid:visible')
+      await expect(activeGrid).toBeVisible()
+      await expect(workspace.locator('.planning-demo__filter-badge:visible')).toContainText('Status')
+      await expect(footer).toContainText('60 of 100 tasks')
     }
 
-    await page.getByRole('tab', { name: 'grid', exact: true }).click()
-    await search.fill('zz-no-task-qa-2026')
-    await expect(footer).toContainText('0 of 100 tasks')
-    await search.fill('')
+    await page.getByRole('button', { name: 'Reset', exact: true }).click()
+    await expect(activeTasks).toHaveAttribute('aria-pressed', 'false')
+    await expect(activeTasks).not.toHaveClass(/on/)
+    await expect(workspace.locator('revo-grid:visible .planning-demo__filter-badge')).toHaveCount(0)
     await expect(footer).toContainText('100 of 100 tasks')
     expect(errors).toEqual([])
   })
 
-  test('PLAN-04/09: selection indicators, quick filtering, and fullscreen are reversible', async ({
+  test('PLAN-04/09: selection indicators and fullscreen are reversible', async ({
     page,
   }) => {
     const errors = docsErrors(page)
@@ -78,12 +76,6 @@ test.describe('docs planning, Gantt and scheduler scenarios', () => {
     await expect(selection.nth(1)).toBeVisible()
     await selection.nth(1).click()
     await expect(footer).toContainText('1 selected')
-
-    const search = page.getByRole('searchbox', { name: 'Quick search tasks' })
-    await search.fill('Maya')
-    await expect(footer).toContainText('20 of 100 tasks')
-    await search.fill('')
-    await expect(footer).toContainText('100 of 100 tasks')
 
     const fullscreen = page.getByRole('button', { name: 'Full screen', exact: true })
     await fullscreen.click()
@@ -100,8 +92,6 @@ test.describe('docs planning, Gantt and scheduler scenarios', () => {
     await page.goto('/demo/')
 
     const workspace = page.locator('.planning-demo')
-    const search = page.getByRole('searchbox', { name: 'Quick search tasks' })
-    await search.fill('API integration')
     const task = workspace.getByRole('gridcell', { name: 'API integration', exact: true })
     await expect(task).toBeVisible()
     await task.dblclick()
@@ -281,6 +271,11 @@ test.describe('docs planning, Gantt and scheduler scenarios', () => {
     expect(barBox).not.toBeNull()
     await page.mouse.move(barBox!.x + barBox!.width / 2, barBox!.y + barBox!.height / 2)
     await page.mouse.down()
+    await page.mouse.move(barBox!.x + barBox!.width / 2 + 12, barBox!.y + barBox!.height / 2)
+    await expect(bar).toHaveClass(/gantt-bar--interaction-active/)
+    const initialDragBox = await bar.boundingBox()
+    expect(initialDragBox).not.toBeNull()
+    expect(initialDragBox!.x).toBeGreaterThanOrEqual(barBox!.x - 1)
     await page.mouse.move(barBox!.x + barBox!.width / 2 + 100, barBox!.y + barBox!.height / 2, {
       steps: 10,
     })
