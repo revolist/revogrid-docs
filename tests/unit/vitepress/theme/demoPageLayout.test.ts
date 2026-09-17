@@ -477,7 +477,7 @@ test('does not expose the retired ecommerce demo', () => {
 test('exposes the Excel demo in the typed catalog and demo navigation', () => {
   assert.equal('excel' in PRODUCT_CATALOG.demos, true)
   assert.match(demoSidebarSource, /demoSidebarText\('excel'\)[\s\S]*?\/demo\/excel/)
-  assert.match(vitepressConfigSource, /['"]demo\/excel\.md['"]/)
+  assert.doesNotMatch(vitepressConfigSource, /['"]demo\/excel\.md['"]/)
   assert.equal(existsSync(new URL('../../../../demo/excel.md', import.meta.url)), true)
 })
 
