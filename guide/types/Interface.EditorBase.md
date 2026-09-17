@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.7](README.md) / EditorBase
+[RevoGrid Documentation v4.27.11](README.md) / EditorBase
 
 # Interface: EditorBase
 
@@ -8,10 +8,35 @@ Editor interface
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `editCell?` | [`EditCell`](TypeAlias.EditCell.md) | [src/types/selection.ts:210](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/types/selection.ts#L210) |
-| `element?` | `null` \| `Element` | [src/types/selection.ts:209](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/types/selection.ts#L209) |
+| `editCell?` | [`EditCell`](TypeAlias.EditCell.md) | [src/types/selection.ts:210](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/types/selection.ts#L210) |
+| `element?` | `null` \| `Element` | [src/types/selection.ts:209](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/types/selection.ts#L209) |
 
 ## Methods
+
+### appendPendingInput()?
+
+```ts
+optional appendPendingInput(value: string): boolean
+```
+
+Consume printable input that reached the grid while the editor mounted.
+Return true when the editor handled the value.
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `value` | `string` |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[src/types/selection.ts:215](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/types/selection.ts#L215)
+
+***
 
 ### beforeAutoSave()?
 
@@ -34,7 +59,7 @@ Prevents Editor save. Manual save usage required.
 
 #### Defined in
 
-[src/types/selection.ts:219](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/types/selection.ts#L219)
+[src/types/selection.ts:224](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/types/selection.ts#L224)
 
 ***
 
@@ -53,7 +78,7 @@ Can be triggered multiple times before actual disconnect.
 
 #### Defined in
 
-[src/types/selection.ts:225](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/types/selection.ts#L225)
+[src/types/selection.ts:230](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/types/selection.ts#L230)
 
 ***
 
@@ -69,7 +94,7 @@ optional beforeUpdate(): void
 
 #### Defined in
 
-[src/types/selection.ts:220](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/types/selection.ts#L220)
+[src/types/selection.ts:225](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/types/selection.ts#L225)
 
 ***
 
@@ -85,7 +110,7 @@ optional componentDidRender(): void
 
 #### Defined in
 
-[src/types/selection.ts:226](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/types/selection.ts#L226)
+[src/types/selection.ts:231](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/types/selection.ts#L231)
 
 ***
 
@@ -101,7 +126,7 @@ optional disconnectedCallback(): void
 
 #### Defined in
 
-[src/types/selection.ts:227](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/types/selection.ts#L227)
+[src/types/selection.ts:232](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/types/selection.ts#L232)
 
 ***
 
@@ -119,7 +144,7 @@ Autosave usage when you want to return value for models.
 
 #### Defined in
 
-[src/types/selection.ts:214](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/types/selection.ts#L214)
+[src/types/selection.ts:219](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/types/selection.ts#L219)
 
 ***
 
@@ -142,4 +167,4 @@ render(createElement: HyperFunc<VNode>, additionalData?: any): string | void | V
 
 #### Defined in
 
-[src/types/selection.ts:228](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/types/selection.ts#L228)
+[src/types/selection.ts:233](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/types/selection.ts#L233)

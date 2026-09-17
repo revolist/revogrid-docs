@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.7](README.md) / Handlers
+[RevoGrid Documentation v4.27.11](README.md) / Handlers
 
 # Interface: Handlers\<T\>
 
@@ -12,7 +12,7 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `dispose` | [`DisposeEventHandler`](TypeAlias.DisposeEventHandler.md)[] | [src/utils/store.types.ts:2](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/utils/store.types.ts#L2) |
-| `get` | [`GetEventHandler`](TypeAlias.GetEventHandler.md)\<`T`\>[] | [src/utils/store.types.ts:3](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/utils/store.types.ts#L3) |
-| `reset` | [`ResetEventHandler`](TypeAlias.ResetEventHandler.md)[] | [src/utils/store.types.ts:4](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/utils/store.types.ts#L4) |
-| `set` | [`SetEventHandler`](TypeAlias.SetEventHandler.md)\<`T`\>[] | [src/utils/store.types.ts:5](https://github.com/revolist/revogrid/blob/fde0274c8293051d5a170e61f40935c73690c8ce/src/utils/store.types.ts#L5) |
+| `dispose` | [`DisposeEventHandler`](TypeAlias.DisposeEventHandler.md)[] | [src/utils/store.types.ts:2](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/utils/store.types.ts#L2) |
+| `get` | [`GetEventHandler`](TypeAlias.GetEventHandler.md)\<`T`\>[] | [src/utils/store.types.ts:3](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/utils/store.types.ts#L3) |
+| `reset` | [`ResetEventHandler`](TypeAlias.ResetEventHandler.md)[] | [src/utils/store.types.ts:4](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/utils/store.types.ts#L4) |
+| `set` | [`SetEventHandler`](TypeAlias.SetEventHandler.md)\<`T`\>[] | [src/utils/store.types.ts:5](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/utils/store.types.ts#L5) |
