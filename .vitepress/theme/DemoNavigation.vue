@@ -8,21 +8,21 @@
         ><span class="sr-only">Find a demo</span
         ><input v-model="query" type="search" placeholder="Find a demo…"
       /></label>
-      <div v-if="!queryValue || filteredPinnedItems.length" class="demo-nav__pinned">
-        <section>
-          <h2>{{ pinnedGroup.label }}</h2>
-          <a
-            v-for="item in filteredPinnedItems"
-            :key="item.id"
-            :href="item.href"
-            :class="{ active: active(item.href) }"
-            @click="open = false"
-            ><FontAwesomeSvgIcon :name="item.icon" /><span>{{ item.label }}</span
-            ><small v-if="item.plan">{{ item.plan }}</small></a
-          >
-        </section>
-      </div>
       <nav ref="featureList">
+        <div v-if="!queryValue || filteredPinnedItems.length" class="demo-nav__pinned">
+          <section>
+            <h2>{{ pinnedGroup.label }}</h2>
+            <a
+              v-for="item in filteredPinnedItems"
+              :key="item.id"
+              :href="item.href"
+              :class="{ active: active(item.href) }"
+              @click="open = false"
+              ><FontAwesomeSvgIcon :name="item.icon" /><span>{{ item.label }}</span
+              ><small v-if="item.plan">{{ item.plan }}</small></a
+            >
+          </section>
+        </div>
         <p v-if="!queryValue" class="demo-nav__eyebrow">Explore demos</p>
         <section v-for="group in filteredFeatureGroups" :key="group.id">
           <h2>
@@ -319,16 +319,16 @@ function active(href: string) {
 <style scoped>
 .demo-nav {
   position: fixed;
-  z-index: 35;
-  top: var(--vp-nav-height, 64px);
+  z-index: calc(var(--vp-z-index-nav) - 1);
+  top: 0;
   bottom: 0;
   left: 0;
-  width: var(--demo-sidebar-width, 256px);
+  width: var(--demo-sidebar-width, 276px);
   display: flex;
   flex-direction: column;
-  padding: 16px 0 0 10px;
+  padding: calc(var(--vp-nav-height) + 16px) 0 0 10px;
   border-right: 1px solid var(--vp-c-divider);
-  background: var(--vp-c-bg);
+  background: var(--vp-c-bg-soft);
   color: var(--vp-c-neutral);
   font-size: 13px;
   line-height: 21px;

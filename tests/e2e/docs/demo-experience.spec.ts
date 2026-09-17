@@ -46,9 +46,7 @@ test('navigation search finds demos by category, feature, and alias without chan
   await expect(page.locator('.demo-nav nav a')).toContainText('Server-side scrolling')
 })
 
-test('navigation pins onboarding demos and remembers collapsible feature groups', async ({
-  page,
-}) => {
+test('navigation scrolls onboarding demos with collapsible feature groups', async ({ page }) => {
   await page.goto('/demo/')
   await page.evaluate(() => localStorage.removeItem('revogrid-demo-navigation-expanded-groups'))
   await page.reload()
@@ -56,10 +54,15 @@ test('navigation pins onboarding demos and remembers collapsible feature groups'
   const pinned = page.locator('.demo-nav__pinned')
   await expect(pinned.getByRole('link', { name: /Project workspace/ })).toBeVisible()
   await expect(pinned.getByRole('link', { name: /Performance/ })).toBeVisible()
+  expect(
+    await page
+      .locator('.demo-nav nav')
+      .evaluate(navigation => navigation.contains(document.querySelector('.demo-nav__pinned'))),
+  ).toBe(true)
 
   const dataGrid = page.getByRole('button', { name: 'Data grid' })
   const kanban = page.getByRole('button', { name: 'Kanban' })
-  await expect(dataGrid).toHaveAttribute('aria-expanded', 'false')
+  await expect(dataGrid).toHaveAttribute('aria-expanded', 'true')
   await expect(kanban).toHaveAttribute('aria-expanded', 'false')
 
   await kanban.click()
@@ -309,9 +312,7 @@ test('deleting selected rows clears Grid selection', async ({ page }) => {
     const contextMenu = plugins.find(
       (plugin: any) => plugin.config?.commandHandlers?.['row.delete'],
     )
-    const planning = plugins.find(
-      (plugin: any) => typeof plugin.clearRowSelection === 'function',
-    )
+    const planning = plugins.find((plugin: any) => typeof plugin.clearRowSelection === 'function')
     contextMenu.config.commandHandlers['row.delete']({
       menu: { providers: planning.providers },
       rows: grid.source.slice(0, 2).map((model: unknown) => ({ model })),
@@ -391,11 +392,15 @@ test('planning Kanban assignee picker keeps the full people catalog', async ({ p
   await card.dblclick()
 
   const dialog = page.getByRole('dialog')
-  await dialog.locator('[data-kanban-card-editor-row="assignees"] .rv-resource-picker__control').click()
+  await dialog
+    .locator('[data-kanban-card-editor-row="assignees"] .rv-resource-picker__control')
+    .click()
   const options = page.locator('.rv-resource-picker__portal').getByRole('option')
   await expect(options).toHaveCount(5)
   for (const person of ['Ava', 'Noah', 'Leo', 'Maya', 'Nina']) {
-    await expect(page.locator('.rv-resource-picker__portal').getByRole('option', { name: person })).toBeVisible()
+    await expect(
+      page.locator('.rv-resource-picker__portal').getByRole('option', { name: person }),
+    ).toBeVisible()
   }
 })
 
@@ -404,14 +409,16 @@ test('planning Kanban editor portrait follows a mapped Grid owner edit', async (
   await page.locator('.planning-demo revo-grid').evaluate(element => {
     const grid = element as any
     const model = grid.source[0]
-    grid.dispatchEvent(new CustomEvent('gridedit', {
-      bubbles: true,
-      composed: true,
-      detail: {
-        data: { 0: { owner: 'Noah' } },
-        models: { 0: model },
-      },
-    }))
+    grid.dispatchEvent(
+      new CustomEvent('gridedit', {
+        bubbles: true,
+        composed: true,
+        detail: {
+          data: { 0: { owner: 'Noah' } },
+          models: { 0: model },
+        },
+      }),
+    )
   })
   await page.getByRole('tab', { name: 'Kanban' }).click()
 
@@ -421,9 +428,9 @@ test('planning Kanban editor portrait follows a mapped Grid owner edit', async (
   await expect(cardPortrait).toBeVisible()
   await card.dblclick()
 
-  const editorPortrait = page.getByRole('dialog').locator(
-    '[data-kanban-card-editor-row="assignees"] .rv-resource-picker__chip img',
-  )
+  const editorPortrait = page
+    .getByRole('dialog')
+    .locator('[data-kanban-card-editor-row="assignees"] .rv-resource-picker__chip img')
   await expect(editorPortrait).toBeVisible()
   await expect(editorPortrait).toHaveAttribute('alt', 'Noah')
   await expect(editorPortrait).toHaveAttribute('src', await cardPortrait.getAttribute('src'))
@@ -440,7 +447,9 @@ test('planning Kanban refreshes its portrait after a mapped owner edit', async (
 
   await card.dblclick()
   const dialog = page.getByRole('dialog')
-  await dialog.locator('[data-kanban-card-editor-row="assignees"] .rv-resource-picker__control').click()
+  await dialog
+    .locator('[data-kanban-card-editor-row="assignees"] .rv-resource-picker__control')
+    .click()
   await page.locator('.rv-resource-picker__portal').getByRole('option', { name: /Noah/ }).click()
   await dialog.getByRole('button', { name: 'Save', exact: true }).click()
 
@@ -502,7 +511,7 @@ test('planning layout stays usable at the target viewports', async ({ page }) =>
           sidebarTitleCount: document.querySelectorAll('.demo-nav header strong').length,
         }
       })
-      expect(shellGeometry.sidebarWidth).toBe(256)
+      expect(shellGeometry.sidebarWidth).toBe(276)
       expect(shellGeometry.scrollbarEdge).toBeLessThanOrEqual(1)
       expect(shellGeometry.layoutLeft).toBe(256)
       expect(shellGeometry.dividerLeft).toBe(0)
@@ -535,7 +544,7 @@ test('planning layout stays usable at the target viewports', async ({ page }) =>
   }
 })
 
-test('demo surfaces stay transparent while controls and grid borders retain contrast', async ({
+test('demo uses the docs sidebar surface while controls and grid borders retain contrast', async ({
   page,
 }) => {
   const readSurfaces = () =>
@@ -561,7 +570,7 @@ test('demo surfaces stay transparent while controls and grid borders retain cont
   await expect(page.locator('.planning-demo__grid')).toBeVisible()
   expect(await readSurfaces()).toEqual({
     canvas: 'rgba(0, 0, 0, 0)',
-    sidebar: 'rgba(0, 0, 0, 0)',
+    sidebar: 'rgb(246, 246, 252)',
     stage: 'rgba(0, 0, 0, 0)',
     grid: 'rgba(0, 0, 0, 0)',
     gridHeader: 'rgba(0, 0, 0, 0)',
@@ -575,7 +584,7 @@ test('demo surfaces stay transparent while controls and grid borders retain cont
   await expect(page.locator('.planning-demo__grid')).toBeVisible()
   expect(await readSurfaces()).toEqual({
     canvas: 'rgba(0, 0, 0, 0)',
-    sidebar: 'rgba(0, 0, 0, 0)',
+    sidebar: 'rgb(32, 33, 39)',
     stage: 'rgba(0, 0, 0, 0)',
     grid: 'rgba(0, 0, 0, 0)',
     gridHeader: 'rgba(0, 0, 0, 0)',

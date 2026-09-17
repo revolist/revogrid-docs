@@ -1,30 +1,36 @@
 import { expect, test } from '@playwright/test'
 
-test('demo pages keep the global logo and search aligned with ordinary site headers', async ({
+test('demo pages keep the logo inside the sidebar and search in the content header', async ({
   page,
 }) => {
-  await page.setViewportSize({ width: 1280, height: 720 })
+  for (const width of [1280, 1920]) {
+    await page.setViewportSize({ width, height: 720 })
+    await page.goto('/demo/')
+    await expect(page.locator('.demo-nav')).toBeVisible()
+    await expect(page.locator('.VPNavBarTitle .title')).toBeVisible()
+    await expect(page.locator('.VPNavBarSearchButton')).toBeVisible()
 
-  await page.goto('/')
-  const siteSearch = await page.locator('.VPNavBarSearch').evaluate(element => {
-    const bounds = element.getBoundingClientRect()
-    return { x: bounds.x }
-  })
-  const siteLogo = await page.locator('.VPNavBarTitle .title').evaluate(element => {
-    const bounds = element.getBoundingClientRect()
-    return { x: bounds.x }
-  })
+    const geometry = await page.evaluate(() => {
+      const bounds = (selector: string) => document.querySelector(selector)!.getBoundingClientRect()
+      const sidebar = bounds('.demo-nav')
+      const logo = bounds('.VPNavBarTitle .logo')
+      const search = bounds('.VPNavBarSearchButton')
+      const divider = bounds('.VPNavBar .divider-line')
+      const title = document.querySelector('.VPNavBarTitle .title')!
+      return {
+        sidebar: { left: sidebar.left, right: sidebar.right },
+        logo: { left: logo.left, right: logo.right },
+        search: { left: search.left },
+        divider: { left: divider.left, width: divider.width },
+        titleBorderWidth: getComputedStyle(title).borderBottomWidth,
+      }
+    })
 
-  await page.goto('/demo/')
-  const demoSearch = await page.locator('.VPNavBarSearch').evaluate(element => {
-    const bounds = element.getBoundingClientRect()
-    return { x: bounds.x }
-  })
-  const demoLogo = await page.locator('.VPNavBarTitle .title').evaluate(element => {
-    const bounds = element.getBoundingClientRect()
-    return { x: bounds.x }
-  })
-
-  expect(Math.abs(demoSearch.x - siteSearch.x)).toBeLessThanOrEqual(8)
-  expect(Math.abs(demoLogo.x - siteLogo.x)).toBeLessThanOrEqual(8)
+    expect(geometry.logo.left).toBeGreaterThanOrEqual(geometry.sidebar.left)
+    expect(geometry.logo.right).toBeLessThanOrEqual(geometry.sidebar.right)
+    expect(geometry.search.left).toBeGreaterThanOrEqual(geometry.sidebar.right)
+    expect(geometry.divider.left).toBe(0)
+    expect(geometry.divider.width).toBe(width)
+    expect(geometry.titleBorderWidth).toBe('0px')
+  }
 })

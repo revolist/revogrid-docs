@@ -703,8 +703,8 @@ $max-content-width: 1240px;
 }
 @media (min-width: 1100px) {
   .demo-page-layout {
-    margin-left: var(--demo-sidebar-width, 256px);
-    width: calc(100% - var(--demo-sidebar-width, 256px));
+    margin-left: var(--demo-sidebar-width, 276px);
+    width: calc(100% - var(--demo-sidebar-width, 276px));
   }
 }
 

@@ -88,12 +88,7 @@ test('registers every Project Portfolio source module under each framework', () 
 })
 
 test('registers every Tree Data source module under each framework', () => {
-  const sharedFiles = [
-    'useRandomData.ts',
-    'tree.shared.ts',
-    'tree.excel.ts',
-    'tree.scss',
-  ]
+  const sharedFiles = ['useRandomData.ts', 'tree.shared.ts', 'tree.excel.ts', 'tree.scss']
   const files = (framework: 'vue' | 'ts' | 'react' | 'angular') =>
     DEMO_SOURCE_REGISTRY['tree-data'][framework].files.map(file => file.label)
 
@@ -139,11 +134,7 @@ test('registers every Infinity Scroll source module under each framework', () =>
 })
 
 test('registers every Column Collapse source module under each framework', () => {
-  const sharedFiles = [
-    'useRandomData.ts',
-    'column-collapse.shared.ts',
-    'column-collapse.scss',
-  ]
+  const sharedFiles = ['useRandomData.ts', 'column-collapse.shared.ts', 'column-collapse.scss']
   const files = (framework: 'vue' | 'ts' | 'react' | 'angular') =>
     DEMO_SOURCE_REGISTRY['column-collapse'][framework].files.map(file => file.label)
 
@@ -172,11 +163,7 @@ test('registers every Context Menu source module under each framework', () => {
 })
 
 test('registers every Row Master source module under each framework', () => {
-  const sharedFiles = [
-    'useRandomData.ts',
-    'row-master.shared.ts',
-    'row-master.scss',
-  ]
+  const sharedFiles = ['useRandomData.ts', 'row-master.shared.ts', 'row-master.scss']
   const files = (framework: 'vue' | 'ts' | 'react' | 'angular') =>
     DEMO_SOURCE_REGISTRY['row-master'][framework].files.map(file => file.label)
 
@@ -232,7 +219,7 @@ test('keeps demo navigation at its specified breakpoint', () => {
     new URL('../../../../.vitepress/theme/DemoNavigation.vue', import.meta.url),
     'utf8',
   )
-  assert.match(navigation, /--demo-sidebar-width,\s*256px/)
+  assert.match(navigation, /--demo-sidebar-width,\s*276px/)
   assert.match(navigation, /background:\s*var\(--vp-c-brand-soft\)/)
   assert.match(
     navigation,
@@ -249,6 +236,32 @@ test('keeps demo navigation at its specified breakpoint', () => {
   )
   assert.match(navigation, /@media\s*\(max-width:\s*1099px\)/)
   assert.doesNotMatch(navigation, /font(?:-family)?:[^;}]*Geist/)
+})
+
+test('uses the docs sidebar surface and header geometry on desktop demo pages', () => {
+  const navigation = readFileSync(
+    new URL('../../../../.vitepress/theme/DemoNavigation.vue', import.meta.url),
+    'utf8',
+  )
+  const styles = readFileSync(
+    new URL('../../../../.vitepress/theme/style.scss', import.meta.url),
+    'utf8',
+  )
+
+  assert.match(navigation, /\.demo-nav\s*\{[^}]*top: 0[^}]*background: var\(--vp-c-bg-soft\)/s)
+  assert.match(navigation, /padding:\s*calc\(var\(--vp-nav-height\) \+ 16px\) 0 0 10px/)
+  assert.match(
+    styles,
+    /@media \(min-width: 1100px\)\s*\{[\s\S]*?\.demo-page-class \.VPNavBar\.has-sidebar \.divider\s*\{[^}]*padding-left: 0/,
+  )
+  assert.match(
+    styles,
+    /body:has\(\.demo-page-class\) \.VPNavBarTitle \.title\s*\{[^}]*border-bottom: 0 !important/,
+  )
+  assert.match(
+    styles,
+    /@media \(min-width: 1440px\)\s*\{[\s\S]*?body:has\(\.demo-page-class\) \.VPNavBar \.title\s*\{[^}]*padding: 0 32px[^}]*width: var\(--vp-sidebar-width\)/,
+  )
 })
 
 test('keeps the demo search label screen-reader-only and demo links hoverable', () => {
@@ -388,13 +401,17 @@ test('badges open-source demos as Free and keeps the scale demo label concise', 
   )
 })
 
-test('keeps onboarding demos pinned above stateful collapsible feature groups', () => {
+test('keeps onboarding demos inside the navigation scroll region before collapsible groups', () => {
   const navigation = readFileSync(
     new URL('../../../../.vitepress/theme/DemoNavigation.vue', import.meta.url),
     'utf8',
   )
   assert.match(navigation, /class="demo-nav__pinned"/)
   assert.match(navigation, /ref="featureList"/)
+  assert.match(
+    navigation,
+    /<nav ref="featureList">[\s\S]*?class="demo-nav__pinned"[\s\S]*?>Explore demos<\/p>/,
+  )
   assert.match(navigation, /class="demo-nav__group-toggle"/)
   assert.match(navigation, /:aria-expanded="isGroupExpanded\(group\)"/)
   assert.match(navigation, /revogrid-demo-navigation-expanded-groups/)
