@@ -962,6 +962,23 @@ test.describe('Core and Pro demo scenarios', () => {
     await expect(page.getByRole('button', { name: /Undo 0/ })).toBeDisabled()
   })
 
+  test('Excel workbench keeps filter-slider value tooltips clear of header clipping', async ({
+    page,
+  }) => {
+    await openDemo(page, '/demo/excel', '.spreadsheet-grid')
+    const slider = page.locator('.spreadsheet-grid .filter-header-slider').first()
+    await expect(slider).toBeVisible()
+    await slider.locator('input[type="range"]').first().hover()
+    const tooltip = slider.locator('.slider-tooltip').first()
+    await expect(tooltip).toHaveCSS('opacity', '1')
+
+    const headerOverflow = await tooltip.evaluate(node => {
+      const headerContent = node.closest('.header-content')
+      return headerContent ? getComputedStyle(headerContent).overflow : null
+    })
+    expect(headerOverflow).toBe('visible')
+  })
+
   test('Excel workbench commits a visible edit and makes undo and redo available', async ({
     page,
   }) => {
