@@ -10,7 +10,7 @@ Source reviewed on 2026-09-08 against docs commit `b0c0bd9f851772dfcd30549d6d0a7
 
 P0 = basic release gate; P1 = broader regression coverage. Run each case independently from its stated reset. Wait for actual grid data and completed UI updates, not just a mounted docs shell. Use fixture identities and column props when sorting or virtualization changes physical row positions. Pair each case with shared docs-shell checks. Automated coverage is recorded below; no demo fixes were added during this review.
 
-Hard reload restores 14 initiative records in an expanded tree. Detail buttons are rendered only on leaves: use Warehouse Routing Console, not parent North Star Operations. The main grid is readonly. Opening details creates a 340px master area and simulates an async result after 500ms.
+Hard reload restores 14 initiative records in an expanded tree. Detail buttons are rendered only on leaves: use Warehouse Routing Console, not parent North Star Operations. The main grid is readonly. Opening details reserves a 440px master area for the laptop-sized two-column detail layout and simulates an async result after 500ms.
 
 ## Recorded browser observation
 
