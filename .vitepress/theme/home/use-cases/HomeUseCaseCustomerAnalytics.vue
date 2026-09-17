@@ -13,7 +13,7 @@
                         <div class="uc-feature"><span class="uc-feature-check">✓</span><span class="uc-feature-text"><strong>Inline filter toolbar</strong> — per-column filter expressions with live row count and spend aggregation</span></div>
                     </div>
                     <div class="uc-ctas">
-                        <a href="https://rv-grid.com/demo/ecommerce" class="rg-btn">See live demo</a>
+                        <a href="https://rv-grid.com/demo/pivot" class="rg-btn">See live demo</a>
                         <a :href="docsUrl" class="rg-btn rg-btn-secondary">Read docs</a>
                     </div>
                 </div>

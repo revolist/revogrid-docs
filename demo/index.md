@@ -1,6 +1,6 @@
 ---
-title: JavaScript Data Grid Demo for Large Datasets
-description: Test RevoGrid with a large editable dataset, virtual scrolling, filtering, sorting, and framework-ready JavaScript data grid interactions.
+title: Project Workspace Planning Demo
+description: Edit one shared task model across synchronized Data Grid, Kanban, Gantt, Scheduler, and Calendar views in RevoGrid Pro Advanced.
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false
@@ -11,16 +11,22 @@ editLink: false
 head:
   - - meta
     - name: keywords
-      content: RevoGrid demo, JavaScript data grid demo, large dataset grid, virtual scrolling, editable data grid, React data grid, Vue data grid, Angular data grid
+      content: RevoGrid planning demo, project workspace, synchronized data grid, Kanban board, Gantt chart, scheduler, calendar, Vue data grid
 ---
 
 <script setup>
-import HRDemo from '@revogrid-demos/core-free/src/hr.vue'
+import 'virtual:uno.css'
+import '@revolist/revogrid-pro/dist/revogrid-pro.css'
+import '@revolist/gantt/styles.css'
+import '@revolist/kanban/styles.css'
+import '@revolist/scheduler/styles.css'
+import { defineAsyncComponent } from 'vue'
+const PlanningViews = defineAsyncComponent(() => import('@revogrid-demos/pro-advanced-planning/src/planning.vue'))
 </script>
 
-<DemoPageLayout demo-id="grid-at-scale">
+<DemoPageLayout demo-id="planning">
   <div class="demo-main-widget">
-    <HRDemo />
+    <PlanningViews />
   </div>
 </DemoPageLayout>
 
@@ -28,12 +34,7 @@ import HRDemo from '@revogrid-demos/core-free/src/hr.vue'
 .demo-main-widget {
   min-height: 0;
   height: 100%;
-  padding-top: 10px;
+  padding-top: 0;
   border-radius: 0;
-}
-:deep(.hr-toolbar) {
-  margin: 16px 20px;
-  padding: 4px;
-  font-size: 12px;
 }
 </style>

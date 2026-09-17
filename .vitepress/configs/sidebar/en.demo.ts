@@ -228,7 +228,7 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         items: [
             {
                 text: demoSidebarText('grid-at-scale'),
-                link: '/demo/',
+                link: '/demo/grid-at-scale',
             },
             {
                 text: demoSidebarText('ai-prompt-library'),
@@ -276,6 +276,10 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
                 text: demoSidebarText('project-tracker'),
                 link: '/demo/color',
             },
+            {
+                text: demoSidebarText('excel'),
+                link: '/demo/excel',
+            },
         ],
     },
     {
@@ -284,7 +288,7 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         items: [
             {
                 text: demoSidebarText('planning', 'All-in-One Planning'),
-                link: '/demo/planning',
+                link: '/demo/',
             },
             {
                 text: 'Gantt Chart',

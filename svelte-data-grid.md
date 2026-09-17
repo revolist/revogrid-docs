@@ -41,7 +41,7 @@ hero:
   tagline: Fast virtual scrolling, inline editing, custom Svelte cell renderers, and TypeScript-friendly APIs for dashboards, admin tools, and production SaaS.
   primaryAction:
     text: Explore 1M-row demo
-    link: /demo/
+    link: /demo/grid-at-scale
   secondaryAction:
     text: Read Svelte docs
     link: /guide/svelte/
@@ -282,7 +282,7 @@ finalCta:
   pricingNote: true
   actions:
     - text: Explore 1M-row demo
-      link: /demo/
+      link: /demo/grid-at-scale
       variant: primary
     - text: Install Svelte package
       link: /guide/svelte/

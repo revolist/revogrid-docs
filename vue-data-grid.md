@@ -41,7 +41,7 @@ hero:
   tagline: Fast virtual scrolling, inline editing, custom Vue cell renderers, and TypeScript-friendly APIs for dashboards, admin tools, and production SaaS.
   primaryAction:
     text: Explore 1M-row demo
-    link: /demo/
+    link: /demo/grid-at-scale
   secondaryAction:
     text: Read Vue docs
     link: /guide/vue3/
@@ -295,7 +295,7 @@ finalCta:
   pricingNote: true
   actions:
     - text: Explore 1M-row demo
-      link: /demo/
+      link: /demo/grid-at-scale
       variant: primary
     - text: Install Vue package
       link: /guide/vue3/
