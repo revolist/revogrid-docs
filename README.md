@@ -1,7 +1,6 @@
 # RevoGrid Documentation
 
-Welcome to the RevoGrid documentation repository.
-This project uses VitePress to generate a static site for the RevoGrid documentation.
+Welcome to the RevoGrid documentation repository. This project uses VitePress to generate a static site for the RevoGrid documentation.
 
 ## Table of Contents
 
