@@ -28,6 +28,7 @@ test('demo pages keep the logo inside the sidebar and search in the content head
 
     expect(geometry.logo.left).toBeGreaterThanOrEqual(geometry.sidebar.left)
     expect(geometry.logo.right).toBeLessThanOrEqual(geometry.sidebar.right)
+    expect(geometry.logo.left - geometry.sidebar.left).toBe(32)
     expect(geometry.search.left).toBeGreaterThanOrEqual(geometry.sidebar.right)
     expect(geometry.divider.left).toBe(0)
     expect(geometry.divider.width).toBe(width)

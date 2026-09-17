@@ -260,7 +260,7 @@ test('uses the docs sidebar surface and header geometry on desktop demo pages', 
   )
   assert.match(
     styles,
-    /@media \(min-width: 1440px\)\s*\{[\s\S]*?body:has\(\.demo-page-class\) \.VPNavBar \.title\s*\{[^}]*padding: 0 32px[^}]*width: var\(--vp-sidebar-width\)/,
+    /@media \(min-width: 1100px\)\s*\{[\s\S]*?body:has\(\.demo-page-class\) \.VPNavBar\.has-sidebar > \.wrapper > \.container > \.title\s*\{[^}]*padding: 0 32px[^}]*width: var\(--demo-sidebar-width, 276px\)/,
   )
 })
 

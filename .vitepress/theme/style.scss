@@ -163,20 +163,13 @@
   body:has(.demo-page-class) .VPNavBarTitle .title {
     border-bottom: 0 !important;
   }
-}
 
-// VitePress widens the title area at 1440px to align ordinary docs with their
-// centered content. Demo navigation has a fixed sidebar, so its logo stays
-// anchored to that sidebar at every desktop width.
-@media (min-width: 1440px) {
-  .demo-page-class .VPNavBar.has-sidebar .title {
+  // VitePress widens this title region at 1440px to align ordinary docs with
+  // their centered content. Demo pages own a fixed sidebar, so keep the outer
+  // title region and its logo on the sidebar's 32px content inset instead.
+  body:has(.demo-page-class) .VPNavBar.has-sidebar > .wrapper > .container > .title {
     padding: 0 32px;
-    width: var(--vp-sidebar-width);
-  }
-
-  body:has(.demo-page-class) .VPNavBar .title {
-    padding: 0 32px;
-    width: var(--vp-sidebar-width);
+    width: var(--demo-sidebar-width, 276px);
   }
 }
 
