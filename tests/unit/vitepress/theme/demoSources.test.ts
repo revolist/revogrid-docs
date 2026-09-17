@@ -252,7 +252,11 @@ test('uses the docs sidebar surface and header geometry on desktop demo pages', 
   assert.match(navigation, /padding:\s*calc\(var\(--vp-nav-height\) \+ 16px\) 0 0 10px/)
   assert.match(
     styles,
-    /@media \(min-width: 1100px\)\s*\{[\s\S]*?\.demo-page-class \.VPNavBar\.has-sidebar \.divider\s*\{[^}]*padding-left: 0/,
+    /@media \(min-width: 1100px\)\s*\{[\s\S]*?body:has\(\.demo-page-class\) \.VPNavBar\.has-sidebar \.divider\s*\{[^}]*padding-left: 0/,
+  )
+  assert.match(
+    styles,
+    /body:has\(\.demo-page-class\) \.VPNavBar\.has-sidebar \.content\s*\{[^}]*padding-left: var\(--demo-sidebar-width, 276px\)/,
   )
   assert.match(
     styles,
@@ -260,7 +264,7 @@ test('uses the docs sidebar surface and header geometry on desktop demo pages', 
   )
   assert.match(
     styles,
-    /@media \(min-width: 1100px\)\s*\{[\s\S]*?body:has\(\.demo-page-class\) \.VPNavBar\.has-sidebar > \.wrapper > \.container > \.title\s*\{[^}]*padding: 0 32px[^}]*width: var\(--demo-sidebar-width, 276px\)/,
+    /@media \(min-width: 1100px\)\s*\{[\s\S]*?body:has\(\.demo-page-class\) \.VPNavBar\.has-sidebar > \.wrapper > \.container > \.title\s*\{[^}]*position: absolute[^}]*left: 0[^}]*min-width: 0[^}]*max-width: none[^}]*padding: 0 32px[^}]*width: var\(--demo-sidebar-width, 276px\)/,
   )
 })
 
