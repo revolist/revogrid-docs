@@ -122,8 +122,6 @@ An **Excel-like spreadsheet in React** gives them a more direct workflow: select
 
 In this tutorial, we will build an inventory editor with [RevoGrid’s React data grid](/guide/react/). RevoGrid handles the editable grid and clipboard interactions. Our application adds inventory rules, a small undo/redo history, and saving. The example uses **RevoGrid Core**; we will explain where Pro can replace custom implementation work.
 
-## Try the React inventory spreadsheet
-
 <ClientOnly>
   <ReactInventoryDemo />
 </ClientOnly>
