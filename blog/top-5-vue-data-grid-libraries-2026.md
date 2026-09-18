@@ -99,7 +99,7 @@ import CompareCta from '../compare/CompareCta.vue'
 
 ![RevoGrid Vue data grid preview](/img/collaborative.png)
 
-Choosing a Vue data grid in 2026 is no longer just about rendering rows and columns. Most Vue teams eventually need fast scrolling, editable cells, keyboard navigation, pinned columns, custom renderers, filtering, export, validation, server-side data loading, and a UI that still feels stable after the first 100,000 rows.
+Choosing a [Vue data grid](/vue-data-grid) in 2026 is no longer just about rendering rows and columns. Most Vue teams eventually need fast scrolling, editable cells, keyboard navigation, pinned columns, custom renderers, filtering, export, validation, server-side data loading, and a UI that still feels stable after the first 100,000 rows.
 
 That is where the decision gets harder. A simple table component can be enough for a dashboard. But when the table becomes a real data workflow, the grid becomes infrastructure.
 

@@ -9,7 +9,7 @@ head:
 
 # React Data Grid
 
-RevoGrid gives React applications a fast virtualized data grid without changing the core grid behavior. You pass `columns` and `source` as props, then use a ref when you need to call instance methods such as `setCellEdit`, `scrollToRow`, or `getVisibleSource`.
+RevoGrid gives React applications a fast virtualized [React data grid](/react-data-grid) without changing the core grid behavior. You pass `columns` and `source` as props, then use a ref when you need to call instance methods such as `setCellEdit`, `scrollToRow`, or `getVisibleSource`.
 
 <DemoWidgetFrame
   demo="hr"

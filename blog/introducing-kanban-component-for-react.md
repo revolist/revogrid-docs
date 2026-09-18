@@ -52,7 +52,7 @@ import CommercialFaq from '../pro/CommercialFaq.vue'
 
 # Introducing the RevoGrid Kanban Component
 
-Today we are releasing **RevoGrid Kanban**: a high-performance Kanban component for building visual workflows in React and JavaScript applications.
+Today we are releasing **RevoGrid Kanban**: a high-performance [JavaScript Kanban board component](/kanban) for building visual workflows in React and JavaScript applications.
 
 This is not a separate task-board application that forces your data into a second store. The RevoGrid Kanban board component projects ordinary RevoGrid source rows into workflow columns and optional swimlanes. Your application keeps one canonical dataset while users gain a fast, visual way to plan, prioritize, and move work.
 

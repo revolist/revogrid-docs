@@ -471,6 +471,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     sidebar: sidebarEn,
   },
   vite: {
+    oxc: {
+      jsx: {
+        runtime: 'automatic',
+      },
+    },
     plugins: [
       {
         // VitePress reserves `*.data.ts` for content loaders. Demo datasets are

@@ -46,7 +46,7 @@ The ranking is written for teams building data-heavy SaaS products, internal too
 
 ## What counts as a React data grid library?
 
-For this comparison, a “React data grid library” means a component that can present, edit, validate, and navigate structured data inside a React application:
+For this comparison, a [React data grid](/react-data-grid) library means a component that can present, edit, validate, and navigate structured data inside a React application:
 
 - Editable cells
 - Keyboard navigation

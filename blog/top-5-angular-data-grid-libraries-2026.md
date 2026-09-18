@@ -80,7 +80,7 @@ import CompareCta from '../compare/CompareCta.vue'
 
 ![RevoGrid Angular data grid preview](/img/collaborative.png)
 
-Choosing an Angular data grid in 2026 is not a matter of finding the longest feature list. The real question is what kind of application you are building—and what the grid will need to become after the first release.
+Choosing an [Angular data grid](/angular-data-grid) in 2026 is not a matter of finding the longest feature list. The real question is what kind of application you are building—and what the grid will need to become after the first release.
 
 A dashboard may only need sorting and pagination. A serious SaaS, ERP, finance, logistics, planning, or operations product usually needs much more: virtualized rows and columns, reliable editing, custom Angular components inside cells, keyboard navigation, pinned regions, validation, clipboard support, remote data, saved state, accessibility, and a licensing model that still makes sense when the product grows.
 

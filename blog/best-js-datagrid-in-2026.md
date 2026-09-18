@@ -92,7 +92,7 @@ head:
 
 ![RevoGrid JavaScript data grid preview](/blog/daragrid.png)
 
-Choosing a JavaScript data grid in 2026 is no longer just about rendering rows.
+Choosing a [JavaScript data grid](/) in 2026 is no longer just about rendering rows.
 
 A modern grid has to handle large datasets, real-time updates, custom cells, editing, clipboard workflows, filtering, pinned regions, accessibility, framework integration, and now AI-assisted development. For many products, the grid is not a small UI component anymore. It becomes the main workspace where users review, edit, compare, validate, and act on data.
 

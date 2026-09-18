@@ -26,7 +26,7 @@ Modern web applications no longer treat reporting as a separate page or a static
 
 That changes what “the best JavaScript pivot table” means.
 
-A good pivot component in 2026 is not only about showing totals. It needs to fit into a real product architecture:
+A good [JavaScript pivot table](/pivot) component in 2026 is not only about showing totals. It needs to fit into a real product architecture:
 
 * it must render large datasets without turning the browser into a spreadsheet file viewer;
 * it must work inside React, Vue, Angular, Svelte, or plain JavaScript;
