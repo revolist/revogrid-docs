@@ -40,3 +40,12 @@ test('live benchmark wrapper reuses the HR demo and keeps automated runs isolate
   assert.match(componentSource, /<HRDemo v-if="shouldRender" \/>/)
   assert.match(runnerSource, /127\.0\.0\.1:5173\/benchmarks\?automated=1/)
 })
+
+test('published benchmark captures a composed workload card at the starting scroll position', () => {
+  assert.match(runnerSource, /const assetsOnly = process\.argv\.includes\('--assets-only'\)/)
+  assert.match(runnerSource, /RevoGrid benchmark/)
+  assert.match(runnerSource, /Virtualized grid workload/)
+  assert.match(runnerSource, /bench-grid-surface/)
+  assert.match(runnerSource, /scrollElement\.scrollTop = 0/)
+  assert.match(runnerSource, /val: 100_000 \+ i/)
+})

@@ -23,7 +23,7 @@ test.describe('Core and Pro demo scenarios', () => {
     await source.selectOption('1000')
     await expect(page.locator('.hr-loading-overlay')).toBeHidden()
     await expect(page.getByRole('region', { name: 'Browser performance metrics' })).toContainText(
-      '1,000 × 1,000',
+      '1,000 × 100',
     )
     await page.getByRole('button', { name: 'Save view' }).click()
     await expect(page.locator('.hr-workspace-status')).toContainText('Saved locally')

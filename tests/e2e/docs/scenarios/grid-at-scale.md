@@ -28,21 +28,21 @@ Root reviewer opened and screenshotted this route in light theme at 1280×720; c
 
 Visual checks and automation notes: Check 36px rows, grouped month headers, company/avatar rendering and scroll alignment. Performance numbers are live browser measurements; require a valid displayed measurement or documented unavailable state, never a fixed millisecond/FPS value.
 
-### SCALE-002 · P0 · Dataset shape changes both axes
+### SCALE-002 · P0 · Dataset row scale preserves the 100-column shape
 
-1. Select `100 rows × 1,000 columns` → loading resolves and data source uses 100 records with 1,000 columns.
-2. Scroll horizontally well beyond the initial month headers → later month columns render with matching body cells and no duplicate headers.
-3. Select `1,000 rows × 1,000 columns` → the data source contains 1,000 records with 1,000 columns.
+1. Select `1,000 rows × 100 columns` → loading resolves and data source uses 1,000 records with 100 columns.
+2. Scroll horizontally through the monthly columns → matching body cells and headers render without duplication.
+3. Select `1,000,000 rows × 100 columns` → the data source contains 1,000,000 records with the same 100 columns.
 4. Return to `100,000 rows × 100 columns` → original shape restores and grid remains editable.
 
 Visual checks and automation notes: Use the visible select labels and public source/column data for total-size assertions. Rendered cell counts are intentionally smaller. Run the million-row option separately as P1 resource-intensive coverage; do not make a low-memory browser crash look like a normal loading pass.
 
 ### SCALE-003 · P0 · Save, reload, and reset view
 
-1. Select `1,000 rows × 1,000 columns`, choose a different Theme option, and resize a visible column → status becomes Unsaved changes for tracked edits.
+1. Select `1,000 rows × 100 columns`, choose a different Theme option, and resize a visible column → status becomes Unsaved changes for tracked edits.
 2. Click Save view → status says Saved locally.
 3. Reload → selected dataset/theme and saved column dimensions restore.
-4. Click Reset view → status says View reset, 10,000-row default returns, and saved view is cleared.
+4. Click Reset view → status says View reset, 100,000-row default returns, and saved view is cleared.
 5. Reload again → previous saved size/theme do not reappear.
 
 Visual checks and automation notes: Assert selected option values and measured resized width with a small tolerance; do not compare styles during loading. Inspect hr-workspace.ts for the exact persisted fields before extending this case to filters, sorting, pinning, or order.

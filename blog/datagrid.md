@@ -9,8 +9,8 @@ tags:
   - JavaScript
   - Data Grid
   - Performance
-image: /datagrid.png
-imageAlt: RevoGrid data grid preview
+image: /img/pro-demo.png
+imageAlt: RevoGrid interactive data grid demo
 featured: true
 head:
   - - meta
@@ -24,7 +24,7 @@ head:
       content: "Do you need a data grid or a simple HTML table? Compare editing, filtering and performance, try a live example, and choose what fits your app."
   - - meta
     - property: og:image
-      content: https://rv-grid.com/datagrid.png
+      content: https://rv-grid.com/img/pro-demo.png
   - - meta
     - name: twitter:title
       content: "What Is a Data Grid? When to Use One vs a Table"
@@ -36,7 +36,7 @@ head:
         "@type": "Article",
         "headline": "What Is a Data Grid? When to Use One vs a Table",
         "description": "Do you need a data grid or a simple HTML table? Compare editing, filtering and performance, try a live example, and choose what fits your app.",
-        "image": "https://rv-grid.com/datagrid.png",
+        "image": "https://rv-grid.com/img/pro-demo.png",
         "author": { "@type": "Organization", "name": "RevoGrid Team" },
         "publisher": { "@type": "Organization", "name": "RevoGrid", "url": "https://rv-grid.com/" },
         "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rv-grid.com/blog/datagrid" },
@@ -51,15 +51,15 @@ A **data grid** is an interactive component for displaying and editing structure
 
 The question is to **work with the data** or simply read it. This guide lets you try a grid, compare the two approaches, and choose what fits your application.
 
+![RevoGrid interactive data grid demo](/img/pro-demo.png)
+
 ## Try an interactive data grid
 
-Try changing a name in the grid below: double-click a cell to edit it, then use the arrow keys to move between cells.
+Try editing a task, clicking **Due** to sort it, or selecting cells with the arrow keys.
 
 <QuickStartCdnExample />
 
 [Try the live demo](/demo/) · [Build it with JavaScript](/guide/)
-
-![RevoGrid data grid preview](/datagrid.png)
 
 <a id="html-tables-vs-data-grids"></a>
 ## Data Grid vs Data Table

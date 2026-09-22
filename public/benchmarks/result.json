@@ -1,14 +1,10 @@
 {
-  "runDate": "2026-07-05T19:22:43.122Z",
+  "runDate": "2026-09-22T14:16:51.500Z",
   "browser": "Chromium 145.0.7632.6",
   "viewport": {
     "width": 1440,
     "height": 900
   },
-  "rowCount": 100000,
-  "columnCount": 100,
-  "totalLogicalCells": 10000000,
-  "rendererComplexity": "Mixed renderer harness: 1 pinned custom name cell with status badge, 1 custom status badge column, 8 custom formatted numeric columns, 90 plain numeric columns.",
   "machine": {
     "model": "MacBookPro18,3",
     "cpuBrand": "Apple M1 Pro",
@@ -17,50 +13,1431 @@
     "os": "macOS 26.4 (25E5207k)",
     "kernel": "Darwin 25.4.0 arm64"
   },
-  "metrics": {
-    "initialRenderMs": 34.100000001490116,
-    "scrollingFpsDisplayCap": 60,
-    "rawHeadlessScrollFps": 101,
-    "scrollFrames": 303,
-    "droppedFrames": 2,
-    "heapAfterWarmupBytes": 467498697,
-    "heapAfterWarmupSamplesBytes": [
-      467498005,
-      467498509,
-      467498697,
-      467498885,
-      467499469
-    ],
-    "heapAfterWarmupSamplesMiB": [
-      445.84,
-      445.84,
-      445.84,
-      445.84,
-      445.84
-    ],
-    "heapAfterInteractionBytes": 505476500,
-    "heapAfterInteractionSamplesBytes": [
-      505475632,
-      505475996,
-      505476500,
-      505476688,
-      505476992
-    ],
-    "heapAfterInteractionSamplesMiB": [
-      482.06,
-      482.06,
-      482.06,
-      482.06,
-      482.06
-    ],
-    "editLatencyMedianMs": 0,
-    "editLatencyP95Ms": 0.10000000149011612,
-    "domNodeCount": 807,
-    "renderedRows": 60,
-    "renderedCells": 260
-  },
-  "assets": {
-    "screenshot": "/benchmarks/revo-grid-benchmark.png",
-    "video": "/benchmarks/revo-grid-benchmark.webm"
-  }
+  "runCount": 5,
+  "results": [
+    {
+      "id": "1k",
+      "rowCount": 1000,
+      "columnCount": 100,
+      "totalLogicalCells": 100000,
+      "rendererComplexity": "Mixed renderer harness: 1 pinned custom name cell with status badge, 1 custom status badge column, 8 custom formatted numeric columns, 90 plain numeric columns.",
+      "summaryMethod": "median of five independent browser contexts",
+      "metrics": {
+        "dataPreparationMs": 0.4000000059604645,
+        "initialRenderMs": 101,
+        "prepareAndPaintMs": 101.40000000596046,
+        "scrollingFpsDisplayCap": 60,
+        "rawHeadlessScrollFps": 118.33333333333333,
+        "scrollFrames": 355,
+        "droppedFrames": 2,
+        "heapAfterWarmupBytes": 97613431,
+        "heapAfterInteractionBytes": 115540697,
+        "editLatencyMedianMs": 0,
+        "editLatencyP95Ms": 0.10000002384185791,
+        "domNodeCount": 966,
+        "renderedRows": 60,
+        "renderedCells": 300
+      },
+      "statistics": {
+        "dataPreparationMs": {
+          "median": 0.4000000059604645,
+          "mean": 0.3799999952316284,
+          "min": 0.29999998211860657,
+          "max": 0.5
+        },
+        "initialRenderMs": {
+          "median": 101,
+          "mean": 98.41999999284744,
+          "min": 93.2999999821186,
+          "max": 101.59999999403954
+        },
+        "prepareAndPaintMs": {
+          "median": 101.40000000596046,
+          "mean": 98.79999998807907,
+          "min": 93.7999999821186,
+          "max": 102
+        },
+        "scrollingFpsDisplayCap": {
+          "median": 60,
+          "mean": 60,
+          "min": 60,
+          "max": 60
+        },
+        "rawHeadlessScrollFps": {
+          "median": 118.33333333333333,
+          "mean": 112.13333333333333,
+          "min": 84.66666666666667,
+          "max": 120.33333333333333
+        },
+        "scrollFrames": {
+          "median": 355,
+          "mean": 336.4,
+          "min": 254,
+          "max": 361
+        },
+        "droppedFrames": {
+          "median": 2,
+          "mean": 2,
+          "min": 0,
+          "max": 6
+        },
+        "heapAfterWarmupBytes": {
+          "median": 97613431,
+          "mean": 97693297.8,
+          "min": 97565407,
+          "max": 98073659
+        },
+        "heapAfterInteractionBytes": {
+          "median": 115540697,
+          "mean": 114981558.2,
+          "min": 95052615,
+          "max": 130714403
+        },
+        "editLatencyMedianMs": {
+          "median": 0,
+          "mean": 0,
+          "min": 0,
+          "max": 0
+        },
+        "editLatencyP95Ms": {
+          "median": 0.10000002384185791,
+          "mean": 0.10000001192092896,
+          "min": 0.09999999403953552,
+          "max": 0.10000002384185791
+        },
+        "domNodeCount": {
+          "median": 966,
+          "mean": 966,
+          "min": 966,
+          "max": 966
+        },
+        "renderedRows": {
+          "median": 60,
+          "mean": 60,
+          "min": 60,
+          "max": 60
+        },
+        "renderedCells": {
+          "median": 300,
+          "mean": 300,
+          "min": 300,
+          "max": 300
+        }
+      },
+      "runs": [
+        {
+          "run": 1,
+          "metrics": {
+            "dataPreparationMs": 0.4000000059604645,
+            "initialRenderMs": 101.59999999403954,
+            "prepareAndPaintMs": 102,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 84.66666666666667,
+            "scrollFrames": 254,
+            "droppedFrames": 6,
+            "heapAfterWarmupBytes": 98073659,
+            "heapAfterWarmupSamplesBytes": [
+              98072967,
+              98073471,
+              98073659,
+              98073847,
+              98075331
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              93.53,
+              93.53,
+              93.53,
+              93.53,
+              93.53
+            ],
+            "heapAfterInteractionBytes": 115149349,
+            "heapAfterInteractionSamplesBytes": [
+              115148485,
+              115148849,
+              115149349,
+              115149537,
+              115149841
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              109.81,
+              109.81,
+              109.81,
+              109.82,
+              109.82
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.10000002384185791,
+            "domNodeCount": 966,
+            "renderedRows": 60,
+            "renderedCells": 300
+          }
+        },
+        {
+          "run": 2,
+          "metrics": {
+            "dataPreparationMs": 0.4000000059604645,
+            "initialRenderMs": 101,
+            "prepareAndPaintMs": 101.40000000596046,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 118.33333333333333,
+            "scrollFrames": 355,
+            "droppedFrames": 2,
+            "heapAfterWarmupBytes": 97613431,
+            "heapAfterWarmupSamplesBytes": [
+              97612739,
+              97613243,
+              97613431,
+              97613619,
+              97615103
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              93.09,
+              93.09,
+              93.09,
+              93.09,
+              93.09
+            ],
+            "heapAfterInteractionBytes": 95052615,
+            "heapAfterInteractionSamplesBytes": [
+              95045255,
+              95052115,
+              95052615,
+              95052803,
+              95053107
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              90.64,
+              90.65,
+              90.65,
+              90.65,
+              90.65
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.10000002384185791,
+            "domNodeCount": 966,
+            "renderedRows": 60,
+            "renderedCells": 300
+          }
+        },
+        {
+          "run": 3,
+          "metrics": {
+            "dataPreparationMs": 0.5,
+            "initialRenderMs": 93.2999999821186,
+            "prepareAndPaintMs": 93.7999999821186,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 120,
+            "scrollFrames": 360,
+            "droppedFrames": 0,
+            "heapAfterWarmupBytes": 97613887,
+            "heapAfterWarmupSamplesBytes": [
+              97613195,
+              97613699,
+              97613887,
+              97614075,
+              97615559
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              93.09,
+              93.09,
+              93.09,
+              93.09,
+              93.09
+            ],
+            "heapAfterInteractionBytes": 115540697,
+            "heapAfterInteractionSamplesBytes": [
+              115538757,
+              115540349,
+              115540697,
+              115541037,
+              115541341
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              110.19,
+              110.19,
+              110.19,
+              110.19,
+              110.19
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.09999999403953552,
+            "domNodeCount": 966,
+            "renderedRows": 60,
+            "renderedCells": 300
+          }
+        },
+        {
+          "run": 4,
+          "metrics": {
+            "dataPreparationMs": 0.29999998211860657,
+            "initialRenderMs": 94.59999999403954,
+            "prepareAndPaintMs": 94.89999997615814,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 120.33333333333333,
+            "scrollFrames": 361,
+            "droppedFrames": 0,
+            "heapAfterWarmupBytes": 97600105,
+            "heapAfterWarmupSamplesBytes": [
+              97599413,
+              97599917,
+              97600105,
+              97600293,
+              97601777
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              93.08,
+              93.08,
+              93.08,
+              93.08,
+              93.08
+            ],
+            "heapAfterInteractionBytes": 118450727,
+            "heapAfterInteractionSamplesBytes": [
+              118449863,
+              118450227,
+              118450727,
+              118450915,
+              118451219
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              112.96,
+              112.96,
+              112.96,
+              112.96,
+              112.96
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.10000002384185791,
+            "domNodeCount": 966,
+            "renderedRows": 60,
+            "renderedCells": 300
+          }
+        },
+        {
+          "run": 5,
+          "metrics": {
+            "dataPreparationMs": 0.29999998211860657,
+            "initialRenderMs": 101.59999999403954,
+            "prepareAndPaintMs": 101.89999997615814,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 117.33333333333333,
+            "scrollFrames": 352,
+            "droppedFrames": 2,
+            "heapAfterWarmupBytes": 97565407,
+            "heapAfterWarmupSamplesBytes": [
+              97564715,
+              97565219,
+              97565407,
+              97565595,
+              97567079
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              93.04,
+              93.05,
+              93.05,
+              93.05,
+              93.05
+            ],
+            "heapAfterInteractionBytes": 130714403,
+            "heapAfterInteractionSamplesBytes": [
+              130712463,
+              130714055,
+              130714403,
+              130714743,
+              130715047
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              124.66,
+              124.66,
+              124.66,
+              124.66,
+              124.66
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.09999999403953552,
+            "domNodeCount": 966,
+            "renderedRows": 60,
+            "renderedCells": 300
+          }
+        }
+      ],
+      "assets": {
+        "screenshot": "/benchmarks/revo-grid-benchmark-1k.png",
+        "video": "/benchmarks/revo-grid-benchmark-1k.webm"
+      }
+    },
+    {
+      "id": "10k",
+      "rowCount": 10000,
+      "columnCount": 100,
+      "totalLogicalCells": 1000000,
+      "rendererComplexity": "Mixed renderer harness: 1 pinned custom name cell with status badge, 1 custom status badge column, 8 custom formatted numeric columns, 90 plain numeric columns.",
+      "summaryMethod": "median of five independent browser contexts",
+      "metrics": {
+        "dataPreparationMs": 1.2999999821186066,
+        "initialRenderMs": 92.2000000178814,
+        "prepareAndPaintMs": 93.5,
+        "scrollingFpsDisplayCap": 60,
+        "rawHeadlessScrollFps": 120,
+        "scrollFrames": 360,
+        "droppedFrames": 0,
+        "heapAfterWarmupBytes": 97077702,
+        "heapAfterInteractionBytes": 107399133,
+        "editLatencyMedianMs": 0,
+        "editLatencyP95Ms": 0.20000001788139343,
+        "domNodeCount": 966,
+        "renderedRows": 60,
+        "renderedCells": 300
+      },
+      "statistics": {
+        "dataPreparationMs": {
+          "median": 1.2999999821186066,
+          "mean": 1.3,
+          "min": 1.2000000178813934,
+          "max": 1.4000000059604645
+        },
+        "initialRenderMs": {
+          "median": 92.2000000178814,
+          "mean": 97.04000000357628,
+          "min": 91.40000000596046,
+          "max": 106.59999999403954
+        },
+        "prepareAndPaintMs": {
+          "median": 93.5,
+          "mean": 98.34000000357628,
+          "min": 92.60000002384186,
+          "max": 107.89999997615814
+        },
+        "scrollingFpsDisplayCap": {
+          "median": 60,
+          "mean": 60,
+          "min": 60,
+          "max": 60
+        },
+        "rawHeadlessScrollFps": {
+          "median": 120,
+          "mean": 112.86666666666667,
+          "min": 83.66666666666667,
+          "max": 120.66666666666667
+        },
+        "scrollFrames": {
+          "median": 360,
+          "mean": 338.6,
+          "min": 251,
+          "max": 362
+        },
+        "droppedFrames": {
+          "median": 0,
+          "mean": 1,
+          "min": 0,
+          "max": 4
+        },
+        "heapAfterWarmupBytes": {
+          "median": 97077702,
+          "mean": 97078930,
+          "min": 96876770,
+          "max": 97263904
+        },
+        "heapAfterInteractionBytes": {
+          "median": 107399133,
+          "mean": 111763554,
+          "min": 94876024,
+          "max": 132853639
+        },
+        "editLatencyMedianMs": {
+          "median": 0,
+          "mean": 0,
+          "min": 0,
+          "max": 0
+        },
+        "editLatencyP95Ms": {
+          "median": 0.20000001788139343,
+          "mean": 0.24000000953674316,
+          "min": 0.10000002384185791,
+          "max": 0.5
+        },
+        "domNodeCount": {
+          "median": 966,
+          "mean": 966,
+          "min": 966,
+          "max": 966
+        },
+        "renderedRows": {
+          "median": 60,
+          "mean": 60,
+          "min": 60,
+          "max": 60
+        },
+        "renderedCells": {
+          "median": 300,
+          "mean": 300,
+          "min": 300,
+          "max": 300
+        }
+      },
+      "runs": [
+        {
+          "run": 1,
+          "metrics": {
+            "dataPreparationMs": 1.2000000178813934,
+            "initialRenderMs": 91.40000000596046,
+            "prepareAndPaintMs": 92.60000002384186,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 83.66666666666667,
+            "scrollFrames": 251,
+            "droppedFrames": 4,
+            "heapAfterWarmupBytes": 96876770,
+            "heapAfterWarmupSamplesBytes": [
+              96876078,
+              96876582,
+              96876770,
+              96876958,
+              96878466
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              92.39,
+              92.39,
+              92.39,
+              92.39,
+              92.39
+            ],
+            "heapAfterInteractionBytes": 105660591,
+            "heapAfterInteractionSamplesBytes": [
+              105653687,
+              105660091,
+              105660591,
+              105660779,
+              105661083
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              100.76,
+              100.77,
+              100.77,
+              100.77,
+              100.77
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.20000001788139343,
+            "domNodeCount": 966,
+            "renderedRows": 60,
+            "renderedCells": 300
+          }
+        },
+        {
+          "run": 2,
+          "metrics": {
+            "dataPreparationMs": 1.2999999821186066,
+            "initialRenderMs": 92.2000000178814,
+            "prepareAndPaintMs": 93.5,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 120.33333333333333,
+            "scrollFrames": 361,
+            "droppedFrames": 0,
+            "heapAfterWarmupBytes": 97077702,
+            "heapAfterWarmupSamplesBytes": [
+              97077010,
+              97077514,
+              97077702,
+              97077890,
+              97079374
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              92.58,
+              92.58,
+              92.58,
+              92.58,
+              92.58
+            ],
+            "heapAfterInteractionBytes": 132853639,
+            "heapAfterInteractionSamplesBytes": [
+              132844751,
+              132853139,
+              132853639,
+              132853827,
+              132854131
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              126.69,
+              126.7,
+              126.7,
+              126.7,
+              126.7
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.19999998807907104,
+            "domNodeCount": 966,
+            "renderedRows": 60,
+            "renderedCells": 300
+          }
+        },
+        {
+          "run": 3,
+          "metrics": {
+            "dataPreparationMs": 1.4000000059604645,
+            "initialRenderMs": 103.19999998807907,
+            "prepareAndPaintMs": 104.59999999403954,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 120,
+            "scrollFrames": 360,
+            "droppedFrames": 0,
+            "heapAfterWarmupBytes": 97263904,
+            "heapAfterWarmupSamplesBytes": [
+              97263212,
+              97263716,
+              97263904,
+              97264092,
+              97265576
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              92.76,
+              92.76,
+              92.76,
+              92.76,
+              92.76
+            ],
+            "heapAfterInteractionBytes": 118028383,
+            "heapAfterInteractionSamplesBytes": [
+              118019647,
+              118028035,
+              118028383,
+              118028723,
+              118029027
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              112.55,
+              112.56,
+              112.56,
+              112.56,
+              112.56
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.5,
+            "domNodeCount": 966,
+            "renderedRows": 60,
+            "renderedCells": 300
+          }
+        },
+        {
+          "run": 4,
+          "metrics": {
+            "dataPreparationMs": 1.2999999821186066,
+            "initialRenderMs": 106.59999999403954,
+            "prepareAndPaintMs": 107.89999997615814,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 119.66666666666667,
+            "scrollFrames": 359,
+            "droppedFrames": 1,
+            "heapAfterWarmupBytes": 97068392,
+            "heapAfterWarmupSamplesBytes": [
+              97067700,
+              97068204,
+              97068392,
+              97068580,
+              97070064
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              92.57,
+              92.57,
+              92.57,
+              92.57,
+              92.57
+            ],
+            "heapAfterInteractionBytes": 94876024,
+            "heapAfterInteractionSamplesBytes": [
+              94873932,
+              94875524,
+              94876024,
+              94876212,
+              94876516
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              90.48,
+              90.48,
+              90.48,
+              90.48,
+              90.48
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.10000002384185791,
+            "domNodeCount": 966,
+            "renderedRows": 60,
+            "renderedCells": 300
+          }
+        },
+        {
+          "run": 5,
+          "metrics": {
+            "dataPreparationMs": 1.300000011920929,
+            "initialRenderMs": 91.80000001192093,
+            "prepareAndPaintMs": 93.10000002384186,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 120.66666666666667,
+            "scrollFrames": 362,
+            "droppedFrames": 0,
+            "heapAfterWarmupBytes": 97107882,
+            "heapAfterWarmupSamplesBytes": [
+              97107190,
+              97107694,
+              97107882,
+              97108070,
+              97109554
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              92.61,
+              92.61,
+              92.61,
+              92.61,
+              92.61
+            ],
+            "heapAfterInteractionBytes": 107399133,
+            "heapAfterInteractionSamplesBytes": [
+              107398421,
+              107398785,
+              107399133,
+              107399473,
+              107399777
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              102.42,
+              102.42,
+              102.42,
+              102.42,
+              102.42
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.20000001788139343,
+            "domNodeCount": 966,
+            "renderedRows": 60,
+            "renderedCells": 300
+          }
+        }
+      ],
+      "assets": {
+        "screenshot": "/benchmarks/revo-grid-benchmark-10k.png",
+        "video": "/benchmarks/revo-grid-benchmark-10k.webm"
+      }
+    },
+    {
+      "id": "100k",
+      "rowCount": 100000,
+      "columnCount": 100,
+      "totalLogicalCells": 10000000,
+      "rendererComplexity": "Mixed renderer harness: 1 pinned custom name cell with status badge, 1 custom status badge column, 8 custom formatted numeric columns, 90 plain numeric columns.",
+      "summaryMethod": "median of five independent browser contexts",
+      "metrics": {
+        "dataPreparationMs": 12.300000011920929,
+        "initialRenderMs": 106.40000000596046,
+        "prepareAndPaintMs": 118.7000000178814,
+        "scrollingFpsDisplayCap": 60,
+        "rawHeadlessScrollFps": 120,
+        "scrollFrames": 360,
+        "droppedFrames": 0,
+        "heapAfterWarmupBytes": 108397278,
+        "heapAfterInteractionBytes": 123969083,
+        "editLatencyMedianMs": 0,
+        "editLatencyP95Ms": 0.09999999403953552,
+        "domNodeCount": 966,
+        "renderedRows": 60,
+        "renderedCells": 300
+      },
+      "statistics": {
+        "dataPreparationMs": {
+          "median": 12.300000011920929,
+          "mean": 12.280000007152557,
+          "min": 11.599999994039536,
+          "max": 13.400000005960464
+        },
+        "initialRenderMs": {
+          "median": 106.40000000596046,
+          "mean": 114.59999999403954,
+          "min": 101.2999999821186,
+          "max": 141.69999998807907
+        },
+        "prepareAndPaintMs": {
+          "median": 118.7000000178814,
+          "mean": 126.88000000119209,
+          "min": 112.90000000596046,
+          "max": 155.09999999403954
+        },
+        "scrollingFpsDisplayCap": {
+          "median": 60,
+          "mean": 60,
+          "min": 60,
+          "max": 60
+        },
+        "rawHeadlessScrollFps": {
+          "median": 120,
+          "mean": 114.2,
+          "min": 90.33333333333333,
+          "max": 120.33333333333333
+        },
+        "scrollFrames": {
+          "median": 360,
+          "mean": 342.6,
+          "min": 271,
+          "max": 361
+        },
+        "droppedFrames": {
+          "median": 0,
+          "mean": 0.6,
+          "min": 0,
+          "max": 3
+        },
+        "heapAfterWarmupBytes": {
+          "median": 108397278,
+          "mean": 106799248.8,
+          "min": 103547187,
+          "max": 109402002
+        },
+        "heapAfterInteractionBytes": {
+          "median": 123969083,
+          "mean": 129956406.8,
+          "min": 116479798,
+          "max": 143456093
+        },
+        "editLatencyMedianMs": {
+          "median": 0,
+          "mean": 0,
+          "min": 0,
+          "max": 0
+        },
+        "editLatencyP95Ms": {
+          "median": 0.09999999403953552,
+          "mean": 0.1,
+          "min": 0.09999999403953552,
+          "max": 0.10000002384185791
+        },
+        "domNodeCount": {
+          "median": 966,
+          "mean": 966,
+          "min": 966,
+          "max": 966
+        },
+        "renderedRows": {
+          "median": 60,
+          "mean": 60,
+          "min": 60,
+          "max": 60
+        },
+        "renderedCells": {
+          "median": 300,
+          "mean": 300,
+          "min": 300,
+          "max": 300
+        }
+      },
+      "runs": [
+        {
+          "run": 1,
+          "metrics": {
+            "dataPreparationMs": 12.5,
+            "initialRenderMs": 118.59999999403954,
+            "prepareAndPaintMs": 131.09999999403954,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 90.33333333333333,
+            "scrollFrames": 271,
+            "droppedFrames": 3,
+            "heapAfterWarmupBytes": 103547187,
+            "heapAfterWarmupSamplesBytes": [
+              103546495,
+              103546999,
+              103547187,
+              103547375,
+              103549115
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              98.75,
+              98.75,
+              98.75,
+              98.75,
+              98.75
+            ],
+            "heapAfterInteractionBytes": 123969083,
+            "heapAfterInteractionSamplesBytes": [
+              123962395,
+              123968735,
+              123969083,
+              123975427,
+              123975731
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              118.22,
+              118.23,
+              118.23,
+              118.23,
+              118.23
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.10000002384185791,
+            "domNodeCount": 966,
+            "renderedRows": 60,
+            "renderedCells": 300
+          }
+        },
+        {
+          "run": 2,
+          "metrics": {
+            "dataPreparationMs": 12.300000011920929,
+            "initialRenderMs": 106.40000000596046,
+            "prepareAndPaintMs": 118.7000000178814,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 120,
+            "scrollFrames": 360,
+            "droppedFrames": 0,
+            "heapAfterWarmupBytes": 108397278,
+            "heapAfterWarmupSamplesBytes": [
+              108396586,
+              108397090,
+              108397278,
+              108397466,
+              108398950
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              103.38,
+              103.38,
+              103.38,
+              103.38,
+              103.38
+            ],
+            "heapAfterInteractionBytes": 116479798,
+            "heapAfterInteractionSamplesBytes": [
+              116477858,
+              116479450,
+              116479798,
+              116480138,
+              116480442
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              111.08,
+              111.08,
+              111.08,
+              111.08,
+              111.08
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.09999999403953552,
+            "domNodeCount": 966,
+            "renderedRows": 60,
+            "renderedCells": 300
+          }
+        },
+        {
+          "run": 3,
+          "metrics": {
+            "dataPreparationMs": 13.400000005960464,
+            "initialRenderMs": 141.69999998807907,
+            "prepareAndPaintMs": 155.09999999403954,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 120,
+            "scrollFrames": 360,
+            "droppedFrames": 0,
+            "heapAfterWarmupBytes": 109402002,
+            "heapAfterWarmupSamplesBytes": [
+              109401310,
+              109401814,
+              109402002,
+              109402190,
+              109403906
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              104.33,
+              104.33,
+              104.33,
+              104.33,
+              104.34
+            ],
+            "heapAfterInteractionBytes": 122666236,
+            "heapAfterInteractionSamplesBytes": [
+              122883092,
+              122665548,
+              122666048,
+              122666236,
+              122666540
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              117.19,
+              116.98,
+              116.98,
+              116.98,
+              116.98
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.09999999403953552,
+            "domNodeCount": 966,
+            "renderedRows": 60,
+            "renderedCells": 300
+          }
+        },
+        {
+          "run": 4,
+          "metrics": {
+            "dataPreparationMs": 11.600000023841858,
+            "initialRenderMs": 101.2999999821186,
+            "prepareAndPaintMs": 112.90000000596046,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 120.33333333333333,
+            "scrollFrames": 361,
+            "droppedFrames": 0,
+            "heapAfterWarmupBytes": 108427984,
+            "heapAfterWarmupSamplesBytes": [
+              108427292,
+              108427796,
+              108427984,
+              108428172,
+              108429656
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              103.4,
+              103.4,
+              103.4,
+              103.41,
+              103.41
+            ],
+            "heapAfterInteractionBytes": 143456093,
+            "heapAfterInteractionSamplesBytes": [
+              143700673,
+              143455405,
+              143455905,
+              143456093,
+              143456397
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              137.04,
+              136.81,
+              136.81,
+              136.81,
+              136.81
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.09999999403953552,
+            "domNodeCount": 966,
+            "renderedRows": 60,
+            "renderedCells": 300
+          }
+        },
+        {
+          "run": 5,
+          "metrics": {
+            "dataPreparationMs": 11.599999994039536,
+            "initialRenderMs": 105,
+            "prepareAndPaintMs": 116.59999999403954,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 120.33333333333333,
+            "scrollFrames": 361,
+            "droppedFrames": 0,
+            "heapAfterWarmupBytes": 104221793,
+            "heapAfterWarmupSamplesBytes": [
+              104221101,
+              104221605,
+              104221793,
+              104221981,
+              104223489
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              99.39,
+              99.39,
+              99.39,
+              99.39,
+              99.4
+            ],
+            "heapAfterInteractionBytes": 143210824,
+            "heapAfterInteractionSamplesBytes": [
+              143202708,
+              143210324,
+              143210824,
+              143211012,
+              143211316
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              136.57,
+              136.58,
+              136.58,
+              136.58,
+              136.58
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.09999999403953552,
+            "domNodeCount": 966,
+            "renderedRows": 60,
+            "renderedCells": 300
+          }
+        }
+      ],
+      "assets": {
+        "screenshot": "/benchmarks/revo-grid-benchmark.png",
+        "video": "/benchmarks/revo-grid-benchmark.webm"
+      }
+    },
+    {
+      "id": "1m",
+      "rowCount": 1000000,
+      "columnCount": 100,
+      "totalLogicalCells": 100000000,
+      "rendererComplexity": "Mixed renderer harness: 1 pinned custom name cell with status badge, 1 custom status badge column, 8 custom formatted numeric columns, 90 plain numeric columns.",
+      "summaryMethod": "median of five independent browser contexts",
+      "metrics": {
+        "dataPreparationMs": 122.09999999403954,
+        "initialRenderMs": 112.90000000596046,
+        "prepareAndPaintMs": 233,
+        "scrollingFpsDisplayCap": 60,
+        "rawHeadlessScrollFps": 120,
+        "scrollFrames": 360,
+        "droppedFrames": 0,
+        "heapAfterWarmupBytes": 182451688,
+        "heapAfterInteractionBytes": 206536130,
+        "editLatencyMedianMs": 0,
+        "editLatencyP95Ms": 0.19999998807907104,
+        "domNodeCount": 937,
+        "renderedRows": 60,
+        "renderedCells": 280
+      },
+      "statistics": {
+        "dataPreparationMs": {
+          "median": 122.09999999403954,
+          "mean": 127.25999999642372,
+          "min": 118.40000000596046,
+          "max": 147.40000000596046
+        },
+        "initialRenderMs": {
+          "median": 112.90000000596046,
+          "mean": 115.31999999284744,
+          "min": 109.09999999403954,
+          "max": 124.19999998807907
+        },
+        "prepareAndPaintMs": {
+          "median": 233,
+          "mean": 242.57999998927116,
+          "min": 231,
+          "max": 265.19999998807907
+        },
+        "scrollingFpsDisplayCap": {
+          "median": 60,
+          "mean": 60,
+          "min": 60,
+          "max": 60
+        },
+        "rawHeadlessScrollFps": {
+          "median": 120,
+          "mean": 117.53333333333333,
+          "min": 107.33333333333333,
+          "max": 120.33333333333333
+        },
+        "scrollFrames": {
+          "median": 360,
+          "mean": 352.6,
+          "min": 322,
+          "max": 361
+        },
+        "droppedFrames": {
+          "median": 0,
+          "mean": 0.2,
+          "min": 0,
+          "max": 1
+        },
+        "heapAfterWarmupBytes": {
+          "median": 182451688,
+          "mean": 182080816.4,
+          "min": 180594484,
+          "max": 182461337
+        },
+        "heapAfterInteractionBytes": {
+          "median": 206536130,
+          "mean": 208766086.4,
+          "min": 189487127,
+          "max": 222328735
+        },
+        "editLatencyMedianMs": {
+          "median": 0,
+          "mean": 0,
+          "min": 0,
+          "max": 0
+        },
+        "editLatencyP95Ms": {
+          "median": 0.19999998807907104,
+          "mean": 0.16000000834465028,
+          "min": 0.10000002384185791,
+          "max": 0.20000001788139343
+        },
+        "domNodeCount": {
+          "median": 937,
+          "mean": 937,
+          "min": 937,
+          "max": 937
+        },
+        "renderedRows": {
+          "median": 60,
+          "mean": 60,
+          "min": 60,
+          "max": 60
+        },
+        "renderedCells": {
+          "median": 280,
+          "mean": 280,
+          "min": 280,
+          "max": 280
+        }
+      },
+      "runs": [
+        {
+          "run": 1,
+          "metrics": {
+            "dataPreparationMs": 128.2999999821186,
+            "initialRenderMs": 124.19999998807907,
+            "prepareAndPaintMs": 252.49999997019768,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 107.33333333333333,
+            "scrollFrames": 322,
+            "droppedFrames": 1,
+            "heapAfterWarmupBytes": 182456130,
+            "heapAfterWarmupSamplesBytes": [
+              182455438,
+              182455942,
+              182456130,
+              182456318,
+              182469366
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              174,
+              174,
+              174,
+              174,
+              174.02
+            ],
+            "heapAfterInteractionBytes": 206408941,
+            "heapAfterInteractionSamplesBytes": [
+              206408229,
+              206408593,
+              206408941,
+              206409281,
+              206409585
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              196.85,
+              196.85,
+              196.85,
+              196.85,
+              196.85
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.19999998807907104,
+            "domNodeCount": 937,
+            "renderedRows": 60,
+            "renderedCells": 280
+          }
+        },
+        {
+          "run": 2,
+          "metrics": {
+            "dataPreparationMs": 118.40000000596046,
+            "initialRenderMs": 112.59999999403954,
+            "prepareAndPaintMs": 231,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 120,
+            "scrollFrames": 360,
+            "droppedFrames": 0,
+            "heapAfterWarmupBytes": 182440443,
+            "heapAfterWarmupSamplesBytes": [
+              182439751,
+              182440255,
+              182440443,
+              182440631,
+              182442371
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              173.99,
+              173.99,
+              173.99,
+              173.99,
+              173.99
+            ],
+            "heapAfterInteractionBytes": 189487127,
+            "heapAfterInteractionSamplesBytes": [
+              189479147,
+              189486779,
+              189487127,
+              189487467,
+              189487771
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              180.7,
+              180.71,
+              180.71,
+              180.71,
+              180.71
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.10000002384185791,
+            "domNodeCount": 937,
+            "renderedRows": 60,
+            "renderedCells": 280
+          }
+        },
+        {
+          "run": 3,
+          "metrics": {
+            "dataPreparationMs": 120.09999999403954,
+            "initialRenderMs": 112.90000000596046,
+            "prepareAndPaintMs": 233,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 120,
+            "scrollFrames": 360,
+            "droppedFrames": 0,
+            "heapAfterWarmupBytes": 182451688,
+            "heapAfterWarmupSamplesBytes": [
+              182450996,
+              182451500,
+              182451688,
+              182451876,
+              182453616
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              174,
+              174,
+              174,
+              174,
+              174
+            ],
+            "heapAfterInteractionBytes": 206536130,
+            "heapAfterInteractionSamplesBytes": [
+              206528150,
+              206535782,
+              206536130,
+              206536470,
+              206536774
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              196.96,
+              196.97,
+              196.97,
+              196.97,
+              196.97
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.19999998807907104,
+            "domNodeCount": 937,
+            "renderedRows": 60,
+            "renderedCells": 280
+          }
+        },
+        {
+          "run": 4,
+          "metrics": {
+            "dataPreparationMs": 147.40000000596046,
+            "initialRenderMs": 117.7999999821186,
+            "prepareAndPaintMs": 265.19999998807907,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 120.33333333333333,
+            "scrollFrames": 361,
+            "droppedFrames": 0,
+            "heapAfterWarmupBytes": 180594484,
+            "heapAfterWarmupSamplesBytes": [
+              180593792,
+              180594296,
+              180594484,
+              180594672,
+              180596412
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              172.23,
+              172.23,
+              172.23,
+              172.23,
+              172.23
+            ],
+            "heapAfterInteractionBytes": 219069499,
+            "heapAfterInteractionSamplesBytes": [
+              219062291,
+              219069151,
+              219069499,
+              219069839,
+              219070143
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              208.91,
+              208.92,
+              208.92,
+              208.92,
+              208.92
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.10000002384185791,
+            "domNodeCount": 937,
+            "renderedRows": 60,
+            "renderedCells": 280
+          }
+        },
+        {
+          "run": 5,
+          "metrics": {
+            "dataPreparationMs": 122.09999999403954,
+            "initialRenderMs": 109.09999999403954,
+            "prepareAndPaintMs": 231.19999998807907,
+            "firstRowVisible": true,
+            "scrollingFpsDisplayCap": 60,
+            "rawHeadlessScrollFps": 120,
+            "scrollFrames": 360,
+            "droppedFrames": 0,
+            "heapAfterWarmupBytes": 182461337,
+            "heapAfterWarmupSamplesBytes": [
+              182460645,
+              182461149,
+              182461337,
+              182461525,
+              182463265
+            ],
+            "heapAfterWarmupSamplesMiB": [
+              174.01,
+              174.01,
+              174.01,
+              174.01,
+              174.01
+            ],
+            "heapAfterInteractionBytes": 222328735,
+            "heapAfterInteractionSamplesBytes": [
+              222321527,
+              222328387,
+              222328735,
+              222329075,
+              222329379
+            ],
+            "heapAfterInteractionSamplesMiB": [
+              212.02,
+              212.03,
+              212.03,
+              212.03,
+              212.03
+            ],
+            "editLatencyMedianMs": 0,
+            "editLatencyP95Ms": 0.20000001788139343,
+            "domNodeCount": 937,
+            "renderedRows": 60,
+            "renderedCells": 280
+          }
+        }
+      ],
+      "assets": {
+        "screenshot": "/benchmarks/revo-grid-benchmark-1m.png",
+        "video": "/benchmarks/revo-grid-benchmark-1m.webm"
+      }
+    }
+  ]
 }
