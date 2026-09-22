@@ -1,5 +1,5 @@
 ---
-title: React Data Grid
+title: "React Data Grid: Installation and Getting Started"
 description: Learn how to use RevoGrid in React with typed props, refs to the underlying grid instance, custom renderers, custom editors, and event handling.
 head:
   - - meta
@@ -7,7 +7,9 @@ head:
       content: React data grid, RevoGrid React, React grid instance methods, React virtual data grid, React editable grid
 ---
 
-# React Data Grid
+# React Data Grid: Installation and Getting Started
+
+[Explore the React Data Grid](/react-data-grid) · [Try the React demo](/guide/demos/react/react-datagrid) · [Compare the best React data grids](/blog/top-5-react-datagrid-libraries-2026) · [Review Pro pricing](/pricing)
 
 RevoGrid gives React applications a fast virtualized [React data grid](/react-data-grid) without changing the core grid behavior. You pass `columns` and `source` as props, then use a ref when you need to call instance methods such as `setCellEdit`, `scrollToRow`, or `getVisibleSource`.
 
@@ -27,7 +29,7 @@ RevoGrid gives React applications a fast virtualized [React data grid](/react-da
 <!--@include: ../../demo/react/react-datagrid.tsx-->
 ```
 
-<!--@include: ../../guide/demos/react/react-datagrid.md-->
+For an interactive example and sandbox, open the [React Data Grid demo](/guide/demos/react/react-datagrid).
 
 ## Working with `columns` and `source`
 

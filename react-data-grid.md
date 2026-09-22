@@ -2,7 +2,7 @@
 layout: revogrid-home
 title: React Data Grid — Fast, Editable, Virtual Scroll | RevoGrid
 titleTemplate: false
-description: A high-performance React data grid with virtual scrolling, inline editing, and custom React cell renderers. Open-source core, per-developer licensing, built for data-heavy React apps.
+description: RevoGrid is a high-performance, editable React data grid with virtual scrolling and custom React cells. Try the live demo or install the package.
 navbar: true
 sidebar: false
 aside: false
@@ -23,7 +23,7 @@ head:
       content: React Data Grid — Fast, Editable, Virtual Scroll | RevoGrid
   - - meta
     - property: og:description
-      content: A high-performance React data grid with virtual scrolling, inline editing, and custom React cell renderers.
+      content: RevoGrid is a high-performance, editable React data grid with virtual scrolling and custom React cells. Try the live demo or install the package.
   - - meta
     - property: og:url
       content: https://rv-grid.com/react-data-grid
@@ -39,8 +39,8 @@ hero:
   emphasis: React Data Grid
   tagline: Fast virtual scrolling, inline editing, custom React cell renderers, and TypeScript-first APIs for dashboards, admin tools, and production SaaS.
   primaryAction:
-    text: Explore 1M-row demo
-    link: /demo/grid-at-scale
+    text: Explore React demo
+    link: /guide/demos/react/react-datagrid
   secondaryAction:
     text: Read React docs
     link: /guide/react/
@@ -286,8 +286,8 @@ advanced:
       description: Add formulas, copy/paste, validation, history, and Excel-style workflows to React data products.
 
 comparison:
-  label: React data grid comparison
-  title: Pick the grid that matches your React workload
+  label: React product fit
+  title: Why choose RevoGrid for React?
   description: RevoGrid is strongest when your React app needs fast scrolling, editing, custom cells, and a clear commercial upgrade path.
   columns: [Capability, TanStack Table, RevoGrid, MUI X, AG Grid React]
   rows:
@@ -298,6 +298,9 @@ comparison:
     - [Open-source core, yes, yes, yes, yes]
     - [Production SaaS licensing, not applicable, per-developer Pro plans, per-developer paid tiers, Enterprise license]
     - [Advanced modules, no, Pro plans, paid tiers, Enterprise modules]
+  action:
+    text: Compare the best React data grids
+    link: /blog/top-5-react-datagrid-libraries-2026
 
 faq:
   label: FAQ

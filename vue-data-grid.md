@@ -2,7 +2,7 @@
 layout: revogrid-home
 title: Vue Data Grid - Fast, Editable, Virtual Scroll | RevoGrid
 titleTemplate: false
-description: A high-performance Vue data grid with virtual scrolling, inline editing, and custom Vue cell renderers. Open-source core, per-developer licensing, built for data-heavy Vue 3 apps.
+description: RevoGrid is a high-performance Vue 3 data grid with editable cells, virtual scrolling, and custom Vue renderers. Try the demo or install the package.
 navbar: true
 sidebar: false
 aside: false
@@ -23,7 +23,7 @@ head:
       content: Vue Data Grid - Fast, Editable, Virtual Scroll | RevoGrid
   - - meta
     - property: og:description
-      content: A high-performance Vue data grid with virtual scrolling, inline editing, and custom Vue cell renderers.
+      content: RevoGrid is a high-performance Vue 3 data grid with editable cells, virtual scrolling, and custom Vue renderers. Try the demo or install the package.
   - - meta
     - property: og:url
       content: https://rv-grid.com/vue-data-grid
@@ -40,8 +40,8 @@ hero:
   emphasis: Vue Data Grid
   tagline: Fast virtual scrolling, inline editing, custom Vue cell renderers, and TypeScript-friendly APIs for dashboards, admin tools, and production SaaS.
   primaryAction:
-    text: Explore 1M-row demo
-    link: /demo/grid-at-scale
+    text: Explore Vue demo
+    link: /guide/demos/vue/vue3-datagrid
   secondaryAction:
     text: Read Vue docs
     link: /guide/vue3/
@@ -259,8 +259,8 @@ advanced:
       description: Add formulas, copy/paste, validation, history, and Excel-style workflows to Vue data products.
 
 comparison:
-  label: Vue data grid comparison
-  title: Vue Data Grid vs AG Grid Vue, Syncfusion, and TanStack Table
+  label: Vue product fit
+  title: Why choose RevoGrid for Vue?
   description: RevoGrid is strongest when your Vue app needs fast scrolling, editing, custom cells, and a clear commercial upgrade path.
   columns: [Capability, TanStack Table, RevoGrid, Syncfusion Vue Grid, AG Grid Vue]
   rows:
@@ -271,6 +271,9 @@ comparison:
     - [Open-source core, yes, yes, no, yes]
     - [Production SaaS licensing, na, perDev, enterprise, enterprise]
     - [Advanced modules, no, yesPro, yes, yes]
+  action:
+    text: Compare the best Vue data grids
+    link: /blog/top-5-vue-data-grid-libraries-2026
 
 faq:
   label: FAQ

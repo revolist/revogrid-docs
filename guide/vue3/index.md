@@ -1,5 +1,5 @@
 ---
-title: Vue 3 Data Grid
+title: "Vue 3 Data Grid: Installation and Getting Started"
 description: Learn how to use RevoGrid in Vue 3 with Composition API or Options API, pass columns and source data, access instance methods, and build custom renderers.
 head:
   - - meta
@@ -7,7 +7,9 @@ head:
       content: Vue 3 data grid, RevoGrid Vue 3, Vue grid instance methods, Vue editable data grid, Vue virtual grid
 ---
 
-# Vue 3 Data Grid
+# Vue 3 Data Grid: Installation and Getting Started
+
+[Explore the Vue Data Grid](/vue-data-grid) · [Try the Vue demo](/guide/demos/vue/vue3-datagrid) · [Compare the best Vue data grids](/blog/top-5-vue-data-grid-libraries-2026) · [Review Pro pricing](/pricing)
 
 RevoGrid fits naturally into Vue 3 applications when you need a fast grid with native component integrations. You can use it from either the Composition API or the Options API, and still rely on the same core RevoGrid methods and events.
 
@@ -54,7 +56,7 @@ The most common Vue pattern is:
 
 
 
-<!--@include: ../../guide/demos/vue/vue.sample.options.md-->
+For an interactive Options API example and source code, open the [Vue 3 Options API demo](/guide/demos/vue/vue.sample.options).
 
 ## Accessing grid instance methods
 

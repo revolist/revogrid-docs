@@ -1,5 +1,5 @@
 ---
-title: Angular Data Grid
+title: "Angular Data Grid: Installation and Getting Started"
 description: Learn how to use RevoGrid in Angular with standalone components or modules, pass columns and source data, and access the underlying grid API.
 head:
   - - meta
@@ -7,7 +7,9 @@ head:
       content: Angular data grid, RevoGrid Angular, Angular virtual data grid, Angular editable grid, Angular Web Component grid
 ---
 
-# Angular Data Grid
+# Angular Data Grid: Installation and Getting Started
+
+[Explore the Angular Data Grid](/angular-data-grid) · [Try the Angular demo](/guide/demos/angular/angular-datagrid) · [Compare the best Angular data grids](/blog/top-5-angular-data-grid-libraries-2026) · [Review Pro pricing](/pricing)
 
 RevoGrid shines in Angular when you want a high-performance grid without giving up framework-native templates and editors. The Angular wrapper keeps the grid convenient to use while still exposing the same core RevoGrid API.
 
