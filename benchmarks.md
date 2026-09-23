@@ -20,7 +20,7 @@ import BenchmarkLiveDemo from './.vitepress/theme/BenchmarkLiveDemo.vue'
 Looking for scheduling measurements? See the [**RevoGrid Gantt browser benchmark**](/benchmarks/gantt), including the full 100/1K/5K/10K task matrix, dependency densities, raw JSON/CSV, screenshot, video, and live workload.
 :::
 
-This page records a reproducible local RevoGrid benchmark run across 1K, 10K, 100K, and 1 million rows. The results below were captured on September 22, 2026, against a local VitePress dev server.
+This page records a reproducible local RevoGrid benchmark run across 1K, 10K, 100K, and 1 million rows. The results below were captured on September 23, 2026, against a local VitePress dev server.
 
 Benchmark numbers are environment-dependent. Treat these as a published run with its machine, browser, dataset, and renderer setup documented, not as a universal guarantee for every application.
 
@@ -53,27 +53,29 @@ Every workload uses the same 100-column shape, so the matrix isolates row-count 
 
 ## Results
 
-Each workload was measured **five times in a fresh browser context**. The headline number is the median of those five runs; the range shows the smallest and largest run. Arithmetic means and every individual run are also available in [the result JSON](/benchmarks/result.json).
+Each workload was measured **five times in a fresh, visible Chromium browser context** without video recording. Screenshot and video capture use a separate illustrative pass. The headline number is the median of the five measured runs; the range shows the smallest and largest run. Arithmetic means and every individual measured run are also available in [the result JSON](/benchmarks/result.json).
 
 | Workload (rows × columns) | Data preparation, ms (range) | First data paint, ms (range) | Prepare + paint, ms (range) |
 | ------------------------- | ---------------------------: | ---------------------------: | --------------------------: |
-| 1,000 × 100               |             0.40 (0.30–0.50) |        101.00 (93.30–101.60) |       101.40 (93.80–102.00) |
-| 10,000 × 100              |             1.30 (1.20–1.40) |         92.20 (91.40–106.60) |        93.50 (92.60–107.90) |
-| 100,000 × 100             |          12.30 (11.60–13.40) |       106.40 (101.30–141.70) |      118.70 (112.90–155.10) |
-| 1,000,000 × 100           |       122.10 (118.40–147.40) |       112.90 (109.10–124.20) |      233.00 (231.00–265.20) |
+| 1,000 × 100               |             0.30 (0.30–0.50) |        112.80 (99.50–146.90) |       113.10 (99.80–147.40) |
+| 10,000 × 100              |             1.30 (1.30–2.50) |       153.20 (131.50–166.90) |      154.50 (132.80–168.50) |
+| 100,000 × 100             |          12.50 (12.10–13.70) |       146.20 (113.70–147.10) |      158.60 (126.50–159.20) |
+| 1,000,000 × 100           |       123.80 (118.40–149.10) |       116.70 (111.30–153.20) |      240.50 (236.30–291.60) |
 
-| Workload   | Scroll FPS, raw headless (range) | Heap after warmup, MiB (range) | Heap after interactions, MiB (range) |
-| ---------- | -------------------------------: | -----------------------------: | -----------------------------------: |
-| 1K × 100   |            118.33 (84.67–120.33) |            93.09 (93.05–93.53) |                110.19 (90.65–124.66) |
-| 10K × 100  |            120.00 (83.67–120.67) |            92.58 (92.39–92.76) |                102.42 (90.48–126.70) |
-| 100K × 100 |            120.00 (90.33–120.33) |          103.38 (98.75–104.33) |               118.23 (111.08–136.81) |
-| 1M × 100   |           120.00 (107.33–120.33) |         174.00 (172.23–174.01) |               196.97 (180.71–212.03) |
+| Workload   | Visible browser FPS (range) | p95 frame interval, ms (range) | Heap after warmup, MiB (range) | Heap after interactions, MiB (range) |
+| ---------- | --------------------------: | -----------------------------: | -----------------------------: | -----------------------------------: |
+| 1K × 100   |         58.95 (58.05–59.12) |            33.34 (33.34–33.34) |            94.36 (94.21–97.71) |                103.66 (93.93–110.99) |
+| 10K × 100  |         58.73 (58.70–59.13) |            16.67 (16.67–33.34) |            96.21 (91.76–96.98) |               105.70 (104.41–115.56) |
+| 100K × 100 |         58.99 (58.50–59.08) |            33.34 (33.34–33.34) |         106.99 (106.88–107.77) |               108.90 (106.47–115.85) |
+| 1M × 100   |        58.99 (58.64–118.53) |             16.67 (8.33–33.34) |         176.42 (173.61–181.81) |               203.80 (191.69–219.83) |
 
 Data preparation measures construction of the columns and one row record per source row. Numeric metric values use shared lazy accessors, so the benchmark retains a 100-column grid without allocating 100 million duplicate properties for the 1M-row case. First data paint starts just before assigning `columns` and `source`, waits until the first data row appears, and then waits two animation frames. Prepare + paint is calculated within each run before taking its median; it excludes page load and the grid's initial empty mount. The previous table timed the first `aftergridrender` event, which could arrive before data was painted; those values should not be compared with this run. The row count does not increase paint time proportionally because the grid virtualizes rows.
 
-The scripted vertical scroll lasts three seconds and travels at most 140,000 px. Raw headless Chromium FPS is not display-refresh capped and varies between runs; each run reached at least 60 FPS. The median dropped-frame counts (gaps over 20 ms) were 2, 0, 0, and 0. The median per-run p95 of 30 targeted `setDataAt` calls was 0.10, 0.20, 0.10, and 0.20 ms. This measures the API call, not a user typing into an editor or a visible edit paint, and browser timer precision limits its usefulness as a comparison.
+The scripted vertical scroll lasts three seconds and advances up to 3,888 rows (about 140,000 logical px) through the grid's `scrollToRow` API in a visible Chromium window. Each run verifies that the target rows render. Chromium tracing counts `Display::FrameDisplayed` events between start and end markers, then divides by the measured trace duration. These events are emitted when Chromium receives presentation feedback for a compositor frame. The p95 frame interval is the 95th percentile of time between consecutive presentation events; gaps over 33.33 ms are also recorded. This measures the whole benchmark page on the test display, not grid-only paints or a guaranteed frame rate on another display. Raw frame counts, intervals, gap counts, measured durations, and animation callback counts are available for every run in the JSON. The median per-run p95 values for 30 targeted `setDataAt` calls were 0.10, 0.10, 0.10, 0.10 ms. They measure the API call, not a user typing into an editor or a visible edit paint; browser timer precision limits their usefulness as a comparison.
 
-Median page-wide DOM node counts were 896, 896, 896, and 838. The grid rendered 60 viewport rows in every run, with a median of 260, 260, 260, and 220 data cells. The machine was a MacBookPro18,3 (Apple M1 Pro, 8 CPU cores, 16 GiB RAM) running macOS 26.4; the browser was Chromium 145.0.7632.6 at a 1440 × 900 viewport.
+The 1M workload had a higher presentation cadence in its final two runs, reaching 118.53 frames/s in one run. Animation callback counts rose at the same time, suggesting the display or browser refresh cadence changed during this session. The range preserves that variation; it should not be read as a grid-only speed difference.
+
+Median page-wide DOM node counts were 967, 967, 938, 938. The grid rendered 60 viewport rows in every run, with a median of 300, 300, 280, 280 data cells. The machine was a MacBookPro18,3 (Apple M1 Pro, 8 CPU cores, 16 GiB RAM) running macOS 26.4; the browser was Chromium 145.0.7632.6 at a 1440 × 900 viewport.
 
 ## Memory verification
 
@@ -81,10 +83,10 @@ In each run, the benchmark reads Chromium `performance.memory.usedJSHeapSize` fi
 
 | Workload   | Five warmup run medians (MiB)          | Five interaction run medians (MiB)     |
 | ---------- | -------------------------------------- | -------------------------------------- |
-| 1K × 100   | 93.53, 93.09, 93.09, 93.08, 93.05      | 109.81, 90.65, 110.19, 112.96, 124.66  |
-| 10K × 100  | 92.39, 92.58, 92.76, 92.57, 92.61      | 100.77, 126.70, 112.56, 90.48, 102.42  |
-| 100K × 100 | 98.75, 103.38, 104.33, 103.40, 99.39   | 118.23, 111.08, 116.98, 136.81, 136.58 |
-| 1M × 100   | 174.00, 173.99, 174.00, 172.23, 174.01 | 196.85, 180.71, 196.97, 208.92, 212.03 |
+| 1K × 100   | 94.21, 97.16, 94.36, 94.24, 97.71      | 103.66, 104.00, 93.93, 103.59, 110.99  |
+| 10K × 100  | 91.76, 96.98, 96.21, 96.20, 96.22      | 104.41, 105.70, 104.41, 109.37, 115.56 |
+| 100K × 100 | 107.33, 106.99, 106.88, 106.90, 107.77 | 107.79, 108.90, 115.85, 106.47, 112.86 |
+| 1M × 100   | 181.31, 176.42, 173.61, 181.81, 176.22 | 203.80, 196.50, 191.69, 219.83, 204.02 |
 
 ## Comparison methodology
 
@@ -94,7 +96,7 @@ Use the same benchmark harness for every grid being compared. The benchmark shou
 - Run cold and warm measurements separately for cross-grid comparisons.
 - Use the same row count, column count, data shape, renderer complexity, row height, and column width.
 - Repeat each scenario and publish the median and spread. This run uses five browser contexts per workload and records all individual measurements.
-- Measure scrolling with scripted scroll, not only manual observation. This run measures vertical scroll FPS.
+- Measure scrolling with scripted scroll and report what the harness observes. This run counts presentation events and frame intervals in a visible Chromium window.
 - Measure memory after initial warmup and again after a documented interaction loop.
 - Measure edit latency with a defined update operation; this harness times targeted `setDataAt` calls, not typing through an editor.
 - Keep virtualization settings, pinned areas, custom renderers, filtering, sorting, and editors visible in the benchmark configuration.
@@ -118,10 +120,12 @@ pnpm exec vitepress dev --host 127.0.0.1 --port 5173
 node scripts/run-benchmark.mjs
 ```
 
+The runner opens a visible Chromium window by default. Use `--headless` only for a diagnostic run; those frame rates are not directly comparable with the published visible-browser results.
+
 The script writes:
 
 - `public/benchmarks/result.json` with all four workloads, raw samples, machine details, and asset paths
-- One illustrative screenshot and video per workload from the first run in `public/benchmarks/`
+- One illustrative screenshot and video per workload from a separate capture pass in `public/benchmarks/`
 
 ## Screenshots and video
 

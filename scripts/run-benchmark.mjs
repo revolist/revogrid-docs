@@ -12,6 +12,10 @@ const outDir = path.join(docsRoot, 'public', 'benchmarks')
 mkdirSync(outDir, { recursive: true })
 const rawVideoDir = mkdtempSync(path.join(os.tmpdir(), 'revogrid-benchmark-'))
 const assetsOnly = process.argv.includes('--assets-only')
+const headless = process.argv.includes('--headless')
+const selectedScenario = process.argv
+  .find(arg => arg.startsWith('--scenario='))
+  ?.slice('--scenario='.length)
 
 function command(commandName, args) {
   try {
@@ -41,11 +45,11 @@ const scenarios = [
   { id: '10k', rowCount: 10_000, columnCount: 100 },
   { id: '100k', rowCount: 100_000, columnCount: 100 },
   { id: '1m', rowCount: 1_000_000, columnCount: 100 },
-].filter(scenario => !assetsOnly || scenario.id === '100k')
+].filter(scenario => scenario.id === (selectedScenario || (assetsOnly ? '100k' : scenario.id)))
 const runCount = assetsOnly ? 1 : 5
 const viewport = { width: 1440, height: 900 }
 const browser = await chromium.launch({
-  headless: true,
+  headless,
   args: ['--enable-precise-memory-info'],
 })
 const results = []
@@ -56,16 +60,68 @@ for (const { id, rowCount, columnCount } of scenarios) {
   const videoAsset = `/benchmarks/${assetBase}.webm`
   const runs = []
 
-  for (let run = 1; run <= runCount; run += 1) {
+  for (let run = 1; run <= runCount + Number(!assetsOnly); run += 1) {
+    const captureAssets = assetsOnly || run > runCount
     const context = await browser.newContext({
       viewport,
-      ...(run === 1
+      ...(captureAssets
         ? { recordVideo: { dir: rawVideoDir, size: { width: 1280, height: 720 } } }
         : {}),
     })
     const page = await context.newPage()
     await page.goto('http://127.0.0.1:5173/benchmarks?automated=1', {
       waitUntil: 'domcontentloaded',
+    })
+    await page.bringToFront()
+    const cdp = await context.newCDPSession(page)
+    const scrollTraceEvents = []
+    cdp.on('Tracing.dataCollected', ({ value }) => {
+      scrollTraceEvents.push(
+        ...value.filter(
+          event =>
+            event.name === 'Display::FrameDisplayed' ||
+            event.name === 'revogrid-scroll-start' ||
+            event.name === 'revogrid-scroll-end',
+        ),
+      )
+    })
+    await page.exposeFunction('startScrollFrameTrace', async () => {
+      await cdp.send('Tracing.start', {
+        categories: 'viz,blink.user_timing',
+        transferMode: 'ReportEvents',
+      })
+    })
+    await page.exposeFunction('stopScrollFrameTrace', async () => {
+      const complete = new Promise(resolve => cdp.once('Tracing.tracingComplete', resolve))
+      await cdp.send('Tracing.end')
+      await complete
+      const start = scrollTraceEvents.find(event => event.name === 'revogrid-scroll-start')
+      const end = scrollTraceEvents.find(event => event.name === 'revogrid-scroll-end')
+      if (!start || !end || end.ts <= start.ts) {
+        throw new Error('Scroll frame trace is missing its time markers')
+      }
+      const displayedFrameEvents = scrollTraceEvents
+        .filter(
+          event =>
+            event.name === 'Display::FrameDisplayed' && event.ts >= start.ts && event.ts <= end.ts,
+        )
+        .sort((left, right) => left.ts - right.ts)
+      const displayedFrames = displayedFrameEvents.length
+      if (displayedFrames < 2) {
+        throw new Error('Scroll frame trace contains too few displayed frames')
+      }
+      const frameIntervalsMs = displayedFrameEvents
+        .slice(1)
+        .map((event, index) => (event.ts - displayedFrameEvents[index].ts) / 1_000)
+      const durationSeconds = (end.ts - start.ts) / 1_000_000
+      return {
+        displayedFrames,
+        durationSeconds,
+        displayedFramesPerSecond: displayedFrames / durationSeconds,
+        frameIntervalsMs,
+        frameIntervalP95Ms: p95(frameIntervalsMs),
+        frameGapsOver33Ms: frameIntervalsMs.filter(interval => interval > 1_000 / 30).length,
+      }
     })
 
     const result = await page.evaluate(
@@ -221,32 +277,49 @@ for (const { id, rowCount, columnCount } of scenarios) {
         if (!scrollElement) {
           throw new Error('Unable to locate vertical scroll element')
         }
+        if (document.visibilityState !== 'visible') {
+          throw new Error('Benchmark page is not visible before scrolling')
+        }
+        const scrollTargetRow = Math.min(rowCount - 1, Math.floor(140000 / 36))
 
+        await window.startScrollFrameTrace()
+        performance.mark('revogrid-scroll-start')
         const scrollMetrics = await new Promise(resolve => {
           const duration = 3000
           const start = performance.now()
           let last = start
-          let frames = 0
-          let droppedFrames = 0
-          function step(now) {
-            frames += 1
-            if (now - last > 20) droppedFrames += 1
+          let callbacks = 0
+          let lateCallbacks = 0
+          async function step(now) {
+            callbacks += 1
+            if (now - last > 20) lateCallbacks += 1
             last = now
             const progress = Math.min(1, (now - start) / duration)
-            scrollElement.scrollTop =
-              progress * Math.min(scrollElement.scrollHeight - scrollElement.clientHeight, 140000)
+            await grid.scrollToRow(Math.round(progress * scrollTargetRow))
             if (progress < 1) {
               requestAnimationFrame(step)
             } else {
               resolve({
-                fps: frames / (duration / 1000),
-                frames,
-                droppedFrames,
+                callbacks,
+                lateCallbacks,
               })
             }
           }
           requestAnimationFrame(step)
         })
+        performance.mark('revogrid-scroll-end')
+        const scrollFrameTrace = await window.stopScrollFrameTrace()
+        const scrollReachedRow = Math.max(
+          ...Array.from(grid.querySelectorAll('.bench-name'))
+            .map(cell => Number(cell.textContent.match(/Employee (\d+)/)?.[1]))
+            .filter(Number.isFinite),
+        )
+        if (scrollReachedRow < scrollTargetRow / 2) {
+          throw new Error(`Benchmark viewport did not reach the target row: ${scrollReachedRow}`)
+        }
+        if (document.visibilityState !== 'visible') {
+          throw new Error('Benchmark page stopped being visible during scrolling')
+        }
 
         await new Promise(resolve => setTimeout(resolve, 500))
         const editSamples = []
@@ -266,9 +339,17 @@ for (const { id, rowCount, columnCount } of scenarios) {
           initialRenderTime,
           prepareAndPaintMs: dataPreparationMs + initialRenderTime,
           firstRowVisible,
-          scrollFps: scrollMetrics.fps,
-          scrollFrames: scrollMetrics.frames,
-          droppedFrames: scrollMetrics.droppedFrames,
+          pageVisible: true,
+          scrollDisplayedFramesPerSecond: scrollFrameTrace.displayedFramesPerSecond,
+          scrollDisplayedFrames: scrollFrameTrace.displayedFrames,
+          scrollTraceDurationSeconds: scrollFrameTrace.durationSeconds,
+          scrollFrameIntervalsMs: scrollFrameTrace.frameIntervalsMs,
+          scrollFrameIntervalP95Ms: scrollFrameTrace.frameIntervalP95Ms,
+          scrollFrameGapsOver33Ms: scrollFrameTrace.frameGapsOver33Ms,
+          scrollTargetRow,
+          scrollReachedRow,
+          scrollAnimationCallbacks: scrollMetrics.callbacks,
+          lateAnimationCallbacksOver20Ms: scrollMetrics.lateCallbacks,
           heapAfterWarmupSamples,
           heapAfterInteractionSamples,
           editSamples,
@@ -280,7 +361,7 @@ for (const { id, rowCount, columnCount } of scenarios) {
       { rowCount, columnCount },
     )
 
-    if (run === 1) {
+    if (captureAssets) {
       await page.screenshot({ path: path.join(outDir, `${assetBase}.png`), fullPage: true })
     }
     const video = page.video()
@@ -288,6 +369,10 @@ for (const { id, rowCount, columnCount } of scenarios) {
     await context.close()
     if (video) {
       copyFileSync(await video.path(), path.join(outDir, `${assetBase}.webm`))
+    }
+    if (captureAssets && !assetsOnly) {
+      console.log(`Captured ${rowCount.toLocaleString()} x ${columnCount.toLocaleString()} assets`)
+      continue
     }
 
     runs.push({
@@ -297,10 +382,17 @@ for (const { id, rowCount, columnCount } of scenarios) {
         initialRenderMs: result.initialRenderTime,
         prepareAndPaintMs: result.prepareAndPaintMs,
         firstRowVisible: result.firstRowVisible,
-        scrollingFpsDisplayCap: Math.min(60, result.scrollFps),
-        rawHeadlessScrollFps: result.scrollFps,
-        scrollFrames: result.scrollFrames,
-        droppedFrames: result.droppedFrames,
+        pageVisible: result.pageVisible,
+        scrollDisplayedFramesPerSecond: result.scrollDisplayedFramesPerSecond,
+        scrollDisplayedFrames: result.scrollDisplayedFrames,
+        scrollTraceDurationSeconds: result.scrollTraceDurationSeconds,
+        scrollFrameIntervalsMs: result.scrollFrameIntervalsMs,
+        scrollFrameIntervalP95Ms: result.scrollFrameIntervalP95Ms,
+        scrollFrameGapsOver33Ms: result.scrollFrameGapsOver33Ms,
+        scrollTargetRow: result.scrollTargetRow,
+        scrollReachedRow: result.scrollReachedRow,
+        scrollAnimationCallbacks: result.scrollAnimationCallbacks,
+        lateAnimationCallbacksOver20Ms: result.lateAnimationCallbacksOver20Ms,
         heapAfterWarmupBytes: median(result.heapAfterWarmupSamples.filter(Boolean)),
         heapAfterWarmupSamplesBytes: result.heapAfterWarmupSamples,
         heapAfterWarmupSamplesMiB: result.heapAfterWarmupSamples
@@ -319,7 +411,7 @@ for (const { id, rowCount, columnCount } of scenarios) {
       },
     })
     console.log(
-      `Completed ${rowCount.toLocaleString()} x ${columnCount.toLocaleString()}, run ${run}/${runCount}`,
+      `Completed ${rowCount.toLocaleString()} x ${columnCount.toLocaleString()}, run ${run}/${runCount}: reached row ${result.scrollReachedRow}, ${result.scrollDisplayedFramesPerSecond.toFixed(2)} compositor frames/s`,
     )
   }
 
@@ -327,10 +419,13 @@ for (const { id, rowCount, columnCount } of scenarios) {
     'dataPreparationMs',
     'initialRenderMs',
     'prepareAndPaintMs',
-    'scrollingFpsDisplayCap',
-    'rawHeadlessScrollFps',
-    'scrollFrames',
-    'droppedFrames',
+    'scrollDisplayedFramesPerSecond',
+    'scrollDisplayedFrames',
+    'scrollTraceDurationSeconds',
+    'scrollFrameIntervalP95Ms',
+    'scrollFrameGapsOver33Ms',
+    'scrollAnimationCallbacks',
+    'lateAnimationCallbacksOver20Ms',
     'heapAfterWarmupBytes',
     'heapAfterInteractionBytes',
     'editLatencyMedianMs',
@@ -379,9 +474,14 @@ const machine = {
 const output = {
   runDate: new Date().toISOString(),
   browser: `Chromium ${browser.version()}`,
+  browserMode: headless ? 'headless' : 'headed',
   viewport,
   machine,
   runCount,
+  measurementConditions: {
+    videoRecording: false,
+    assetCapture: 'separate pass after measured runs',
+  },
   results,
 }
 await browser.close()

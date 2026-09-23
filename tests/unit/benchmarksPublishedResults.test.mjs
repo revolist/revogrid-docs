@@ -24,6 +24,10 @@ const normalizeTableRow = row =>
     .join('|')
 const median = values =>
   [...values].sort((left, right) => left - right)[Math.floor(values.length / 2)]
+const p95 = values => {
+  const sorted = [...values].sort((left, right) => left - right)
+  return sorted[Math.min(sorted.length - 1, Math.ceil(sorted.length * 0.95) - 1)]
+}
 
 test('published benchmark contains five measured runs for each documented workload', () => {
   assert.deepEqual(
@@ -36,8 +40,13 @@ test('published benchmark contains five measured runs for each documented worklo
     ],
   )
   assert.match(results.browser, /^Chromium /)
+  assert.equal(results.browserMode, 'headed')
   assert.ok(results.machine.model)
   assert.equal(results.runCount, 5)
+  assert.deepEqual(results.measurementConditions, {
+    videoRecording: false,
+    assetCapture: 'separate pass after measured runs',
+  })
 
   for (const scenario of results.results) {
     const { metrics, statistics, runs, rowCount, columnCount, assets } = scenario
@@ -49,6 +58,22 @@ test('published benchmark contains five measured runs for each documented worklo
     )
     for (const { metrics: run } of runs) {
       assert.equal(run.firstRowVisible, true)
+      assert.equal(run.pageVisible, true)
+      assert.equal(run.scrollTargetRow, Math.min(rowCount - 1, Math.floor(140000 / 36)))
+      assert.ok(run.scrollReachedRow >= run.scrollTargetRow - 60)
+      assert.ok(run.scrollDisplayedFrames > 0)
+      assert.ok(run.scrollTraceDurationSeconds >= 3)
+      assert.ok(run.scrollFrameIntervalP95Ms > 0)
+      assert.equal(run.scrollFrameIntervalsMs.length, run.scrollDisplayedFrames - 1)
+      assert.equal(run.scrollFrameIntervalP95Ms, p95(run.scrollFrameIntervalsMs))
+      assert.equal(
+        run.scrollFrameGapsOver33Ms,
+        run.scrollFrameIntervalsMs.filter(interval => interval > 1000 / 30).length,
+      )
+      assert.equal(
+        run.scrollDisplayedFramesPerSecond,
+        run.scrollDisplayedFrames / run.scrollTraceDurationSeconds,
+      )
       assert.equal(run.prepareAndPaintMs, run.dataPreparationMs + run.initialRenderMs)
       assert.equal(run.heapAfterWarmupSamplesBytes.length, 5)
       assert.equal(run.heapAfterInteractionSamplesBytes.length, 5)
@@ -63,7 +88,8 @@ test('published benchmark contains five measured runs for each documented worklo
       assert.equal(statistic.min, Math.min(...values))
       assert.equal(statistic.max, Math.max(...values))
     }
-    assert.equal(metrics.scrollingFpsDisplayCap, Math.min(60, metrics.rawHeadlessScrollFps))
+    assert.equal('scrollAnimationCallbacksPerSecond' in metrics, false)
+    assert.equal('rawHeadlessScrollFps' in metrics, false)
     assert.ok(metrics.initialRenderMs > 0)
     assert.ok(metrics.renderedRows > 0)
     assert.ok(metrics.renderedCells > 0)
@@ -77,7 +103,7 @@ test('published benchmark contains five measured runs for each documented worklo
       '100k': '100K × 100',
       '1m': '1M × 100',
     }[scenario.id]
-    const resourceSummary = `| ${workloadLabel} | ${range('rawHeadlessScrollFps')} | ${range('heapAfterWarmupBytes', 1048576)} | ${range('heapAfterInteractionBytes', 1048576)} |`
+    const resourceSummary = `| ${workloadLabel} | ${range('scrollDisplayedFramesPerSecond')} | ${range('scrollFrameIntervalP95Ms')} | ${range('heapAfterWarmupBytes', 1048576)} | ${range('heapAfterInteractionBytes', 1048576)} |`
     assert.ok(
       normalizedPage.includes(normalizeTableRow(timingSummary)),
       `Missing or stale timing documentation for ${scenario.id}`,
