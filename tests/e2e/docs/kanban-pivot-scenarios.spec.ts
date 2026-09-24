@@ -389,7 +389,9 @@ test.describe('Kanban and Pivot documented scenarios', () => {
       await openPivotDemo(page)
       const report = page.locator('.financial-pivot-showcase')
       await expect(report).toContainText('$24,855,100')
-      await expect(page.getByRole('navigation', { name: 'Pivot demo collection' })).toBeVisible()
+      const collection = page.getByRole('navigation', { name: 'Pivot demo collection' })
+      await expect(collection.getByRole('link')).toHaveCount(6)
+      expect((await collection.boundingBox())?.height).toBeLessThanOrEqual(40)
       await expect(page.getByRole('button', { name: 'Fields' })).toBeVisible()
       await expect(page.getByRole('button', { name: 'Chart' })).toBeVisible()
       await expect(page.getByRole('button', { name: 'Export CSV' })).toBeVisible()
@@ -400,6 +402,36 @@ test.describe('Kanban and Pivot documented scenarios', () => {
       await page.getByRole('button', { name: 'Reset' }).click()
       await expect(tabs.getByRole('tab', { name: 'Sales Overview' })).toHaveAttribute('aria-selected', 'true')
       await expect(report).toContainText('$24,855,100')
+    }
+  })
+
+  test('Pivot collection links are real keyboard-operable links on every demo', async ({ page }) => {
+    const routes = ['pivot', 'pivot-charts', 'pivot-financial', 'pivot-operations', 'pivot-scale', 'pivot-import']
+    for (const route of routes) {
+      await page.goto(`/demo/${route}`)
+      const collection = page.getByRole('navigation', { name: 'Pivot demo collection' })
+      await expect(collection.getByRole('link')).toHaveCount(6)
+      await expect(collection.getByRole('link', { name: 'Overview' })).toHaveAttribute('href', '/demo/pivot')
+      await expect(collection.locator('a[aria-current="page"]')).toHaveAttribute('href', `/demo/${route}`)
+      await expect(collection).not.toContainText('[Overview](/demo/pivot)')
+    }
+    const charts = page.getByRole('navigation', { name: 'Pivot demo collection' }).getByRole('link', { name: 'Charts' })
+    await charts.focus()
+    await expect(charts).toBeFocused()
+    await page.keyboard.press('Enter')
+    await expect(page).toHaveURL(/\/demo\/pivot-charts\/?$/)
+  })
+
+  test('Pivot source viewer loads the overview and focused demo files', async ({ page }) => {
+    for (const [route, sourceText] of [
+      ['pivot', 'financial-pivot-showcase'],
+      ['pivot-charts', 'pivot-dashboard'],
+    ]) {
+      await page.goto(`/demo/${route}`)
+      await page.getByRole('button', { name: 'Code' }).click()
+      const source = page.getByRole('dialog', { name: 'Example source code' })
+      await expect(source.locator('.demo-source__code')).toContainText(sourceText)
+      await expect(source).not.toContainText('Source could not be loaded.')
     }
   })
 
