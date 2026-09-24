@@ -63,7 +63,9 @@ const mermaidMarkdownPlugin = (md: MarkdownIt) => {
   }
 }
 
-const revogridProWorkspaceRoot = path.resolve(__dirname, '../../..')
+const revogridProWorkspaceRoot = process.env.REVOGRID_PRO_WORKSPACE_ROOT
+  ? path.resolve(process.env.REVOGRID_PRO_WORKSPACE_ROOT)
+  : path.resolve(__dirname, '../../..')
 const revogridDemosRoot = path.resolve(__dirname, '../revogrid-demos')
 const revogridDemoDataSuffix = '.revogrid-demo-source.ts'
 const localProPackageRoot = path.resolve(revogridProWorkspaceRoot, 'packages/pro')

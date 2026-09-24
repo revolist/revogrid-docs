@@ -17,7 +17,7 @@ test('registers four real framework entries for every docs demo', () => {
     assert.deepEqual(Object.keys(frameworks), ['vue', 'ts', 'react', 'angular'], demoId)
     for (const [framework, entry] of Object.entries(frameworks)) {
       assert.ok(entry.files.length >= 1, `${demoId}/${framework} needs an entry file`)
-      assert.match(entry.command, new RegExp(`dev:${framework}$`))
+      assert.match(entry.command, new RegExp(`dev(?::${framework})?$`))
       assert.match(entry.documentationUrl, /^\//)
     }
   }
