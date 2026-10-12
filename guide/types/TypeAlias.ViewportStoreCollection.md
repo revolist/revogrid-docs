@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.11](README.md) / ViewportStoreCollection
+[RevoGrid Documentation v4.28.3](README.md) / ViewportStoreCollection
 
 # Type Alias: ViewportStoreCollection
 
@@ -8,4 +8,4 @@ type ViewportStoreCollection: { [T in MultiDimensionType]: ViewportStore };
 
 ## Defined in
 
-[src/store/vp/index.ts:7](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/store/vp/index.ts#L7)
+[src/store/vp/index.ts:7](https://github.com/revolist/revogrid/blob/237f5d7f5379065aebb85b7a81753679e1b45365/src/store/vp/index.ts#L7)
