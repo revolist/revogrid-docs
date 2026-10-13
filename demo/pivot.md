@@ -23,24 +23,12 @@ import PivotShowcase from '@revogrid-demos/pro-advanced-pivot/src/pivot.vue'
 </script>
 
 <DemoPageLayout demo-id="pivot">
-  <nav class="pivot-demo-links" aria-label="Pivot demo collection">
-    <a href="/demo/pivot" aria-current="page">Overview</a>
-    <a href="/demo/pivot-charts">Charts</a>
-    <a href="/demo/pivot-financial">Financial</a>
-    <a href="/demo/pivot-operations">Operations</a>
-    <a href="/demo/pivot-scale">Scale</a>
-    <a href="/demo/pivot-import">Import</a>
-  </nav>
   <div class="demo-main-widget">
     <PivotShowcase />
   </div>
 </DemoPageLayout>
 
 <style scoped>
-.pivot-demo-links { display: flex; flex-wrap: wrap; column-gap: 16px; row-gap: 4px; padding: 6px 16px; font-size: 12px; line-height: 20px; border-bottom: 1px solid var(--vp-c-divider); }
-.pivot-demo-links a { white-space: nowrap; }
-.pivot-demo-links a[aria-current="page"] { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
-.pivot-demo-links a:focus-visible { outline: 2px solid var(--vp-c-brand-1); outline-offset: 3px; }
 .demo-main-widget {
   min-height: 0;
   height: 100%;
@@ -48,11 +36,17 @@ import PivotShowcase from '@revogrid-demos/pro-advanced-pivot/src/pivot.vue'
 }
 
 .demo-main-widget :deep(.financial-pivot-showcase) {
-  padding-top: 8px;
+  height: 100%;
+  padding-top: 0;
+}
+
+.demo-main-widget :deep(.financial-pivot-showcase > .overflow-auto) {
+  overflow: hidden;
 }
 
 .demo-main-widget :deep(financial-pivot-guidance) {
   display: none !important;
 }
-
+:global(.demo-page-layout[data-demo-id='pivot'] .demo-page-header) { min-height: 74px; padding: 9px 0 8px; }
+:global(.demo-page-layout[data-demo-id='pivot'] .demo-page-heading p) { margin-top: 3px; }
 </style>

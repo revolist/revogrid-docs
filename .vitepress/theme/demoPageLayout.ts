@@ -198,9 +198,9 @@ const DEMO_PAGE_CONTENT = {
     ],
   },
   pivot: {
-    title: 'JavaScript Pivot Table Component Demo',
-    description: 'Explore 20,000 synthetic sales transactions with filters, charts, named reports, and export.',
-    implementationUrl: 'https://github.com/revolist/pivot/tree/main/examples/showcase',
+    title: 'JavaScript Pivot Table Demo',
+    description: 'Explore Contoso retail sales. Rearrange fields, filter results, inspect transactions, and export the report.',
+    implementationUrl: 'https://github.com/revolist/pivot',
     featureBadges: [
       { label: 'Pivot analytics', source: 'PivotPlugin' },
       { label: 'Field configuration', source: 'PivotConfig' },
@@ -210,8 +210,8 @@ const DEMO_PAGE_CONTENT = {
   },
   'pivot-charts': {
     title: 'Pivot Charts Dashboard Demo',
-    description: 'Filter a 20,000-row synthetic sales dataset and compare a Pivot report with two linked charts.',
-    implementationUrl: 'https://github.com/revolist/pivot/tree/main/examples/showcase/src/charts-dashboard.vue',
+    description: 'Filter a 20,000-row synthetic sales dataset and explore three linked charts above a Pivot report.',
+    implementationUrl: 'https://github.com/revolist/pivot/blob/main/src/charts-dashboard.vue',
     featureBadges: [
       { label: 'Linked charts', source: 'PivotChartsPlugin + mountPivotChart' },
       { label: 'Shared filters', source: 'PivotConfig + filtered source rows' },
@@ -220,7 +220,7 @@ const DEMO_PAGE_CONTENT = {
   'pivot-financial': {
     title: 'Pivot Financial Analysis Demo',
     description: 'Compare profit, contribution share, running totals, year-over-year change, and ranking.',
-    implementationUrl: 'https://github.com/revolist/pivot/tree/main/examples/showcase/src/financial.pivot.ts',
+    implementationUrl: 'https://github.com/revolist/pivot/blob/main/src/financial.pivot.ts',
     featureBadges: [
       { label: 'Calculations', source: 'PivotConfig value calculations' },
       { label: 'Cross-measure formulas', source: 'Pivot value formula API' },
@@ -230,7 +230,7 @@ const DEMO_PAGE_CONTENT = {
   'pivot-operations': {
     title: 'Pivot Support Investigation Demo',
     description: 'Investigate synthetic support tickets by team and priority, then inspect source records for a focused value cell.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/tree/main/pro-pivot-operations',
+    implementationUrl: 'https://github.com/revolist/pivot/tree/main/examples/operations',
     featureBadges: [
       { label: 'Counts and averages', source: 'PivotPlugin aggregators' },
       { label: 'Source drill-through', source: 'PivotPlugin.loadPivotDrilldown' },
@@ -238,20 +238,10 @@ const DEMO_PAGE_CONTENT = {
   },
   'pivot-scale': {
     title: 'Pivot at Scale Demo',
-    description: 'Choose 10K, 100K, or opt-in 1M synthetic rows and inspect browser-labelled timing; explore a Node remote adapter.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/tree/main/pro-pivot-scale',
+    description: 'Choose 10K, 100K, or opt-in 1M synthetic rows and inspect browser-labelled timing.',
+    implementationUrl: 'https://github.com/revolist/pivot/tree/main/examples/scale',
     featureBadges: [
       { label: 'Workload timings', source: 'Browser performance API + Pivot model-change event' },
-      { label: 'Remote adapter', source: 'HttpPivotRemoteStore + Node reference backend' },
-    ],
-  },
-  'pivot-import': {
-    title: 'Pivot Your Data Demo',
-    description: 'Import CSV or JSON locally, review field types, date groups and numeric bins, then create a Pivot report.',
-    implementationUrl: 'https://github.com/revolist/revogrid-demos/tree/main/pro-pivot-import',
-    featureBadges: [
-      { label: 'Browser-local import', source: 'File API + local parser' },
-      { label: 'Field setup', source: 'PivotConfig dimensions and values' },
     ],
   },
   gantt: {

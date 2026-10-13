@@ -761,7 +761,7 @@ test('gives the Pivot field configuration panel room to avoid horizontal scrolli
   )
   assert.match(
     styles,
-    /\.financial-pivot-showcase \.pivot-config\s*\{[\s\S]*?--pv-cfg-width:\s*380px[\s\S]*?overflow-x:\s*hidden/,
+    /\.financial-pivot-showcase \.pivot-config\s*\{[\s\S]*?--pv-cfg-width:\s*304px[\s\S]*?overflow-x:\s*hidden/,
   )
   assert.match(
     styles,

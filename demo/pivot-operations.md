@@ -14,27 +14,58 @@ editLink: false
 import 'virtual:uno.css'
 import '@revolist/revogrid-pro/dist/revogrid-pro.css'
 import '@revolist/pivot/styles.css'
-import OperationsDemo from '@revogrid-demos/pro-pivot-operations/src/OperationsDemo.vue'
+import OperationsDemo from '@revogrid-demos/pro-advanced-pivot/examples/operations/src/OperationsDemo.vue'
 </script>
 
 <DemoPageLayout demo-id="pivot-operations">
-  <nav class="pivot-demo-links" aria-label="Pivot demo collection">
-    <a href="/demo/pivot">Overview</a>
-    <a href="/demo/pivot-charts">Charts</a>
-    <a href="/demo/pivot-financial">Financial</a>
-    <a href="/demo/pivot-operations" aria-current="page">Operations</a>
-    <a href="/demo/pivot-scale">Scale</a>
-    <a href="/demo/pivot-import">Import</a>
-  </nav>
   <div class="demo-main-widget"><OperationsDemo /></div>
 </DemoPageLayout>
 
-The source tabs show framework integration examples. Each adapter mounts the same shared demo implementation, which is included alongside it in the source viewer.
-
 <style scoped>
-.pivot-demo-links { display: flex; flex-wrap: wrap; column-gap: 16px; row-gap: 4px; padding: 6px 16px; font-size: 12px; line-height: 20px; border-bottom: 1px solid var(--vp-c-divider); }
-.pivot-demo-links a { white-space: nowrap; }
-.pivot-demo-links a[aria-current="page"] { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
-.pivot-demo-links a:focus-visible { outline: 2px solid var(--vp-c-brand-1); outline-offset: 3px; }
 .demo-main-widget { min-height: 0; height: 100%; }
+@media (min-width: 1051px) {
+  .demo-main-widget :deep(.pivot-operations-embed) {
+    height: 100%;
+    min-height: 0;
+  }
+  .demo-main-widget :deep(.operations-demo) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .demo-main-widget :deep(.controls) {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+  }
+  .demo-main-widget :deep(.workspace) {
+    flex: 1;
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+  }
+  .demo-main-widget :deep(.pivot-panel),
+  .demo-main-widget :deep(.detail-panel) {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .demo-main-widget :deep(.pivot-panel > :is(.pivot-grid, .pivot-plugin)) {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .demo-main-widget :deep(.pivot-panel revo-grid) {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+  }
+  .demo-main-widget :deep(.ticket-grid) {
+    flex: 1;
+    min-height: 0;
+    height: auto;
+  }
+}
 </style>

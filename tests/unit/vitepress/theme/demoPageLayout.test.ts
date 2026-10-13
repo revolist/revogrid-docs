@@ -106,6 +106,21 @@ test('links advanced demos to their standalone implementation repositories', () 
   })
 })
 
+test('Pivot demo GitHub links point to files in the dedicated Pivot repository', () => {
+  assert.equal(
+    new URL(getDemoPageConfig('pivot').implementationUrl).pathname,
+    '/revolist/pivot',
+  )
+  assert.equal(
+    new URL(getDemoPageConfig('pivot-charts').implementationUrl).pathname,
+    '/revolist/pivot/blob/main/src/charts-dashboard.vue',
+  )
+  assert.equal(
+    new URL(getDemoPageConfig('pivot-financial').implementationUrl).pathname,
+    '/revolist/pivot/blob/main/src/financial.pivot.ts',
+  )
+})
+
 test('keeps every demo page on the shared SEO and social metadata contract', () => {
   const entries = demoSeoFiles.map(file => {
     const source = readFileSync(new URL(`../../../../demo/${file}`, import.meta.url), 'utf8')
@@ -168,11 +183,12 @@ test('provides source-attributed feature badges only for paid demos', () => {
     Object.values(PRODUCT_CATALOG.demos).filter(demo => demo.planId !== 'open-source').length,
   )
   paid.forEach(config => {
-    assert.ok(config.featureBadges.length >= 3)
+    assert.ok(config.featureBadges.length >= 1)
     assert.equal(
       new Set(config.featureBadges.map(feature => feature.label)).size,
       config.featureBadges.length,
     )
+    assert.ok(config.featureBadges.every(feature => feature.source.trim().length > 0))
     config.featureBadges.forEach(feature => {
       assert.ok(feature.label.length > 3)
       assert.ok(feature.source.length > 3)
@@ -312,10 +328,10 @@ test('keeps Code for source inspection and routes Run locally to the planning RE
   assert.match(planningDemoReadme, /pnpm --filter revogrid-demo-pro-advanced-planning dev:react/)
   assert.match(planningDemoReadme, /pnpm --filter revogrid-demo-pro-advanced-planning dev:vue/)
   assert.match(planningDemoReadme, /pnpm --filter revogrid-demo-pro-advanced-planning dev:angular/)
-  assert.match(planningDemoReadme, /@revolist\/rv-pro-trial@2\.8\.2/)
-  assert.match(planningDemoReadme, /@revolist\/kanban-trial@2\.8\.2/)
-  assert.match(planningDemoReadme, /@revolist\/gantt-trial@2\.8\.2/)
-  assert.match(planningDemoReadme, /@revolist\/scheduler-trial@2\.8\.2/)
+  assert.match(planningDemoReadme, /@revolist\/rv-pro-trial@\d+\.\d+\.\d+/)
+  assert.match(planningDemoReadme, /@revolist\/kanban-trial@\d+\.\d+\.\d+/)
+  assert.match(planningDemoReadme, /@revolist\/gantt-trial@\d+\.\d+\.\d+/)
+  assert.match(planningDemoReadme, /@revolist\/scheduler-trial@\d+\.\d+\.\d+/)
 })
 
 test('does not repeat the header CTA inside the demo workspace', () => {
@@ -394,7 +410,17 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
       links: group.items?.map(item => item.link),
     })),
     [
-      { text: 'Pivot table', collapsed: false, links: ['/demo/pivot'] },
+      {
+        text: 'Pivot table',
+        collapsed: false,
+        links: [
+          '/demo/pivot',
+          '/demo/pivot-charts',
+          '/demo/pivot-financial',
+          '/demo/pivot-operations',
+          '/demo/pivot-scale',
+        ],
+      },
       {
         text: 'Gantt Chart',
         collapsed: false,

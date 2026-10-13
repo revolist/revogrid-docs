@@ -77,7 +77,7 @@ const useLocalProPackages =
 const localProPackageAliases = useLocalProPackages
   ? [
       {
-        find: /^@revolist\/revogrid-pro\/dist\/revogrid-pro\.css$/,
+        find: /^@revolist\/revogrid-pro\/(?:styles\.css|dist\/revogrid-pro\.css)$/,
         replacement: path.resolve(localProPackageRoot, 'dist/revogrid-pro.css'),
       },
       {

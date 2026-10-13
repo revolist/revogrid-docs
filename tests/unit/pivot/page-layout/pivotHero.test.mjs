@@ -8,7 +8,8 @@ const fallbackSource = readFileSync(
   'utf8',
 )
 
-test('keeps the Pivot H1 suffix synchronized with the concise Web copy', () => {
-  assert.match(pageSource, /^\s+titleSuffix: component for Web$/m)
-  assert.match(fallbackSource, /titleSuffix: 'component for Web'/)
+test('uses the shared Pivot hero config when the page has no override', () => {
+  assert.match(pageSource, /<PivotPageLayout \/>/)
+  assert.doesNotMatch(pageSource, /^pivotLanding:/m)
+  assert.match(fallbackSource, /titleSuffix: 'Pivot Table'/)
 })

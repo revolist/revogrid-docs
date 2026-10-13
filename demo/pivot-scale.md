@@ -1,6 +1,6 @@
 ---
 title: Pivot at Scale Demo
-description: Measure 10K, 100K, and opt-in 1M workloads in your browser; explore the remote adapter.
+description: Measure 10K, 100K, and opt-in 1M Pivot workloads in your browser.
 pageClass: demo-page-class no-x-padding no-top-padding no-bottom-padding
 layout: doc
 aside: false
@@ -14,27 +14,16 @@ editLink: false
 import 'virtual:uno.css'
 import '@revolist/revogrid-pro/dist/revogrid-pro.css'
 import '@revolist/pivot/styles.css'
-import ScaleDemo from '@revogrid-demos/pro-pivot-scale/src/ScaleDemo.vue'
+import ScaleDemo from '@revogrid-demos/pro-advanced-pivot/examples/scale/src/ScaleDemo.vue'
 </script>
 
 <DemoPageLayout demo-id="pivot-scale">
-  <nav class="pivot-demo-links" aria-label="Pivot demo collection">
-    <a href="/demo/pivot">Overview</a>
-    <a href="/demo/pivot-charts">Charts</a>
-    <a href="/demo/pivot-financial">Financial</a>
-    <a href="/demo/pivot-operations">Operations</a>
-    <a href="/demo/pivot-scale" aria-current="page">Scale</a>
-    <a href="/demo/pivot-import">Import</a>
-  </nav>
   <div class="demo-main-widget"><ScaleDemo /></div>
 </DemoPageLayout>
 
-The source tabs show framework integration examples. Each adapter mounts the same shared demo implementation, which is included alongside it in the source viewer.
-
 <style scoped>
-.pivot-demo-links { display: flex; flex-wrap: wrap; column-gap: 16px; row-gap: 4px; padding: 6px 16px; font-size: 12px; line-height: 20px; border-bottom: 1px solid var(--vp-c-divider); }
-.pivot-demo-links a { white-space: nowrap; }
-.pivot-demo-links a[aria-current="page"] { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
-.pivot-demo-links a:focus-visible { outline: 2px solid var(--vp-c-brand-1); outline-offset: 3px; }
 .demo-main-widget { min-height: 0; height: 100%; }
+.demo-main-widget :deep(.pivot-scale-embed) { min-height: 0; height: 100%; }
+.demo-main-widget :deep(.scale-demo) { display: flex; min-height: 0; height: 100%; flex-direction: column; }
+.demo-main-widget :deep(.grid-host) { flex: 1 1 0; min-height: 0; height: auto; }
 </style>

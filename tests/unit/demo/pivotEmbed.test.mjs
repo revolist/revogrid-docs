@@ -15,9 +15,9 @@ test('the primary Pivot demo exposes report, reset, charts and export actions', 
   assert.match(header, /Print \/ Save PDF \(visible result\)/)
 })
 
-test('the primary URL links the five focused Pivot demos', () => {
-  const page = read('../../../demo/pivot.md')
-  for (const id of ['pivot-charts', 'pivot-financial', 'pivot-operations', 'pivot-scale', 'pivot-import']) {
+test('the demo sidebar links all four focused Pivot demos', () => {
+  const page = read('../../../.vitepress/configs/sidebar/en.demo.ts')
+  for (const id of ['pivot-charts', 'pivot-financial', 'pivot-operations', 'pivot-scale']) {
     assert.match(page, new RegExp(`/demo/${id}`))
     assert.ok(existsSync(new URL(`../../../demo/${id}.md`, import.meta.url)), id)
   }

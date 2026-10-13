@@ -1,13 +1,16 @@
 <template>
-  <Teleport to="body">
+  <Teleport :to="feedbackTriggerTarget">
     <button
       v-if="activeDemoId && !cardVisible && !flowVisible"
       class="demo-feedback-trigger"
+      :class="{ 'demo-feedback-trigger--inline': feedbackTriggerTarget !== 'body' }"
       type="button"
       @click="requestFeedback"
     >
       Feedback
     </button>
+  </Teleport>
+  <Teleport to="body">
     <Transition name="demo-feedback-card">
       <aside
         :id="DEMO_FEEDBACK_ELEMENT_IDS.card"
@@ -140,6 +143,7 @@ const route = useRoute()
 const cardVisible = ref(false)
 const flowVisible = ref(false)
 const feedbackDemo = ref<CatalogDemo | null>(null)
+const feedbackTriggerTarget = ref<HTMLElement | 'body'>('body')
 const initialPrimaryAnswer = ref<DemoFeedbackPrimaryAnswer | undefined>()
 const submissionState = ref<SubmissionState>('idle')
 const errorMessage = ref('')
@@ -542,6 +546,8 @@ const activateRoute = async (path: string) => {
     feedbackState = recordDemoView(feedbackState, activeDemoId, Date.now())
     persistState()
     await nextTick()
+    // Shared demo headers reserve a host so feedback never covers report data.
+    feedbackTriggerTarget.value = document.getElementById('demo-feedback-trigger-host') || 'body'
     scanForGrids()
     cardVisible.value = false
     evaluateEligibility()
@@ -867,6 +873,13 @@ onBeforeUnmount(() => {
 .demo-feedback-trigger:focus-visible {
   border-color: var(--vp-c-brand-1);
   color: var(--vp-c-brand-1);
+}
+
+.demo-feedback-trigger--inline {
+  position: static;
+  height: 36px;
+  border-radius: 6px;
+  box-shadow: none;
 }
 
 .demo-feedback-card-kicker {

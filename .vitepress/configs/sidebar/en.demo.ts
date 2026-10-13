@@ -302,7 +302,6 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
           { text: demoSidebarText('pivot-financial', 'Financial analysis'), link: '/demo/pivot-financial' },
           { text: demoSidebarText('pivot-operations', 'Ticket investigation'), link: '/demo/pivot-operations' },
           { text: demoSidebarText('pivot-scale', 'Pivot at scale'), link: '/demo/pivot-scale' },
-          { text: demoSidebarText('pivot-import', 'Pivot your data'), link: '/demo/pivot-import' },
         ],
       },
       {

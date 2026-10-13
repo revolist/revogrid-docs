@@ -182,7 +182,7 @@ const featureGroups = [
   },
   {
     id: 'pivot',
-    label: 'Pivot',
+    label: 'Pivot & Charts',
     icon: 'chartColumn',
     items: [
       createItem('pivot', 'Pivot table', '/demo/pivot', 'chartColumn'),
@@ -190,7 +190,6 @@ const featureGroups = [
       createItem('pivot-financial', 'Financial analysis', '/demo/pivot-financial', 'chartColumn'),
       createItem('pivot-operations', 'Ticket investigation', '/demo/pivot-operations', 'chartColumn'),
       createItem('pivot-scale', 'Pivot at scale', '/demo/pivot-scale', 'chartColumn'),
-      createItem('pivot-import', 'Pivot your data', '/demo/pivot-import', 'chartColumn'),
     ],
   },
   {

@@ -28,7 +28,6 @@ export type DemoId =
   | 'pivot-financial'
   | 'pivot-operations'
   | 'pivot-scale'
-  | 'pivot-import'
   | 'gantt'
   | 'gantt-big-data'
   | 'gantt-horizontal-big-data'
@@ -542,7 +541,6 @@ const demos = {
   'pivot-financial': { id: 'pivot-financial', title: 'Pivot Financial Analysis', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot-financial' },
   'pivot-operations': { id: 'pivot-operations', title: 'Pivot Operations Investigation', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot-operations' },
   'pivot-scale': { id: 'pivot-scale', title: 'Pivot at Scale', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot-scale' },
-  'pivot-import': { id: 'pivot-import', title: 'Pivot Your Data', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot-import' },
   gantt: {
     id: 'gantt',
     title: 'Gantt Chart JS',

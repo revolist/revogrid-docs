@@ -2,7 +2,8 @@ import assert from 'node:assert/strict'
 import { existsSync, readFileSync } from 'node:fs'
 import test from 'node:test'
 
-const pageSource = readFileSync(new URL('../../../../pivot/index.md', import.meta.url), 'utf8')
+import { mergePivotPageConfig } from '../../../../pivot/page-layout/pivotPageConfig.ts'
+const features = mergePivotPageConfig({}).features.items
 const fallbackSource = readFileSync(
   new URL('../../../../pivot/page-layout/pivotPageConfig.ts', import.meta.url),
   'utf8',
@@ -38,12 +39,12 @@ const expectedMedia = [
 ]
 
 test('provides product media for all six Pivot feature stories', () => {
-  assert.equal(pageSource.match(/^\s+media:$/gm)?.length, expectedMedia.length)
+  assert.equal(features.length, expectedMedia.length)
   assert.equal(fallbackSource.match(/^\s+media: \{$/gm)?.length, expectedMedia.length)
 
   for (const mediaPath of expectedMedia) {
     assert.ok(
-      pageSource.includes(`src: ${mediaPath}`),
+      features.some(feature => feature.media?.src === mediaPath),
       `${mediaPath} is missing from the page config`,
     )
     assert.ok(
@@ -69,20 +70,19 @@ test('adapts Pivot screenshots to the shared Gantt feature grid', () => {
   assert.match(sharedGridSource, /:height="feature\.mediaHeight"/)
   assert.match(sharedGridSource, /loading="lazy"/)
   assert.match(sharedGridSource, /decoding="async"/)
-  assert.equal(pageSource.match(/^\s+alt: /gm)?.length, expectedMedia.length)
+  assert.ok(features.every(feature => feature.media?.alt))
 })
 
 test('links every visual card to a working Pivot example', () => {
-  const pageFeatures = pageSource.split('\n  features:\n')[1].split('\n  integrations:\n')[0]
-  const fallbackFeatures = fallbackSource
-    .split('\n  features: {\n')[1]
-    .split('\n  integrations: {\n')[0]
-
-  assert.equal(pageFeatures.match(/^\s+href: /gm)?.length, expectedMedia.length)
-  assert.equal(pageFeatures.match(/^\s+cta: /gm)?.length, expectedMedia.length)
-  assert.equal(fallbackFeatures.match(/^\s+href: /gm)?.length, expectedMedia.length)
-  assert.equal(fallbackFeatures.match(/^\s+cta: /gm)?.length, expectedMedia.length)
-  assert.match(pageFeatures, /^\s+featured: true$/m)
+  for (const feature of features) {
+    assert.ok(feature.href && feature.cta, feature.title)
+    if (feature.href.startsWith('/')) {
+      assert.ok(existsSync(new URL(`../../../../${feature.href.slice(1)}.md`, import.meta.url)))
+    } else {
+      assert.equal(new URL(feature.href).protocol, 'https:')
+    }
+  }
+  assert.ok(features.some(feature => feature.featured))
 })
 
 test('uses the centered product hero and integrations format from Gantt and Scheduler', () => {

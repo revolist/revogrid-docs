@@ -1,0 +1,57 @@
+import { expect, test } from '@playwright/test'
+
+test('Operations keeps inspected records and their label together when focus moves', async ({ page }) => {
+  await page.setViewportSize({ width: 1600, height: 1000 })
+  await page.goto('/demo/pivot-operations')
+  const demo = page.locator('.operations-demo')
+  const grid = demo.locator('.pivot-panel revo-grid')
+  await expect(demo.locator('.detail-page-info')).toHaveText('Showing 1–15 of 480')
+  // The initial report has one collapsed priority column per group.
+  const counts = grid.getByText('40', { exact: true })
+  await counts.nth(0).click()
+  await demo.getByRole('button', { name: 'Inspect focused cell' }).click()
+  const label = await demo.locator('.detail-scope').innerText()
+  const records = await demo.locator('.ticket-grid').evaluate((element: any) => element.source)
+  await counts.nth(2).click()
+  await expect(demo.locator('.detail-scope')).toHaveText(label)
+  expect(await demo.locator('.ticket-grid').evaluate((element: any) => element.source)).toEqual(records)
+  await demo.getByRole('button', { name: 'Inspect focused cell' }).click()
+  await expect(demo.locator('.detail-scope')).not.toHaveText(label)
+})
+
+for (const theme of ['light', 'dark']) {
+  test(`Scale mobile fields stay inside a scrollable host in ${theme}`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 })
+    await page.goto('/demo/pivot-scale')
+    await page.evaluate(theme => {
+      document.documentElement.classList.toggle('dark', theme === 'dark')
+      document.documentElement.classList.toggle('light', theme === 'light')
+      document.documentElement.dataset.theme = theme
+    }, theme)
+    const demo = page.locator('.scale-client-demo')
+    await expect(demo.locator('#status')).toContainText('10,000 rows ready')
+    await demo.getByRole('button', { name: 'Show fields', exact: true }).click()
+    const panel = demo.locator('.pivot-config')
+    await expect(panel).toBeVisible()
+    const hostBox = await demo.locator('.grid-host').boundingBox()
+    const panelBox = await panel.boundingBox()
+    expect(panelBox!.y).toBeGreaterThanOrEqual(hostBox!.y - 1)
+    expect(panelBox!.y + panelBox!.height).toBeLessThanOrEqual(hostBox!.y + hostBox!.height + 1)
+    expect(panelBox!.height).toBeGreaterThan(150)
+    expect(await panel.evaluate(element => ['auto', 'scroll'].includes(getComputedStyle(element).overflowY))).toBe(true)
+    await panel.getByRole('button', { name: 'Swap Rows and Columns' }).click()
+    await expect(demo.locator('.scale-grid').getByRole('row', { name: '› 2024', exact: true })).toBeVisible()
+    await panel.getByRole('tabpanel', { name: 'Layout' }).getByRole('button', { name: 'Edit filter · Category' }).click()
+    await page.getByRole('checkbox', { name: '"Hardware"', exact: true }).check()
+    await page.getByRole('button', { name: 'Apply', exact: true }).click()
+    await expect(panel.getByRole('tabpanel', { name: 'Layout' }).getByRole('button', { name: 'Edit filter · Category' })).toContainText('1')
+    await panel.getByRole('tabpanel', { name: 'Layout' }).getByRole('button', { name: 'Edit filter · Category' }).click()
+    await page.getByRole('button', { name: 'Clear filter', exact: true }).click()
+    await expect(panel.getByRole('tabpanel', { name: 'Layout' }).getByRole('button', { name: 'Edit filter · Category' })).toHaveText('All')
+    await page.keyboard.press('Escape')
+    await demo.getByRole('button', { name: 'Hide fields', exact: true }).click()
+    await expect(panel).toBeHidden()
+    await expect(demo.locator('revo-grid.scale-grid')).toBeVisible()
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBe(0)
+  })
+}

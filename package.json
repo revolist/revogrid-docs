@@ -15,6 +15,9 @@
     "check": "pnpm lint && pnpm format:check"
   },
   "type": "module",
+  "engines": {
+    "node": ">=22.22.3"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/revolist/revogrid.git"
