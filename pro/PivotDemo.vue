@@ -1,317 +1,111 @@
 <template>
-  <div class="pivot-demo-wrap">
-    <div class="pd-toolbar">
-      <span class="pd-traffic traffic-red"></span>
-      <span class="pd-traffic traffic-yellow"></span>
-      <span class="pd-traffic traffic-green"></span>
-      <span class="pd-title">pivot-analytics.revogrid.ts</span>
-    </div>
-
-    <div class="pivot-layout">
-      <div class="pivot-grid-wrap">
+  <div class="pivot-showcase" :data-chart-stage="status">
+    <section
+      id="pivot-playground"
+      class="container report-section"
+      aria-label="Interactive Pivot workspace"
+    >
+      <div
+        class="pivot-product-workspace"
+        @aftergridinit="mountCharts"
+        @pivot-model-changed.capture="mountCharts"
+      >
         <ClientOnly>
-          <RevoGrid
-            class="pivot-grid cell-border"
-            hide-attribution
-            range
-            resize
-            filter
-            readonly
-            :col-size="190"
-            :source="pivotRows"
-            :pivot.prop="pivotConfig"
-            :theme="isDark ? 'darkMaterial' : 'material'"
-            :plugins="plugins"
-            :column-types="columnTypes"
-          />
-          <template #fallback>
-            <div class="pivot-grid-fallback">Loading pivot table...</div>
-          </template>
+          <PivotShowcase initial-preset="sales" />
+          <template #fallback
+            ><div class="pivot-workspace-loading" role="status">
+              Loading the Pivot workspace…
+            </div></template
+          >
         </ClientOnly>
       </div>
-    </div>
+      <div class="report-footnote">
+        <span>Contoso retail sample · Revenue in USD</span
+        ><a href="#pivot-charts">See this report in charts ↓</a>
+      </div>
+    </section>
+
+    <section id="pivot-charts" class="charts-section" aria-labelledby="charts-title">
+      <div class="container">
+        <div class="showcase-heading">
+          <div>
+            <span class="section-tag">Pivot charts</span>
+            <h2 id="charts-title">One report. Every perspective.</h2>
+            <p>
+              Compare quarterly revenue, country performance, and revenue share from the same Pivot
+              report.
+            </p>
+          </div>
+        </div>
+        <div class="chart-context">
+          <span class="linked-indicator"></span><span>Linked to report filters</span
+          ><strong>{{ filterContext }}</strong>
+        </div>
+        <p v-if="status === 'loading'" role="status">Loading linked charts…</p>
+        <p v-if="error" role="alert">{{ error }}</p>
+        <div class="quarter-legend" aria-label="Chart legend: quarters">
+          <span v-for="(quarter, index) in SHOWCASE_QUARTERS" :key="quarter"
+            ><i :style="{ background: SHOWCASE_COLORS[index] }"></i>{{ quarter }}</span
+          >
+          <span class="legend-unit">Revenue in USD · Hover or focus a mark for details</span>
+        </div>
+        <div class="showcase-charts">
+          <article class="showcase-chart-card">
+            <span class="chart-kicker">Compare</span>
+            <h3>Quarterly performance</h3>
+            <p>See each country’s revenue, quarter by quarter.</p>
+            <div
+              ref="columnHost"
+              class="showcase-chart"
+              aria-label="Quarterly revenue by country"
+            ></div>
+          </article>
+          <article class="showcase-chart-card">
+            <span class="chart-kicker">Break it down</span>
+            <h3>Country revenue mix</h3>
+            <p>See the quarters behind each country’s total.</p>
+            <div
+              ref="comparisonHost"
+              class="showcase-chart"
+              aria-label="Stacked revenue by country"
+            ></div>
+          </article>
+          <article class="showcase-chart-card">
+            <span class="chart-kicker">See the whole</span>
+            <h3>Share by quarter</h3>
+            <p>Find the quarters that contribute the most.</p>
+            <div ref="shareHost" class="showcase-chart" aria-label="Revenue share by quarter"></div>
+          </article>
+        </div>
+        <div class="charts-more">
+          <p>Go beyond the overview.</p>
+          <span>Line &amp; area</span><span>Treemap</span><span>Heatmap</span
+          ><span>Combination charts</span
+          ><a :href="resolveLink('https://pro.rv-grid.com/guides/pivot-charts/')"
+            >Discover the chart library ↗</a
+          >
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
-<script lang="ts" setup>
-import { computed, ref } from 'vue'
+<script setup lang="ts">
 import { useData } from 'vitepress'
-import NumberColumnType from '@revolist/revogrid-column-numeral'
-import RevoGrid, { type DataType, type GridPlugin } from '@revolist/vue3-datagrid'
-import { PivotPlugin, type PivotConfig } from '../.vitepress/revogrid-pivot-shim'
+import PivotShowcase from '@revogrid-demos/pro-advanced-pivot/src/pivot.vue'
 import {
-  AdvanceFilterPlugin,
-  RowOddPlugin,
-  commonAggregators,
-} from '../.vitepress/revogrid-pro-shim'
+  SHOWCASE_QUARTERS,
+  SHOWCASE_COLORS,
+  usePivotShowcaseCharts,
+} from '../pivot/page-layout/usePivotShowcaseCharts'
+import 'virtual:uno.css'
 import '@revolist/revogrid-pro/dist/revogrid-pro.css'
 import '@revolist/pivot/styles.css'
 
+defineProps<{ resolveLink: (href: string) => string }>()
 const { isDark } = useData()
-
-const plugins: GridPlugin[] = [PivotPlugin, AdvanceFilterPlugin, RowOddPlugin]
-const columnTypes = ref({
-  currency: new NumberColumnType('$0,0.00'),
-  decimal: new NumberColumnType('0.00'),
-})
-
-const pivotRows = ref<DataType[]>([
-  {
-    City: 'Chicago',
-    'Membership Type': 'Bronze',
-    'Discount Applied': 'Discount Applied',
-    'Total Spend': 507.83,
-    'Average Spend': 507.83,
-    'Average Rating': 3.5,
-  },
-  {
-    City: 'Houston',
-    'Membership Type': 'Bronze',
-    'Discount Applied': 'No Discount',
-    'Total Spend': 440.7,
-    'Average Spend': 440.7,
-    'Average Rating': 3.17,
-  },
-  {
-    City: 'Los Angeles',
-    'Membership Type': 'Silver',
-    'Discount Applied': 'No Discount',
-    'Total Spend': 0,
-    'Average Spend': 0,
-    'Average Rating': undefined,
-  },
-  {
-    City: 'Miami',
-    'Membership Type': 'Silver',
-    'Discount Applied': 'Discount Applied',
-    'Total Spend': 695.6,
-    'Average Spend': 695.6,
-    'Average Rating': 3.8,
-  },
-  {
-    City: 'New York',
-    'Membership Type': 'Gold',
-    'Discount Applied': 'Discount Applied',
-    'Total Spend': 1160.58,
-    'Average Spend': 1160.58,
-    'Average Rating': 4.42,
-  },
-  {
-    City: 'San Francisco',
-    'Membership Type': 'Gold',
-    'Discount Applied': 'No Discount',
-    'Total Spend': 1457.17,
-    'Average Spend': 1457.17,
-    'Average Rating': 4.73,
-  },
-])
-
-const pivotConfig = computed(
-  () =>
-    ({
-      dimensions: [
-        { prop: 'City', sortable: true, filter: ['string', 'selection'] },
-        { prop: 'Membership Type', sortable: true, filter: ['string', 'selection'] },
-        { prop: 'Discount Applied', sortable: true, filter: ['selection'] },
-        {
-          prop: 'Total Spend',
-          columnType: 'currency',
-          sortable: true,
-          aggregators: {
-            sum: commonAggregators.sum,
-          },
-          cellProperties: ({ value }) => ({
-            class: {
-              'pivot-heat-high': Number(value) >= 1000,
-              'pivot-heat-mid': Number(value) >= 600 && Number(value) < 1000,
-              'pivot-heat-low': Number(value) > 0 && Number(value) < 600,
-            },
-          }),
-        },
-        {
-          prop: 'Average Spend',
-          columnType: 'currency',
-          sortable: true,
-          aggregators: {
-            avg: commonAggregators.avg,
-          },
-          cellProperties: ({ value }) => ({
-            class: {
-              'pivot-heat-high': Number(value) >= 1000,
-              'pivot-heat-mid': Number(value) >= 600 && Number(value) < 1000,
-              'pivot-heat-low': Number(value) > 0 && Number(value) < 600,
-            },
-          }),
-        },
-        {
-          name: 'Average Rating',
-          prop: 'Average Rating',
-          columnType: 'decimal',
-          sortable: true,
-          aggregators: {
-            avg: commonAggregators.avg,
-          },
-          cellProperties: ({ value }) => ({
-            class: {
-              'pivot-heat-high': Number(value) >= 4.2,
-              'pivot-heat-mid': Number(value) >= 3.5 && Number(value) < 4.2,
-              'pivot-heat-low': Number(value) > 0 && Number(value) < 3.5,
-            },
-          }),
-        },
-      ],
-      rows: ['City', 'Membership Type'],
-      columns: ['Discount Applied'],
-      columnCollapse: {
-        enabled: true,
-        collapsed: true,
-      },
-      values: [
-        { prop: 'Total Spend', aggregator: 'sum' },
-        { prop: 'Average Spend', aggregator: 'avg' },
-        { prop: 'Average Rating', aggregator: 'avg' },
-      ],
-      filters: ['Membership Type'],
-      totals: {
-        subtotals: true,
-        grandTotal: true,
-        subtotalLabel: 'Subtotal',
-        grandTotalLabel: 'Grand Total',
-      },
-    }) satisfies PivotConfig,
-)
+const { columnHost, comparisonHost, shareHost, status, error, filterContext, mountCharts } =
+  usePivotShowcaseCharts(isDark)
 </script>
 
-<style lang="scss" scoped>
-.pivot-demo-wrap {
-  max-width: 100%;
-  min-width: 0;
-  overflow: hidden;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 14px;
-  background: var(--vp-c-bg);
-  box-shadow: var(--pro-doc-shadow-lg);
-
-  &::before {
-    content: '';
-    display: block;
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      var(--pivot-accent) 35%,
-      var(--pivot-accent-vivid) 65%,
-      transparent 100%
-    );
-  }
-}
-
-.pd-toolbar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
-  min-height: 42px;
-  padding: 9px 14px;
-  border-bottom: 1px solid var(--vp-c-divider);
-  background: var(--vp-c-bg-soft);
-}
-
-.pd-traffic {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  flex: 0 0 auto;
-}
-
-.traffic-red {
-  background: #ff5f57;
-}
-.traffic-yellow {
-  background: #febc2e;
-}
-.traffic-green {
-  background: #28c840;
-}
-
-.pd-title {
-  flex: 1 1 auto;
-  min-width: 0;
-  margin-left: 4px;
-  overflow: hidden;
-  color: var(--vp-c-text-3);
-  font-family: var(--vp-font-family-mono);
-  font-size: 11px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.pivot-layout {
-  display: flex;
-  background: var(--vp-c-bg);
-}
-
-.pivot-grid-wrap {
-  overflow: auto;
-  min-width: 0;
-  height: clamp(520px, 58vh, 640px);
-  background: var(--vp-c-bg);
-}
-
-.pivot-grid {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  height: 100%;
-  --revo-grid-border-color: var(--vp-c-divider);
-}
-
-.pivot-grid-fallback {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  height: clamp(520px, 58vh, 640px);
-  color: var(--vp-c-text-3);
-  background: var(--vp-c-bg-soft);
-  font-family: var(--vp-font-family-mono);
-  font-size: 12px;
-}
-
-:global(.pivot-grid .pivot-heat-high) {
-  background: #dcfce7 !important;
-  color: #14532d !important;
-}
-
-:global(.pivot-grid .pivot-heat-mid) {
-  background: #fef9c3 !important;
-  color: #713f12 !important;
-}
-
-:global(.pivot-grid .pivot-heat-low) {
-  background: #fce7f3 !important;
-  color: #831843 !important;
-}
-
-:global(.dark .pivot-grid .pivot-heat-high) {
-  background: rgba(20, 83, 45, 0.42) !important;
-  color: #86efac !important;
-}
-
-:global(.dark .pivot-grid .pivot-heat-mid) {
-  background: rgba(113, 63, 18, 0.42) !important;
-  color: #fde68a !important;
-}
-
-:global(.dark .pivot-grid .pivot-heat-low) {
-  background: rgba(131, 24, 67, 0.42) !important;
-  color: #fbcfe8 !important;
-}
-
-@media (max-width: 620px) {
-  .pivot-grid-wrap,
-  .pivot-grid-fallback {
-    height: 480px;
-  }
-}
-</style>
+<style lang="scss" src="../pivot/page-layout/pivot-showcase.scss"></style>

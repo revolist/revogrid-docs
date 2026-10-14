@@ -1,0 +1,265 @@
+.pivot-showcase {
+  text-align: left;
+  .report-section {
+    scroll-margin-top: 70px;
+  }
+
+  .showcase-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 28px;
+    margin-bottom: 28px;
+  }
+
+  .showcase-heading h2 {
+    margin: 10px 0 12px;
+    border: 0;
+    padding: 0;
+    font-size: clamp(28px, 3.2vw, 42px);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+  }
+
+  .showcase-heading p {
+    max-width: 610px;
+    margin: 0;
+    color: var(--rg-text-2);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .showcase-heading > a {
+    flex-shrink: 0;
+  }
+
+  .charts-more a {
+    color: var(--pivot-accent);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .charts-section {
+    padding: 64px 0;
+    border-block: 1px solid var(--rg-border);
+    scroll-margin-top: 90px;
+  }
+
+  .chart-context {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    color: var(--rg-text-2);
+    font-size: 12px;
+  }
+
+  .linked-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--pivot-accent);
+  }
+
+  .chart-context strong {
+    color: var(--pivot-accent);
+    background: var(--pivot-accent-soft);
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .showcase-charts {
+    display: grid;
+    grid-template-columns: 1.15fr 1.15fr 1fr;
+    gap: 16px;
+  }
+
+  .showcase-chart-card {
+    min-width: 0;
+    padding: 22px 14px 8px;
+    border: 1px solid var(--rg-border);
+    border-radius: 12px;
+    background: var(--rg-bg);
+  }
+
+  .chart-kicker {
+    color: var(--pivot-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 10px;
+    font-weight: 600;
+  }
+
+  .showcase-chart-card h3 {
+    margin: 6px 0 8px;
+    font-size: 17px;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  .showcase-chart-card p {
+    min-height: 40px;
+    margin: 0;
+    color: var(--rg-text-2);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .showcase-chart {
+    width: 100%;
+    height: 320px;
+  }
+
+  .charts-more {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--rg-text-2);
+  }
+
+  .charts-more p {
+    margin: 0 4px 0 0;
+    font-weight: 500;
+  }
+
+  .charts-more span {
+    padding: 3px 9px;
+    border: 1px solid var(--rg-border);
+    border-radius: 5px;
+  }
+
+  .charts-more a {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 1050px) {
+  .pivot-showcase .showcase-charts {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pivot-showcase .showcase-chart-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .pivot-showcase .showcase-chart-card:last-child .showcase-chart {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .pivot-showcase .showcase-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 620px) {
+  .pivot-showcase {
+    .showcase-charts {
+      grid-template-columns: 1fr;
+    }
+
+    .showcase-chart {
+      height: 310px;
+    }
+
+    .showcase-chart-card p {
+      min-height: 0;
+    }
+
+    .charts-section {
+      padding: 40px 0;
+    }
+
+    .charts-more a {
+      margin-left: 0;
+    }
+  }
+}
+
+.pivot-page .pivot-showcase .report-section {
+  padding-bottom: 30px;
+}
+
+@media (max-width: 620px) {
+  .pivot-page .pivot-showcase .report-section {
+    padding-top: 32px;
+  }
+}
+
+.pivot-showcase .quarter-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  margin: 0 0 18px;
+  font-size: 12px;
+  color: var(--rg-text-2);
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  i {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+  }
+  .legend-unit {
+    margin-left: auto;
+    font-size: 11px;
+  }
+}
+
+.pivot-showcase .pivot-product-workspace {
+  height: 740px;
+  min-width: 0;
+  margin-top: 24px;
+  border: 1px solid var(--rg-border);
+  border-radius: 8px;
+  background: var(--rg-bg);
+}
+.pivot-showcase .pivot-product-workspace > .financial-pivot-showcase {
+  height: 100%;
+  gap: 0;
+}
+// Keep the shared demo controls out of the landing-page preview.
+.pivot-showcase .pivot-product-workspace financial-pivot-header,
+.pivot-showcase .pivot-product-workspace financial-pivot-header + div {
+  display: none;
+}
+.pivot-showcase .pivot-product-workspace > .financial-pivot-showcase[data-expanded='true'] {
+  height: auto;
+}
+.pivot-showcase .pivot-workspace-loading {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--rg-text-2);
+}
+.pivot-showcase .report-footnote {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+  color: var(--rg-text-2);
+  font-size: 12px;
+}
+.pivot-showcase .report-footnote a {
+  color: var(--pivot-accent);
+  text-decoration: none;
+}
+@media (max-width: 620px) {
+  .pivot-showcase .pivot-product-workspace {
+    height: 760px;
+  }
+}

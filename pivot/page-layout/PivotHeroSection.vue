@@ -34,22 +34,16 @@
           <span v-for="badge in hero.badges" :key="badge">{{ badge }}</span>
         </div>
       </div>
-
-      <div v-if="previewEnabled" class="hero-preview fade-up-3">
-        <PivotDemo />
-      </div>
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
 import ProDocButton from '../../pro/ProDocButton.vue'
-import PivotDemo from '../../pro/PivotDemo.vue'
 import type { PivotLandingPage } from './types'
 
 defineProps<{
   hero: PivotLandingPage['hero']
-  previewEnabled: boolean
   resolveLink: (href: string) => string
 }>()
 </script>
