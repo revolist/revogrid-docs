@@ -313,56 +313,56 @@ advanced:
       catalogFeatureId: master-detail
       type: master-detail
       link: /demo/row-master
-      thumbnail: /img/master-detail.png
+      thumbnail: /img/home-modules/master-detail.webp
       videoUrl: /video/master-detail.mp4
       description: Expand any row into a nested grid, form, or custom product view.
     - title: Formula Engine
       catalogFeatureId: formula
       type: formula
       link: /guide/cell/formula
-      thumbnail: /img/formula.png
+      thumbnail: /img/home-modules/formula.webp
       videoUrl: /video/formula.mp4
       description: Evaluate spreadsheet formulas and grouping aggregations over live grid data.
     - title: History
       catalogFeatureId: history
       type: history
       link: /pro/
-      thumbnail: /img/history-undo.png
+      thumbnail: /img/home-modules/history.webp
       videoUrl: /video/history.mp4
       description: Add dependable undo and redo across cell edits and multi-cell operations.
     - title: Advanced Filter
       catalogFeatureId: advanced-selection-filtering
       type: filter
       link: /demo/filtering
-      thumbnail: /img/advanced-filter.png
+      thumbnail: /img/home-modules/filter.webp
       videoUrl: /video/filter-advance.mp4
       description: Combine value selection and conditions in one fast, scalable filtering workflow.
     - title: Pivot Table
       catalogProductId: pivot
       type: pivot
       link: /pivot
-      thumbnail: /img/pivot.png
+      thumbnail: /img/home-modules/pivot.webp
       videoUrl: /video/pivot.mp4
       description: Analyze live grid data with drag-and-drop dimensions, aggregation, drill-down, filters, and totals.
     - title: Event Scheduler
       catalogProductId: scheduler
       type: scheduler
       link: /jsscheduler
-      thumbnail: /img/event-scheduler.png
+      thumbnail: /img/home-modules/scheduler.webp
       videoUrl: /video/event-scheduler.mp4
       description: Schedule people, rooms, and equipment with resource timelines, conflicts, and drag-to-reschedule.
     - title: Kanban Board
       catalogProductId: kanban
       type: kanban
       link: /kanban
-      thumbnail: /blog/kanban-product-development-polished.png
+      thumbnail: /img/home-modules/kanban.webp
       videoUrl: /video/kanban-demo.mp4
       description: Project shared data into virtualized workflow columns, swimlanes, and WIP rules.
     - title: Gantt Charts
       catalogProductId: gantt
       type: gantt
       link: /gantt
-      thumbnail: /img/gantt-preview.png
+      thumbnail: /img/home-modules/gantt.webp
       videoUrl: /video/gantt-demo.mp4
       description: Coordinate timelines, dependencies, milestones, and resources on the same data model.
 
