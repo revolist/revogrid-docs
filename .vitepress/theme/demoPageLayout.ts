@@ -236,6 +236,16 @@ const DEMO_PAGE_CONTENT = {
       { label: 'Source drill-through', source: 'PivotPlugin.loadPivotDrilldown' },
     ],
   },
+  'pivot-import': {
+    title: 'Pivot Your Data',
+    description: 'Open an Excel or CSV file, review detected fields, and explore an interactive Pivot entirely in your browser.',
+    implementationUrl: 'https://github.com/revolist/pivot/tree/main/examples/import',
+    featureBadges: [
+      { label: 'Excel & CSV', source: 'Browser-local workbook parsing' },
+      { label: 'Automatic fields', source: 'Detected types + PivotConfig dimensions' },
+      { label: 'Build your report', source: 'PivotPlugin + native configurator' },
+    ],
+  },
   'pivot-scale': {
     title: 'Pivot at Scale Demo',
     description: 'Choose 10K, 100K, or opt-in 1M synthetic rows and inspect browser-labelled timing.',

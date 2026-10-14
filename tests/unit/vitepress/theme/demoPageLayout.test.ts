@@ -418,6 +418,7 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
           '/demo/pivot-charts',
           '/demo/pivot-financial',
           '/demo/pivot-operations',
+          '/demo/pivot-import',
           '/demo/pivot-scale',
         ],
       },

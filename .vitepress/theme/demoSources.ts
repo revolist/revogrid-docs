@@ -23,6 +23,10 @@ const sourceFile = (path: string, load: () => Promise<string>): DemoSourceFile =
       ? 'tsx'
       : path.endsWith('.json')
         ? 'json'
+      : path.endsWith('.md')
+        ? 'markdown'
+      : path.endsWith('.html')
+        ? 'html'
       : path.endsWith('.scss') || path.endsWith('.css')
         ? 'css'
         : 'ts',
@@ -45,6 +49,11 @@ const planningDataFiles = [
   ),
   planningDataFile('fixtures.ts', () =>
     import('../../revogrid-demos/pro-advanced-planning/src/data/fixtures.ts?raw').then(
+      module => module.default,
+    ),
+  ),
+  planningDataFile('palette.ts', () =>
+    import('../../revogrid-demos/pro-advanced-planning/src/data/palette.ts?raw').then(
       module => module.default,
     ),
   ),
@@ -1365,6 +1374,88 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
       sourceFile('pro-advanced-pivot/examples/operations/src/operations-demo.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/operations/src/operations-demo.ts?raw').then(module => module.default)),
       sourceFile('pro-advanced-pivot/examples/operations/src/pivot.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/operations/src/pivot.ts?raw').then(module => module.default)),
       sourceFile('pro-advanced-pivot/examples/operations/src/tickets.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/operations/src/tickets.ts?raw').then(module => module.default)),
+    ] },
+  },
+  'pivot-import': {
+    vue: { label: 'Vue', command: 'pnpm --dir revogrid-demos/pro-advanced-pivot/examples/import dev', documentationUrl: '/pivot/', files: [
+      sourceFile('pro-advanced-pivot/examples/import/src/ImportDemo.vue', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/ImportDemo.vue?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/ImportIcon.vue', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/ImportIcon.vue?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/ImportPivot.vue', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/ImportPivot.vue?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import-demo.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import-demo.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import.types.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import.types.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import.model.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import.model.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import.worker.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import.worker.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/csv.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/csv.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/style.css', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/style.css?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/standalone.css', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/standalone.css?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/main.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/main.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/package.json', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/package.json?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/vite.config.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/vite.config.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/tsconfig.json', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/tsconfig.json?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/README.md', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/README.md?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/index.html', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/index.html?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/src/shared/theme.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/shared/theme.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/src/financial.actions.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/financial.actions.ts?raw').then(module => module.default)),
+    ] },
+    ts: { label: 'JavaScript', command: 'pnpm --dir revogrid-demos/pro-advanced-pivot/examples/import dev', documentationUrl: '/pivot/', files: [
+      sourceFile('pro-advanced-pivot/examples/import/src/ImportDemo.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/ImportDemo.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/ImportIcon.vue', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/ImportIcon.vue?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/ImportPivot.vue', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/ImportPivot.vue?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import-demo.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import-demo.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import.types.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import.types.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import.model.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import.model.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import.worker.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import.worker.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/csv.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/csv.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/style.css', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/style.css?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/standalone.css', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/standalone.css?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/main.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/main.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/package.json', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/package.json?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/vite.config.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/vite.config.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/tsconfig.json', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/tsconfig.json?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/README.md', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/README.md?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/index.html', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/index.html?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/src/shared/theme.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/shared/theme.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/src/financial.actions.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/financial.actions.ts?raw').then(module => module.default)),
+    ] },
+    react: { label: 'React', command: 'pnpm --dir revogrid-demos/pro-advanced-pivot/examples/import dev', documentationUrl: '/pivot/', files: [
+      sourceFile('pro-advanced-pivot/examples/import/src/ImportDemo.tsx', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/ImportDemo.tsx?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/ImportIcon.vue', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/ImportIcon.vue?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/ImportPivot.vue', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/ImportPivot.vue?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import-demo.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import-demo.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import.types.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import.types.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import.model.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import.model.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import.worker.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import.worker.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/csv.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/csv.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/style.css', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/style.css?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/standalone.css', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/standalone.css?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/main.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/main.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/package.json', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/package.json?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/vite.config.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/vite.config.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/tsconfig.json', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/tsconfig.json?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/README.md', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/README.md?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/index.html', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/index.html?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/src/shared/theme.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/shared/theme.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/src/financial.actions.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/financial.actions.ts?raw').then(module => module.default)),
+    ] },
+    angular: { label: 'Angular', command: 'pnpm --dir revogrid-demos/pro-advanced-pivot/examples/import dev', documentationUrl: '/pivot/', files: [
+      sourceFile('pro-advanced-pivot/examples/import/src/ImportDemoAngular.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/ImportDemoAngular.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/ImportIcon.vue', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/ImportIcon.vue?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/ImportPivot.vue', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/ImportPivot.vue?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import-demo.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import-demo.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import.types.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import.types.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import.model.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import.model.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/import.worker.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/import.worker.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/csv.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/csv.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/style.css', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/style.css?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/standalone.css', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/standalone.css?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/src/main.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/src/main.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/package.json', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/package.json?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/vite.config.ts', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/vite.config.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/tsconfig.json', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/tsconfig.json?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/README.md', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/README.md?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/examples/import/index.html', () => import('../../revogrid-demos/pro-advanced-pivot/examples/import/index.html?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/src/shared/theme.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/shared/theme.ts?raw').then(module => module.default)),
+      sourceFile('pro-advanced-pivot/src/financial.actions.ts', () => import('../../revogrid-demos/pro-advanced-pivot/src/financial.actions.ts?raw').then(module => module.default)),
     ] },
   },
   'pivot-scale': {
