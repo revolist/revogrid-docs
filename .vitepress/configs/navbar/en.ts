@@ -15,6 +15,11 @@ export const navbarEn: DefaultTheme.NavItem[] = [
         activeMatch: '^/pivot',
       },
       {
+        text: 'Charts JS',
+        link: '/charts/',
+        activeMatch: '^/charts',
+      },
+      {
         text: 'Kanban Board JS',
         link: '/kanban',
         activeMatch: '^/kanban',

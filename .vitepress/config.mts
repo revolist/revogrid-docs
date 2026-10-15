@@ -14,6 +14,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import markdownItAttrs from 'markdown-it-attrs'
 import type MarkdownIt from 'markdown-it'
 import { createStructuredDataHead } from './configs/structuredData'
+import { prepareBlogFrontmatter } from './configs/blogSeo'
 import { resolveCommercialFaqs, type CommercialFaqKey } from '../commercial/productCatalog'
 import UnoCSS from 'unocss/vite'
 
@@ -76,6 +77,14 @@ const useLocalProPackages =
   process.argv.some(argument => argument === 'dev')
 const localProPackageAliases = useLocalProPackages
   ? [
+      {
+        find: /^@revolist\/charts$/,
+        replacement: path.resolve(revogridProWorkspaceRoot, 'packages/charts/dist/index.js'),
+      },
+      {
+        find: /^@revolist\/charts\/catalog$/,
+        replacement: path.resolve(revogridProWorkspaceRoot, 'packages/charts/dist/catalog/index.js'),
+      },
       {
         find: /^@revolist\/revogrid-pro\/(?:styles\.css|dist\/revogrid-pro\.css)$/,
         replacement: path.resolve(localProPackageRoot, 'dist/revogrid-pro.css'),
@@ -296,6 +305,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     }
 
+    prepareBlogFrontmatter(frontmatter, pageData.relativePath, canonicalSiteUrl)
+
     if (!isArchiveBuild) {
       return
     }
@@ -382,6 +393,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             {
               link: '/excel-data-grid',
               text: 'Excel Data Grid',
+            },
+            {
+              link: '/charts/',
+              text: 'JavaScript Charts',
             },
             {
               link: '/pro/feature-table',
@@ -536,6 +551,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     ],
     ssr: {
       noExternal: [
+        '@revolist/charts',
         'element-plus',
         '@revolist/revogrid-pro',
         '@revolist/gantt',
@@ -571,6 +587,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       ...(useLocalProPackages
         ? {
             exclude: [
+              '@revolist/charts',
               '@revolist/revogrid-pro',
               '@revolist/gantt',
               '@revolist/kanban',

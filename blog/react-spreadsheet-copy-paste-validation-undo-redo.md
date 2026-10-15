@@ -31,8 +31,9 @@ tags:
 - Copy and Paste
 - Data Validation
 - RevoGrid
-image: /react.svg
-imageAlt: React logo
+image: /blog/react-spreadsheet-inventory.jpg
+demoUrl: "#react-inventory-demo"
+imageAlt: React inventory editor with editable quantities and prices
 head:
 - - link
   - rel: canonical
@@ -56,10 +57,10 @@ head:
     content: https://rv-grid.com/blog/react-spreadsheet-copy-paste-validation-undo-redo
 - - meta
   - property: og:image
-    content: https://rv-grid.com/react.svg
+    content: https://rv-grid.com/blog/react-spreadsheet-inventory.jpg
 - - meta
   - property: og:image:alt
-    content: React logo
+    content: React inventory editor with editable quantities and prices
 - - meta
   - name: twitter:card
     content: summary_large_image
@@ -72,7 +73,7 @@ head:
       and save changes—with Core and Pro explained.
 - - meta
   - name: twitter:image
-    content: https://rv-grid.com/react.svg
+    content: https://rv-grid.com/blog/react-spreadsheet-inventory.jpg
 - - script
   - type: application/ld+json
   - |-
@@ -93,7 +94,7 @@ head:
         "name": "RevoGrid",
         "url": "https://rv-grid.com/"
       },
-      "image": "https://rv-grid.com/react.svg",
+      "image": "https://rv-grid.com/blog/react-spreadsheet-inventory.jpg",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://rv-grid.com/blog/react-spreadsheet-copy-paste-validation-undo-redo"
@@ -123,7 +124,7 @@ An **Excel-like spreadsheet in React** gives them a more direct workflow: select
 In this tutorial, we will build an inventory editor with [RevoGrid’s React data grid](/guide/react/). RevoGrid handles the editable grid and clipboard interactions. Our application adds inventory rules, a small undo/redo history, and saving. The example uses **RevoGrid Core**; we will explain where Pro can replace custom implementation work.
 
 <ClientOnly>
-  <ReactInventoryDemo />
+  <div id="react-inventory-demo"><ReactInventoryDemo /></div>
 </ClientOnly>
 
 

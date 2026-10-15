@@ -1,8 +1,10 @@
 ---
-title: JavaScript Data Grid & Spreadsheet Guides
-description: Practical guides, product updates, and engineering notes for high-performance JavaScript data grids, Pivot, Gantt, and spreadsheet-like web applications.
+title: "RevoGrid Blog: Data Grid, Pivot & Planning Guides"
+titleTemplate: false
+description: Build data-heavy web apps with practical guides to JavaScript data grids, Pivot, Gantt, Scheduler, and Kanban. Explore tutorials and working demos.
 sidebar: false
 aside: false
+outline: false
 editLink: false
 prev: false
 next: false

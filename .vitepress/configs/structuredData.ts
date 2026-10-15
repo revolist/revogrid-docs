@@ -263,6 +263,36 @@ export const createStructuredDataHead = ({
 }: StructuredDataHeadOptions): HeadConfig[] => {
   const head = [jsonLdScript('breadcrumb-json-ld', breadcrumbJsonLd(siteUrl, relativePath, title))]
 
+  if (relativePath === 'charts/index.md') {
+    head.push(
+      jsonLdScript('software-application-json-ld', {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        '@id': `${siteUrl}/charts/#software`,
+        name: 'RevoGrid Charts',
+        url: `${siteUrl}/charts/`,
+        applicationCategory: 'DeveloperApplication',
+        applicationSubCategory: 'JavaScript Charts Library',
+        operatingSystem: 'Web',
+        description:
+          'A standalone JavaScript and TypeScript chart library for interactive dashboards in React, Vue, Angular, and vanilla applications.',
+        image: `${siteUrl}/img/charts/overview.png`,
+        featureList: [
+          'Interactive chart examples for dashboard use cases',
+          'Bar, line, area, donut, hierarchy, financial, and statistical charts',
+          'Light and dark themes',
+          'SVG chart export',
+          'Optional linked-chart integration with RevoGrid Pivot',
+        ],
+        publisher: {
+          '@type': 'Organization',
+          name: 'Revolist OU',
+          url: 'https://revolist.eu/',
+        },
+      }),
+    )
+  }
+
   const productId = structuredProductForPath(relativePath)
   if (productId) {
     head.push(
