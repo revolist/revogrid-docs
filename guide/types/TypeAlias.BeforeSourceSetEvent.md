@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.28.3](README.md) / BeforeSourceSetEvent
+[RevoGrid Documentation v4.28.4](README.md) / BeforeSourceSetEvent
 
 # Type Alias: BeforeSourceSetEvent
 
@@ -13,9 +13,9 @@ type BeforeSourceSetEvent: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `source` | [`DataType`](TypeAlias.DataType.md)[] | [src/plugins/groupingRow/grouping.row.types.ts:132](https://github.com/revolist/revogrid/blob/237f5d7f5379065aebb85b7a81753679e1b45365/src/plugins/groupingRow/grouping.row.types.ts#L132) |
-| `type` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/plugins/groupingRow/grouping.row.types.ts:131](https://github.com/revolist/revogrid/blob/237f5d7f5379065aebb85b7a81753679e1b45365/src/plugins/groupingRow/grouping.row.types.ts#L131) |
+| `source` | [`DataType`](TypeAlias.DataType.md)[] | [src/plugins/groupingRow/grouping.row.types.ts:132](https://github.com/revolist/revogrid/blob/a793ded3ebc70e0728f055d3eda88c1f1c34da54/src/plugins/groupingRow/grouping.row.types.ts#L132) |
+| `type` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/plugins/groupingRow/grouping.row.types.ts:131](https://github.com/revolist/revogrid/blob/a793ded3ebc70e0728f055d3eda88c1f1c34da54/src/plugins/groupingRow/grouping.row.types.ts#L131) |
 
 ## Defined in
 
-[src/plugins/groupingRow/grouping.row.types.ts:130](https://github.com/revolist/revogrid/blob/237f5d7f5379065aebb85b7a81753679e1b45365/src/plugins/groupingRow/grouping.row.types.ts#L130)
+[src/plugins/groupingRow/grouping.row.types.ts:130](https://github.com/revolist/revogrid/blob/a793ded3ebc70e0728f055d3eda88c1f1c34da54/src/plugins/groupingRow/grouping.row.types.ts#L130)

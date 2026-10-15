@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.28.3](README.md) / RowDragStartDetails
+[RevoGrid Documentation v4.28.4](README.md) / RowDragStartDetails
 
 # Type Alias: RowDragStartDetails\<TModel\>
 
@@ -23,13 +23,13 @@ type RowDragStartDetails<TModel>: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `cell` | [`Cell`](Interface.Cell.md) | [src/types/selection.ts:126](https://github.com/revolist/revogrid/blob/237f5d7f5379065aebb85b7a81753679e1b45365/src/types/selection.ts#L126) |
-| `event` | `MouseEvent` | [src/types/selection.ts:129](https://github.com/revolist/revogrid/blob/237f5d7f5379065aebb85b7a81753679e1b45365/src/types/selection.ts#L129) |
-| `model` | `TModel` | [src/types/selection.ts:131](https://github.com/revolist/revogrid/blob/237f5d7f5379065aebb85b7a81753679e1b45365/src/types/selection.ts#L131) |
-| `pos` | [`PositionItem`](Interface.PositionItem.md) | [src/types/selection.ts:128](https://github.com/revolist/revogrid/blob/237f5d7f5379065aebb85b7a81753679e1b45365/src/types/selection.ts#L128) |
-| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/types/selection.ts:130](https://github.com/revolist/revogrid/blob/237f5d7f5379065aebb85b7a81753679e1b45365/src/types/selection.ts#L130) |
-| `text` | `string` | [src/types/selection.ts:127](https://github.com/revolist/revogrid/blob/237f5d7f5379065aebb85b7a81753679e1b45365/src/types/selection.ts#L127) |
+| `cell` | [`Cell`](Interface.Cell.md) | [src/types/selection.ts:126](https://github.com/revolist/revogrid/blob/a793ded3ebc70e0728f055d3eda88c1f1c34da54/src/types/selection.ts#L126) |
+| `event` | `MouseEvent` | [src/types/selection.ts:129](https://github.com/revolist/revogrid/blob/a793ded3ebc70e0728f055d3eda88c1f1c34da54/src/types/selection.ts#L129) |
+| `model` | `TModel` | [src/types/selection.ts:131](https://github.com/revolist/revogrid/blob/a793ded3ebc70e0728f055d3eda88c1f1c34da54/src/types/selection.ts#L131) |
+| `pos` | [`PositionItem`](Interface.PositionItem.md) | [src/types/selection.ts:128](https://github.com/revolist/revogrid/blob/a793ded3ebc70e0728f055d3eda88c1f1c34da54/src/types/selection.ts#L128) |
+| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/types/selection.ts:130](https://github.com/revolist/revogrid/blob/a793ded3ebc70e0728f055d3eda88c1f1c34da54/src/types/selection.ts#L130) |
+| `text` | `string` | [src/types/selection.ts:127](https://github.com/revolist/revogrid/blob/a793ded3ebc70e0728f055d3eda88c1f1c34da54/src/types/selection.ts#L127) |
 
 ## Defined in
 
-[src/types/selection.ts:125](https://github.com/revolist/revogrid/blob/237f5d7f5379065aebb85b7a81753679e1b45365/src/types/selection.ts#L125)
+[src/types/selection.ts:125](https://github.com/revolist/revogrid/blob/a793ded3ebc70e0728f055d3eda88c1f1c34da54/src/types/selection.ts#L125)
