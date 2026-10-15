@@ -728,6 +728,11 @@ revo-grid:not(.skip-style) {
 }
 
 .vp-doc {
+  // VitePress prose margins must not enlarge Pivot's configurator disclosures.
+  summary.rv-configurator-summary {
+    margin: 0;
+  }
+
   a.VPButton {
     text-decoration: none;
   }
