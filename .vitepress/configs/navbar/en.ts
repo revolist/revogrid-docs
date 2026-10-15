@@ -78,8 +78,7 @@ export const navbarEn: DefaultTheme.NavItem[] = [
   },
   {
     text: 'RevoGrid Pro',
-    link: '/pro/',
-    activeMatch: '^/(pro/(?!prices(?:/|$))|pro-docs/)',
+    link: 'https://pro.rv-grid.com',
   },
   {
     text: 'Blog',
