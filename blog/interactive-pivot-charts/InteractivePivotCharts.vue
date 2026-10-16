@@ -82,8 +82,8 @@ onBeforeUnmount(() => {
     <p v-if="error" role="alert">{{ error }}</p>
     <div ref="host" class="sales-render-host" :aria-busy="busy" />
     <p class="sales-hint">
-      Click a bar to drill. Click or keyboard-focus a product bar, then choose “View underlying
-      records” to inspect its order lines. Chart drilling leaves the table layout unchanged.
+      Click a region bar to drill into products. The period filter updates the linked report; chart
+      drilling leaves the table layout unchanged. CSV exports chart data at the current drill level.
     </p>
   </section>
 </template>
@@ -166,6 +166,10 @@ onBeforeUnmount(() => {
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
   overflow: hidden;
+  /* Compact grid text uses a light theme; give its transparent cells a surface. */
+  background: #fff;
+  color: #1b2942;
+  color-scheme: light;
 }
 .article-pivot-table revo-grid {
   width: 100%;

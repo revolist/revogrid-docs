@@ -9,6 +9,7 @@ import {
 import '@revolist/revogrid-pro/dist/revogrid-pro.css'
 import '@revolist/pivot/styles.css'
 import { sales } from './sales'
+import { salesChartCsv } from './csv'
 
 export const pivotConfig: PivotConfig = {
   dimensions: [
@@ -134,8 +135,21 @@ export async function mountSalesExample(host: HTMLElement) {
       await chart.resetDrill()
     },
     async exportCsv() {
-      if (chart && charts)
-        await charts.downloadChart(chart.id, { fileFormat: 'csv', fileName: 'sales-chart.csv' })
+      if (!chart || !charts) return
+      const csv = await salesChartCsv(charts, chart)
+      if (disposed) return
+      const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }))
+      const anchor = document.createElement('a')
+      anchor.href = url
+      anchor.download = 'sales-chart.csv'
+      document.body.append(anchor)
+      try {
+        anchor.click()
+      } finally {
+        anchor.remove()
+        // Leave the browser time to consume the download before releasing its URL.
+        window.setTimeout(() => URL.revokeObjectURL(url), 1000)
+      }
     },
     destroy() {
       disposed = true
