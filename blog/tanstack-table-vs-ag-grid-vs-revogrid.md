@@ -325,7 +325,7 @@ This gives you excellent control over the final UX.
 
 It also means that **filter controls are part of your application UI**, not something TanStack Table simply places on the screen.
 
-### Keyboard interaction
+### TanStack Table keyboard interaction
 
 Native inputs already give us Tab and Shift+Tab navigation. We can implement Enter-to-commit ourselves.
 
@@ -430,7 +430,7 @@ That is already a major difference from our TanStack implementation.
 
 There is no custom `<input>` renderer required for ordinary cell editing.
 
-### Filtering
+### AG Grid filtering
 
 AG Grid provides [column filtering](https://www.ag-grid.com/react-data-grid/filtering/) as part of the grid UI.
 
@@ -632,10 +632,10 @@ Inside a component with `const [data, setData] = useState(initialData)`:
 </>
 ```
 
-Import `useState` from React and define `handleBeforeEdit` inside that component. This pattern covers individual cell edits. Bulk paste and range updates need their own `beforerangeedit` handling. If you use `afteredit` instead, narrow its payload before reading `model`: the event also represents range edits. See the [editing lifecycle guide](/guide/editing#editing-lifecycle-events).
+Import `useState` from React and define `handleBeforeEdit` inside that component. This pattern covers individual cell edits. Bulk paste and range updates need their own `beforerangeedit` handling. If you use `afteredit` instead, narrow its payload before reading `model`: the event also represents range edits. See the [editing lifecycle guide](/guide/editing#Editing-lifecycle-events).
 
 For large datasets, choose explicitly between React-owned commits and grid-owned drafts rather than replacing the full source unnecessarily.
-### Filtering
+### RevoGrid filtering
 
 RevoGrid Core includes [standard text and number filtering](/guide/filters).
 
@@ -655,7 +655,7 @@ Advanced filtering interfaces—including richer selection, slider, date, quick-
 
 For the simple filtering in this comparison, Core is sufficient.
 
-### Keyboard interaction
+### RevoGrid keyboard interaction
 
 [Spreadsheet-style keyboard navigation](/guide/keyboard) is part of RevoGrid Core.
 
