@@ -4,6 +4,27 @@ titleTemplate: false
 description: 'Compare 7 React chart libraries for BI dashboards: Recharts, Chart.js, ECharts, Highcharts,
   Plotly.js, MUI X, and RevoGrid. See features and trade-offs.'
 outline: deep
+faq:
+  heading: Frequently asked questions
+  items:
+    - q: "What is the best React chart library for a BI dashboard?"
+      a: >-
+        There is no single best choice for every BI dashboard. Our starting recommendation is Recharts for conventional React charts, ECharts or Plotly.js for specialized visualization requirements, and a grid-connected stack such as RevoGrid Charts with Pivot or MUI Premium when users need configurable reporting. Highcharts is another candidate when its commercial charting and dashboard ecosystem fits the requirements.
+    - q: "Is Recharts better than Chart.js for React?"
+      a: >-
+        Recharts is more directly aligned with composing a chart through React components and SVG. Chart.js uses Canvas and is commonly integrated through react-chartjs-2. Prefer the model that fits your application, then compare the required interactions, accessibility work, and measured performance. Neither is universally better. <a href="https://recharts.github.io/">Recharts</a> · <a href="https://www.chartjs.org/docs/latest/">Chart.js</a> · <a href="https://react-chartjs-2.js.org/">React integration</a>
+    - q: "Can RevoGrid Charts work without a data grid?"
+      a: >-
+        Yes. RevoGrid Charts can render in an ordinary DOM container without RevoGrid or Pivot. Pivot is an additional integration for report-derived data, drill-down, and synchronization. The chart engine still requires commercial package access. <a href="https://pro.rv-grid.com/guides/charts/installation/">Installation</a> · <a href="https://pro.rv-grid.com/guides/pivot/concepts/charts">Pivot Charts</a>
+    - q: "Do I need a Pivot table for a BI dashboard?"
+      a: >-
+        Not for a fixed dashboard whose queries and aggregations are already defined by the application. Evaluate a Pivot component when users need to change grouping dimensions and measures themselves. A chart component and an interactive reporting engine solve related but different problems.
+    - q: "Which libraries have permissively licensed chart engines?"
+      a: >-
+        Recharts, Chart.js, and Plotly.js use MIT licenses; Apache ECharts uses Apache-2.0. MUI X Charts Community is MIT, while its Pro and Premium packages are commercial. RevoGrid Charts is commercial, and Highcharts requires commercial licensing for business use. Check the actual engine, wrapper, plugins, and any grid integration you intend to distribute. <a href="https://recharts.github.io/">Recharts</a> · <a href="https://github.com/chartjs/Chart.js/blob/master/LICENSE.md">Chart.js</a> · <a href="https://github.com/plotly/plotly.js">Plotly</a> · <a href="https://echarts.apache.org/en/download.html">ECharts</a> · <a href="https://mui.com/x/introduction/licensing/">MUI</a> · <a href="https://pro.rv-grid.com/guides/charts/installation/">RevoGrid</a> · <a href="https://www.highcharts.com/education/">Highcharts</a>
+    - q: "Which React chart library is fastest?"
+      a: >-
+        This comparison does not establish a fastest library. Measure the same dashboard workload, including queries, aggregation, chart updates, interaction, memory, and export. A result for one renderer, chart type, or dataset is not a universal ranking.
 date: '2026-10-16'
 author: RevoGrid Team
 category: Charts & Analytics
@@ -100,71 +121,14 @@ head:
         }
       ]
     }
-- - script
-  - type: application/ld+json
-    id: react-bi-charts-faq-schema
-  - |-
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "@id": "https://rv-grid.com/blog/best-react-chart-library#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is the best React chart library for a BI dashboard?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "There is no single best choice for every BI dashboard. Our starting recommendation is Recharts for conventional React charts, ECharts or Plotly.js for specialized visualization requirements, and a grid-connected stack such as RevoGrid Charts with Pivot or MUI Premium when users need configurable reporting. Highcharts is another candidate when its commercial charting and dashboard ecosystem fits the requirements."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is Recharts better than Chart.js for React?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Recharts is more directly aligned with composing a chart through React components and SVG. Chart.js uses Canvas and is commonly integrated through react-chartjs-2. Prefer the model that fits your application, then compare the required interactions, accessibility work, and measured performance. Neither is universally better."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can RevoGrid Charts work without a data grid?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. RevoGrid Charts can render in an ordinary DOM container without RevoGrid or Pivot. Pivot is an additional integration for report-derived data, drill-down, and synchronization. The chart engine still requires commercial package access."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do I need a Pivot table for a BI dashboard?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Not for a fixed dashboard whose queries and aggregations are already defined by the application. Evaluate a Pivot component when users need to change grouping dimensions and measures themselves. A chart component and an interactive reporting engine solve related but different problems."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which libraries have permissively licensed chart engines?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Recharts, Chart.js, and Plotly.js use MIT licenses; Apache ECharts uses Apache-2.0. MUI X Charts Community is MIT, while its Pro and Premium packages are commercial. RevoGrid Charts is commercial, and Highcharts requires commercial licensing for business use. Check the actual engine, wrapper, plugins, and any grid integration you intend to distribute."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which React chart library is fastest?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "This comparison does not establish a fastest library. Measure the same dashboard workload, including queries, aggregation, chart updates, interaction, memory, and export. A result for one renderer, chart type, or dataset is not a universal ranking."
-          }
-        }
-      ]
-    }
+
 ---
 
 <script setup>
 import LibraryChooser from './react-chart-library/LibraryChooser.vue'
 import InteractivePivotCharts from './interactive-pivot-charts/InteractivePivotCharts.vue'
 import LiveChart from '../charts/LiveChart.vue'
+import CommercialFaq from '../pro/CommercialFaq.vue'
 </script>
 
 # Best React Chart Library for BI Dashboards: 7 Libraries Compared
@@ -508,31 +472,7 @@ Our strongest reason to recommend RevoGrid is not a universal claim about render
 
 [Explore RevoGrid Charts](/charts/) to review the visualizations, then [explore RevoGrid Pivot](/pivot/) to evaluate the reporting workflow. For the wider architecture, see [building enterprise dashboards](/blog/building-enterprise-dashboards) and our [JavaScript Pivot comparison](/blog/best-js-pivot-in-2026).
 
-## Frequently asked questions
-
-### What is the best React chart library for a BI dashboard?
-
-There is no single best choice for every BI dashboard. Our starting recommendation is Recharts for conventional React charts, ECharts or Plotly.js for specialized visualization requirements, and a grid-connected stack such as RevoGrid Charts with Pivot or MUI Premium when users need configurable reporting. Highcharts is another candidate when its commercial charting and dashboard ecosystem fits the requirements.
-
-### Is Recharts better than Chart.js for React?
-
-Recharts is more directly aligned with composing a chart through React components and SVG. Chart.js uses Canvas and is commonly integrated through react-chartjs-2. Prefer the model that fits your application, then compare the required interactions, accessibility work, and measured performance. Neither is universally better. [Recharts][recharts] · [Chart.js][chartjs] · [React integration][react-chartjs]
-
-### Can RevoGrid Charts work without a data grid?
-
-Yes. RevoGrid Charts can render in an ordinary DOM container without RevoGrid or Pivot. Pivot is an additional integration for report-derived data, drill-down, and synchronization. The chart engine still requires commercial package access. [Installation][revo-install] · [Pivot Charts][revo-pivot-charts]
-
-### Do I need a Pivot table for a BI dashboard?
-
-Not for a fixed dashboard whose queries and aggregations are already defined by the application. Evaluate a Pivot component when users need to change grouping dimensions and measures themselves. A chart component and an interactive reporting engine solve related but different problems.
-
-### Which libraries have permissively licensed chart engines?
-
-Recharts, Chart.js, and Plotly.js use MIT licenses; Apache ECharts uses Apache-2.0. MUI X Charts Community is MIT, while its Pro and Premium packages are commercial. RevoGrid Charts is commercial, and Highcharts requires commercial licensing for business use. Check the actual engine, wrapper, plugins, and any grid integration you intend to distribute. [Recharts][recharts] · [Chart.js][chartjs-license] · [Plotly][plotly-repo] · [ECharts][echarts-license] · [MUI][mui-licensing] · [RevoGrid][revo-install] · [Highcharts][highcharts-business-license]
-
-### Which React chart library is fastest?
-
-This comparison does not establish a fastest library. Measure the same dashboard workload, including queries, aggregation, chart updates, interaction, memory, and export. A result for one renderer, chart type, or dataset is not a universal ranking.
+<CommercialFaq id="faq" />
 
 ---
 

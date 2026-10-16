@@ -90,6 +90,9 @@ onBeforeUnmount(() => {
 
 <style>
 .sales-example {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
   margin: 24px 0 36px;
   padding: 24px;
   border: 1px solid var(--vp-c-divider);
@@ -209,14 +212,6 @@ onBeforeUnmount(() => {
   padding: 10px 14px;
   border-bottom: 1px solid var(--vp-c-divider);
   text-align: left;
-}
-@media (min-width: 1100px) {
-  .sales-example {
-    position: relative;
-    left: 50%;
-    width: min(1060px, calc(100vw - 360px));
-    transform: translateX(-50%);
-  }
 }
 @media (max-width: 600px) {
   .sales-example {
