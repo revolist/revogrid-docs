@@ -1,6 +1,10 @@
 <template>
   <div class="live-chart" :data-chart-type="type" :data-status="status">
-    <div ref="host" class="live-chart-host" :aria-label="`${definition.label} live example`"></div>
+    <div
+      ref="host"
+      class="live-chart-host"
+      :aria-label="example?.presentation?.description ?? `${definition.label} live example`"
+    ></div>
     <p v-if="status === 'loading'" class="chart-message">Loading live chart…</p>
     <div v-if="status === 'error'" class="chart-message" role="alert">
       <p>This chart could not load.</p>
@@ -12,7 +16,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useData } from 'vitepress'
-import { createChart, type ChartRef } from '@revolist/charts'
+import { createChart, type ChartRef, type ChartOptions } from '@revolist/charts'
 import { chartCatalog, type GalleryChartType } from './catalog'
 
 const props = withDefaults(
@@ -20,6 +24,16 @@ const props = withDefaults(
     type: GalleryChartType
     eager?: boolean
     labels?: boolean
+    example?: Pick<
+      ChartOptions,
+      | 'dataset'
+      | 'presentation'
+      | 'axes'
+      | 'seriesOverrides'
+      | 'chartOptions'
+      | 'rendererOptions'
+      | 'annotations'
+    >
   }>(),
   { eager: false, labels: false },
 )
@@ -28,6 +42,10 @@ const { isDark } = useData()
 const host = ref<HTMLElement>()
 const status = ref('loading')
 const definition = computed(() => chartCatalog.find(chart => chart.type === props.type)!)
+const presentation = computed(() => ({
+  ...(props.example?.presentation ?? definition.value.preview.presentation),
+  dataLabels: props.labels,
+}))
 let chart: ChartRef | undefined
 let observer: IntersectionObserver | undefined
 let controller: AbortController | undefined
@@ -44,17 +62,23 @@ async function mount() {
   status.value = 'loading'
   try {
     const { preview, options } = definition.value
+    const { rendererOptions, ...example } = props.example ?? {}
     const instance = await createChart({
       container: host.value,
       signal: controller.signal,
       chartType: props.type,
-      dataset: structuredClone(preview.dataset),
+      ...structuredClone(example),
+      rendererOptions,
+      dataset: structuredClone(props.example?.dataset ?? preview.dataset),
       bindings: structuredClone(preview.bindings),
-      chartOptions: structuredClone(options.defaults),
-      presentation: { ...preview.presentation, dataLabels: props.labels },
+      chartOptions: structuredClone(props.example?.chartOptions ?? options.defaults),
+      presentation: { ...presentation.value },
       theme: isDark.value ? 'dark' : 'light',
       localeText: {
-        renderer: { chartAriaLabel: () => `${definition.value.label} live example` },
+        renderer: {
+          chartAriaLabel: () =>
+            props.example?.presentation?.description ?? `${definition.value.label} live example`,
+        },
       },
     })
     if (version !== generation) {
@@ -65,7 +89,7 @@ async function mount() {
     // Reconcile appearance changes made while the initial render was pending.
     await chart.update({
       theme: isDark.value ? 'dark' : 'light',
-      presentation: { ...preview.presentation, dataLabels: props.labels },
+      presentation: { ...presentation.value },
     })
     if (version !== generation) return
     status.value = 'ready'
@@ -80,7 +104,7 @@ async function mount() {
   }
 }
 watch(
-  () => props.type,
+  () => [props.type, props.example],
   () => {
     if (visible) void mount()
   },
@@ -90,7 +114,7 @@ watch([isDark, () => props.labels], async () => {
   try {
     await chart.update({
       theme: isDark.value ? 'dark' : 'light',
-      presentation: { ...definition.value.preview.presentation, dataLabels: props.labels },
+      presentation: { ...presentation.value },
     })
   } catch {
     status.value = 'error'

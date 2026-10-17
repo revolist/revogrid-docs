@@ -19,29 +19,19 @@
         Vanilla JavaScript <i aria-hidden="true">/</i> React <i aria-hidden="true">/</i> Vue
         <i aria-hidden="true">/</i> Angular
       </p>
-      <div class="hero-charts" role="group" aria-label="Live charts with illustrative sample data">
-        <article class="hero-chart hero-chart-wide">
-          <div class="chart-heading">
-            <span>THE BIG PICTURE</span>
-            <h2>Performance over time</h2>
-          </div>
-          <div class="hero-chart-canvas"><LiveChart type="columnLine" eager /></div>
-        </article>
-        <article class="hero-chart">
-          <div class="chart-heading">
-            <span>THE CONTRIBUTION</span>
-            <h2>Every part tells a story</h2>
-          </div>
-          <div class="hero-chart-canvas"><LiveChart type="donut" eager /></div>
-        </article>
-        <article class="hero-chart">
-          <div class="chart-heading">
-            <span>THE COMPARISON</span>
-            <h2>See the difference</h2>
-          </div>
-          <div class="hero-chart-canvas"><LiveChart type="stackedBar" eager /></div>
-        </article>
+      <div class="hero-financial-example">
+        <AdvancedFinancialCharts example="composition" :show-source="false" :show-hint="false">
+          <template #fallback>
+            <img
+              src="/blog/advanced-financial-charts/composition.svg"
+              alt="Actual and budget revenue stacks with margin and target lines across twelve months"
+              width="1200"
+              height="640"
+            />
+          </template>
+        </AdvancedFinancialCharts>
       </div>
+      <FinancialShowcase />
     </section>
 
     <section class="benefits section-width" aria-label="Charts capabilities">
@@ -126,7 +116,6 @@
       </div>
       <div class="bridge-chart"><LiveChart type="treemap" /></div>
     </section>
-    <SegmentStyleExamples />
 
     <BlogRelated
       class="section-width charts-reading"
@@ -201,7 +190,8 @@ import ProCtaBanner from '../pro/ProCtaBanner.vue'
 import CommercialFaq from '../pro/CommercialFaq.vue'
 import BlogRelated from '../blog/BlogRelated.vue'
 import LiveChart from './LiveChart.vue'
-import SegmentStyleExamples from './SegmentStyleExamples.vue'
+import FinancialShowcase from './FinancialShowcase.vue'
+import AdvancedFinancialCharts from '../.vitepress/theme/components/blog/advanced-financial-charts/AdvancedFinancialCharts.vue'
 import ChartsBenefitIcon from './ChartsBenefitIcon.vue'
 import { galleryUseCases, familyLabels, type GalleryChart } from './catalog'
 

@@ -3,7 +3,7 @@ import { computed, nextTick, onMounted, onBeforeUnmount, ref, watch } from 'vue'
 import { exampleOptions } from './examples.mjs';
 import { complexExampleOptions } from './complex-examples.mjs';
 
-const props = defineProps({ example: { type: String, required: true } });
+const props = defineProps({ example: { type: String, required: true }, showSource: { type: Boolean, default: true }, showHint: { type: Boolean, default: true } });
 const examples = {
   composition: { name: 'Revenue and margin example', snapshot: 'composition', hint: 'Toggle legend entries to compare series. Revenue uses the left axis; margins use the right.' },
   polar: { name: 'Operating profiles example', snapshot: 'polar', hint: 'Choose the actual, prior and target profiles below. Both layouts retain the same 0–100 scoring rubric.' },
@@ -157,12 +157,12 @@ onBeforeUnmount(() => {
         <input v-model="profiles" type="checkbox" :value="id" :disabled="profiles.length === 1 && profiles.includes(id)"> {{ label }}
       </label>
     </fieldset>
-    <p class="financial-explanation">{{ info.hint }}</p>
+    <p v-if="showHint" class="financial-explanation">{{ info.hint }}</p>
     <p v-if="error" role="alert">Chart could not load: {{ error }}</p>
     <div class="financial-scroll" :aria-busy="busy">
       <div ref="host" class="financial-chart" />
     </div>
-    <p class="financial-source">Fictional data · Hover or focus to inspect values · <a :href="`/blog/advanced-financial-charts/${info.snapshot}.svg`">Open static chart</a></p>
+    <p v-if="showSource" class="financial-source">Fictional data · Hover or focus to inspect values · <a :href="`/blog/advanced-financial-charts/${info.snapshot}.svg`">Open static chart</a></p>
     </template>
     <slot v-else name="fallback" />
   </section>

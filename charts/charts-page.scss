@@ -82,36 +82,24 @@
     opacity: 0.4;
     margin: 0 12px;
   }
-  .hero-charts {
-    margin-top: 52px;
+  .hero-financial-example {
+    margin-top: 36px;
     text-align: left;
-    display: grid;
-    grid-template-columns: 1.45fr 1fr 1fr;
-    gap: 16px;
   }
-  .hero-chart {
-    padding: 20px 14px 8px;
-    min-width: 0;
-    background: var(--vp-c-bg);
+  .hero-financial-example :deep(.financial-explanation) {
+    margin: 16px 0;
+  }
+  .hero-financial-example :deep(.financial-investigation) {
+    margin: 0;
+    padding: 22px 20px 18px;
     border: 1px solid var(--vp-c-divider);
-    border-radius: 12px;
+    border-radius: 14px;
+    background: transparent;
   }
-  .chart-heading {
-    padding-inline: 7px;
-  }
-  .chart-heading > span {
-    color: var(--vp-c-text-2);
-    font-size: 9px;
-    letter-spacing: 1.6px;
-  }
-  .chart-heading h2 {
-    font-size: 15px;
-    font-weight: 600;
-    margin-top: 7px;
-  }
-  .hero-chart-canvas {
-    height: 260px;
-    margin-top: 12px;
+  .hero-financial-example :deep(.financial-scroll) {
+    margin: 0;
+    border-radius: 0;
+    background: transparent;
   }
   .benefits {
     display: grid;
@@ -375,12 +363,6 @@
     }
   }
   @media (max-width: 1100px) {
-    .hero-charts {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .hero-chart-wide {
-      grid-column: 1 / -1;
-    }
     .chart-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -420,17 +402,10 @@
     .frameworks i {
       margin: 0 6px;
     }
-    .hero-charts {
-      margin-top: 34px;
-    }
-    .hero-charts,
     .chart-grid,
     .benefits,
     .pivot-bridge {
       grid-template-columns: minmax(0, 1fr);
-    }
-    .hero-chart-canvas {
-      height: 250px;
     }
     .benefits {
       padding: 44px 0;
