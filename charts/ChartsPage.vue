@@ -64,6 +64,8 @@
       </div>
     </section>
 
+    <SegmentStyleExamples />
+
     <section id="chart-gallery" class="gallery section-width" aria-labelledby="gallery-heading">
       <div class="gallery-intro">
         <p class="eyebrow">Find your perspective</p>
@@ -199,6 +201,7 @@ import ProCtaBanner from '../pro/ProCtaBanner.vue'
 import CommercialFaq from '../pro/CommercialFaq.vue'
 import BlogRelated from '../blog/BlogRelated.vue'
 import LiveChart from './LiveChart.vue'
+import SegmentStyleExamples from './SegmentStyleExamples.vue'
 import ChartsBenefitIcon from './ChartsBenefitIcon.vue'
 import { galleryUseCases, familyLabels, type GalleryChart } from './catalog'
 
