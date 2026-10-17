@@ -1,5 +1,5 @@
 <template>
-  <section v-if="current && related.length" class="blog-related" aria-labelledby="related-articles">
+  <section v-if="related.length" class="blog-related" aria-labelledby="related-articles">
     <p class="blog-related__label">Keep exploring</p>
     <h2 id="related-articles" class="ignore-header">Continue reading</h2>
     <div class="blog-related__grid">
@@ -13,12 +13,20 @@ import { computed } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { data as posts } from './posts.data'
 import BlogCard from './BlogCard.vue'
+import type { BlogPost } from './blog'
+const props = defineProps<{ articleUrls?: string[] }>()
 const { page } = useData()
 const current = computed(() =>
   posts.find(post => post.url === `/${page.value.relativePath.replace(/\.md$/, '')}`),
 )
-const related = computed(() =>
-  posts
+const related = computed(() => {
+  if (props.articleUrls) {
+    return props.articleUrls
+      .map(url => posts.find(post => post.url === url))
+      .filter((post): post is BlogPost => Boolean(post))
+  }
+  if (!current.value) return []
+  return posts
     .filter(post => post.url !== current.value?.url)
     .map(post => ({
       post,
@@ -29,8 +37,8 @@ const related = computed(() =>
     .filter(item => item.score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, 2)
-    .map(item => item.post),
-)
+    .map(item => item.post)
+})
 </script>
 <style>
 .blog-related {

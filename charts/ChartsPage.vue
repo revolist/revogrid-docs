@@ -126,6 +126,13 @@
       </div>
       <div class="bridge-chart"><LiveChart type="treemap" /></div>
     </section>
+    <BlogRelated
+      class="section-width charts-reading"
+      :article-urls="[
+        '/blog/advanced-financial-charts-business-analysis',
+        '/blog/interactive-pivot-charts-javascript',
+      ]"
+    />
     <div class="section-width charts-faq"><CommercialFaq id="charts-faq" /></div>
     <ProCtaBanner
       title="Make your next dashboard a little more insightful."
@@ -190,6 +197,7 @@ import { nextTick, onBeforeUnmount, ref } from 'vue'
 import AppButton from '../.vitepress/theme/AppButton.vue'
 import ProCtaBanner from '../pro/ProCtaBanner.vue'
 import CommercialFaq from '../pro/CommercialFaq.vue'
+import BlogRelated from '../blog/BlogRelated.vue'
 import LiveChart from './LiveChart.vue'
 import ChartsBenefitIcon from './ChartsBenefitIcon.vue'
 import { galleryUseCases, familyLabels, type GalleryChart } from './catalog'
