@@ -64,8 +64,6 @@
       </div>
     </section>
 
-    <SegmentStyleExamples />
-
     <section id="chart-gallery" class="gallery section-width" aria-labelledby="gallery-heading">
       <div class="gallery-intro">
         <p class="eyebrow">Find your perspective</p>
@@ -128,6 +126,8 @@
       </div>
       <div class="bridge-chart"><LiveChart type="treemap" /></div>
     </section>
+    <SegmentStyleExamples />
+
     <BlogRelated
       class="section-width charts-reading"
       :article-urls="[
