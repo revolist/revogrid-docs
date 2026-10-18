@@ -71,7 +71,10 @@ const revogridDemosRoot = path.resolve(__dirname, '../revogrid-demos')
 const revogridDemoDataSuffix = '.revogrid-demo-source.ts'
 const localProPackageRoot = path.resolve(revogridProWorkspaceRoot, 'packages/pro')
 const standaloneProductNames = ['gantt', 'kanban', 'pivot', 'scheduler'] as const
+// Opt in for production-build verification against an unreleased workspace.
+// Normal publication continues to resolve installed package versions.
 const useLocalProPackages =
+  process.env.REVOGRID_USE_LOCAL_PACKAGES === '1' ||
   process.env.npm_lifecycle_event === 'dev' ||
   process.env.npm_lifecycle_script?.includes('vitepress dev') ||
   process.argv.some(argument => argument === 'dev')

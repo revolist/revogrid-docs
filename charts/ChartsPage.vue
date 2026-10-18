@@ -102,6 +102,10 @@
       </div>
     </section>
 
+    <DatumStylingExamples class="section-width" />
+
+    <TransitionExamples class="section-width" />
+
     <section class="pivot-bridge section-width">
       <div>
         <p class="eyebrow">Better together</p>
@@ -190,6 +194,8 @@ import ProCtaBanner from '../pro/ProCtaBanner.vue'
 import CommercialFaq from '../pro/CommercialFaq.vue'
 import BlogRelated from '../blog/BlogRelated.vue'
 import LiveChart from './LiveChart.vue'
+import TransitionExamples from './TransitionExamples.vue'
+import DatumStylingExamples from './DatumStylingExamples.vue'
 import FinancialShowcase from './FinancialShowcase.vue'
 import AdvancedFinancialCharts from '../.vitepress/theme/components/blog/advanced-financial-charts/AdvancedFinancialCharts.vue'
 import ChartsBenefitIcon from './ChartsBenefitIcon.vue'
