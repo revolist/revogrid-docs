@@ -54,6 +54,8 @@
       </div>
     </section>
 
+    <UseCaseExamples class="section-width" />
+
     <section id="chart-gallery" class="gallery section-width" aria-labelledby="gallery-heading">
       <div class="gallery-intro">
         <p class="eyebrow">Find your perspective</p>
@@ -105,6 +107,28 @@
     <DatumStylingExamples class="section-width" />
 
     <TransitionExamples class="section-width" />
+
+    <section class="section-width charts-guides" aria-labelledby="charts-guides-heading">
+      <h2 id="charts-guides-heading">Build and customize.</h2>
+      <p>
+        Explore the <a href="https://pro.rv-grid.com/guides/charts/">standalone Charts guides</a>
+        for configuration, supported interactions and renderer limitations.
+      </p>
+      <nav aria-label="Charts configuration guides">
+        <ul class="charts-guide-grid" role="list">
+          <li v-for="guide in chartGuides" :key="guide.href" class="charts-guide-card">
+            <span class="charts-guide-category">{{ guide.category }}</span>
+            <a class="charts-guide-title" :href="guide.href">
+              <span>{{ guide.title }}</span>
+              <span class="charts-guide-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a v-if="guide.related" class="charts-guide-related" :href="guide.related.href">
+              {{ guide.related.title }} <span aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </section>
 
     <section class="pivot-bridge section-width">
       <div>
@@ -194,12 +218,68 @@ import ProCtaBanner from '../pro/ProCtaBanner.vue'
 import CommercialFaq from '../pro/CommercialFaq.vue'
 import BlogRelated from '../blog/BlogRelated.vue'
 import LiveChart from './LiveChart.vue'
+import UseCaseExamples from './UseCaseExamples.vue'
 import TransitionExamples from './TransitionExamples.vue'
 import DatumStylingExamples from './DatumStylingExamples.vue'
 import FinancialShowcase from './FinancialShowcase.vue'
 import AdvancedFinancialCharts from '../.vitepress/theme/components/blog/advanced-financial-charts/AdvancedFinancialCharts.vue'
 import ChartsBenefitIcon from './ChartsBenefitIcon.vue'
 import { galleryUseCases, familyLabels, type GalleryChart } from './catalog'
+
+const chartGuides = [
+  {
+    category: 'Navigation',
+    title: 'Value-axis navigation and XY brushing',
+    href: 'https://pro.rv-grid.com/guides/charts/tools/value-navigation/',
+  },
+  {
+    category: 'Rendering',
+    title: 'Batched SVG policy',
+    href: 'https://pro.rv-grid.com/guides/charts/tools/batched-svg/',
+    related: {
+      title: 'Measured SVG results',
+      href: 'https://pro.rv-grid.com/guides/charts/tools/batched-svg-performance/',
+    },
+  },
+  {
+    category: 'Acceleration',
+    title: 'Optional WebGL policy',
+    href: 'https://pro.rv-grid.com/guides/charts/tools/webgl/',
+    related: {
+      title: 'Measured WebGL results',
+      href: 'https://pro.rv-grid.com/guides/charts/tools/webgl-performance/',
+    },
+  },
+  {
+    category: 'Composition',
+    title: 'Bubble and histogram combinations',
+    href: 'https://pro.rv-grid.com/guides/charts/tools/cartesian-sample-layers/',
+  },
+  {
+    category: 'Axes',
+    title: 'Named polar axis layout',
+    href: 'https://pro.rv-grid.com/guides/charts/tools/polar-axis-layout/',
+  },
+  {
+    category: 'Dates and time',
+    title: 'Date ranges and named timezones',
+    href: 'https://pro.rv-grid.com/guides/charts/tools/date-ranges/',
+  },
+  {
+    category: 'Integration',
+    title: 'Host actions',
+    href: 'https://pro.rv-grid.com/guides/charts/customization/#host-actions-and-dynamic-submenus',
+    related: {
+      title: 'Export lifecycle hooks',
+      href: 'https://pro.rv-grid.com/guides/charts/tools/exports/#export-lifecycle-hooks',
+    },
+  },
+  {
+    category: 'Finance',
+    title: 'Financial sessions and trading controls',
+    href: 'https://pro.rv-grid.com/guides/charts/tools/financial-sessions/',
+  },
+]
 
 const dialog = ref<HTMLDialogElement>()
 const selected = ref<GalleryChart>()
@@ -243,3 +323,108 @@ onBeforeUnmount(() => dialog.value?.close())
 </script>
 
 <style scoped lang="scss" src="./charts-page.scss"></style>
+
+<style scoped>
+.charts-guides {
+  margin-block: 24px 72px;
+}
+.charts-guides h2 {
+  scroll-margin-top: 96px;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 650;
+  letter-spacing: -1.2px;
+  line-height: 1.2;
+}
+.charts-guides > p {
+  max-width: 760px;
+  margin-block: 16px 28px;
+  color: var(--vp-c-text-2);
+  line-height: 1.7;
+}
+.charts-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.charts-guide-card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-content: start;
+  gap: 14px;
+  min-width: 0;
+  min-height: 176px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 22px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg);
+}
+.charts-guide-category {
+  color: var(--vp-c-text-2);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.charts-guides .charts-guide-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--vp-c-text-1);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+}
+.charts-guide-arrow {
+  flex: none;
+  color: var(--vp-c-brand-1);
+  font-size: 18px;
+  font-weight: 400;
+}
+.charts-guides .charts-guide-related {
+  justify-self: start;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.charts-guide-related span {
+  margin-left: 5px;
+}
+.charts-guides a {
+  color: var(--vp-c-brand-1);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.charts-guide-title:hover span:first-child {
+  color: var(--vp-c-brand-1);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.charts-guide-card:focus-within {
+  border-color: var(--vp-c-brand-1);
+}
+@media (max-width: 1100px) {
+  .charts-guide-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .charts-guide-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .charts-guide-card {
+    min-height: 0;
+    padding: 20px;
+  }
+  .charts-guides {
+    margin-bottom: 48px;
+  }
+}
+</style>

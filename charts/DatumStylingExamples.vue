@@ -15,12 +15,7 @@
           A diamond marks March; directed segment rules style February → March and March → April.
         </p>
         <div class="styling-canvas"><LiveChart type="line" eager :example="lineExample" /></div>
-        <pre><code>encoding: {
-  datums: [{ categoryId: marchId,
-    style: { marker: 'diamond', markerSize: 9 } }],
-  segments: [{ from: februaryId, to: marchId,
-    style: { stroke: '#c2410c', strokeDasharray: '6 4' } }],
-}</code></pre>
+        <ChartsCodeExample label="View line styling code"><DatumLineSource /></ChartsCodeExample>
       </article>
       <article>
         <h3>One observation, a different finish.</h3>
@@ -28,19 +23,16 @@
         <div class="styling-canvas">
           <LiveChart type="groupedColumn" eager :example="barExample" />
         </div>
-        <pre><code>encoding: {
-  datums: [{ categoryId: marchId, style: {
-    fill: { type: 'pattern', pattern: 'diagonal',
-      color: '#7c3aed', size: 8 },
-  } }],
-}</code></pre>
+        <ChartsCodeExample label="View column styling code"><DatumBarSource /></ChartsCodeExample>
       </article>
     </div>
     <p class="styling-note">
       Rules use actual dataset IDs and are saved with the chart. Segment rules apply to line and
       area outlines; marker policies apply to supported line and scatter glyphs. Custom datum
       encoding uses individual SVG marks, with an explicit fallback from batched SVG or WebGL.
-      <a href="https://pro.rv-grid.com/guides/charts/customization/">Explore styling options</a>.
+      <a href="https://pro.rv-grid.com/guides/charts/tools/datum-styling/"
+        >Explore styling options</a
+      >.
     </p>
   </section>
 </template>
@@ -49,6 +41,9 @@
 import { computed, ref } from 'vue'
 import { createChartDataset, type ChartOptions, type ChartDatumEncoding } from '@revolist/charts'
 import LiveChart from './LiveChart.vue'
+import ChartsCodeExample from './ChartsCodeExample.vue'
+import DatumLineSource from '../.vitepress/theme/components/charts/DatumLineSource.md'
+import DatumBarSource from '../.vitepress/theme/components/charts/DatumBarSource.md'
 
 const enabled = ref(true)
 const dataset = createChartDataset(
@@ -164,13 +159,6 @@ article p,
 }
 .styling-canvas {
   height: 280px;
-}
-pre {
-  overflow-x: auto;
-  font-size: 12px;
-  background: var(--vp-c-bg-soft);
-  padding: 12px;
-  border-radius: 8px;
 }
 a {
   color: var(--vp-c-brand-1);

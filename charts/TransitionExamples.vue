@@ -20,18 +20,16 @@
           class="transition-chart"
           aria-label="Default animated sales chart"
         ></div>
-        <pre><code>// No transition options needed
-const chart = await createChart(options);
-await chart.update({ data: nextRows });</code></pre>
+        <ChartsCodeExample label="View animated chart code"
+          ><TransitionAnimatedSource
+        /></ChartsCodeExample>
       </article>
       <article>
         <h3>Explicit opt-out</h3>
         <div ref="immediateHost" class="transition-chart" aria-label="Immediate sales chart"></div>
-        <pre><code>const chart = await createChart({
-  ...options,
-  rendererOptions: { transitions: false },
-});
-await chart.update({ data: nextRows });</code></pre>
+        <ChartsCodeExample label="View immediate chart code"
+          ><TransitionImmediateSource
+        /></ChartsCodeExample>
       </article>
     </div>
     <p class="transition-note">
@@ -46,6 +44,9 @@ await chart.update({ data: nextRows });</code></pre>
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useData } from 'vitepress'
 import { createChart, type ChartRef } from '@revolist/charts'
+import ChartsCodeExample from './ChartsCodeExample.vue'
+import TransitionAnimatedSource from '../.vitepress/theme/components/charts/TransitionAnimatedSource.md'
+import TransitionImmediateSource from '../.vitepress/theme/components/charts/TransitionImmediateSource.md'
 
 const { isDark } = useData()
 const animatedHost = ref<HTMLElement>()
@@ -167,13 +168,6 @@ h3 {
 .transition-chart {
   height: 260px;
   width: 100%;
-}
-pre {
-  overflow-x: auto;
-  font-size: 12px;
-  background: var(--vp-c-bg-soft);
-  padding: 12px;
-  border-radius: 8px;
 }
 .transition-note {
   font-size: 14px;

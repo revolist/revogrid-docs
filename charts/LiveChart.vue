@@ -16,28 +16,24 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useData } from 'vitepress'
-import { createChart, type ChartRef, type ChartOptions } from '@revolist/charts'
+import { createChart, type ChartRef, type ChartNodeClick } from '@revolist/charts'
 import { chartCatalog, type GalleryChartType } from './catalog'
+import type { StoryChartOptions } from './use-cases/types'
 
 const props = withDefaults(
   defineProps<{
     type: GalleryChartType
     eager?: boolean
     labels?: boolean
-    example?: Pick<
-      ChartOptions,
-      | 'dataset'
-      | 'presentation'
-      | 'axes'
-      | 'seriesOverrides'
-      | 'chartOptions'
-      | 'rendererOptions'
-      | 'annotations'
-    >
+    example?: StoryChartOptions
   }>(),
   { eager: false, labels: false },
 )
-const emit = defineEmits<{ ready: []; error: [] }>()
+const emit = defineEmits<{
+  ready: [chart: ChartRef]
+  error: []
+  activate: [detail: ChartNodeClick]
+}>()
 const { isDark } = useData()
 const host = ref<HTMLElement>()
 const status = ref('loading')
@@ -70,10 +66,11 @@ async function mount() {
       ...structuredClone(example),
       rendererOptions,
       dataset: structuredClone(props.example?.dataset ?? preview.dataset),
-      bindings: structuredClone(preview.bindings),
+      bindings: structuredClone(props.example?.bindings ?? preview.bindings),
       chartOptions: structuredClone(props.example?.chartOptions ?? options.defaults),
       presentation: { ...presentation.value },
       theme: isDark.value ? 'dark' : 'light',
+      onNodeClick: detail => emit('activate', detail),
       localeText: {
         renderer: {
           chartAriaLabel: () =>
@@ -93,7 +90,7 @@ async function mount() {
     })
     if (version !== generation) return
     status.value = 'ready'
-    emit('ready')
+    emit('ready', instance)
   } catch (error) {
     if (version !== generation) return
     chart?.destroy()
