@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.28.4](README.md) / DataFormat
+[RevoGrid Documentation v4.29.0](README.md) / DataFormat
 
 # Type Alias: DataFormat\<T\>
 
@@ -14,4 +14,4 @@ type DataFormat<T>: T;
 
 ## Defined in
 
-[src/types/interfaces.ts:292](https://github.com/revolist/revogrid/blob/a793ded3ebc70e0728f055d3eda88c1f1c34da54/src/types/interfaces.ts#L292)
+[src/types/interfaces.ts:292](https://github.com/revolist/revogrid/blob/9827a26b6eac72857b5b257738fc44efe7783da3/src/types/interfaces.ts#L292)

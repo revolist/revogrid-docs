@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.28.4](README.md) / SortingConfig
+[RevoGrid Documentation v4.29.0](README.md) / SortingConfig
 
 # Type Alias: SortingConfig
 
@@ -19,9 +19,9 @@ External sorting configuration.
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `additive` | `boolean` | If true, merge provided columns with the current sorting state. If false or omitted, replace current sorting state. | [src/plugins/sorting/sorting.types.ts:89](https://github.com/revolist/revogrid/blob/a793ded3ebc70e0728f055d3eda88c1f1c34da54/src/plugins/sorting/sorting.types.ts#L89) |
-| `columns` | \{ `cellCompare`: [`CellCompareFunc`](TypeAlias.CellCompareFunc.md); `order`: [`Order`](TypeAlias.Order.md); `prop`: [`ColumnProp`](TypeAlias.ColumnProp.md); \}[] | Columns to sort by. | [src/plugins/sorting/sorting.types.ts:84](https://github.com/revolist/revogrid/blob/a793ded3ebc70e0728f055d3eda88c1f1c34da54/src/plugins/sorting/sorting.types.ts#L84) |
+| `additive` | `boolean` | If true, merge provided columns with the current sorting state. If false or omitted, replace current sorting state. | [src/plugins/sorting/sorting.types.ts:89](https://github.com/revolist/revogrid/blob/9827a26b6eac72857b5b257738fc44efe7783da3/src/plugins/sorting/sorting.types.ts#L89) |
+| `columns` | \{ `cellCompare`: [`CellCompareFunc`](TypeAlias.CellCompareFunc.md); `order`: [`Order`](TypeAlias.Order.md); `prop`: [`ColumnProp`](TypeAlias.ColumnProp.md); \}[] | Columns to sort by. | [src/plugins/sorting/sorting.types.ts:84](https://github.com/revolist/revogrid/blob/9827a26b6eac72857b5b257738fc44efe7783da3/src/plugins/sorting/sorting.types.ts#L84) |
 
 ## Defined in
 
-[src/plugins/sorting/sorting.types.ts:80](https://github.com/revolist/revogrid/blob/a793ded3ebc70e0728f055d3eda88c1f1c34da54/src/plugins/sorting/sorting.types.ts#L80)
+[src/plugins/sorting/sorting.types.ts:80](https://github.com/revolist/revogrid/blob/9827a26b6eac72857b5b257738fc44efe7783da3/src/plugins/sorting/sorting.types.ts#L80)

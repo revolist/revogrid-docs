@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.28.4](README.md) / EditorCtr
+[RevoGrid Documentation v4.29.0](README.md) / EditorCtr
 
 # Type Alias: EditorCtr
 
@@ -10,4 +10,4 @@ Editor component
 
 ## Defined in
 
-[src/types/selection.ts:181](https://github.com/revolist/revogrid/blob/a793ded3ebc70e0728f055d3eda88c1f1c34da54/src/types/selection.ts#L181)
+[src/types/selection.ts:181](https://github.com/revolist/revogrid/blob/9827a26b6eac72857b5b257738fc44efe7783da3/src/types/selection.ts#L181)
