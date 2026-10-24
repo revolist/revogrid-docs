@@ -86,7 +86,10 @@ const localProPackageAliases = useLocalProPackages
       },
       {
         find: /^@revolist\/charts\/catalog$/,
-        replacement: path.resolve(revogridProWorkspaceRoot, 'packages/charts/dist/catalog/index.js'),
+        replacement: path.resolve(
+          revogridProWorkspaceRoot,
+          'packages/charts/dist/catalog/index.js',
+        ),
       },
       {
         find: /^@revolist\/revogrid-pro\/(?:styles\.css|dist\/revogrid-pro\.css)$/,
@@ -204,7 +207,10 @@ const config: UserConfig<DefaultTheme.Config> = {
         sitemap: {
           hostname: siteUrl,
           transformItems(items) {
-            return items.filter(item => !item.url.includes('pivot/landing'))
+            return items.filter(
+              item =>
+                !item.url.includes('pivot/landing') && !/^\/?(?:tests|output)\//.test(item.url),
+            )
           },
         },
       }),
@@ -601,6 +607,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         : {}),
     },
     resolve: {
+      // Nested demos must share the host grid runtime and custom-element registration.
+      dedupe: ['@revolist/revogrid', '@revolist/vue3-datagrid'],
       extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.svg'],
       alias: [
         {
@@ -641,6 +649,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   },
   srcExclude: process.env.VITE_PRO_INCLUDE
     ? [
+        'tests/**',
+        'output/**',
+        '**/*_feature.md',
         'revogrid-demos/**',
         '**/_*.md',
         'README.md',
@@ -651,6 +662,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         'guide/column/cell.template.md',
       ]
     : [
+        'tests/**',
+        'output/**',
+        '**/*_feature.md',
         'revogrid-demos/**',
         'demo/**-pro/**',
         'pro-pages/**',

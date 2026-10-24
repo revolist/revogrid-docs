@@ -4,6 +4,7 @@ titleTemplate: false
 description: Build staff schedules, resource timelines, and booking calendars with RevoGrid’s JavaScript Scheduler. Explore live demos for React, Vue, Angular, and Svelte.
 sidebar: false
 aside: false
+outline: false
 editLink: false
 footer: true
 prev: false
@@ -65,15 +66,6 @@ head:
       content: RevoGrid Scheduler resource timeline with staff assignments and availability
 ganttLanding:
   catalogProductId: event-scheduler
-  colors:
-    accent: '#7c3aed'
-    accent2: '#14b8a6'
-    soft: rgba(124, 58, 237, 0.09)
-    border: rgba(124, 58, 237, 0.22)
-    darkAccent: '#a78bfa'
-    darkAccent2: '#5eead4'
-    darkSoft: rgba(167, 139, 250, 0.14)
-    darkBorder: rgba(167, 139, 250, 0.28)
   hero:
     eyebrow: RevoGrid Scheduler
     title: JavaScript Scheduler for people, resources, and bookings.
@@ -95,9 +87,7 @@ ganttLanding:
       - Remote data
   preview:
     enabled: true
-    kind: image
-    lightSrc: /img/scheduler-features/resource-timeline.png
-    alt: JavaScript resource scheduler showing staff assignments, shift start markers, reserved time, and event progress
+    kind: eventScheduler
     title: javascript-scheduler.revogrid.ts
     pills:
       - label: Week view
@@ -127,9 +117,8 @@ ganttLanding:
         tags: [Resource columns, Time markers, Progress]
         media: /img/scheduler-features/resource-timeline.png
         mediaAlt: Staff resource timeline with role and ward columns, progress bars, shift markers, and hatched reserved slots
-        mediaWidth: 950
-        mediaHeight: 470
-        mediaAspect: '950 / 470'
+        mediaWidth: 1152
+        mediaHeight: 489
         href: /demo/event-scheduler
         cta: Explore resource scheduling
       - icon: '02'
@@ -137,10 +126,9 @@ ganttLanding:
         description: Switch from detailed time slots to a broader calendar overview. Keep event colors, assignees, locked events, and availability visible as the date range changes.
         tags: [Day and week, Month and year, Date navigation]
         media: /img/scheduler-features/calendar-month.png
-        mediaAlt: Monthly scheduler calendar with multi-day event bars, assignee portraits, event counts, and more-event controls
-        mediaWidth: 950
-        mediaHeight: 475
-        mediaAspect: '950 / 470'
+        mediaAlt: Complete monthly scheduler calendar with all five weeks, labeled appointments, daily event counts, and weekend availability
+        mediaWidth: 1152
+        mediaHeight: 682
         href: /demo/event-scheduler
         cta: Try the calendar views
       - icon: '03'
@@ -149,31 +137,28 @@ ganttLanding:
         tags: [Drag and resize, Event editor, Locked events]
         media: /img/scheduler-features/event-editor.png
         mediaAlt: Scheduler event editor with start and end times, resource assignment, status, color palette, notes, and save controls
-        mediaWidth: 600
-        mediaHeight: 688
-        mediaAspect: '950 / 470'
+        mediaWidth: 1200
+        mediaHeight: 750
         href: /demo/event-scheduler
         cta: Open an event in the demo
       - icon: '04'
         title: Bookings with occupancy in context
         description: Plan nightly stays across properties. Check booking overlaps and guest capacity, and compare daily totals for booked properties and guests in the same timeline.
         tags: [Nightly reservations, Guest capacity, Daily totals]
-        media: /img/scheduler-use-cases/property-booking.webp
+        media: /img/scheduler-features/property-booking.png
         mediaAlt: Property booking scheduler showing accommodation photos, nightly reservations, and daily occupancy totals
-        mediaWidth: 1200
-        mediaHeight: 675
-        mediaAspect: '950 / 470'
+        mediaWidth: 1152
+        mediaHeight: 648
         href: /demo/property-booking
         cta: Try the booking calendar
       - icon: '09'
         title: Staff schedules at a glance
-        description: See the week's assignments with assignee portraits, event types, and time slots. Switch calendar presets to compare working hours and availability for different schedules.
-        tags: [Staff rosters, Assignee portraits, Calendar presets]
+        description: See the week's assignments with assignee labels, event colors, and time slots. Switch calendar presets to compare working hours and availability for different schedules.
+        tags: [Staff rosters, Assignee labels, Calendar presets]
         media: /img/scheduler-features/calendar-week.png
-        mediaAlt: Weekly staff calendar with date navigation, calendar presets, assignee portraits, and time-based event blocks
-        mediaWidth: 950
-        mediaHeight: 470
-        mediaAspect: '950 / 470'
+        mediaAlt: Complete weekly staff calendar with all seven days, working hours, labeled appointments, assignee names, and blocked time
+        mediaWidth: 1152
+        mediaHeight: 612
         href: /demo/event-scheduler
         cta: Explore the weekly calendar
       - icon: '10'
@@ -182,9 +167,8 @@ ganttLanding:
         tags: [Shared event data, Tabular overview, Status labels]
         media: /img/scheduler-features/event-table.png
         mediaAlt: Scheduler demo event table with date, time, assignee portraits, event types, and status labels
-        mediaWidth: 950
-        mediaHeight: 470
-        mediaAspect: '950 / 470'
+        mediaWidth: 1152
+        mediaHeight: 537
         href: /demo/event-scheduler
         cta: Explore the event table
       - icon: '05'
@@ -237,13 +221,13 @@ ganttLanding:
     items:
       - title: Employee shift scheduling
         description: Plan employee shifts in a weekly calendar, move assignments between resources, and check scheduling conflicts while editing.
-        media: /img/scheduler-use-cases/shift-scheduling.webp
+        media: /img/scheduler-features/resource-timeline.png
         mediaAlt: RevoGrid Scheduler demo showing employee shifts across a weekly resource calendar
         href: /demo/event-scheduler
         cta: Explore shift scheduling
       - title: Property booking
         description: Manage nightly stays across properties with booking conflict checks, guest capacity, and daily totals for booked properties and guests.
-        media: /img/scheduler-use-cases/property-booking.webp
+        media: /img/scheduler-features/property-booking.png
         mediaAlt: RevoGrid property booking demo showing property photos, nightly reservations, and daily occupancy totals
         href: /demo/property-booking
         cta: Explore property booking
@@ -260,6 +244,8 @@ ganttLanding:
         a: Yes. The shift scheduling demo shows staff assignments, resource columns, working hours, and locked events. The property booking demo shows nightly reservations, overlap checks, guest capacity, and daily occupancy totals.
       - q: How does the scheduler handle conflicts and availability?
         a: Configure calendars, working hours, blocked time, overlap checks, and capacity rules. Validation hooks let your application decide which proposed changes to accept. Your backend can apply additional business rules before persisting changes.
+      - q: When should I use a Scheduler instead of a Gantt chart?
+        a: Use Scheduler for events assigned to people, rooms, equipment, or properties over time. Use a Gantt chart when your main workflow depends on project tasks, dependencies, baselines, and critical path. RevoGrid offers Scheduler and Gantt as separate products.
       - q: Can I connect my own API and database?
         a: Yes. Your application owns the accepted event data and persistence. Remote loading and mutation hooks support loading schedule ranges, saving changes, optimistic updates, and rollback after rejected requests.
   linkSections:
@@ -274,6 +260,8 @@ ganttLanding:
             href: /demo/event-scheduler
           - label: Property booking demo
             href: /demo/property-booking
+          - label: Gantt for project planning
+            href: /gantt
       - title: Configure the scheduler
         items:
           - label: Scheduler introduction
@@ -313,13 +301,67 @@ import GanttPageLayout from './gantt/GanttPageLayout.vue'
         <a href="#integrations">Frameworks</a>
         <a href="#scheduler-use-cases">Use cases</a>
         <a href="#event-scheduler-faq">Questions</a>
+        <a href="#scheduler-quick-start">Quick start</a>
         <a href="#scheduler-resources">Developer guides</a>
       </nav>
     </template>
+    <template #before-resources>
+      <section id="scheduler-quick-start" class="scheduler-quick-start">
+        <div class="scheduler-quick-start__inner">
+
+## Start with two resources and one booking
+
+Use this JavaScript Scheduler example in a TypeScript application with a `<div id="app"></div>` mount point. The public trial registry requires no login or token. These aliases keep the same imports when you switch to licensed packages.
+
+```sh
+pnpm config set @revolist:registry https://trial.rv-grid.com --location=project
+pnpm add @revolist/revogrid @revolist/revogrid-pro@npm:@revolist/rv-pro-trial @revolist/scheduler@npm:@revolist/scheduler-trial
+```
+
+<<< ./gantt/schedulerQuickStart.ts
+
+The example renders a resource timeline with editable sample data. Connect accepted changes to your backend using the [remote data guide](https://pro.rv-grid.com/guides/event-scheduler/remote-data), or start from the [runnable Scheduler repository](https://github.com/revolist/scheduler).
+
+For task dependencies, baselines, and critical path, explore [RevoGrid Gantt](/gantt).
+
+</div>
+</section>
+</template>
+
   </GanttPageLayout>
 </div>
 
 <style scoped>
+.scheduler-landing :deep(.gantt-page > section > .container) {
+  width: calc(100% - 48px);
+  margin-inline: auto;
+}
+
+.scheduler-quick-start {
+  padding: 64px 24px;
+  border-block: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  scroll-margin-top: 96px;
+}
+
+.scheduler-quick-start__inner {
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.scheduler-quick-start__inner :deep(h2) {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.2;
+}
+
+.scheduler-quick-start__inner :deep(p) {
+  max-width: 820px;
+  line-height: 1.75;
+}
+
 .scheduler-landing :deep(.hero) {
   padding-top: 56px;
 }
@@ -330,17 +372,6 @@ import GanttPageLayout from './gantt/GanttPageLayout.vue'
 
 .scheduler-landing :deep(.rg-hero-title) {
   font-size: clamp(36px, 4vw, 52px);
-}
-
-.scheduler-landing :deep(.hero-image-wrap) {
-  aspect-ratio: 950 / 470;
-}
-
-.scheduler-landing :deep(.hero-image) {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: #fff;
 }
 
 .scheduler-section-nav {
@@ -383,7 +414,23 @@ import GanttPageLayout from './gantt/GanttPageLayout.vue'
 }
 
 .scheduler-landing :deep(.feature-media) {
+  aspect-ratio: 16 / 10;
   background: var(--vp-c-bg-soft);
+}
+
+.scheduler-landing :deep(.use-case-media) {
+  aspect-ratio: 16 / 10;
+}
+
+.scheduler-landing :deep(.use-case-media img) {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.scheduler-landing :deep(.section-title) {
+  max-width: 760px;
+  font-size: clamp(30px, 3.5vw, 44px);
 }
 
 .scheduler-landing :deep(.feature-media img) {

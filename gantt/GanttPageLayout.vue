@@ -218,6 +218,8 @@
       </div>
     </section>
 
+    <slot name="before-resources" />
+
     <section v-if="page.linkSections" :id="page.linkSections.id" class="content-section">
       <div class="container">
         <div class="section-kicker">{{ page.linkSections.kicker }}</div>

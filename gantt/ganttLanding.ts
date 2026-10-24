@@ -51,6 +51,8 @@ export type GanttLandingPage = {
       media?: string
       mediaKind?: 'image' | 'video'
       mediaAlt?: string
+      mediaWidth?: number
+      mediaHeight?: number
       mediaAspect?: string
       poster?: string
       theme?: string
