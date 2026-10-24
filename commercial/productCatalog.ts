@@ -36,6 +36,7 @@ export type DemoId =
   | 'kanban-performance'
   | 'kanban-server-loading'
   | 'event-scheduler'
+  | 'property-booking'
   | 'planning'
 export type CommercialFaqKey =
   | 'developer-licenses'
@@ -591,6 +592,13 @@ const demos = {
     planId: 'pro-advanced',
     status: 'stable',
     pageUrl: '/demo/event-scheduler',
+  },
+  'property-booking': {
+    id: 'property-booking',
+    title: 'Property Booking',
+    planId: 'pro-advanced',
+    status: 'stable',
+    pageUrl: '/demo/property-booking',
   },
   planning: {
     id: 'planning',

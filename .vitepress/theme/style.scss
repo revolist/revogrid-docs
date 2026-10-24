@@ -752,3 +752,8 @@ revo-grid:not(.skip-style) {
     display: inherit !important;
   }
 }
+
+// Keep the property booking overlay inside the docs viewport.
+.property-booking-dialog.rv-dialog-overlay {
+  --rv-dialog-width: min(600px, calc(100vw - 32px));
+}

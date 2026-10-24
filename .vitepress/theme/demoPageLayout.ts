@@ -339,6 +339,17 @@ const DEMO_PAGE_CONTENT = {
       { label: 'Remote status', source: 'KanbanPlugin getRemoteState' },
     ],
   },
+  'property-booking': {
+    title: 'Property Booking Demo',
+    description: 'Manage nightly stays with property availability, guest counts, and daily occupancy totals.',
+    implementationUrl: 'https://github.com/revolist/scheduler/tree/main/src/examples/property-booking',
+    featureBadges: [
+      { label: 'Nightly stays', source: 'Scheduler calendarDays duration mode' },
+      { label: 'Conflict prevention', source: 'Scheduler overlap and blocked-time validation' },
+      { label: 'Daily totals', source: 'Scheduler timelineSummary' },
+      { label: 'Selected properties', source: 'Scheduler timelineSummary.resourceIds' },
+    ],
+  },
   'event-scheduler': {
     title: 'JavaScript Scheduler Demo',
     description: 'Build resource schedules with events, movement, resizing, and calendar views.',

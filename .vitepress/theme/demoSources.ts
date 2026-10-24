@@ -435,6 +435,72 @@ const demoSourceFile = (path: string) => sourceFile(path, () =>
 const supportFiles = (paths: readonly string[]) => paths.map(demoSourceFile)
 
 export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, DemoSourceEntry>> = {
+  'property-booking': {
+    vue: {
+      label: 'Vue',
+      command: 'pnpm dev',
+      documentationUrl: '/jsscheduler',
+      files: [
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/PropertyBooking.vue', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/PropertyBooking.vue?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/demo.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/demo.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/data.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/data.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/editor.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/editor.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/icons.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/icons.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/photos.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/photos.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/styles.scss', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/styles.scss?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/README.md', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/README.md?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/shared/theme.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/shared/theme.ts?raw').then(module => module.default)),
+      ],
+    },
+    ts: {
+      label: 'JavaScript',
+      command: 'pnpm dev',
+      documentationUrl: '/jsscheduler',
+      files: [
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/PropertyBooking.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/PropertyBooking.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/demo.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/demo.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/data.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/data.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/editor.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/editor.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/icons.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/icons.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/photos.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/photos.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/styles.scss', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/styles.scss?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/README.md', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/README.md?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/shared/theme.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/shared/theme.ts?raw').then(module => module.default)),
+      ],
+    },
+    react: {
+      label: 'React',
+      command: 'pnpm dev',
+      documentationUrl: '/jsscheduler',
+      files: [
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/PropertyBooking.tsx', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/PropertyBooking.tsx?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/demo.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/demo.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/data.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/data.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/editor.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/editor.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/icons.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/icons.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/photos.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/photos.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/styles.scss', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/styles.scss?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/README.md', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/README.md?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/shared/theme.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/shared/theme.ts?raw').then(module => module.default)),
+      ],
+    },
+    angular: {
+      label: 'Angular',
+      command: 'pnpm dev',
+      documentationUrl: '/jsscheduler',
+      files: [
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/PropertyBookingAngular.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/PropertyBookingAngular.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/demo.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/demo.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/data.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/data.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/editor.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/editor.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/icons.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/icons.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/photos.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/photos.ts?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/styles.scss', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/styles.scss?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/examples/property-booking/README.md', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/README.md?raw').then(module => module.default)),
+        sourceFile('pro-advanced-scheduler/src/shared/theme.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/shared/theme.ts?raw').then(module => module.default)),
+      ],
+    },
+  },
   planning: {
     vue: {
       label: 'Vue',

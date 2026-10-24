@@ -260,6 +260,14 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
   },
+  'property-booking': {
+    docsUrl: '/jsscheduler',
+    verificationOptions: [
+      { code: 'own_event_data', label: 'Try it with my own property data' },
+      { code: 'app_integration', label: 'See an integration example' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
   'event-scheduler': {
     docsUrl: '/jsscheduler',
     verificationOptions: [

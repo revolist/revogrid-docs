@@ -328,6 +328,10 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         collapsed: false,
         items: [
           {
+            text: demoSidebarText('property-booking', 'Property booking'),
+            link: '/demo/property-booking',
+          },
+          {
             text: demoSidebarText('event-scheduler', 'Shift scheduling'),
             link: '/demo/event-scheduler',
           },

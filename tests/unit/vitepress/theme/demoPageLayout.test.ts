@@ -55,6 +55,7 @@ const demoSeoFiles = [
   'kanban-performance.md',
   'kanban-server-loading.md',
   'event-scheduler.md',
+  'property-booking.md',
   'planning.md',
   'excel.md',
 ] as const
@@ -427,7 +428,7 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
         collapsed: false,
         links: ['/demo/gantt', '/demo/gantt-big-data', '/demo/gantt-horizontal-big-data'],
       },
-      { text: 'Scheduler', collapsed: false, links: ['/demo/event-scheduler'] },
+      { text: 'Scheduler', collapsed: false, links: ['/demo/property-booking', '/demo/event-scheduler'] },
       {
         text: 'Kanban',
         collapsed: false,

@@ -768,3 +768,14 @@ test('gives the Pivot field configuration panel room to avoid horizontal scrolli
     /\.financial-pivot-showcase \.pivot-config > \*\s*\{[\s\S]*?min-width:\s*0[\s\S]*?width:\s*100%/,
   )
 })
+
+
+test('property booking source panels reuse the pushed Scheduler example in every framework', () => {
+  for (const framework of ['vue', 'ts', 'react', 'angular'] as const) {
+    const files = getDemoSources('property-booking')[framework].files;
+    assert.ok(files[0].path.startsWith('pro-advanced-scheduler/src/examples/property-booking/'));
+    for (const name of ['demo.ts', 'data.ts', 'editor.ts', 'icons.ts', 'photos.ts', 'styles.scss']) {
+      assert.ok(files.some(file => file.label === name), `${framework}: ${name}`);
+    }
+  }
+});

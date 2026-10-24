@@ -1,0 +1,46 @@
+import { expect, test } from '@playwright/test'
+
+test.setTimeout(120_000)
+
+for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }]) {
+  test(`property booking docs, themes and source panels at ${viewport.width}px`, async ({ page }) => {
+    await page.setViewportSize(viewport)
+    await page.addInitScript(() => localStorage.setItem('vitepress-theme-appearance', 'light'))
+    await page.goto('/demo/property-booking', { waitUntil: 'domcontentloaded' })
+    const demo = page.locator('.property-booking-demo')
+    await expect(demo).toBeVisible({ timeout: 90_000 })
+    await expect(demo).toHaveAttribute('data-theme', 'light')
+    await expect(demo.getByRole('button', { name: 'New booking', exact: true })).toBeEnabled({ timeout: 45_000 })
+    await expect(demo.getByRole('button', { name: 'Apply date range', exact: true })).toHaveCount(0)
+    await demo.getByLabel('View to', { exact: true }).fill('2026-10-31')
+    await expect.poll(() => demo.locator('revo-grid').evaluate(async (grid: any) => (await grid.getPlugins()).find((plugin: any) => plugin.getProjection)?.getProjection()?.days.at(-1)?.date)).toBe('2026-10-31')
+    await demo.getByRole('button', { name: 'Reset demo', exact: true }).click()
+    const photos = demo.locator('.property-booking-resource__photo')
+    await expect(photos.first()).toBeVisible()
+    await expect.poll(() => photos.first().evaluate((image: HTMLImageElement) => image.naturalWidth)).toBe(144)
+    const total = demo.locator('[data-event-scheduler-summary-id="properties"][data-event-scheduler-summary-date="2026-10-20"]')
+    await expect(total).toHaveText('5')
+    await demo.getByRole('checkbox', { name: 'Selected properties only', exact: true }).check()
+    await demo.getByRole('checkbox', { name: 'Include Cedar Cabin in totals', exact: true }).check()
+    await expect(total).toHaveText('1')
+    await demo.getByRole('button', { name: 'New booking', exact: true }).click()
+    const editor = page.getByRole('dialog', { name: 'New booking', exact: true })
+    await expect(editor).toBeVisible()
+    await expect(editor.getByLabel('Guest name', { exact: true })).toBeFocused()
+    await expect(editor.getByRole('button', { name: 'Close booking editor', exact: true })).toBeInViewport()
+    await editor.getByRole('button', { name: 'Close booking editor', exact: true }).click()
+    await page.evaluate(() => { document.documentElement.classList.add('dark'); document.documentElement.dataset.theme = 'dark' })
+    await expect(demo).toHaveAttribute('data-theme', 'dark')
+    await expect(demo.locator('revo-grid')).toHaveAttribute('theme', 'darkMaterial')
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+    await page.screenshot({ path: test.info().outputPath(`property-booking-docs-${viewport.width}.png`), fullPage: true })
+    await page.getByRole('button', { name: 'Code', exact: true }).click()
+    const source = page.getByRole('dialog', { name: 'Example source code' })
+    for (const name of ['Vue', 'JavaScript', 'React', 'Angular']) {
+      await source.getByRole('tab', { name, exact: true }).click()
+      await expect(source.locator('.demo-source__code')).toContainText('property-booking-demo')
+    }
+    await source.getByRole('combobox').selectOption({ label: 'demo.ts' })
+    await expect(source.locator('.demo-source__code')).toContainText('createPropertyBookingDemo')
+  })
+}

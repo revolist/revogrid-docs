@@ -213,6 +213,7 @@ const featureGroups = [
     label: 'Scheduler',
     icon: 'calendarDays',
     items: [
+      createItem('property-booking', 'Property booking', '/demo/property-booking', 'calendarDays', ['Reservations', 'Hospitality', 'Nightly stays']),
       createItem('event-scheduler', 'Shift scheduling', '/demo/event-scheduler', 'calendarDays', [
         'Calendar',
         'Event scheduler',
