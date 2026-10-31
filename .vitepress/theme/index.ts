@@ -20,6 +20,7 @@ import HomeFeatureStats from './home/HomeFeatureStats.vue'
 import HomeCtaBanner from './home/HomeCtaBanner.vue'
 import ExternalHomeLinks from './ExternalHomeLinks.vue'
 import HeaderNavControls from './HeaderNavControls.vue'
+import ProductDropdown from './ProductDropdown.vue'
 import HomePageColors from './home/HomePageColors.vue'
 import DemoThemeBridge from './DemoThemeBridge.vue'
 import ProDemoFrame from './ProDemoFrame.vue'
@@ -64,6 +65,7 @@ export default {
     app.provide(ZINDEX_INJECTION_KEY, { current: 0 })
     app.provide(ID_INJECTION_KEY, { prefix: 1024, current: 0 })
     enhanceAppWithTabs(app)
+    app.component('ProductDropdown', ProductDropdown)
     app.component('custom', CustomLayout)
     app.component('revogrid-home', RevoGridHomeLayout)
     app.component('Mermaid', Mermaid)

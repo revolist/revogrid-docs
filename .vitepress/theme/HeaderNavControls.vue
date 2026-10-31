@@ -17,6 +17,7 @@ type HeaderNavControls = {
 
 type NavItem = {
   text?: string
+  props?: { text?: string }
   link?: string
   target?: string
   rel?: string
@@ -95,7 +96,10 @@ watchEffect(() => {
   const hidden = new Set(controls.hiddenItems ?? [])
   const links = controls.links ?? []
 
-  let nav = cloneNav(originalNav).filter(item => !item.text || !hidden.has(item.text))
+  let nav = cloneNav(originalNav).filter(item => {
+    const text = item.text ?? item.props?.text
+    return !text || !hidden.has(text)
+  })
 
   if (links.length) {
     nav = applyLinkOverrides(nav, links)

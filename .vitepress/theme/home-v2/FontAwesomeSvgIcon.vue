@@ -17,6 +17,7 @@ import bookOpenIcon from '@fortawesome/fontawesome-free/svgs/solid/book-open.svg
 import boxesStackedIcon from '@fortawesome/fontawesome-free/svgs/solid/boxes-stacked.svg?raw'
 import buildingColumnsIcon from '@fortawesome/fontawesome-free/svgs/solid/building-columns.svg?raw'
 import calendarDaysIcon from '@fortawesome/fontawesome-free/svgs/solid/calendar-days.svg?raw'
+import barsStaggeredIcon from '@fortawesome/fontawesome-free/svgs/solid/bars-staggered.svg?raw'
 import chartGanttIcon from '@fortawesome/fontawesome-free/svgs/solid/chart-gantt.svg?raw'
 import chartLineIcon from '@fortawesome/fontawesome-free/svgs/solid/chart-line.svg?raw'
 import chartColumnIcon from '@fortawesome/fontawesome-free/svgs/solid/chart-column.svg?raw'
@@ -63,6 +64,7 @@ const icons: Record<string, string> = {
   arrowRight: arrowRightIcon,
   collapseColumns: arrowsLeftRightToLineIcon,
   gantt: chartGanttIcon,
+  pivot: barsStaggeredIcon,
   caretDown: caretDownIcon,
   caretRight: caretRightIcon,
   pulse: gaugeHighIcon,
