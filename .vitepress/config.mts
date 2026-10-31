@@ -17,6 +17,7 @@ import { createStructuredDataHead } from './configs/structuredData.ts'
 import { prepareBlogFrontmatter } from './configs/blogSeo.ts'
 import { resolveCommercialFaqs, type CommercialFaqKey } from '../commercial/productCatalog.ts'
 import UnoCSS from 'unocss/vite'
+import { resolvePivotVersion } from '../revogrid-demos/pro-advanced-pivot/scripts/pivot-version.mjs'
 
 dotenv.config()
 
@@ -497,6 +498,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     sidebar: sidebarEn,
   },
   vite: {
+    define: {
+      'import.meta.env.REVOGRID_PIVOT_VERSION': JSON.stringify(
+        resolvePivotVersion(
+          import.meta.url,
+          useLocalProPackages ? path.resolve(revogridProWorkspaceRoot, 'packages/pivot') : undefined,
+        ),
+      ),
+    },
     oxc: {
       jsx: {
         runtime: 'automatic',
