@@ -7,6 +7,8 @@
       :resolve-link="resolveLandingLink"
     />
 
+    <slot name="after-hero" />
+
     <section v-if="page.demos" :id="page.demos.id" class="content-section">
       <div class="container">
         <div class="section-kicker">{{ page.demos.kicker }}</div>
@@ -119,7 +121,7 @@
       v-if="page.useCases"
       :id="page.useCases.id"
       :class="[
-        'content-section',
+        'content-section use-cases-section',
         page.useCases.items.some(item => item.theme) ? 'use-cases-section--themed' : '',
       ]"
     >
@@ -137,7 +139,7 @@
           {{ page.useCases.benefits.label }} →
         </a>
 
-        <div class="use-case-grid">
+        <div class="use-case-grid" :class="{ 'use-case-grid--pair': page.useCases.items.length === 2 }">
           <component
             :is="item.href ? 'a' : 'article'"
             v-for="item in page.useCases.items"
@@ -215,6 +217,8 @@
         </div>
       </div>
     </section>
+
+    <slot name="before-resources" />
 
     <section v-if="page.linkSections" :id="page.linkSections.id" class="content-section">
       <div class="container">
@@ -486,6 +490,12 @@ function resolveLandingLink(href: string) {
   }
 }
 
+.use-case-grid--pair {
+  @media (min-width: 641px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .gantt-page .use-cases-section--themed {
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -507,7 +517,7 @@ function resolveLandingLink(href: string) {
 }
 
 @media (max-width: 640px) {
-  #gantt-use-cases > .container {
+  .use-cases-section > .container {
     width: calc(100% - 32px);
     margin-right: auto;
     margin-left: auto;

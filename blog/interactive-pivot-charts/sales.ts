@@ -1,0 +1,21 @@
+/** Fictional order lines, in USD. One row is one order line, never a subtotal. */
+export const sales = [
+  { order: 'SO-101', region: 'Europe', product: 'Chairs', month: 'Jan', revenue: 16000 },
+  { order: 'SO-102', region: 'Europe', product: 'Chairs', month: 'Feb', revenue: 20000 },
+  { order: 'SO-103', region: 'Europe', product: 'Desks', month: 'Jan', revenue: 10000 },
+  { order: 'SO-104', region: 'Europe', product: 'Desks', month: 'Feb', revenue: 14000 },
+  { order: 'SO-105', region: 'Europe', product: 'Lamps', month: 'Jan', revenue: 5000 },
+  { order: 'SO-106', region: 'Europe', product: 'Lamps', month: 'Feb', revenue: 7000 },
+  { order: 'SO-107', region: 'Americas', product: 'Chairs', month: 'Jan', revenue: 11000 },
+  { order: 'SO-108', region: 'Americas', product: 'Chairs', month: 'Feb', revenue: 13000 },
+  { order: 'SO-109', region: 'Americas', product: 'Desks', month: 'Jan', revenue: 14000 },
+  { order: 'SO-110', region: 'Americas', product: 'Desks', month: 'Feb', revenue: 16000 },
+  { order: 'SO-111', region: 'Americas', product: 'Lamps', month: 'Jan', revenue: 2000 },
+  { order: 'SO-112', region: 'Americas', product: 'Lamps', month: 'Feb', revenue: 4000 },
+  { order: 'SO-113', region: 'APAC', product: 'Chairs', month: 'Jan', revenue: 8000 },
+  { order: 'SO-114', region: 'APAC', product: 'Chairs', month: 'Feb', revenue: 10000 },
+  { order: 'SO-115', region: 'APAC', product: 'Desks', month: 'Jan', revenue: 7000 },
+  { order: 'SO-116', region: 'APAC', product: 'Desks', month: 'Feb', revenue: 8000 },
+  { order: 'SO-117', region: 'APAC', product: 'Lamps', month: 'Jan', revenue: 4000 },
+  { order: 'SO-118', region: 'APAC', product: 'Lamps', month: 'Feb', revenue: 5000 },
+]

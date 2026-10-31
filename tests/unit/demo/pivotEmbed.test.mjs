@@ -1,26 +1,24 @@
 import assert from 'node:assert/strict'
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import test from 'node:test'
 
-const sources = [
-  '../revogrid-demos/pro-advanced-pivot/src/pivot.vue',
-  '../revogrid-demos/pro-advanced-pivot/src/pivot.react.tsx',
-  '../revogrid-demos/pro-advanced-pivot/src/pivot.angular.ts',
-  '../revogrid-demos/pro-advanced-pivot/src/pivot.ts',
-  '../revogrid-demos/pro-advanced-pivot/src/financial.analytics.ts',
-  '../revogrid-demos/pro-advanced-pivot/demo-host.css',
-].map(path => [
-  path,
-  readFileSync(new URL(path, new URL('../../../demo/', import.meta.url)), 'utf8'),
-])
+const read = path => readFileSync(new URL(path, import.meta.url), 'utf8')
+const base = '../../../revogrid-demos/pro-advanced-pivot/src/'
 
-test('does not render the analytics toolbar in any Pivot demo framework', () => {
-  for (const [path, source] of sources) {
-    assert.doesNotMatch(source, /pivot-analytics-(?:toolbar|button|status)/, path)
-    assert.doesNotMatch(
-      source,
-      /Vue analytics:|Open linked chart|Export CSV for Excel|layout saved locally/,
-      path,
-    )
+test('the primary Pivot demo exposes report, reset, charts and export actions', () => {
+  const header = read(`${base}financial-pivot-header/financial-pivot-header.ts`)
+  for (const label of ['Fields', 'Chart', 'Export CSV', 'Report', 'Reset', 'Expand workspace']) {
+    assert.ok(header.includes(label), label)
+  }
+  assert.match(header, /Restore saved report/)
+  assert.match(header, /Export XLSX \(visible result\)/)
+  assert.match(header, /Print \/ Save PDF \(visible result\)/)
+})
+
+test('the demo sidebar links all focused Pivot demos', () => {
+  const page = read('../../../.vitepress/configs/sidebar/en.demo.ts')
+  for (const id of ['pivot-charts', 'pivot-financial', 'pivot-operations', 'pivot-import', 'pivot-scale']) {
+    assert.match(page, new RegExp(`/demo/${id}`))
+    assert.ok(existsSync(new URL(`../../../demo/${id}.md`, import.meta.url)), id)
   }
 })

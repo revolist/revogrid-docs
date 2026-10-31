@@ -1,5 +1,5 @@
 import type { DefaultTheme } from 'vitepress'
-import { getDemoBadge, getPlan, type DemoId, type PlanId } from '../../../commercial/productCatalog'
+import { getDemoBadge, getPlan, type DemoId, type PlanId } from '../../../commercial/productCatalog.ts'
 
 const demoSidebarText = (demoId: DemoId, label?: string) => {
   const demo = getDemoBadge(demoId)
@@ -298,6 +298,11 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
             text: demoSidebarText('pivot', 'Pivot table'),
             link: '/demo/pivot',
           },
+          { text: demoSidebarText('pivot-charts', 'Charts dashboard'), link: '/demo/pivot-charts' },
+          { text: demoSidebarText('pivot-financial', 'Financial analysis'), link: '/demo/pivot-financial' },
+          { text: demoSidebarText('pivot-operations', 'Ticket investigation'), link: '/demo/pivot-operations' },
+          { text: demoSidebarText('pivot-import', 'Pivot your data'), link: '/demo/pivot-import' },
+          { text: demoSidebarText('pivot-scale', 'Pivot at scale'), link: '/demo/pivot-scale' },
         ],
       },
       {
@@ -322,6 +327,10 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         text: 'Scheduler',
         collapsed: false,
         items: [
+          {
+            text: demoSidebarText('property-booking', 'Property booking'),
+            link: '/demo/property-booking',
+          },
           {
             text: demoSidebarText('event-scheduler', 'Shift scheduling'),
             link: '/demo/event-scheduler',

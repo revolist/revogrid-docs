@@ -5,7 +5,7 @@ import {
   sidebarReactEn,
   sidebarVue2En,
   sidebarVue3En,
-} from './en.demo'
+} from './en.demo.ts'
 
 // {
 //     text: 'Pro',

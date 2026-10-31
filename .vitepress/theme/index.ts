@@ -2,6 +2,8 @@
 import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import BlogArticleMeta from '../../blog/BlogArticleMeta.vue'
+import BlogRelated from '../../blog/BlogRelated.vue'
 import { ID_INJECTION_KEY, ZINDEX_INJECTION_KEY } from 'element-plus'
 import './style.scss'
 import HomeHero from './home/HomeHero.vue'
@@ -35,6 +37,8 @@ export default {
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
+      'doc-before': () => h(BlogArticleMeta),
+      'doc-after': () => h(BlogRelated),
       'layout-top': () => [
         h(DemoNavigation),
         h(HeaderNavControls),

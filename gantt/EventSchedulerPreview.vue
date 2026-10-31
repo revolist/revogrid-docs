@@ -1,16 +1,18 @@
 <template>
   <div class="scheduler-preview" aria-label="JavaScript Scheduler shift planner preview">
     <div class="scheduler-topbar">
-      <div class="window-controls" aria-hidden="true">
-        <span class="dot red"></span>
-        <span class="dot yellow"></span>
-        <span class="dot green"></span>
-      </div>
-      <span class="scheduler-title">event-scheduler.revogrid.ts</span>
+      <span class="scheduler-title">Try the scheduler</span>
       <div class="scheduler-tabs" aria-label="Scheduler view">
-        <button type="button">Day</button>
-        <button type="button" class="active">Week</button>
-        <button type="button">Month</button>
+        <button
+          v-for="view in views"
+          :key="view.id"
+          type="button"
+          :class="{ active: activeView === view.id }"
+          :aria-pressed="activeView === view.id"
+          @click="activeView = view.id"
+        >
+          {{ view.label }}
+        </button>
       </div>
     </div>
 
@@ -29,10 +31,7 @@
 
     <div class="scheduler-footer">
       <span class="status-dot"></span>
-      <span
-        >Actual EventSchedulerPlugin preview: week view, resources, editable event blocks,
-        availability, and overlap conflicts.</span
-      >
+      <span>Double-click an event to edit. Drag to move or resize.</span>
     </div>
   </div>
 </template>
@@ -53,6 +52,12 @@ import '@revolist/scheduler/styles.css'
 
 const { isDark } = useData()
 const plugins = ref<unknown[]>([])
+const views = [
+  { id: 'resourceTimeline', label: 'Resources' },
+  { id: 'week', label: 'Week' },
+  { id: 'month', label: 'Month' },
+] as const
+const activeView = ref<(typeof views)[number]['id']>('resourceTimeline')
 const gridRef = ref<
   (InstanceType<typeof RevoGrid> & { $el?: HTMLRevoGridElement }) | HTMLRevoGridElement | null
 >(null)
@@ -61,11 +66,12 @@ const events = ref<EventSchedulerEventEntity[]>([
     id: 'front-desk-mon',
     resourceId: 'alex',
     title: 'Front desk',
+    progress: 65,
     startDateTime: '2026-06-08T08:00:00.000Z',
     endDateTime: '2026-06-08T12:00:00.000Z',
     status: 'confirmed',
     type: 'shift',
-    color: '#14b8a6',
+    color: '#0f9a61',
   },
   {
     id: 'triage-mon',
@@ -75,28 +81,89 @@ const events = ref<EventSchedulerEventEntity[]>([
     endDateTime: '2026-06-08T14:00:00.000Z',
     status: 'planned',
     type: 'shift',
-    color: '#7c3aed',
+    color: '#16c47f',
   },
   {
     id: 'room-setup-tue',
     resourceId: 'jon',
     title: 'Room setup',
-    startDateTime: '2026-06-09T09:00:00.000Z',
-    endDateTime: '2026-06-09T12:00:00.000Z',
+    progress: 40,
+    className: 'hero-preview-event--outline',
+    startDateTime: '2026-06-08T09:00:00.000Z',
+    endDateTime: '2026-06-08T12:00:00.000Z',
     status: 'confirmed',
     type: 'booking',
-    color: '#0ea5e9',
+    color: '#0f9a61',
   },
   {
     id: 'training-tue',
     resourceId: 'nina',
     title: 'Training block',
-    startDateTime: '2026-06-09T13:00:00.000Z',
-    endDateTime: '2026-06-09T17:00:00.000Z',
+    startDateTime: '2026-06-08T13:00:00.000Z',
+    endDateTime: '2026-06-08T17:00:00.000Z',
     status: 'confirmed',
     type: 'training',
     locked: true,
-    color: '#f59e0b',
+    color: '#16c47f',
+  },
+  {
+    id: 'lunch-mon',
+    resourceId: 'alex',
+    title: 'Break',
+    startDateTime: '2026-06-08T12:00:00.000Z',
+    endDateTime: '2026-06-08T14:00:00.000Z',
+    type: 'break',
+    status: 'confirmed',
+    className: 'hero-preview-event--break',
+    notes: 'A scheduled break between front desk cover and standby.',
+  },
+  {
+    id: 'standby-mon',
+    resourceId: 'alex',
+    title: 'Standby',
+    startDateTime: '2026-06-08T14:00:00.000Z',
+    endDateTime: '2026-06-08T18:00:00.000Z',
+    type: 'coverage',
+    status: 'tentative',
+    color: '#0f9a61',
+    className: 'hero-preview-event--tentative',
+    notes: 'Tentative coverage, pending confirmation.',
+  },
+  {
+    id: 'briefing-mon',
+    resourceId: 'jon',
+    title: 'Briefing',
+    startDateTime: '2026-06-08T13:00:00.000Z',
+    endDateTime: '2026-06-08T17:00:00.000Z',
+    type: 'meeting',
+    appearance: 'line',
+    icon: '👥',
+    readonly: true,
+    color: '#0f9a61',
+  },
+  {
+    id: 'wellbeing-mon',
+    resourceId: 'maria',
+    title: 'Break',
+    startDateTime: '2026-06-08T15:00:00.000Z',
+    endDateTime: '2026-06-08T18:00:00.000Z',
+    type: 'wellbeing',
+    appearance: 'line',
+    icon: '☕',
+    readonly: true,
+    color: '#0f9a61',
+  },
+  {
+    id: 'onboarding-mon',
+    resourceId: 'nina',
+    title: 'Onboarding',
+    startDateTime: '2026-06-08T08:00:00.000Z',
+    endDateTime: '2026-06-08T12:00:00.000Z',
+    type: 'training',
+    status: 'confirmed',
+    progress: 35,
+    color: '#0f9a61',
+    className: 'hero-preview-event--outline',
   },
   {
     id: 'customer-visits-wed',
@@ -106,7 +173,7 @@ const events = ref<EventSchedulerEventEntity[]>([
     endDateTime: '2026-06-10T15:00:00.000Z',
     status: 'confirmed',
     type: 'field',
-    color: '#14b8a6',
+    color: '#0f9a61',
   },
   {
     id: 'inventory-fri',
@@ -116,15 +183,55 @@ const events = ref<EventSchedulerEventEntity[]>([
     endDateTime: '2026-06-12T16:00:00.000Z',
     status: 'planned',
     type: 'ops',
-    color: '#0ea5e9',
+    color: '#0f9a61',
   },
 ])
 
 const resources: EventSchedulerResourceEntity[] = [
-  { id: 'alex', name: 'Alex Kim', role: 'Coordinator', group: 'Front desk', color: '#14b8a6' },
-  { id: 'maria', name: 'Maria Cruz', role: 'Clinical', group: 'Clinical', color: '#7c3aed' },
-  { id: 'jon', name: 'Jon Bell', role: 'Operations', group: 'Ops', color: '#0ea5e9' },
-  { id: 'nina', name: 'Nina Lee', role: 'Support', group: 'Support', color: '#f59e0b' },
+  {
+    id: 'alex',
+    avatarUrl: new URL(
+      '../revogrid-demos/pro-advanced-scheduler/src/assets/avatars/leo.webp',
+      import.meta.url,
+    ).href,
+    name: 'Alex Kim',
+    role: 'Coordinator',
+    group: 'Front desk',
+    color: '#0f9a61',
+  },
+  {
+    id: 'maria',
+    avatarUrl: new URL(
+      '../revogrid-demos/pro-advanced-scheduler/src/assets/avatars/maya.webp',
+      import.meta.url,
+    ).href,
+    name: 'Maria Cruz',
+    role: 'Clinical',
+    group: 'Clinical',
+    color: '#16c47f',
+  },
+  {
+    id: 'jon',
+    avatarUrl: new URL(
+      '../revogrid-demos/pro-advanced-scheduler/src/assets/avatars/noah.webp',
+      import.meta.url,
+    ).href,
+    name: 'Jon Bell',
+    role: 'Operations',
+    group: 'Ops',
+    color: '#0f9a61',
+  },
+  {
+    id: 'nina',
+    avatarUrl: new URL(
+      '../revogrid-demos/pro-advanced-scheduler/src/assets/avatars/ava.webp',
+      import.meta.url,
+    ).href,
+    name: 'Nina Lee',
+    role: 'Support',
+    group: 'Support',
+    color: '#16c47f',
+  },
 ]
 
 const availability: EventSchedulerAvailabilityEntity[] = [
@@ -194,17 +301,31 @@ function applySchedulerProperties() {
   const grid = getGridEl()
   if (!grid) return
 
-  grid.eventScheduler = schedulerConfig
+  grid.eventScheduler = {
+    ...schedulerConfig,
+    view: activeView.value,
+    dateRange:
+      activeView.value === 'resourceTimeline'
+        ? { start: '2026-06-08', end: '2026-06-08' }
+        : undefined,
+    slotMinutes: activeView.value === 'resourceTimeline' ? 120 : 60,
+    timeRange: { start: '08:00', end: '18:00' },
+    rowSize: activeView.value === 'resourceTimeline' ? 72 : 36,
+    resourceColumnSize: 152,
+    timelineColumnSize: 88,
+    dayColumnSize: 100,
+    timeColumnSize: 56,
+    currentTimeMarker: false,
+  }
   grid.eventSchedulerResources = resources
   grid.eventSchedulerAvailability = availability
-  grid.eventSchedulerEvents = events.value
+  grid.source = events.value
 }
 
 function syncEvents(event: Event) {
   const detail = (event as CustomEvent<{ events?: readonly EventSchedulerEventEntity[] }>).detail
   if (!detail?.events) return
   events.value = [...detail.events]
-  applySchedulerProperties()
 }
 
 onMounted(async () => {
@@ -228,7 +349,7 @@ onBeforeUnmount(() => {
   grid?.removeEventListener('event-scheduler-event-deleted', syncEvents)
 })
 
-watch(isDark, () => {
+watch([isDark, activeView], () => {
   requestAnimationFrame(applySchedulerProperties)
 })
 </script>
@@ -269,27 +390,6 @@ watch(isDark, () => {
   padding: 10px 14px;
 }
 
-.window-controls {
-  display: inline-flex;
-  gap: 7px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.red {
-  background: #ff5f57;
-}
-.yellow {
-  background: #febc2e;
-}
-.green {
-  background: #28c840;
-}
-
 .scheduler-title {
   flex: 1;
   min-width: 0;
@@ -312,9 +412,13 @@ watch(isDark, () => {
     padding: 6px 9px;
     color: var(--vp-c-text-3);
     background: var(--vp-c-bg);
-    cursor: default;
+    cursor: pointer;
     font: 600 11px/1 var(--vp-font-family-mono);
-    pointer-events: none;
+  }
+
+  button:focus-visible {
+    outline: 2px solid var(--vp-c-brand-1);
+    outline-offset: 2px;
   }
 
   .active {
@@ -325,7 +429,7 @@ watch(isDark, () => {
 }
 
 .scheduler-grid-stage {
-  height: clamp(500px, 58vh, 640px);
+  height: 420px;
   min-width: 0;
   overflow: hidden;
   background: var(--vp-c-bg);
@@ -364,31 +468,30 @@ watch(isDark, () => {
   font-size: 12px;
 }
 
-.scheduler-grid-stage :deep(revo-grid[theme='darkCompact']) {
-  --revo-grid-background: #17191f;
-  --revo-grid-header-bg: #1f222a;
-  --revo-grid-header-color: rgba(248, 250, 252, 0.92);
-  --revo-grid-text: rgba(248, 250, 252, 0.9);
-  --revo-grid-cell-border: rgba(148, 163, 184, 0.22);
-  --revo-grid-header-border: rgba(148, 163, 184, 0.24);
-  --revo-grid-row-hover: rgba(124, 58, 237, 0.1);
+/* Event variants follow the working demo's treatments using site theme tokens. */
+.scheduler-grid-stage :deep(.hero-preview-event--outline) {
+  --event-scheduler-event-bg: var(--vp-c-brand-soft) !important;
+  --event-scheduler-event-text: var(--vp-c-text-1) !important;
+  --event-scheduler-text: var(--vp-c-text-1) !important;
+  --event-scheduler-event-text-shadow: none;
 }
 
-.scheduler-grid-stage :deep(.hero-scheduler-event) {
-  --event-scheduler-event-bg: var(--hero-scheduler-event-color);
-  --event-scheduler-event-color: var(--hero-scheduler-event-color);
-  --event-scheduler-event-border: var(--hero-scheduler-event-color);
-  --event-scheduler-event-text: #fff;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+.scheduler-grid-stage :deep(.hero-preview-event--break) {
+  --event-scheduler-event-color: var(--vp-c-text-3) !important;
+  --event-scheduler-event-bg: var(--vp-c-bg-soft) !important;
+  --event-scheduler-event-text: var(--vp-c-text-1) !important;
+  --event-scheduler-text: var(--vp-c-text-1) !important;
+  --event-scheduler-event-text-shadow: none;
 }
 
-.scheduler-grid-stage :deep(.hero-scheduler-event--conflict) {
-  outline: 2px solid #f59e0b;
-  outline-offset: -2px;
-}
-
-.scheduler-grid-stage :deep(.hero-scheduler-event--locked) {
-  opacity: 0.92;
+.scheduler-grid-stage :deep(.hero-preview-event--tentative .event-scheduler-event__button) {
+  outline: 1px dashed currentColor;
+  outline-offset: -4px;
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0 8px,
+    color-mix(in srgb, var(--vp-c-bg) 16%, transparent) 8px 16px
+  );
 }
 
 .scheduler-footer {
@@ -406,18 +509,17 @@ watch(isDark, () => {
   height: 9px;
   flex: 0 0 auto;
   border-radius: 50%;
-  background: #f59e0b;
-  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.15);
+  background: var(--vp-c-brand-1);
+  box-shadow: 0 0 0 4px var(--vp-c-brand-soft);
 }
 
 @media (max-width: 720px) {
-  .scheduler-tabs button:not(.active) {
-    display: none;
+  .scheduler-topbar {
+    flex-wrap: wrap;
   }
 
-  .scheduler-grid-stage {
-    height: 520px;
-    overflow-x: auto;
+  .scheduler-tabs {
+    flex-wrap: wrap;
   }
 }
 </style>

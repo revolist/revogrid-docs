@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.11](README.md) / ThemeTokens
+[RevoGrid Documentation v4.29.0](README.md) / ThemeTokens
 
 # Type Alias: ThemeTokens
 
@@ -8,4 +8,4 @@ type ThemeTokens: Partial<Record<ThemeTokenName, string>>;
 
 ## Defined in
 
-[src/types/theme.ts:88](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/types/theme.ts#L88)
+[src/types/theme.ts:88](https://github.com/revolist/revogrid/blob/9827a26b6eac72857b5b257738fc44efe7783da3/src/types/theme.ts#L88)

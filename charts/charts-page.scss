@@ -1,0 +1,457 @@
+.charts-page {
+  --charts-accent: #6647f0;
+  color: var(--vp-c-text-1);
+  overflow: clip;
+  .section-width {
+    width: min(1320px, calc(100% - 80px));
+    margin-inline: auto;
+  }
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+  a,
+  button,
+  input,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible {
+    outline: 3px solid var(--vp-c-brand-1);
+    outline-offset: 5px;
+  }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 650;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--vp-c-brand-1);
+  }
+  .charts-reading {
+    margin-bottom: 64px;
+  }
+  .charts-hero {
+    padding-top: 80px;
+    text-align: center;
+    position: relative;
+  }
+  .charts-hero > .eyebrow span {
+    color: var(--vp-c-text-2);
+    margin-left: 16px;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+  h1 {
+    font-size: clamp(44px, 5.8vw, 80px);
+    letter-spacing: -4px;
+    line-height: 1.04;
+    font-weight: 680;
+    margin: 24px 0;
+  }
+  h1 span {
+    color: var(--vp-c-brand-1);
+  }
+  .hero-copy {
+    max-width: 620px;
+    margin: auto;
+    color: var(--vp-c-text-2);
+    font-size: 19px;
+    line-height: 1.7;
+  }
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 28px 0 24px;
+  }
+  .hero-actions :deep(.rg-btn) {
+    gap: 18px;
+  }
+  .frameworks {
+    color: var(--vp-c-text-2);
+    font-size: 12px;
+  }
+  .frameworks i {
+    font-style: normal;
+    opacity: 0.4;
+    margin: 0 12px;
+  }
+  .hero-financial-example {
+    margin-top: 36px;
+    text-align: left;
+  }
+  .hero-financial-example :deep(.financial-explanation) {
+    margin: 16px 0;
+  }
+  .hero-financial-example :deep(.financial-investigation) {
+    margin: 0;
+    padding: 22px 20px 18px;
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 14px;
+    background: transparent;
+  }
+  .hero-financial-example :deep(.financial-scroll) {
+    margin: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+  .benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 64px;
+    padding: 72px 12px;
+    border-bottom: 1px solid var(--vp-c-divider);
+  }
+  .benefits h2 {
+    font-size: 17px;
+    letter-spacing: -0.4px;
+    margin: 12px 0 10px;
+  }
+  .benefits p {
+    color: var(--vp-c-text-2);
+    line-height: 1.7;
+    font-size: 14px;
+  }
+  .gallery {
+    padding-top: 80px;
+    scroll-margin-top: 90px;
+  }
+  .gallery-intro h2,
+  .pivot-bridge h2 {
+    font-size: clamp(30px, 3.7vw, 46px);
+    letter-spacing: -1.6px;
+    font-weight: 650;
+    line-height: 1.15;
+    margin: 16px 0;
+  }
+  .gallery-intro > p:last-child {
+    color: var(--vp-c-text-2);
+    font-size: 17px;
+  }
+  .gallery-area {
+    margin-top: 48px;
+  }
+  .area-heading {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .area-description {
+    max-width: 760px;
+    margin-bottom: 22px;
+    color: var(--vp-c-text-2);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .chart-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+  .chart-grid-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .chart-card {
+    min-width: 0;
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 14px;
+    background: var(--vp-c-bg);
+    overflow: hidden;
+    transition:
+      border-color 0.2s,
+      box-shadow 0.2s;
+  }
+  .chart-card:hover {
+    border-color: var(--vp-c-brand-1);
+    box-shadow: 0 10px 30px -20px #6647f080;
+  }
+  .card-topline {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 20px 0;
+    color: var(--vp-c-text-2);
+    font-size: 10px;
+  }
+  .card-topline > span:first-child {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .card-live {
+    color: var(--vp-c-brand-1);
+    background: var(--vp-c-brand-soft);
+    padding: 1px 7px;
+    border-radius: 4px;
+  }
+  .card-canvas {
+    height: 250px;
+    margin: 8px 12px 4px;
+  }
+  .card-copy {
+    padding: 18px 22px 20px;
+    border-top: 1px solid var(--vp-c-divider);
+  }
+  .card-copy h4 {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.35px;
+  }
+  .card-copy p {
+    color: var(--vp-c-text-2);
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 8px 0 16px;
+    min-height: 44px;
+  }
+  .card-copy button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: var(--vp-c-brand-1);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .card-copy button span {
+    font-size: 18px;
+  }
+  .geographic-note {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 28px 32px;
+    margin-top: 28px;
+    border-radius: 12px;
+    background: var(--vp-c-bg-soft);
+  }
+  .geographic-note h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .geographic-note p {
+    max-width: 750px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--vp-c-text-2);
+  }
+  .geographic-note a {
+    flex-shrink: 0;
+    color: var(--vp-c-brand-1);
+    font-size: 12px;
+  }
+  .pivot-bridge {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 70px;
+    padding: 100px 0;
+  }
+  .pivot-bridge h2 {
+    font-size: clamp(28px, 3vw, 38px);
+  }
+  .pivot-bridge p:not(.eyebrow) {
+    max-width: 540px;
+    margin: 20px 0 24px;
+    line-height: 1.8;
+    color: var(--vp-c-text-2);
+    font-size: 15px;
+  }
+  .bridge-chart {
+    height: 350px;
+    background: var(--vp-c-bg-soft);
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .chart-dialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(960px, calc(100% - 32px));
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+    padding: 28px;
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 16px;
+    color: var(--vp-c-text-1);
+    background: var(--vp-c-bg);
+    box-shadow: 0 24px 100px #0004;
+  }
+  .chart-dialog::backdrop {
+    background: #11152899;
+    backdrop-filter: blur(5px);
+  }
+  .dialog-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .dialog-heading h2 {
+    font-size: 28px;
+    font-weight: 650;
+    letter-spacing: -0.8px;
+    margin-top: 8px;
+  }
+  .close-dialog {
+    padding: 8px 12px;
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 8px;
+  }
+  #detail-description {
+    color: var(--vp-c-text-2);
+    font-size: 14px;
+    margin: 12px 0;
+  }
+  .detail-canvas {
+    height: clamp(260px, 50dvh, 480px);
+  }
+  .detail-controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: space-between;
+    font-size: 13px;
+    border-top: 1px solid var(--vp-c-divider);
+    padding-top: 20px;
+  }
+  .detail-controls label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .detail-controls input {
+    accent-color: var(--charts-accent);
+  }
+  .detail-controls > span {
+    color: var(--vp-c-text-2);
+  }
+  .detail-controls button {
+    padding: 9px 16px;
+    background: var(--vp-c-brand-1);
+    color: var(--vp-c-bg);
+    border-radius: 8px;
+    font-weight: 600;
+  }
+  .detail-controls button:disabled {
+    opacity: 0.5;
+    cursor: wait;
+  }
+  @media (min-width: 1600px) {
+    .charts-hero {
+      padding-top: 100px;
+    }
+  }
+  @media (max-width: 1100px) {
+    .chart-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .benefits {
+      gap: 28px;
+    }
+    .geographic-note {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+  @media (max-width: 640px) {
+    .section-width {
+      width: calc(100% - 32px);
+    }
+    .charts-hero {
+      padding-top: 46px;
+    }
+    h1 {
+      letter-spacing: -2px;
+      font-size: 45px;
+    }
+    .hero-copy {
+      font-size: 16px;
+    }
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .hero-actions :deep(.rg-btn) {
+      justify-content: center;
+    }
+    .frameworks {
+      font-size: 10px;
+    }
+    .frameworks i {
+      margin: 0 6px;
+    }
+    .chart-grid,
+    .benefits,
+    .pivot-bridge {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .benefits {
+      padding: 44px 0;
+      gap: 30px;
+    }
+    .benefits > div {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      column-gap: 16px;
+      align-content: start;
+    }
+    .benefits :deep(.benefit-icon) {
+      grid-row: 1 / 3;
+    }
+    .benefits h2 {
+      margin-top: 0;
+    }
+    .benefits p {
+      padding-left: 0;
+    }
+    .gallery {
+      padding-top: 48px;
+    }
+    .gallery-intro h2 {
+      letter-spacing: -1px;
+    }
+    .geographic-note {
+      padding: 22px;
+    }
+    .pivot-bridge {
+      padding-block: 60px;
+      gap: 32px;
+    }
+    .bridge-chart {
+      height: 290px;
+    }
+    .chart-dialog {
+      padding: 20px 16px;
+    }
+    .dialog-heading h2 {
+      font-size: 23px;
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .charts-page .chart-card {
+    transition: none;
+  }
+}

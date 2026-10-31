@@ -29,6 +29,7 @@
           rel="noopener noreferrer"
           ><FontAwesomeSvgIcon name="github" />{{ config.implementationLabel ?? 'GitHub' }}</a
         >
+        <span id="demo-feedback-trigger-host" />
         <a
           class="demo-page-button demo-page-button--primary"
           :href="primaryCtaHref"
@@ -638,7 +639,7 @@ $max-content-width: 1240px;
 .demo-page-button {
   height: 36px;
   min-height: 36px;
-  box-shadow: 0 1px 2px rgb(15 23 42/8%);
+  box-shadow: none;
   font-size: 13px;
   font-weight: 600;
 }
@@ -789,5 +790,65 @@ $max-content-width: 1240px;
 .demo-page-header-link :deep(.fa-svg-icon) {
   width: 14px;
   height: 14px;
+}
+
+/* These standalone examples provide their own intro; the docs shell already has one. */
+.demo-page-layout[data-demo-id='pivot-charts'] :deep(.pivot-dashboard > .dashboard-header),
+.demo-page-layout[data-demo-id='pivot-operations'] :deep(.operations-demo > .page-header),
+.demo-page-layout[data-demo-id='pivot-scale'] :deep(.scale-demo > .scale-header) {
+  display: none;
+}
+
+.demo-page-layout[data-demo-id='pivot-scale'] :deep(.scale-demo) {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.demo-page-layout[data-demo-id='pivot-operations'] .demo-page-workspace {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@media (min-width: 1051px) {
+  .demo-page-layout[data-demo-id='pivot-operations'] .demo-page-workspace {
+    overflow-y: hidden;
+  }
+}
+
+@media (max-width: 700px) {
+  .demo-page-layout[data-demo-id='pivot-operations'] {
+    height: calc(100dvh - var(--vp-nav-height, 64px) - 60px);
+    min-height: 0;
+  }
+
+  .demo-page-layout[data-demo-id='pivot-operations'] .demo-page-stage {
+    height: auto;
+  }
+
+  .demo-page-layout[data-demo-id='pivot-operations'] .demo-page-workspace {
+    height: auto;
+  }
+}
+/* Embedded Pivot reports share the docs canvas; expanded reports remain opaque. */
+.demo-page-layout[data-demo-id^='pivot'] :deep(.financial-pivot-showcase) {
+  --financial-pivot-expanded-background: var(--vp-c-bg);
+}
+.demo-page-layout[data-demo-id^='pivot'] :deep(.pivot-summary-panel) {
+  background: var(--vp-c-bg);
+}
+.demo-page-layout[data-demo-id^='pivot'] :deep(revo-grid) {
+  --revo-grid-background: var(--vp-c-bg);
+}
+.demo-page-layout[data-demo-id^='pivot'] :deep(.scale-demo .grid-host),
+.demo-page-layout[data-demo-id^='pivot'] :deep(.import-demo #grid-host),
+.demo-page-layout[data-demo-id^='pivot'] :deep(.dashboard-report),
+.demo-page-layout[data-demo-id^='pivot'] :deep(.operations-demo .pivot-panel),
+.demo-page-layout[data-demo-id^='pivot'] :deep(.operations-demo .detail-panel),
+.demo-page-layout[data-demo-id^='pivot'] :deep(.pivot-dashboard),
+.demo-page-layout[data-demo-id^='pivot'] :deep(.operations-demo),
+.demo-page-layout[data-demo-id^='pivot'] :deep(.import-demo) {
+  background: transparent;
 }
 </style>

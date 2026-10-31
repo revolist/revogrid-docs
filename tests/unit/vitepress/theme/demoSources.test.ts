@@ -17,7 +17,7 @@ test('registers four real framework entries for every docs demo', () => {
     assert.deepEqual(Object.keys(frameworks), ['vue', 'ts', 'react', 'angular'], demoId)
     for (const [framework, entry] of Object.entries(frameworks)) {
       assert.ok(entry.files.length >= 1, `${demoId}/${framework} needs an entry file`)
-      assert.match(entry.command, new RegExp(`dev:${framework}$`))
+      assert.match(entry.command, new RegExp(`dev(?::${framework})?$`))
       assert.match(entry.documentationUrl, /^\//)
     }
   }
@@ -761,10 +761,21 @@ test('gives the Pivot field configuration panel room to avoid horizontal scrolli
   )
   assert.match(
     styles,
-    /\.financial-pivot-showcase \.pivot-config\s*\{[\s\S]*?--pv-cfg-width:\s*380px[\s\S]*?overflow-x:\s*hidden/,
+    /\.financial-pivot-showcase \.pivot-config\s*\{[\s\S]*?--pv-cfg-width:\s*304px[\s\S]*?overflow-x:\s*hidden/,
   )
   assert.match(
     styles,
     /\.financial-pivot-showcase \.pivot-config > \*\s*\{[\s\S]*?min-width:\s*0[\s\S]*?width:\s*100%/,
   )
 })
+
+
+test('property booking source panels reuse the pushed Scheduler example in every framework', () => {
+  for (const framework of ['vue', 'ts', 'react', 'angular'] as const) {
+    const files = getDemoSources('property-booking')[framework].files;
+    assert.ok(files[0].path.startsWith('pro-advanced-scheduler/src/examples/property-booking/'));
+    for (const name of ['demo.ts', 'data.ts', 'editor.ts', 'icons.ts', 'photos.ts', 'styles.scss']) {
+      assert.ok(files.some(file => file.label === name), `${framework}: ${name}`);
+    }
+  }
+});

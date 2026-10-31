@@ -79,7 +79,7 @@ For a quick proof of concept, load the grid directly from a CDN.
 ### Script tag
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@revolist/revogrid@latest/dist/revo-grid.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@revolist/revogrid@latest/dist/revo-grid/revo-grid.esm.js"></script>
 ```
 
 ### ES modules

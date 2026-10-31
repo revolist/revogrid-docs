@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.11](README.md) / GroupCellTemplateFunc
+[RevoGrid Documentation v4.29.0](README.md) / GroupCellTemplateFunc
 
 # Type Alias: GroupCellTemplateFunc()
 
@@ -20,4 +20,4 @@ type GroupCellTemplateFunc: (createElement: HyperFunc<VNode>, props: GroupCellTe
 
 ## Defined in
 
-[src/plugins/groupingRow/grouping.row.types.ts:101](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/plugins/groupingRow/grouping.row.types.ts#L101)
+[src/plugins/groupingRow/grouping.row.types.ts:101](https://github.com/revolist/revogrid/blob/9827a26b6eac72857b5b257738fc44efe7783da3/src/plugins/groupingRow/grouping.row.types.ts#L101)

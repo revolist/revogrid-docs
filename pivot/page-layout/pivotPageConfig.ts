@@ -17,11 +17,11 @@ const DEFAULT_PAGE: PivotLandingPage = {
   hero: {
     eyebrow: 'RevoGrid Pivot',
     titleHighlightParts: ['JavaScript'],
-    titleSuffix: 'Pivot Table',
+    titleSuffix: 'Pivot Table. Bring your data into focus.',
     description:
-      'Feature-rich JavaScript Pivot Table with linked charts. Group, filter, aggregate, visualize, drill into, and export large datasets without leaving the page.',
+      'Give your users a report they can explore. Group and aggregate data, drill into the details, and turn results into linked charts—all inside your application.',
     actions: [
-      { label: 'View Demo', href: 'https://rv-grid.com/demo/pivot', arrow: true },
+      { label: 'Explore the live report', href: '#pivot-playground', arrow: true },
       { label: 'Get Pro Trial', href: 'https://rv-grid.com/trial', variant: 'secondary' },
     ],
     badges: [
@@ -29,7 +29,6 @@ const DEFAULT_PAGE: PivotLandingPage = {
       'Multi-level aggregation',
       'Linked Pivot charts',
       'Heatmap cell rendering',
-      'Client-side on 350K+ rows',
     ],
   },
   preview: {
@@ -91,15 +90,15 @@ const DEFAULT_PAGE: PivotLandingPage = {
           'Create interactive column, line, area, pie, and other charts from the active Pivot result. Charts stay linked as fields, filters, and drill state change, while heatmap cells highlight trends and outliers in the grid.',
         tags: ['Linked charts', 'Chart drill-down', 'Heatmap cells'],
         media: {
-          src: '/img/pivot-features/linked-chart.png',
-          alt: 'A linked treemap opened from a RevoGrid Pivot value cell and drilled to France',
+          src: '/img/pivot-features/linked-chart-donut.png',
+          alt: 'A linked donut chart showing quarterly revenue share in RevoGrid Pivot',
           caption: 'Live demo · Pivot Charts',
-          width: 844,
-          height: 475,
+          width: 1600,
+          height: 700,
           position: 'center',
         },
-        href: 'https://demo.rv-grid.com/pivot-fields-panel/ts?theme=light',
-        cta: 'Create a linked chart',
+        href: '/demo/pivot-charts',
+        cta: 'Explore the charts dashboard',
       },
       {
         icon: 'ROW',

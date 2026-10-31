@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { readFile } from 'node:fs/promises'
 
 async function openDemo(page: import('@playwright/test').Page, demoId: string) {
   await page.goto(`/demo/${demoId}`)
@@ -12,21 +13,6 @@ async function openPivotDemo(page: import('@playwright/test').Page) {
   await page.goto('/demo/pivot')
   await expect(page.locator('.demo-page-layout')).toHaveAttribute('data-demo-id', 'pivot')
   await expect(page.locator('.financial-pivot-showcase')).toBeVisible({ timeout: 20_000 })
-}
-
-async function setPivotStorage(
-  page: import('@playwright/test').Page,
-  value: { config: string | null; preset: string | null },
-) {
-  await page.goto('/demo/kanban')
-  await page.evaluate(({ config, preset }) => {
-    const configKey = 'revogrid:pivot-showcase:v1'
-    const presetKey = 'revogrid:pivot-showcase:preset:v1'
-    if (config === null) localStorage.removeItem(configKey)
-    else localStorage.setItem(configKey, config)
-    if (preset === null) localStorage.removeItem(presetKey)
-    else localStorage.setItem(presetKey, preset)
-  }, value)
 }
 
 function workflowCounts(board: import('@playwright/test').Locator) {
@@ -397,207 +383,226 @@ test.describe('Kanban and Pivot documented scenarios', () => {
     ).toContainText('Server card 1')
   })
 
-  test('Pivot presets, configuration visibility and expanded workspace work', async ({ page }) => {
-    await openPivotDemo(page)
-
-    const report = page.locator('.financial-pivot-showcase')
-    const presets = page.getByRole('tablist', { name: 'Financial report presets' })
-    await expect(presets).toBeVisible()
-    await expect(presets.getByRole('tab', { name: 'Sales Overview' })).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
-    const fields = page.getByRole('button', { name: 'Hide fields' })
-    await expect(fields).toBeVisible()
-    await fields.click()
-    await expect(page.getByRole('button', { name: 'Configure' })).toBeVisible()
-    await expect(report.locator('revo-grid')).toBeVisible()
-    await page.getByRole('button', { name: 'Configure' }).click()
-    await expect(page.getByRole('button', { name: 'Hide fields' })).toBeVisible()
-
-    await presets.getByRole('tab', { name: 'Profitability' }).click()
-    await expect(presets.getByRole('tab', { name: 'Profitability' })).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
-    await expect(report).toContainText('Profit')
-
-    await page.getByRole('button', { name: 'Expand workspace' }).click()
-    await expect(page.getByRole('button', { name: 'Exit expanded workspace' })).toBeVisible()
-    await expect(report).toHaveCSS('position', 'fixed')
-    await page.getByRole('button', { name: 'Exit expanded workspace' }).click()
-    await expect(page.getByRole('button', { name: 'Expand workspace' })).toBeVisible()
+  test('Pivot entry point is readable at two desktop sizes and has keyboard-operable reports', async ({ page }) => {
+    for (const viewport of [{ width: 1280, height: 800 }, { width: 1440, height: 900 }]) {
+      await page.setViewportSize(viewport)
+      await openPivotDemo(page)
+      const report = page.locator('.financial-pivot-showcase')
+      await expect(report).toContainText('$7,776,899.28')
+      await expect(page.getByRole('navigation', { name: 'Pivot demo collection' })).toHaveCount(0)
+      await expect(page.getByRole('button', { name: 'Fields' })).toBeVisible()
+      await expect(page.getByRole('button', { name: 'Chart' })).toBeVisible()
+      await expect(page.getByRole('button', { name: 'Export CSV' })).toBeVisible()
+      const tabs = page.getByRole('tablist', { name: 'Financial report presets' })
+      await tabs.getByRole('tab', { name: 'Sales Overview' }).focus()
+      await page.keyboard.press('ArrowRight')
+      await expect(tabs.getByRole('tab', { name: 'Profitability' })).toHaveAttribute('aria-selected', 'true')
+      await page.getByRole('button', { name: 'Reset' }).click()
+      await expect(tabs.getByRole('tab', { name: 'Sales Overview' })).toHaveAttribute('aria-selected', 'true')
+      await expect(report).toContainText('$7,776,899.28')
+    }
   })
 
-  test('Pivot presets render their documented grand totals and persist selection', async ({
-    page,
-  }) => {
-    await setPivotStorage(page, { config: null, preset: null })
+  test('Pivot demos use the sidebar and a single visible title', async ({ page }) => {
+    const routes = [
+      ['pivot', '.financial-pivot-showcase', null, 'financial-pivot-header'],
+      ['pivot-charts', '.pivot-dashboard', '.dashboard-header', '.dashboard-controls'],
+      ['pivot-financial', '.financial-pivot-showcase', null, 'financial-pivot-header'],
+      ['pivot-operations', '.operations-demo', '.operations-demo > .page-header', '.controls'],
+      ['pivot-scale', '.scale-demo', '.scale-demo > .scale-header', '.scale-controls'],
+    ] as const
+    const sidebar = page.getByRole('complementary', { name: 'Demo examples' })
+    for (const [route, demoRoot, embeddedHeader, controls] of routes) {
+      await page.goto(`/demo/${route}`)
+      await expect(page.locator(demoRoot)).toBeVisible()
+      await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1)
+      await expect(page.getByRole('navigation', { name: 'Pivot demo collection' })).toHaveCount(0)
+      await expect(sidebar.getByRole('link', { name: 'Charts dashboard Advanced' })).toBeVisible()
+      await expect(page.locator(demoRoot).locator(controls)).toBeVisible()
+      if (embeddedHeader) {
+        await expect(page.locator(embeddedHeader)).toBeHidden()
+      }
+    }
+    const charts = sidebar.getByRole('link', { name: 'Charts dashboard Advanced' })
+    await charts.focus()
+    await expect(charts).toBeFocused()
+    await page.keyboard.press('Enter')
+    await expect(page).toHaveURL(/\/demo\/pivot-charts\/?$/)
+  })
+
+  test('Pivot source viewer loads the overview and focused demo files', async ({ page }) => {
+    for (const [route, sourceText] of [
+      ['pivot', 'financial-pivot-showcase'],
+      ['pivot-charts', 'pivot-dashboard'],
+    ]) {
+      await page.goto(`/demo/${route}`)
+      await page.getByRole('button', { name: 'Code' }).click()
+      const source = page.getByRole('dialog', { name: 'Example source code' })
+      await expect(source.locator('.demo-source__code')).toContainText(sourceText)
+      await expect(source).not.toContainText('Source could not be loaded.')
+    }
+  })
+
+  test('Pivot report saves explicitly, restores and exports the current result', async ({ page }) => {
     await openPivotDemo(page)
-    const report = page.locator('.financial-pivot-showcase')
-    const presets = page.getByRole('tablist', { name: 'Financial report presets' })
+    const tabs = page.getByRole('tablist', { name: 'Financial report presets' })
+    await tabs.getByRole('tab', { name: 'Profitability' }).click()
+    await expect(page.locator('.financial-pivot-showcase')).toContainText('$7,776,899.28')
+    await page.locator('financial-pivot-header summary').click()
+    await page.getByRole('button', { name: 'Save this report' }).click()
+    await tabs.getByRole('tab', { name: 'Sales Overview' }).click()
+    await page.locator('financial-pivot-header summary').click()
+    await page.getByRole('button', { name: 'Restore saved report' }).click()
+    await expect(tabs.getByRole('tab', { name: 'Profitability' })).toHaveAttribute('aria-selected', 'true')
+    const download = page.waitForEvent('download')
+    await page.getByRole('button', { name: 'Export CSV' }).click()
+    const csvDownload = await download
+    await expect(csvDownload.suggestedFilename()).toMatch(/\.csv$/)
+    const csv = await readFile(await csvDownload.path(), 'utf8')
+    expect(csv).toContain('Grand Total')
+    expect(csv.replace(/[,$"]/g, '')).toContain('7776899.28')
+    await page.locator('financial-pivot-header summary').click()
+    const xlsxDownload = page.waitForEvent('download')
+    await page.getByRole('button', { name: 'Export XLSX (visible result)' }).click()
+    expect((await xlsxDownload).suggestedFilename()).toMatch(/\.xlsx$/)
+    await page.getByRole('button', { name: 'Chart' }).click()
+    await expect(page.locator('.financial-pivot-chart')).toBeVisible()
+  })
 
-    await expect(report).toContainText('$129,319,628.28')
-    await expect(report).toContainText('$42,766,659.96')
-    await expect(report).toContainText('750,367')
+  test('Pivot charts follow the year and comparison layout', async ({ page }) => {
+    await page.goto('/demo/pivot-charts')
+    await expect(page.locator('.pivot-dashboard')).toBeVisible({ timeout: 20_000 })
+    await expect(page.locator('[data-testid="quarter-chart"]')).toBeVisible()
+    const summary = page.locator('.dashboard-summary')
+    await expect(summary).toContainText('2025 · all brands')
+    await page.getByRole('combobox', { name: 'Year' }).selectOption('2024')
+    await expect(summary).toContainText('2024 · all brands')
+    await page.getByRole('radio', { name: 'Categories' }).check()
+    await expect(page.getByRole('heading', { name: 'Category comparison' })).toBeVisible()
+    await page.getByRole('button', { name: 'Reset report' }).click()
+    await expect(summary).toContainText('2025 · all brands')
+  })
 
-    await presets.getByRole('tab', { name: 'Profitability' }).click()
-    await expect(report).toContainText('$51,791,074.03')
-    await expect(report).toContainText('$141,041,425.25')
-    await expect(report).toContainText('$89,250,351.22')
+  test('Financial analysis exposes calculated reports', async ({ page }) => {
+    await page.goto('/demo/pivot-financial')
+    const tabs = page.getByRole('tablist', { name: 'Financial report presets' })
+    await expect(tabs.getByRole('tab', { name: 'Profit', exact: true })).toHaveAttribute('aria-selected', 'true')
+    for (const label of ['Contribution', 'Running total', 'Year over year', 'Ranking']) {
+      await tabs.getByRole('tab', { name: label }).click()
+      await expect(tabs.getByRole('tab', { name: label })).toHaveAttribute('aria-selected', 'true')
+    }
+  })
 
-    await presets.getByRole('tab', { name: 'Product Performance' }).click()
-    await expect(report).toContainText('$50,345,536.34')
-    await expect(report).toContainText('256,808')
-    await expect(report).toContainText('$2,778,114.04')
-    await expect
-      .poll(() => page.evaluate(() => localStorage.getItem('revogrid:pivot-showcase:preset:v1')))
-      .toBe('product')
-    await page.reload()
-    await expect(presets.getByRole('tab', { name: 'Product Performance' })).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
-
+  test('Operations scope and source records agree', async ({ page }) => {
+    await page.goto('/demo/pivot-operations')
+    const demo = page.locator('.operations-demo')
+    const ticketCount = demo.locator('.metric').filter({ hasText: 'Tickets in scope' }).locator('strong')
+    await expect(ticketCount).toHaveText('480')
+    const pivot = demo.locator('.pivot-panel')
+    for (const priority of ['Critical', 'High', 'Normal', 'Low']) {
+      const header = pivot.locator(`.rgHeaderCell:has(button[aria-label="Expand ${priority}"])`)
+      await expect(header.locator('.column-collapse-group-label')).toContainText(`${priority}(3)`)
+      await expect.poll(() => header.locator('.header-text').evaluate(element => element.clientWidth - element.scrollWidth)).toBeGreaterThanOrEqual(0)
+    }
+    await pivot.getByRole('button', { name: 'Expand Critical' }).click()
+    await expect(pivot.getByRole('button', { name: 'Collapse Critical' })).toBeVisible()
+    await expect(pivot.getByRole('columnheader', { name: /Resolution Hours/ }).first()).toBeVisible()
+    await expect(pivot.locator('.rgHeaderCell[multi-row-header-group-span]:has(button[aria-label="Expand High"])')).toContainText('High')
+    await pivot.getByRole('button', { name: 'Collapse Critical' }).click()
     await page.setViewportSize({ width: 390, height: 844 })
-    await page.reload()
-    await expect(page.getByRole('button', { name: 'Configure' })).toBeVisible()
-    await expect(report.locator('revo-grid')).toBeVisible()
+    const narrowLabel = pivot.locator('.rgHeaderCell:has(button[aria-label="Expand Critical"]) .header-text')
+    await expect.poll(() => narrowLabel.evaluate(element => element.clientWidth - element.scrollWidth)).toBeGreaterThanOrEqual(0)
+    await page.setViewportSize({ width: 1800, height: 900 })
+    const detailGrid = demo.locator('revo-grid.ticket-grid')
+    await expect(detailGrid).toBeVisible()
+    const pager = detailGrid.locator('.rv-pagination-panel')
+    await expect(pager).toBeVisible()
+    await demo.getByRole('combobox', { name: 'Team' }).selectOption({ index: 1 })
+    await expect(ticketCount).toHaveText('120')
+    await demo.getByRole('button', { name: 'Reset scope' }).click()
+    await expect(ticketCount).toHaveText('480')
+    await expect(detailGrid).toBeVisible()
+    const detailScroll = detailGrid.locator('.vertical-inner')
+    await expect.poll(() => detailScroll.evaluate(element => element.scrollHeight - element.clientHeight)).toBeGreaterThan(0)
+    await detailScroll.evaluate(element => { element.scrollTop = element.scrollHeight })
+    await expect.poll(() => detailScroll.evaluate(element => element.scrollTop)).toBeGreaterThan(0)
+    await demo.getByRole('button', { name: 'Next' }).click()
+    await expect(detailGrid).toContainText('SUP-00016')
+    await demo.getByRole('button', { name: 'Previous' }).click()
+    await demo.getByRole('combobox', { name: 'Team' }).selectOption('Platform')
+    await demo.getByRole('combobox', { name: 'Priority' }).selectOption('Critical')
+    await expect(ticketCount).toHaveText('40')
+    await expect(detailGrid).toContainText('SUP-00001')
+    const focusedValue = demo.locator('.pivot-panel .rgCell[data-rgcol="1"][data-rgrow="0"]').first()
+    await focusedValue.click()
+    await expect(demo.getByRole('button', { name: 'Inspect focused cell' })).toBeEnabled()
+    await demo.getByRole('button', { name: 'Inspect focused cell' }).click()
+    await expect(demo.locator('.detail-page-info')).toContainText('of 40')
+    await expect(demo.getByRole('button', { name: 'Show selected scope' })).toBeVisible()
+    await expect(detailGrid).toContainText('SUP-00001')
+    await page.setViewportSize({ width: 390, height: 844 })
+    const workspace = page.locator('.demo-page-workspace')
+    await workspace.evaluate(element => { element.scrollTop = element.scrollHeight })
+    await expect(pager).toBeInViewport()
   })
 
-  test('Pivot configurator changes Discount Band and restores the Sales baseline', async ({
-    page,
-  }) => {
-    await setPivotStorage(page, { config: null, preset: null })
-    await openPivotDemo(page)
-    const report = page.locator('.financial-pivot-showcase')
-    const configurator = page.locator('.pivot-config')
-    await expect(configurator).toBeVisible()
-
-    const discountBand = configurator.getByRole('combobox', {
-      name: 'Discount Band filter value',
+  test('Scale demo labels workload, browser and timing method', async ({ page }) => {
+    await page.setViewportSize({ width: 1240, height: 795 })
+    await page.goto('/demo/pivot-scale')
+    const demo = page.locator('.scale-demo')
+    await expect(demo).toContainText('10,000 rows ready', { timeout: 30_000 })
+    const pivotHeaders = demo.locator('.scale-grid .rgHeaderCell')
+    await expect.poll(() => pivotHeaders.evaluateAll(cells => cells.map(cell => Math.round(cell.getBoundingClientRect().width)))).toEqual([240, 200, 200, 200])
+    await expect.poll(() => pivotHeaders.first().locator('.header-content').evaluate(cell => getComputedStyle(cell).paddingLeft)).toBe('12px')
+    await expect.poll(() => demo.locator('.scale-grid revogr-data .rgCell').first().evaluate(cell => getComputedStyle(cell).paddingRight)).toBe('12px')
+    expect(await demo.locator('#status').evaluate(status => status.parentElement?.classList.contains('scale-controls'))).toBe(true)
+    const performance = demo.getByRole('region', { name: 'Browser performance metrics' })
+    await expect(performance).toBeVisible()
+    await expect(performance).toContainText('Performance')
+    await expect(performance).toContainText('Measured live in this browser')
+    await expect(performance).toContainText('10,000 client rows')
+    expect((await performance.boundingBox())?.height).toBeLessThan(120)
+    const panelBounds = await performance.boundingBox()
+    expect(panelBounds && panelBounds.y + panelBounds.height).toBeLessThanOrEqual(795)
+    expect(panelBounds && panelBounds.y + panelBounds.height).toBeGreaterThanOrEqual(745)
+    expect((await demo.locator('#grid-host').boundingBox())?.height).toBeGreaterThan(160)
+    const configurator = demo.locator('.pivot-config')
+    await expect.poll(() => configurator.evaluate(element => element.scrollWidth - element.clientWidth)).toBeLessThanOrEqual(1)
+    await expect.poll(() => configurator.evaluate(element => [...element.querySelectorAll('.panel-card')].every(card => card.scrollHeight <= card.clientHeight + 1))).toBe(true)
+    const gridFrame = await demo.locator('#grid-host').evaluate(host => {
+      const style = getComputedStyle(host)
+      return {
+        border: style.borderTopWidth,
+        padding: style.paddingTop,
+        radius: style.borderTopLeftRadius,
+      }
     })
-    await expect(discountBand).toContainText('High')
-    await discountBand.selectOption({ label: 'Medium' })
-    await expect(discountBand).toContainText('Medium')
-    await expect(report).toContainText('$141,041,425.25')
-    await expect(report).toContainText('$51,791,074.03')
-    await expect(report).toContainText('776,029')
-
-    await discountBand.selectOption({ label: 'High' })
-    await expect(discountBand).toContainText('High')
-    await expect(report).toContainText('$129,319,628.28')
-  })
-
-  test('Pivot Product member filter refines and clears the current Discount Band subset', async ({
-    page,
-  }) => {
-    await setPivotStorage(page, { config: null, preset: null })
-    await openPivotDemo(page)
-    const report = page.locator('.financial-pivot-showcase')
-    const configurator = page.locator('.pivot-config')
-    const discountBand = configurator.getByRole('combobox', {
-      name: 'Discount Band filter value',
+    expect(gridFrame).toEqual({ border: '0px', padding: '0px', radius: '0px' })
+    expect(await performance.evaluate(panel => panel.previousElementSibling?.previousElementSibling?.id)).toBe('grid-host')
+    await expect(demo.getByRole('button', { name: 'Remote adapter' })).toHaveCount(0)
+    await expect(demo.locator('#aggregation')).toContainText('ms')
+    const pivotHelp = performance.getByRole('button', { name: 'About Pivot apply' })
+    await pivotHelp.hover()
+    await expect(demo.locator('#scale-aggregation-tooltip')).toContainText('not a pure aggregation benchmark')
+    await expect.poll(() => demo.locator('#scale-aggregation-tooltip').evaluate(tooltip => {
+      const bounds = tooltip.getBoundingClientRect()
+      return document.elementFromPoint(bounds.left + bounds.width / 2, bounds.top + bounds.height / 2) === tooltip
+    })).toBe(true)
+    await pivotHelp.focus()
+    await expect(demo.locator('#scale-aggregation-tooltip')).toBeVisible()
+    await page.setViewportSize({ width: 1984, height: 1279 })
+    const sidebar = demo.locator('.pivot-config')
+    await expect.poll(() => sidebar.evaluate(element => element.scrollHeight - element.clientHeight)).toBeLessThanOrEqual(1)
+    await expect.poll(() => sidebar.evaluate(element => element.scrollWidth - element.clientWidth)).toBeLessThanOrEqual(1)
+    await expect.poll(() => sidebar.evaluate(element => element.getBoundingClientRect().width)).toBeGreaterThanOrEqual(340)
+    await expect.poll(() => sidebar.evaluate(element => [...element.querySelectorAll('.panel-card button')].some(button => getComputedStyle(button).borderTopWidth === '0px'))).toBe(true)
+    await page.setViewportSize({ width: 390, height: 844 })
+    await expect(performance).toBeVisible()
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390)
+    console.log('PIVOT_SCALE_EVIDENCE', {
+      workload: (await demo.locator('#workload').textContent())?.trim(),
+      pivotApply: (await demo.locator('#aggregation').textContent())?.trim(),
     })
-    const product = configurator.getByRole('combobox', { name: 'Product filter value' })
-
-    await discountBand.selectOption({ label: 'Medium' })
-    await expect(report).toContainText('$141,041,425.25')
-    await product.selectOption({ label: 'Apex Suite' })
-    await expect(product).toContainText('Apex Suite')
-    await expect(report).not.toContainText('$141,041,425.25')
-
-    await product.selectOption({ label: 'All' })
-    await expect(product).toContainText('All')
-    await expect(report).toContainText('$141,041,425.25')
   })
 
-  test('Pivot configurator changes row fields and the Sales aggregation', async ({ page }) => {
-    await setPivotStorage(page, { config: null, preset: null })
-    await openPivotDemo(page)
-    const configurator = page.locator('.pivot-config')
-    const rowsZone = configurator
-      .locator('.zone-title', { hasText: 'Rows' })
-      .locator('..')
-      .locator('ul')
-    const dimensionFields = configurator.locator('.pivot-dimensions-panel')
-    await expect(rowsZone).toContainText('Country')
-    await expect(rowsZone).toContainText('Segment')
-
-    await rowsZone.getByRole('button', { name: 'Remove' }).nth(1).click()
-    await expect(rowsZone).not.toContainText('Segment')
-    await dimensionFields.getByRole('button', { name: 'Drag Product' }).dragTo(rowsZone)
-    await expect(rowsZone).toContainText('Country')
-    await expect(rowsZone).toContainText('Product')
-
-    const salesAggregation = configurator.locator('.pivot-value-selector').first()
-    await salesAggregation.selectOption('avg')
-    await expect(salesAggregation).toHaveValue('avg')
-    await expect(page.locator('.financial-pivot-showcase')).toContainText('Sales')
-
-    await page.reload()
-    await expect(
-      page.locator('.pivot-config .zone-title', { hasText: 'Rows' }).locator('..').locator('ul'),
-    ).toContainText('Product')
-    await expect(page.locator('.pivot-config .pivot-value-selector').first()).toHaveValue('avg')
-  })
-
-  test('Pivot collapses and restores the Canada row group without changing the grand total', async ({
-    page,
-  }) => {
-    await setPivotStorage(page, { config: null, preset: null })
-    await openPivotDemo(page)
-    const report = page.locator('.financial-pivot-showcase')
-    const grid = report.locator('revo-grid')
-    const groupRows = grid.locator('.rgRow.groupingRow')
-    const canada = groupRows.filter({ hasText: /^Canada$/ })
-
-    await expect(canada).toBeVisible()
-    await expect(report).toContainText('$129,319,628.28')
-    await canada.locator('.group-expand').click()
-    await expect(canada.locator('.group-expand svg')).toHaveAttribute('style', /rotate\(-90deg\)/)
-    await expect(report).toContainText('$129,319,628.28')
-
-    await canada.locator('.group-expand').click()
-    await expect(canada.locator('.group-expand svg')).toHaveAttribute('style', /rotate\(0deg\)/)
-  })
-
-  test('Pivot invalid saved state falls back to the documented Sales Overview', async ({
-    page,
-  }) => {
-    await setPivotStorage(page, { config: '{invalid-json', preset: 'unknown-preset' })
-    await openPivotDemo(page)
-    const presets = page.getByRole('tablist', { name: 'Financial report presets' })
-    await expect(presets.getByRole('tab', { name: 'Sales Overview' })).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
-    await expect(page.locator('.financial-pivot-showcase')).toContainText('$129,319,628.28')
-  })
-
-  test('Pivot remains readonly and remounts one persisted report after navigation', async ({
-    page,
-  }) => {
-    await setPivotStorage(page, { config: null, preset: null })
-    await openPivotDemo(page)
-    const report = page.locator('.financial-pivot-showcase')
-    const presets = page.getByRole('tablist', { name: 'Financial report presets' })
-    await presets.getByRole('tab', { name: 'Product Performance' }).click()
-    await expect(presets.getByRole('tab', { name: 'Product Performance' })).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
-
-    await page.goto('/demo/kanban')
-    await expect(page.locator('.kanban-showcase__grid')).toBeVisible()
-
-    await openPivotDemo(page)
-    await expect(page.getByRole('tab', { name: 'Product Performance' })).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
-    await expect(report.locator('financial-pivot-header')).toHaveCount(1)
-    await expect(report.locator('revo-grid')).toHaveCount(1)
-    await expect(report.locator('revo-grid')).toHaveJSProperty('readonly', true)
-  })
 })

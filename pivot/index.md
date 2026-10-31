@@ -7,6 +7,7 @@ head:
       content: pivot table component, pivot table with charts, pivot chart component, web pivot grid, embedded analytics, client-side pivot table, data grid pivot, RevoGrid Pivot
 sidebar: false
 aside: false
+outline: false
 editLink: false
 footer: true
 prev: false

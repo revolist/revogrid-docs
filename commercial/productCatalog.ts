@@ -1,5 +1,5 @@
-import { stripeLinkWithClientReferenceId } from '../pricing-page/stripeClientReference'
-import { featuresPro as proFeatureMarketing } from '../pro/features.pro'
+import { stripeLinkWithClientReferenceId } from '../pricing-page/stripeClientReference.ts'
+import { featuresPro as proFeatureMarketing } from '../pro/features.pro.ts'
 
 export type Currency = 'EUR' | 'USD'
 export type PlanId = 'open-source' | 'pro-lite' | 'pro-advanced' | 'enterprise'
@@ -24,6 +24,11 @@ export type DemoId =
   | 'tree-data'
   | 'excel'
   | 'pivot'
+  | 'pivot-charts'
+  | 'pivot-financial'
+  | 'pivot-operations'
+  | 'pivot-scale'
+  | 'pivot-import'
   | 'gantt'
   | 'gantt-big-data'
   | 'gantt-horizontal-big-data'
@@ -31,6 +36,7 @@ export type DemoId =
   | 'kanban-performance'
   | 'kanban-server-loading'
   | 'event-scheduler'
+  | 'property-booking'
   | 'planning'
 export type CommercialFaqKey =
   | 'developer-licenses'
@@ -533,6 +539,11 @@ const demos = {
     status: 'stable',
     pageUrl: '/demo/pivot',
   },
+  'pivot-charts': { id: 'pivot-charts', title: 'Pivot Charts Dashboard', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot-charts' },
+  'pivot-financial': { id: 'pivot-financial', title: 'Pivot Financial Analysis', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot-financial' },
+  'pivot-operations': { id: 'pivot-operations', title: 'Pivot Operations Investigation', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot-operations' },
+  'pivot-import': { id: 'pivot-import', title: 'Pivot Your Data', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot-import' },
+  'pivot-scale': { id: 'pivot-scale', title: 'Pivot at Scale', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot-scale' },
   gantt: {
     id: 'gantt',
     title: 'Gantt Chart JS',
@@ -581,6 +592,13 @@ const demos = {
     planId: 'pro-advanced',
     status: 'stable',
     pageUrl: '/demo/event-scheduler',
+  },
+  'property-booking': {
+    id: 'property-booking',
+    title: 'Property Booking',
+    planId: 'pro-advanced',
+    status: 'stable',
+    pageUrl: '/demo/property-booking',
   },
   planning: {
     id: 'planning',

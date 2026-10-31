@@ -15,6 +15,11 @@ export const navbarEn: DefaultTheme.NavItem[] = [
         activeMatch: '^/pivot',
       },
       {
+        text: 'Charts JS',
+        link: '/charts/',
+        activeMatch: '^/charts',
+      },
+      {
         text: 'Kanban Board JS',
         link: '/kanban',
         activeMatch: '^/kanban',
@@ -73,8 +78,7 @@ export const navbarEn: DefaultTheme.NavItem[] = [
   },
   {
     text: 'RevoGrid Pro',
-    link: '/pro/',
-    activeMatch: '^/(pro/(?!prices(?:/|$))|pro-docs/)',
+    link: 'https://pro.rv-grid.com',
   },
   {
     text: 'Blog',

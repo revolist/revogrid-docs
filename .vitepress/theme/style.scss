@@ -728,6 +728,11 @@ revo-grid:not(.skip-style) {
 }
 
 .vp-doc {
+  // VitePress prose margins must not enlarge Pivot's configurator disclosures.
+  summary.rv-configurator-summary {
+    margin: 0;
+  }
+
   a.VPButton {
     text-decoration: none;
   }
@@ -746,4 +751,9 @@ revo-grid:not(.skip-style) {
   revogrid [hidden]:where(:not([hidden='until-found'])) {
     display: inherit !important;
   }
+}
+
+// Keep the property booking overlay inside the docs viewport.
+.property-booking-dialog.rv-dialog-overlay {
+  --rv-dialog-width: min(600px, calc(100vw - 32px));
 }

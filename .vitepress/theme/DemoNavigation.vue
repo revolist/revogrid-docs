@@ -182,9 +182,16 @@ const featureGroups = [
   },
   {
     id: 'pivot',
-    label: 'Pivot',
+    label: 'Pivot & Charts',
     icon: 'chartColumn',
-    items: [createItem('pivot', 'Pivot table', '/demo/pivot', 'chartColumn')],
+    items: [
+      createItem('pivot', 'Pivot table', '/demo/pivot', 'chartColumn'),
+      createItem('pivot-charts', 'Charts dashboard', '/demo/pivot-charts', 'chartColumn'),
+      createItem('pivot-financial', 'Financial analysis', '/demo/pivot-financial', 'chartColumn'),
+      createItem('pivot-operations', 'Ticket investigation', '/demo/pivot-operations', 'chartColumn'),
+      createItem('pivot-import', 'Pivot your data', '/demo/pivot-import', 'chartColumn'),
+      createItem('pivot-scale', 'Pivot at scale', '/demo/pivot-scale', 'chartColumn'),
+    ],
   },
   {
     id: 'gantt',
@@ -206,6 +213,7 @@ const featureGroups = [
     label: 'Scheduler',
     icon: 'calendarDays',
     items: [
+      createItem('property-booking', 'Property booking', '/demo/property-booking', 'calendarDays', ['Reservations', 'Hospitality', 'Nightly stays']),
       createItem('event-scheduler', 'Shift scheduling', '/demo/event-scheduler', 'calendarDays', [
         'Calendar',
         'Event scheduler',

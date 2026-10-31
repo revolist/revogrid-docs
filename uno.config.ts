@@ -1,17 +1,6 @@
 import { defineConfig } from 'unocss'
 import { presetWind3 } from '@unocss/preset-wind3'
 
-const BTN_BASE = [
-  'inline-flex items-center justify-center gap-1',
-  'rounded-[var(--rv-ui-radius,6px)]',
-  'py-1.5 px-3',
-  'border border-transparent',
-  'text-sm font-medium leading-none',
-  'cursor-pointer select-none whitespace-nowrap',
-  'transition-[background-color,color,opacity] duration-[var(--rv-ui-transition,150ms)]',
-  'disabled:pointer-events-none disabled:opacity-50',
-].join(' ')
-
 export default defineConfig({
   presets: [
     presetWind3({
@@ -24,11 +13,7 @@ export default defineConfig({
     /^\[[\w-]+:[^\]]+\]$/,
   ],
   shortcuts: {
-    'rv-btn': `${BTN_BASE} bg-[var(--rv-ui-btn-bg)] text-[var(--rv-ui-btn-fg)] shadow-sm hover:bg-[var(--rv-ui-btn-bg-hover)] active:bg-[var(--rv-ui-btn-bg-hover)]`,
-    'rv-btn-primary': `${BTN_BASE} bg-[var(--rv-ui-accent)] text-[var(--rv-ui-accent-fg)] shadow-sm hover:bg-[var(--rv-ui-accent-hover)] active:bg-[var(--rv-ui-accent-hover)]`,
-    'rv-btn-danger': `${BTN_BASE} bg-[var(--rv-ui-btn-danger-bg)] text-[var(--rv-ui-btn-danger-fg)] shadow-sm hover:bg-[var(--rv-ui-btn-danger-bg-hover)] active:bg-[var(--rv-ui-btn-danger-bg-hover)]`,
-    'rv-btn-secondary': `${BTN_BASE} bg-[var(--rv-ui-btn-secondary-bg)] text-[var(--rv-ui-btn-secondary-fg)] hover:bg-[var(--rv-ui-btn-secondary-bg-hover)] active:bg-[var(--rv-ui-btn-secondary-bg-hover)]`,
-    'rv-btn-ghost': `${BTN_BASE} bg-transparent text-current hover:bg-[var(--rv-ui-btn-ghost-hover-bg)] active:bg-[var(--rv-ui-btn-ghost-active-bg)]`,
+    // Pro's shared _ui.scss owns button variants; utility copies override plugin styles.
     'rv-switch-label': 'inline-flex items-center gap-2 cursor-pointer select-none text-sm',
     'rv-switch-track':
       'relative inline-flex items-center flex-shrink-0 w-9 h-5 rounded-full bg-[var(--rv-ui-switch-track-off)] transition-[background-color] duration-200',
@@ -45,6 +30,14 @@ export default defineConfig({
     filesystem: [
       './**/*.{html,md,js,ts,jsx,tsx,vue}',
       '!./**/node_modules/**',
+      // External workspace sources can contain their own nested dependencies.
+      '!../../**/node_modules/**',
+      // Build output and transient browser evidence are not utility sources.
+      '!./.vitepress/cache/**',
+      '!./.vitepress/dist/**',
+      '!./test-results/**',
+      '!./playwright-report/**',
+      '!./output/**',
       '../../examples/components/src/components/**/*.{html,js,ts,jsx,tsx,vue}',
       '../../packages/pro/plugins/**/*.{html,js,ts,jsx,tsx,vue}',
       '../../packages/enterprise/plugins/**/*.{html,js,ts,jsx,tsx,vue}',

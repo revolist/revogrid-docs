@@ -10,3 +10,8 @@ package-lock.json
 *_feature.md
 .playwright-mcp
 test-results/
+.playwright-cli
+.codex-finalizer
+.pnpm-store
+output
+_research

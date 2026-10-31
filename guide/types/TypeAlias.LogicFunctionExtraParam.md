@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.11](README.md) / LogicFunctionExtraParam
+[RevoGrid Documentation v4.29.0](README.md) / LogicFunctionExtraParam
 
 # Type Alias: LogicFunctionExtraParam
 
@@ -20,4 +20,4 @@ type LogicFunctionExtraParam:
 
 ## Defined in
 
-[src/plugins/filter/filter.types.ts:32](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/plugins/filter/filter.types.ts#L32)
+[src/plugins/filter/filter.types.ts:32](https://github.com/revolist/revogrid/blob/9827a26b6eac72857b5b257738fc44efe7783da3/src/plugins/filter/filter.types.ts#L32)

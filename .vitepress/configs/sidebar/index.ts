@@ -1,3 +1,3 @@
-export * from './en.js'
-export * from './en.demo.js'
-export * from './en.guide.js'
+export * from './en.ts'
+export * from './en.demo.ts'
+export * from './en.guide.ts'

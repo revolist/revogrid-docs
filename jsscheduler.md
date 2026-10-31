@@ -1,9 +1,10 @@
 ---
-title: "JavaScript Scheduler & Event Calendar | RevoGrid Scheduler"
+title: 'JavaScript Scheduler & Resource Calendar | RevoGrid'
 titleTemplate: false
-description: RevoGrid Scheduler is a JavaScript Scheduler and event calendar for resource timelines, staff shifts, bookings, availability, and capacity planning.
+description: Build staff schedules, resource timelines, and booking calendars with RevoGrid’s JavaScript Scheduler. Explore live demos for React, Vue, Angular, and Svelte.
 sidebar: false
 aside: false
+outline: false
 editLink: false
 footer: true
 prev: false
@@ -25,9 +26,6 @@ head:
     - rel: canonical
       href: https://rv-grid.com/jsscheduler
   - - meta
-    - name: keywords
-      content: RevoGrid Scheduler, RevoGrid Scheduler JS, JavaScript Scheduler, Scheduler JS, JavaScript scheduler component, JavaScript event scheduler, resource scheduler, shift planning software, booking scheduler, staff scheduler, room booking scheduler, equipment scheduler, workforce scheduling UI, React scheduler, Vue scheduler, Angular scheduler
-  - - meta
     - name: robots
       content: index, follow, max-image-preview:large
   - - meta
@@ -35,7 +33,7 @@ head:
       content: website
   - - meta
     - property: og:title
-      content: RevoGrid Scheduler – JavaScript Scheduler & Event Calendar
+      content: JavaScript Scheduler & Resource Calendar | RevoGrid
   - - meta
     - property: og:description
       content: Build resource timelines, staff schedules, booking calendars, shift planners, and capacity views with RevoGrid Scheduler for JavaScript and TypeScript.
@@ -47,38 +45,38 @@ head:
       content: RevoGrid
   - - meta
     - property: og:image
-      content: https://rv-grid.com/blog/scheduler.png
+      content: https://rv-grid.com/img/scheduler-features/resource-timeline.png
   - - meta
     - name: twitter:card
       content: summary_large_image
   - - meta
     - name: twitter:title
-      content: RevoGrid Scheduler – JavaScript Scheduler & Event Calendar
+      content: JavaScript Scheduler & Resource Calendar | RevoGrid
   - - meta
     - name: twitter:description
       content: A JavaScript scheduler component for resource timelines, staff shifts, bookings, availability, and capacity planning.
   - - meta
     - name: twitter:image
-      content: https://rv-grid.com/blog/scheduler.png
+      content: https://rv-grid.com/img/scheduler-features/resource-timeline.png
+  - - meta
+    - property: og:image:alt
+      content: RevoGrid Scheduler resource timeline with staff assignments and availability
+  - - meta
+    - name: twitter:image:alt
+      content: RevoGrid Scheduler resource timeline with staff assignments and availability
 ganttLanding:
   catalogProductId: event-scheduler
-  colors:
-    accent: '#7c3aed'
-    accent2: '#14b8a6'
-    soft: rgba(124, 58, 237, 0.09)
-    border: rgba(124, 58, 237, 0.22)
-    darkAccent: '#a78bfa'
-    darkAccent2: '#5eead4'
-    darkSoft: rgba(167, 139, 250, 0.14)
-    darkBorder: rgba(167, 139, 250, 0.28)
   hero:
     eyebrow: RevoGrid Scheduler
-    title: 'RevoGrid Scheduler: JavaScript Scheduler for your product.'
-    description: Scheduler component for staff rosters, room bookings, equipment plans, field crews, support queues, and resource capacity.
+    title: JavaScript Scheduler for people, resources, and bookings.
+    description: Build interactive calendars and resource timelines in your app. Move shifts, manage reservations, and check availability while keeping control of your data.
     actions:
-      - label: View Demo
+      - label: Live scheduler demo
         href: /demo/event-scheduler
         arrow: true
+      - label: Booking demo
+        href: /demo/property-booking
+        variant: secondary
       - label: Get Pro Trial
         href: /trial
         variant: secondary
@@ -99,7 +97,7 @@ ganttLanding:
     liveLabel: Live
   statsAriaLabel: JavaScript Scheduler product stats
   stats:
-    - value: '4'
+    - value: '5'
       label: scheduler views
     - value: Controlled
       label: event persistence
@@ -109,34 +107,86 @@ ganttLanding:
       label: framework targets
   features:
     id: features
-    kicker: Features
-    title: Scheduling features for real product workflows.
-    description: Ship calendar and resource planning screens without building a scheduler engine, event editor, conflict layer, and grid interaction model from scratch.
+    kicker: Inside the scheduler
+    title: More than a calendar. A scheduling workspace.
+    description: Give users the right view of their day, the context behind every assignment, and the controls to change plans. These screenshots come from the working demos.
     items:
       - icon: '01'
-        title: Calendar and timeline views
-        description: Use day, week, month, and resourceTimeline layouts for shift calendars, booking grids, dispatch boards, machine plans, and team capacity views.
-        tags: [Day, Week, Month, Resource timeline]
+        title: Resource timelines with the full picture
+        description: Keep people, roles, and locations beside a horizontal schedule. Show progress, shift markers, reserved time, and different event styles without losing resource context.
+        tags: [Resource columns, Time markers, Progress]
+        media: /img/scheduler-features/resource-timeline.png
+        mediaAlt: Staff resource timeline with role and ward columns, progress bars, shift markers, and hatched reserved slots
+        mediaWidth: 1152
+        mediaHeight: 489
+        href: /demo/event-scheduler
+        cta: Explore resource scheduling
       - icon: '02'
-        title: Controlled event editing
-        description: Create, move, resize, edit, delete, select, copy, paste, and duplicate events while your app owns the accepted event array and backend persistence.
-        tags: [Create, Move, Resize, Controlled state]
+        title: Day, week, month, and year calendars
+        description: Switch from detailed time slots to a broader calendar overview. Keep event colors, assignees, locked events, and availability visible as the date range changes.
+        tags: [Day and week, Month and year, Date navigation]
+        media: /img/scheduler-features/calendar-month.png
+        mediaAlt: Complete monthly scheduler calendar with all five weeks, labeled appointments, daily event counts, and weekend availability
+        mediaWidth: 1152
+        mediaHeight: 682
+        href: /demo/event-scheduler
+        cta: Try the calendar views
       - icon: '03'
-        title: Resource and capacity planning
-        description: Model people, rooms, equipment, vehicles, teams, locations, parent groups, assignments, coverage requirements, and utilization in one scheduler projection.
-        tags: [Resources, Assignments, Utilization]
+        title: Event editing, down to the details
+        description: Create, move, and resize events, then open the editor to adjust dates, resources, status, color, and notes. Use locked events to protect fixed commitments.
+        tags: [Drag and resize, Event editor, Locked events]
+        media: /img/scheduler-features/event-editor.png
+        mediaAlt: Scheduler event editor with start and end times, resource assignment, status, color palette, notes, and save controls
+        mediaWidth: 1200
+        mediaHeight: 750
+        href: /demo/event-scheduler
+        cta: Open an event in the demo
       - icon: '04'
-        title: Availability and conflict rules
-        description: Combine calendars, working hours, blocked time, holidays, breaks, overlap checks, missing resources, invalid durations, and capacity warnings.
-        tags: [Calendars, Availability, Conflicts]
+        title: Bookings with occupancy in context
+        description: Plan nightly stays across properties. Check booking overlaps and guest capacity, and compare daily totals for booked properties and guests in the same timeline.
+        tags: [Nightly reservations, Guest capacity, Daily totals]
+        media: /img/scheduler-features/property-booking.png
+        mediaAlt: Property booking scheduler showing accommodation photos, nightly reservations, and daily occupancy totals
+        mediaWidth: 1152
+        mediaHeight: 648
+        href: /demo/property-booking
+        cta: Try the booking calendar
+      - icon: '09'
+        title: Staff schedules at a glance
+        description: See the week's assignments with assignee labels, event colors, and time slots. Switch calendar presets to compare working hours and availability for different schedules.
+        tags: [Staff rosters, Assignee labels, Calendar presets]
+        media: /img/scheduler-features/calendar-week.png
+        mediaAlt: Complete weekly staff calendar with all seven days, working hours, labeled appointments, assignee names, and blocked time
+        mediaWidth: 1152
+        mediaHeight: 612
+        href: /demo/event-scheduler
+        cta: Explore the weekly calendar
+      - icon: '10'
+        title: A timeline and an event list
+        description: Build different views over the same scheduling data. The demo pairs its resource and calendar views with an event table showing dates, times, assignees, types, and statuses.
+        tags: [Shared event data, Tabular overview, Status labels]
+        media: /img/scheduler-features/event-table.png
+        mediaAlt: Scheduler demo event table with date, time, assignee portraits, event types, and status labels
+        mediaWidth: 1152
+        mediaHeight: 537
+        href: /demo/event-scheduler
+        cta: Explore the event table
       - icon: '05'
-        title: Templates and recurrence
-        description: Speed up repeated scheduling with event templates, recurring event helpers, recurrence-series edits, clipboard workflows, and bulk scheduler actions.
-        tags: [Templates, Recurrence, Bulk actions]
+        title: Availability and conflict detection
+        description: Define working hours, holidays, breaks, and blocked time. Surface overlaps and capacity warnings, then use validation hooks to apply your own scheduling rules.
+        tags: [Working calendars, Blocked time, Validation hooks]
       - icon: '06'
-        title: Remote-ready customization
-        description: Adapt event bars, headers, labels, context menus, keyboard shortcuts, remote loading, optimistic mutations, rollback, exports, and print views.
-        tags: [Custom renderers, Remote mode, Export]
+        title: Recurrence and repeatable workflows
+        description: Use event templates and recurrence helpers for repeated schedules. Support series edits, copy and paste, duplication, and bulk actions for everyday planning.
+        tags: [Recurring events, Templates, Bulk actions]
+      - icon: '07'
+        title: Your backend, your accepted changes
+        description: Keep persistence in your application. Load remote date ranges and resources, handle optimistic changes, and roll back a mutation when your server rejects it.
+        tags: [Controlled state, Remote loading, Rollback]
+      - icon: '08'
+        title: Custom rendering and interactions
+        description: Adapt event bars, resource headers, labels, context menus, and keyboard shortcuts to your workflow. Match the rest of your application with themes and custom renderers.
+        tags: [Event templates, Context menus, Keyboard shortcuts]
   integrations:
     id: integrations
     kicker: Integrations
@@ -163,6 +213,71 @@ ganttLanding:
         iconSrc: /svelte.svg
         name: Svelte
         badge: ''
+  useCases:
+    id: scheduler-use-cases
+    kicker: Use cases
+    title: Where teams embed RevoGrid Scheduler.
+    description: Explore two working examples for scheduling people and booking properties inside your product.
+    items:
+      - title: Employee shift scheduling
+        description: Plan employee shifts in a weekly calendar, move assignments between resources, and check scheduling conflicts while editing.
+        media: /img/scheduler-features/resource-timeline.png
+        mediaAlt: RevoGrid Scheduler demo showing employee shifts across a weekly resource calendar
+        href: /demo/event-scheduler
+        cta: Explore shift scheduling
+      - title: Property booking
+        description: Manage nightly stays across properties with booking conflict checks, guest capacity, and daily totals for booked properties and guests.
+        media: /img/scheduler-features/property-booking.png
+        mediaAlt: RevoGrid property booking demo showing property photos, nightly reservations, and daily occupancy totals
+        href: /demo/property-booking
+        cta: Explore property booking
+  faq:
+    id: event-scheduler-faq
+    kicker: Questions before you build
+    title: JavaScript Scheduler questions
+    items:
+      - q: What is a JavaScript resource scheduler?
+        a: A JavaScript resource scheduler places events on a timeline beside the people, rooms, equipment, or properties assigned to them. RevoGrid Scheduler combines that resource view with day, week, month, and year calendars inside your application.
+      - q: Can I use the scheduler with React, Vue, Angular, or Svelte?
+        a: Yes. RevoGrid Scheduler uses RevoGrid’s Web Component foundation and works with JavaScript and TypeScript applications, including React, Vue, Angular, and Svelte integrations.
+      - q: Can I build staff schedules and booking calendars?
+        a: Yes. The shift scheduling demo shows staff assignments, resource columns, working hours, and locked events. The property booking demo shows nightly reservations, overlap checks, guest capacity, and daily occupancy totals.
+      - q: How does the scheduler handle conflicts and availability?
+        a: Configure calendars, working hours, blocked time, overlap checks, and capacity rules. Validation hooks let your application decide which proposed changes to accept. Your backend can apply additional business rules before persisting changes.
+      - q: When should I use a Scheduler instead of a Gantt chart?
+        a: Use Scheduler for events assigned to people, rooms, equipment, or properties over time. Use a Gantt chart when your main workflow depends on project tasks, dependencies, baselines, and critical path. RevoGrid offers Scheduler and Gantt as separate products.
+      - q: Can I connect my own API and database?
+        a: Yes. Your application owns the accepted event data and persistence. Remote loading and mutation hooks support loading schedule ranges, saving changes, optimistic updates, and rollback after rejected requests.
+  linkSections:
+    id: scheduler-resources
+    kicker: Build with it
+    title: From the live demo to your application.
+    description: Explore the examples, then use the guides to configure views, editing, scheduling rules, and data loading.
+    sections:
+      - title: Explore the examples
+        items:
+          - label: Staff shift scheduling demo
+            href: /demo/event-scheduler
+          - label: Property booking demo
+            href: /demo/property-booking
+          - label: Gantt for project planning
+            href: /gantt
+      - title: Configure the scheduler
+        items:
+          - label: Scheduler introduction
+            href: https://pro.rv-grid.com/guides/event-scheduler/introduction
+          - label: Calendar and timeline views
+            href: https://pro.rv-grid.com/guides/event-scheduler/timeline-views
+          - label: Event editing guide
+            href: https://pro.rv-grid.com/guides/event-scheduler/event-editing
+      - title: Add your business rules
+        items:
+          - label: Availability and calendars
+            href: https://pro.rv-grid.com/guides/event-scheduler/scheduling-rules/availability
+          - label: Conflict handling
+            href: https://pro.rv-grid.com/guides/event-scheduler/scheduling-rules/conflicts
+          - label: Remote data and persistence
+            href: https://pro.rv-grid.com/guides/event-scheduler/remote-data
   advancedCallout:
     title: JavaScript Scheduler is part of the Pro Advanced bundle.
   cta:
@@ -178,72 +293,189 @@ ganttLanding:
 import GanttPageLayout from './gantt/GanttPageLayout.vue'
 </script>
 
-<GanttPageLayout />
+<div class="scheduler-landing">
+  <GanttPageLayout>
+    <template #after-hero>
+      <nav class="scheduler-section-nav" aria-label="Explore RevoGrid Scheduler">
+        <a href="#features">Features</a>
+        <a href="#integrations">Frameworks</a>
+        <a href="#scheduler-use-cases">Use cases</a>
+        <a href="#event-scheduler-faq">Questions</a>
+        <a href="#scheduler-quick-start">Quick start</a>
+        <a href="#scheduler-resources">Developer guides</a>
+      </nav>
+    </template>
+    <template #before-resources>
+      <section id="scheduler-quick-start" class="scheduler-quick-start">
+        <div class="scheduler-quick-start__inner">
+
+## Start with two resources and one booking
+
+Use this JavaScript Scheduler example in a TypeScript application with a `<div id="app"></div>` mount point. The public trial registry requires no login or token. These aliases keep the same imports when you switch to licensed packages.
+
+```sh
+pnpm config set @revolist:registry https://trial.rv-grid.com --location=project
+pnpm add @revolist/revogrid @revolist/revogrid-pro@npm:@revolist/rv-pro-trial @revolist/scheduler@npm:@revolist/scheduler-trial
+```
+
+<<< ./gantt/schedulerQuickStart.ts
+
+The example renders a resource timeline with editable sample data. Connect accepted changes to your backend using the [remote data guide](https://pro.rv-grid.com/guides/event-scheduler/remote-data), or start from the [runnable Scheduler repository](https://github.com/revolist/scheduler).
+
+For task dependencies, baselines, and critical path, explore [RevoGrid Gantt](/gantt).
+
+</div>
+</section>
+</template>
+
+  </GanttPageLayout>
+</div>
 
 <style scoped>
-.event-scheduler-example {
-  border-top: 1px solid var(--vp-c-divider);
-  padding: 88px 0 96px;
-  background: var(--vp-c-bg);
+.scheduler-landing :deep(.gantt-page > section > .container) {
+  width: calc(100% - 48px);
+  margin-inline: auto;
 }
 
-.event-scheduler-example__inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 48px;
-}
-
-.event-scheduler-example__kicker {
-  display: inline-flex;
-  align-items: center;
-  margin: 0 0 12px;
-  color: var(--gantt-accent, var(--vp-c-brand-1));
-  font-family: var(--vp-font-family-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.event-scheduler-example h2 {
-  max-width: 720px;
-  margin: 0 0 14px;
-  color: var(--vp-c-text-1);
-  font-size: clamp(30px, 3.4vw, 44px);
-  font-weight: 600;
-  line-height: 1.1;
-}
-
-.event-scheduler-example p:not(.event-scheduler-example__kicker) {
-  max-width: 720px;
-  margin: 0 0 36px;
-  color: var(--vp-c-text-2);
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.event-scheduler-example code {
-  color: var(--gantt-accent, var(--vp-c-brand-1));
+.scheduler-quick-start {
+  padding: 64px 24px;
+  border-block: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg-soft);
-  border-radius: 6px;
-  padding: 2px 6px;
-  font-size: 0.9em;
+  scroll-margin-top: 96px;
 }
 
-:deep(.event-scheduler-example .demo-widget-frame) {
-  min-height: 620px;
+.scheduler-quick-start__inner {
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.scheduler-quick-start__inner :deep(h2) {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.2;
+}
+
+.scheduler-quick-start__inner :deep(p) {
+  max-width: 820px;
+  line-height: 1.75;
+}
+
+.scheduler-landing :deep(.hero) {
+  padding-top: 56px;
+}
+
+.scheduler-landing :deep(.hero-inner) {
+  gap: 32px;
+}
+
+.scheduler-landing :deep(.rg-hero-title) {
+  font-size: clamp(36px, 4vw, 52px);
+}
+
+.scheduler-section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 24px;
+  margin: 40px 24px 0;
+  padding: 20px 0;
+  border-block: 1px solid var(--vp-c-divider);
+}
+
+.scheduler-section-nav a {
+  padding: 6px 0;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.scheduler-section-nav a:hover {
+  color: var(--vp-c-brand-1);
+}
+
+.scheduler-section-nav a:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+
+.scheduler-landing :deep(.features),
+.scheduler-landing :deep(.content-section),
+.scheduler-landing :deep(.integrations) {
+  padding-block: 64px;
+  scroll-margin-top: 96px;
+}
+
+.scheduler-landing :deep(.feature-card:not(.feature-card--media)) {
   border: 1px solid var(--vp-c-divider);
   border-radius: 18px;
-  box-shadow: var(--pro-doc-shadow-lg, 0 18px 48px rgba(0, 0, 0, 0.1));
 }
 
-@media (max-width: 768px) {
-  .event-scheduler-example {
-    padding: 64px 0 72px;
+.scheduler-landing :deep(.feature-media) {
+  aspect-ratio: 16 / 10;
+  background: var(--vp-c-bg-soft);
+}
+
+.scheduler-landing :deep(.use-case-media) {
+  aspect-ratio: 16 / 10;
+}
+
+.scheduler-landing :deep(.use-case-media img) {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.scheduler-landing :deep(.section-title) {
+  max-width: 760px;
+  font-size: clamp(30px, 3.5vw, 44px);
+}
+
+.scheduler-landing :deep(.feature-media img) {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #fff;
+}
+
+@media (min-width: 1100px) {
+  .scheduler-landing :deep(.hero-inner) {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 40px;
+    text-align: left;
   }
 
-  .event-scheduler-example__inner {
-    padding: 0 24px;
+  .scheduler-landing :deep(.hero-sub) {
+    margin-left: 0;
+  }
+
+  .scheduler-landing :deep(.hero-actions),
+  .scheduler-landing :deep(.hero-badges) {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .scheduler-landing :deep(.hero) {
+    padding-top: 32px;
+  }
+
+  .scheduler-landing :deep(.hero-sub) {
+    font-size: 16px;
+  }
+
+  .scheduler-section-nav {
+    gap: 4px 18px;
+    margin-top: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scheduler-landing :deep(.hero) * {
+    animation: none;
   }
 }
 </style>

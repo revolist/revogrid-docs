@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.11](README.md) / Getter
+[RevoGrid Documentation v4.29.0](README.md) / Getter
 
 # Interface: Getter()\<T\>
 
@@ -30,4 +30,4 @@ interface Getter<P>(propName: P & string): T[P]
 
 ## Defined in
 
-[src/utils/store.types.ts:27](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/utils/store.types.ts#L27)
+[src/utils/store.types.ts:27](https://github.com/revolist/revogrid/blob/9827a26b6eac72857b5b257738fc44efe7783da3/src/utils/store.types.ts#L27)
