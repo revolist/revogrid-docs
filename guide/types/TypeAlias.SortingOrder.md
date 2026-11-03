@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.1](README.md) / SortingOrder
+[RevoGrid Documentation v4.31.2](README.md) / SortingOrder
 
 # Type Alias: SortingOrder
 
@@ -10,4 +10,4 @@ Current sorting order per column property.
 
 ## Defined in
 
-[src/plugins/sorting/sorting.types.ts:6](https://github.com/revolist/revogrid/blob/e5ea71da84a5bfcacfb74d2f230cdffaebb47d28/src/plugins/sorting/sorting.types.ts#L6)
+[src/plugins/sorting/sorting.types.ts:6](https://github.com/revolist/revogrid/blob/a02f07fc03861e63a6c2cf8430472223ac943612/src/plugins/sorting/sorting.types.ts#L6)

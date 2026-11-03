@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.1](README.md) / RevogridEvents
+[RevoGrid Documentation v4.31.2](README.md) / RevogridEvents
 
 # Type Alias: RevogridEvents
 
@@ -126,4 +126,4 @@ type RevogridEvents:
 
 ## Defined in
 
-[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/e5ea71da84a5bfcacfb74d2f230cdffaebb47d28/src/types/events.ts#L2)
+[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/a02f07fc03861e63a6c2cf8430472223ac943612/src/types/events.ts#L2)

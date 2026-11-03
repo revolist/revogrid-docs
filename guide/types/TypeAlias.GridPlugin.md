@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.1](README.md) / GridPlugin
+[RevoGrid Documentation v4.31.2](README.md) / GridPlugin
 
 # Type Alias: GridPlugin
 
@@ -8,4 +8,4 @@ type GridPlugin: typeof BasePlugin;
 
 ## Defined in
 
-[src/plugins/base.plugin.ts:121](https://github.com/revolist/revogrid/blob/e5ea71da84a5bfcacfb74d2f230cdffaebb47d28/src/plugins/base.plugin.ts#L121)
+[src/plugins/base.plugin.ts:121](https://github.com/revolist/revogrid/blob/a02f07fc03861e63a6c2cf8430472223ac943612/src/plugins/base.plugin.ts#L121)

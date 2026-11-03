@@ -1,6 +1,6 @@
 {
   "name": "revogrid",
-  "version": "4.31.2",
+  "version": "4.31.3",
   "description": "Data Grid Library on steroids - RevoGrid",
   "main": "index.js",
   "scripts": {
@@ -102,7 +102,7 @@
     "@revolist/pivot": "3.1.2",
     "@revolist/revogrid-pro": "3.1.2",
     "@revolist/scheduler": "3.1.2",
-    "@revolist/vue3-datagrid": "4.31.2",
+    "@revolist/vue3-datagrid": "4.31.3",
     "lodash-es": "^4.18.1",
     "numeral": "^2.0.6",
     "read-excel-file": "^9.0.10"
