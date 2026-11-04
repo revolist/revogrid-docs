@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.2](README.md) / RowResizeCancelEventDetail
+[RevoGrid Documentation v4.31.3](README.md) / RowResizeCancelEventDetail
 
 # Type Alias: RowResizeCancelEventDetail
 
@@ -12,8 +12,8 @@ type RowResizeCancelEventDetail: RowResizeEventDetail & {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `reason` | [`RowResizeCancelReason`](TypeAlias.RowResizeCancelReason.md) | [src/plugins/row-resize/row-resize.types.ts:43](https://github.com/revolist/revogrid/blob/a02f07fc03861e63a6c2cf8430472223ac943612/src/plugins/row-resize/row-resize.types.ts#L43) |
+| `reason` | [`RowResizeCancelReason`](TypeAlias.RowResizeCancelReason.md) | [src/plugins/row-resize/row-resize.types.ts:43](https://github.com/revolist/revogrid/blob/6b4ba162d7e1e59d273a181170ca4cef92eec123/src/plugins/row-resize/row-resize.types.ts#L43) |
 
 ## Defined in
 
-[src/plugins/row-resize/row-resize.types.ts:42](https://github.com/revolist/revogrid/blob/a02f07fc03861e63a6c2cf8430472223ac943612/src/plugins/row-resize/row-resize.types.ts#L42)
+[src/plugins/row-resize/row-resize.types.ts:42](https://github.com/revolist/revogrid/blob/6b4ba162d7e1e59d273a181170ca4cef92eec123/src/plugins/row-resize/row-resize.types.ts#L42)
