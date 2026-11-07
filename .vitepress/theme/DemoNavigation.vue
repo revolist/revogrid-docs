@@ -163,12 +163,9 @@ const featureGroups = [
     label: 'Data grid',
     icon: 'grid',
     items: [
-      createItem('ai-prompt-library', 'AI prompts', '/demo/ai-prompts', 'message'),
-      createItem('project-portfolio', 'Row Grouping', '/demo/project-portfolio', 'chart', [
-        'Project portfolio',
-      ]),
       createItem('tree-data', 'Tree data', '/demo/tree-data', 'tree'),
       createItem('filtering', 'Advanced filtering', '/demo/filtering', 'filter'),
+      createItem('ai-agent', 'AI Agent', '/demo/ai-agent', 'message'),
       createItem('infinity-scroll', 'Server-side scrolling', '/demo/infinity-scroll', 'server'),
       createItem('column-collapse', 'Column collapse', '/demo/column-collapse', 'collapseColumns'),
       createItem('context-menu', 'Grid formatting', '/demo/context-menu', 'tool', ['Context menu']),
@@ -178,6 +175,9 @@ const featureGroups = [
       createItem('audit-history', 'Audit history', '/demo/audit-history', 'edit'),
       createItem('project-tracker', 'Project tracker', '/demo/color', 'listCheck', ['Color']),
       createItem('excel', 'Collaboration', '/demo/excel', 'users', ['Excel', 'Spreadsheet']),
+      createItem('project-portfolio', 'Row Grouping', '/demo/project-portfolio', 'chart', [
+        'Project portfolio',
+      ]),
     ],
   },
   {

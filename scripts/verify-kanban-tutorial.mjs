@@ -33,8 +33,8 @@ assert.equal(
   'TypeScript snippets must be complete extracted modules.',
 )
 for (const [id, expected] of Object.entries({
-  '@revolist/kanban': '3.0.12',
-  '@revolist/revogrid-pro': '3.0.12',
+  '@revolist/kanban': '4.0.1',
+  '@revolist/revogrid-pro': '4.0.1',
   '@revolist/revogrid': '4.29.0',
   '@revolist/react-datagrid': '4.29.0',
 })) {

@@ -377,12 +377,13 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
       {
         text: 'Core',
         collapsed: false,
-        links: ['/demo/grid-at-scale', '/demo/ai-prompts', '/demo/project-portfolio'],
+        links: ['/demo/grid-at-scale', '/demo/project-portfolio'],
       },
       {
         text: 'Pro',
         collapsed: false,
         links: [
+          '/demo/ai-agent',
           '/demo/tree-data',
           '/demo/filtering',
           '/demo/infinity-scroll',
@@ -441,7 +442,7 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
 test('resolves the requested public plan labels and try-in-project destinations', () => {
   const expected = {
     'grid-at-scale': { plan: 'Free', destination: '/guide/' },
-    'ai-prompt-library': { plan: 'Free', destination: '/guide/' },
+    'ai-agent': { plan: 'Pro Lite', destination: 'https://rv-grid.com/trial' },
     'project-portfolio': { plan: 'Free', destination: '/guide/' },
     'project-tracker': { plan: 'Pro Lite', destination: 'https://rv-grid.com/trial' },
     pivot: { plan: 'Pro Advanced', destination: 'https://rv-grid.com/trial' },

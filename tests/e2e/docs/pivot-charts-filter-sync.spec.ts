@@ -15,30 +15,33 @@ test('Charts controls reflect cleared and custom Fields filters and preserve unr
   const summary = page.locator('.dashboard-summary')
 
   await configure(page, { filterSelections: {} })
-  await expect(year).toHaveValue('')
+  await expect(year).toHaveAttribute('data-value', '')
   await expect(summary).toContainText('all years · all brands')
   await configure(page, { rows: ['Quarter'], columns: ['Category'], filterSelections: {
     Year: [2024, 2025], Brand: { mode: 'exclude', values: ['Contoso'] }, Country: ['Australia'],
   } })
-  await expect(year).toHaveValue('__custom__')
-  await expect(brand).toHaveValue('__custom__')
+  await expect(year).toHaveAttribute('data-value', '__custom__')
+  await expect(brand).toHaveAttribute('data-value', '__custom__')
   await expect(summary).toContainText('2024, 2025 · excluding Contoso')
   await expect(page.locator('[aria-label="Quarterly revenue chart"]')).toContainText('Report series side by side for each report row.')
   await expect(page.getByRole('radio', { name: 'Countries', exact: true })).not.toBeChecked()
   await expect(page.getByRole('radio', { name: 'Categories', exact: true })).not.toBeChecked()
-  await year.selectOption('2024')
+  await year.click()
+  await page.getByRole('option', { name: '2024', exact: true }).click()
   await expect.poll(() => page.locator('.pivot-dashboard revo-grid').evaluate((element: any) => ({
     rows: element.pivot.rows, columns: element.pivot.columns, filters: element.pivot.filterSelections,
   }))).toEqual({ rows: ['Quarter'], columns: ['Category'], filters: {
     Year: [2024], Brand: { mode: 'exclude', values: ['Contoso'] }, Country: ['Australia'],
   } })
-  await brand.selectOption('Fabrikam')
+  await brand.click()
+  await page.getByRole('option', { name: 'Fabrikam', exact: true }).click()
   await expect(summary).toContainText('2024 · Fabrikam')
-  await year.selectOption('')
+  await year.click()
+  await page.getByRole('option', { name: 'All years', exact: true }).click()
   await expect(summary).toContainText('all years · Fabrikam')
   await expect.poll(() => page.locator('.pivot-dashboard revo-grid').evaluate((element: any) => element.pivot.filterSelections.Year)).toBeUndefined()
   await configure(page, { filterSelections: { Year: { mode: 'exclude', values: [2024] }, Brand: ['Contoso', 'Fabrikam'] } })
   await expect(summary).toContainText('excluding 2024 · Contoso, Fabrikam')
-  await page.getByRole('radio', { name: 'Countries', exact: true }).check()
+  await page.getByRole('radio', { name: 'Countries', exact: true }).click()
   await expect.poll(() => page.locator('.pivot-dashboard revo-grid').evaluate((element: any) => element.pivot.filterSelections)).toEqual({ Year: { mode: 'exclude', values: [2024] }, Brand: ['Contoso', 'Fabrikam'] })
 })

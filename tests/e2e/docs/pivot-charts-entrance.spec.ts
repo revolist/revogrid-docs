@@ -32,7 +32,7 @@ test('bars and donut animate their geometry while all cards remain visible', asy
     expect(await card.evaluate(element => ({ opacity: getComputedStyle(element).opacity, animation: getComputedStyle(element).animationName })))
       .toEqual({ opacity: '1', animation: 'none' })
   }
-  await page.getByRole('radio', { name: 'Categories' }).check()
+  await page.getByRole('radio', { name: 'Categories' }).click()
   await expect(page.getByRole('heading', { name: 'Quarterly revenue by category' })).toBeVisible()
 })
 

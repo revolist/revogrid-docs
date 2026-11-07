@@ -34,17 +34,11 @@ const DEMO_PAGE_CONTENT = {
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/core-free/src/hr.vue',
     featureBadges: [],
   },
-  'ai-prompt-library': {
-    title: 'RevoGrid AI Prompt Library Demo',
-    description:
-      'Search, filter, and edit 100 practical prompts for building, debugging, optimizing, and extending RevoGrid.',
-    implementationUrl:
-      'https://github.com/revolist/revogrid-demos/blob/main/core-ai-prompts/src/prompt-library.vue',
-    featureBadges: [
-      { label: 'Multiline editing', source: 'Core TextEditor extension' },
-      { label: 'Local data', source: 'Bundled typed prompt catalog' },
-      { label: 'Filtering & sorting', source: 'RevoGrid Core APIs' },
-    ],
+  'ai-agent': {
+    title: 'AI Agent Demo',
+    description: 'Ask questions about grid data and apply filters, sorting, and other actions from the assistant.',
+    implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/v4/pro-ai-agent/src/AiAssistant.vue',
+    featureBadges: [],
   },
   'project-portfolio': {
     title: 'Row Grouping Demo',

@@ -80,11 +80,11 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
   },
-  'ai-prompt-library': {
+  'ai-agent': {
     docsUrl: '/guide/',
     verificationOptions: [
-      { code: 'prompt_editing', label: 'Try multiline prompt editing' },
-      { code: 'search_filtering', label: 'Check search and category filtering' },
+      { code: 'agent_actions', label: 'Try a suggested grid action' },
+      { code: 'agent_answers', label: 'Ask a question about the grid' },
       { code: 'framework_integration', label: 'See an integration example' },
       { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },

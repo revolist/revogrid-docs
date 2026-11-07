@@ -107,8 +107,10 @@ test('shared pagination disables every direction for an empty ticket scope and r
   const priority = scope.getByRole('combobox', { name: 'Priority', exact: true })
   await expect(team).toBeVisible()
   await expect(priority).toBeVisible()
-  await team.selectOption('Integrations')
-  await priority.selectOption('Critical')
+  await team.click()
+  await page.getByRole('option', { name: 'Integrations', exact: true }).click()
+  await priority.click()
+  await page.getByRole('option', { name: 'Critical', exact: true }).click()
   const source = page.locator('.detail-panel')
   await expect(source.locator('.detail-page-info')).toHaveText('Showing 0–0 of 0')
   for (const name of ['First', 'Previous', 'Next', 'Last']) {

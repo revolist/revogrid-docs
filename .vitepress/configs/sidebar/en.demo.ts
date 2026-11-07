@@ -231,10 +231,6 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
         link: '/demo/grid-at-scale',
       },
       {
-        text: demoSidebarText('ai-prompt-library'),
-        link: '/demo/ai-prompts',
-      },
-      {
         text: demoSidebarText('project-portfolio'),
         link: '/demo/project-portfolio',
       },
@@ -244,6 +240,10 @@ export const sidebarDemonEn: DefaultTheme.SidebarItem[] = [
     text: demoSidebarGroupText('Pro', 'pro-lite'),
     collapsed: false,
     items: [
+      {
+        text: demoSidebarText('ai-agent'),
+        link: '/demo/ai-agent',
+      },
       {
         text: demoSidebarText('tree-data'),
         link: '/demo/tree-data',

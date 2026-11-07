@@ -667,6 +667,7 @@ $max-content-width: 1240px;
 .demo-page-layout[data-demo-id='planning'] .demo-page-header {
   min-height: 82px;
   padding-bottom: 10px;
+  padding-inline: 4px;
 }
 .demo-page-layout[data-demo-id='planning'] .demo-page-heading {
   display: grid;

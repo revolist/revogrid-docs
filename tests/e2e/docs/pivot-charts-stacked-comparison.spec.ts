@@ -20,9 +20,12 @@ test('Pivot Charts compares quarterly values and stacks the same values into ann
     expect(Math.abs(segments[index].x - segments[index - 1].x - segments[index - 1].width)).toBeLessThan(0.01)
   }
 
-  await page.getByRole('combobox', { name: 'Year' }).selectOption('2024')
-  await page.getByRole('combobox', { name: 'Brand' }).selectOption('Contoso')
-  await page.getByRole('radio', { name: 'Categories' }).check()
+  await page.getByRole('combobox', { name: 'Year' }).click()
+
+  await page.getByRole('option', { name: '2024', exact: true }).click()
+  await page.getByRole('combobox', { name: 'Brand' }).click()
+  await page.getByRole('option', { name: 'Contoso', exact: true }).click()
+  await page.getByRole('radio', { name: 'Categories' }).click()
   await expect(page.getByRole('heading', { name: 'Quarterly revenue by category' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Category comparison' })).toBeVisible()
   await expect(page.locator('.dashboard-summary')).toContainText('2024 · Contoso')

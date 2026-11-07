@@ -9,7 +9,7 @@ import { PRODUCT_CATALOG, type DemoId } from '../../../commercial/productCatalog
  */
 const demoReadiness: Record<DemoId, string> = {
   'grid-at-scale': '.hr-scale-grid',
-  'ai-prompt-library': '.prompt-grid',
+  'ai-agent': '.ai-view-demo revo-grid',
   'project-portfolio': '.portfolio-grid',
   'project-tracker': '.project-tracker-grid',
   'audit-history': '.audit-grid',

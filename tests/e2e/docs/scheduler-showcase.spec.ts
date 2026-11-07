@@ -17,6 +17,10 @@ for (const viewport of [
     for (const name of ['Resource', 'Role', 'Ward']) {
       await expect(grid.getByRole('columnheader', { name, exact: true })).toBeVisible()
     }
+    const resourceCell = grid.locator('.colPinStart revogr-data .rgCell').first()
+    await expect(resourceCell).toHaveCSS('border-right-width', '0px')
+    await expect(resourceCell).toHaveCSS('box-shadow', 'none')
+    expect(await resourceCell.evaluate(cell => getComputedStyle(cell, '::after').borderRightWidth)).toBe('1px')
     await expect(
       grid.locator('[data-event-scheduler-time-annotation="shift-start-0"]').first(),
     ).toBeVisible()
@@ -78,6 +82,8 @@ for (const viewport of [
       document.documentElement.dataset.theme = 'dark'
     })
     await expect(grid).toHaveAttribute('theme', 'darkMaterial')
+    await expect(resourceCell).toHaveCSS('border-right-width', '0px')
+    await expect(resourceCell).toHaveCSS('box-shadow', 'none')
     if (viewport.width > 1000)
       await expect(grid.locator('.shift-week-event--break').first()).toBeVisible()
     await page.screenshot({

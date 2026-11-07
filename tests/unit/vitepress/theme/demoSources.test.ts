@@ -55,25 +55,15 @@ test('registers every Grid at Scale source module under its consuming framework'
   assert.deepEqual(files('angular'), ['hr.angular.ts', ...sharedFiles])
 })
 
-test('registers every AI Prompt Library source module under each framework', () => {
-  const sharedFiles = [
-    'prompt-library.shared.ts',
-    'prompt-editor.ts',
-    'prompts.json',
-    'prompt-library.css',
-  ]
+test('registers every AI Agent source module under each framework', () => {
+  const sharedFiles = ['AiAssistant.shared.ts', 'AiAssistant.data.ts', 'AiAssistant.actions.ts', 'ai-assistant.scss']
   const files = (framework: 'vue' | 'ts' | 'react' | 'angular') =>
-    DEMO_SOURCE_REGISTRY['ai-prompt-library'][framework].files.map(file => file.label)
+    DEMO_SOURCE_REGISTRY['ai-agent'][framework].files.map(file => file.label)
 
-  assert.deepEqual(files('vue'), ['prompt-library.vue', ...sharedFiles])
-  assert.deepEqual(files('ts'), ['prompt-library.ts', ...sharedFiles])
-  assert.deepEqual(files('react'), ['prompt-library.react.tsx', ...sharedFiles])
-  assert.deepEqual(files('angular'), ['prompt-library.angular.ts', ...sharedFiles])
-  assert.equal(
-    DEMO_SOURCE_REGISTRY['ai-prompt-library'].vue.files.find(file => file.label === 'prompts.json')
-      ?.lang,
-    'json',
-  )
+  assert.deepEqual(files('vue'), ['AiAssistant.vue', ...sharedFiles])
+  assert.deepEqual(files('ts'), ['AiAssistant.ts', ...sharedFiles])
+  assert.deepEqual(files('react'), ['AiAssistant.react.tsx', ...sharedFiles])
+  assert.deepEqual(files('angular'), ['AiAssistantAngular.ts', ...sharedFiles])
 })
 
 test('registers every Project Portfolio source module under each framework', () => {
@@ -661,14 +651,6 @@ test('aligns the Grid at Scale data source toolbar with the demo heading', () =>
     page,
     /:deep\(\.hr-toolbar\)\{margin:4px 0 12px;padding:0 0 12px;border-bottom:1px solid var\(--vp-c-divider\)/,
   )
-})
-
-test('aligns the AI prompt search controls with the demo heading', () => {
-  const styles = readFileSync(
-    new URL('../../../../revogrid-demos/core-ai-prompts/src/prompt-library.css', import.meta.url),
-    'utf8',
-  )
-  assert.match(styles, /\.prompt-toolbar\s*\{[\s\S]*?padding:\s*18px 0/)
 })
 
 test('aligns the Project Portfolio grouping controls with the demo heading', () => {

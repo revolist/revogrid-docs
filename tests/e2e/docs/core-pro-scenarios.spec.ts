@@ -14,13 +14,14 @@ async function openDemo(page: import('@playwright/test').Page, path: string, gri
 test.describe('Core and Pro demo scenarios', () => {
   test('grid at scale changes dataset and resets a saved view', async ({ page }) => {
     await openDemo(page, '/demo/grid-at-scale', '.hr-scale-grid')
-    const source = page.locator('.hr-toolbar select').first()
-    await expect(source).toHaveValue('100000')
+    const source = page.getByRole('combobox', { name: 'Data Source' })
+    await expect(source).toContainText('100,000 rows')
     await expect(page.getByRole('region', { name: 'Browser performance metrics' })).toContainText(
       '100,000 × 100',
     )
 
-    await source.selectOption('1000')
+    await source.click()
+    await page.getByRole('option', { name: '1,000 rows × 100 columns', exact: true }).click()
     await expect(page.locator('.hr-loading-overlay')).toBeHidden()
     await expect(page.getByRole('region', { name: 'Browser performance metrics' })).toContainText(
       '1,000 × 100',
@@ -33,19 +34,14 @@ test.describe('Core and Pro demo scenarios', () => {
 
   test('grid at scale exposes readable metric help and theme choices', async ({ page }) => {
     await openDemo(page, '/demo/grid-at-scale', '.hr-scale-grid')
-    const theme = page.locator('.hr-toolbar select').nth(1)
-    const originalTheme = await theme.inputValue()
-    await expect(page.getByRole('button', { name: /About dataset size/i })).toBeVisible()
-    await page.getByRole('button', { name: /About dataset size/i }).focus()
-    await expect(page.getByRole('tooltip')).toContainText('rows')
+    const theme = page.getByRole('combobox', { name: 'Theme' })
+    await expect(page.getByRole('button', { name: 'About Dataset', exact: true })).toBeVisible()
+    await page.getByRole('button', { name: 'About Dataset', exact: true }).focus()
+    await expect(page.getByRole('tooltip')).toContainText('Requested rows')
 
-    const options = await theme
-      .locator('option')
-      .evaluateAll(items => items.map(item => (item as HTMLOptionElement).value))
-    const alternateTheme = options.find(value => value !== originalTheme)
-    expect(alternateTheme).toBeTruthy()
-    await theme.selectOption(alternateTheme!)
-    await expect(theme).toHaveValue(alternateTheme!)
+    await theme.click()
+    await page.getByRole('option', { name: 'Material', exact: true }).click()
+    await expect(theme).toContainText('Material')
     await expect(page.locator('.hr-scale-grid')).toBeVisible()
   })
 
@@ -70,59 +66,13 @@ test.describe('Core and Pro demo scenarios', () => {
     await expect(input).toHaveValue('12/25/2021')
   })
 
-  test('PROMPT-001 renders the authored first prompt with its attached category and tags', async ({
-    page,
-  }) => {
-    await openDemo(page, '/demo/ai-prompts', '.prompt-grid')
-    const grid = page.locator('.prompt-grid')
-    await expect(page.getByPlaceholder('Role, prompt, or tag…')).toBeVisible()
-    await expect(page.getByLabel('Category')).toBeVisible()
-    for (const header of ['Prompt role', 'Category', 'Prompt', 'Tags']) {
-      await expect(grid.getByText(header, { exact: true })).toBeVisible()
-    }
-    await expect(grid.getByText('Minimal grid starter', { exact: true })).toBeVisible()
-    await expect(grid.getByText('Setup', { exact: true }).first()).toBeVisible()
-    await expect(grid.getByText('quickstart, typescript', { exact: true })).toBeVisible()
-    await expect(
-      grid.getByText('Create the smallest working RevoGrid example', { exact: false }),
-    ).toBeVisible()
-  })
-
-  test('AI prompt library filters by search and category', async ({ page }) => {
-    await openDemo(page, '/demo/ai-prompts', '.prompt-grid')
-    const search = page.getByPlaceholder('Role, prompt, or tag…')
-    await expect(page.getByText('Minimal grid starter', { exact: true })).toBeVisible()
-
-    await search.fill('quickstart, typescript')
-    await expect(page.getByText('Minimal grid starter', { exact: true })).toBeVisible()
-    await page.getByLabel('Category').selectOption('Extensions')
-    await expect(page.getByText('Minimal grid starter', { exact: true })).toBeHidden()
-    await search.fill('')
-    await expect(page.getByText('Plugin scaffold', { exact: true })).toBeVisible()
-    await page.getByLabel('Category').selectOption('All')
-    await expect(page.getByText('Minimal grid starter', { exact: true })).toBeVisible()
-  })
-
-  test('AI prompt editor commits text and discards an Escape draft', async ({ page }) => {
-    await openDemo(page, '/demo/ai-prompts', '.prompt-grid')
-    await page.getByPlaceholder('Role, prompt, or tag…').fill('Minimal grid starter')
-    const original = 'Create the smallest working RevoGrid example'
-    const prompt = page.getByText(original, { exact: false }).first()
-    await prompt.dblclick()
-    const editor = page.locator('.prompt-editor')
-    await expect(editor).toBeVisible()
-    await editor.fill('E2E prompt: preserve this exact text.')
-    await editor.press('Enter')
-    await expect(
-      page.getByText('E2E prompt: preserve this exact text.', { exact: true }),
-    ).toBeVisible()
-    await page.getByText('E2E prompt: preserve this exact text.', { exact: true }).dblclick()
-    await editor.fill('discard this prompt draft')
-    await editor.press('Escape')
-    await expect(
-      page.getByText('E2E prompt: preserve this exact text.', { exact: true }),
-    ).toBeVisible()
-    await expect(page.getByText('discard this prompt draft', { exact: true })).toHaveCount(0)
+  test('AI Agent applies a suggested action to the grid', async ({ page }) => {
+    await openDemo(page, '/demo/ai-agent', '.ai-view-demo revo-grid')
+    await page.getByRole('button', { name: 'Only Europe', exact: true }).click()
+    await expect(page.getByRole('log', { name: 'Conversation messages' })).toContainText(
+      'View updated. Filtered by Region.',
+    )
+    await expect(page.getByRole('gridcell', { name: 'Americas', exact: true })).toHaveCount(0)
   })
 
   test('project portfolio collapses and re-expands grouped projects', async ({ page }) => {
@@ -348,20 +298,17 @@ test.describe('Core and Pro demo scenarios', () => {
     await page.getByRole('button', { name: 'Try example' }).click()
     await expect(count).toContainText('335 of 10,000')
     await expect(page.getByLabel('Search all visible columns')).toHaveValue('Lisbon pending')
-    await page.getByRole('button', { name: 'Clear All' }).click()
-    await expect(count).toContainText('10,000 of 10,000')
+    await page.getByLabel('Search all visible columns').fill('')
+    await expect(count).toContainText('217 of 10,000')
   })
 
-  test('advanced filtering replaces presets and clears their badges', async ({ page }) => {
+  test('advanced filtering replaces presets and updates their badges', async ({ page }) => {
     await openDemo(page, '/demo/filtering', '.order-explorer revo-grid')
     const explorer = page.getByRole('region', { name: 'Advanced Filtering: Order Explorer' })
     const count = explorer.locator('.order-explorer__count')
     await explorer.getByRole('button', { name: 'Review queue' }).click()
     await expect(count).not.toContainText('217 of 10,000')
     await expect(explorer.locator('.order-explorer__filter-badge')).toHaveCount(3)
-    await explorer.getByRole('button', { name: 'Clear All' }).click()
-    await expect(count).toContainText('10,000 of 10,000')
-    await expect(explorer.locator('.order-explorer__filter-badge')).toHaveCount(0)
   })
 
   test('advanced filtering recovers from an unmatched global search', async ({ page }) => {
@@ -374,14 +321,14 @@ test.describe('Core and Pro demo scenarios', () => {
     await expect(count).toContainText('217 of 10,000')
   })
 
-  test('infinite scroll keeps its remote directory status while scrolling', async ({ page }) => {
+  test('infinite scroll renders remote rows beyond the initial chunk', async ({ page }) => {
     await openDemo(page, '/demo/infinity-scroll', '.infinity-grid')
-    const status = page.locator('.infinity-status')
-    await expect(status).toContainText('Loaded 1,000 matching records')
-    await page.locator('.infinity-grid').hover()
-    await page.mouse.wheel(0, 1800)
-    await expect(status).toContainText('Loaded 1,000 matching records')
-    await expect(page.getByText('Remote User 010', { exact: false }).first()).toBeVisible()
+    const grid = page.locator('.infinity-grid')
+    await expect(grid.getByText('Remote User 0001', { exact: true })).toBeVisible()
+    await grid.hover()
+    await page.mouse.wheel(0, 6300)
+    await expect(grid.getByText(/^Remote User 0[1-9]\d{2}$/).first()).toBeVisible()
+    await expect(page.locator('.infinity-status')).toContainText('Loaded 1,000 matching records')
   })
 
   test('INFINITY-003 replaces buffered rows when the remote ID sort changes', async ({ page }) => {
@@ -457,11 +404,11 @@ test.describe('Core and Pro demo scenarios', () => {
 
   test('context menu opens for a selected employee and closes with Escape', async ({ page }) => {
     await openDemo(page, '/demo/context-menu', '.data-grid-context-menu-grid')
-    const employee = page.getByText('Ada', { exact: true }).first()
+    const employee = page.getByText('Ada Lovelace', { exact: true }).first()
     await expect(employee).toBeVisible()
     await employee.click({ button: 'right' })
     await expect(page.getByText('Edit cell', { exact: true })).toBeVisible()
-    await expect(page.getByText('Copy', { exact: true }).first()).toBeVisible()
+    await expect(page.getByRole('menuitem', { name: 'Copy options', exact: true })).toBeVisible()
     await page.keyboard.press('Escape')
     await expect(page.getByText('Edit cell', { exact: true })).toBeHidden()
   })

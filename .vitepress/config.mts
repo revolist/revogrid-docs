@@ -17,7 +17,6 @@ import { createStructuredDataHead } from './configs/structuredData.ts'
 import { prepareBlogFrontmatter } from './configs/blogSeo.ts'
 import { resolveCommercialFaqs, type CommercialFaqKey } from '../commercial/productCatalog.ts'
 import UnoCSS from 'unocss/vite'
-import { resolvePivotVersion } from '../revogrid-demos/pro-advanced-pivot/scripts/pivot-version.mjs'
 
 dotenv.config()
 
@@ -202,6 +201,8 @@ const archiveControlledHead = (head: HeadConfig[] | undefined): HeadConfig[] | u
 }
 
 const config: UserConfig<DefaultTheme.Config> = {
+  // Test servers must not overwrite a running developer server's optimized dependencies.
+  cacheDir: path.resolve(import.meta.dirname, 'cache', process.env.DOCS_E2E ? 'e2e' : 'dev'),
   ...(isArchiveBuild
     ? {}
     : {
@@ -498,20 +499,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     sidebar: sidebarEn,
   },
   vite: {
-    define: {
-      'import.meta.env.REVOGRID_PIVOT_VERSION': JSON.stringify(
-        resolvePivotVersion(
-          import.meta.url,
-          useLocalProPackages ? path.resolve(revogridProWorkspaceRoot, 'packages/pivot') : undefined,
-        ),
-      ),
-    },
     oxc: {
       jsx: {
         runtime: 'automatic',
       },
     },
     plugins: [
+      {
+        name: 'revogrid-published-ai-agent',
+        enforce: 'pre',
+        resolveId(source, importer) {
+          if (useLocalProPackages || !importer) return null
+          if (
+            source === '@revolist/revogrid-pro' &&
+            importer.startsWith(path.join(revogridDemosRoot, 'pro-ai-agent') + path.sep)
+          ) {
+            return this.resolve('@revolist/rv-pro-trial', importer, { skipSelf: true })
+          }
+          if (source === '@revolist/revogrid-pro/styles.css' && importer.includes('/demo/ai-agent.md')) {
+            return this.resolve('@revolist/rv-pro-trial/styles.css', importer, { skipSelf: true })
+          }
+          return null
+        },
+      },
       {
         // VitePress reserves `*.data.ts` for content loaders. Demo datasets are
         // regular source modules, so resolve them under a non-reserved filename.
@@ -586,6 +596,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     },
     optimizeDeps: {
       include: [
+        'shiki',
+        'shiki/wasm',
         ...(useLocalProPackages
           ? []
           : [
@@ -617,7 +629,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     },
     resolve: {
       // Nested demos must share the host grid runtime and custom-element registration.
-      dedupe: ['@revolist/revogrid', '@revolist/vue3-datagrid'],
+      dedupe: ['@revolist/revogrid', '@revolist/vue3-datagrid', '@revolist/scheduler', 'preact'],
       extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.svg'],
       alias: [
         {

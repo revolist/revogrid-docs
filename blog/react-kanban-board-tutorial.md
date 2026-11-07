@@ -88,7 +88,7 @@ Build a React board from one flat array of cards. The standalone `KanbanPlugin`
 projects those records into workflow columns and provides movement, WIP rules
 and a packaged editor. React owns the surrounding controls and the grid lifetime.
 
-This example uses the **public APIs** in Kanban/Pro **3.0.12** and Core/React
+This example uses the **public APIs** in Kanban/Pro **4.0.1** and Core/React
 wrapper **4.29.0**. Kanban and its editor are commercial modules; the steps below
 use public trial aliases.
 
@@ -107,7 +107,7 @@ Install React 18 and its types if they are not already present:
 pnpm add react@18.3.1 react-dom@18.3.1
 pnpm add -D typescript@5.9.3 @types/react@18 @types/react-dom@18
 pnpm config set @revolist:registry https://trial.rv-grid.com --location=project
-pnpm add @revolist/revogrid@4.29.0 @revolist/react-datagrid@4.29.0 @revolist/revogrid-pro@npm:@revolist/rv-pro-trial@3.0.12 @revolist/kanban@npm:@revolist/kanban-trial@3.0.12
+pnpm add @revolist/revogrid@4.29.0 @revolist/react-datagrid@4.29.0 @revolist/revogrid-pro@npm:@revolist/rv-pro-trial@4.0.1 @revolist/kanban@npm:@revolist/kanban-trial@4.0.1
 ```
 
 The trial registry needs no login. Application imports use the production names

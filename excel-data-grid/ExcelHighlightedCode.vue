@@ -3,8 +3,10 @@
     class="excel-highlighted-code"
     :class="`language-${language}`"
     :aria-label="label"
-    v-html="highlightedCode"
-  ></div>
+  >
+    <div v-if="highlightedCode" v-html="highlightedCode"></div>
+    <pre v-else class="shiki"><code>{{ code }}</code></pre>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -28,16 +30,21 @@ const highlightedCode = ref('')
 watch(
   () => [props.code, props.language] as const,
   async ([code, language]) => {
-    const html = await codeToHtml(code, {
-      lang: language,
-      themes: {
-        light: 'github-light',
-        dark: 'one-dark-pro',
-      },
-      defaultColor: false,
-    })
+    highlightedCode.value = ''
+    try {
+      const html = await codeToHtml(code, {
+        lang: language,
+        themes: {
+          light: 'github-light',
+          dark: 'one-dark-pro',
+        },
+        defaultColor: false,
+      })
 
-    if (code === props.code && language === props.language) highlightedCode.value = html
+      if (code === props.code && language === props.language) highlightedCode.value = html
+    } catch {
+      // Keep the source readable when a highlighter dependency cannot load.
+    }
   },
   { immediate: true },
 )

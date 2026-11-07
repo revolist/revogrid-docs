@@ -171,24 +171,18 @@ const gridAtScaleVanillaFiles = [
   ),
 ] as const
 
-const aiPromptLibrarySupportingFiles = [
-  sourceFile('core-ai-prompts/src/prompt-library.shared.ts', () =>
-    import('../../revogrid-demos/core-ai-prompts/src/prompt-library.shared.ts?raw').then(
-      module => module.default,
-    ),
+const aiAgentSupportingFiles = [
+  sourceFile('pro-ai-agent/src/AiAssistant.shared.ts', () =>
+    import('../../revogrid-demos/pro-ai-agent/src/AiAssistant.shared.ts?raw').then(module => module.default),
   ),
-  sourceFile('core-ai-prompts/src/prompt-editor.ts', () =>
-    import('../../revogrid-demos/core-ai-prompts/src/prompt-editor.ts?raw').then(
-      module => module.default,
-    ),
+  sourceFile('pro-ai-agent/src/AiAssistant.data.ts', () =>
+    import('../../revogrid-demos/pro-ai-agent/src/AiAssistant.data.ts?raw').then(module => module.default),
   ),
-  sourceFile('core-ai-prompts/src/prompts.json', () =>
-    import('../../revogrid-demos/core-ai-prompts/src/prompts.json?raw').then(module => module.default),
+  sourceFile('pro-ai-agent/src/AiAssistant.actions.ts', () =>
+    import('../../revogrid-demos/pro-ai-agent/src/AiAssistant.actions.ts?raw').then(module => module.default),
   ),
-  sourceFile('core-ai-prompts/src/prompt-library.css', () =>
-    import('../../revogrid-demos/core-ai-prompts/src/prompt-library.css?raw').then(
-      module => module.default,
-    ),
+  sourceFile('pro-ai-agent/src/ai-assistant.scss', () =>
+    import('../../revogrid-demos/pro-ai-agent/src/ai-assistant.scss?raw').then(module => module.default),
   ),
 ] as const
 
@@ -460,8 +454,6 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
       files: [
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/PropertyBooking.vue', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/PropertyBooking.vue?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/demo.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/demo.ts?raw').then(module => module.default)),
-        sourceFile('pro-advanced-scheduler/src/examples/property-booking/templates.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/templates.ts?raw').then(module => module.default)),
-        sourceFile('pro-advanced-scheduler/src/examples/property-booking/config.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/config.ts?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/data.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/data.ts?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/editor.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/editor.ts?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/icons.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/icons.ts?raw').then(module => module.default)),
@@ -478,8 +470,6 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
       files: [
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/PropertyBooking.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/PropertyBooking.ts?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/demo.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/demo.ts?raw').then(module => module.default)),
-        sourceFile('pro-advanced-scheduler/src/examples/property-booking/templates.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/templates.ts?raw').then(module => module.default)),
-        sourceFile('pro-advanced-scheduler/src/examples/property-booking/config.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/config.ts?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/data.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/data.ts?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/editor.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/editor.ts?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/icons.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/icons.ts?raw').then(module => module.default)),
@@ -496,8 +486,6 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
       files: [
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/PropertyBooking.tsx', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/PropertyBooking.tsx?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/demo.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/demo.ts?raw').then(module => module.default)),
-        sourceFile('pro-advanced-scheduler/src/examples/property-booking/templates.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/templates.ts?raw').then(module => module.default)),
-        sourceFile('pro-advanced-scheduler/src/examples/property-booking/config.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/config.ts?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/data.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/data.ts?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/editor.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/editor.ts?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/icons.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/icons.ts?raw').then(module => module.default)),
@@ -514,8 +502,6 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
       files: [
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/PropertyBookingAngular.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/PropertyBookingAngular.ts?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/demo.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/demo.ts?raw').then(module => module.default)),
-        sourceFile('pro-advanced-scheduler/src/examples/property-booking/templates.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/templates.ts?raw').then(module => module.default)),
-        sourceFile('pro-advanced-scheduler/src/examples/property-booking/config.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/config.ts?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/data.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/data.ts?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/editor.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/editor.ts?raw').then(module => module.default)),
         sourceFile('pro-advanced-scheduler/src/examples/property-booking/icons.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/property-booking/icons.ts?raw').then(module => module.default)),
@@ -637,57 +623,57 @@ export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, De
       ],
     },
   },
-  'ai-prompt-library': {
+  'ai-agent': {
     vue: {
       label: 'Vue',
-      command: 'pnpm --dir revogrid-demos/core-ai-prompts dev:vue',
+      command: 'pnpm --dir revogrid-demos/pro-ai-agent dev:vue',
       documentationUrl: '/guide/',
       files: [
-        sourceFile('core-ai-prompts/src/prompt-library.vue', () =>
-          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.vue?raw').then(
+        sourceFile('pro-ai-agent/src/AiAssistant.vue', () =>
+          import('../../revogrid-demos/pro-ai-agent/src/AiAssistant.vue?raw').then(
             module => module.default,
           ),
         ),
-        ...aiPromptLibrarySupportingFiles,
+        ...aiAgentSupportingFiles,
       ],
     },
     ts: {
       label: 'JavaScript',
-      command: 'pnpm --dir revogrid-demos/core-ai-prompts dev:ts',
+      command: 'pnpm --dir revogrid-demos/pro-ai-agent dev:ts',
       documentationUrl: '/guide/',
       files: [
-        sourceFile('core-ai-prompts/src/prompt-library.ts', () =>
-          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.ts?raw').then(
+        sourceFile('pro-ai-agent/src/AiAssistant.ts', () =>
+          import('../../revogrid-demos/pro-ai-agent/src/AiAssistant.ts?raw').then(
             module => module.default,
           ),
         ),
-        ...aiPromptLibrarySupportingFiles,
+        ...aiAgentSupportingFiles,
       ],
     },
     react: {
       label: 'React',
-      command: 'pnpm --dir revogrid-demos/core-ai-prompts dev:react',
+      command: 'pnpm --dir revogrid-demos/pro-ai-agent dev:react',
       documentationUrl: '/guide/',
       files: [
-        sourceFile('core-ai-prompts/src/prompt-library.react.tsx', () =>
-          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.react.tsx?raw').then(
+        sourceFile('pro-ai-agent/src/AiAssistant.react.tsx', () =>
+          import('../../revogrid-demos/pro-ai-agent/src/AiAssistant.react.tsx?raw').then(
             module => module.default,
           ),
         ),
-        ...aiPromptLibrarySupportingFiles,
+        ...aiAgentSupportingFiles,
       ],
     },
     angular: {
       label: 'Angular',
-      command: 'pnpm --dir revogrid-demos/core-ai-prompts dev:angular',
+      command: 'pnpm --dir revogrid-demos/pro-ai-agent dev:angular',
       documentationUrl: '/guide/',
       files: [
-        sourceFile('core-ai-prompts/src/prompt-library.angular.ts', () =>
-          import('../../revogrid-demos/core-ai-prompts/src/prompt-library.angular.ts?raw').then(
+        sourceFile('pro-ai-agent/src/AiAssistantAngular.ts', () =>
+          import('../../revogrid-demos/pro-ai-agent/src/AiAssistantAngular.ts?raw').then(
             module => module.default,
           ),
         ),
-        ...aiPromptLibrarySupportingFiles,
+        ...aiAgentSupportingFiles,
       ],
     },
   },

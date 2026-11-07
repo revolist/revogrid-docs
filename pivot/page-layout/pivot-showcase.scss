@@ -228,6 +228,7 @@
   background: var(--rg-bg);
 }
 .pivot-showcase .pivot-product-workspace > .financial-pivot-showcase {
+  display: grid;
   height: 100%;
   gap: 0;
 }

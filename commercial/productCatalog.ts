@@ -12,7 +12,7 @@ export type TrialDeliveryMethod = 'none' | 'public-npm' | 'sales-assisted'
 export type ProductId = 'revogrid' | 'pivot' | 'kanban' | 'gantt' | 'scheduler' | 'event-scheduler'
 export type DemoId =
   | 'grid-at-scale'
-  | 'ai-prompt-library'
+  | 'ai-agent'
   | 'project-portfolio'
   | 'project-tracker'
   | 'audit-history'
@@ -455,12 +455,12 @@ const demos = {
     status: 'stable',
     pageUrl: '/demo/grid-at-scale',
   },
-  'ai-prompt-library': {
-    id: 'ai-prompt-library',
-    title: 'RevoGrid AI Prompt Library',
-    planId: 'open-source',
+  'ai-agent': {
+    id: 'ai-agent',
+    title: 'AI Agent',
+    planId: 'pro-lite',
     status: 'stable',
-    pageUrl: '/demo/ai-prompts',
+    pageUrl: '/demo/ai-agent',
   },
   'project-portfolio': {
     id: 'project-portfolio',

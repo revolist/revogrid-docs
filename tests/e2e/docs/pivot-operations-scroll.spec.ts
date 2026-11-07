@@ -43,8 +43,10 @@ test('support scope, focused-cell records, paging, and reset stay in sync', asyn
   const demo = page.locator('.operations-demo')
 
   await expect(demo.locator('.detail-page-info')).toHaveText('Showing 1–15 of 480')
-  await demo.getByLabel('Team').selectOption('Platform')
-  await demo.getByLabel('Priority').selectOption('Critical')
+  await demo.getByLabel('Team').click()
+  await page.getByRole('option', { name: 'Platform', exact: true }).click()
+  await demo.getByLabel('Priority').click()
+  await page.getByRole('option', { name: 'Critical', exact: true }).click()
   await expect(demo.locator('.detail-page-info')).toHaveText('Showing 1–15 of 40')
 
   await demo.locator('.pivot-panel revo-grid').getByText('40', { exact: true }).first().click()
@@ -77,8 +79,10 @@ test('average and breach value cells drill into their contributing records', asy
   await page.setViewportSize({ width: 1600, height: 1000 })
   await page.goto('/demo/pivot-operations')
   const demo = page.locator('.operations-demo')
-  await demo.getByLabel('Team').selectOption('Platform')
-  await demo.getByLabel('Priority').selectOption('Critical')
+  await demo.getByLabel('Team').click()
+  await page.getByRole('option', { name: 'Platform', exact: true }).click()
+  await demo.getByLabel('Priority').click()
+  await page.getByRole('option', { name: 'Critical', exact: true }).click()
   const grid = demo.locator('.pivot-panel revo-grid')
 
   // 2,940 resolution hours / 36 resolved tickets; four open tickets are excluded.

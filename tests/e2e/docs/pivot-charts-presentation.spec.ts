@@ -17,7 +17,7 @@ test('Pivot Charts shows charts directly below the controls without a report sum
     expect(await card.locator('h2').evaluate(element => getComputedStyle(element).borderTopWidth)).toBe('0px')
   }
 
-  await page.getByRole('radio', { name: 'Categories' }).check()
+  await page.getByRole('radio', { name: 'Categories' }).click()
   await expect(page.getByRole('heading', { name: 'Quarterly revenue by category' })).toBeVisible()
 
   await page.setViewportSize({ width: 390, height: 844 })
