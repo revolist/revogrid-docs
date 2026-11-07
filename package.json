@@ -103,6 +103,7 @@
     "@revolist/revogrid-pro": "4.0.1",
     "@revolist/rv-pro-trial": "https://trial.rv-grid.com/@revolist/rv-pro-trial/-/16d6de3f7a47a343ab49e6b5d25b05ccc795f769",
     "@revolist/scheduler": "4.0.1",
+    "@revolist/ui": "4.0.1",
     "@revolist/vue3-datagrid": "4.31.4",
     "lodash-es": "^4.18.1",
     "numeral": "^2.0.6",
