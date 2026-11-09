@@ -144,11 +144,8 @@ button {
 }
 @media (max-width: 640px) {
   .hero-demo-tabs {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 4px;
+    gap: 8px;
     padding: 0;
-    overflow: visible;
   }
   button {
     gap: 6px;

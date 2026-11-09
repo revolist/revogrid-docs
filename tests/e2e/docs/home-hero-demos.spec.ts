@@ -69,8 +69,20 @@ test('mobile hero contains its native views and preserves the chart', async ({ p
   await expect
     .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth))
     .toBe(true)
+  const footer = hero.locator('.hero-demo-footer')
+  const actionBounds = await footer.locator('.rv-btn').evaluateAll(actions =>
+    actions.map(action => {
+      const rect = action.getBoundingClientRect()
+      return { left: rect.left, right: rect.right, height: rect.height }
+    }),
+  )
+  expect(actionBounds).toHaveLength(2)
+  expect(actionBounds[0].height).toBe(44)
+  expect(actionBounds[1]).toEqual(actionBounds[0])
   await hero.getByRole('tab', { name: 'Kanban', exact: true }).click()
-  await expect(hero.getByRole('tabpanel').getByText('Design', { exact: true })).toBeVisible()
+  await expect(
+    hero.locator('[data-hero-view="kanban"]').getByText('Design', { exact: true }),
+  ).toBeVisible()
 })
 
 test('workspace header filters update the chart, count, and survive tab changes', async ({
@@ -543,11 +555,15 @@ test('overflowing demo tabs hide the scrollbar and expose the correct scroll edg
   page,
 }) => {
   await page.addInitScript(() => localStorage.setItem('vitepress-theme-appearance', 'light'))
-  await page.setViewportSize({ width: 700, height: 900 })
+  await page.setViewportSize({ width: 390, height: 900 })
   await page.goto('/')
   const menu = page.locator('.hero-demo-menu')
   const tabs = menu.getByRole('tablist')
   await expect(tabs).toHaveCSS('scrollbar-width', 'none')
+  const tabTops = await tabs
+    .getByRole('tab')
+    .evaluateAll(buttons => buttons.map(button => button.getBoundingClientRect().top))
+  expect(Math.max(...tabTops) - Math.min(...tabTops)).toBeLessThanOrEqual(1)
   await expect.poll(() => tabs.evaluate(el => el.scrollWidth > el.clientWidth)).toBe(true)
   await tabs.getByRole('tab', { name: 'Data grid', exact: true }).focus()
   await page.keyboard.press('End')

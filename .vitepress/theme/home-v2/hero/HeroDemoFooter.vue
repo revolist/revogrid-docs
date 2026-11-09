@@ -44,6 +44,9 @@ const { linkOf } = useHomeV2Links()
   color: var(--rg-text-2);
   font-size: 11px;
 }
+.hero-demo-footer .rv-btn {
+  height: 32px;
+}
 :deep(svg) {
   fill: currentColor;
 }
@@ -60,21 +63,25 @@ const { linkOf } = useHomeV2Links()
 }
 @media (max-width: 640px) {
   .hero-demo-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     padding-inline: 0;
     gap: 8px;
   }
-  [role='status'] {
-    order: 1;
+  .hero-demo-footer .rv-btn {
     width: 100%;
+    height: 44px;
+    min-height: 44px;
   }
-  .hero-demo-package {
-    width: 100%;
-    justify-content: flex-end;
-    margin-inline-start: 0;
+  [role='status'] {
     order: 2;
   }
-  .hero-demo-package a {
-    min-height: 44px;
+  .hero-demo-package {
+    margin-inline-start: 0;
+    order: 1;
+  }
+  .hero-demo-filter-scope {
+    order: 3;
   }
 }
 </style>
