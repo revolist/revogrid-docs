@@ -11,12 +11,7 @@
 
 .rg-showcase-surface {
   overflow: hidden;
-  margin: 14px;
-  padding-bottom: 12px;
-  border: 1px solid var(--rg-border-hover);
-  border-radius: 14px;
   background: var(--rg-bg);
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--rg-text) 8%, transparent);
 }
 
 .rg-showcase-surface-spreadsheet {
@@ -73,12 +68,6 @@
 @media (max-width: 640px) {
   .rg-showcase-product {
     border-radius: 16px;
-  }
-
-  .rg-showcase-surface {
-    margin: 8px;
-    padding-bottom: 8px;
-    border-radius: 11px;
   }
 
   .rg-showcase-code-panel {

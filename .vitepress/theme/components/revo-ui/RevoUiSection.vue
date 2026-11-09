@@ -70,7 +70,7 @@ h2 {
   font-size: clamp(30px, 3.7vw, 44px);
   line-height: 1.12;
   letter-spacing: -0.04em;
-  font-weight: 700;
+  font-weight: 500;
 }
 .revo-ui-description {
   max-width: 46ch;

@@ -512,6 +512,7 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 .rg-final-cta h2 {
   color: var(--rg-text);
   font-size: clamp(26px, 3vw, 38px);
+  font-weight: 500;
   line-height: 1.14;
   letter-spacing: -0.02em;
   margin: 0 0 14px;

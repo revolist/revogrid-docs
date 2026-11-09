@@ -72,7 +72,7 @@ defineProps<{
   margin: 0;
   color: var(--rg-text);
   font-size: clamp(34px, 4vw, 52px);
-  font-weight: 680;
+  font-weight: 500;
   letter-spacing: -0.035em;
   line-height: 1.08;
 }

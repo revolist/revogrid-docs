@@ -66,7 +66,7 @@ const iconOf = (src?: string) => (src ? icons[src] : undefined)
   margin: 0;
   color: var(--rg-text);
   font-size: clamp(1.25rem, 2vw, 1.55rem);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.025em;
   line-height: 1.15;
 }

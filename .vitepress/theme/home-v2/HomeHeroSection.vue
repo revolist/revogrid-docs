@@ -182,8 +182,9 @@ async function copyInstallCommand() {
   max-width: 820px;
   margin: auto;
   color: var(--vp-c-text-2);
-  font-size: 17px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.8;
+  padding: 10px 0;
 }
 
 .rg-actions,

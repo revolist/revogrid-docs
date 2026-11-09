@@ -716,9 +716,11 @@ test('narrow hero grids keep native horizontal scrolling without clipping rows',
 })
 
 test('Gantt resize commits the previewed endpoint without a duration jump', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
   await page.setViewportSize({ width: 1800, height: 1000 })
   await page.goto('/')
   const hero = page.locator('.rg-hero')
+  await expect(hero.locator('.live-chart')).toHaveAttribute('data-status', 'ready')
   await hero.getByRole('tab', { name: 'Gantt', exact: true }).click()
   const bar = hero.locator('.gantt-bar[data-gantt-task-id="hero-project-3"]')
   await expect(bar).toBeVisible()

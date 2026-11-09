@@ -114,23 +114,22 @@ onBeforeUnmount(() => {
 
 .rg-hero-title {
   font-size: clamp(36px, 3.5vw, 48px);
-  font-weight: 680;
+  font-weight: 500;
   line-height: 1.08;
   letter-spacing: -2.5px;
   margin: 12px 0 16px;
 
   :deep(em) {
-    display: block;
+    display: inline;
     color: var(--vp-c-brand-1);
     font-style: normal;
   }
 }
 
 .rg-hero-title-line {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 0.3em;
 }
 
