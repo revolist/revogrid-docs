@@ -7,10 +7,9 @@
         <output :aria-label="copy.outstanding">{{ money(outstanding) }}</output>
       </div>
     </div>
-    <UiSearch v-model="query" :aria-label="copy.search" :placeholder="copy.search" />
     <ul class="invoice-list">
       <li
-        v-for="invoice in visible"
+        v-for="invoice in invoices"
         :key="invoice.id"
         :data-selected="selected.includes(invoice.id)"
       >
@@ -35,7 +34,6 @@
         </div>
       </li>
     </ul>
-    <p v-if="!visible.length" class="invoice-empty" role="status">{{ copy.empty }}</p>
     <footer>
       <span class="invoice-selection">{{ selectionLabel }}</span>
       <UiButton variant="primary" :disabled="!selected.length" :on-click="settle">{{
@@ -44,18 +42,12 @@
     </footer>
     <div v-if="paid.length" class="invoice-result">
       <span role="status">{{ copy.settled.replace('{count}', String(paid.length)) }}</span>
-      <UiButton variant="text" :on-click="reset">{{ copy.reset }}</UiButton>
     </div>
   </section>
 </template>
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import {
-  Button as UiButton,
-  Checkbox as UiCheckbox,
-  SearchInput as UiSearch,
-  Badge as UiBadge,
-} from '@revolist/ui/vue'
+import { Button as UiButton, Checkbox as UiCheckbox, Badge as UiBadge } from '@revolist/ui/vue'
 import type { RevoUiPreviewCopy } from './revoUiContent'
 import { usePreviewMoney } from './usePreviewMoney'
 
@@ -66,14 +58,8 @@ const invoices = [
   { id: 'INV-1052', name: 'Orbit Design', amount: 1850 },
   { id: 'INV-1053', name: 'Forma Collective', amount: 3200 },
 ]
-const query = ref('')
 const selected = ref<string[]>([])
 const paid = ref<string[]>([])
-const visible = computed(() =>
-  invoices.filter(item =>
-    `${item.name} ${item.id}`.toLowerCase().includes(query.value.trim().toLowerCase()),
-  ),
-)
 const outstanding = computed(() =>
   invoices.reduce((sum, item) => sum + (paid.value.includes(item.id) ? 0 : item.amount), 0),
 )
@@ -93,11 +79,6 @@ function select(id: string, checked: boolean) {
 function settle() {
   paid.value = [...new Set([...paid.value, ...selected.value])]
   selected.value = []
-}
-function reset() {
-  selected.value = []
-  paid.value = []
-  query.value = ''
 }
 </script>
 <style scoped>
@@ -140,7 +121,8 @@ h4 {
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  padding: 12px 0;
+  margin: 0;
+  padding: 10px 12px;
   border-bottom: 1px solid var(--vp-c-divider);
 }
 .invoice-list li[data-selected='true'] {
@@ -190,22 +172,15 @@ footer {
   padding-top: 14px;
 }
 .invoice-selection,
-.invoice-empty,
 .invoice-result {
   color: var(--vp-c-text-2);
   font-size: 10px;
 }
 .invoice-result {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px;
   margin-top: 10px;
 }
 @media (max-width: 640px) {
-  :deep(button),
-  :deep(input[type='search']) {
+  :deep(button) {
     min-height: 44px;
   }
   .preview-invoices {

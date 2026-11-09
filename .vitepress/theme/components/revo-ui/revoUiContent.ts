@@ -10,8 +10,6 @@ export type RevoUiProduct =
   | 'excel'
 
 export interface RevoUiPreviewCopy {
-  eyebrow: string
-  title: string
   revenue: string
   revenueChart: string
   period: string
@@ -21,15 +19,12 @@ export interface RevoUiPreviewCopy {
   oneTime: string
   invoices: string
   outstanding: string
-  search: string
   selectInvoice: string
   pending: string
   paid: string
   selection: string
   markPaid: string
   settled: string
-  empty: string
-  reset: string
   caption: string
 }
 export interface RevoUiSectionContent {
@@ -71,8 +66,6 @@ const defaults: RevoUiSectionContent = {
   explore: 'Explore Revo UI',
   github: 'View on GitHub',
   preview: {
-    eyebrow: 'Try the real components',
-    title: 'Finance workspace',
     revenue: 'Total revenue',
     revenueChart: 'Revenue over time',
     period: 'Reporting period',
@@ -82,16 +75,13 @@ const defaults: RevoUiSectionContent = {
     oneTime: 'One-time',
     invoices: 'Invoices',
     outstanding: 'Outstanding',
-    search: 'Search client or invoice',
     selectInvoice: 'Select {invoice}',
     pending: 'Pending',
     paid: 'Paid',
     selection: '{count} selected · {amount}',
     markPaid: 'Mark as paid',
     settled: 'Invoices marked as paid in this example: {count}.',
-    empty: 'No matching invoices.',
-    reset: 'Reset example',
-    caption: 'Charts, search and bulk actions. Real components, working together.',
+    caption: 'Charts and bulk actions. Real components, working together.',
   },
 }
 

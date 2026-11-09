@@ -8,13 +8,11 @@ test('page translations override shared and preview copy without changing other 
     description: 'Des formulaires et des commandes pour votre planning.',
     explore: 'Découvrir Revo UI',
     preview: {
-      search: 'Rechercher une facture',
       markPaid: 'Marquer comme payée',
       settled: '{count} factures payées.',
     },
   })
   assert.equal(translated.title, 'Une interface pour vos données.')
-  assert.equal(translated.preview.search, 'Rechercher une facture')
   assert.equal(translated.preview.markPaid, 'Marquer comme payée')
   assert.equal(translated.preview.settled, '{count} factures payées.')
   assert.equal(translated.preview.period, 'Reporting period')
