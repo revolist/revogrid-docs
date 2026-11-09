@@ -6,6 +6,7 @@ import {
 import '@revolist/gantt/styles.css'
 import type { PanelResizePlugin } from '@revolist/revogrid-pro'
 import type { HeroProductModule } from './types'
+import type { HeroProject } from '../portfolio'
 
 const taskColumnWidth = 220
 const initializedGrids = new WeakSet<HTMLRevoGridElement>()
@@ -30,6 +31,15 @@ async function initializeTimelinePanel(event: Event) {
 
 export default {
   plugins: [GanttPlugin],
+  readState: plugins => {
+    const plugin = plugins.find(plugin => plugin instanceof GanttPlugin)
+    return plugin
+      ? {
+          rows: plugin.getTaskSourceRows() as HeroProject[],
+          dependencies: plugin.getProjectSnapshot()?.dependencies,
+        }
+      : undefined
+  },
   afterGridRender: initializeTimelinePanel,
   configure: ({ labels, fields }) => {
     return {

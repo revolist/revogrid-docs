@@ -1,6 +1,6 @@
 import type { ColumnRegular, ColumnCollection } from '@revolist/vue3-datagrid'
 import type { ViewFieldMap } from '@revolist/revogrid-pro'
-import type { GanttPluginConfig } from '@revolist/gantt'
+import type { DependencyEntity, GanttPluginConfig } from '@revolist/gantt'
 import type { EventSchedulerConfig, EventSchedulerResourceEntity } from '@revolist/scheduler'
 import type { KanbanConfig } from '@revolist/kanban'
 import type { PivotConfig } from '@revolist/pivot'
@@ -26,6 +26,9 @@ export interface HeroProductConfig {
 export interface HeroProductModule {
   plugins: HTMLRevoGridElement['plugins']
   configure(context: HeroProductContext): HeroProductConfig
+  readState?(
+    plugins: Awaited<ReturnType<HTMLRevoGridElement['getPlugins']>>,
+  ): { rows: readonly HeroProject[]; dependencies?: readonly DependencyEntity[] } | undefined
   beforeColumnsSet?(event: CustomEvent<ColumnCollection>): void
   afterGridRender?(event: Event): void | Promise<void>
 }

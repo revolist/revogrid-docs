@@ -6,7 +6,16 @@ export const heroChartStatuses = ['not-started', 'in-progress', 'blocked', 'done
 export const heroStatusColor = (status: string) =>
   heroChartPalette[heroChartStatuses.indexOf(status)] ?? heroChartPalette[0]
 
-export type HeroEdit = Pick<EventManagerEvent, 'data' | 'models' | 'domainChanges'>
+export type HeroEdit = Pick<EventManagerEvent, 'data' | 'models' | 'domainChanges'> & {
+  // Complete authored rows from the native owner for structural changes.
+  eventTypes?: EventManagerEvent['eventTypes']
+  source?: {
+    ids: string[]
+    rows: HeroProject[]
+    dependencyIds?: string[]
+    dependencies?: DependencyEntity[]
+  }
+}
 
 export type HeroView = 'grid' | 'gantt' | 'scheduler' | 'pivot' | 'kanban' | 'charts'
 export type HeroProject = {
@@ -66,6 +75,12 @@ export function heroDependencies(projects: Pick<HeroProject, 'id'>[]): Dependenc
 
 // Dependency mutations share the native gridedit stream with task patches.
 export function applyHeroDependencyEdit(dependencies: DependencyEntity[], detail: HeroEdit) {
+  if (detail.source?.dependencies) {
+    const next = new Map(dependencies.map(link => [link.id, link]))
+    detail.source.dependencyIds?.forEach(id => next.delete(id))
+    detail.source.dependencies.forEach(link => next.set(link.id, { ...link }))
+    return [...next.values()]
+  }
   const changes = detail.domainChanges?.filter(change => change.type === 'gantt-dependency')
   if (!changes?.length) return dependencies
   const next = new Map(dependencies.map(dependency => [dependency.id, dependency]))
@@ -94,10 +109,17 @@ export function heroBudgetRows(
 
 // Native products publish authored patches with stable original models. Never
 // treat a projected Gantt/Scheduler row index as an index into the portfolio.
-export function applyHeroEdit(
-  projects: HeroProject[],
-  detail: Pick<EventManagerEvent, 'data' | 'models'>,
-): HeroProject[] {
+export function applyHeroEdit(projects: HeroProject[], detail: HeroEdit): HeroProject[] {
+  if (detail.source) {
+    const { ids, rows } = detail.source
+    const replaced = new Set([...ids, ...rows.map(row => row.id)])
+    let index = 0
+    const next = projects.flatMap(row => {
+      if (!replaced.has(row.id)) return [row]
+      return index < rows.length ? [rows[index++]!] : []
+    })
+    return [...next, ...rows.slice(index)]
+  }
   const patches = new Map<string, Record<string, unknown>>()
   for (const [rowIndex, value] of Object.entries(detail.data ?? {})) {
     if (!value || typeof value !== 'object') continue

@@ -107,3 +107,27 @@ test('Scheduler starts with an overlapping allocation and an available destinati
   assert.ok(portal.startDate < commerce.endDate && commerce.startDate < portal.endDate)
   assert.ok(rows.every(row => row.owner !== 'Sofia Garcia'))
 })
+
+test('native source snapshots retain structural deletes, restores and hidden projects', () => {
+  const rows = createHeroProjects()
+  const visible = [rows[0], rows[2], rows[4]]
+  const deleted = applyHeroEdit(rows, {
+    data: {},
+    models: {},
+    source: { ids: visible.map(row => row.id), rows: visible.slice(1) },
+  })
+  assert.equal(deleted.length, 5)
+  assert.ok(!deleted.some(row => row.id === rows[0].id))
+  assert.equal(
+    deleted.find(row => row.id === rows[1].id),
+    rows[1],
+  )
+  const restored = applyHeroEdit(deleted, {
+    data: {},
+    models: {},
+    source: { ids: visible.slice(1).map(row => row.id), rows: visible },
+  })
+  assert.equal(restored.length, 6)
+  assert.equal(restored.find(row => row.id === rows[0].id)?.budget, 180000)
+  assert.equal(restored.find(row => row.id === rows[0].id)?.owner, rows[0].owner)
+})

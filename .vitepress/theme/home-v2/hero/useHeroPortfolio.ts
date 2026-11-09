@@ -52,6 +52,12 @@ export function useHeroPortfolio() {
   function applyEdit(detail: HeroEdit) {
     authoredDependencies.value = applyHeroDependencyEdit(authoredDependencies.value, detail)
     projects.value = applyHeroEdit(projects.value, detail)
+    if (detail.source && visibleIds.value) {
+      const ids = new Set(visibleIds.value)
+      detail.source.ids.forEach(id => ids.delete(id))
+      detail.source.rows.forEach(row => ids.add(row.id))
+      visibleIds.value = ids
+    }
   }
   return {
     projects,

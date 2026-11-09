@@ -51,18 +51,19 @@
       @aftergridrender="product?.afterGridRender?.($event)"
       @beforecolumnsset="product?.beforeColumnsSet?.($event)"
       @afterfilterapply="syncVisibleProjects"
-      @gridedit="syncEdit($event.detail)"
+      @gridedit="syncEdit($event)"
     />
     <HeroBudgetChart v-if="view === 'grid'" :rows="chartRows" :labels="labels" />
   </div>
 </template>
 <script setup lang="ts">
-import { computed, onBeforeUnmount, shallowRef, watch } from 'vue'
+import { computed, onBeforeUnmount, shallowRef, toRaw, watch } from 'vue'
 import { useData } from 'vitepress'
 import { vRvControl } from '@revolist/ui/vue-control'
 import RevoGrid from '@revolist/vue3-datagrid'
 import {
   EventManagerPlugin,
+  BEFORE_HIST_EDIT_EVENT,
   AdvanceFilterPlugin,
   FilterHeaderPlugin,
   ColumnStretchPlugin,
@@ -121,20 +122,56 @@ function snapshot(rows: HeroProject[]) {
 }
 const source = shallowRef(snapshot(props.rows))
 let committedRows = props.rows
-function syncEdit(detail: HeroEdit) {
-  // Native Gantt already applied this patch; avoid echoing a full source reset.
-  if (props.view === 'gantt') committedRows = applyHeroEdit(committedRows, detail)
+async function syncEdit(event: CustomEvent<HeroEdit>) {
+  let detail = event.detail
+  const module = product.value
+  const structural = detail.domainChanges?.some(change => {
+    if (change.type !== 'gantt-task' && change.type !== 'kanban-card') return false
+    const mutation = change.detail as {
+      task?: unknown
+      previousTask?: unknown
+      card?: unknown
+      previousCard?: unknown
+      index?: number
+      previousIndex?: number
+    }
+    return (
+      mutation.task === null ||
+      mutation.previousTask === null ||
+      mutation.card === null ||
+      mutation.previousCard === null ||
+      (mutation.index !== undefined && mutation.index !== mutation.previousIndex)
+    )
+  })
+  const replay = detail.eventTypes?.includes(BEFORE_HIST_EDIT_EVENT)
+  if ((structural || replay) && module?.readState) {
+    const ids = props.rows.map(row => row.id)
+    const plugins = await (event.target as HTMLRevoGridElement).getPlugins()
+    const state = module.readState(plugins)
+    if (state)
+      detail = {
+        ...detail,
+        source: {
+          ids,
+          rows: state.rows.map(row => ({ ...row })),
+          dependencyIds: props.dependencies.map(link => link.id),
+          dependencies: state.dependencies?.map(link => ({ ...link })),
+        },
+      }
+  }
+  // Native editors already applied this patch; avoid echoing a full source reset.
+  if (props.view !== 'pivot') committedRows = applyHeroEdit(committedRows, detail)
   emit('edit', detail)
 }
 watch(
   () => props.rows,
   rows => {
     const alreadyCommitted =
-      props.view === 'gantt' &&
+      props.view !== 'pivot' &&
       rows.length === committedRows.length &&
       rows.every((row, index) =>
-        Object.entries(row).every(
-          ([key, value]) => committedRows[index]?.[key as keyof HeroProject] === value,
+        Object.entries(toRaw(row)).every(([key, value]) =>
+          Object.is(toRaw(committedRows[index]?.[key as keyof HeroProject]), toRaw(value)),
         ),
       )
     committedRows = rows

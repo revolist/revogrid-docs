@@ -2,9 +2,14 @@ import { KanbanPlugin } from '@revolist/kanban'
 import { ColumnStretchPlugin } from '@revolist/revogrid-pro'
 import '@revolist/kanban/styles.css'
 import type { HeroProductModule } from './types'
+import type { HeroProject } from '../portfolio'
 
 export default {
   plugins: [KanbanPlugin, ColumnStretchPlugin],
+  readState: plugins => {
+    const plugin = plugins.find(plugin => plugin instanceof KanbanPlugin)
+    return plugin ? { rows: plugin.getCards() as HeroProject[] } : undefined
+  },
   beforeColumnsSet(event) {
     // Stretch expanded columns equally; retain native collapsed-column bounds.
     for (const column of event.detail.columns.rgCol) {

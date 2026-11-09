@@ -75,3 +75,45 @@ test('portfolio retains dependency edits alongside task edits and hidden endpoin
   portfolio.applyEdit({ data: { 1: { percentDone: 20 } }, models: { 1: row } })
   assert.ok(!portfolio.dependencies.value.some(link => link.id === dependency.id))
 })
+
+test('native replay restores visible projects and dependencies without discarding hidden links', () => {
+  const portfolio = useHeroPortfolio()
+  const rows = portfolio.projects.value
+  const links = portfolio.dependencies.value
+  portfolio.rememberVisibleIds(rows.map(row => row.id))
+  portfolio.applyEdit({
+    data: {},
+    models: {},
+    source: {
+      ids: rows.map(row => row.id),
+      rows: rows.slice(1),
+      dependencyIds: [],
+      dependencies: [],
+    },
+  })
+  assert.equal(portfolio.visibleRows.value.length, 5)
+  assert.equal(portfolio.dependencies.value.length, 1)
+  portfolio.applyEdit({
+    data: {},
+    models: {},
+    source: {
+      ids: rows.slice(1).map(row => row.id),
+      rows,
+      dependencyIds: links.map(link => link.id),
+      dependencies: [],
+    },
+  })
+  assert.equal(portfolio.visibleRows.value.length, 6)
+  assert.equal(portfolio.dependencies.value.length, 0)
+  portfolio.applyEdit({
+    data: {},
+    models: {},
+    source: {
+      ids: rows.map(row => row.id),
+      rows,
+      dependencyIds: [],
+      dependencies: links,
+    },
+  })
+  assert.equal(portfolio.dependencies.value.length, 1)
+})

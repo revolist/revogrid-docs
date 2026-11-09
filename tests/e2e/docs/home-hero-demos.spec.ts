@@ -213,8 +213,10 @@ test('unrelated edits leave the budget chart untouched and a budget edit changes
         elements.map(el => Number(el.getAttribute('width'))),
       )
       return (
-        after[0] > before[0] &&
-        after.slice(1).every((width, index) => Math.abs(width - before[index + 1]) < 0.01)
+        after[0] / Math.max(...after) > before[0] / Math.max(...before) &&
+        after.slice(1).every((width, index) =>
+          Math.abs(width / Math.max(...after) - before[index + 1] / Math.max(...before)) < 0.01,
+        )
       )
     })
     .toBe(true)
@@ -266,7 +268,8 @@ test('all product views use the native grid filter result and clear it together'
     await expect(count).toHaveText('1 / 6 projects')
     if (name === 'Pivot') {
       await expect(
-        hero.getByRole('tabpanel').getByRole('gridcell', { name: '$120,000', exact: true }),
+        hero.getByRole('tabpanel').getByRole('row', { name: /^Visible portfolio/ })
+          .getByRole('gridcell', { name: '$120,000', exact: true }),
       ).toBeVisible()
       await expect(
         hero.getByRole('tabpanel').getByRole('columnheader', { name: 'Avg progress', exact: true }),
