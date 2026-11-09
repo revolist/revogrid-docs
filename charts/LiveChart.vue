@@ -19,6 +19,7 @@ import { useData } from 'vitepress'
 import { createChart, type ChartRef, type ChartNodeClick } from '@revolist/charts'
 import { chartCatalog, type GalleryChartType } from './catalog'
 import type { StoryChartOptions } from './use-cases/types'
+import { liveChartOptions, needsLiveChartRemount } from './liveChartOptions'
 
 const props = withDefaults(
   defineProps<{
@@ -38,14 +39,20 @@ const { isDark } = useData()
 const host = ref<HTMLElement>()
 const status = ref('loading')
 const definition = computed(() => chartCatalog.find(chart => chart.type === props.type)!)
-const presentation = computed(() => ({
-  ...(props.example?.presentation ?? definition.value.preview.presentation),
-  dataLabels: props.labels,
-}))
+const options = () =>
+  liveChartOptions(
+    props.example,
+    definition.value.preview,
+    definition.value.options.defaults,
+    isDark.value,
+    props.labels,
+  )
 let chart: ChartRef | undefined
 let observer: IntersectionObserver | undefined
 let controller: AbortController | undefined
 let generation = 0
+let updateRequest = 0
+let pendingExampleUpdates = 0
 let visible = false
 
 async function mount() {
@@ -57,19 +64,12 @@ async function mount() {
   controller = new AbortController()
   status.value = 'loading'
   try {
-    const { preview, options } = definition.value
-    const { rendererOptions, ...example } = props.example ?? {}
     const instance = await createChart({
       container: host.value,
       signal: controller.signal,
       chartType: props.type,
-      ...structuredClone(example),
-      rendererOptions,
-      dataset: structuredClone(props.example?.dataset ?? preview.dataset),
-      bindings: structuredClone(props.example?.bindings ?? preview.bindings),
-      chartOptions: structuredClone(props.example?.chartOptions ?? options.defaults),
-      presentation: { ...presentation.value },
-      theme: isDark.value ? 'dark' : 'light',
+      ...options(),
+      rendererOptions: props.example?.rendererOptions,
       onNodeClick: detail => emit('activate', detail),
       localeText: {
         renderer: {
@@ -83,14 +83,8 @@ async function mount() {
       return
     }
     chart = instance
-    // Reconcile appearance changes made while the initial render was pending.
-    await chart.update({
-      theme: isDark.value ? 'dark' : 'light',
-      presentation: { ...presentation.value },
-    })
-    if (version !== generation) return
-    status.value = 'ready'
-    emit('ready', instance)
+    // Reconcile props changed while the initial render was pending.
+    await update(false)
   } catch (error) {
     if (version !== generation) return
     chart?.destroy()
@@ -100,24 +94,47 @@ async function mount() {
     emit('error')
   }
 }
+async function update(appearanceOnly: boolean) {
+  const instance = chart
+  const version = generation
+  const request = ++updateRequest
+  const isCurrent = () => version === generation && chart === instance && request === updateRequest
+  if (!instance) return
+  // A theme update must not mask a failed example queued immediately before it.
+  const reconcileExample = !appearanceOnly || pendingExampleUpdates > 0
+  if (reconcileExample) pendingExampleUpdates++
+  try {
+    const settings = options()
+    await instance.update(
+      reconcileExample ? settings : { theme: settings.theme, presentation: settings.presentation },
+    )
+    if (!isCurrent()) return
+    const firstRender = status.value === 'loading'
+    status.value = 'ready'
+    if (firstRender) emit('ready', instance)
+  } catch (error) {
+    if (!isCurrent()) return
+    status.value = 'error'
+    console.error(`Charts gallery: ${props.type}`, error)
+    emit('error')
+  } finally {
+    if (reconcileExample) pendingExampleUpdates--
+  }
+}
+
 watch(
-  () => [props.type, props.example],
-  () => {
-    if (visible) void mount()
+  () => [props.type, props.example, isDark.value, props.labels] as const,
+  (_, previous) => {
+    if (!visible) return
+    const recreate =
+      !chart ||
+      status.value === 'error' ||
+      props.type !== previous?.[0] ||
+      needsLiveChartRemount(previous?.[1], props.example)
+    if (recreate) void mount()
+    else void update(props.example === previous?.[1])
   },
 )
-watch([isDark, () => props.labels], async () => {
-  if (!chart) return
-  try {
-    await chart.update({
-      theme: isDark.value ? 'dark' : 'light',
-      presentation: { ...presentation.value },
-    })
-  } catch {
-    status.value = 'error'
-    emit('error')
-  }
-})
 onMounted(() => {
   if (props.eager || !('IntersectionObserver' in window)) {
     visible = true

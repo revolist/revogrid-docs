@@ -15,7 +15,7 @@
         <button
           v-if="sources"
           ref="sourceButtonRef"
-          class="demo-page-header-link"
+          class="rg-btn rg-btn--medium rg-btn-secondary"
           type="button"
           :aria-expanded="sourceOpen"
           @click="openSource"
@@ -23,20 +23,19 @@
           <FontAwesomeSvgIcon name="code" />Code
         </button>
         <a
-          class="demo-page-github demo-page-header-link"
+          class="rg-btn rg-btn--medium rg-btn-secondary"
           :href="config.implementationUrl"
           target="_blank"
           rel="noopener noreferrer"
-          ><FontAwesomeSvgIcon name="github" />{{ config.implementationLabel ?? 'GitHub' }}</a
+          ><FontAwesomeSvgIcon name="github" />GitHub</a
         >
         <span id="demo-feedback-trigger-host" />
         <a
-          class="demo-page-button demo-page-button--primary"
+          class="rg-btn rg-btn--medium"
           :href="primaryCtaHref"
           @click="trackCta('header', 'try_in_project')"
         >
           Try in your app
-          <span aria-hidden="true">→</span>
         </a>
       </div>
     </header>
