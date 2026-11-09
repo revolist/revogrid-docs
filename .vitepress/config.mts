@@ -383,13 +383,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       alt: 'RevoGrid',
     },
     outline: [2, 3],
-    socialLinks: [
-      // { icon: 'x', link: 'https://x.com/revolist_ou/' },
-      {
-        icon: 'github',
-        link: 'https://github.com/revolist/revogrid',
-      },
-    ],
 
     footer: {
       message: `RevoGrid is a powerful data grid library made by <a href="https://revolist.eu/" target="_blank">Revolist OU</a>. Copyright © 2017-present.`,
@@ -516,7 +509,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           ) {
             return this.resolve('@revolist/rv-pro-trial', importer, { skipSelf: true })
           }
-          if (source === '@revolist/revogrid-pro/styles.css' && importer.includes('/demo/ai-agent.md')) {
+          if (
+            source === '@revolist/revogrid-pro/styles.css' &&
+            importer.includes('/demo/ai-agent.md')
+          ) {
             return this.resolve('@revolist/rv-pro-trial/styles.css', importer, { skipSelf: true })
           }
           return null
