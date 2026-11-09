@@ -100,6 +100,8 @@ const toggle = (index: number) => {
 
 .commercial-faq__heading h2 {
   margin: 0;
+  border: 0;
+  padding: 0;
   color: var(--vp-c-text-1);
   font-size: clamp(1.8rem, 2vw, 2.5rem);
   line-height: 1.12;
