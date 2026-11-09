@@ -86,6 +86,11 @@ function settle() {
   padding: 18px 24px;
   border-top: 1px solid var(--vp-c-divider);
 }
+.invoices-heading,
+footer,
+.invoice-result {
+  padding-inline: 12px;
+}
 .invoices-heading {
   display: flex;
   align-items: baseline;
