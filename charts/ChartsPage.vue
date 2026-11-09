@@ -152,6 +152,7 @@
         '/blog/interactive-pivot-charts-javascript',
       ]"
     />
+    <RevoUiSection product="charts" />
     <div class="section-width charts-faq"><CommercialFaq id="charts-faq" /></div>
     <ProCtaBanner
       title="Make your next dashboard a little more insightful."
@@ -212,6 +213,7 @@
 </template>
 
 <script setup lang="ts">
+import RevoUiSection from '../.vitepress/theme/components/revo-ui/RevoUiSection.vue'
 import { nextTick, onBeforeUnmount, ref } from 'vue'
 import AppButton from '../.vitepress/theme/AppButton.vue'
 import ProCtaBanner from '../pro/ProCtaBanner.vue'

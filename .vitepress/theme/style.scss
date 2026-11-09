@@ -327,7 +327,7 @@ a.rg-btn {
   background: var(--rg-green);
   color: #000;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: 999px;
   padding: 11px 20px;
   font-size: 14px;
   font-weight: 500;
@@ -358,6 +358,13 @@ a.rg-btn {
   }
 }
 
+.rg-btn.rg-btn--medium {
+  min-height: 36px;
+  padding: 7px 14px;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
 /**
  * Component: Algolia
  * -------------------------------------------------------------------------- */
@@ -373,7 +380,7 @@ a.rg-btn {
     }
 
     .VPButton.big {
-      border-radius: 8px;
+      border-radius: 999px;
       padding: 12px 24px;
       line-height: normal;
       font-size: 15px;

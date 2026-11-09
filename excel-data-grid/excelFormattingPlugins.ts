@@ -19,18 +19,21 @@ export const excelFormattingContextMenu = {
   formatting: {},
 }
 
+// Use a named font from the formatting toolbar's supported font list.
+const excelMonoFont = 'Courier New'
+
 /** Reusable authored appearances, owned by DataGridFormattingPlugin. */
 export const excelBoldFormat = {
   appearance: { bold: true },
 }
 
 export const excelMonoFormat = {
-  appearance: { fontFamily: 'var(--xl-mono)' },
+  appearance: { fontFamily: excelMonoFont },
 }
 
 export const excelMonoRightFormat = {
   appearance: {
-    fontFamily: 'var(--xl-mono)',
+    fontFamily: excelMonoFont,
     horizontal: 'right',
   },
 }
@@ -38,7 +41,7 @@ export const excelMonoRightFormat = {
 export const excelNumberFormat = {
   value: { kind: 'code', formatCode: '#,##0' },
   appearance: {
-    fontFamily: 'var(--xl-mono)',
+    fontFamily: excelMonoFont,
     horizontal: 'right',
   },
 }
@@ -46,7 +49,7 @@ export const excelNumberFormat = {
 export const excelDecimalFormat = {
   value: { kind: 'code', formatCode: '#,##0.00' },
   appearance: {
-    fontFamily: 'var(--xl-mono)',
+    fontFamily: excelMonoFont,
     horizontal: 'right',
   },
 }
@@ -54,7 +57,7 @@ export const excelDecimalFormat = {
 export const excelSignedNumberFormat = {
   value: { kind: 'code', formatCode: '+#,##0.0;-#,##0.0;0.0' },
   appearance: {
-    fontFamily: 'var(--xl-mono)',
+    fontFamily: excelMonoFont,
     horizontal: 'right',
   },
 }
@@ -62,7 +65,7 @@ export const excelSignedNumberFormat = {
 export const excelSignedIntegerFormat = {
   value: { kind: 'code', formatCode: '+#,##0;-#,##0;0' },
   appearance: {
-    fontFamily: 'var(--xl-mono)',
+    fontFamily: excelMonoFont,
     horizontal: 'right',
   },
 }
@@ -70,7 +73,7 @@ export const excelSignedIntegerFormat = {
 export const excelPercentFormat = {
   value: { kind: 'code', formatCode: '0%' },
   appearance: {
-    fontFamily: 'var(--xl-mono)',
+    fontFamily: excelMonoFont,
     horizontal: 'right',
   },
 }

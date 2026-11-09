@@ -21,30 +21,99 @@ head:
 hero:
   eyebrow: High-performance data grid
   title: JavaScript Data Grid for complex web apps
-  emphasis: JavaScript Data Grid
+  emphasis: for complex web apps
+  rotatingTerm: Data Grid
+  rotatingProducts:
+    - Data Grid
+    - Gantt
+    - Pivot
+    - Kanban
+    - Scheduler
+    - Charts
   tagline: The world's fastest JavaScript data grid. 60fps, 3x less memory. Inline editing, virtual scroll, and custom cells for every major framework.
   primaryAction:
-    text: View demos
+    text: Try live demo
     link: /demo/
     # target: _self
   secondaryAction:
-    text: RevoGrid Pro
-    link: /pro/
+    text: Start with free core
+    link: /guide/
+  demoLabels:
+    title: Project portfolio
+    viewsLabel: Explore data views
+    loading: Loading interactive demo…
+    project: Project
+    owner: Owner
+    status: Status
+    progress: Progress
+    budget: Budget
+    searchProjects: Search projects…
+    all: All
+    range: Range
+    budgetRange: Min - Max
+    chartTitle: Budget by project
+    progressChartTitle: Progress by project
+    statusChartTitle: Budget by status
+    completed: Completed
+    remaining: Remaining
+    totalLabel: Visible portfolio
+    projectsLabel: projects
+    guidedAction: Show projects over $100k
+    reset: Show all projects
+    clearFilters: Clear filters
+    sharedFilters: Filters apply to every view
+    averageProgress: Avg progress
+    pivotGroupBy: Group by
+    budgetShare: Share of visible budget
+    loadError: This view could not load. Try again.
+    retry: Retry
+    trial: Try Pro in your app
+    ownerControl: 'Owner for {project}'
+    statusControl: 'Status for {project}'
+    statuses:
+      not-started: Planned
+      in-progress: In progress
+      done: Done
+      blocked: Blocked
+  demoTabs:
+    - id: grid
+      name: Data grid
+      icon: grid
+      trialLink: /trial
+    - id: gantt
+      name: Gantt
+      icon: gantt
+      trialLink: /trial
+    - id: scheduler
+      name: Scheduler
+      icon: calendarDays
+      trialLink: /trial
+    - id: pivot
+      name: Pivot
+      icon: pivot
+      trialLink: /trial
+    - id: kanban
+      name: Kanban
+      icon: columns
+      trialLink: /trial
+    - id: charts
+      name: Charts
+      icon: chart
   frameworks:
     - name: Vue
-      color: '#4FC08D'
+      icon: /vuejs.svg
       link: /guide/vue3/
     - name: Angular
-      color: '#DD0031'
+      icon: /angular.svg
       link: /guide/angular/
     - name: React
-      color: '#61DAFB'
+      icon: /react.svg
       link: /guide/react/
     - name: Svelte
-      color: '#FF3E00'
+      icon: /svelte.svg
       link: /guide/svelte/
     - name: JavaScript
-      color: '#F7DF1E'
+      icon: /js.svg
       link: /guide/
 
 trust:
@@ -109,22 +178,22 @@ capabilities:
     - id: editing
       title: Spreadsheet editing
       icon: edit
-      link: "/guide/editing"
+      link: '/guide/editing'
       description: Edit formulas, undo changes, format cells, and work across multiple ranges.
     - id: control
       title: Filtering & Data Control
       icon: filter
-      link: "/demo/filtering"
+      link: '/demo/filtering'
       description: Sorting, resizing, selection, column movement, and advanced filters.
     - id: formatting
       title: Spreadsheet formatting
       icon: palette
-      link: "/demo/context-menu"
+      link: '/demo/context-menu'
       description: Progress bars, currency, and reusable presentation rules.
     - id: tree
       title: Tree data
       icon: tree
-      link: "/demo/tree-data"
+      link: '/demo/tree-data'
       description: Filterable hierarchy with persistent parent context.
 
 developer:

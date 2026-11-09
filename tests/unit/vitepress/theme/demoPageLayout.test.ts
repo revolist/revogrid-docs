@@ -108,10 +108,7 @@ test('links advanced demos to their standalone implementation repositories', () 
 })
 
 test('Pivot demo GitHub links point to files in the dedicated Pivot repository', () => {
-  assert.equal(
-    new URL(getDemoPageConfig('pivot').implementationUrl).pathname,
-    '/revolist/pivot',
-  )
+  assert.equal(new URL(getDemoPageConfig('pivot').implementationUrl).pathname, '/revolist/pivot')
   assert.equal(
     new URL(getDemoPageConfig('pivot-charts').implementationUrl).pathname,
     '/revolist/pivot/blob/main/src/charts-dashboard.vue',
@@ -320,9 +317,8 @@ test('describes the requested Scheduler capabilities without filter or history b
   ])
 })
 
-test('keeps Code for source inspection and routes Run locally to the planning README', () => {
-  assert.match(demoPageLayoutSource, /class="[^"]*demo-page-github[^"]*"/)
-  assert.match(demoPageLayoutSource, /config\.implementationLabel \?\? 'GitHub'/)
+test('keeps Code for source inspection and routes GitHub to the planning README', () => {
+  assert.match(demoPageLayoutSource, /<FontAwesomeSvgIcon name="github" \/>GitHub/)
   assert.match(demoPageLayoutSource, /:href="config\.implementationUrl"/)
   assert.doesNotMatch(demoPageLayoutSource, /<summary>Features used<\/summary>/)
   assert.doesNotMatch(demoPageLayoutSource, /demo-page-guide|Show guide|guidedActions/)
@@ -330,7 +326,6 @@ test('keeps Code for source inspection and routes Run locally to the planning RE
     getDemoPageConfig('planning').implementationUrl,
     /revogrid-demos\/tree\/main\/pro-advanced-planning\?[^#]+#readme/,
   )
-  assert.equal(getDemoPageConfig('planning').implementationLabel, 'Run locally')
   assert.match(planningDemoReadme, /This is one workspace inside the \*\*full\*\*/)
   assert.match(planningDemoReadme, /git clone https:\/\/github\.com\/revolist\/revogrid-demos\.git/)
   assert.match(planningDemoReadme, /pnpm --filter revogrid-demo-pro-advanced-planning dev:ts/)
@@ -437,7 +432,11 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
         collapsed: false,
         links: ['/demo/gantt', '/demo/gantt-big-data', '/demo/gantt-horizontal-big-data'],
       },
-      { text: 'Scheduler', collapsed: false, links: ['/demo/property-booking', '/demo/event-scheduler'] },
+      {
+        text: 'Scheduler',
+        collapsed: false,
+        links: ['/demo/property-booking', '/demo/event-scheduler'],
+      },
       {
         text: 'Kanban',
         collapsed: false,
