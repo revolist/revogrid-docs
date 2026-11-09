@@ -129,7 +129,8 @@ function moveTab(event: KeyboardEvent, index: number) {
   display: none;
 }
 button {
-  min-height: 48px;
+  min-height: 56px;
+  padding-bottom: 8px;
   flex-shrink: 0;
 }
 :deep(svg) {
@@ -151,9 +152,9 @@ button {
   }
   button {
     gap: 6px;
-    padding: 10px 4px;
+    padding: 10px 4px 18px;
     min-width: 0;
-    min-height: 44px;
+    min-height: 52px;
     font-size: 11px;
   }
   :deep(svg) {

@@ -229,7 +229,7 @@ async function copyInstallCommand() {
 }
 .rg-hero-visual {
   min-width: 0;
-  padding: 22px 20px 18px;
+  padding: 14px 20px 18px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 14px;
   background: transparent;
