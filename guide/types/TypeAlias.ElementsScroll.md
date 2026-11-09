@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.3](README.md) / ElementsScroll
+[RevoGrid Documentation v4.31.4](README.md) / ElementsScroll
 
 # Type Alias: ElementsScroll
 
@@ -12,4 +12,4 @@ type ElementsScroll: {};
 
 ## Defined in
 
-[src/types/viewport.interfaces.ts:29](https://github.com/revolist/revogrid/blob/6b4ba162d7e1e59d273a181170ca4cef92eec123/src/types/viewport.interfaces.ts#L29)
+[src/types/viewport.interfaces.ts:29](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/types/viewport.interfaces.ts#L29)

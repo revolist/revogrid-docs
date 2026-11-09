@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.3](README.md) / SortingColumnOrder
+[RevoGrid Documentation v4.31.4](README.md) / SortingColumnOrder
 
 # Type Alias: SortingColumnOrder
 
@@ -13,4 +13,4 @@ that look like integers are enumerated in numeric order, not insertion order.
 
 ## Defined in
 
-[src/plugins/sorting/sorting.types.ts:36](https://github.com/revolist/revogrid/blob/6b4ba162d7e1e59d273a181170ca4cef92eec123/src/plugins/sorting/sorting.types.ts#L36)
+[src/plugins/sorting/sorting.types.ts:36](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/sorting/sorting.types.ts#L36)
