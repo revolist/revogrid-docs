@@ -1430,18 +1430,6 @@ body:has(.vp-doc._excel-data-grid) {
 }
 
 @media (max-width: 520px) {
-  .excel-live-grid--hero .rv-data-grid-formatting-panel__row {
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-  }
-  .excel-live-grid--hero .rv-data-grid-formatting-panel__row::-webkit-scrollbar {
-    display: none;
-  }
-  .excel-live-grid--hero .rv-format-panel__button {
-    min-width: 40px;
-    min-height: 40px;
-  }
   .excel-landing .excel-container {
     width: min(calc(100% - 24px), 1220px);
   }
