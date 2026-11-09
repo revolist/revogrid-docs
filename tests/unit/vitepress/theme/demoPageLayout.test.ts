@@ -173,15 +173,23 @@ test('keeps every demo page on the shared SEO and social metadata contract', () 
   )
 })
 
-test('provides source-attributed feature badges only for paid demos', () => {
+test('keeps the AI Agent header badge-free', () => {
+  assert.deepEqual(getDemoPageConfig('ai-agent').featureBadges, [])
+})
+
+test('provides source-attributed feature badges for the remaining paid demos', () => {
   const configs = getAllDemoPageConfigs()
   const openSource = configs.find(config => config.demo.planId === 'open-source')
-  const paid = configs.filter(config => config.demo.planId !== 'open-source')
+  const paid = configs.filter(
+    config => config.demo.planId !== 'open-source' && config.demo.id !== 'ai-agent',
+  )
 
   assert.deepEqual(openSource?.featureBadges, [])
   assert.equal(
     paid.length,
-    Object.values(PRODUCT_CATALOG.demos).filter(demo => demo.planId !== 'open-source').length,
+    Object.values(PRODUCT_CATALOG.demos).filter(
+      demo => demo.planId !== 'open-source' && demo.id !== 'ai-agent',
+    ).length,
   )
   paid.forEach(config => {
     assert.ok(config.featureBadges.length >= 1)
