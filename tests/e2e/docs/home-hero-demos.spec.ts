@@ -739,3 +739,73 @@ test('Gantt resize commits the previewed endpoint without a duration jump', asyn
   await hero.getByRole('tab', { name: 'Gantt', exact: true }).click()
   await expect.poll(async () => (await bar.boundingBox())!.width).toBeLessThan(original!.width)
 })
+
+test('Gantt preserves new links and configuration through quick task moves', async ({ page }) => {
+  await page.setViewportSize({ width: 1800, height: 1000 })
+  await page.goto('/')
+  const hero = page.locator('.rg-hero')
+  await expect(hero.locator('.live-chart')).toHaveAttribute('data-status', 'ready')
+  await hero.getByRole('tab', { name: 'Gantt', exact: true }).click()
+  const grid = hero.locator('[data-hero-view="gantt"] revo-grid')
+  const bar = grid.locator('.gantt-bar[data-gantt-task-id="hero-project-2"]')
+  const target = grid.locator('.gantt-bar[data-gantt-task-id="hero-project-3"]')
+  await expect(bar).toBeVisible()
+  await grid.evaluate((el: HTMLRevoGridElement) => {
+    ;(window as any).__heroGanttConfig = el.gantt
+  })
+  await bar.click()
+  await bar.hover()
+  const from = await bar.locator('[data-gantt-dependency-side="end"]').boundingBox()
+  const to = await target.boundingBox()
+  expect(from).not.toBeNull()
+  expect(to).not.toBeNull()
+  await page.mouse.move(from!.x + from!.width / 2, from!.y + from!.height / 2)
+  await page.mouse.down()
+  await page.mouse.move(to!.x + 2, to!.y + to!.height / 2, { steps: 8 })
+  await page.mouse.up()
+  await expect(grid.locator('.gantt-dependency')).toHaveCount(2)
+  const ids = await grid
+    .locator('.gantt-dependency')
+    .evaluateAll(links => links.map(link => link.getAttribute('data-dependency-id')))
+  await grid.evaluate(el => {
+    ;(window as any).__heroSourceResets = 0
+    el.addEventListener('beforesourceset', () => {
+      ;(window as any).__heroSourceResets++
+    })
+  })
+  for (const delta of [60, -60, 60]) {
+    const bounds = await bar.boundingBox()
+    await page.mouse.move(bounds!.x + bounds!.width / 2, bounds!.y + bounds!.height / 2)
+    await page.mouse.down()
+    await page.mouse.move(bounds!.x + bounds!.width / 2 + delta, bounds!.y + bounds!.height / 2, {
+      steps: 2,
+    })
+    await page.mouse.up()
+    await expect.poll(async () => (await bar.boundingBox())!.x).not.toBe(bounds!.x)
+    await expect(grid.locator('.gantt-dependency')).toHaveCount(2)
+    expect(
+      await grid.evaluate(
+        (el: HTMLRevoGridElement) => el.gantt === (window as any).__heroGanttConfig,
+      ),
+    ).toBe(true)
+  }
+  expect(await page.evaluate(() => (window as any).__heroSourceResets)).toBe(0)
+  await hero.getByRole('tab', { name: 'Data grid', exact: true }).click()
+  await hero.getByRole('tab', { name: 'Gantt', exact: true }).click()
+  await expect(grid.locator('.gantt-dependency')).toHaveCount(2)
+  expect(
+    await grid
+      .locator('.gantt-dependency')
+      .evaluateAll(links => links.map(link => link.getAttribute('data-dependency-id'))),
+  ).toEqual(ids)
+  const createdId = ids.find(id => id !== 'hero-research-design')!
+  const createdLink = grid.locator(`[data-dependency-id="${createdId}"] .gantt-dependency__hit`)
+  await createdLink.focus()
+  await createdLink.press('Enter')
+  await page.keyboard.press('Delete')
+  await expect(grid.locator('.gantt-dependency')).toHaveCount(1)
+  await hero.getByRole('tab', { name: 'Data grid', exact: true }).click()
+  await hero.getByRole('tab', { name: 'Gantt', exact: true }).click()
+  await expect(grid.locator('.gantt-dependency')).toHaveCount(1)
+  await expect(grid.locator(`[data-dependency-id="${createdId}"]`)).toHaveCount(0)
+})

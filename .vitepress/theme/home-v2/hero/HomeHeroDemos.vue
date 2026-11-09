@@ -13,6 +13,7 @@
           v-show="active === 'grid'"
           view="grid"
           :rows="projects"
+          :dependencies="dependencies"
           :labels="labels"
           :filter-config="gridFilterConfig"
           @filter-change="rememberFilter"
@@ -24,6 +25,7 @@
           :key="active"
           :view="active"
           :rows="visibleRows"
+          :dependencies="dependencies"
           :labels="labels"
           :filter-config="gridFilterConfig"
           @edit="applyEdit"
@@ -48,10 +50,10 @@
 </template>
 <script setup lang="ts">
 import { computed, defineAsyncComponent, h, ref, watch } from 'vue'
-import type { FilterAst, EventManagerEvent } from '@revolist/revogrid-pro'
+import type { FilterAst } from '@revolist/revogrid-pro'
 import type { HomeV2Record } from '../homeV2Utils'
 import { getAnalyticsExperimentVariant, trackSiteAnalytics } from '../../siteAnalytics'
-import type { HeroView as View } from './portfolio'
+import type { HeroEdit, HeroView as View } from './portfolio'
 import { useHeroPortfolio } from './useHeroPortfolio'
 import HeroDemoTabs from './HeroDemoTabs.vue'
 import HeroDemoFooter from './HeroDemoFooter.vue'
@@ -67,6 +69,7 @@ const HeroView = defineAsyncComponent({
 const portfolio = useHeroPortfolio()
 const {
   projects,
+  dependencies,
   visibleRows,
   gridFilterConfig,
   hasFilters,
@@ -97,7 +100,7 @@ function rememberFilter(ast: FilterAst | undefined) {
   portfolio.rememberFilter(ast)
   trackDemo('hero_demo_interaction', 'filter')
 }
-function applyEdit(detail: Pick<EventManagerEvent, 'data' | 'models'>) {
+function applyEdit(detail: HeroEdit) {
   portfolio.applyEdit(detail)
   trackDemo('hero_demo_interaction', 'edit')
 }

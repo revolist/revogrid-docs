@@ -40,7 +40,7 @@
       :range="view === 'grid'"
       :readonly="view === 'pivot'"
       :gantt.prop="productConfig?.gantt"
-      :gantt-dependencies.prop="productConfig?.dependencies"
+      :gantt-dependencies.prop="view === 'gantt' ? dependencies : undefined"
       :event-scheduler.prop="productConfig?.scheduler"
       :event-scheduler-resources.prop="resources"
       :kanban.prop="productConfig?.kanban"
@@ -51,7 +51,7 @@
       @aftergridrender="product?.afterGridRender?.($event)"
       @beforecolumnsset="product?.beforeColumnsSet?.($event)"
       @afterfilterapply="syncVisibleProjects"
-      @gridedit="emit('edit', $event.detail)"
+      @gridedit="syncEdit($event.detail)"
     />
     <HeroBudgetChart v-if="view === 'grid'" :rows="chartRows" :labels="labels" />
   </div>
@@ -68,10 +68,10 @@ import {
   ColumnStretchPlugin,
   type AdvancedFilterConfig,
   type FilterAst,
-  type EventManagerEvent,
 } from '@revolist/revogrid-pro'
 import type { HomeV2Record } from '../homeV2Utils'
-import type { HeroProject, HeroView } from './portfolio'
+import { applyHeroEdit, type HeroEdit, type HeroProject, type HeroView } from './portfolio'
+import type { DependencyEntity } from '@revolist/gantt'
 import { createHeroGridColumns, createHeroColumnTypes } from './gridColumns'
 import { useHeroProduct } from './useHeroProduct'
 import HomeHeroCharts from './HomeHeroCharts.vue'
@@ -82,11 +82,12 @@ import '@revolist/revogrid-pro/dist/revogrid-pro.css'
 const props = defineProps<{
   view: HeroView
   rows: HeroProject[]
+  dependencies: DependencyEntity[]
   labels: HomeV2Record
   filterConfig: AdvancedFilterConfig
 }>()
 const emit = defineEmits<{
-  edit: [detail: Pick<EventManagerEvent, 'data' | 'models'>]
+  edit: [detail: HeroEdit]
   'filter-change': [filter: FilterAst | undefined]
   'visible-ids': [ids: string[]]
 }>()
@@ -119,10 +120,25 @@ function snapshot(rows: HeroProject[]) {
   }))
 }
 const source = shallowRef(snapshot(props.rows))
+let committedRows = props.rows
+function syncEdit(detail: HeroEdit) {
+  // Native Gantt already applied this patch; avoid echoing a full source reset.
+  if (props.view === 'gantt') committedRows = applyHeroEdit(committedRows, detail)
+  emit('edit', detail)
+}
 watch(
   () => props.rows,
   rows => {
-    source.value = snapshot(rows)
+    const alreadyCommitted =
+      props.view === 'gantt' &&
+      rows.length === committedRows.length &&
+      rows.every((row, index) =>
+        Object.entries(row).every(
+          ([key, value]) => committedRows[index]?.[key as keyof HeroProject] === value,
+        ),
+      )
+    committedRows = rows
+    if (!alreadyCommitted) source.value = snapshot(rows)
   },
 )
 

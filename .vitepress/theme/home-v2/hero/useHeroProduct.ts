@@ -62,7 +62,10 @@ export function useHeroProduct(props: {
   const config = computed(() =>
     product.value?.configure({
       labels: props.labels,
-      rows: props.rows,
+      // Track rows only for products whose configuration actually consumes them.
+      get rows() {
+        return props.rows
+      },
       fields,
       resources,
       pivotGrouping: pivotGrouping.value,

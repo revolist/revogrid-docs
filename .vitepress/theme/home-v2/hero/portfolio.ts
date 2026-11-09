@@ -1,10 +1,12 @@
 import type { EventManagerEvent } from '@revolist/revogrid-pro'
-import type { DependencyEntity } from '@revolist/gantt'
+import type { DependencyEntity, GanttDependencyDomainChangeDetail } from '@revolist/gantt'
 
 export const heroChartPalette = ['#6647f0', '#ff6b26', '#0098fa', '#e900e8']
 export const heroChartStatuses = ['not-started', 'in-progress', 'blocked', 'done']
 export const heroStatusColor = (status: string) =>
   heroChartPalette[heroChartStatuses.indexOf(status)] ?? heroChartPalette[0]
+
+export type HeroEdit = Pick<EventManagerEvent, 'data' | 'models' | 'domainChanges'>
 
 export type HeroView = 'grid' | 'gantt' | 'scheduler' | 'pivot' | 'kanban' | 'charts'
 export type HeroProject = {
@@ -60,6 +62,19 @@ export function heroDependencies(projects: Pick<HeroProject, 'id'>[]): Dependenc
         },
       ]
     : []
+}
+
+// Dependency mutations share the native gridedit stream with task patches.
+export function applyHeroDependencyEdit(dependencies: DependencyEntity[], detail: HeroEdit) {
+  const changes = detail.domainChanges?.filter(change => change.type === 'gantt-dependency')
+  if (!changes?.length) return dependencies
+  const next = new Map(dependencies.map(dependency => [dependency.id, dependency]))
+  for (const change of changes) {
+    const { dependencyId, dependency } = change.detail as GanttDependencyDomainChangeDetail
+    if (dependency) next.set(dependencyId, { ...dependency })
+    else next.delete(dependencyId)
+  }
+  return [...next.values()]
 }
 
 export type HeroBudgetRow = Pick<HeroProject, 'id' | 'name' | 'budget'>

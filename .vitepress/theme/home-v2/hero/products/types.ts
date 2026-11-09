@@ -1,6 +1,6 @@
 import type { ColumnRegular, ColumnCollection } from '@revolist/vue3-datagrid'
 import type { ViewFieldMap } from '@revolist/revogrid-pro'
-import type { DependencyEntity, GanttPluginConfig } from '@revolist/gantt'
+import type { GanttPluginConfig } from '@revolist/gantt'
 import type { EventSchedulerConfig, EventSchedulerResourceEntity } from '@revolist/scheduler'
 import type { KanbanConfig } from '@revolist/kanban'
 import type { PivotConfig } from '@revolist/pivot'
@@ -19,7 +19,6 @@ export interface HeroProductContext {
 export interface HeroProductConfig {
   columns?: ColumnRegular[]
   gantt?: GanttPluginConfig
-  dependencies?: DependencyEntity[]
   scheduler?: EventSchedulerConfig
   kanban?: KanbanConfig
   pivot?: PivotConfig
