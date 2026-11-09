@@ -11,6 +11,7 @@
     <HomeUseCases v-if="data.useCases" :section="data.useCases" />
     <HomeComparison :section="data.comparison" />
     <HomeFaq :section="data.faq" />
+    <RevoUiSection product="grid" />
     <HomeFinalCta :section="data.finalCta" />
 
     <Content class="rg-home-formatted" />
@@ -18,6 +19,7 @@
 </template>
 
 <script lang="ts" setup>
+import RevoUiSection from './components/revo-ui/RevoUiSection.vue'
 import { computed } from 'vue'
 import { useData } from 'vitepress'
 import HomeAdvancedModules from './home-v2/HomeAdvancedModules.vue'

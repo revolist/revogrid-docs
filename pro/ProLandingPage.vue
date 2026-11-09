@@ -12,11 +12,13 @@
     <ProServerSideSection :page="page" />
     <ProAiSection :page="page" />
     <ProUseCasesSection :page="page" />
+    <RevoUiSection product="pro" />
     <ProFinalCta :page="page" />
   </main>
 </template>
 
 <script setup lang="ts">
+import RevoUiSection from '../.vitepress/theme/components/revo-ui/RevoUiSection.vue'
 import { computed, onMounted, ref } from 'vue'
 import { useData } from 'vitepress'
 import ProAiSection from './landing/ProAiSection.vue'

@@ -2,6 +2,7 @@
   <section class="excel-faq-section">
     <div class="excel-container"><CommercialFaq id="excel-data-grid-faq" /></div>
   </section>
+  <RevoUiSection product="excel" />
   <section class="excel-final-cta" aria-labelledby="excel-final-title">
     <div class="excel-grid-pattern" aria-hidden="true"></div>
     <div class="excel-container">
@@ -18,6 +19,7 @@
 </template>
 
 <script setup lang="ts">
+import RevoUiSection from '../.vitepress/theme/components/revo-ui/RevoUiSection.vue'
 import CommercialFaq from '../pro/CommercialFaq.vue'
 import ProDocButton from '../pro/ProDocButton.vue'
 import type { ExcelLandingContent } from './excelLandingContent'

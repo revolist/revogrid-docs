@@ -139,7 +139,10 @@
           {{ page.useCases.benefits.label }} →
         </a>
 
-        <div class="use-case-grid" :class="{ 'use-case-grid--pair': page.useCases.items.length === 2 }">
+        <div
+          class="use-case-grid"
+          :class="{ 'use-case-grid--pair': page.useCases.items.length === 2 }"
+        >
           <component
             :is="item.href ? 'a' : 'article'"
             v-for="item in page.useCases.items"
@@ -255,6 +258,8 @@
       :product-id="page.catalogProductId"
     />
 
+    <RevoUiSection :product="page.catalogProductId" />
+
     <ProCtaBanner
       v-if="page.cta"
       :title="page.cta.title"
@@ -268,6 +273,7 @@
 </template>
 
 <script lang="ts" setup>
+import RevoUiSection from '../.vitepress/theme/components/revo-ui/RevoUiSection.vue'
 import { computed } from 'vue'
 import { useData } from 'vitepress'
 import {

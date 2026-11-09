@@ -153,6 +153,7 @@
       ]"
     />
     <div class="section-width charts-faq"><CommercialFaq id="charts-faq" /></div>
+    <RevoUiSection product="charts" />
     <ProCtaBanner
       title="Make your next dashboard a little more insightful."
       description="Explore the chart dashboard, or discover how Charts and Pivot fit into your application."
@@ -212,6 +213,7 @@
 </template>
 
 <script setup lang="ts">
+import RevoUiSection from '../.vitepress/theme/components/revo-ui/RevoUiSection.vue'
 import { nextTick, onBeforeUnmount, ref } from 'vue'
 import AppButton from '../.vitepress/theme/AppButton.vue'
 import ProCtaBanner from '../pro/ProCtaBanner.vue'

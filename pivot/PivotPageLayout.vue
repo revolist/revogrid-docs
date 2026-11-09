@@ -25,6 +25,8 @@
       <CommercialFaq id="pivot-product-faq" />
     </div>
 
+    <RevoUiSection product="pivot" />
+
     <ProCtaBanner
       v-if="page.cta"
       :title="page.cta.title"
@@ -42,6 +44,7 @@
 </template>
 
 <script lang="ts" setup>
+import RevoUiSection from '../.vitepress/theme/components/revo-ui/RevoUiSection.vue'
 import PivotDemo from '../pro/PivotDemo.vue'
 import ProAdvancedCallout from '../pro/ProAdvancedCallout.vue'
 import ProCtaBanner from '../pro/ProCtaBanner.vue'
