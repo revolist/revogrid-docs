@@ -2,7 +2,7 @@ import { computed, onBeforeUnmount, ref, shallowRef, watch } from 'vue'
 import type { ViewFieldMap } from '@revolist/revogrid-pro'
 import type { HomeV2Record } from '../homeV2Utils'
 import { heroOwnerPhotos } from './people'
-import type { HeroProductModule } from './products/types'
+import type { HeroPivotGrouping, HeroProductModule } from './products/types'
 import type { HeroProject, HeroView } from './portfolio'
 
 const fields: ViewFieldMap = {
@@ -33,6 +33,7 @@ export function useHeroProduct(props: {
     avatarUrl,
   }))
   const product = shallowRef<HeroProductModule>()
+  const pivotGrouping = ref<HeroPivotGrouping>('status')
   const state = ref<'loading' | 'ready' | 'error'>('ready')
   let version = 0
 
@@ -59,7 +60,13 @@ export function useHeroProduct(props: {
   })
 
   const config = computed(() =>
-    product.value?.configure({ labels: props.labels, rows: props.rows, fields, resources }),
+    product.value?.configure({
+      labels: props.labels,
+      rows: props.rows,
+      fields,
+      resources,
+      pivotGrouping: pivotGrouping.value,
+    }),
   )
-  return { product, state, config, resources, load }
+  return { product, state, config, resources, pivotGrouping, load }
 }

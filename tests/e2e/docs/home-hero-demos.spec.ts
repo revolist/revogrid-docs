@@ -18,7 +18,12 @@ test('hero native views share grid edits and guided filtering', async ({ page })
 
   for (const name of ['Gantt', 'Scheduler', 'Kanban']) {
     await hero.getByRole('tab', { name, exact: true }).click()
-    await expect(panel.getByText('Commerce API', { exact: true }).first()).toBeVisible()
+    await expect(
+      panel
+        .locator(`[data-hero-view="${name.toLowerCase()}"]`)
+        .getByText('Commerce API', { exact: true })
+        .first(),
+    ).toBeVisible()
   }
   await hero.getByRole('tab', { name: 'Pivot', exact: true }).click()
   await expect(panel.getByRole('gridcell', { name: '$890,000', exact: true })).toBeVisible()
@@ -554,4 +559,63 @@ test('overflowing demo tabs hide the scrollbar and expose the correct scroll edg
   await page.setViewportSize({ width: 1280, height: 900 })
   await page.getByRole('switch').click()
   await expect(menu).toHaveCSS('--hero-menu-edge', '#000')
+})
+
+test('Pivot starts expanded and can regroup the same projects by owner', async ({
+  page,
+}, testInfo) => {
+  await page.addInitScript(() => localStorage.setItem('vitepress-theme-appearance', 'light'))
+  await page.goto('/')
+  const hero = page.locator('.rg-hero')
+  await hero.getByRole('tab', { name: 'Pivot', exact: true }).click()
+  const panel = hero.getByRole('tabpanel')
+  await expect(
+    panel.getByRole('gridcell', { name: /^(Commerce API|Mobile App)$/ }).first(),
+  ).toBeVisible()
+  await panel.screenshot({ path: testInfo.outputPath('pivot-status.png') })
+  const statusGroup = panel.getByRole('row', { name: /In progress/ })
+  await statusGroup.getByRole('button').click()
+  await expect(panel.getByRole('gridcell', { name: 'Commerce API', exact: true })).toHaveCount(0)
+  await statusGroup.getByRole('button').click()
+  await expect(panel.getByRole('gridcell', { name: 'Commerce API', exact: true })).toBeVisible()
+  const grouping = panel.getByRole('group', { name: 'Group by', exact: true })
+  await expect(grouping.getByRole('button', { name: 'Status', exact: true })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  )
+  await grouping.getByRole('button', { name: 'Owner', exact: true }).click()
+  await expect(grouping.getByRole('button', { name: 'Owner', exact: true })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  )
+  await expect(panel.getByText('Alex Nguyen', { exact: true })).toBeVisible()
+  await expect(
+    panel
+      .getByRole('row', { name: /Alex Nguyen/ })
+      .getByRole('gridcell', { name: '$330,000', exact: true }),
+  ).toBeVisible()
+  await expect(panel.getByRole('gridcell', { name: 'Commerce API', exact: true })).toBeVisible()
+  await hero.getByRole('button', { name: 'Show projects over $100k', exact: true }).click()
+  await expect(hero.locator('.hero-demo-footer').getByRole('status')).toHaveText('4 / 6 projects')
+  await expect(grouping.getByRole('button', { name: 'Owner', exact: true })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  )
+  await expect(panel.getByRole('gridcell', { name: 'Design', exact: true })).toHaveCount(0)
+  await grouping.getByRole('button', { name: 'Status', exact: true }).click()
+  await expect(panel.getByText('In progress', { exact: true }).first()).toBeVisible()
+  await page.getByRole('switch').click()
+  await expect(page.locator('html')).toHaveClass(/dark/)
+  await panel.screenshot({ path: testInfo.outputPath('pivot-dark.png') })
+  await page.setViewportSize({ width: 390, height: 844 })
+  await expect(grouping.getByRole('button', { name: 'Owner', exact: true })).toBeVisible()
+  await grouping.getByRole('button', { name: 'Owner', exact: true }).click()
+  await expect(grouping.getByRole('button', { name: 'Owner', exact: true })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  )
+  await panel.screenshot({ path: testInfo.outputPath('pivot-mobile.png') })
+  await expect
+    .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth))
+    .toBe(true)
 })

@@ -1,9 +1,18 @@
 <template>
   <div
     class="hero-view"
-    :class="{ 'hero-view--grid': view === 'grid', 'hero-view--charts': view === 'charts' }"
+    :class="{
+      'hero-view--grid': view === 'grid',
+      'hero-view--charts': view === 'charts',
+      'hero-view--pivot': view === 'pivot',
+    }"
     :data-hero-view="view"
   >
+    <HeroPivotControls
+      v-if="view === 'pivot' && productState === 'ready'"
+      v-model="pivotGrouping"
+      :labels="labels"
+    />
     <p v-if="productState === 'loading'" class="hero-product-message" role="status">
       {{ labels.loading }}
     </p>
@@ -69,6 +78,7 @@ import { createHeroGridColumns, createHeroColumnTypes } from './gridColumns'
 import { useHeroProduct } from './useHeroProduct'
 import HomeHeroCharts from './HomeHeroCharts.vue'
 import HeroBudgetChart from './HeroBudgetChart.vue'
+import HeroPivotControls from './HeroPivotControls.vue'
 import '@revolist/revogrid-pro/dist/revogrid-pro.css'
 
 const props = defineProps<{
@@ -89,6 +99,7 @@ const {
   state: productState,
   config: productConfig,
   resources,
+  pivotGrouping,
   load: loadProduct,
 } = useHeroProduct(props)
 const columns = computed(() => productConfig.value?.columns ?? createHeroGridColumns(props.labels))
@@ -153,6 +164,15 @@ const chartRows = computed(() =>
 .hero-view--charts {
   height: auto;
   overflow: visible;
+}
+.hero-view--pivot {
+  display: flex;
+  flex-direction: column;
+}
+.hero-view--pivot .hero-native-grid {
+  flex: 1;
+  height: 0;
+  min-height: 0;
 }
 .hero-product-message {
   display: grid;

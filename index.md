@@ -63,6 +63,7 @@ hero:
     clearFilters: Clear filters
     sharedFilters: Filters apply to every view
     averageProgress: Avg progress
+    pivotGroupBy: Group by
     loadError: This view could not load. Try again.
     retry: Retry
     trial: Try Pro in your app

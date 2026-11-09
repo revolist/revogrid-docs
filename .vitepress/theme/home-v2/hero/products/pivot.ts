@@ -5,18 +5,18 @@ import type { HeroProductModule } from './types'
 
 export default {
   plugins: [PivotPlugin, ColumnStretchPlugin],
-  configure: ({ labels }) => ({
+  configure: ({ labels, pivotGrouping = 'status' }) => ({
     pivot: {
-      rows: ['workflowStatus', 'owner'],
-      collapsed: true,
+      rows: [pivotGrouping === 'owner' ? 'owner' : 'workflowStatus', 'name'],
+      collapsed: false,
       groupAggregations: true,
       values: [
         { prop: 'budget', aggregator: 'sum', name: labels.budget },
         { prop: 'percentDone', aggregator: 'avg', name: labels.averageProgress },
       ],
       dimensions: [
-        { prop: 'workflowStatus', name: labels.status },
-        { prop: 'name', name: labels.project },
+        { prop: 'workflowStatus', name: labels.status, size: 260, minSize: 220 },
+        { prop: 'name', name: labels.project, size: 260, minSize: 220 },
         { prop: 'owner', name: labels.owner, size: 260, minSize: 220 },
         {
           prop: 'budget',

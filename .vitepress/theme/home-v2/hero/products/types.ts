@@ -7,11 +7,14 @@ import type { PivotConfig } from '@revolist/pivot'
 import type { HomeV2Record } from '../../homeV2Utils'
 import type { HeroProject } from '../portfolio'
 
+export type HeroPivotGrouping = 'status' | 'owner'
+
 export interface HeroProductContext {
   labels: HomeV2Record
   rows: HeroProject[]
   fields: ViewFieldMap
   resources: EventSchedulerResourceEntity[]
+  pivotGrouping?: HeroPivotGrouping
 }
 export interface HeroProductConfig {
   columns?: ColumnRegular[]
