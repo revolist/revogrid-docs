@@ -18,6 +18,9 @@
 :deep(.hero-budget-header .header-content) {
   text-align: right;
 }
+:deep(.hero-budget-header .filter-input input) {
+  text-align: right;
+}
 :deep(.hero-progress-editor) {
   .revo-slider {
     --slider-thumb-size: 14px;
