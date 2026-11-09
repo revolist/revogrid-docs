@@ -8,18 +8,18 @@ test('page translations override shared and preview copy without changing other 
     description: 'Des formulaires et des commandes pour votre planning.',
     explore: 'Découvrir Revo UI',
     preview: {
-      name: 'Nom du projet',
-      save: 'Enregistrer',
-      saved: 'Modifications enregistrées pour {name}.',
+      search: 'Rechercher une facture',
+      markPaid: 'Marquer comme payée',
+      settled: '{count} factures payées.',
     },
   })
   assert.equal(translated.title, 'Une interface pour vos données.')
-  assert.equal(translated.preview.name, 'Nom du projet')
-  assert.equal(translated.preview.save, 'Enregistrer')
-  assert.equal(translated.preview.saved, 'Modifications enregistrées pour {name}.')
-  assert.equal(translated.preview.progress, 'Progress')
+  assert.equal(translated.preview.search, 'Rechercher une facture')
+  assert.equal(translated.preview.markPaid, 'Marquer comme payée')
+  assert.equal(translated.preview.settled, '{count} factures payées.')
+  assert.equal(translated.preview.period, 'Reporting period')
   const untouched = getRevoUiContent('gantt')
-  assert.equal(untouched.preview.save, 'Save changes')
+  assert.equal(untouched.preview.markPaid, 'Mark as paid')
   assert.notEqual(untouched.description, translated.description)
   assert.notEqual(getRevoUiContent('pivot').description, untouched.description)
   assert.equal(

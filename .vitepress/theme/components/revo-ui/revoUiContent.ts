@@ -12,13 +12,24 @@ export type RevoUiProduct =
 export interface RevoUiPreviewCopy {
   eyebrow: string
   title: string
-  name: string
-  defaultName: string
-  progress: string
-  notify: string
-  review: string
-  save: string
-  saved: string
+  revenue: string
+  revenueChart: string
+  period: string
+  threeMonths: string
+  sixMonths: string
+  recurring: string
+  oneTime: string
+  invoices: string
+  outstanding: string
+  search: string
+  selectInvoice: string
+  pending: string
+  paid: string
+  selection: string
+  markPaid: string
+  settled: string
+  empty: string
+  reset: string
   caption: string
 }
 export interface RevoUiSectionContent {
@@ -61,15 +72,26 @@ const defaults: RevoUiSectionContent = {
   github: 'View on GitHub',
   preview: {
     eyebrow: 'Try the real components',
-    title: 'Workspace settings',
-    name: 'Workspace name',
-    defaultName: 'Customer portal',
-    progress: 'Progress',
-    notify: 'Notify the team',
-    review: 'Ready for review',
-    save: 'Save changes',
-    saved: 'Changes saved for {name}.',
-    caption: 'Buttons, fields, sliders and switches. Ready for your app.',
+    title: 'Finance workspace',
+    revenue: 'Total revenue',
+    revenueChart: 'Revenue over time',
+    period: 'Reporting period',
+    threeMonths: '3 months',
+    sixMonths: '6 months',
+    recurring: 'Recurring',
+    oneTime: 'One-time',
+    invoices: 'Invoices',
+    outstanding: 'Outstanding',
+    search: 'Search client or invoice',
+    selectInvoice: 'Select {invoice}',
+    pending: 'Pending',
+    paid: 'Paid',
+    selection: '{count} selected · {amount}',
+    markPaid: 'Mark as paid',
+    settled: 'Invoices marked as paid in this example: {count}.',
+    empty: 'No matching invoices.',
+    reset: 'Reset example',
+    caption: 'Charts, search and bulk actions. Real components, working together.',
   },
 }
 

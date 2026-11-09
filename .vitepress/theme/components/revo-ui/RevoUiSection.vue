@@ -107,7 +107,7 @@ h2 {
   text-align: center;
 }
 .revo-ui-placeholder {
-  height: 396px;
+  height: 600px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 20px;
   background: var(--vp-c-bg-soft);
