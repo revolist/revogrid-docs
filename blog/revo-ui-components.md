@@ -97,9 +97,9 @@ Then import components from the adapter for your framework. For example, a React
 
 ## A working React example with real components
 
-<iframe src="/examples/revo-ui-invoices/index.html?example=quick-start" title="Interactive Revo UI weekly planner" width="100%" height="800" loading="lazy" style="border:0;border-radius:12px;"></iframe>
+<iframe src="/blog-examples/revo-ui-invoices/index.html?example=quick-start" title="Interactive Revo UI weekly planner" width="100%" height="800" loading="lazy" style="border:0;border-radius:12px;"></iframe>
 
-<a href="/examples/revo-ui-invoices/index.html?example=quick-start" target="_blank" rel="noopener">Open the weekly planner in its own tab</a>.
+<a href="/blog-examples/revo-ui-invoices/index.html?example=quick-start" target="_blank" rel="noopener">Open the weekly planner in its own tab</a>.
 
 This React adaptation of the [Revo UI gallery's weekly planner](https://ui.rv-grid.com/) combines `TimeGrid`, `Avatar`, `Checkbox`, `ProgressBar`, `Legend`, and `SegmentedSwitch`. Pick a team member, select two-hour blocks, and mark priorities complete. Reset restores the selected person's sample week. On narrow screens, scroll the time grid horizontally to see later hours. The [downloadable starter](/downloads/revo-ui-invoice-dashboard.zip) includes the complete code, photos, and layout styles.
 ```tsx

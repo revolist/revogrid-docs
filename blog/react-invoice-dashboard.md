@@ -61,9 +61,9 @@ The records are illustrative sample data. Invoice status is stored explicitly; t
 
 ## Try the invoice dashboard
 
-<iframe src="/examples/revo-ui-invoices/index.html" title="Interactive React invoice dashboard with Revo UI and RevoGrid" width="100%" height="1320" loading="lazy" style="border:0;border-radius:12px;"></iframe>
+<iframe src="/blog-examples/revo-ui-invoices/index.html" title="Interactive React invoice dashboard with Revo UI and RevoGrid" width="100%" height="1320" loading="lazy" style="border:0;border-radius:12px;"></iframe>
 
-<a href="/examples/revo-ui-invoices/index.html" target="_blank" rel="noopener">Open the dashboard in its own tab</a>. Search for `Acme`, select Pending, and watch the grid, total, and chart update together.
+<a href="/blog-examples/revo-ui-invoices/index.html" target="_blank" rel="noopener">Open the dashboard in its own tab</a>. Search for `Acme`, select Pending, and watch the grid, total, and chart update together.
 
 ## Run the complete example
 

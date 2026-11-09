@@ -9,7 +9,7 @@ test('Revo UI blog examples load and respond inside their articles', async ({ pa
   await expect(finder.getByLabel('Planned focus hours')).toHaveText('12h / 40h')
   await expect(
     page.getByRole('link', { name: 'Open the weekly planner in its own tab' }),
-  ).toHaveAttribute('href', '/examples/revo-ui-invoices/index.html?example=quick-start')
+  ).toHaveAttribute('href', '/blog-examples/revo-ui-invoices/index.html?example=quick-start')
   const finderPopupPromise = page.waitForEvent('popup')
   await page.getByRole('link', { name: 'Open the weekly planner in its own tab' }).click()
   const finderPopup = await finderPopupPromise
@@ -33,7 +33,7 @@ test('Revo UI blog examples load and respond inside their articles', async ({ pa
   await expect(dashboard.getByRole('status')).toContainText('$1,200')
   await expect(
     page.getByRole('link', { name: 'Open the dashboard in its own tab' }),
-  ).toHaveAttribute('href', '/examples/revo-ui-invoices/index.html')
+  ).toHaveAttribute('href', '/blog-examples/revo-ui-invoices/index.html')
   const dashboardPopupPromise = page.waitForEvent('popup')
   await page.getByRole('link', { name: 'Open the dashboard in its own tab' }).click()
   const dashboardPopup = await dashboardPopupPromise
