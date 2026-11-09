@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.3](README.md) / BeforeEdit
+[RevoGrid Documentation v4.31.4](README.md) / BeforeEdit
 
 # Type Alias: BeforeEdit
 
@@ -8,4 +8,4 @@ type BeforeEdit: BeforeSaveDataDetails;
 
 ## Defined in
 
-[src/types/selection.ts:123](https://github.com/revolist/revogrid/blob/6b4ba162d7e1e59d273a181170ca4cef92eec123/src/types/selection.ts#L123)
+[src/types/selection.ts:123](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/types/selection.ts#L123)

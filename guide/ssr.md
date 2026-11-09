@@ -3,7 +3,13 @@
 RevoGrid library includes a hydrate app that is a bundle of the same components, but compiled so that they can be hydrated on a NodeJS server and generate static HTML and CSS. To get started, import the hydrate app into your server’s code like so:
 
 ```js
-import hydrate from "@revolist/revogrid/hydrate"
+import * as hydrate from '@revolist/revogrid/hydrate';
+```
+
+CommonJS applications can use the same server-rendering API:
+
+```js
+const hydrate = require('@revolist/revogrid/hydrate');
 ```
 
 If you are using for example [Eleventy](https://www.11ty.dev/), you could now add a transform into `.eleventy.js` configuration file that takes content as an input and processes it using RevoGrid’s hydrate app:
