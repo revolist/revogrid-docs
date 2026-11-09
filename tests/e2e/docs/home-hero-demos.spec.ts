@@ -542,6 +542,7 @@ test('homepage enables ready-to-use Pro popup conditions without applying on ope
 test('overflowing demo tabs hide the scrollbar and expose the correct scroll edges', async ({
   page,
 }) => {
+  await page.addInitScript(() => localStorage.setItem('vitepress-theme-appearance', 'light'))
   await page.setViewportSize({ width: 700, height: 900 })
   await page.goto('/')
   const menu = page.locator('.hero-demo-menu')
@@ -557,7 +558,7 @@ test('overflowing demo tabs hide the scrollbar and expose the correct scroll edg
   await expect.poll(() => tabs.evaluate(el => el.scrollLeft)).toBe(0)
   await expect.poll(() => menu.evaluate(el => getComputedStyle(el, '::before').opacity)).toBe('0')
   await page.setViewportSize({ width: 1280, height: 900 })
-  await page.getByRole('switch').click()
+  await page.getByRole('switch', { name: 'Appearance', exact: true }).click()
   await expect(menu).toHaveCSS('--hero-menu-edge', '#000')
 })
 
@@ -572,20 +573,28 @@ test('Pivot starts expanded and can regroup the same projects by owner', async (
   await expect(
     panel.getByRole('gridcell', { name: /^(Commerce API|Mobile App)$/ }).first(),
   ).toBeVisible()
+  const commerce = panel.getByRole('row', { name: /^Commerce API/ })
+  const budgetBar = commerce.locator('.hero-pivot-budget .progress-line-bar')
+  await expect
+    .poll(() => budgetBar.evaluate(el => Number.parseFloat((el as HTMLElement).style.width)))
+    .toBeCloseTo((180000 / 870000) * 100, 1)
+  await expect(commerce.locator('.hero-pivot-progress .badge-cell')).toHaveText('64%')
   await panel.screenshot({ path: testInfo.outputPath('pivot-status.png') })
   const statusGroup = panel.getByRole('row', { name: /In progress/ })
   await statusGroup.getByRole('button').click()
   await expect(panel.getByRole('gridcell', { name: 'Commerce API', exact: true })).toHaveCount(0)
   await statusGroup.getByRole('button').click()
   await expect(panel.getByRole('gridcell', { name: 'Commerce API', exact: true })).toBeVisible()
-  const grouping = panel.getByRole('group', { name: 'Group by', exact: true })
-  await expect(grouping.getByRole('button', { name: 'Status', exact: true })).toHaveAttribute(
-    'aria-pressed',
+  const grouping = panel.getByRole('radiogroup', { name: 'Group by', exact: true })
+  await expect(grouping.getByRole('radio', { name: 'Status', exact: true })).toHaveAttribute(
+    'aria-checked',
     'true',
   )
-  await grouping.getByRole('button', { name: 'Owner', exact: true }).click()
-  await expect(grouping.getByRole('button', { name: 'Owner', exact: true })).toHaveAttribute(
-    'aria-pressed',
+  await grouping.getByRole('radio', { name: 'Status', exact: true }).focus()
+  await page.keyboard.press('ArrowRight')
+  await expect(grouping.getByRole('radio', { name: 'Owner', exact: true })).toBeFocused()
+  await expect(grouping.getByRole('radio', { name: 'Owner', exact: true })).toHaveAttribute(
+    'aria-checked',
     'true',
   )
   await expect(panel.getByText('Alex Nguyen', { exact: true })).toBeVisible()
@@ -597,21 +606,24 @@ test('Pivot starts expanded and can regroup the same projects by owner', async (
   await expect(panel.getByRole('gridcell', { name: 'Commerce API', exact: true })).toBeVisible()
   await hero.getByRole('button', { name: 'Show projects over $100k', exact: true }).click()
   await expect(hero.locator('.hero-demo-footer').getByRole('status')).toHaveText('4 / 6 projects')
-  await expect(grouping.getByRole('button', { name: 'Owner', exact: true })).toHaveAttribute(
-    'aria-pressed',
+  await expect
+    .poll(() => budgetBar.evaluate(el => Number.parseFloat((el as HTMLElement).style.width)))
+    .toBeCloseTo((180000 / 690000) * 100, 1)
+  await expect(grouping.getByRole('radio', { name: 'Owner', exact: true })).toHaveAttribute(
+    'aria-checked',
     'true',
   )
   await expect(panel.getByRole('gridcell', { name: 'Design', exact: true })).toHaveCount(0)
-  await grouping.getByRole('button', { name: 'Status', exact: true }).click()
+  await grouping.getByRole('radio', { name: 'Status', exact: true }).click()
   await expect(panel.getByText('In progress', { exact: true }).first()).toBeVisible()
-  await page.getByRole('switch').click()
+  await page.getByRole('switch', { name: 'Appearance', exact: true }).click()
   await expect(page.locator('html')).toHaveClass(/dark/)
   await panel.screenshot({ path: testInfo.outputPath('pivot-dark.png') })
   await page.setViewportSize({ width: 390, height: 844 })
-  await expect(grouping.getByRole('button', { name: 'Owner', exact: true })).toBeVisible()
-  await grouping.getByRole('button', { name: 'Owner', exact: true }).click()
-  await expect(grouping.getByRole('button', { name: 'Owner', exact: true })).toHaveAttribute(
-    'aria-pressed',
+  await expect(grouping.getByRole('radio', { name: 'Owner', exact: true })).toBeVisible()
+  await grouping.getByRole('radio', { name: 'Owner', exact: true }).click()
+  await expect(grouping.getByRole('radio', { name: 'Owner', exact: true })).toHaveAttribute(
+    'aria-checked',
     'true',
   )
   await panel.screenshot({ path: testInfo.outputPath('pivot-mobile.png') })

@@ -2,10 +2,11 @@ import { PivotPlugin } from '@revolist/pivot'
 import { ColumnStretchPlugin } from '@revolist/revogrid-pro'
 import '@revolist/pivot/styles.css'
 import type { HeroProductModule } from './types'
+import { createPivotBudgetRenderer, pivotProgressRenderer } from './pivotCells'
 
 export default {
   plugins: [PivotPlugin, ColumnStretchPlugin],
-  configure: ({ labels, pivotGrouping = 'status' }) => ({
+  configure: ({ labels, rows, pivotGrouping = 'status' }) => ({
     pivot: {
       rows: [pivotGrouping === 'owner' ? 'owner' : 'workflowStatus', 'name'],
       collapsed: false,
@@ -23,28 +24,23 @@ export default {
           name: labels.budget,
           minSize: 130,
           cellProperties: () => ({
+            class: 'hero-pivot-budget',
+            title: labels.budgetShare,
             style: { textAlign: 'right', fontVariantNumeric: 'tabular-nums' },
           }),
           columnProperties: () => ({ class: 'hero-budget-header' }),
-          cellTemplate: (h, { value }) =>
-            Number.isFinite(Number(value))
-              ? new Intl.NumberFormat('en-US', {
-                  style: 'currency',
-                  currency: 'USD',
-                  maximumFractionDigits: 0,
-                }).format(Number(value))
-              : String(value),
+          cellTemplate: createPivotBudgetRenderer(rows.reduce((sum, row) => sum + row.budget, 0)),
         },
         {
           prop: 'percentDone',
           name: labels.averageProgress,
           minSize: 130,
           cellProperties: () => ({
+            class: 'hero-pivot-progress',
             style: { textAlign: 'right', fontVariantNumeric: 'tabular-nums' },
           }),
           columnProperties: () => ({ class: 'hero-budget-header' }),
-          cellTemplate: (h, { value }) =>
-            Number.isFinite(Number(value)) ? `${Math.round(Number(value))}%` : String(value),
+          cellTemplate: pivotProgressRenderer,
         },
       ],
       totals: { grandTotal: true, grandTotalLabel: labels.totalLabel },

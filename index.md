@@ -64,6 +64,7 @@ hero:
     sharedFilters: Filters apply to every view
     averageProgress: Avg progress
     pivotGroupBy: Group by
+    budgetShare: Share of visible budget
     loadError: This view could not load. Try again.
     retry: Retry
     trial: Try Pro in your app

@@ -1,29 +1,31 @@
 <template>
-  <div class="hero-pivot-controls" role="group" :aria-label="labels.pivotGroupBy">
+  <div class="hero-pivot-controls">
     <span aria-hidden="true">{{ labels.pivotGroupBy }}</span>
-    <div class="rv-btn-group">
-      <button
-        v-for="option in options"
-        :key="option"
-        v-rv-control
-        class="rv-btn"
-        type="button"
-        :aria-pressed="modelValue === option"
-        @click="emit('update:modelValue', option)"
-      >
-        {{ labels[option] }}
-      </button>
-    </div>
+    <SegmentedSwitch
+      :value="modelValue"
+      :options="options"
+      :aria-label="labels.pivotGroupBy"
+      role="radiogroup"
+      :on-change="changeGrouping"
+    />
   </div>
 </template>
 <script setup lang="ts">
-import { vRvControl } from '@revolist/ui/vue-control'
+import { computed } from 'vue'
+import { VueSegmentedSwitch as SegmentedSwitch } from '@revolist/ui/vue-segmented-switch'
+import '@revolist/ui/styles.css'
 import type { HomeV2Record } from '../homeV2Utils'
 import type { HeroPivotGrouping } from './products/types'
 
-defineProps<{ modelValue: HeroPivotGrouping; labels: HomeV2Record }>()
+const props = defineProps<{ modelValue: HeroPivotGrouping; labels: HomeV2Record }>()
 const emit = defineEmits<{ 'update:modelValue': [value: HeroPivotGrouping] }>()
-const options = ['status', 'owner'] as const
+const options = computed(() => [
+  { value: 'status', label: props.labels.status },
+  { value: 'owner', label: props.labels.owner },
+])
+function changeGrouping(value: string | number) {
+  if (value === 'status' || value === 'owner') emit('update:modelValue', value)
+}
 </script>
 <style scoped>
 .hero-pivot-controls {
@@ -36,12 +38,8 @@ const options = ['status', 'owner'] as const
   color: var(--rg-text-2);
   font-size: 12px;
 }
-.rv-btn[aria-pressed='true'] {
-  color: var(--vp-c-brand-1);
-  background: var(--vp-c-brand-soft);
-}
 @media (max-width: 640px) {
-  .rv-btn {
+  :deep(.rv-segmented-switch-item) {
     min-height: 44px;
   }
 }

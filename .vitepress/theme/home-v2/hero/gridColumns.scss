@@ -43,3 +43,16 @@
 .hero-view :deep(.rgCell.disabled) {
   background: transparent;
 }
+
+:deep(.hero-pivot-budget .progress-line-cell) {
+  --threshold-color: #6647f0;
+  justify-content: center;
+  padding: 0 16px;
+}
+:deep(.hero-pivot-budget .cell-value) {
+  font-weight: 600;
+}
+:deep(.hero-pivot-progress .badge-cell) {
+  font-weight: 600;
+  cursor: default;
+}
