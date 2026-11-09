@@ -10,7 +10,6 @@ import HomeHero from './home/HomeHero.vue'
 import HomeHeroActions from './home/HomeHeroActions.vue'
 import HomeHeroInfoAfter from './home/HomeHeroInfoAfter.vue'
 import HomeHeroInfoBefore from './home/HomeHeroInfoBefore.vue'
-import HomeMit from './home/HomeMit.vue'
 import CustomLayout from './CustomLayout.vue'
 import Mermaid from './Mermaid.vue'
 import HomeSocialProof from './home/HomeSocialProof.vue'
@@ -20,6 +19,7 @@ import HomeFeatureStats from './home/HomeFeatureStats.vue'
 import HomeCtaBanner from './home/HomeCtaBanner.vue'
 import ExternalHomeLinks from './ExternalHomeLinks.vue'
 import HeaderNavControls from './HeaderNavControls.vue'
+import HeaderGitHubLink from './HeaderGitHubLink.vue'
 import ProductDropdown from './ProductDropdown.vue'
 import HomePageColors from './home/HomePageColors.vue'
 import DemoThemeBridge from './DemoThemeBridge.vue'
@@ -38,6 +38,8 @@ export default {
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
+      'nav-bar-content-after': () => h(HeaderGitHubLink),
+      'nav-screen-content-after': () => h(HeaderGitHubLink, { screen: true }),
       'doc-before': () => h(BlogArticleMeta),
       'doc-after': () => h(BlogRelated),
       'layout-top': () => [
@@ -61,7 +63,7 @@ export default {
       ],
     })
   },
-  enhanceApp({ app, router, siteData }) {
+  enhanceApp({ app }) {
     app.provide(ZINDEX_INJECTION_KEY, { current: 0 })
     app.provide(ID_INJECTION_KEY, { prefix: 1024, current: 0 })
     enhanceAppWithTabs(app)

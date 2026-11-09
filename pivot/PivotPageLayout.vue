@@ -21,6 +21,7 @@
       :product-id="page.catalogProductId"
     />
 
+    <RevoUiSection product="pivot" />
     <div class="container pivot-page-faq">
       <CommercialFaq id="pivot-product-faq" />
     </div>
@@ -42,6 +43,7 @@
 </template>
 
 <script lang="ts" setup>
+import RevoUiSection from '../.vitepress/theme/components/revo-ui/RevoUiSection.vue'
 import PivotDemo from '../pro/PivotDemo.vue'
 import ProAdvancedCallout from '../pro/ProAdvancedCallout.vue'
 import ProCtaBanner from '../pro/ProCtaBanner.vue'

@@ -1,36 +1,48 @@
 <template>
-  <section class="rg-hero">
+  <section
+    class="rg-hero"
+    aria-labelledby="rg-hero-title"
+    @focusin="heroFocused = true"
+    @focusout="onHeroFocusOut"
+  >
     <div class="rg-container rg-hero-grid">
       <div class="rg-hero-copy">
-        <div class="rg-badge">
-          <span class="rg-badge-dot"></span>
+        <div class="rg-hero-eyebrow">
           {{ hero?.eyebrow }}
         </div>
-        <h1 class="rg-hero-title" v-html="heroTitle"></h1>
+        <HomeHeroHeadline
+          :title="hero?.title"
+          :emphasis="hero?.emphasis"
+          :rotating-term="hero?.rotatingTerm"
+          :products="hero?.rotatingProducts"
+          :paused="heroFocused"
+        />
         <p class="rg-hero-sub" v-html="heroTagline"></p>
         <div class="rg-actions">
-          <a
-            class="rg-btn"
+          <VPButton
+            size="big"
+            theme="brand"
             :href="linkOf(hero?.primaryAction?.link)"
             :target="hero?.primaryAction?.target"
             :rel="hero?.primaryAction?.rel"
             :data-router-ignore="hero?.primaryAction?.ignore"
           >
-            <span class="rg-play" aria-hidden="true"></span>
             {{ hero?.primaryAction?.text }}
-          </a>
-          <a
-            class="rg-btn rg-btn-secondary"
+          </VPButton>
+          <VPButton
+            size="big"
+            theme="alt"
             :href="linkOf(hero?.secondaryAction?.link)"
             :target="hero?.secondaryAction?.target"
             :rel="hero?.secondaryAction?.rel"
             :data-router-ignore="hero?.secondaryAction?.ignore"
           >
             {{ hero?.secondaryAction?.text }}
-          </a>
-          <a
+          </VPButton>
+          <VPButton
             v-if="hero?.tertiaryAction"
-            class="rg-btn rg-btn-secondary"
+            size="big"
+            theme="alt"
             :href="linkOf(hero.tertiaryAction.link)"
             :target="hero?.tertiaryAction?.target"
             :rel="hero?.tertiaryAction?.rel"
@@ -38,13 +50,13 @@
           >
             {{ hero?.tertiaryAction?.text }}
             <HomeChevron />
-          </a>
+          </VPButton>
         </div>
         <div v-if="hero?.installCommand" class="rg-hero-install">
           <code>{{ hero.installCommand }}</code>
-          <button type="button" @click="copyInstallCommand">
+          <VPButton tag="button" theme="alt" type="button" @click="copyInstallCommand">
             {{ installCopied ? 'copied' : 'copy' }}
-          </button>
+          </VPButton>
         </div>
         <div v-else-if="hero?.frameworks?.length" class="rg-frameworks">
           <span class="rg-frameworks-label">{{ hero?.frameworksLabel ?? 'Works with' }}</span>
@@ -54,51 +66,21 @@
             class="rg-framework"
             :href="linkOf(fw.link)"
           >
-            <span class="rg-framework-dot" :style="{ background: fw.color }"></span>
+            <img v-if="fw.icon" :src="linkOf(fw.icon)" alt="" width="18" height="18" />
             {{ fw.name }}
           </a>
         </div>
       </div>
 
-      <div class="rg-hero-visual">
-        <HomeHero class="rg-datagridjs-preview" />
-        <div class="rg-hero-proof-badges" aria-label="RevoGrid package popularity">
-          <a
-            class="rg-hero-proof-badge"
-            href="https://www.jsdelivr.com/package/npm/@revolist/revogrid"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="https://data.jsdelivr.com/v1/package/npm/@revolist/revogrid/badge"
-              alt="jsDelivr downloads for @revolist/revogrid"
-            />
-          </a>
-          <a
-            class="rg-hero-proof-badge rg-hero-text-badge rg-hero-github-badge"
-            href="https://github.com/revolist/revogrid"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="RevoGrid on GitHub, 3.4K stars"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                fill="currentColor"
-                d="M12 .7a11.5 11.5 0 0 0-3.64 22.42c.58.1.79-.25.79-.56v-2.24c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.74-1.55-2.57-.29-5.28-1.29-5.28-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.47.11-3.05 0 0 .97-.31 3.16 1.18A10.98 10.98 0 0 1 12 6.12c.98 0 1.95.13 2.87.39 2.2-1.49 3.16-1.18 3.16-1.18.63 1.58.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.4-2.71 5.38-5.29 5.67.42.36.79 1.07.79 2.16v3.26c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"
-              />
-            </svg>
-            <strong>GitHub</strong>
-            <span>3.4K stars</span>
-          </a>
-          <a
-            class="rg-hero-proof-badge rg-hero-text-badge rg-hero-feedback-badge"
-            href="#feedback"
-            aria-label="Read what RevoGrid users say"
-          >
-            <span class="rg-hero-feedback-mark" aria-hidden="true">“</span>
-            <strong>Loved by builders</strong>
-          </a>
+      <div class="rg-hero-preview">
+        <div class="rg-hero-visual">
+          <HomeHero
+            v-if="hero?.demoLabels && hero?.demoTabs?.length"
+            :labels="hero.demoLabels"
+            :tabs="hero.demoTabs"
+          />
         </div>
+        <HomeHeroProof />
       </div>
     </div>
   </section>
@@ -106,15 +88,13 @@
 
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
+import { VPButton } from 'vitepress/theme'
+import '@revolist/ui/styles.css'
 import HomeChevron from './HomeChevron.vue'
-import HomeHero from '../home/HomeHero.vue'
-import {
-  emphasizeText,
-  escapeHtml,
-  linkProductMentions,
-  type HomeV2Record,
-  useHomeV2Links,
-} from './homeV2Utils'
+import HomeHero from './hero/HomeHeroDemos.vue'
+import HomeHeroHeadline from './hero/HomeHeroHeadline.vue'
+import HomeHeroProof from './hero/HomeHeroProof.vue'
+import { escapeHtml, linkProductMentions, type HomeV2Record, useHomeV2Links } from './homeV2Utils'
 
 const props = defineProps<{
   hero?: HomeV2Record
@@ -122,7 +102,12 @@ const props = defineProps<{
 
 const { linkOf } = useHomeV2Links()
 
-const heroTitle = computed(() => emphasizeText(props.hero?.title, props.hero?.emphasis))
+const heroFocused = ref(false)
+function onHeroFocusOut(event: FocusEvent) {
+  heroFocused.value =
+    !!event.relatedTarget &&
+    (event.currentTarget as HTMLElement).contains(event.relatedTarget as Node)
+}
 
 const performanceClaim = '60fps, 3x less memory.'
 const heroTagline = computed(() => {
@@ -130,7 +115,7 @@ const heroTagline = computed(() => {
   const label = escapeHtml(performanceClaim)
   const href = escapeHtml(linkOf('/benchmarks'))
 
-  return tagline.replace(label, `<a class="rg-product-link" href="${href}">${label}</a>`)
+  return tagline.replace(label, `<a class="rg-product-link" href="${href}">${label}</a><br>`)
 })
 const installCopied = ref(false)
 
@@ -167,85 +152,126 @@ async function copyInstallCommand() {
 </script>
 
 <style lang="scss" scoped>
-.rg-hero-proof-badges {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 8px;
-  min-height: 22px;
-  margin: 14px 40px 0;
+.rg-hero {
+  padding: 56px 0 28px;
 }
 
-.rg-hero-proof-badge {
+.rg-hero-grid {
+  width: min(1320px, calc(100% - 80px));
+  max-width: none;
+  padding: 0;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 36px;
+}
+
+.rg-hero-copy {
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.rg-hero-eyebrow {
+  color: var(--vp-c-brand-1);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.rg-hero-sub {
+  max-width: 820px;
+  margin: auto;
+  color: var(--vp-c-text-2);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.rg-actions,
+.rg-frameworks {
+  justify-content: center;
+}
+
+.rg-actions {
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.rg-actions :deep(.VPButton) {
   display: inline-flex;
   align-items: center;
-  height: 22px;
-  color: var(--rg-text-2);
-  text-decoration: none;
+  justify-content: center;
+  gap: 8px;
 }
 
-.rg-hero-proof-badge img {
-  display: block;
-  width: auto;
-  height: 20px;
+.rg-frameworks {
+  margin-top: 0;
+  gap: 8px 18px;
 }
 
-.rg-hero-text-badge {
-  gap: 5px;
-  padding: 0 7px 0 6px;
-  border: 1px solid var(--rg-border);
-  border-radius: 4px;
-  background: var(--rg-bg-2);
-  font-size: 11px;
-  line-height: 20px;
+.rg-frameworks-label {
+  display: none;
 }
 
-.rg-hero-github-badge svg {
-  width: 13px;
-  height: 13px;
-}
-
-.rg-hero-text-badge strong {
-  color: var(--rg-text);
-  font-weight: 650;
-}
-
-.rg-hero-text-badge span {
+.rg-framework {
+  border: 0;
+  background: transparent;
+  padding: 4px 0;
   color: var(--rg-text-2);
 }
 
-.rg-hero-feedback-badge {
-  border-color: color-mix(in srgb, var(--rg-green) 35%, var(--rg-border));
-  background: var(--rg-green-bg);
+.rg-hero-preview {
+  min-width: 0;
 }
 
-.rg-hero-feedback-badge strong,
-.rg-hero-feedback-mark {
-  color: var(--rg-font-green);
+.rg-framework img {
+  flex: 0 0 18px;
+  object-fit: contain;
+}
+.rg-hero-visual {
+  min-width: 0;
+  padding: 14px 20px 18px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 14px;
+  background: transparent;
+}
+.rg-hero :deep(a:not(.rv-btn):not(.VPButton):focus-visible) {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 4px;
 }
 
-.rg-hero-feedback-mark {
-  font-family: Georgia, serif;
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1;
-  transform: translateY(1px);
-}
-
-.rg-hero-proof-badge:hover {
-  opacity: 0.78;
-}
-
-.rg-hero-proof-badge:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--rg-green) 35%, transparent);
-  outline-offset: 3px;
+@media (min-width: 1600px) {
+  .rg-hero {
+    padding-top: 92px;
+  }
 }
 
 @media (max-width: 640px) {
-  .rg-hero-proof-badges {
-    justify-content: center;
-    margin: 12px 0 0;
+  .rg-hero {
+    padding-top: 56px;
+  }
+
+  .rg-hero-grid {
+    width: calc(100% - 32px);
+  }
+
+  .rg-hero-sub {
+    font-size: 16px;
+  }
+  .rg-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .rg-actions :deep(.VPButton) {
+    min-height: 44px;
+    padding-inline: 8px;
+    font-size: 12px;
+  }
+  .rg-frameworks {
+    gap: 8px;
+  }
+  .rg-framework {
+    font-size: 11px;
   }
 }
 </style>

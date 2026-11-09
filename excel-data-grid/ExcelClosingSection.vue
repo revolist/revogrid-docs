@@ -1,4 +1,5 @@
 <template>
+  <RevoUiSection product="excel" class="excel-ui-section" />
   <section class="excel-faq-section">
     <div class="excel-container"><CommercialFaq id="excel-data-grid-faq" /></div>
   </section>
@@ -18,9 +19,17 @@
 </template>
 
 <script setup lang="ts">
+import RevoUiSection from '../.vitepress/theme/components/revo-ui/RevoUiSection.vue'
 import CommercialFaq from '../pro/CommercialFaq.vue'
 import ProDocButton from '../pro/ProDocButton.vue'
 import type { ExcelLandingContent } from './excelLandingContent'
 
 defineProps<{ content: ExcelLandingContent['closing'] }>()
 </script>
+
+<style scoped>
+/* Excel FAQ already provides the full-width section divider. */
+.excel-ui-section.revo-ui-section {
+  border-bottom: 0;
+}
+</style>
