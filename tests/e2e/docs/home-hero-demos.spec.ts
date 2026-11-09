@@ -473,8 +473,8 @@ test('Progress supports native multi-row range paste and shares values with Char
   const hero = page.locator('.rg-hero')
   await hero
     .getByRole('row', { name: /^Commerce API/ })
-    .getByText('64%', { exact: true })
-    .click()
+    .locator('.hero-progress-editor')
+    .click({ position: { x: 4, y: 4 } })
   await page.evaluate(() => navigator.clipboard.writeText('25\n50\n75'))
   await page.keyboard.press('ControlOrMeta+V')
   for (const [name, value] of [
@@ -618,4 +618,66 @@ test('Pivot starts expanded and can regroup the same projects by owner', async (
   await expect
     .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth))
     .toBe(true)
+})
+
+for (const width of [1200, 1280, 1440, 1920]) {
+  test(`default hero grid fits its rows and columns at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 })
+    await page.goto('/')
+    const grid = page.locator('[data-hero-view="grid"] revo-grid')
+    await expect(grid.getByRole('gridcell', { name: 'Research', exact: true })).toBeVisible()
+    await expect
+      .poll(() =>
+        grid.evaluate(element => {
+          const viewport = element.querySelector('revogr-viewport-scroll')!
+          const body = element.querySelector('.vertical-inner')!
+          const lastRow = body.querySelectorAll('[role="row"]')[5]
+          const chart = element.parentElement!.querySelector('.hero-budget-chart')!
+          return {
+            horizontal: viewport.scrollWidth - viewport.clientWidth > 1,
+            chartAligned:
+              !!lastRow &&
+              Math.abs(
+                chart.getBoundingClientRect().bottom - lastRow.getBoundingClientRect().bottom,
+              ) <= 1,
+            vertical: body.scrollHeight - body.clientHeight > 1,
+            researchFits:
+              !!lastRow &&
+              lastRow.getBoundingClientRect().bottom <= body.getBoundingClientRect().bottom + 1,
+          }
+        }),
+      )
+      .toEqual({ horizontal: false, vertical: false, researchFits: true, chartAligned: true })
+  })
+}
+
+test('narrow hero grids keep native horizontal scrolling without clipping rows', async ({
+  page,
+}) => {
+  for (const width of [1024, 800, 390]) {
+    await page.setViewportSize({ width, height: 900 })
+    await page.goto('/')
+    const grid = page.locator('[data-hero-view="grid"] revo-grid')
+    await expect(grid.getByRole('gridcell', { name: 'Research', exact: true })).toBeVisible()
+    await expect
+      .poll(() =>
+        grid.evaluate(element => {
+          const body = element.querySelector('.vertical-inner')!
+          return body.scrollHeight - body.clientHeight
+        }),
+      )
+      .toBeLessThanOrEqual(1)
+    await grid.evaluate(async (element: HTMLRevoGridElement) => element.scrollToColumnIndex(4))
+    await expect
+      .poll(() =>
+        grid
+          .locator('revogr-viewport-scroll')
+          .first()
+          .evaluate(el => el.scrollLeft),
+      )
+      .toBeGreaterThan(0)
+    await expect
+      .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth))
+      .toBe(true)
+  }
 })

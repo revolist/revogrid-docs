@@ -74,11 +74,12 @@ export function createHeroGridColumns(labels: HomeV2Record): ColumnRegular[] {
         },
         additionalData,
       )
+  // Bounds let native stretching fit the pane while keeping editors usable.
   return [
     {
       prop: 'name',
       name: labels.project,
-      size: 180,
+      minSize: 180,
       sortable: true,
       filter: ['string'],
       filterPlaceholder: labels.searchProjects,
@@ -86,7 +87,7 @@ export function createHeroGridColumns(labels: HomeV2Record): ColumnRegular[] {
     {
       prop: 'owner',
       name: labels.owner,
-      size: 170,
+      minSize: 170,
       sortable: true,
       filter: ['selection'],
       filterPlaceholder: labels.all,
@@ -103,7 +104,7 @@ export function createHeroGridColumns(labels: HomeV2Record): ColumnRegular[] {
     {
       prop: 'workflowStatus',
       name: labels.status,
-      size: 130,
+      minSize: 120,
       sortable: true,
       filter: ['selection'],
       filterPlaceholder: labels.all,
@@ -120,7 +121,7 @@ export function createHeroGridColumns(labels: HomeV2Record): ColumnRegular[] {
     {
       prop: 'percentDone',
       name: labels.progress,
-      size: 190,
+      minSize: 190,
       cellProperties: () => ({ class: 'hero-progress-editor' }),
       sortable: true,
       filter: ['slider'],
@@ -140,7 +141,7 @@ export function createHeroGridColumns(labels: HomeV2Record): ColumnRegular[] {
     {
       prop: 'budget',
       name: labels.budget,
-      size: 130,
+      minSize: 110,
       sortable: true,
       columnType: 'currency',
       filter: ['number'],

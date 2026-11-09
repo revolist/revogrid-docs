@@ -35,9 +35,7 @@
       :column-types="columnTypes"
       :filter.prop="view === 'grid' ? filterConfig : undefined"
       :row-size="46"
-      :stretch.prop="
-        view === 'kanban' || view === 'pivot' ? 'all' : view === 'grid' ? 'last' : false
-      "
+      :stretch.prop="view === 'kanban' || view === 'pivot' || view === 'grid' ? 'all' : false"
       :resize="true"
       :range="view === 'grid'"
       :readonly="view === 'pivot'"
@@ -154,12 +152,13 @@ const chartRows = computed(() =>
   overflow: hidden;
 }
 .hero-view--grid {
-  height: 366px;
+  --hero-grid-height: 366px;
+  height: var(--hero-grid-height);
   display: grid;
   grid-template-columns: minmax(0, 1fr) 280px;
 }
 .hero-view--grid .hero-native-grid {
-  height: 366px;
+  height: var(--hero-grid-height);
 }
 .hero-view--charts {
   height: auto;
@@ -200,11 +199,16 @@ const chartRows = computed(() =>
   );
   border-left-color: var(--event-scheduler-event-color);
 }
+@media (max-width: 1199px) {
+  .hero-view--grid {
+    // Leave room for the native horizontal gutter when the fields need it.
+    --hero-grid-height: 390px;
+  }
+}
 @media (max-width: 800px) {
   .hero-view--grid {
     grid-template-columns: minmax(0, 1fr);
-    overflow: auto;
-    height: 686px;
+    height: auto;
   }
 }
 </style>
