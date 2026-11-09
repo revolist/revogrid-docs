@@ -78,6 +78,8 @@ Your application already has the numbers. The next challenge is helping someone 
 
 **RevoGrid Charts starts with standalone JavaScript charts in an ordinary HTML container.** You can build a chart without adding a grid or Pivot table, and use it inside your preferred application framework. When users need to explore grouped data, the same chart engine also powers RevoGrid Pivot.
 
+For compact summary charts alongside forms and filters, explore the [Revo UI component library](/blog/revo-ui-components).
+
 The local implementation includes 68 built-in chart types. Here are four practical places to start.
 
 ::: info Standalone Charts preview

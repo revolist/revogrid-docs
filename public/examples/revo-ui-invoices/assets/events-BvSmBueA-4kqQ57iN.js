@@ -1,0 +1,1 @@
+function e(e){return!!e.touches}function t(e,t){return!(t&&e&&!(e.target instanceof Element&&e.target.classList.contains(t)))}function n(n,r,i){if(e(n)){if(n.touches.length>0){let e=n.touches[0];return t(e,i)?e[r]||0:null}return null}return n[r]||0}export{t as n,n as t};

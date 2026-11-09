@@ -66,6 +66,8 @@ Filtering is where a data grid becomes a working product rather than a passive t
 
 The right control depends on the question, not on how many choices fit in a menu. [RevoGrid Core filtering](https://rv-grid.com/guide/filters/) covers direct conditions; RevoGrid Pro adds controls that reveal available values, distributions, date context, and reusable views. See every control running in the [Advanced Filtering showcase](https://pro.rv-grid.com/guides/data-filter/filter-showcase/).
 
+For an application toolbar that filters a grid and its surrounding summaries together, [build a React invoice dashboard](/blog/react-invoice-dashboard) with shared search and status state.
+
 > **Quick answer:** Use a Core condition when the user knows the value or cutoff. Use a visual or structured filter when they need to explore a vocabulary, distribution, date range, or tag set. Let the server evaluate the filter when the browser does not hold the complete dataset.
 
 ## How to use this guide

@@ -28,6 +28,7 @@ A strong enterprise dashboard is not just a reporting screen. It is a **decision
 
 That is where a high-performance data grid, pivot, gantt, scheduler and event manager become central. Charts help users see patterns. KPI cards help users understand status. But in many enterprise products, the real work still happens in rows, columns, filters, edits, validations, exports, exceptions, approvals, and operational records.
 
+For the controls around these data views, explore [Revo UI components and framework setup](/blog/revo-ui-components), including inputs, date pickers, dialogs, and compact charts.
 
 
 ![RevoGrid enterprise data grid dashboard preview](/blog/v2-demo.png)
