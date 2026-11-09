@@ -26,7 +26,7 @@ for (const [route, finalCta] of pages) {
     await expect(
       section.getByRole('link', { name: 'View on GitHub', exact: true }),
     ).toHaveAttribute('href', 'https://github.com/revolist/revo-ui')
-    await expect(section.getByText('Free · MIT licensed', { exact: true })).toBeVisible()
+    await expect(section.getByText('Open Source MIT License', { exact: true })).toBeVisible()
     expect(
       await section.evaluate((element, selector) => {
         const next = element.nextElementSibling

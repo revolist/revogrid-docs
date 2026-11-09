@@ -80,10 +80,10 @@ h2 {
   display: inline-flex;
   margin: 0;
   padding: 5px 10px;
-  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 25%, transparent);
+  border: 1px solid var(--vp-c-divider);
   border-radius: 6px;
-  background: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-2);
   font-size: 12px;
   font-weight: 600;
 }

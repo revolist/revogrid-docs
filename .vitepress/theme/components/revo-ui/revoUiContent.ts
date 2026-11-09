@@ -61,7 +61,7 @@ const defaults: RevoUiSectionContent = {
   eyebrow: 'Revo UI · Component library',
   title: 'Build the interface around your data.',
   description: descriptions.grid,
-  license: 'Free · MIT licensed',
+  license: 'Open Source MIT License',
   frameworks: 'React · Vue · Angular · Svelte · Preact · TypeScript',
   explore: 'Explore Revo UI',
   github: 'View on GitHub',
