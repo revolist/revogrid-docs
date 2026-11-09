@@ -21,11 +21,10 @@
       :product-id="page.catalogProductId"
     />
 
+    <RevoUiSection product="pivot" />
     <div class="container pivot-page-faq">
       <CommercialFaq id="pivot-product-faq" />
     </div>
-
-    <RevoUiSection product="pivot" />
 
     <ProCtaBanner
       v-if="page.cta"

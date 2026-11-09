@@ -1,18 +1,18 @@
 import { expect, test } from '@playwright/test'
 
 const pages = [
-  ['/', '.rg-final-cta'],
+  ['/', '.rg-faq-list'],
   ['/pro/', '.final-cta'],
-  ['/pivot/', '.pro-cta'],
-  ['/charts/', '.pro-cta'],
-  ['/gantt', '.pro-cta'],
-  ['/jsscheduler', '.pro-cta'],
-  ['/kanban', '.pro-cta'],
-  ['/excel-data-grid', '.excel-final-cta'],
+  ['/pivot/', '.commercial-faq'],
+  ['/charts/', '.commercial-faq'],
+  ['/gantt', '.commercial-faq'],
+  ['/jsscheduler', '.commercial-faq'],
+  ['/kanban', '.commercial-faq'],
+  ['/excel-data-grid', '.commercial-faq'],
 ] as const
 
-for (const [route, finalCta] of pages) {
-  test(`Revo UI sits before the final product decision on ${route}`, async ({ page }) => {
+for (const [route, nextSection] of pages) {
+  test(`Revo UI sits before FAQ or the final decision on ${route}`, async ({ page }) => {
     await page.goto(route)
     const section = page.locator('[data-ui-library]')
     await expect(section).toHaveCount(1)
@@ -27,11 +27,15 @@ for (const [route, finalCta] of pages) {
       section.getByRole('link', { name: 'View on GitHub', exact: true }),
     ).toHaveAttribute('href', 'https://github.com/revolist/revo-ui')
     await expect(section.getByText('Open Source MIT License', { exact: true })).toBeVisible()
+    await expect(
+      section.getByRole('link', { name: 'Explore Revo UI', exact: true }),
+    ).not.toHaveClass(/rg-btn-secondary/)
+    await expect(section.locator('svg.revo-ui-github-icon')).toBeVisible()
     expect(
       await section.evaluate((element, selector) => {
         const next = element.nextElementSibling
         return !!next && (next.matches(selector) || !!next.querySelector(selector))
-      }, finalCta),
+      }, nextSection),
     ).toBe(true)
   })
 }

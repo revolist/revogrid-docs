@@ -10,8 +10,8 @@
     <HomeAdvancedModules :section="data.advanced" />
     <HomeUseCases v-if="data.useCases" :section="data.useCases" />
     <HomeComparison :section="data.comparison" />
-    <HomeFaq :section="data.faq" />
     <RevoUiSection product="grid" />
+    <HomeFaq :section="data.faq" />
     <HomeFinalCta :section="data.finalCta" />
 
     <Content class="rg-home-formatted" />

@@ -184,6 +184,7 @@
       </div>
     </section>
 
+    <RevoUiSection :product="page.catalogProductId" />
     <section v-if="page.faq" class="content-section standard-faq-section">
       <div class="container">
         <CommercialFaq :id="page.faq.id" :data="faqData" />
@@ -257,8 +258,6 @@
       :section-id="page.advancedCallout.sectionId"
       :product-id="page.catalogProductId"
     />
-
-    <RevoUiSection :product="page.catalogProductId" />
 
     <ProCtaBanner
       v-if="page.cta"

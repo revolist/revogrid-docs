@@ -7,10 +7,11 @@
       <p class="revo-ui-license">{{ copy.license }}</p>
       <p class="revo-ui-frameworks">{{ copy.frameworks }}</p>
       <div class="revo-ui-actions">
-        <AppButton href="https://ui.rv-grid.com/" variant="secondary">{{ copy.explore }}</AppButton>
-        <AppButton href="https://github.com/revolist/revo-ui" variant="secondary">{{
-          copy.github
-        }}</AppButton>
+        <AppButton href="https://ui.rv-grid.com/" variant="primary">{{ copy.explore }}</AppButton>
+        <AppButton href="https://github.com/revolist/revo-ui" variant="secondary">
+          <GithubIcon class="revo-ui-github-icon" aria-hidden="true" />
+          {{ copy.github }}
+        </AppButton>
       </div>
     </div>
     <div class="revo-ui-demo">
@@ -26,6 +27,7 @@
 import { computed, defineAsyncComponent } from 'vue'
 import { useData } from 'vitepress'
 import AppButton from '../../AppButton.vue'
+import GithubIcon from '../../images/github.svg?component'
 import { getRevoUiContent, type RevoUiProduct } from './revoUiContent'
 
 const props = defineProps<{ product: RevoUiProduct }>()
@@ -42,6 +44,7 @@ const RevoUiPreview = defineAsyncComponent(() => import('./RevoUiPreview.vue'))
   width: 100%;
   max-width: 1184px;
   box-sizing: border-box;
+  border-bottom: 1px solid var(--vp-c-divider);
   margin: 0 auto;
   padding: clamp(56px, 7vw, 96px) 32px;
   color: var(--vp-c-text-1);
@@ -98,6 +101,12 @@ h2 {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 24px;
+}
+.revo-ui-github-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: currentColor;
 }
 .revo-ui-caption {
   margin: 14px 12px 0;

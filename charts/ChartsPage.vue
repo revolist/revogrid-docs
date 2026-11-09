@@ -152,8 +152,8 @@
         '/blog/interactive-pivot-charts-javascript',
       ]"
     />
-    <div class="section-width charts-faq"><CommercialFaq id="charts-faq" /></div>
     <RevoUiSection product="charts" />
+    <div class="section-width charts-faq"><CommercialFaq id="charts-faq" /></div>
     <ProCtaBanner
       title="Make your next dashboard a little more insightful."
       description="Explore the chart dashboard, or discover how Charts and Pivot fit into your application."

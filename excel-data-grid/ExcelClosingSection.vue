@@ -1,8 +1,8 @@
 <template>
+  <RevoUiSection product="excel" />
   <section class="excel-faq-section">
     <div class="excel-container"><CommercialFaq id="excel-data-grid-faq" /></div>
   </section>
-  <RevoUiSection product="excel" />
   <section class="excel-final-cta" aria-labelledby="excel-final-title">
     <div class="excel-grid-pattern" aria-hidden="true"></div>
     <div class="excel-container">
