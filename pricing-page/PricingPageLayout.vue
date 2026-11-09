@@ -31,7 +31,12 @@
 <script lang="ts" setup>
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useData } from 'vitepress'
-import { getPricingDifferenceRows, getPricingEvaluationFacts } from '../commercial/productCatalog'
+import {
+  getPricingDifferenceRows,
+  getPricingEvaluationFacts,
+  resolveCommercialFaqs,
+  type CommercialFaqKey,
+} from '../commercial/productCatalog'
 import ContactForm from '../pro/ContactForm.vue'
 import PricingCompareLinks from './PricingCompareLinks.vue'
 import PricingEvaluation from './PricingEvaluation.vue'
@@ -64,7 +69,13 @@ const pricingPage = computed(() => {
   }
 })
 const pricingSection = computed(() => frontmatter.value.pricing as PricingSectionData)
-const faq = computed(() => frontmatter.value.faq as PricingFaqData)
+const faq = computed(() => {
+  const page = frontmatter.value as {
+    commercialFaqKeys?: CommercialFaqKey[]
+    faq: PricingFaqData
+  }
+  return { ...page.faq, items: resolveCommercialFaqs(page.commercialFaqKeys) }
+})
 const pricingPromo = computed(() => resolvePlanPrice('light', pricingClock.value).promotion)
 
 const schedulePromotionRefresh = () => {

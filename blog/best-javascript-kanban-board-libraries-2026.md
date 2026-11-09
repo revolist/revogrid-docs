@@ -160,7 +160,7 @@ This guide is written for developers searching for:
 * virtualized Kanban component
 * DHTMLX, Syncfusion, and SVAR alternatives
 
-For implementation details, open the [RevoGrid Kanban product page](https://rv-grid.com/kanban), the [complete Kanban guide](https://pro.rv-grid.com/guides/kanban/), or the [50,000-task performance demo](https://rv-grid.com/demo/kanban-performance).
+For implementation details, open the [JavaScript Kanban board component](/kanban), the [complete Kanban guide](https://pro.rv-grid.com/guides/kanban/), or the [50,000-task performance demo](https://rv-grid.com/demo/kanban-performance).
 
 ---
 

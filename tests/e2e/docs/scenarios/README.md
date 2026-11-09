@@ -17,7 +17,7 @@ All entries have source review and partial browser verification. Audit History's
 | ID / document                                             | Demo               | Tier     | Route                             | Cases | Browser review subset                                 |
 | --------------------------------------------------------- | ------------------ | -------- | --------------------------------- | ----: | ----------------------------------------------------- |
 | [grid-at-scale](grid-at-scale.md)                         | Performance        | Core     | `/demo/grid-at-scale`             |     6 | Partial: Dataset size, save/reset                     |
-| [ai-prompt-library](ai-prompt-library.md)                 | AI prompts         | Core     | `/demo/ai-prompts`                |     4 | Partial: Search empty state, Engineering filter       |
+| [ai-agent](ai-agent.md)                                   | AI Agent           | Pro      | `/demo/ai-agent`                  |     1 | Suggested Region filter                              |
 | [project-portfolio](project-portfolio.md)                 | Row Grouping       | Core     | `/demo/project-portfolio`         |     5 | Partial: Collapse six departments, expand             |
 | [project-tracker](project-tracker.md)                     | Project tracker    | Pro      | `/demo/color`                     |     7 | Partial: Select Mobile checkout, Mark ready           |
 | [tree-data](tree-data.md)                                 | Tree data          | Pro      | `/demo/tree-data`                 |     5 | Partial: Collapse/expand, sticky toggle               |

@@ -76,14 +76,14 @@
 
 .pivot-page .pivot-hero {
   position: relative;
-  padding: 96px 0 0;
+  padding: 72px 0 0;
 }
 
 .pivot-page .hero-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 56px;
+  gap: 24px;
   text-align: center;
 }
 
@@ -176,6 +176,10 @@
   padding: 96px 0;
 }
 
+.pivot-page .features-section .section-title {
+  border-top: 0;
+}
+
 .pivot-page .section-tag {
   display: inline-flex;
   align-items: center;
@@ -262,4 +266,8 @@
   .pivot-page .fade-up-4 {
     animation: none;
   }
+}
+
+.pivot-page-doc .VPLocalNav {
+  display: none;
 }

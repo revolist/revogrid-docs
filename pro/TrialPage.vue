@@ -51,14 +51,23 @@
           </p>
           <div class="command-block">
             <span>Registry setup command</span>
-            <pre
-              tabindex="0"
-            ><code>npm config set &quot;@revolist:registry=https://trial.rv-grid.com&quot;</code></pre>
+            <div class="command-block-heading">
+              <button type="button" @click="copyCommand(registryCommand, 'registry')">
+                Copy command
+              </button>
+            </div>
+            <pre tabindex="0"><code>{{ registryCommand }}</code></pre>
           </div>
           <div class="command-block">
             <span>{{ selectedTrial.name }} packages</span>
-            <pre tabindex="0"><code>{{ selectedTrial.commands.join('\n') }}</code></pre>
+            <div class="command-block-heading">
+              <button type="button" @click="copyCommand(packageInstallCommand, 'packages')">
+                Copy commands
+              </button>
+            </div>
+            <pre tabindex="0"><code>{{ packageInstallCommand }}</code></pre>
           </div>
+          <p class="copy-status" aria-live="polite">{{ copyStatus }}</p>
           <p v-if="selectedTrial.id !== 'pro'" class="quick-start-note">
             Standalone product trials build on the Pro trial, so keep
             <code>@revolist/revogrid</code> and <code>@revolist/rv-pro-trial</code> installed with
@@ -156,7 +165,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import FontAwesomeSvgIcon from '../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
 import {
   getAnalyticsExperimentVariant,
@@ -234,6 +243,9 @@ const trialOptions: TrialOption[] = [
 const selectedTrial = ref<TrialOption>(trialOptions[0])
 const demoId = ref<string>()
 const experimentVariant = ref<string>()
+const copyStatus = ref('')
+const registryCommand = 'npm config set "@revolist:registry=https://trial.rv-grid.com"'
+const packageInstallCommand = computed(() => selectedTrial.value.commands.join('\n'))
 
 function findTrialOption(product: string | null): TrialOption {
   const normalizedProduct = product === 'event-scheduler' ? 'scheduler' : product
@@ -270,6 +282,18 @@ function trackTrialClick(
     },
     `${event}:${placement}:${demoId.value ?? 'direct'}`,
   )
+}
+
+async function copyCommand(command: string, placement: 'registry' | 'packages') {
+  try {
+    await navigator.clipboard.writeText(command)
+    copyStatus.value =
+      placement === 'registry' ? 'Registry command copied.' : 'Install commands copied.'
+    trackSiteAnalytics('trial_command_copy', { placement })
+  } catch {
+    copyStatus.value =
+      'Copy is unavailable in this browser. Select the command and copy it manually.'
+  }
 }
 
 const accessDetails = [
@@ -453,6 +477,35 @@ const steps = [
   text-transform: uppercase;
 }
 
+.command-block-heading {
+  display: flex;
+  justify-content: flex-end;
+  margin: -1.55rem 0 0.65rem;
+}
+
+.command-block-heading button {
+  min-height: 32px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.35rem 0.6rem;
+}
+
+.command-block-heading button:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+
+.command-block-heading button:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 3px;
+}
+
 .command-block pre {
   overflow-x: auto;
   margin: 0;
@@ -473,6 +526,13 @@ const steps = [
 
 .quick-start-panel .quick-start-note {
   font-size: 0.9rem;
+}
+
+.copy-status {
+  min-height: 1.4em;
+  margin: 0.75rem 0 0;
+  color: var(--vp-c-text-2);
+  font-size: 0.82rem;
 }
 
 .package-options {

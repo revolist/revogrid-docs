@@ -1,5 +1,5 @@
-import { stripeLinkWithClientReferenceId } from '../pricing-page/stripeClientReference'
-import { featuresPro as proFeatureMarketing } from '../pro/features.pro'
+import { stripeLinkWithClientReferenceId } from '../pricing-page/stripeClientReference.ts'
+import { featuresPro as proFeatureMarketing } from '../pro/features.pro.ts'
 
 export type Currency = 'EUR' | 'USD'
 export type PlanId = 'open-source' | 'pro-lite' | 'pro-advanced' | 'enterprise'
@@ -12,7 +12,7 @@ export type TrialDeliveryMethod = 'none' | 'public-npm' | 'sales-assisted'
 export type ProductId = 'revogrid' | 'pivot' | 'kanban' | 'gantt' | 'scheduler' | 'event-scheduler'
 export type DemoId =
   | 'grid-at-scale'
-  | 'ai-prompt-library'
+  | 'ai-agent'
   | 'project-portfolio'
   | 'project-tracker'
   | 'audit-history'
@@ -24,6 +24,11 @@ export type DemoId =
   | 'tree-data'
   | 'excel'
   | 'pivot'
+  | 'pivot-charts'
+  | 'pivot-financial'
+  | 'pivot-operations'
+  | 'pivot-scale'
+  | 'pivot-import'
   | 'gantt'
   | 'gantt-big-data'
   | 'gantt-horizontal-big-data'
@@ -31,6 +36,7 @@ export type DemoId =
   | 'kanban-performance'
   | 'kanban-server-loading'
   | 'event-scheduler'
+  | 'property-booking'
   | 'planning'
 export type CommercialFaqKey =
   | 'developer-licenses'
@@ -40,6 +46,8 @@ export type CommercialFaqKey =
   | 'trial'
   | 'source-access'
   | 'application-limits'
+  | 'license-term'
+  | 'application-rights'
 
 export type PriceTimestamp = Date | number | string
 
@@ -447,12 +455,12 @@ const demos = {
     status: 'stable',
     pageUrl: '/demo/grid-at-scale',
   },
-  'ai-prompt-library': {
-    id: 'ai-prompt-library',
-    title: 'RevoGrid AI Prompt Library',
-    planId: 'open-source',
+  'ai-agent': {
+    id: 'ai-agent',
+    title: 'AI Agent',
+    planId: 'pro-lite',
     status: 'stable',
-    pageUrl: '/demo/ai-prompts',
+    pageUrl: '/demo/ai-agent',
   },
   'project-portfolio': {
     id: 'project-portfolio',
@@ -531,6 +539,11 @@ const demos = {
     status: 'stable',
     pageUrl: '/demo/pivot',
   },
+  'pivot-charts': { id: 'pivot-charts', title: 'Pivot Charts Dashboard', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot-charts' },
+  'pivot-financial': { id: 'pivot-financial', title: 'Pivot Financial Analysis', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot-financial' },
+  'pivot-operations': { id: 'pivot-operations', title: 'Pivot Operations Investigation', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot-operations' },
+  'pivot-import': { id: 'pivot-import', title: 'Pivot Your Data', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot-import' },
+  'pivot-scale': { id: 'pivot-scale', title: 'Pivot at Scale', planId: 'pro-advanced', status: 'stable', pageUrl: '/demo/pivot-scale' },
   gantt: {
     id: 'gantt',
     title: 'Gantt Chart JS',
@@ -579,6 +592,13 @@ const demos = {
     planId: 'pro-advanced',
     status: 'stable',
     pageUrl: '/demo/event-scheduler',
+  },
+  'property-booking': {
+    id: 'property-booking',
+    title: 'Property Booking',
+    planId: 'pro-advanced',
+    status: 'stable',
+    pageUrl: '/demo/property-booking',
   },
   planning: {
     id: 'planning',
@@ -720,7 +740,7 @@ export const getDemoBadge = (demoId: DemoId) => {
 export const commercialFaqs: Record<CommercialFaqKey, { q: string; a: string }> = {
   'developer-licenses': {
     q: 'How many developer licenses do I need?',
-    a: 'The number of licenses must match the maximum number of concurrent front-end developers contributing to code that uses RevoGrid Pro.',
+    a: 'License the maximum number of developers contributing front-end changes to projects using RevoGrid Pro during the same calendar day. People who only execute the front end for testing and do not contribute front-end changes do not need a license.',
   },
   'deployment-fees': {
     q: 'Is there a deployment fee?',
@@ -728,7 +748,7 @@ export const commercialFaqs: Record<CommercialFaqKey, { q: string; a: string }> 
   },
   'plan-difference': {
     q: 'What is the difference between Pro Lite and Pro Advanced?',
-    a: 'Pro Lite covers one product or app and includes typed Pro packages through private npm. Pro Advanced adds priority support, unlimited product usage, original private source repository access, the JavaScript Pivot Table, Kanban, Gantt, and Scheduler.',
+    a: 'Both plans include advanced grid capabilities. Pro Advanced adds priority support, original private source repository access, and the JavaScript Pivot Table, Kanban, Gantt, and Scheduler.',
   },
   'open-source-production': {
     q: 'Can I use the open-source core in production?',
@@ -742,9 +762,17 @@ export const commercialFaqs: Record<CommercialFaqKey, { q: string; a: string }> 
     q: 'What source access is included?',
     a: 'Pro Lite includes typed private npm packages and development examples. Pro Advanced also includes access to the original private source repository.',
   },
+  'application-rights': {
+    q: 'How may I use RevoGrid Pro in my application?',
+    a: 'You may integrate and distribute RevoGrid Pro as part of your product. You may not resell, redistribute, sublicense, or make the software available as a standalone product. See the <a href="/pro/policies/license">license agreement</a> for the full terms.',
+  },
+  'license-term': {
+    q: 'What happens when my license term ends?',
+    a: 'You may continue using previously released software in your product in production and distribution. Continued development, modification, or integration requires active licenses for the developers involved; repository access, updates, and support end with the term unless renewed.',
+  },
   'application-limits': {
     q: 'How many applications can I build?',
-    a: 'Pro Lite covers one product or app. Pro Advanced allows unlimited product usage. Enterprise terms can be customized for larger organizations.',
+    a: 'Application scope is governed by the <a href="/pro/policies/license">license agreement</a>. Contact sales for a written scope confirmation for your organization.',
   },
 }
 

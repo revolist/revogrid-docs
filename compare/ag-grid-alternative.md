@@ -1050,7 +1050,7 @@ A grid with predictable concepts, typed configuration, and reusable integration 
 
 RevoGrid is designed around a consistent grid model that can be extended with custom cells, editors, plugins, and Pro modules. This makes it practical for teams that want to combine human engineering with AI-assisted implementation.
 
-Connect coding assistants through the [RevoGrid MCP guide](/guide/mcp), then use the [data-grid AI prompt library](/demo/ai-prompts) for implementation and evaluation tasks.
+Connect coding assistants through the [RevoGrid MCP guide](/guide/mcp), then use the [AI Agent demo](/demo/ai-agent) for implementation and evaluation tasks.
 
 AI can help generate boilerplate.
 

@@ -15,7 +15,8 @@ commercialFaqKeys:
   - open-source-production
   - trial
   - source-access
-  - application-limits
+  - application-rights
+  - license-term
 head:
   - - link
     - rel: canonical
@@ -80,7 +81,6 @@ pricing:
       description: For teams and developers who need faster integration, priority support, and deeper project-level guidance.
     - id: enterprise
       description: For larger teams with procurement, security review, and custom terms.
-
 ---
 
 <script lang="ts" setup>

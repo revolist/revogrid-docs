@@ -2,7 +2,15 @@
   <div class="rg-module-preview" :class="[`rg-module-preview--${type}`, { 'is-playing': playing }]">
     <div class="rg-module-preview-inner">
       <div v-show="!playing" class="rg-module-front">
-        <img v-if="thumbnail" :src="thumbnail" :alt="title" />
+        <img
+          v-if="thumbnail"
+          :src="thumbnail"
+          :alt="title"
+          width="1200"
+          height="600"
+          loading="lazy"
+          decoding="async"
+        />
         <button
           v-if="videoUrl"
           class="rg-module-play"
@@ -104,7 +112,7 @@ onBeforeUnmount(close)
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top left;
+    object-position: center;
     display: block;
   }
 }
@@ -141,22 +149,23 @@ onBeforeUnmount(close)
   bottom: 16px;
   width: 42px;
   height: 42px;
-  border: 0;
+  border: 1px solid rgba(15, 154, 97, 0.12);
   border-radius: 50%;
-  background: var(--rg-green, #0aa66f);
-  color: #fff;
+  background: #fff;
+  color: var(--rg-green, #0aa66f);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
   cursor: pointer;
-  box-shadow: 0 7px 20px rgba(2, 122, 82, 0.24);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
   transition:
     transform 0.2s ease,
     background-color 0.2s ease;
 
   &:hover {
-    background: var(--rg-green-hover, #078b5d);
+    background: #f0fff8;
+    color: var(--rg-green-hover, #078b5d);
     transform: translateY(-2px);
   }
 

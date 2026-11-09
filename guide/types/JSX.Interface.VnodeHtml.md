@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.11](README.md) / [JSX](Namespace.JSX.md) / VnodeHtml
+[RevoGrid Documentation v4.31.4](README.md) / [JSX](Namespace.JSX.md) / VnodeHtml
 
 # Interface: VnodeHtml
 
@@ -6,5 +6,5 @@
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `onHtml?` | (`event`: [`VnodeHtmlCustomEvent`](Interface.VnodeHtmlCustomEvent.md)\<\{ `html`: `string`; `vnodes`: `null` \| [`VNode`](Interface.VNode.md)[]; \}\>) => `void` | - | [src/components.d.ts:2531](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/components.d.ts#L2531) |
-| `redraw?` | `null` \| () => [`VNode`](Interface.VNode.md)[] | **Default** `null` | [src/components.d.ts:2535](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/components.d.ts#L2535) |
+| `onHtml?` | (`event`: [`VnodeHtmlCustomEvent`](Interface.VnodeHtmlCustomEvent.md)\<\{ `html`: `string`; `vnodes`: `null` \| [`VNode`](Interface.VNode.md)[]; \}\>) => `void` | - | [src/components.d.ts:2540](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/components.d.ts#L2540) |
+| `redraw?` | `null` \| () => [`VNode`](Interface.VNode.md)[] | **Default** `null` | [src/components.d.ts:2544](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/components.d.ts#L2544) |

@@ -36,11 +36,17 @@ import PivotShowcase from '@revogrid-demos/pro-advanced-pivot/src/pivot.vue'
 }
 
 .demo-main-widget :deep(.financial-pivot-showcase) {
-  padding-top: 8px;
+  height: 100%;
+  padding-top: 0;
+}
+
+.demo-main-widget :deep(.financial-pivot-showcase > .overflow-auto) {
+  overflow: hidden;
 }
 
 .demo-main-widget :deep(financial-pivot-guidance) {
   display: none !important;
 }
-
+:global(.demo-page-layout[data-demo-id='pivot'] .demo-page-header) { min-height: 74px; padding: 9px 0 8px; }
+:global(.demo-page-layout[data-demo-id='pivot'] .demo-page-heading p) { margin-top: 3px; }
 </style>

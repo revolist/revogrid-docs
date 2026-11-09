@@ -156,27 +156,28 @@
     padding-left: 0 !important;
   }
 
-  .demo-page-class .VPNavBar.has-sidebar .divider {
+  body:has(.demo-page-class) .VPNavBar.has-sidebar .divider {
     padding-left: 0;
+  }
+
+  body:has(.demo-page-class) .VPNavBar.has-sidebar .content {
+    padding-left: var(--demo-sidebar-width, 276px);
   }
 
   body:has(.demo-page-class) .VPNavBarTitle .title {
     border-bottom: 0 !important;
   }
-}
 
-// VitePress widens the title area at 1440px to align ordinary docs with their
-// centered content. Demo navigation has a fixed sidebar, so its logo stays
-// anchored to that sidebar at every desktop width.
-@media (min-width: 1440px) {
-  .demo-page-class .VPNavBar.has-sidebar .title {
+  // VitePress widens this title region at 1440px to align ordinary docs with
+  // their centered content. Demo pages own a fixed sidebar, so keep the outer
+  // title region and its logo on the sidebar's 32px content inset instead.
+  body:has(.demo-page-class) .VPNavBar.has-sidebar > .wrapper > .container > .title {
+    position: absolute;
+    left: 0;
+    min-width: 0;
+    max-width: none;
     padding: 0 32px;
-    width: var(--vp-sidebar-width);
-  }
-
-  body:has(.demo-page-class) .VPNavBar .title {
-    padding: 0 32px;
-    width: var(--vp-sidebar-width);
+    width: var(--demo-sidebar-width, 276px);
   }
 }
 
@@ -326,7 +327,7 @@ a.rg-btn {
   background: var(--rg-green);
   color: #000;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: 999px;
   padding: 11px 20px;
   font-size: 14px;
   font-weight: 500;
@@ -357,6 +358,13 @@ a.rg-btn {
   }
 }
 
+.rg-btn.rg-btn--medium {
+  min-height: 36px;
+  padding: 7px 14px;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
 /**
  * Component: Algolia
  * -------------------------------------------------------------------------- */
@@ -372,7 +380,7 @@ a.rg-btn {
     }
 
     .VPButton.big {
-      border-radius: 8px;
+      border-radius: 999px;
       padding: 12px 24px;
       line-height: normal;
       font-size: 15px;
@@ -727,6 +735,11 @@ revo-grid:not(.skip-style) {
 }
 
 .vp-doc {
+  // VitePress prose margins must not enlarge Pivot's configurator disclosures.
+  summary.rv-configurator-summary {
+    margin: 0;
+  }
+
   a.VPButton {
     text-decoration: none;
   }
@@ -745,4 +758,9 @@ revo-grid:not(.skip-style) {
   revogrid [hidden]:where(:not([hidden='until-found'])) {
     display: inherit !important;
   }
+}
+
+// Keep the property booking overlay inside the docs viewport.
+.property-booking-dialog.rv-dialog-overlay {
+  --rv-dialog-width: min(600px, calc(100vw - 32px));
 }

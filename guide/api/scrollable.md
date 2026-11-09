@@ -8,12 +8,13 @@ Virtual scroll component
 
 ## Properties
 
-| Property                   | Attribute      | Description                                       | Type                 | Default     |
-| -------------------------- | -------------- | ------------------------------------------------- | -------------------- | ----------- |
-| `clientSize` _(required)_  | `client-size`  | Client size                                       | `number`             | `undefined` |
-| `dimension`                | `dimension`    | Scroll dimension (`X` - `rgCol` or `Y` - `rgRow`) | `"rgCol" \| "rgRow"` | `'rgRow'`   |
-| `realSize` _(required)_    | `real-size`    | Dimensions                                        | `number`             | `undefined` |
-| `virtualSize` _(required)_ | `virtual-size` | Virtual size                                      | `number`             | `undefined` |
+| Property                   | Attribute      | Description                                                 | Type                                  | Default     |
+| -------------------------- | -------------- | ----------------------------------------------------------- | ------------------------------------- | ----------- |
+| `clientSize` _(required)_  | `client-size`  | Client size                                                 | `number`                              | `undefined` |
+| `dimension`                | `dimension`    | Scroll dimension (`X` - `rgCol` or `Y` - `rgRow`)           | `"rgCol" \| "rgRow"`                  | `'rgRow'`   |
+| `dimensionStore`           | --             | Grid-owned size source, updated before component rendering. | `DimensionSettingsState \| undefined` | `undefined` |
+| `realSize`                 | `real-size`    | Content size for scrollbars without a dimension store.      | `number`                              | `0`         |
+| `virtualSize` _(required)_ | `virtual-size` | Virtual size                                                | `number`                              | `undefined` |
 
 
 ## Events

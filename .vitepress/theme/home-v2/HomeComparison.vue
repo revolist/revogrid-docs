@@ -28,13 +28,22 @@
           </tbody>
         </table>
       </div>
+      <a
+        v-if="section?.action"
+        class="rg-btn rg-comparison-action"
+        :href="linkOf(section.action.link)"
+      >
+        {{ section.action.text }}
+      </a>
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
 import HomeSectionHeader from './HomeSectionHeader.vue'
-import { comparisonClass, comparisonText, type HomeV2Record } from './homeV2Utils'
+import { comparisonClass, comparisonText, type HomeV2Record, useHomeV2Links } from './homeV2Utils'
+
+const { linkOf } = useHomeV2Links()
 
 defineProps<{
   section?: HomeV2Record
@@ -48,6 +57,11 @@ defineProps<{
   border-radius: 16px;
   border: 1px solid var(--rg-border);
   background: var(--rg-bg);
+}
+
+.rg-comparison-action {
+  display: inline-flex;
+  margin-top: 1.5rem;
 }
 
 .rg-comparison {

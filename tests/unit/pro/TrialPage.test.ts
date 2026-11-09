@@ -21,7 +21,7 @@ test('keeps immediate public trial access ahead of the optional contact form', (
   )
   assert.match(
     trialPage,
-    /npm config set &quot;@revolist:registry=https:\/\/trial\.rv-grid\.com&quot;/,
+    /const registryCommand = 'npm config set "@revolist:registry=https:\/\/trial\.rv-grid\.com"'/,
   )
   assert.match(trialPage, /No npm login or authentication token is required\./)
   assert.match(trialPage, /No license key is required to start the trial\./)
@@ -34,7 +34,7 @@ test('keeps immediate public trial access ahead of the optional contact form', (
 test('keeps contact optional without changing trial form submission ownership', () => {
   assert.match(
     trialPage,
-    /Want evaluation help, architecture guidance, or commercial information\? Contact our team\./,
+    /Want evaluation help, architecture guidance, or commercial information\? Contact\s+our\s+team\./,
   )
   assert.match(trialPage, /<TrialRequestForm[\s\S]*?request-type="trial"[\s\S]*?\/>/)
   assert.doesNotMatch(trialPage, /private npm access/i)
@@ -66,6 +66,18 @@ test('keeps query-aware package installation instructions on the public trial pa
   assert.match(trialPage, /trackTrialClick\('trial_install_click', 'hero_install'\)/)
   assert.match(trialPage, /trackTrialClick\('trial_starter_click', 'hero_starter'\)/)
   assert.match(trialPage, /\.trial-copy,\s*\.quick-start-panel \{\s*min-width: 0;/)
+})
+
+test('lets visitors copy the public setup commands without collecting command contents', () => {
+  assert.match(trialPage, /@click="copyCommand\(registryCommand, 'registry'\)"/)
+  assert.match(trialPage, /@click="copyCommand\(packageInstallCommand, 'packages'\)"/)
+  assert.match(trialPage, /aria-live="polite"/)
+  assert.match(trialPage, /navigator\.clipboard\.writeText\(command\)/)
+  assert.match(trialPage, /trackSiteAnalytics\('trial_command_copy', \{ placement \}\)/)
+  assert.doesNotMatch(
+    trialPage,
+    /trackSiteAnalytics\(\s*'trial_command_copy',\s*\{[^}]*\bcommand\b/,
+  )
 })
 
 test('keeps the trial trust strip without the metrics row', () => {

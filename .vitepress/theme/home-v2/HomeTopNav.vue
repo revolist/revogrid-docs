@@ -10,7 +10,7 @@
         <li><a :href="linkOf('/guide/')">Docs</a></li>
         <li><a href="#demos">Demos</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a class="rg-pro-link" :href="linkOf('/pro/')">RevoGrid Pro</a></li>
+        <li><a class="rg-pro-link" href="https://pro.rv-grid.com">RevoGrid Pro</a></li>
       </ul>
       <div class="rg-nav-actions">
         <button class="rg-nav-icon" type="button" aria-label="Toggle theme" @click="toggleTheme">

@@ -1,417 +1,334 @@
 <template>
-  <main class="blog-index">
+  <section class="blog-index" aria-labelledby="blog-title">
     <header class="blog-header">
-      <div>
-        <h1>Blog</h1>
-        <p>Guides and engineering notes for data-heavy web applications.</p>
-      </div>
-      <span class="blog-count">{{ posts.length }} {{ posts.length === 1 ? 'post' : 'posts' }}</span>
+      <p class="blog-eyebrow">The RevoGrid Blog</p>
+      <h1 id="blog-title">Build better<br />data-heavy applications.</h1>
+      <p class="blog-intro">
+        Practical tutorials, thoughtful comparisons, and engineering guides<br
+          class="blog-desktop-break"
+        />
+        for data grids, analytics, and planning.
+      </p>
     </header>
 
+    <BlogCard v-if="featured && !isFiltering" :post="featured" featured />
+
     <section class="blog-library" aria-labelledby="latest-posts">
-      <h2 id="latest-posts" class="sr-only">All articles</h2>
-
-      <div v-if="posts.length" class="blog-grid">
-        <article v-for="post in posts" :key="post.url" class="blog-card">
-          <a class="blog-card__media" :href="post.url" :aria-label="post.title">
-            <img :src="post.image" :alt="post.imageAlt" loading="lazy" decoding="async" />
-          </a>
-          <div class="blog-card__content">
-            <div class="blog-card__topline">
-              <span class="blog-badge">{{ post.category }}</span>
-              <span>{{ post.dateLabel }}</span>
-            </div>
-            <h3>
-              <a :href="post.url">{{ post.title }}</a>
-            </h3>
-            <p>{{ post.description }}</p>
-            <div class="blog-card__footer">
-              <span>{{ post.readingTime }}</span>
-              <div v-if="post.tags.length" class="blog-tags" aria-label="Tags">
-                <span v-for="tag in post.tags" :key="tag">{{ tag }}</span>
-              </div>
-            </div>
-          </div>
-        </article>
+      <div class="blog-library__heading">
+        <div>
+          <p class="blog-eyebrow">Explore the library</p>
+          <h2 id="latest-posts">{{ isFiltering ? 'Find your next read' : 'Latest articles' }}</h2>
+        </div>
+        <label class="blog-search"
+          ><span class="blog-sr-only">Search blog articles</span><span aria-hidden="true">⌕</span
+          ><input v-model="query" type="search" placeholder="Search articles…"
+        /></label>
       </div>
-
-      <p v-else class="blog-empty">
-        New articles will appear here when Markdown files are added to the blog directory.
+      <div class="blog-topics" role="group" aria-label="Filter articles by topic">
+        <button
+          v-for="topic in topics"
+          :key="topic"
+          type="button"
+          :aria-pressed="selectedTopic === topic"
+          @click="selectedTopic = topic"
+        >
+          {{ topic }}
+        </button>
+      </div>
+      <p class="blog-result-count" role="status" aria-live="polite" aria-atomic="true">
+        {{ visiblePosts.length }} {{ visiblePosts.length === 1 ? 'article' : 'articles'
+        }}{{ selectedTopic !== 'All' ? ` in ${selectedTopic}` : ''
+        }}{{ query.trim() ? ` matching “${query.trim()}”` : '' }}
       </p>
+      <div v-if="visiblePosts.length" class="blog-grid">
+        <BlogCard v-for="post in visiblePosts" :key="post.url" :post="post" />
+      </div>
+      <div v-else class="blog-empty">
+        <h3>No articles found</h3>
+        <p>Try another topic or search for a framework, feature, or workflow.</p>
+        <button type="button" @click="reset">Clear filters</button>
+      </div>
     </section>
-  </main>
+
+    <section class="blog-start" aria-labelledby="blog-start-heading">
+      <div>
+        <p class="blog-eyebrow">A good place to start</p>
+        <h2 id="blog-start-heading">From first question to working app.</h2>
+      </div>
+      <div class="blog-start__links">
+        <a :href="withBase('/blog/datagrid')"
+          ><span>01 / Understand the basics</span>Data grid or HTML table?
+          <span aria-hidden="true">↗</span></a
+        ><a :href="withBase('/guide/')"
+          ><span>02 / Build with your framework</span>Start integrating RevoGrid
+          <span aria-hidden="true">↗</span></a
+        ><a :href="withBase('/demo/')"
+          ><span>03 / See it in action</span>Explore working demos
+          <span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </section>
+  </section>
 </template>
-
 <script setup lang="ts">
-import { computed } from 'vue'
-
-type BlogFrontmatter = {
-  title?: string
-  description?: string
-  date?: string | Date
-  author?: string
-  category?: string
-  tags?: string[]
-  image?: string
-  imageAlt?: string
-  featured?: boolean
-}
-
-type BlogPageModule = {
-  __pageData?: {
-    title?: string
-    description?: string
-    frontmatter?: BlogFrontmatter
-  }
-}
-
-type BlogPost = {
-  title: string
-  description: string
-  dateValue: number
-  dateLabel: string
-  readingTime: string
-  category: string
-  tags: string[]
-  image: string
-  imageAlt: string
-  url: string
-  featured: boolean
-}
-
-const pageModules = import.meta.glob('./*.md', { eager: true }) as Record<string, BlogPageModule>
-const rawModules = import.meta.glob('./*.md', {
-  eager: true,
-  query: '?raw',
-  import: 'default',
-}) as Record<string, string>
-
-const stripFrontmatter = (content: string) => content.replace(/^---[\s\S]*?---/, '')
-
-const titleFromPath = (path: string) => {
-  const slug = path.split('/').pop()?.replace(/\.md$/, '') || 'Article'
-
-  return slug
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
-}
-
-const toDate = (date?: string | Date) => {
-  if (!date) return undefined
-
-  if (date instanceof Date) {
-    return Number.isNaN(date.getTime()) ? undefined : date
-  }
-
-  const parsed = new Date(date.includes('T') ? date : `${date}T00:00:00`)
-
-  return Number.isNaN(parsed.getTime()) ? undefined : parsed
-}
-
-const formatDate = (date?: string | Date) => {
-  const parsed = toDate(date)
-  if (!parsed) return typeof date === 'string' ? date : 'Recently published'
-
-  return new Intl.DateTimeFormat('en', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  }).format(parsed)
-}
-
-const estimateReadingTime = (content: string) => {
-  const words = stripFrontmatter(content).trim().split(/\s+/).filter(Boolean).length
-  const minutes = Math.max(1, Math.ceil(words / 220))
-
-  return `${minutes} min read`
-}
-
-const postUrl = (path: string) => {
-  const slug = path.split('/').pop()?.replace(/\.md$/, '')
-
-  return slug === 'index' ? '/blog/' : `/blog/${slug}`
-}
-
-const posts = computed<BlogPost[]>(() =>
-  Object.entries(pageModules)
-    .filter(([path]) => !path.endsWith('/index.md'))
-    .map(([path, module]) => {
-      const frontmatter = module.__pageData?.frontmatter || {}
-      const rawContent = rawModules[path] || ''
-      const title = frontmatter.title || module.__pageData?.title || titleFromPath(path)
-      const description =
-        frontmatter.description ||
-        module.__pageData?.description ||
-        'Read the latest RevoGrid engineering article.'
-      const image = frontmatter.image || '/og-image.jpg'
-      const parsedDate = toDate(frontmatter.date)
-
-      return {
-        title,
-        description,
-        dateValue: parsedDate?.getTime() || 0,
-        dateLabel: formatDate(frontmatter.date),
-        readingTime: estimateReadingTime(rawContent),
-        category: frontmatter.category || 'Engineering',
-        tags: frontmatter.tags || [],
-        image,
-        imageAlt: frontmatter.imageAlt || `${title} preview`,
-        url: postUrl(path),
-        featured: Boolean(frontmatter.featured),
-      }
-    })
-    .sort((a, b) => b.dateValue - a.dateValue || a.title.localeCompare(b.title)),
+import { computed, ref } from 'vue'
+import { withBase } from 'vitepress'
+import { data as posts } from './posts.data'
+import { blogTopics } from './blog'
+import BlogCard from './BlogCard.vue'
+const query = ref('')
+const selectedTopic = ref('All')
+const topics = computed(() => [
+  'All',
+  ...blogTopics.filter(topic => posts.some(post => post.topic === topic)),
+])
+const featured = computed(() => posts.find(post => post.featured) || posts[0])
+const isFiltering = computed(() => selectedTopic.value !== 'All' || Boolean(query.value.trim()))
+const visiblePosts = computed(() =>
+  posts.filter(post => {
+    if (!isFiltering.value && post.url === featured.value?.url) return false
+    const matchesTopic = selectedTopic.value === 'All' || selectedTopic.value === post.topic
+    const terms = query.value.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean)
+    const haystack =
+      `${post.title} ${post.description} ${post.topic} ${post.tags.join(' ')}`.toLocaleLowerCase()
+    return matchesTopic && terms.every(term => haystack.includes(term))
+  }),
 )
-</script>
-
-<style lang="scss">
-.blog-page {
-  .VPDoc:not(.has-sidebar) .content,
-  .VPDoc:not(.has-sidebar) .content-container,
-  .vp-doc {
-    max-width: none;
-  }
+const reset = () => {
+  query.value = ''
+  selectedTopic.value = 'All'
 }
-
+</script>
+<style>
+.blog-page .VPDoc:not(.has-sidebar) .container {
+  max-width: 1180px;
+}
+.blog-page .VPDoc:not(.has-sidebar) .content,
+.blog-page .VPDoc:not(.has-sidebar) .content-container {
+  max-width: none;
+  min-width: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.blog-page .VPDoc {
+  padding-bottom: 0;
+}
+.blog-page .VPLocalNav {
+  display: none;
+}
 .blog-index {
   box-sizing: border-box;
   color: var(--vp-c-text-1);
+  width: 100%;
+  max-width: 1120px;
   margin: 0 auto;
-  max-width: 1040px;
-  overflow-x: hidden;
-  padding: 24px 0 72px;
-  width: min(1040px, calc(100vw - 48px));
+  padding: 16px 0 72px;
 }
-
-.blog-index,
 .blog-index * {
   box-sizing: border-box;
-  max-width: 100%;
 }
-
 .blog-header {
-  align-items: center;
-  display: flex;
-  gap: 24px;
-  justify-content: space-between;
-  margin-bottom: 28px;
-
-  h1 {
-    font-size: 40px;
-    font-weight: 500;
-    letter-spacing: 0;
-    line-height: 1.1;
-    margin: 0;
-  }
-
-  p {
-    color: var(--vp-c-text-2);
-    font-size: 15px;
-    line-height: 1.6;
-    margin: 8px 0 0;
-  }
+  padding: 16px 0 40px;
 }
-
-.blog-count {
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 999px;
+.blog-index .blog-eyebrow {
+  color: var(--blog-accent, var(--vp-c-brand-1));
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 650;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+}
+.blog-header h1 {
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.08;
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  margin: 0 0 22px;
+}
+.blog-header .blog-intro {
   color: var(--vp-c-text-2);
-  flex: none;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1;
-  padding: 8px 12px;
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 0;
 }
-
+.blog-library {
+  margin-top: 64px;
+  scroll-margin-top: 100px;
+}
+.blog-library__heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+}
+.blog-index h2 {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 29px;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+}
+.blog-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 280px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-2);
+}
+.blog-search input {
+  width: 100%;
+  min-width: 0;
+  font: inherit;
+  font-size: 14px;
+  color: var(--vp-c-text-1);
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+.blog-search:focus-within {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 3px;
+}
+.blog-topics {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 26px 0 16px;
+}
+.blog-topics button,
+.blog-empty button {
+  min-height: 40px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.blog-topics button[aria-pressed='true'] {
+  background: var(--vp-c-brand-soft);
+  border-color: var(--blog-accent, var(--vp-c-brand-1));
+  color: var(--blog-accent, var(--vp-c-brand-1));
+  font-weight: 650;
+}
+.blog-topics button:focus-visible,
+.blog-empty button:focus-visible,
+.blog-start a:focus-visible {
+  outline: 3px solid var(--vp-c-brand-1);
+  outline-offset: 3px;
+}
+.blog-result-count {
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  margin: 0 0 22px;
+}
 .blog-grid {
   display: grid;
-  gap: 16px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
-.blog-card__content {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-  flex-grow: 1;
-}
-.blog-card {
-  background: var(--vp-c-bg);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  transition:
-    border-color 0.18s,
-    transform 0.18s,
-    background-color 0.18s;
-  overflow: hidden;
-
-  &:hover {
-    background: var(--vp-c-bg-soft);
-    border-color: var(--vp-c-brand-2);
-    transform: translateY(-2px);
-  }
-
-  h3 {
-    font-size: 21px;
-    letter-spacing: 0;
-    line-height: 1.25;
-    margin: 0;
-    max-width: 100%;
-    white-space: normal;
-    word-break: normal;
-  }
-
-  a {
-    color: var(--vp-c-text-1);
-    text-decoration: none;
-
-    &:hover {
-      color: var(--vp-c-brand-1);
-    }
-  }
-
-  p {
-    color: var(--vp-c-text-2);
-    line-height: 1.6;
-    margin: 0;
-    overflow-wrap: anywhere;
-    white-space: normal;
-  }
-
-  h3 a {
-    overflow-wrap: anywhere;
-    white-space: normal;
-    word-break: normal;
-  }
-}
-
-.blog-card__media {
-  aspect-ratio: 16 / 9;
-  background: var(--vp-c-bg-soft);
-  display: block;
-  overflow: hidden;
-
-  img {
-    display: block;
-    height: 100%;
-    object-fit: cover;
-    width: 100%;
-    margin: 0;
-  }
-}
-
-.blog-card__topline {
-  align-items: center;
-  color: var(--vp-c-text-3);
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 12px;
-  font-weight: 500;
-  gap: 10px;
-  justify-content: space-between;
-  text-transform: uppercase;
-}
-
-.blog-badge {
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
-  color: var(--vp-c-text-1);
-  line-height: 1;
-  padding: 5px 8px;
-}
-
-.blog-card__footer {
-  align-items: center;
-  color: var(--vp-c-text-3);
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 13px;
-  gap: 12px;
-  margin-top: auto;
-  padding-top: 6px;
-}
-
-.blog-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-
-  span {
-    border: 1px solid var(--vp-c-divider);
-    border-radius: 6px;
-    color: var(--vp-c-text-2);
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1;
-    padding: 5px 8px;
-  }
-}
-
 .blog-empty {
-  border: 1px dashed var(--vp-c-divider);
-  border-radius: 8px;
-  color: var(--vp-c-text-2);
-  margin: 0;
-  padding: 28px;
+  padding: 48px 24px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  text-align: center;
 }
-
-.blog-index .sr-only {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
+.blog-empty h3 {
+  margin: 0;
+}
+.blog-start {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 48px;
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid var(--vp-c-divider);
+}
+.blog-start__links {
+  display: grid;
+  gap: 0;
+}
+.blog-start a {
+  display: block;
+  color: var(--vp-c-text-1);
+  font-size: 16px;
+  text-decoration: none;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+.blog-start a > span:first-child {
+  display: block;
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.blog-start a > span:last-child {
+  float: right;
+  color: var(--blog-accent, var(--vp-c-brand-1));
+}
+.blog-sr-only {
+  position: absolute;
+  width: 1px;
   height: 1px;
+  padding: 0;
   margin: -1px;
   overflow: hidden;
-  padding: 0;
-  position: absolute;
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  width: 1px;
+  border: 0;
 }
-
 @media (max-width: 960px) {
   .blog-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-
-@media (max-width: 640px) {
+@media (max-width: 700px) {
   .blog-index {
-    margin-left: 24px;
-    margin-right: auto;
-    padding: 8px 0 56px;
-    width: min(342px, calc(100vw - 48px));
+    padding: 8px 0 48px;
   }
-
   .blog-header {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
-
-    h1 {
-      font-size: 34px;
-    }
+    padding: 0 0 28px;
   }
-
+  .blog-header .blog-intro {
+    font-size: 16px;
+  }
+  .blog-desktop-break {
+    display: none;
+  }
+  .blog-library {
+    margin-top: 40px;
+  }
+  .blog-library__heading {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .blog-search {
+    width: 100%;
+  }
+  .blog-topics {
+    gap: 8px;
+    margin-top: 20px;
+  }
   .blog-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
-
-  .blog-card {
-    padding: 20px;
-
-    h3 {
-      font-size: 20px;
-    }
+  .blog-start {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 48px;
   }
-
-  .blog-card__topline,
-  .blog-card__footer {
-    align-items: flex-start;
-    flex-direction: column;
+  .blog-index h2 {
+    font-size: 26px;
   }
 }
 </style>

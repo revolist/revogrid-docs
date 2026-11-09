@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.11](README.md) / [JSX](Namespace.JSX.md) / RevogrFilterPanelAttributes
+[RevoGrid Documentation v4.31.4](README.md) / [JSX](Namespace.JSX.md) / RevogrFilterPanelAttributes
 
 # Interface: RevogrFilterPanelAttributes
 
@@ -6,6 +6,6 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `allowDuplicateOperators` | `boolean` | [src/components.d.ts:2583](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/components.d.ts#L2583) |
-| `closeOnOutsideClick` | `boolean` | [src/components.d.ts:2582](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/components.d.ts#L2582) |
-| `disableDynamicFiltering` | `boolean` | [src/components.d.ts:2581](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/components.d.ts#L2581) |
+| `allowDuplicateOperators` | `boolean` | [src/components.d.ts:2592](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/components.d.ts#L2592) |
+| `closeOnOutsideClick` | `boolean` | [src/components.d.ts:2591](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/components.d.ts#L2591) |
+| `disableDynamicFiltering` | `boolean` | [src/components.d.ts:2590](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/components.d.ts#L2590) |

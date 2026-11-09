@@ -1,0 +1,20 @@
+import { test, expect } from '@playwright/test'
+
+test('Pivot your data is registered and usable inside the docs shell', async ({ page }) => {
+  await page.goto('/demo/pivot-import')
+  await expect(page.locator('.import-pivot')).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Pivot your data Advanced', exact: true })).toBeVisible()
+  await page.getByRole('button', { name: 'Try sample sales data' }).click()
+  await expect(page.getByRole('heading', { name: 'Review your data' })).toBeVisible()
+  await page.getByRole('button', { name: 'Create pivot', exact: true }).click()
+  await expect(page.locator('.import-result-grid')).toContainText('108,015')
+  await page.getByRole('tab', { name: 'Chart' }).click()
+  await expect(page.locator('.import-chart svg').first()).toBeVisible()
+  await page.getByRole('tab', { name: 'Pivot', exact: false }).click()
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.getByRole('button', { name: 'Fields', exact: true }).click()
+  await expect(page.getByRole('dialog', { name: 'Build your pivot' })).toBeVisible()
+  await page.keyboard.press('Escape')
+  await expect(page.getByRole('dialog', { name: 'Build your pivot' })).not.toBeVisible()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+})

@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.11](README.md) / RevogridEvents
+[RevoGrid Documentation v4.31.4](README.md) / RevogridEvents
 
 # Type Alias: RevogridEvents
 
@@ -30,6 +30,7 @@ type RevogridEvents:
   | "aftercolumnsset"
   | "beforefilterapply"
   | "beforefiltertrimmed"
+  | "afterfilterapply"
   | "beforetrimmed"
   | "aftertrimmed"
   | "viewportscroll"
@@ -125,4 +126,4 @@ type RevogridEvents:
 
 ## Defined in
 
-[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/types/events.ts#L2)
+[src/types/events.ts:2](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/types/events.ts#L2)

@@ -1,20 +1,21 @@
 import { fileURLToPath, URL } from 'node:url'
-import { DefaultTheme, defineConfig, HeadConfig, UserConfig } from 'vitepress'
+import { type DefaultTheme, defineConfig, type HeadConfig, type UserConfig } from 'vitepress'
 import svgLoader from 'vite-svg-loader'
-import { navbarEn } from './configs/navbar'
-import { sidebarEn } from './configs/sidebar'
+import { navbarEn } from './configs/navbar/index.ts'
+import { sidebarEn } from './configs/sidebar/index.ts'
 import dotenv from 'dotenv'
 import path from 'node:path'
 import { readFile } from 'node:fs/promises'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
-import { containerPreview } from './plugin.preview'
+import { containerPreview } from './plugin.preview.ts'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import markdownItAttrs from 'markdown-it-attrs'
 import type MarkdownIt from 'markdown-it'
-import { createStructuredDataHead } from './configs/structuredData'
-import { resolveCommercialFaqs, type CommercialFaqKey } from '../commercial/productCatalog'
+import { createStructuredDataHead } from './configs/structuredData.ts'
+import { prepareBlogFrontmatter } from './configs/blogSeo.ts'
+import { resolveCommercialFaqs, type CommercialFaqKey } from '../commercial/productCatalog.ts'
 import UnoCSS from 'unocss/vite'
 
 dotenv.config()
@@ -63,19 +64,35 @@ const mermaidMarkdownPlugin = (md: MarkdownIt) => {
   }
 }
 
-const revogridProWorkspaceRoot = path.resolve(__dirname, '../../..')
-const revogridDemosRoot = path.resolve(__dirname, '../revogrid-demos')
+const revogridProWorkspaceRoot = process.env.REVOGRID_PRO_WORKSPACE_ROOT
+  ? path.resolve(process.env.REVOGRID_PRO_WORKSPACE_ROOT)
+  : path.resolve(import.meta.dirname, '../../..')
+const revogridDemosRoot = path.resolve(import.meta.dirname, '../revogrid-demos')
 const revogridDemoDataSuffix = '.revogrid-demo-source.ts'
 const localProPackageRoot = path.resolve(revogridProWorkspaceRoot, 'packages/pro')
 const standaloneProductNames = ['gantt', 'kanban', 'pivot', 'scheduler'] as const
+// Opt in for production-build verification against an unreleased workspace.
+// Normal publication continues to resolve installed package versions.
 const useLocalProPackages =
+  process.env.REVOGRID_USE_LOCAL_PACKAGES === '1' ||
   process.env.npm_lifecycle_event === 'dev' ||
   process.env.npm_lifecycle_script?.includes('vitepress dev') ||
   process.argv.some(argument => argument === 'dev')
 const localProPackageAliases = useLocalProPackages
   ? [
       {
-        find: /^@revolist\/revogrid-pro\/dist\/revogrid-pro\.css$/,
+        find: /^@revolist\/charts$/,
+        replacement: path.resolve(revogridProWorkspaceRoot, 'packages/charts/dist/index.js'),
+      },
+      {
+        find: /^@revolist\/charts\/catalog$/,
+        replacement: path.resolve(
+          revogridProWorkspaceRoot,
+          'packages/charts/dist/catalog/index.js',
+        ),
+      },
+      {
+        find: /^@revolist\/revogrid-pro\/(?:styles\.css|dist\/revogrid-pro\.css)$/,
         replacement: path.resolve(localProPackageRoot, 'dist/revogrid-pro.css'),
       },
       {
@@ -184,13 +201,18 @@ const archiveControlledHead = (head: HeadConfig[] | undefined): HeadConfig[] | u
 }
 
 const config: UserConfig<DefaultTheme.Config> = {
+  // Test servers must not overwrite a running developer server's optimized dependencies.
+  cacheDir: path.resolve(import.meta.dirname, 'cache', process.env.DOCS_E2E ? 'e2e' : 'dev'),
   ...(isArchiveBuild
     ? {}
     : {
         sitemap: {
           hostname: siteUrl,
           transformItems(items) {
-            return items.filter(item => !item.url.includes('pivot/landing'))
+            return items.filter(
+              item =>
+                !item.url.includes('pivot/landing') && !/^\/?(?:tests|output)\//.test(item.url),
+            )
           },
         },
       }),
@@ -294,6 +316,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     }
 
+    prepareBlogFrontmatter(frontmatter, pageData.relativePath, canonicalSiteUrl)
+
     if (!isArchiveBuild) {
       return
     }
@@ -380,6 +404,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             {
               link: '/excel-data-grid',
               text: 'Excel Data Grid',
+            },
+            {
+              link: '/charts/',
+              text: 'JavaScript Charts',
             },
             {
               link: '/pro/feature-table',
@@ -471,7 +499,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     sidebar: sidebarEn,
   },
   vite: {
+    oxc: {
+      jsx: {
+        runtime: 'automatic',
+      },
+    },
     plugins: [
+      {
+        name: 'revogrid-published-ai-agent',
+        enforce: 'pre',
+        resolveId(source, importer) {
+          if (useLocalProPackages || !importer) return null
+          if (
+            source === '@revolist/revogrid-pro' &&
+            importer.startsWith(path.join(revogridDemosRoot, 'pro-ai-agent') + path.sep)
+          ) {
+            return this.resolve('@revolist/rv-pro-trial', importer, { skipSelf: true })
+          }
+          if (source === '@revolist/revogrid-pro/styles.css' && importer.includes('/demo/ai-agent.md')) {
+            return this.resolve('@revolist/rv-pro-trial/styles.css', importer, { skipSelf: true })
+          }
+          return null
+        },
+      },
       {
         // VitePress reserves `*.data.ts` for content loaders. Demo datasets are
         // regular source modules, so resolve them under a non-reserved filename.
@@ -523,12 +573,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         resolvers: [ElementPlusResolver()],
       }),
       UnoCSS({
-        configFile: path.resolve(__dirname, '../uno.config.ts'),
+        configFile: path.resolve(import.meta.dirname, '../uno.config.ts'),
       }),
       svgLoader(),
     ],
     ssr: {
       noExternal: [
+        '@revolist/charts',
         'element-plus',
         '@revolist/revogrid-pro',
         '@revolist/gantt',
@@ -545,6 +596,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     },
     optimizeDeps: {
       include: [
+        'shiki',
+        'shiki/wasm',
         ...(useLocalProPackages
           ? []
           : [
@@ -564,6 +617,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       ...(useLocalProPackages
         ? {
             exclude: [
+              '@revolist/charts',
               '@revolist/revogrid-pro',
               '@revolist/gantt',
               '@revolist/kanban',
@@ -574,6 +628,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         : {}),
     },
     resolve: {
+      // Nested demos must share the host grid runtime and custom-element registration.
+      dedupe: ['@revolist/revogrid', '@revolist/vue3-datagrid', '@revolist/scheduler', 'preact'],
       extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.svg'],
       alias: [
         {
@@ -590,7 +646,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         },
         {
           find: '@/',
-          replacement: `${path.resolve(__dirname, '../')}/`,
+          replacement: `${path.resolve(import.meta.dirname, '../')}/`,
         },
         ...localProPackageAliases,
         {
@@ -614,8 +670,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   },
   srcExclude: process.env.VITE_PRO_INCLUDE
     ? [
+        'tests/**',
+        'output/**',
+        '**/*_feature.md',
         'revogrid-demos/**',
-        'demo/excel.md',
         '**/_*.md',
         'README.md',
         'guide/parts/*.md',
@@ -625,8 +683,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         'guide/column/cell.template.md',
       ]
     : [
+        'tests/**',
+        'output/**',
+        '**/*_feature.md',
         'revogrid-demos/**',
-        'demo/excel.md',
         'demo/**-pro/**',
         'pro-pages/**',
         '**/_*.md',

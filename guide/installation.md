@@ -54,6 +54,19 @@ defineCustomElements();
 
 This is the standard entrypoint for JavaScript and TypeScript applications. If you are using a framework wrapper, its own installation guide will show the package to install and the wrapper-specific setup.
 
+## CommonJS applications
+
+The package exposes CommonJS entry points for Core and the loader:
+
+```js
+const { BasePlugin } = require('@revolist/revogrid');
+const { defineCustomElements } = require('@revolist/revogrid/loader');
+```
+
+Importing these entry points does not require browser globals. Call
+`defineCustomElements()` in the browser to register the Web Components.
+For server rendering, use the [hydrate entry point](/guide/ssr).
+
 ## Minimal JavaScript or TypeScript setup
 
 Once the loader is registered, render the grid and assign data:
@@ -79,7 +92,7 @@ For a quick proof of concept, load the grid directly from a CDN.
 ### Script tag
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@revolist/revogrid@latest/dist/revo-grid.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@revolist/revogrid@latest/dist/revo-grid/revo-grid.esm.js"></script>
 ```
 
 ### ES modules

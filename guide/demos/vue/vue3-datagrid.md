@@ -5,6 +5,8 @@ description: Start a Vue 3 Composition API data grid with RevoGrid, virtual scro
 
 # Get Started with Vue 3 Data Grid Demo - Composition API
 
+[Explore the Vue Data Grid](/vue-data-grid) · [Read the Vue getting-started guide](/guide/vue3/) · [Compare the best Vue data grids](/blog/top-5-vue-data-grid-libraries-2026) · [Review Pro pricing](/pricing)
+
 <br />
 
 <script setup lang="ts">

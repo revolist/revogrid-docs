@@ -9,9 +9,7 @@ head:
 
 # JavaScript Data Grid Quick Start
 
-RevoGrid is a high-performance [MIT-licensed](/guide/licensing) JavaScript data grid built for large datasets, fast scrolling, and spreadsheet-like interactions. It works as a Web Component, so the same core grid can be used in JavaScript, [TypeScript](/guide/ts/), [React](/guide/react/), [Angular](/guide/angular/), [Vue](/guide/vue3/), [Svelte](/guide/svelte/), and other modern frontends.
-
-[Explore the full RevoGrid Data Grid →](https://rv-grid.com/)
+RevoGrid is a high-performance [MIT-licensed](/guide/licensing) [JavaScript data grid](/) built for large datasets, fast scrolling, and spreadsheet-like interactions. It works as a Web Component, so the same core grid can be used in JavaScript, [TypeScript](/guide/ts/), [React](/guide/react/), [Angular](/guide/angular/), [Vue](/guide/vue3/), [Svelte](/guide/svelte/), and other modern frontends.
 
 ## Quick start in 60 seconds
 

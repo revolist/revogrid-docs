@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable prefer-destructuring */
-import MarkdownIt from 'markdown-it'
+import type MarkdownIt from 'markdown-it'
 import markdownItContainer from 'markdown-it-container'
-import { injectNewComponentImportScript } from './utils'
+import { injectNewComponentImportScript } from './utils.ts'
 const validateContainerRE = /^preview.*$/
 const parseContainerParamRE = /^preview\s*(#\S*|)\s*(\.\S*|)\s*(:\S*|)\s*([\S|\s]*)$/
 

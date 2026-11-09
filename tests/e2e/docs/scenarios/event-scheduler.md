@@ -28,6 +28,17 @@ Central reviewer opened and inspected screenshots at **1280×720, light theme** 
 
 [Standalone E2E](../../../../revogrid-demos/pro-advanced-scheduler/tests/e2e/feature.spec.ts) currently verifies mount, header controls and Table switch, with non-empty screenshot assertion. [Docs suite](../demo-experience.spec.ts) only establishes shared-shell mount for this route. All event mutation/conflict and most view/preset cases remain future docs E2E coverage.
 
+## Operational showcase coverage (2026-10-24)
+
+[Showcase browser checks](../scheduler-showcase.spec.ts) cover Resource/Role/Ward
+columns, loaded portraits, desktop/mobile workspace switching, Team briefing and
+Wellbeing break intervals in resource timeline and calendar, and empty reserved slots that
+reject creation while an adjacent open slot still opens the editor. Named
+`timeAnnotations` show a shift-start flag plus Lunch and Staff training header bands;
+geometry checks compare header flags with body lines and bands with slot widths.
+These checks use the current local Scheduler distribution. Annotations are
+informational; `availabilityRules` own the reserved and safety-inspection closures.
+
 ## Scenarios
 
 ### SCHED-01 — Initial weekly resource schedule (P0)
@@ -42,7 +53,7 @@ Central reviewer opened and inspected screenshots at **1280×720, light theme** 
 
 **Visual checks:** Header and time grid align; event titles/times/avatars fit; current-time/today marker and weekend/non-working shading do not obscure events.
 
-**Automation/readiness:** Use tablist `Scheduler workspace`, group `Scheduler view`, combobox `Calendar preset`, .event-scheduler-shift-week-grid. Event titles rotate with date; IDs are more stable than titles. Five base events exist for week/day, while month/year add fixtures.
+**Automation/readiness:** Use tablist `Scheduler workspace`, group `Scheduler view`, combobox `Calendar preset`, .event-scheduler-shift-week-grid. Event titles rotate with date; IDs are more stable than titles. The five original events are supplemented with daily showcase events, including maintenance and recharge; month/year add calendar fixtures.
 
 ### SCHED-02 — Calendar, Resource and read-only Table (P0)
 
@@ -164,3 +175,13 @@ Central reviewer opened and inspected screenshots at **1280×720, light theme** 
 **Visual checks:** Inspect popover/editor near lower/right edges, narrow header wrapping and current-time marker. Table row backgrounds and event text must retain dark-mode contrast.
 
 **Automation/readiness:** Record exact viewport/theme and source version for screenshots. Prefer explicit layout/content assertions; existing screenshot byte-length check does not prove layout or contrast correctness.
+
+Vertical week cards use icon-only content below 44px, retaining the resource portrait and an unclipped type badge. Wider compact cards show their title without crowded time/resource-name fragments. The showcase regression checks title visibility and icon bounds through clipping ancestors.
+
+Scheduler header rows default to 35px (30% below the 50px Material grid default), including grouped timeline tiers and calendar day headers. Shared day-header padding keeps both date and event count inside that height. Hosts can set `--event-scheduler-header-height` to customize the Scheduler header height; authored Core `--revo-grid-header-height` remains available. Showcase checks assert 35px headers and day-label bounds.
+
+Team briefing and Wellbeing break retain the dashed interval appearance and are read-only. Read-only/locked events keep their resting appearance on hover (no added shadow, saturation or movement); focus and event details remain available. Shared rendering derives this visual state from mutation permissions, including global read-only rules.
+
+Vertical readonly regression coverage exercises actual center-drag and both edge-resize attempts in Week and Day on a filled booking and both dashed special intervals. Assertions require unchanged source, no drag ghost/editor or resize handles, and stable hover styling. Pointer unit checks also cover event, resource and global readonly rules across vertical and timeline views.
+
+The showcase uses `conflicts.enabled: false` to avoid red conflict outlines and warning badges in resource/calendar views. Readonly permissions and rule-backed reserved slots remain enabled; the compact-conflict regression uses its own explicit configuration.

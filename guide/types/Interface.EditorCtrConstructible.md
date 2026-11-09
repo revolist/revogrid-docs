@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.11](README.md) / EditorCtrConstructible
+[RevoGrid Documentation v4.31.4](README.md) / EditorCtrConstructible
 
 # Interface: EditorCtrConstructible
 
@@ -29,4 +29,4 @@ new EditorCtrConstructible(
 
 #### Defined in
 
-[src/types/selection.ts:198](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/types/selection.ts#L198)
+[src/types/selection.ts:198](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/types/selection.ts#L198)

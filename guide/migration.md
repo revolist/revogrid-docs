@@ -5,17 +5,31 @@ description: Review RevoGrid version changes and upgrade notes, including migrat
 
 # RevoGrid Migration Guides
 
+## Version 4.29.0
+
+### Empty filter panels restored by default
+
+Following requests from multiple users, version 4.29.0 restores the behavior
+from before 4.28.0: opening a column filter panel with no active conditions
+shows an empty panel by default. The automatic draft condition introduced in
+4.28.0 is no longer enabled by default.
+
+If you set `defaultFilter: false` to preserve the empty-panel behavior in 4.28,
+you can keep that configuration when upgrading to 4.29.
+
 ## Version 4.28.0
 
 ### Breaking change: Default filter conditions are now visible
 
-Opening an empty column filter panel now displays one removable draft condition.
+In version 4.28, opening an empty column filter panel displays one removable draft condition.
 String columns start with **Contains**, number columns start with **=**, and other
 filter families use their first available operator. The draft does not filter
 rows, emit filtering events, or mark the column as filtered until the user
 enters a value or explicitly selects an operator.
 
-To preserve the previous empty-panel behavior for the whole grid, disable
+This default applies to 4.28 only; 4.29 restores empty panels by default.
+
+To preserve the previous empty-panel behavior in 4.28 for the whole grid, disable
 default filter drafts in the filter configuration:
 
 ```ts

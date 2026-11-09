@@ -16,7 +16,6 @@ export interface DemoPageContent {
   title: string
   description: string
   implementationUrl: string
-  implementationLabel?: string
   featureBadges: readonly DemoFeatureBadge[]
 }
 
@@ -34,17 +33,13 @@ const DEMO_PAGE_CONTENT = {
     implementationUrl: 'https://github.com/revolist/revogrid-demos/blob/main/core-free/src/hr.vue',
     featureBadges: [],
   },
-  'ai-prompt-library': {
-    title: 'RevoGrid AI Prompt Library Demo',
+  'ai-agent': {
+    title: 'AI Agent Demo',
     description:
-      'Search, filter, and edit 100 practical prompts for building, debugging, optimizing, and extending RevoGrid.',
+      'Ask questions about grid data and apply filters, sorting, and other actions from the assistant.',
     implementationUrl:
-      'https://github.com/revolist/revogrid-demos/blob/main/core-ai-prompts/src/prompt-library.vue',
-    featureBadges: [
-      { label: 'Multiline editing', source: 'Core TextEditor extension' },
-      { label: 'Local data', source: 'Bundled typed prompt catalog' },
-      { label: 'Filtering & sorting', source: 'RevoGrid Core APIs' },
-    ],
+      'https://github.com/revolist/revogrid-demos/blob/v4/pro-ai-agent/src/AiAssistant.vue',
+    featureBadges: [],
   },
   'project-portfolio': {
     title: 'Row Grouping Demo',
@@ -198,16 +193,66 @@ const DEMO_PAGE_CONTENT = {
     ],
   },
   pivot: {
-    title: 'JavaScript Pivot Table Component Demo',
+    title: 'JavaScript Pivot Table Demo',
     description:
-      'High-performance pivot table, drag-and-drop fields, multi-level aggregation, filtering, and export.',
+      'Explore Contoso retail sales. Rearrange fields, filter results, inspect transactions, and export the report.',
     implementationUrl: 'https://github.com/revolist/pivot',
     featureBadges: [
-      { label: 'Pivot Table analytics', source: 'PivotPlugin' },
-      { label: 'Advanced filters', source: 'AdvanceFilterPlugin + FilterHeaderPlugin' },
-      { label: 'Collapsible columns', source: 'ColumnCollapsePlugin' },
-      { label: 'Multi-row headers', source: 'MultiRowHeaderPlugin' },
-      { label: 'Same-value merge', source: 'SameValueMergePlugin' },
+      { label: 'Pivot analytics', source: 'PivotPlugin' },
+      { label: 'Field configuration', source: 'PivotConfig' },
+      { label: 'Linked charts', source: 'PivotChartsPlugin' },
+      { label: 'Saved reports', source: 'Browser-local report state' },
+    ],
+  },
+  'pivot-charts': {
+    title: 'Pivot Charts Dashboard Demo',
+    description:
+      'Filter a 20,000-row synthetic sales dataset and explore three linked charts above a Pivot report.',
+    implementationUrl: 'https://github.com/revolist/pivot/blob/main/src/charts-dashboard.vue',
+    featureBadges: [
+      { label: 'Linked charts', source: 'PivotChartsPlugin + mountPivotChart' },
+      { label: 'Shared filters', source: 'PivotConfig + filtered source rows' },
+    ],
+  },
+  'pivot-financial': {
+    title: 'Pivot Financial Analysis Demo',
+    description:
+      'Compare profit, contribution share, running totals, year-over-year change, and ranking.',
+    implementationUrl: 'https://github.com/revolist/pivot/blob/main/src/financial.pivot.ts',
+    featureBadges: [
+      { label: 'Calculations', source: 'PivotConfig value calculations' },
+      { label: 'Cross-measure formulas', source: 'Pivot value formula API' },
+      { label: 'Named reports', source: 'Browser-local serialized state' },
+    ],
+  },
+  'pivot-operations': {
+    title: 'Pivot Support Investigation Demo',
+    description:
+      'Investigate synthetic support tickets by team and priority, then inspect source records for a focused value cell.',
+    implementationUrl: 'https://github.com/revolist/pivot/tree/main/examples/operations',
+    featureBadges: [
+      { label: 'Counts and averages', source: 'PivotPlugin aggregators' },
+      { label: 'Source drill-through', source: 'PivotPlugin.loadPivotDrilldown' },
+    ],
+  },
+  'pivot-import': {
+    title: 'Pivot Your Data',
+    description:
+      'Open an Excel or CSV file, review detected fields, and explore an interactive Pivot entirely in your browser.',
+    implementationUrl: 'https://github.com/revolist/pivot/tree/main/examples/import',
+    featureBadges: [
+      { label: 'Excel & CSV', source: 'Browser-local workbook parsing' },
+      { label: 'Automatic fields', source: 'Detected types + PivotConfig dimensions' },
+      { label: 'Build your report', source: 'PivotPlugin + native configurator' },
+    ],
+  },
+  'pivot-scale': {
+    title: 'Pivot at Scale Demo',
+    description:
+      'Choose 10K, 100K, or opt-in 1M synthetic rows and inspect browser-labelled timing.',
+    implementationUrl: 'https://github.com/revolist/pivot/tree/main/examples/scale',
+    featureBadges: [
+      { label: 'Workload timings', source: 'Browser performance API + Pivot model-change event' },
     ],
   },
   gantt: {
@@ -295,6 +340,19 @@ const DEMO_PAGE_CONTENT = {
       { label: 'Remote status', source: 'KanbanPlugin getRemoteState' },
     ],
   },
+  'property-booking': {
+    title: 'Property Booking Demo',
+    description:
+      'Manage nightly stays with property availability, guest counts, and daily occupancy totals.',
+    implementationUrl:
+      'https://github.com/revolist/scheduler/tree/main/src/examples/property-booking',
+    featureBadges: [
+      { label: 'Nightly stays', source: 'Scheduler calendarDays duration mode' },
+      { label: 'Conflict prevention', source: 'Scheduler overlap and blocked-time validation' },
+      { label: 'Daily totals', source: 'Scheduler timelineSummary' },
+      { label: 'Selected properties', source: 'Scheduler timelineSummary.resourceIds' },
+    ],
+  },
   'event-scheduler': {
     title: 'JavaScript Scheduler Demo',
     description: 'Build resource schedules with events, movement, resizing, and calendar views.',
@@ -319,7 +377,6 @@ const DEMO_PAGE_CONTENT = {
     description: 'Edit once. Explore the same data in every view.',
     implementationUrl:
       'https://github.com/revolist/revogrid-demos/tree/main/pro-advanced-planning#readme',
-    implementationLabel: 'Run locally',
     featureBadges: [
       { label: 'Shared model', source: 'Reactive task state shared across every planning view' },
       {

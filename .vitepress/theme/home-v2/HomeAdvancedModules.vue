@@ -103,9 +103,10 @@ const catalogStatus = (item: HomeV2Record) => catalogFacts(item)?.status ?? 'sta
 
 #advanced .rg-module-preview {
   height: auto;
-  margin-top: 0;
+  margin: 8px 8px 0;
+  width: calc(100% - 16px);
   border: none;
-  border-radius: 0;
+  border-radius: 12px;
 }
 
 #advanced .rg-module-card .rg-module-preview {

@@ -1,10 +1,8 @@
 <template>
   <div class="pivot-page" :style="pageStyle">
-    <PivotHeroSection
-      :hero="page.hero"
-      :preview-enabled="page.preview.enabled"
-      :resolve-link="resolvePivotLink"
-    />
+    <PivotHeroSection :hero="page.hero" :resolve-link="resolvePivotLink" />
+
+    <PivotDemo v-if="page.preview.enabled" :resolve-link="resolvePivotLink" />
 
     <PivotFeaturesSection :features="page.features" />
 
@@ -44,6 +42,7 @@
 </template>
 
 <script lang="ts" setup>
+import PivotDemo from '../pro/PivotDemo.vue'
 import ProAdvancedCallout from '../pro/ProAdvancedCallout.vue'
 import ProCtaBanner from '../pro/ProCtaBanner.vue'
 import CommercialFaq from '../pro/CommercialFaq.vue'

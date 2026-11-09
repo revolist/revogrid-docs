@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.27.11](README.md) / RowResizeCancelReason
+[RevoGrid Documentation v4.31.4](README.md) / RowResizeCancelReason
 
 # Type Alias: RowResizeCancelReason
 
@@ -15,4 +15,4 @@ type RowResizeCancelReason:
 
 ## Defined in
 
-[src/plugins/row-resize/row-resize.types.ts:33](https://github.com/revolist/revogrid/blob/0073d9092659c188bf5ac35709bef2c2ae0275f3/src/plugins/row-resize/row-resize.types.ts#L33)
+[src/plugins/row-resize/row-resize.types.ts:33](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/row-resize/row-resize.types.ts#L33)

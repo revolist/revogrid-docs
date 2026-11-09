@@ -23,9 +23,9 @@ const columns = [
     sortable: true,  // Enables sorting
     order: 'asc',     // Default sorting order
     cellCompare: (prop, a, b) => { // Custom sorting logic
-      const av = a[prop]?.toString().toLowerCase();
-      const bv = b[prop]?.toString().toLowerCase();
-      return av - bv;
+      const av = String(a[prop] ?? '');
+      const bv = String(b[prop] ?? '');
+      return av.localeCompare(bv, undefined, { sensitivity: 'base' });
     }
   },
 ];

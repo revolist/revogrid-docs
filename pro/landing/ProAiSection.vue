@@ -6,15 +6,21 @@
           <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
           <div class="ai-tag-pill"><span class="spark">✦</span>{{ page.ai.codeTag }}</div>
         </div>
-        <div class="code-body" aria-label="RevoGrid Pro integration code sample">
-          <div v-for="line in codeLines" :key="line.num" class="line">
-            <span class="ln">{{ line.num }}</span>
-            <span v-html="line.html"></span>
+        <div class="code-body" aria-label="React getting-started example">
+          <div v-for="(line, index) in codeLines" :key="index" class="line">
+            <span class="ln">{{ index + 1 }}</span>
+            <span>{{ line }}</span>
           </div>
         </div>
         <div class="code-foot">
-          <span>ready</span>
-          <span class="ok">✓ 0 type errors - ✓ compiled</span>
+          <a
+            href="https://github.com/revolist/revogrid/blob/master/docs/demo/react/react-datagrid.tsx"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            React getting-started source
+          </a>
+          <span class="ok">example source</span>
         </div>
       </div>
 
@@ -49,47 +55,7 @@ const AI_ICONS: Record<string, string> = {
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M234.7 42.7L197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1L248.8 123c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2L277.3 42.7 263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5L234.7 42.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0L529.9 116.5c18.7-18.7 18.7-49.1 0-67.9L495.3 14.1c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96 106.8 39.5C105.1 35 100.8 32 96 32s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"/></svg>',
 }
 
-const codeLines = [
-  { num: 1, html: '<span class="c">// one import. entire scheduling layer.</span>' },
-  {
-    num: 2,
-    html: '<span class="kw">import</span><span class="tx"> { RevoGrid } </span><span class="kw">from</span><span class="tx"> </span><span class="str">\'@revolist/revogrid-react\'</span><span class="pun">;</span>',
-  },
-  {
-    num: 3,
-    html: '<span class="kw">import</span><span class="tx"> { GanttPlugin } </span><span class="kw">from</span><span class="tx"> </span><span class="str">\'@revolist/revogrid-pro\'</span><span class="pun">;</span>',
-  },
-  { num: 4, html: '' },
-  {
-    num: 5,
-    html: '<span class="kw">export function</span><span class="tx"> </span><span class="fn">ProjectView</span><span class="pun">() {</span>',
-  },
-  {
-    num: 6,
-    html: '<span class="tx">&nbsp;&nbsp;</span><span class="kw">const</span><span class="tx"> gantt </span><span class="pun">= </span><span class="kw">new </span><span class="type">GanttPlugin</span><span class="pun">({</span>',
-  },
-  {
-    num: 7,
-    html: '<span class="tx">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="prop">tasks</span><span class="pun">:</span><span class="tx"> projectData</span><span class="pun">,</span>',
-  },
-  {
-    num: 8,
-    html: '<span class="tx">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="prop">scheduling</span><span class="pun">: </span><span class="str">\'auto\'</span><span class="pun">,</span>',
-  },
-  {
-    num: 9,
-    html: '<span class="tx">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="prop">criticalPath</span><span class="pun">: </span><span class="kw">true</span><span class="pun">,</span>',
-  },
-  {
-    num: 10,
-    html: '<span class="tx">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="prop">baselines</span><span class="pun">: </span><span class="kw">true</span><span class="pun">,</span>',
-  },
-  { num: 11, html: '<span class="tx">&nbsp;&nbsp;</span><span class="pun">});</span>' },
-  { num: 12, html: '' },
-  {
-    num: 13,
-    html: '<span class="tx">&nbsp;&nbsp;</span><span class="kw">return</span><span class="tx"> </span><span class="pun">&lt;</span><span class="type">RevoGrid</span><span class="tx"> </span><span class="prop">plugins</span><span class="pun">={[</span><span class="tx">gantt</span><span class="pun">]} /&gt;;</span>',
-  },
-  { num: 14, html: '<span class="pun">}</span>' },
-]
+import reactGettingStartedSource from '../../demo/react/react-datagrid.tsx?raw'
+
+const codeLines = reactGettingStartedSource.split('\n')
 </script>

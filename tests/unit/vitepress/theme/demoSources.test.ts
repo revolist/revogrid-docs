@@ -17,7 +17,7 @@ test('registers four real framework entries for every docs demo', () => {
     assert.deepEqual(Object.keys(frameworks), ['vue', 'ts', 'react', 'angular'], demoId)
     for (const [framework, entry] of Object.entries(frameworks)) {
       assert.ok(entry.files.length >= 1, `${demoId}/${framework} needs an entry file`)
-      assert.match(entry.command, new RegExp(`dev:${framework}$`))
+      assert.match(entry.command, new RegExp(`dev(?::${framework})?$`))
       assert.match(entry.documentationUrl, /^\//)
     }
   }
@@ -55,25 +55,15 @@ test('registers every Grid at Scale source module under its consuming framework'
   assert.deepEqual(files('angular'), ['hr.angular.ts', ...sharedFiles])
 })
 
-test('registers every AI Prompt Library source module under each framework', () => {
-  const sharedFiles = [
-    'prompt-library.shared.ts',
-    'prompt-editor.ts',
-    'prompts.json',
-    'prompt-library.css',
-  ]
+test('registers every AI Agent source module under each framework', () => {
+  const sharedFiles = ['AiAssistant.shared.ts', 'AiAssistant.data.ts', 'AiAssistant.actions.ts', 'ai-assistant.scss']
   const files = (framework: 'vue' | 'ts' | 'react' | 'angular') =>
-    DEMO_SOURCE_REGISTRY['ai-prompt-library'][framework].files.map(file => file.label)
+    DEMO_SOURCE_REGISTRY['ai-agent'][framework].files.map(file => file.label)
 
-  assert.deepEqual(files('vue'), ['prompt-library.vue', ...sharedFiles])
-  assert.deepEqual(files('ts'), ['prompt-library.ts', ...sharedFiles])
-  assert.deepEqual(files('react'), ['prompt-library.react.tsx', ...sharedFiles])
-  assert.deepEqual(files('angular'), ['prompt-library.angular.ts', ...sharedFiles])
-  assert.equal(
-    DEMO_SOURCE_REGISTRY['ai-prompt-library'].vue.files.find(file => file.label === 'prompts.json')
-      ?.lang,
-    'json',
-  )
+  assert.deepEqual(files('vue'), ['AiAssistant.vue', ...sharedFiles])
+  assert.deepEqual(files('ts'), ['AiAssistant.ts', ...sharedFiles])
+  assert.deepEqual(files('react'), ['AiAssistant.react.tsx', ...sharedFiles])
+  assert.deepEqual(files('angular'), ['AiAssistantAngular.ts', ...sharedFiles])
 })
 
 test('registers every Project Portfolio source module under each framework', () => {
@@ -252,7 +242,11 @@ test('uses the docs sidebar surface and header geometry on desktop demo pages', 
   assert.match(navigation, /padding:\s*calc\(var\(--vp-nav-height\) \+ 16px\) 0 0 10px/)
   assert.match(
     styles,
-    /@media \(min-width: 1100px\)\s*\{[\s\S]*?\.demo-page-class \.VPNavBar\.has-sidebar \.divider\s*\{[^}]*padding-left: 0/,
+    /@media \(min-width: 1100px\)\s*\{[\s\S]*?body:has\(\.demo-page-class\) \.VPNavBar\.has-sidebar \.divider\s*\{[^}]*padding-left: 0/,
+  )
+  assert.match(
+    styles,
+    /body:has\(\.demo-page-class\) \.VPNavBar\.has-sidebar \.content\s*\{[^}]*padding-left: var\(--demo-sidebar-width, 276px\)/,
   )
   assert.match(
     styles,
@@ -260,7 +254,7 @@ test('uses the docs sidebar surface and header geometry on desktop demo pages', 
   )
   assert.match(
     styles,
-    /@media \(min-width: 1440px\)\s*\{[\s\S]*?body:has\(\.demo-page-class\) \.VPNavBar \.title\s*\{[^}]*padding: 0 32px[^}]*width: var\(--vp-sidebar-width\)/,
+    /@media \(min-width: 1100px\)\s*\{[\s\S]*?body:has\(\.demo-page-class\) \.VPNavBar\.has-sidebar > \.wrapper > \.container > \.title\s*\{[^}]*position: absolute[^}]*left: 0[^}]*min-width: 0[^}]*max-width: none[^}]*padding: 0 32px[^}]*width: var\(--demo-sidebar-width, 276px\)/,
   )
 })
 
@@ -659,14 +653,6 @@ test('aligns the Grid at Scale data source toolbar with the demo heading', () =>
   )
 })
 
-test('aligns the AI prompt search controls with the demo heading', () => {
-  const styles = readFileSync(
-    new URL('../../../../revogrid-demos/core-ai-prompts/src/prompt-library.css', import.meta.url),
-    'utf8',
-  )
-  assert.match(styles, /\.prompt-toolbar\s*\{[\s\S]*?padding:\s*18px 0/)
-})
-
 test('aligns the Project Portfolio grouping controls with the demo heading', () => {
   const styles = readFileSync(
     new URL(
@@ -757,10 +743,21 @@ test('gives the Pivot field configuration panel room to avoid horizontal scrolli
   )
   assert.match(
     styles,
-    /\.financial-pivot-showcase \.pivot-config\s*\{[\s\S]*?--pv-cfg-width:\s*380px[\s\S]*?overflow-x:\s*hidden/,
+    /\.financial-pivot-showcase \.pivot-config\s*\{[\s\S]*?--pv-cfg-width:\s*304px[\s\S]*?overflow-x:\s*hidden/,
   )
   assert.match(
     styles,
     /\.financial-pivot-showcase \.pivot-config > \*\s*\{[\s\S]*?min-width:\s*0[\s\S]*?width:\s*100%/,
   )
 })
+
+
+test('property booking source panels reuse the pushed Scheduler example in every framework', () => {
+  for (const framework of ['vue', 'ts', 'react', 'angular'] as const) {
+    const files = getDemoSources('property-booking')[framework].files;
+    assert.ok(files[0].path.startsWith('pro-advanced-scheduler/src/examples/property-booking/'));
+    for (const name of ['demo.ts', 'data.ts', 'editor.ts', 'icons.ts', 'photos.ts', 'styles.scss']) {
+      assert.ok(files.some(file => file.label === name), `${framework}: ${name}`);
+    }
+  }
+});

@@ -1,0 +1,61 @@
+import { expect, test } from '@playwright/test'
+
+test('financial report keeps its own reset, saved layout, chart and exports', async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.removeItem('revogrid:pivot-showcase:report:contoso-v2')
+  })
+  await page.goto('/demo/pivot-financial')
+  const tabs = page.getByRole('tablist', { name: 'Financial report presets' })
+  const profit = tabs.getByRole('tab', { name: 'Profit', exact: true })
+  const ranking = tabs.getByRole('tab', { name: 'Ranking', exact: true })
+  await expect(profit).toHaveAttribute('aria-selected', 'true')
+  await ranking.click()
+  await expect(ranking).toHaveAttribute('aria-selected', 'true')
+  await expect(page.locator('revogr-header .rgHeaderCell').filter({ hasText: 'Profit rank' }).first()).toBeVisible()
+
+  await expect(page.locator('revogr-data .rgCell').filter({ hasText: /^1,057$/ }).first()).toBeVisible()
+
+  const report = page.locator('financial-pivot-header summary', { hasText: 'Report' })
+  await report.click()
+  await page.getByRole('button', { name: 'Save this report' }).click()
+  await page.getByRole('button', { name: 'Reset', exact: true }).click()
+  await expect(profit).toHaveAttribute('aria-selected', 'true')
+  await report.click()
+  await page.getByRole('button', { name: 'Restore saved report' }).click()
+  await expect(ranking).toHaveAttribute('aria-selected', 'true')
+  await expect(page.locator('revogr-header .rgHeaderCell').filter({ hasText: 'Profit rank' }).first()).toBeVisible()
+
+  // Product-level ranking has thousands of members; chart the grouped report.
+  await profit.click()
+  await page.getByRole('button', { name: 'Chart', exact: true }).click()
+  const chartType = page.getByRole('button', { name: 'Grouped column', exact: true })
+  if (await chartType.isVisible()) await chartType.click()
+  await expect(page.locator('.financial-pivot-chart')).toBeVisible()
+  await page.getByRole('button', { name: 'Pivot', exact: true }).click()
+  await expect(page.locator('.financial-pivot-grid-view')).toBeVisible()
+
+  const csv = page.waitForEvent('download')
+  await page.getByRole('button', { name: 'Export CSV' }).click()
+  expect((await csv).suggestedFilename()).toMatch(/\.csv$/)
+})
+
+test('large product reports chart all members through category scrolling and retain their table', async ({ page }) => {
+  await page.goto('/demo/pivot-financial')
+  await page.getByRole('tab', { name: 'Year over year', exact: true }).click()
+  await expect(page.locator('revogr-header .rgHeaderCell').filter({ hasText: 'YoY change' }).first()).toBeVisible()
+  await page.getByRole('button', { name: 'Chart', exact: true }).click()
+  const chartType = page.getByRole('button', { name: 'Grouped column', exact: true })
+  if (await chartType.isVisible()) await chartType.click()
+  const chart = page.locator('.financial-pivot-chart')
+  await expect(chart).toBeVisible()
+  await expect(page.getByRole('alert')).toHaveCount(0)
+  const categories = chart.locator('[data-pivot-chart-category-scroll] > div')
+  await expect(categories).toBeVisible()
+  expect(await categories.evaluate(element => element.scrollWidth - element.clientWidth)).toBeGreaterThan(1000)
+  const first = await chart.locator('[data-pivot-chart-datum]').first().getAttribute('data-category-index')
+  await categories.press('End')
+  await expect.poll(() => chart.locator('[data-pivot-chart-datum]').first().getAttribute('data-category-index')).not.toBe(first)
+  await page.getByRole('button', { name: 'Pivot', exact: true }).click()
+  await expect(page.locator('.financial-pivot-grid-view')).toBeVisible()
+  await expect(page.locator('revogr-header .rgHeaderCell').filter({ hasText: 'YoY change' }).first()).toBeVisible()
+})

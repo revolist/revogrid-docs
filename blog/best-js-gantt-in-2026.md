@@ -141,7 +141,7 @@ const faqItems = [
 # The Best JavaScript Gantt Chart Libraries in 2026
 
 ::: tip RevoGrid Gantt product hub
-Go from comparison to evaluation on the [RevoGrid Gantt page](/gantt): complete features, live demos, frameworks, performance evidence, pricing, and trial terms.
+Go from comparison to evaluation with the [JavaScript Gantt chart component](/gantt): complete features, live demos, frameworks, performance evidence, pricing, and trial terms.
 :::
 
 ![RevoGrid Gantt JavaScript Gantt chart with an editable task grid and project timeline](/blog/gantt-pr4.png)

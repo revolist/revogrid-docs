@@ -21,30 +21,97 @@ head:
 hero:
   eyebrow: High-performance data grid
   title: JavaScript Data Grid for complex web apps
-  emphasis: JavaScript Data Grid
+  emphasis: for complex web apps
+  rotatingTerm: Data Grid
+  rotatingProducts:
+    - Data Grid
+    - Gantt
+    - Pivot
+    - Kanban
+    - Scheduler
+    - Charts
   tagline: The world's fastest JavaScript data grid. 60fps, 3x less memory. Inline editing, virtual scroll, and custom cells for every major framework.
   primaryAction:
-    text: View demos
+    text: Try live demo
     link: /demo/
     # target: _self
   secondaryAction:
-    text: RevoGrid Pro
-    link: /pro/
+    text: Start with free core
+    link: /guide/
+  demoLabels:
+    title: Project portfolio
+    viewsLabel: Explore data views
+    loading: Loading interactive demo…
+    project: Project
+    owner: Owner
+    status: Status
+    progress: Progress
+    budget: Budget
+    searchProjects: Search projects…
+    all: All
+    range: Range
+    budgetRange: Min - Max
+    chartTitle: Budget by project
+    progressChartTitle: Progress by project
+    statusChartTitle: Budget by status
+    completed: Completed
+    remaining: Remaining
+    totalLabel: Visible portfolio
+    projectsLabel: projects
+    guidedAction: Show projects over $100k
+    reset: Show all projects
+    clearFilters: Clear filters
+    sharedFilters: Filters apply to every view
+    averageProgress: Avg progress
+    loadError: This view could not load. Try again.
+    retry: Retry
+    trial: Try Pro in your app
+    ownerControl: 'Owner for {project}'
+    statusControl: 'Status for {project}'
+    statuses:
+      not-started: Planned
+      in-progress: In progress
+      done: Done
+      blocked: Blocked
+  demoTabs:
+    - id: grid
+      name: Data grid
+      icon: grid
+      trialLink: /trial
+    - id: gantt
+      name: Gantt
+      icon: gantt
+      trialLink: /trial
+    - id: scheduler
+      name: Scheduler
+      icon: calendarDays
+      trialLink: /trial
+    - id: pivot
+      name: Pivot
+      icon: pivot
+      trialLink: /trial
+    - id: kanban
+      name: Kanban
+      icon: columns
+      trialLink: /trial
+    - id: charts
+      name: Charts
+      icon: chart
   frameworks:
     - name: Vue
-      color: '#4FC08D'
+      icon: /vuejs.svg
       link: /guide/vue3/
     - name: Angular
-      color: '#DD0031'
+      icon: /angular.svg
       link: /guide/angular/
     - name: React
-      color: '#61DAFB'
+      icon: /react.svg
       link: /guide/react/
     - name: Svelte
-      color: '#FF3E00'
+      icon: /svelte.svg
       link: /guide/svelte/
     - name: JavaScript
-      color: '#F7DF1E'
+      icon: /js.svg
       link: /guide/
 
 trust:
@@ -109,22 +176,22 @@ capabilities:
     - id: editing
       title: Spreadsheet editing
       icon: edit
-      link: "/guide/editing"
+      link: '/guide/editing'
       description: Edit formulas, undo changes, format cells, and work across multiple ranges.
     - id: control
       title: Filtering & Data Control
       icon: filter
-      link: "/demo/filtering"
+      link: '/demo/filtering'
       description: Sorting, resizing, selection, column movement, and advanced filters.
     - id: formatting
       title: Spreadsheet formatting
       icon: palette
-      link: "/demo/context-menu"
+      link: '/demo/context-menu'
       description: Progress bars, currency, and reusable presentation rules.
     - id: tree
       title: Tree data
       icon: tree
-      link: "/demo/tree-data"
+      link: '/demo/tree-data'
       description: Filterable hierarchy with persistent parent context.
 
 developer:
@@ -313,56 +380,56 @@ advanced:
       catalogFeatureId: master-detail
       type: master-detail
       link: /demo/row-master
-      thumbnail: /img/master-detail.png
+      thumbnail: /img/home-modules/master-detail.webp
       videoUrl: /video/master-detail.mp4
       description: Expand any row into a nested grid, form, or custom product view.
     - title: Formula Engine
       catalogFeatureId: formula
       type: formula
       link: /guide/cell/formula
-      thumbnail: /img/formula.png
+      thumbnail: /img/home-modules/formula.webp
       videoUrl: /video/formula.mp4
       description: Evaluate spreadsheet formulas and grouping aggregations over live grid data.
     - title: History
       catalogFeatureId: history
       type: history
       link: /pro/
-      thumbnail: /img/history-undo.png
+      thumbnail: /img/home-modules/history.webp
       videoUrl: /video/history.mp4
       description: Add dependable undo and redo across cell edits and multi-cell operations.
     - title: Advanced Filter
       catalogFeatureId: advanced-selection-filtering
       type: filter
       link: /demo/filtering
-      thumbnail: /img/advanced-filter.png
+      thumbnail: /img/home-modules/filter.webp
       videoUrl: /video/filter-advance.mp4
       description: Combine value selection and conditions in one fast, scalable filtering workflow.
     - title: Pivot Table
       catalogProductId: pivot
       type: pivot
       link: /pivot
-      thumbnail: /img/pivot.png
+      thumbnail: /img/home-modules/pivot.webp
       videoUrl: /video/pivot.mp4
       description: Analyze live grid data with drag-and-drop dimensions, aggregation, drill-down, filters, and totals.
     - title: Event Scheduler
       catalogProductId: scheduler
       type: scheduler
       link: /jsscheduler
-      thumbnail: /img/event-scheduler.png
+      thumbnail: /img/home-modules/scheduler.webp
       videoUrl: /video/event-scheduler.mp4
       description: Schedule people, rooms, and equipment with resource timelines, conflicts, and drag-to-reschedule.
     - title: Kanban Board
       catalogProductId: kanban
       type: kanban
       link: /kanban
-      thumbnail: /blog/kanban-product-development-polished.png
+      thumbnail: /img/home-modules/kanban.webp
       videoUrl: /video/kanban-demo.mp4
       description: Project shared data into virtualized workflow columns, swimlanes, and WIP rules.
     - title: Gantt Charts
       catalogProductId: gantt
       type: gantt
       link: /gantt
-      thumbnail: /img/gantt-preview.png
+      thumbnail: /img/home-modules/gantt.webp
       videoUrl: /video/gantt-demo.mp4
       description: Coordinate timelines, dependencies, milestones, and resources on the same data model.
 

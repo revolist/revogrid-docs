@@ -1,7 +1,6 @@
 # RevoGrid Documentation
 
-Welcome to the RevoGrid documentation repository.
-This project uses VitePress to generate a static site for the RevoGrid documentation.
+Welcome to the RevoGrid documentation repository. This project uses VitePress to generate a static site for the RevoGrid documentation.
 
 ## Table of Contents
 
@@ -40,6 +39,19 @@ To set up the project locally:
    ```sh
    npm run build
    ```
+
+To use an external backend for the AI Agent demo, set the public interpretation
+endpoint in `.env` or in the environment that builds the docs.
+
+```dotenv
+VITE_AI_AGENT_ENDPOINT=https://ai-demo.example.com/api/ai-view/interpret
+```
+
+The browser calls this endpoint directly, so its host must allow the docs origin
+through CORS. Use the public demo proxy URL when the backend requires a service
+token. Keep the token on the server. With the variable unset, the demo uses
+`/api/ai-view/interpret` on the docs origin. Restart the dev server or rebuild
+the static site after changing the URL.
 
 ## Project Structure
 

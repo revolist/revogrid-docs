@@ -1,6 +1,6 @@
 import type { DefaultTheme } from 'vitepress'
-import { sidebarDemonEn } from './en.demo'
-import { sidebarGuideEn } from './en.guide'
+import { sidebarDemonEn } from './en.demo.ts'
+import { sidebarGuideEn } from './en.guide.ts'
 import dotenv from 'dotenv'
 dotenv.config()
 

@@ -2,7 +2,7 @@
 layout: revogrid-home
 title: Angular Data Grid - Fast, Editable, Virtual Scroll | RevoGrid
 titleTemplate: false
-description: A high-performance Angular data grid with virtual scrolling, inline editing, and custom Angular cell renderers. Open-source core, per-developer licensing, built for data-heavy Angular apps.
+description: RevoGrid is a high-performance Angular data grid with editable cells, virtual scrolling, and custom Angular components. Try the demo or install the package.
 navbar: true
 sidebar: false
 aside: false
@@ -23,7 +23,7 @@ head:
       content: Angular Data Grid - Fast, Editable, Virtual Scroll | RevoGrid
   - - meta
     - property: og:description
-      content: A high-performance Angular data grid with virtual scrolling, inline editing, and custom Angular cell renderers.
+      content: RevoGrid is a high-performance Angular data grid with editable cells, virtual scrolling, and custom Angular components. Try the demo or install the package.
   - - meta
     - property: og:url
       content: https://rv-grid.com/angular-data-grid
@@ -40,8 +40,8 @@ hero:
   emphasis: Angular Data Grid
   tagline: Fast virtual scrolling, inline editing, custom Angular cell renderers, and TypeScript-first APIs for dashboards, admin tools, and production SaaS.
   primaryAction:
-    text: Explore 1M-row demo
-    link: /demo/grid-at-scale
+    text: Explore Angular demo
+    link: /guide/demos/angular/angular-datagrid
   secondaryAction:
     text: Read Angular docs
     link: /guide/angular/
@@ -266,8 +266,8 @@ advanced:
       description: Add formulas, copy/paste, validation, history, and Excel-style workflows to Angular data products.
 
 comparison:
-  label: Angular data grid comparison
-  title: Angular Data Grid vs AG Grid Angular, Kendo UI, and Syncfusion
+  label: Angular product fit
+  title: Why choose RevoGrid for Angular?
   description: RevoGrid is strongest when your Angular app needs fast scrolling, editing, custom components, and a clear commercial upgrade path.
   columns: [Capability, Kendo UI Angular Grid, RevoGrid, Syncfusion Angular Grid, AG Grid Angular]
   rows:
@@ -278,6 +278,9 @@ comparison:
     - [Open-source core, no, yes, no, yes]
     - [Production SaaS licensing, enterprise, perDev, enterprise, enterprise]
     - [Advanced modules, yes, yesPro, yes, yes]
+  action:
+    text: Compare the best Angular data grids
+    link: /blog/top-5-angular-data-grid-libraries-2026
 
 faq:
   label: FAQ

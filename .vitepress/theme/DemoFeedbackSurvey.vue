@@ -1,13 +1,21 @@
 <template>
-  <Teleport to="body">
+  <Teleport :to="feedbackTriggerTarget">
     <button
       v-if="activeDemoId && !cardVisible && !flowVisible"
       class="demo-feedback-trigger"
+      :class="{
+        'demo-feedback-trigger--inline': feedbackTriggerTarget !== 'body',
+        'rg-btn': feedbackTriggerTarget !== 'body',
+        'rg-btn--medium': feedbackTriggerTarget !== 'body',
+        'rg-btn-secondary': feedbackTriggerTarget !== 'body',
+      }"
       type="button"
       @click="requestFeedback"
     >
       Feedback
     </button>
+  </Teleport>
+  <Teleport to="body">
     <Transition name="demo-feedback-card">
       <aside
         :id="DEMO_FEEDBACK_ELEMENT_IDS.card"
@@ -140,6 +148,7 @@ const route = useRoute()
 const cardVisible = ref(false)
 const flowVisible = ref(false)
 const feedbackDemo = ref<CatalogDemo | null>(null)
+const feedbackTriggerTarget = ref<HTMLElement | 'body'>('body')
 const initialPrimaryAnswer = ref<DemoFeedbackPrimaryAnswer | undefined>()
 const submissionState = ref<SubmissionState>('idle')
 const errorMessage = ref('')
@@ -542,6 +551,8 @@ const activateRoute = async (path: string) => {
     feedbackState = recordDemoView(feedbackState, activeDemoId, Date.now())
     persistState()
     await nextTick()
+    // Shared demo headers reserve a host so feedback never covers report data.
+    feedbackTriggerTarget.value = document.getElementById('demo-feedback-trigger-host') || 'body'
     scanForGrids()
     cardVisible.value = false
     evaluateEligibility()
@@ -852,6 +863,10 @@ onBeforeUnmount(() => {
   right: 18px;
   bottom: 18px;
   z-index: 50;
+  cursor: pointer;
+}
+
+.demo-feedback-trigger:not(.demo-feedback-trigger--inline) {
   border: 1px solid var(--vp-c-divider);
   border-radius: 999px;
   background: var(--vp-c-bg);
@@ -859,14 +874,17 @@ onBeforeUnmount(() => {
   padding: 7px 12px;
   font: inherit;
   font-size: 13px;
-  cursor: pointer;
   box-shadow: 0 4px 16px color-mix(in srgb, #0f172a 14%, transparent);
 }
 
-.demo-feedback-trigger:hover,
-.demo-feedback-trigger:focus-visible {
+.demo-feedback-trigger:not(.demo-feedback-trigger--inline):hover,
+.demo-feedback-trigger:not(.demo-feedback-trigger--inline):focus-visible {
   border-color: var(--vp-c-brand-1);
   color: var(--vp-c-brand-1);
+}
+
+.demo-feedback-trigger--inline {
+  position: static;
 }
 
 .demo-feedback-card-kicker {

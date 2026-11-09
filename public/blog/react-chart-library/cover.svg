@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Seven React chart libraries. One reporting workflow.</title>
+<desc id="desc">Editorial illustration of a monthly revenue chart, regional breakdown and connected data table.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#eff3ff"/><stop offset="1" stop-color="#e9f5f2"/></linearGradient><linearGradient id="area" x2="0" y2="1"><stop stop-color="#7463db" stop-opacity=".25"/><stop offset="1" stop-color="#7463db" stop-opacity=".02"/></linearGradient></defs>
+<rect width="1200" height="630" rx="24" fill="url(#bg)"/>
+<g font-family="Arial, sans-serif">
+<text x="56" y="59" fill="#6554c0" font-size="14" font-weight="700" letter-spacing="3">REACT CHART LIBRARY GUIDE · 2026</text>
+<text x="56" y="113" fill="#17243a" font-size="40" font-weight="700" letter-spacing="-1.5">Seven libraries. One reporting workflow.</text>
+<text x="56" y="148" fill="#536179" font-size="18">Compare the chart. Explore the report. Understand the records.</text>
+<rect x="56" y="182" width="1088" height="360" rx="18" fill="#fff" stroke="#d9dfec"/>
+<rect x="80" y="204" width="168" height="30" rx="15" fill="#6554c0"/><text x="100" y="224" fill="#fff" font-size="12" font-weight="700">SALES OVERVIEW</text>
+<text x="900" y="224" fill="#5b6881" font-size="12">All regions  /  Jan–Jun 2026</text>
+<path d="M80 250H1120M745 270V515" stroke="#e8ecf2"/>
+<text x="85" y="286" fill="#1b2942" font-size="16" font-weight="700">Monthly revenue</text><text x="85" y="308" fill="#6a768c" font-size="12">Revenue (USD) · illustrative data</text>
+<g stroke="#e8ecf2"><path d="M118 340H710M118 383H710M118 426H710M118 469H710"/></g>
+<g fill="#8390a4" font-size="11"><text x="85" y="344">30k</text><text x="85" y="387">20k</text><text x="85" y="430">10k</text><text x="99" y="473">0</text></g>
+<path d="M143 430L250 400L357 414L464 355L571 372L678 328V469H143Z" fill="url(#area)"/>
+<path d="M143 430L250 400L357 414L464 355L571 372L678 328" fill="none" stroke="#7561d5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<g fill="#fff" stroke="#7561d5" stroke-width="3"><circle cx="143" cy="430" r="5"/><circle cx="250" cy="400" r="5"/><circle cx="357" cy="414" r="5"/><circle cx="464" cy="355" r="5"/><circle cx="571" cy="372" r="5"/><circle cx="678" cy="328" r="5"/></g>
+<g fill="#6a768c" font-size="12" text-anchor="middle"><text x="143" y="495">Jan</text><text x="250" y="495">Feb</text><text x="357" y="495">Mar</text><text x="464" y="495">Apr</text><text x="571" y="495">May</text><text x="678" y="495">Jun</text></g>
+<text x="775" y="286" fill="#1b2942" font-size="16" font-weight="700">Revenue by region</text>
+<g font-size="12" fill="#536179"><text x="775" y="320">Europe</text><text x="775" y="362">Americas</text><text x="775" y="404">Asia Pacific</text></g>
+<rect x="885" y="307" width="210" height="16" rx="5" fill="#7561d5"/><rect x="885" y="349" width="154" height="16" rx="5" fill="#229d8f"/><rect x="885" y="391" width="107" height="16" rx="5" fill="#70a8d0"/>
+<rect x="775" y="440" width="320" height="62" rx="9" fill="#f3f5fa"/>
+<g stroke="#dce2ed"><path d="M790 463H1080M790 483H1080M893 449V493M993 449V493"/></g>
+<g fill="#536179" font-size="10"><text x="790" y="458">Region</text><text x="905" y="458">Period</text><text x="1005" y="458">Revenue</text><text x="790" y="478">Europe</text><text x="905" y="478">June</text><text x="1005" y="478">$14,200</text><text x="790" y="498">Americas</text><text x="905" y="498">June</text><text x="1005" y="498">$9,800</text></g>
+<text x="56" y="585" fill="#4d5a72" font-size="14">Recharts  ·  Chart.js  ·  ECharts  ·  Highcharts  ·  Plotly.js  ·  MUI X  ·  RevoGrid Charts</text>
+<text x="1144" y="608" text-anchor="end" fill="#748098" font-size="10">Editorial illustration · not a library screenshot</text>
+</g></svg>

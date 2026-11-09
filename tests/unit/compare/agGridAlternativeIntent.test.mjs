@@ -300,7 +300,7 @@ test('cross-links each major evaluation topic to a relevant internal resource', 
       ],
     ],
     ['## 10. When AG Grid is the right choice', ['/blog/best-js-datagrid-in-2026']],
-    ['## 14. AI-assisted development', ['/guide/mcp', '/demo/ai-prompts']],
+    ['## 14. AI-assisted development', ['/guide/mcp', '/demo/ai-agent']],
   ])
 
   for (const [heading, links] of sectionLinks) {
@@ -338,7 +338,7 @@ test('keeps every contextual internal-link destination backed by a local page', 
     '../demo/gantt.md',
     '../blog/best-js-datagrid-in-2026.md',
     '../guide/mcp.md',
-    '../demo/ai-prompts.md',
+    '../demo/ai-agent.md',
   ]) {
     assert.ok(
       existsSync(new URL(path, new URL('../../../compare/', import.meta.url))),
