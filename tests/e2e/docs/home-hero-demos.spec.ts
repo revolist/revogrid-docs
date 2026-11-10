@@ -145,3 +145,31 @@ test('film follows site theme and preserves position in both directions', async 
     .screenshot({ path: 'output/playwright/product-film-kanban.png' })
   expect(await film.evaluate((video: HTMLVideoElement) => video.controls)).toBe(false)
 })
+
+test('film aligns with the shared page content without stretching', async ({ page }) => {
+  for (const width of [1920, 900, 390]) {
+    await page.setViewportSize({ width, height: 900 })
+    await page.goto('/')
+    const dimensions = await page.evaluate(() => {
+      const video = document.querySelector('.rg-product-film')!.getBoundingClientRect()
+      const section =
+        document.querySelector('.rg-home > section:not(.rg-hero) .rg-container') ??
+        [...document.querySelectorAll('.rg-home .rg-container')].find(
+          element => !element.closest('.rg-hero'),
+        )!
+      const bounds = section.getBoundingClientRect()
+      const style = getComputedStyle(section)
+      return {
+        video: { left: video.left, right: video.right, width: video.width, height: video.height },
+        contentLeft: bounds.left + parseFloat(style.paddingLeft),
+        contentRight: bounds.right - parseFloat(style.paddingRight),
+        overflow: document.documentElement.scrollWidth > innerWidth,
+      }
+    })
+    expect(Math.abs(dimensions.video.left - dimensions.contentLeft)).toBeLessThanOrEqual(1)
+    expect(Math.abs(dimensions.video.right - dimensions.contentRight)).toBeLessThanOrEqual(1)
+    expect(dimensions.video.width).toBeLessThanOrEqual(1152)
+    expect(dimensions.video.width / dimensions.video.height).toBeCloseTo(480 / 157, 1)
+    expect(dimensions.overflow).toBe(false)
+  }
+})

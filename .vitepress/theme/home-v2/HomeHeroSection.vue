@@ -208,9 +208,6 @@ async function copyInstallCommand() {
 }
 
 .rg-hero-grid {
-  width: min(1320px, calc(100% - 80px));
-  max-width: none;
-  padding: 0;
   grid-template-columns: minmax(0, 1fr);
   gap: 36px;
 }
@@ -312,10 +309,6 @@ async function copyInstallCommand() {
 @media (max-width: 640px) {
   .rg-hero {
     padding-top: 56px;
-  }
-
-  .rg-hero-grid {
-    width: calc(100% - 32px);
   }
 
   .rg-hero-sub {
