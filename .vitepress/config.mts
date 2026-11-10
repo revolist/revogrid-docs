@@ -469,6 +469,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               link: '/pro/policies/security',
               text: 'Security',
             },
+            {
+              link: '/pro/policies/3rdparty',
+              text: 'Third-Party Libraries',
+            },
           ],
         },
       ],
