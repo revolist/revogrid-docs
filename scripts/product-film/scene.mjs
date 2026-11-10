@@ -46,7 +46,7 @@ const rows = [
   ['Design system', 'Nina Patel', 'Review', 85, 80, '#00b8a6', 0, 3],
   ['Research', 'Elias Novak', 'Complete', 100, 100, '#f5b700', 3, 4],
 ]
-const duration = 18.8
+const duration = 29.8
 // New playback time → original choreography time; holds retain their duration.
 const timing = [
   [0, 0],
@@ -55,8 +55,12 @@ const timing = [
   [9.5, 11.2],
   [10.3, 13.6],
   [16.2, 19.5],
-  [17.1, 22.3],
-  [18.8, 24],
+  [17, 22.3],
+  [21.7, 27],
+  [22.5, 29.8],
+  [27.2, 34.5],
+  [28.1, 37.3],
+  [29.8, 39],
 ]
 function choreographyTime(seconds) {
   const time = ((seconds % duration) + duration) % duration
@@ -163,6 +167,21 @@ function icon(x, y, type, size = 22, color = green) {
     rect(6.5, 3, 7.5, 3, 1.5, primary)
     rect(9.5, 8.5, 9, 3, 1.5, primary)
     rect(17, 14, 6, 3, 1.5, primary)
+  }
+  if (type === 3) {
+    rect(1, 3, 22, 20, 3, secondary)
+    rect(1, 3, 22, 6, 2, primary)
+    rect(5, 0, 3, 7, 1.5, primary)
+    rect(16, 0, 3, 7, 1.5, primary)
+    for (let row = 0; row < 2; row++) {
+      for (let col = 0; col < 3; col++) rect(5 + col * 5.5, 12 + row * 5, 3, 3, 0.8, primary)
+    }
+  }
+  if (type === 4) {
+    for (let col = 0; col < 3; col++) {
+      rect(col * 8 + 1, 1, 6, 22, 1.5, secondary)
+      for (let row = 0; row < 3 - col; row++) rect(col * 8 + 2, 3 + row * 6, 4, 4, 1, primary)
+    }
   }
   c.restore()
 }
@@ -355,6 +374,80 @@ function ganttSurface(a, t) {
     })
   })
 }
+const schedulerSlots = [
+  [270, 492, 265, 97],
+  [562, 492, 265, 125],
+  [854, 542, 265, 100],
+  [1146, 592, 265, 100],
+  [1438, 492, 265, 100],
+  [562, 692, 265, 105],
+]
+const sessionTimes = [
+  '09:00 – 11:00',
+  '09:00 – 11:30',
+  '10:00 – 12:00',
+  '11:00 – 13:00',
+  '09:00 – 11:00',
+  '13:00 – 15:00',
+]
+const kanbanSlots = [
+  [197, 489, 474, 98],
+  [197, 601, 474, 98],
+  [1249, 489, 474, 98],
+  [197, 713, 474, 98],
+  [723, 489, 474, 98],
+  [1249, 601, 474, 98],
+]
+function schedulerSurface(a) {
+  alpha(a, () => {
+    rect(181, 425, 1558, 50, 7, theme.header)
+    text('APR 6–10', 200, 450, 13, ink, 550)
+    ;['MON 06', 'TUE 07', 'WED 08', 'THU 09', 'FRI 10'].forEach((day, i) => {
+      text(day, 402 + i * 292, 450, 17, ink, 550, 'center')
+      rule(250 + i * 292, 475, 250 + i * 292, 820)
+    })
+    rule(1710, 475, 1710, 820)
+    for (let i = 0; i < 7; i++) {
+      const y = 492 + i * 50
+      text(`${String(9 + i).padStart(2, '0')}:00`, 230, y, 14, muted, 400, 'right')
+      rule(250, y, 1739, y)
+    }
+  })
+}
+function kanbanSurface(a) {
+  alpha(a, () => {
+    ;[
+      ['In progress', 3, '#0091ff'],
+      ['Review', 1, '#6647f0'],
+      ['Complete', 2, '#00b8a6'],
+    ].forEach(([label, count, color], i) => {
+      const x = 181 + i * 526
+      rect(x, 425, 506, 408, 10, theme.header)
+      dot(x + 22, 450, 4, color)
+      text(label, x + 36, 450, 18, ink, 550)
+      rect(x + 455, 436, 30, 28, 7, theme.background)
+      text(String(count), x + 470, 450, 14, muted, 550, 'center')
+    })
+  })
+}
+function schedulerCardLabel(r, i, x, y, w, h) {
+  text(r[0], x + 18, y + 22, 19, ink, 550)
+  text(sessionTimes[i], x + 18, y + 47, 14, ink)
+  avatar(i, x + 26, y + h - 20, 11)
+  text(r[1], x + 44, y + h - 20, 14, ink)
+}
+function kanbanCardLabel(r, i, x, y, w) {
+  text(r[0], x + 20, y + 27, 20, ink, 550)
+  rect(x + w - 123, y + 23, 65, 6, 3, theme.track)
+  rect(x + w - 123, y + 23, (65 * r[3]) / 100, 6, 3, r[5])
+  text(`${r[3]}%`, x + w - 16, y + 27, 14, muted, 550, 'right')
+  avatar(i, x + 28, y + 72, 12)
+  text(r[1], x + 48, y + 72, 15, theme.owner)
+  const budget = '$' + r[4] + ',000',
+    bw = badgeWidth(budget, 15, 600)
+  rect(x + w - 16 - bw, y + 57, bw, 28, 7, r[5])
+  text(budget, x + w - 16 - bw / 2, y + 72, 15, markText(r[5]), 600, 'center')
+}
 function render(t) {
   t = choreographyTime(t)
   c.setTransform(1, 0, 0, 1, 0, 0)
@@ -365,50 +458,70 @@ function render(t) {
   c.translate(-144, -352)
   const p = tween(t, 4.6, 7.1),
     q = tween(t, 11.2, 13.6),
-    back = tween(t, 19.5, 22.3)
+    schedule = tween(t, 19.5, 22.3),
+    board = tween(t, 27, 29.8),
+    back = tween(t, 34.5, 37.3)
   const ga = 1 - p + back,
     ca = p * (1 - q),
-    ta = q * (1 - back)
+    ta = q * (1 - schedule),
+    sa = schedule * (1 - board),
+    ka = board * (1 - back)
+  const weights = [ga, ca, ta, sa, ka]
   rect(144, 352, 1632, 500, 0, theme.background)
   const padding = 16,
     iconSize = 22,
     iconGap = 7,
     tabGap = 12
   let nextTabX = 181
-  const tabs = ['Data grid', 'Charts', 'Timeline'].map((label, type) => {
+  const tabs = ['Data grid', 'Charts', 'Timeline', 'Scheduler', 'Kanban'].map((label, type) => {
     const labelWidth = badgeWidth(label, 17, 550) - 24
     const width = padding * 2 + iconSize + iconGap + labelWidth
     const tab = { label, type, x: nextTabX, width }
     nextTabX += width + tabGap
     return tab
   })
-  const activeX = mix(mix(tabs[0].x, tabs[1].x, p), tabs[2].x, q) * (1 - back) + tabs[0].x * back
-  const activeWidth =
-    mix(mix(tabs[0].width, tabs[1].width, p), tabs[2].width, q) * (1 - back) + tabs[0].width * back
+  const activeX = tabs.reduce((sum, tab, i) => sum + tab.x * weights[i], 0)
+  const activeWidth = tabs.reduce((sum, tab, i) => sum + tab.width * weights[i], 0)
   rect(activeX, 366, activeWidth, 40, 9, theme.tab)
   tabs.forEach(({ label, type, x }, i) => {
-    const active = [ga, ca, ta][i] > 0.5
+    const active = weights[i] > 0.5
     const color = active ? green : muted
     icon(x + padding, 375, type, iconSize, color)
     text(label, x + padding + iconSize + iconGap, 386, 17, color, active ? 550 : 400)
   })
-  const gridInk = 1 - tween(t, 4.6, 5.25) + tween(t, 21.65, 22.3)
+  const gridInk = 1 - tween(t, 4.6, 5.25) + tween(t, 36.65, 37.3)
   const chartInk = tween(t, 6.45, 7.1) * (1 - tween(t, 11.2, 11.85))
   const ganttInk = tween(t, 12.95, 13.6) * (1 - tween(t, 19.5, 20.15))
   gridSurface(gridInk, t)
   chartSurface(chartInk, t)
   ganttSurface(ganttInk, t)
-  // These six shapes persist: colored budget cells → vertical bars → scheduled work.
+  const schedulerInk = tween(t, 21.65, 22.3) * (1 - tween(t, 27, 27.65))
+  const kanbanInk = tween(t, 29.15, 29.8) * (1 - tween(t, 34.5, 35.15))
+  schedulerSurface(schedulerInk)
+  kanbanSurface(kanbanInk)
+  // Six colored shapes persist through every view, then return to budget cells.
   rows.forEach((r, i) => {
     const pi = tween(t, 4.6 + i * 0.065, 6.75 + i * 0.065)
     const qi = tween(t, 11.2 + i * 0.065, 13.25 + i * 0.065)
-    const bi = tween(t, 19.5 + i * 0.065, 21.95 + i * 0.065)
+    const si = tween(t, 19.5 + i * 0.065, 21.95 + i * 0.065)
+    const ki = tween(t, 27 + i * 0.065, 29.45 + i * 0.065)
+    const bi = tween(t, 34.5 + i * 0.065, 36.95 + i * 0.065)
     const budgetLabel = '$' + r[4] + ',000'
     const budgetWidth = badgeWidth(budgetLabel, 18, 600)
     const grid = [1528 - budgetWidth, 492 + i * 55, budgetWidth, 30]
     const chart = [282 + i * 157, 788 - r[4], 96, r[4]]
     const gantt = [694 + r[6] * 81, 490 + i * 55, r[7] * 81, 34]
-    const geom = grid.map((v, j) => mix(mix(mix(v, chart[j], pi), gantt[j], qi), v, bi))
+    const geom = grid.map((v, j) =>
+      mix(
+        mix(
+          mix(mix(mix(v, chart[j], pi), gantt[j], qi), schedulerSlots[i][j], si),
+          kanbanSlots[i][j],
+          ki,
+        ),
+        v,
+        bi,
+      ),
+    )
     const [x, y, w, h] = geom
     const solid = pi * (1 - bi)
     alpha(1 - solid, () => rect(x, y, w, h, 7, r[5]))
@@ -416,12 +529,22 @@ function render(t) {
       const g = c.createLinearGradient(x, y, x + w, y + h)
       g.addColorStop(0, r[5])
       g.addColorStop(1, r[5])
-      rect(x, y, w, h, mix(7, 9, ca), g)
+      rect(x, y, w, h, mix(7, 9, Math.max(ca, sa, ka)), g)
       alpha(ta, () => {
         rect(x, y, w, h, 7, theme.remaining)
         rect(x, y, (w * r[3]) / 100, h, 7, r[5])
       })
     })
+    alpha(sa, () => {
+      rect(x, y, w, h, 9, theme.remaining)
+      rect(x, y, 6, h, 3, r[5])
+    })
+    alpha(ka, () => {
+      rect(x, y, w, h, 9, theme.background, line)
+      rect(x, y, 6, h, 3, r[5])
+    })
+    alpha(schedulerInk, () => schedulerCardLabel(r, i, x, y, w, h))
+    alpha(kanbanInk, () => kanbanCardLabel(r, i, x, y, w))
     alpha(gridInk, () => text(budgetLabel, x + w / 2, y + h / 2, 18, markText(r[5]), 600, 'center'))
     alpha(chartInk, () => text('$' + r[4] + 'k', x + w / 2, y - 22, 19, ink, 550, 'center'))
     alpha(ganttInk * tween(t, 13.1, 14), () => {
@@ -439,6 +562,7 @@ function render(t) {
 }
 window.renderFrame = render
 window.filmDuration = duration
+window.filmReviewTimes = [0, 3, 5, 7, 10, 13, 16.6, 19, 22.1, 25, 27.7, 29.79]
 render(0)
 if (!new URLSearchParams(location.search).has('render')) {
   const start = performance.now()

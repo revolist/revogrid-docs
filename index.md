@@ -39,12 +39,12 @@ hero:
     text: Start with free core
     link: /guide/
   film:
-    src: /video/revogrid-product-film-ca4a16877d03.mp4
-    poster: /video/revogrid-product-film-ca4a16877d03.jpg
-    darkSrc: /video/revogrid-product-film-dark-4ed981d3fe71.mp4
-    darkPoster: /video/revogrid-product-film-dark-4ed981d3fe71.jpg
-    label: RevoGrid — from cells to charts to project timelines
-    description: A conceptual product film showing six projects transform from a data grid into budget charts and a Gantt timeline. The same project colors and values connect every view.
+    src: /video/revogrid-product-film-707eacf90f47.mp4
+    poster: /video/revogrid-product-film-707eacf90f47.jpg
+    darkSrc: /video/revogrid-product-film-dark-b6630963d23b.mp4
+    darkPoster: /video/revogrid-product-film-dark-b6630963d23b.jpg
+    label: RevoGrid — grids, charts, timelines, Scheduler, and Kanban
+    description: A conceptual product film showing six projects transform from a data grid into budget charts, a Gantt timeline, a weekly Scheduler, and a Kanban board. The same project colors, owners, and values connect every view.
   demoLabels:
     title: Project portfolio
     viewsLabel: Explore data views

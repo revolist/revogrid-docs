@@ -1,6 +1,6 @@
 # RevoGrid product film
 
-Original, silent, 18.8-second looping motion artwork, rendered at 1920 × 628 / 60fps. No stock footage, reference-video assets, third-party fonts, or runtime animation dependencies. The pictured interface is conceptual. All six projects and colors persist across grid, charts, and Gantt.
+Original, silent, 29.8-second looping motion artwork, rendered at 1920 × 628 / 60fps. No stock footage, reference-video assets, third-party fonts, or runtime animation dependencies. The pictured interface is conceptual. All six projects and colors persist across grid, charts, Gantt, Scheduler, and Kanban.
 
 - `scene.mjs`: editable artwork, dataset, typography, layout, and timeline.
 - `scene.html`: browser preview (serve this directory with any static HTTP server).
@@ -14,7 +14,7 @@ From the docs directory, with the workspace Playwright dependency, Chrome, and f
 node scripts/product-film/render.mjs
 ```
 
-Use `--stills` to export eight review frames. `?render` disables the live preview's clock; `window.renderFrame(seconds)` seeks deterministically. Text in the artwork is grouped in the renderer for alternative language exports. The accessible description and player label are configured in `index.md` under `hero.film`.
+Use `--stills` to export review frames across all five views and transitions. `?render` disables the live preview's clock; `window.renderFrame(seconds)` seeks deterministically. Text in the artwork is grouped in the renderer for alternative language exports. The accessible description and player label are configured in `index.md` under `hero.film`.
 
 The homepage plays the muted video continuously with native autoplay and loop, without controls or hover overlays. The site container clips to a 20px radius; the media and video element stay square. Existing live demos remain available from the hero CTA.
 
@@ -33,3 +33,5 @@ Tab widths follow measured text plus a 22px icon, 7px icon gap and 16px padding 
 Gantt headers share the grid header styling across the full width. Chart titles align with the Data Grid icon. The exported frame includes 20px of white padding above and below the 1920×588 content.
 
 Dark export: `node scripts/product-film/render.mjs --dark` (add `--stills` for review frames). Use the printed dark paths in `hero.film.darkSrc` and `hero.film.darkPoster`. The site follows VitePress theme state and restores the film position when switching sources.
+
+Scheduler shows the same six projects as time-blocked sessions in a five-day calendar. Kanban groups them into In progress (3), Review (1), and Complete (2), carrying their portraits, budget badges, and progress forward. Calendar and board tabs use the same green two-tone icon style and measured padding.

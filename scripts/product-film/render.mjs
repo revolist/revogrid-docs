@@ -40,7 +40,7 @@ try {
   const frames = process.argv.includes('--stills')
   if (frames) {
     await mkdir(review, { recursive: true })
-    for (const t of [0, 3, 5, 7, 10, 13, 16.6, 18.79]) {
+    for (const t of await page.evaluate(() => window.filmReviewTimes)) {
       await page.evaluate(t => window.renderFrame(t), t)
       await page.screenshot({ path: `${review}product-film-${themeName}-${t}.png` })
     }

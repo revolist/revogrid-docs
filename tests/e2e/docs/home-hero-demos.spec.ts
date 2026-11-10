@@ -14,7 +14,9 @@ test('hero loops continuously without hover controls inside the rounded containe
   const hero = page.locator('.rg-hero')
   const film = hero.locator('video')
   await film.scrollIntoViewIfNeeded()
-  await expect(film).toHaveAccessibleName('RevoGrid — from cells to charts to project timelines')
+  await expect(film).toHaveAccessibleName(
+    'RevoGrid — grids, charts, timelines, Scheduler, and Kanban',
+  )
   await expect
     .poll(() => film.evaluate((video: HTMLVideoElement) => video.currentTime))
     .toBeGreaterThan(0)
@@ -36,7 +38,7 @@ test('hero loops continuously without hover controls inside the rounded containe
     loop: true,
     width: 1920,
     height: 628,
-    duration: 18.8,
+    duration: 29.8,
   })
   await expect(film).not.toHaveAttribute('controls')
   await expect(hero.locator('.rg-hero-visual--film')).toHaveCSS('border-radius', '20px')
@@ -60,7 +62,7 @@ test('ambient playback remains enabled with reduced motion', async ({ page }) =>
   await page.goto('/')
   const film = page.locator('.rg-product-film')
   await film.scrollIntoViewIfNeeded()
-  await expect(film).toHaveAttribute('poster', '/video/revogrid-product-film-ca4a16877d03.jpg')
+  await expect(film).toHaveAttribute('poster', '/video/revogrid-product-film-707eacf90f47.jpg')
   await expect
     .poll(() => film.evaluate((video: HTMLVideoElement) => video.currentTime > 0 && !video.paused))
     .toBe(true)
@@ -95,17 +97,17 @@ test('film follows site theme and preserves position in both directions', async 
   const toggle = page.getByRole('switch', { name: 'Appearance', exact: true }).first()
   await film.evaluate((video: HTMLVideoElement) => {
     video.pause()
-    video.currentTime = 13
+    video.currentTime = 19
   })
   await toggle.click()
-  await expect(film).toHaveAttribute('src', '/video/revogrid-product-film-dark-4ed981d3fe71.mp4')
-  await expect(film).toHaveAttribute('poster', '/video/revogrid-product-film-dark-4ed981d3fe71.jpg')
+  await expect(film).toHaveAttribute('src', '/video/revogrid-product-film-dark-b6630963d23b.mp4')
+  await expect(film).toHaveAttribute('poster', '/video/revogrid-product-film-dark-b6630963d23b.jpg')
   await expect
     .poll(() =>
       film.evaluate(
         (video: HTMLVideoElement) =>
-          video.currentTime >= 13 &&
-          video.currentTime < 16 &&
+          video.currentTime >= 19 &&
+          video.currentTime < 21 &&
           !video.paused &&
           video.readyState >= 2,
       ),
@@ -116,26 +118,30 @@ test('film follows site theme and preserves position in both directions', async 
     .locator('.rg-hero-visual--film')
     .screenshot({ path: 'output/playwright/product-film-dark.png' })
   await page.reload()
-  await expect(film).toHaveAttribute('src', '/video/revogrid-product-film-dark-4ed981d3fe71.mp4')
+  await expect(film).toHaveAttribute('src', '/video/revogrid-product-film-dark-b6630963d23b.mp4')
   await expect
     .poll(() => film.evaluate((video: HTMLVideoElement) => video.readyState))
     .toBeGreaterThanOrEqual(2)
   await film.evaluate((video: HTMLVideoElement) => {
     video.pause()
-    video.currentTime = 7
+    video.currentTime = 25
   })
   await toggle.click()
-  await expect(film).toHaveAttribute('src', '/video/revogrid-product-film-ca4a16877d03.mp4')
+  await expect(film).toHaveAttribute('src', '/video/revogrid-product-film-707eacf90f47.mp4')
   await expect
     .poll(() =>
       film.evaluate(
         (video: HTMLVideoElement) =>
-          video.currentTime >= 7 &&
-          video.currentTime < 10 &&
+          video.currentTime >= 25 &&
+          video.currentTime < 27 &&
           !video.paused &&
           video.readyState >= 2,
       ),
     )
     .toBe(true)
+  await film.scrollIntoViewIfNeeded()
+  await page
+    .locator('.rg-hero-visual--film')
+    .screenshot({ path: 'output/playwright/product-film-kanban.png' })
   expect(await film.evaluate((video: HTMLVideoElement) => video.controls)).toBe(false)
 })
