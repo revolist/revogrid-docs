@@ -73,9 +73,28 @@
       </div>
 
       <div class="rg-hero-preview">
-        <div class="rg-hero-visual">
+        <div class="rg-hero-visual" :class="{ 'rg-hero-visual--film': hero?.film }">
+          <video
+            v-if="hero?.film"
+            ref="film"
+            class="rg-product-film"
+            :src="filmSource"
+            :poster="filmPoster"
+            :aria-label="hero.film.label"
+            :aria-description="hero.film.description"
+            width="1920"
+            height="628"
+            muted
+            loop
+            playsinline
+            autoplay
+            preload="auto"
+            @loadedmetadata="onFilmMetadata"
+          >
+            {{ hero.film.description }}
+          </video>
           <HomeHero
-            v-if="hero?.demoLabels && hero?.demoTabs?.length"
+            v-else-if="hero?.demoLabels && hero?.demoTabs?.length"
             :labels="hero.demoLabels"
             :tabs="hero.demoTabs"
           />
@@ -87,20 +106,52 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed, defineAsyncComponent, onMounted, ref, watch } from 'vue'
+import { useData } from 'vitepress'
 import { VPButton } from 'vitepress/theme'
 import '@revolist/ui/styles.css'
 import HomeChevron from './HomeChevron.vue'
-import HomeHero from './hero/HomeHeroDemos.vue'
 import HomeHeroHeadline from './hero/HomeHeroHeadline.vue'
 import HomeHeroProof from './hero/HomeHeroProof.vue'
 import { escapeHtml, linkProductMentions, type HomeV2Record, useHomeV2Links } from './homeV2Utils'
+
+const HomeHero = defineAsyncComponent(() => import('./hero/HomeHeroDemos.vue'))
 
 const props = defineProps<{
   hero?: HomeV2Record
 }>()
 
 const { linkOf } = useHomeV2Links()
+
+const { isDark } = useData()
+const filmSource = computed(() =>
+  linkOf(
+    isDark.value && props.hero?.film?.darkSrc ? props.hero.film.darkSrc : props.hero?.film?.src,
+  ),
+)
+const filmPoster = computed(() =>
+  linkOf(
+    isDark.value && props.hero?.film?.darkPoster
+      ? props.hero.film.darkPoster
+      : props.hero?.film?.poster,
+  ),
+)
+const film = ref<HTMLVideoElement>()
+let filmPosition = 0
+watch(filmSource, () => {
+  const video = film.value
+  if (video?.readyState) filmPosition = video.currentTime
+})
+function onFilmMetadata() {
+  const video = film.value
+  if (!video) return
+  video.currentTime = Math.min(filmPosition, Math.max(0, video.duration - 0.05))
+  void video.play().catch(() => {})
+}
+onMounted(() => {
+  // Explicit playback keeps native autoplay visibility heuristics from pausing the film.
+  void film.value?.play().catch(() => {})
+})
 
 const heroFocused = ref(false)
 function onHeroFocusOut(event: FocusEvent) {
@@ -234,6 +285,18 @@ async function copyInstallCommand() {
   border: 1px solid var(--vp-c-divider);
   border-radius: 14px;
   background: transparent;
+}
+.rg-hero-visual--film {
+  padding: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--vp-c-bg);
+}
+.rg-product-film {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 480 / 157;
 }
 .rg-hero :deep(a:not(.rv-btn):not(.VPButton):focus-visible) {
   outline: 2px solid var(--vp-c-brand-1);

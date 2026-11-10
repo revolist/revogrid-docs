@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><title>RevoGrid — From cells to possibility</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: #f6f8f5;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+    }
+    canvas {
+      width: 100%;
+      max-width: 1920px;
+      aspect-ratio: 480/157;
+      display: block;
+    }
+  </style>
+  <canvas
+    width="1920"
+    height="628"
+    aria-label="RevoGrid data transforming into charts and project timelines"
+  ></canvas>
+  <script type="module" src="./scene.mjs"></script>
+</html>
