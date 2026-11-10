@@ -1,0 +1,31 @@
+{
+  "name": "revogrid-nextjs-row-saving",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 49302",
+    "build": "next build --webpack",
+    "start": "next start --hostname 127.0.0.1 --port 49302",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/*.test.ts",
+    "seed": "node server/seed.ts"
+  },
+  "engines": {
+    "node": ">=24.13.0"
+  },
+  "dependencies": {
+    "next": "16.4.6",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "@revolist/react-datagrid": "4.31.4",
+    "@revolist/revogrid": "4.31.4",
+    "@revolist/ui": "4.0.6"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "24.10.1",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "sass": "1.99.0"
+  }
+}

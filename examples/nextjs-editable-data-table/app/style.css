@@ -1,0 +1,101 @@
+:root {
+  font:
+    16px/1.55 system-ui,
+    sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--rv-ui-surface-sunken);
+  color: var(--rv-ui-text);
+}
+main {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 36px 24px;
+}
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin: 8px 0;
+  letter-spacing: -0.035em;
+}
+h2 {
+  font-size: 1.2rem;
+}
+header p {
+  margin: 8px 0;
+}
+.eyebrow {
+  color: var(--rv-ui-accent-text);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+.editor-shell {
+  padding: 20px;
+  margin-top: 20px;
+}
+.toolbar {
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 10px;
+}
+.toolbar .rv-form-field {
+  min-width: 155px;
+}
+.status {
+  padding-top: 14px;
+  min-height: 68px;
+  font-size: 0.9rem;
+}
+.status p {
+  margin: 4px 0;
+}
+footer {
+  font-size: 0.85rem;
+  color: var(--rv-ui-text-muted);
+  margin-top: 20px;
+}
+.grid-wrap,
+.table-scroll {
+  overflow-x: auto;
+}
+revo-grid {
+  height: 450px;
+  min-width: 670px;
+}
+.loading {
+  min-height: 450px;
+}
+.error,
+.conflict {
+  margin: 12px 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+th,
+td {
+  padding: 8px;
+  border-bottom: 1px solid var(--rv-ui-border);
+}
+.conflict .rv-btn {
+  margin: 4px;
+}
+@media (max-width: 600px) {
+  main {
+    padding: 18px 12px;
+  }
+  .editor-shell {
+    padding: 12px;
+  }
+  .toolbar .rv-form-field {
+    flex-basis: 100%;
+  }
+}

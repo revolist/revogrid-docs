@@ -670,6 +670,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   },
   srcExclude: process.env.VITE_PRO_INCLUDE
     ? [
+        '_research/**',
+        'examples/**',
         'tests/**',
         'output/**',
         '**/*_feature.md',
@@ -683,6 +685,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         'guide/column/cell.template.md',
       ]
     : [
+        '_research/**',
+        'examples/**',
         'tests/**',
         'output/**',
         '**/*_feature.md',
