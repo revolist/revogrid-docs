@@ -37,6 +37,7 @@ Review the full [RevoGrid Gantt feature set, live demos, framework support, pric
 <script lang="ts" setup>
 import CompareFaq from './CompareFaq.vue'
 import CompareHero from './CompareHero.vue'
+import CompareCta from './CompareCta.vue'
 
 const faqItems = [
   {
@@ -267,6 +268,8 @@ Use RevoGrid Gantt when you are replacing Microsoft Project-style planning with 
 **Build embedded project scheduling with RevoGrid Gantt.**
 
 [Explore RevoGrid Pro](/pro/) · [Compare Pro features](/pro/feature-table) · [Read the Gantt page](/gantt/)
+
+<CompareCta primary-label="Start your 30-day Pro trial" />
 
 </div>
 

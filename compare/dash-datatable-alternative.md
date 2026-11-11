@@ -31,6 +31,7 @@ faq:
 
 <script lang="ts" setup>
 import CompareHero from './CompareHero.vue'
+import CompareCta from './CompareCta.vue'
 </script>
 
 <CompareHero
@@ -582,6 +583,8 @@ The migration is straightforward for ordinary row data and columns. The main wor
 **Replace Dash DataTable with a virtualized Python data grid.**
 
 [Read the Dash Data Grid guide](/guide/dash/) · [View the Python package on GitHub](https://github.com/revolist/dash-datagrid) · [Explore RevoGrid](/)
+
+<CompareCta primary-label="Start your 30-day Pro trial" />
 
 </div>
 

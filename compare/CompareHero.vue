@@ -20,6 +20,11 @@
     />
 
     <p class="compare-note">
+      Evaluate RevoGrid Pro in your own application for 30 days. No form, npm login, or license key
+      required.
+    </p>
+
+    <p class="compare-note">
       Last reviewed: {{ reviewedDate }}. Vendor pricing, license terms, and feature packaging can
       change. Verify official vendor pages before purchase.
     </p>
@@ -45,7 +50,7 @@ withDefaults(
   {
     eyebrow: 'Deep technical comparison for product teams',
     primaryCtaHref: '/trial',
-    primaryCtaLabel: 'Get Pro Trial',
+    primaryCtaLabel: 'Try RevoGrid Pro free',
     revoSummary:
       'RevoGrid Core and RevoGrid Pro are best understood as a fast data-grid foundation plus optional advanced workflow modules.',
     reviewedDate: 'June 4, 2026',

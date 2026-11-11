@@ -17,6 +17,7 @@ head:
 
 <script lang="ts" setup>
 import CompareHero from './CompareHero.vue'
+import CompareCta from './CompareCta.vue'
 </script>
 
 <CompareHero
@@ -369,6 +370,8 @@ RevoGrid gives you the performance-first foundation for complex data screens and
 **Build a faster data product with RevoGrid.**
 
 [Explore RevoGrid Pro](/pro/) · [Compare Pro features](/pro/feature-table) · [Start with RevoGrid](/)
+
+<CompareCta primary-label="Start your 30-day Pro trial" />
 
 </div>
 

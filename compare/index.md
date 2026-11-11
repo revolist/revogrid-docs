@@ -16,11 +16,19 @@ head:
       href: https://rv-grid.com/compare/
 ---
 
+<script setup>
+import CompareCta from './CompareCta.vue'
+</script>
+
 # RevoGrid Comparisons
 
 These guides will help you to choose a JavaScript data grid, Gantt, scheduler, or Pivot component for a product, internal platform, analytics workflow, planning tool, or spreadsheet-like application.
 
 The comparison pages focus on practical buying and implementation questions: licensing, deployment rules, framework support, editing, filtering, export, Pivot analytics, Gantt planning, server-side workflows, support, and migration tradeoffs.
+
+Evaluate RevoGrid Pro in your own application for 30 days. No form, npm login, or license key required.
+
+<CompareCta />
 
 ## Grid And Table Comparisons
 
@@ -188,6 +196,12 @@ When evaluating JavaScript Data Grid, Gantt, and Pivot frameworks, start with th
 - Pivot support for dimensions, measures, aggregations, subtotals, drill-down, saved state, and server-side analytics
 - Advanced product modules such as master-detail, charts, audit workflows, formulas, and custom renderers
 - Support model, procurement fit, security review, and roadmap access
+
+## Evaluate your shortlist
+
+Test the Pro features that matter to your application with the public trial packages or starter.
+
+<CompareCta primary-label="Start your 30-day Pro trial" />
 
 <style lang="scss">
 .compare-index-grid {

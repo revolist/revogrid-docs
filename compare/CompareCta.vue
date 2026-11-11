@@ -5,13 +5,16 @@
     role="group"
     aria-label="Comparison actions"
   >
-    <a class="rg-btn" :href="primaryHref">{{ primaryLabel }}</a>
+    <a class="rg-btn" :href="primaryLink">{{ primaryLabel }}</a>
     <a class="rg-btn rg-btn-secondary" :href="secondaryHref">{{ secondaryLabel }}</a>
   </div>
 </template>
 
 <script lang="ts" setup>
-withDefaults(
+import { computed } from 'vue'
+import { useRoute } from 'vitepress'
+
+const props = withDefaults(
   defineProps<{
     inline?: boolean
     primaryHref?: string
@@ -21,11 +24,24 @@ withDefaults(
   }>(),
   {
     primaryHref: '/trial',
-    primaryLabel: 'Get Pro Trial',
+    primaryLabel: 'Try RevoGrid Pro free',
     secondaryHref: '/pricing#pro-advanced',
     secondaryLabel: 'Buy Pro',
   },
 )
+
+const route = useRoute()
+const primaryLink = computed(() => {
+  const target = new URL(props.primaryHref, 'https://rv-grid.com')
+  if (target.origin !== 'https://rv-grid.com' || target.pathname !== '/trial') {
+    return props.primaryHref
+  }
+  if (!target.searchParams.has('source') && route.path.startsWith('/compare/')) {
+    const comparison = route.path.slice('/compare/'.length).replace(/\/$/, '')
+    target.searchParams.set('source', comparison || 'comparisons')
+  }
+  return `${target.pathname}${target.search}${target.hash}`
+})
 </script>
 
 <style scoped>

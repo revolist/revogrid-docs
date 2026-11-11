@@ -22,6 +22,7 @@ See the complete [RevoGrid Gantt product page](/gantt) for live demos, supported
 <script lang="ts" setup>
 import CompareFaq from './CompareFaq.vue'
 import CompareHero from './CompareHero.vue'
+import CompareCta from './CompareCta.vue'
 
 const faqItems = [
   {
@@ -325,6 +326,8 @@ With RevoGrid, the task table, custom fields, editing, validation, resources, de
 **Build planning into the data workflow your users already know.**
 
 [Explore RevoGrid Gantt](/gantt) · [Read the Gantt docs](https://pro.rv-grid.com/guides/gantt/) · [Compare Pro features](/pro/feature-table)
+
+<CompareCta primary-label="Start your 30-day Pro trial" />
 
 </div>
 

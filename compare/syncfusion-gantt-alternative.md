@@ -21,6 +21,7 @@ See the complete [RevoGrid Gantt product page](/gantt) for live demos, framework
 
 <script lang="ts" setup>
 import CompareHero from './CompareHero.vue'
+import CompareCta from './CompareCta.vue'
 </script>
 
 <CompareHero
@@ -566,7 +567,9 @@ The practical decision is not simply which product has more checkmarks. It is wh
 
 **Build scheduling into your product with RevoGrid Gantt.**
 
-[Explore RevoGrid Gantt](/gantt) · [View the Gantt docs](https://pro.rv-grid.com/guides/gantt/) · [Compare Pro features](/pro/feature-table) · [Get Pro Trial](/trial)
+[Explore RevoGrid Gantt](/gantt) · [View the Gantt docs](https://pro.rv-grid.com/guides/gantt/) · [Compare Pro features](/pro/feature-table)
+
+<CompareCta primary-label="Start your 30-day Pro trial" />
 
 </div>
 

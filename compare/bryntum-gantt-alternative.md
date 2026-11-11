@@ -26,6 +26,7 @@ For resource timelines, event editing, conflicts, availability, and operational 
 <script lang="ts" setup>
 import CompareFaq from './CompareFaq.vue'
 import CompareHero from './CompareHero.vue'
+import CompareCta from './CompareCta.vue'
 
 const faqItems = [
   {
@@ -384,7 +385,9 @@ The practical distinction is simple:
 
 **Build scheduling into your product—not beside it.**
 
-[Explore RevoGrid Gantt](/gantt) · [View Gantt documentation](https://pro.rv-grid.com/guides/gantt/) · [Get Pro Trial](/trial)
+[Explore RevoGrid Gantt](/gantt) · [View Gantt documentation](https://pro.rv-grid.com/guides/gantt/)
+
+<CompareCta primary-label="Start your 30-day Pro trial" />
 
 </div>
 

@@ -106,7 +106,7 @@ test('preserves the indexed URL, search coverage, and long-form comparison', () 
 })
 
 test('routes research-stage visitors to a useful next action before purchase', () => {
-  assert.match(articleSource, /primary-cta-label="Explore Live Demos"/)
+  assert.doesNotMatch(articleSource, /primary-cta-href="\/demo\/"/)
   assert.match(articleSource, /secondary-cta-label="View Migration Guide"/)
   assert.match(articleSource, /^### Start with your goal$/m)
   assert.match(articleSource, /\[Explore the live demos\]\(\/demo\/\)/)
@@ -200,7 +200,7 @@ test('uses reader-focused section labels while preserving every legacy fragment'
 })
 
 test('keeps shared commercial CTA defaults for other comparison pages', () => {
-  assert.match(ctaSource, /primaryLabel: 'Get Pro Trial'/)
+  assert.match(ctaSource, /primaryLabel: 'Try RevoGrid Pro free'/)
   assert.match(ctaSource, /secondaryLabel: 'Buy Pro'/)
   assert.match(ctaSource, /role="group"/)
   assert.match(ctaSource, /aria-label="Comparison actions"/)
