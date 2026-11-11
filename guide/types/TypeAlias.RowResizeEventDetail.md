@@ -17,13 +17,13 @@ type RowResizeEventDetail: {
 
 | Name | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `index` | `number` | Boundary row whose handle started the gesture. | [src/plugins/row-resize/row-resize.types.ts:22](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/row-resize/row-resize.types.ts#L22) |
-| `indexes` | `number`[] | All virtual row indexes affected by this gesture. | [src/plugins/row-resize/row-resize.types.ts:24](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/row-resize/row-resize.types.ts#L24) |
-| `originalEvent` | `PointerEvent` | Most recent pointer event associated with this lifecycle event. | [src/plugins/row-resize/row-resize.types.ts:30](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/row-resize/row-resize.types.ts#L30) |
-| `previousSizes` | [`ViewSettingSizeProp`](TypeAlias.ViewSettingSizeProp.md) | Heights at the start of the gesture. | [src/plugins/row-resize/row-resize.types.ts:28](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/row-resize/row-resize.types.ts#L28) |
-| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | Row dimension containing the resized rows. | [src/plugins/row-resize/row-resize.types.ts:20](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/row-resize/row-resize.types.ts#L20) |
-| `size` | `number` | Current absolute height applied to every affected row. | [src/plugins/row-resize/row-resize.types.ts:26](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/row-resize/row-resize.types.ts#L26) |
+| `index` | `number` | Boundary row whose handle started the gesture. | [src/plugins/row-resize/row-resize.types.ts:22](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/row-resize/row-resize.types.ts#L22) |
+| `indexes` | `number`[] | All virtual row indexes affected by this gesture. | [src/plugins/row-resize/row-resize.types.ts:24](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/row-resize/row-resize.types.ts#L24) |
+| `originalEvent` | `PointerEvent` | Most recent pointer event associated with this lifecycle event. | [src/plugins/row-resize/row-resize.types.ts:30](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/row-resize/row-resize.types.ts#L30) |
+| `previousSizes` | [`ViewSettingSizeProp`](TypeAlias.ViewSettingSizeProp.md) | Heights at the start of the gesture. | [src/plugins/row-resize/row-resize.types.ts:28](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/row-resize/row-resize.types.ts#L28) |
+| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | Row dimension containing the resized rows. | [src/plugins/row-resize/row-resize.types.ts:20](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/row-resize/row-resize.types.ts#L20) |
+| `size` | `number` | Current absolute height applied to every affected row. | [src/plugins/row-resize/row-resize.types.ts:26](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/row-resize/row-resize.types.ts#L26) |
 
 ## Defined in
 
-[src/plugins/row-resize/row-resize.types.ts:18](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/row-resize/row-resize.types.ts#L18)
+[src/plugins/row-resize/row-resize.types.ts:18](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/row-resize/row-resize.types.ts#L18)

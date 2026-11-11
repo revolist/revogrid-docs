@@ -13,9 +13,9 @@ type OnExpandEvent: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `model` | [`DataType`](TypeAlias.DataType.md) | [src/plugins/groupingRow/grouping.row.types.ts:136](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/groupingRow/grouping.row.types.ts#L136) |
-| `virtualIndex` | `number` | [src/plugins/groupingRow/grouping.row.types.ts:137](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/groupingRow/grouping.row.types.ts#L137) |
+| `model` | [`DataType`](TypeAlias.DataType.md) | [src/plugins/groupingRow/grouping.row.types.ts:136](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/groupingRow/grouping.row.types.ts#L136) |
+| `virtualIndex` | `number` | [src/plugins/groupingRow/grouping.row.types.ts:137](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/groupingRow/grouping.row.types.ts#L137) |
 
 ## Defined in
 
-[src/plugins/groupingRow/grouping.row.types.ts:135](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/groupingRow/grouping.row.types.ts#L135)
+[src/plugins/groupingRow/grouping.row.types.ts:135](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/groupingRow/grouping.row.types.ts#L135)

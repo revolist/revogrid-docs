@@ -14,10 +14,10 @@ type BeforeColumnDragEndEventData: StaticData & {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `newItem` | [`ColumnRegular`](Interface.ColumnRegular.md) | [src/plugins/moveColumn/column.drag.plugin.ts:71](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/moveColumn/column.drag.plugin.ts#L71) |
-| `newPosition` | [`PositionItem`](Interface.PositionItem.md) | [src/plugins/moveColumn/column.drag.plugin.ts:70](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/moveColumn/column.drag.plugin.ts#L70) |
-| `startPosition` | [`PositionItem`](Interface.PositionItem.md) | [src/plugins/moveColumn/column.drag.plugin.ts:69](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/moveColumn/column.drag.plugin.ts#L69) |
+| `newItem` | [`ColumnRegular`](Interface.ColumnRegular.md) | [src/plugins/moveColumn/column.drag.plugin.ts:71](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/moveColumn/column.drag.plugin.ts#L71) |
+| `newPosition` | [`PositionItem`](Interface.PositionItem.md) | [src/plugins/moveColumn/column.drag.plugin.ts:70](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/moveColumn/column.drag.plugin.ts#L70) |
+| `startPosition` | [`PositionItem`](Interface.PositionItem.md) | [src/plugins/moveColumn/column.drag.plugin.ts:69](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/moveColumn/column.drag.plugin.ts#L69) |
 
 ## Defined in
 
-[src/plugins/moveColumn/column.drag.plugin.ts:68](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/moveColumn/column.drag.plugin.ts#L68)
+[src/plugins/moveColumn/column.drag.plugin.ts:68](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/moveColumn/column.drag.plugin.ts#L68)

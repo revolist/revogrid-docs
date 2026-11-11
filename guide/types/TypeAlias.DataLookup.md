@@ -19,4 +19,4 @@ type DataLookup<T, K>: {};
 
 ## Defined in
 
-[src/types/interfaces.ts:485](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/types/interfaces.ts#L485)
+[src/types/interfaces.ts:485](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/types/interfaces.ts#L485)

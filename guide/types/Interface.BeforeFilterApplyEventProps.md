@@ -27,7 +27,7 @@ grid.addEventListener('beforefilterapply', event => {
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `collection` | `Record`\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`FilterCollectionItem`](TypeAlias.FilterCollectionItem.md)\> | First condition for each column. | [src/plugins/filter/filter.types.ts:226](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/filter/filter.types.ts#L226) |
-| `columns` | `TColumn`[] | Regular grid columns. | [src/plugins/filter/filter.types.ts:232](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/filter/filter.types.ts#L232) |
-| `filterItems` | [`MultiFilterItem`](Interface.MultiFilterItem.md) | Complete multi-condition filter model. | [src/plugins/filter/filter.types.ts:228](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/filter/filter.types.ts#L228) |
-| `source` | `TModel`[] | Source rows being filtered. | [src/plugins/filter/filter.types.ts:230](https://github.com/revolist/revogrid/blob/b3d9880a0035c924499cf91e20d48823fa9d5faa/src/plugins/filter/filter.types.ts#L230) |
+| `collection` | `Record`\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`FilterCollectionItem`](TypeAlias.FilterCollectionItem.md)\> | First condition for each column. | [src/plugins/filter/filter.types.ts:226](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/filter/filter.types.ts#L226) |
+| `columns` | `TColumn`[] | Regular grid columns. | [src/plugins/filter/filter.types.ts:232](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/filter/filter.types.ts#L232) |
+| `filterItems` | [`MultiFilterItem`](Interface.MultiFilterItem.md) | Complete multi-condition filter model. | [src/plugins/filter/filter.types.ts:228](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/filter/filter.types.ts#L228) |
+| `source` | `TModel`[] | Source rows being filtered. | [src/plugins/filter/filter.types.ts:230](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/plugins/filter/filter.types.ts#L230) |
