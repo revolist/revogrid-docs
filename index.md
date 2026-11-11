@@ -25,11 +25,11 @@ hero:
   rotatingTerm: Data Grid
   rotatingProducts:
     - Data Grid
-    - Gantt
     - Pivot
-    - Kanban
-    - Scheduler
     - Charts
+    - Gantt
+    - Scheduler
+    - Kanban
   tagline: The world's fastest JavaScript data grid. 60fps, 3x less memory. Inline editing, virtual scroll, and custom cells for every major framework.
   primaryAction:
     text: Try live demo
@@ -39,12 +39,19 @@ hero:
     text: Start with free core
     link: /guide/
   film:
-    src: /video/revogrid-product-film-707eacf90f47.mp4
-    poster: /video/revogrid-product-film-707eacf90f47.jpg
-    darkSrc: /video/revogrid-product-film-dark-b6630963d23b.mp4
-    darkPoster: /video/revogrid-product-film-dark-b6630963d23b.jpg
-    label: RevoGrid — grids, charts, timelines, Scheduler, and Kanban
-    description: A conceptual product film showing six projects transform from a data grid into budget charts, a Gantt timeline, a weekly Scheduler, and a Kanban board. The same project colors, owners, and values connect every view.
+    productLabels:
+      grid: Data Grid
+      pivot: Pivot
+      charts: Charts
+      gantt: Gantt
+      scheduler: Scheduler
+      kanban: Kanban
+    src: /video/revogrid-product-film-1830b8ae80c4.mp4
+    poster: /video/revogrid-product-film-1830b8ae80c4.jpg
+    darkSrc: /video/revogrid-product-film-dark-84e3ca74a4ea.mp4
+    darkPoster: /video/revogrid-product-film-dark-84e3ca74a4ea.jpg
+    label: RevoGrid — Data Grid, Pivot, Charts, Gantt, Scheduler, and Kanban
+    description: A conceptual product film showing six projects transform from a data grid into a Pivot summary, budget charts, a Gantt timeline, a weekly Scheduler, and a Kanban board. The same project colors, owners, and values connect every view.
   demoLabels:
     title: Project portfolio
     viewsLabel: Explore data views

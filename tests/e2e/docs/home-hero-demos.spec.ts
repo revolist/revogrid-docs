@@ -15,7 +15,7 @@ test('hero loops continuously without hover controls inside the rounded containe
   const film = hero.locator('video')
   await film.scrollIntoViewIfNeeded()
   await expect(film).toHaveAccessibleName(
-    'RevoGrid — grids, charts, timelines, Scheduler, and Kanban',
+    'RevoGrid — Data Grid, Pivot, Charts, Gantt, Scheduler, and Kanban',
   )
   await expect
     .poll(() => film.evaluate((video: HTMLVideoElement) => video.currentTime))
@@ -38,7 +38,7 @@ test('hero loops continuously without hover controls inside the rounded containe
     loop: true,
     width: 1920,
     height: 628,
-    duration: 29.8,
+    duration: 34.7,
   })
   await expect(film).not.toHaveAttribute('controls')
   await expect(hero.locator('.rg-hero-visual--film')).toHaveCSS('border-radius', '20px')
@@ -51,6 +51,7 @@ test('hero loops continuously without hover controls inside the rounded containe
   await expect
     .poll(() => film.evaluate((video: HTMLVideoElement) => video.currentTime < 2 && !video.paused))
     .toBe(true)
+  await expect(hero.locator('.rg-hero-product-label')).toHaveText('Data Grid')
   await expect(hero.getByRole('link', { name: 'Try live demo', exact: true })).toHaveAttribute(
     'href',
     '/demo/',
@@ -62,7 +63,7 @@ test('ambient playback remains enabled with reduced motion', async ({ page }) =>
   await page.goto('/')
   const film = page.locator('.rg-product-film')
   await film.scrollIntoViewIfNeeded()
-  await expect(film).toHaveAttribute('poster', '/video/revogrid-product-film-707eacf90f47.jpg')
+  await expect(film).toHaveAttribute('poster', '/video/revogrid-product-film-1830b8ae80c4.jpg')
   await expect
     .poll(() => film.evaluate((video: HTMLVideoElement) => video.currentTime > 0 && !video.paused))
     .toBe(true)
@@ -97,17 +98,17 @@ test('film follows site theme and preserves position in both directions', async 
   const toggle = page.getByRole('switch', { name: 'Appearance', exact: true }).first()
   await film.evaluate((video: HTMLVideoElement) => {
     video.pause()
-    video.currentTime = 19
+    video.currentTime = 7
   })
   await toggle.click()
-  await expect(film).toHaveAttribute('src', '/video/revogrid-product-film-dark-b6630963d23b.mp4')
-  await expect(film).toHaveAttribute('poster', '/video/revogrid-product-film-dark-b6630963d23b.jpg')
+  await expect(film).toHaveAttribute('src', '/video/revogrid-product-film-dark-84e3ca74a4ea.mp4')
+  await expect(film).toHaveAttribute('poster', '/video/revogrid-product-film-dark-84e3ca74a4ea.jpg')
   await expect
     .poll(() =>
       film.evaluate(
         (video: HTMLVideoElement) =>
-          video.currentTime >= 19 &&
-          video.currentTime < 21 &&
+          video.currentTime >= 7 &&
+          video.currentTime < 10 &&
           !video.paused &&
           video.readyState >= 2,
       ),
@@ -118,22 +119,22 @@ test('film follows site theme and preserves position in both directions', async 
     .locator('.rg-hero-visual--film')
     .screenshot({ path: 'output/playwright/product-film-dark.png' })
   await page.reload()
-  await expect(film).toHaveAttribute('src', '/video/revogrid-product-film-dark-b6630963d23b.mp4')
+  await expect(film).toHaveAttribute('src', '/video/revogrid-product-film-dark-84e3ca74a4ea.mp4')
   await expect
     .poll(() => film.evaluate((video: HTMLVideoElement) => video.readyState))
     .toBeGreaterThanOrEqual(2)
   await film.evaluate((video: HTMLVideoElement) => {
     video.pause()
-    video.currentTime = 25
+    video.currentTime = 30
   })
   await toggle.click()
-  await expect(film).toHaveAttribute('src', '/video/revogrid-product-film-707eacf90f47.mp4')
+  await expect(film).toHaveAttribute('src', '/video/revogrid-product-film-1830b8ae80c4.mp4')
   await expect
     .poll(() =>
       film.evaluate(
         (video: HTMLVideoElement) =>
-          video.currentTime >= 25 &&
-          video.currentTime < 27 &&
+          video.currentTime >= 30 &&
+          video.currentTime < 32 &&
           !video.paused &&
           video.readyState >= 2,
       ),
@@ -172,4 +173,51 @@ test('film aligns with the shared page content without stretching', async ({ pag
     expect(dimensions.video.width / dimensions.video.height).toBeCloseTo(480 / 157, 1)
     expect(dimensions.overflow).toBe(false)
   }
+})
+
+test('headline follows the film order through seeks, pauses, hover, and playback', async ({
+  page,
+}) => {
+  await page.goto('/')
+  const film = page.locator('.rg-product-film')
+  const badge = page.locator('.rg-hero-product-label')
+  await expect
+    .poll(() => film.evaluate((video: HTMLVideoElement) => video.readyState))
+    .toBeGreaterThanOrEqual(2)
+  await film.evaluate((video: HTMLVideoElement) => video.pause())
+  await page.locator('.rg-hero-title').hover()
+  await page.getByRole('link', { name: 'Try live demo', exact: true }).focus()
+  for (const [time, label] of [
+    [2, 'Data Grid'],
+    [7, 'Pivot'],
+    [12, 'Charts'],
+    [18, 'Gantt'],
+    [24, 'Scheduler'],
+    [30, 'Kanban'],
+    [0, 'Data Grid'],
+  ] as const) {
+    await film.evaluate((video: HTMLVideoElement, time) => {
+      video.currentTime = time
+    }, time)
+    await expect(badge).toHaveText(label)
+  }
+  await film.evaluate((video: HTMLVideoElement) => {
+    video.currentTime = 7
+  })
+  await expect(badge).toHaveText('Pivot')
+  await page.waitForTimeout(3300)
+  await expect(badge).toHaveText('Pivot')
+  await film.evaluate((video: HTMLVideoElement) => {
+    video.currentTime = 4.9
+  })
+  await expect(badge).toHaveText('Data Grid')
+  await film.evaluate((video: HTMLVideoElement) => video.play())
+  await expect(badge).toHaveText('Pivot')
+  await film.evaluate((video: HTMLVideoElement) => {
+    video.pause()
+    video.currentTime = 7
+  })
+  await page
+    .locator('.rg-hero')
+    .screenshot({ path: 'output/playwright/product-film-pivot-synced.png' })
 })

@@ -1,3 +1,4 @@
+import { FILM_DURATION, FILM_VIEWS, getFilmState, getFilmTransitionProgress } from './timeline.mjs'
 /** Workspace-only motion artwork. Positions retain the original design space. */
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
@@ -46,31 +47,6 @@ const rows = [
   ['Design system', 'Nina Patel', 'Review', 85, 80, '#00b8a6', 0, 3],
   ['Research', 'Elias Novak', 'Complete', 100, 100, '#f5b700', 3, 4],
 ]
-const duration = 29.8
-// New playback time → original choreography time; holds retain their duration.
-const timing = [
-  [0, 0],
-  [4.6, 4.6],
-  [5.4, 7.1],
-  [9.5, 11.2],
-  [10.3, 13.6],
-  [16.2, 19.5],
-  [17, 22.3],
-  [21.7, 27],
-  [22.5, 29.8],
-  [27.2, 34.5],
-  [28.1, 37.3],
-  [29.8, 39],
-]
-function choreographyTime(seconds) {
-  const time = ((seconds % duration) + duration) % duration
-  for (let i = 1; i < timing.length; i++) {
-    const [end, oldEnd] = timing[i]
-    const [start, oldStart] = timing[i - 1]
-    if (time <= end) return oldStart + ((oldEnd - oldStart) * (time - start)) / (end - start)
-  }
-  return 0
-}
 const clamp = x => Math.max(0, Math.min(1, x))
 const ease = x => {
   x = clamp(x)
@@ -183,6 +159,16 @@ function icon(x, y, type, size = 22, color = green) {
       for (let row = 0; row < 3 - col; row++) rect(col * 8 + 2, 3 + row * 6, 4, 4, 1, primary)
     }
   }
+  if (type === 5) {
+    rect(1, 1, 22, 6, 1.5, secondary)
+    rect(1, 9, 6, 14, 1.5, secondary)
+    ;[
+      [9, 9],
+      [17, 9],
+      [9, 17],
+      [17, 17],
+    ].forEach(([x, y], i) => rect(x, y, 6, 6, 1.5, i === 3 ? secondary : primary))
+  }
   c.restore()
 }
 
@@ -273,12 +259,12 @@ function chartSurface(a, t) {
     )
     rect(1282, 428, 425, 405, 15, theme.panel)
     text('PORTFOLIO AT A GLANCE', 1314, 462, 13, muted, 600)
-    text('$890,000', 1314, 517, 47, ink, 550)
+    text('$' + rows.reduce((sum, row) => sum + row[4], 0) + ',000', 1314, 517, 47, ink, 550)
     text('Total project investment', 1316, 559, 17, muted)
     rule(1314, 587, 1674, 587)
     text('Momentum', 1315, 620, 19, ink, 500)
     text('+24.8%', 1671, 620, 20, green, 550, 'right')
-    const reveal = tween(t, 6.4, 8.5)
+    const reveal = tween(t, FILM_VIEWS[2].enter - 0.1, FILM_VIEWS[2].enter + 1.4)
     c.save()
     c.beginPath()
     c.rect(1314, 650, 360 * reveal, 120)
@@ -331,7 +317,7 @@ function ganttSurface(a, t) {
       avatar(i, 485, y, 15)
       text(r[1].split(' ')[0], 510, y, 18, ink)
     })
-    alpha(tween(t, 13.4, 14.5), () => {
+    alpha(tween(t, FILM_VIEWS[3].enter + 0.1, FILM_VIEWS[3].enter + 0.9), () => {
       c.setLineDash([4, 5])
       rule(1123, 474, 1123, 819, green + '80', 1.5)
       c.setLineDash([])
@@ -372,6 +358,64 @@ function ganttSurface(a, t) {
       c.restore()
       text('Launch', 1525, 507 + 3 * 55, 15, muted)
     })
+  })
+}
+const pivotGroups = ['In progress', 'Review', 'Complete'].map((status, index) => {
+  const members = rows.filter(row => row[2] === status)
+  return {
+    status,
+    y: 574 + index * 70,
+    count: members.length,
+    budget: members.reduce((sum, row) => sum + row[4], 0),
+    progress: Math.round(members.reduce((sum, row) => sum + row[3], 0) / members.length),
+    color: ['#0091ff', '#6647f0', '#00b8a6'][index],
+  }
+})
+function pivotSurface(a) {
+  alpha(a, () => {
+    text('Budget by status', 199, 450, 25, ink, 550)
+    ;[
+      ['Rows: Status', 1160],
+      ['Values: Budget', 1425],
+    ].forEach(([label, x]) => {
+      const width = badgeWidth(label, 15, 500)
+      rect(x, 433, width, 34, 7, theme.header)
+      text(label, x + 12, 450, 15, ink, 500)
+    })
+    rect(181, 485, 1558, 50, 7, theme.header)
+    ;[
+      ['Status', 220],
+      ['Projects', 735],
+      ['Avg progress', 1005],
+      ['Budget', 1528],
+    ].forEach(([label, x]) =>
+      text(label, x, 510, 18, ink, 550, label === 'Budget' ? 'right' : 'left'),
+    )
+    pivotGroups.forEach(group => {
+      rule(183, group.y + 34, 1737, group.y + 34)
+      const width = badgeWidth(group.status, 16, 600)
+      rect(220, group.y - 15, width, 30, 7, group.color)
+      text(group.status, 232, group.y, 16, markText(group.color), 600)
+      text(String(group.count), 770, group.y, 21, ink, 550, 'center')
+      rect(1005, group.y - 5, 95, 10, 5, theme.track)
+      rect(1005, group.y - 5, (95 * group.progress) / 100, 10, 5, group.color)
+      text(group.progress + '%', 1160, group.y, 18, ink, 550, 'right')
+    })
+    rect(181, 760, 1558, 60, 7, theme.header)
+    text('Grand total', 220, 790, 20, ink, 600)
+    text(String(rows.length), 770, 790, 21, ink, 600, 'center')
+    const average = Math.round(rows.reduce((sum, row) => sum + row[3], 0) / rows.length)
+    text(average + '%', 1160, 790, 18, ink, 600, 'right')
+    text(
+      '$' + rows.reduce((sum, row) => sum + row[4], 0) + ',000',
+      1528,
+      790,
+      22,
+      ink,
+      600,
+      'right',
+    )
+    text('6 projects · one connected dataset', 220, 839, 13, muted)
   })
 }
 const schedulerSlots = [
@@ -449,31 +493,23 @@ function kanbanCardLabel(r, i, x, y, w) {
   text(budget, x + w - 16 - bw / 2, y + 72, 15, markText(r[5]), 600, 'center')
 }
 function render(t) {
-  t = choreographyTime(t)
+  const state = getFilmState(t)
+  t = state.time
   c.setTransform(1, 0, 0, 1, 0, 0)
   c.clearRect(0, 0, canvas.width, canvas.height)
   rect(0, 0, canvas.width, canvas.height, 0, theme.background)
   c.translate(0, 20)
   c.scale(canvas.width / 1632, (canvas.height - 40) / 500)
   c.translate(-144, -352)
-  const p = tween(t, 4.6, 7.1),
-    q = tween(t, 11.2, 13.6),
-    schedule = tween(t, 19.5, 22.3),
-    board = tween(t, 27, 29.8),
-    back = tween(t, 34.5, 37.3)
-  const ga = 1 - p + back,
-    ca = p * (1 - q),
-    ta = q * (1 - schedule),
-    sa = schedule * (1 - board),
-    ka = board * (1 - back)
-  const weights = [ga, ca, ta, sa, ka]
+  const { weights, activeIndex } = state
+  const [ga, pa, ca, ta, sa, ka] = weights
   rect(144, 352, 1632, 500, 0, theme.background)
   const padding = 16,
     iconSize = 22,
     iconGap = 7,
     tabGap = 12
   let nextTabX = 181
-  const tabs = ['Data grid', 'Charts', 'Timeline', 'Scheduler', 'Kanban'].map((label, type) => {
+  const tabs = FILM_VIEWS.map(({ tab: label, icon: type }) => {
     const labelWidth = badgeWidth(label, 17, 550) - 24
     const width = padding * 2 + iconSize + iconGap + labelWidth
     const tab = { label, type, x: nextTabX, width }
@@ -484,46 +520,36 @@ function render(t) {
   const activeWidth = tabs.reduce((sum, tab, i) => sum + tab.width * weights[i], 0)
   rect(activeX, 366, activeWidth, 40, 9, theme.tab)
   tabs.forEach(({ label, type, x }, i) => {
-    const active = weights[i] > 0.5
+    const active = i === activeIndex
     const color = active ? green : muted
     icon(x + padding, 375, type, iconSize, color)
     text(label, x + padding + iconSize + iconGap, 386, 17, color, active ? 550 : 400)
   })
-  const gridInk = 1 - tween(t, 4.6, 5.25) + tween(t, 36.65, 37.3)
-  const chartInk = tween(t, 6.45, 7.1) * (1 - tween(t, 11.2, 11.85))
-  const ganttInk = tween(t, 12.95, 13.6) * (1 - tween(t, 19.5, 20.15))
+  const [gridInk, pivotInk, chartInk, ganttInk, schedulerInk, kanbanInk] = state.ink
   gridSurface(gridInk, t)
+  pivotSurface(pivotInk)
   chartSurface(chartInk, t)
   ganttSurface(ganttInk, t)
-  const schedulerInk = tween(t, 21.65, 22.3) * (1 - tween(t, 27, 27.65))
-  const kanbanInk = tween(t, 29.15, 29.8) * (1 - tween(t, 34.5, 35.15))
   schedulerSurface(schedulerInk)
   kanbanSurface(kanbanInk)
   // Six colored shapes persist through every view, then return to budget cells.
   rows.forEach((r, i) => {
-    const pi = tween(t, 4.6 + i * 0.065, 6.75 + i * 0.065)
-    const qi = tween(t, 11.2 + i * 0.065, 13.25 + i * 0.065)
-    const si = tween(t, 19.5 + i * 0.065, 21.95 + i * 0.065)
-    const ki = tween(t, 27 + i * 0.065, 29.45 + i * 0.065)
-    const bi = tween(t, 34.5 + i * 0.065, 36.95 + i * 0.065)
     const budgetLabel = '$' + r[4] + ',000'
     const budgetWidth = badgeWidth(budgetLabel, 18, 600)
     const grid = [1528 - budgetWidth, 492 + i * 55, budgetWidth, 30]
     const chart = [282 + i * 157, 788 - r[4], 96, r[4]]
     const gantt = [694 + r[6] * 81, 490 + i * 55, r[7] * 81, 34]
-    const geom = grid.map((v, j) =>
-      mix(
-        mix(
-          mix(mix(mix(v, chart[j], pi), gantt[j], qi), schedulerSlots[i][j], si),
-          kanbanSlots[i][j],
-          ki,
-        ),
-        v,
-        bi,
-      ),
-    )
+    const group = pivotGroups.find(group => group.status === r[2])
+    const pivotWidth = badgeWidth('$' + group.budget + ',000', 18, 600)
+    const pivot = [1528 - pivotWidth, group.y - 17, pivotWidth, 34]
+    const layouts = [grid, pivot, chart, gantt, schedulerSlots[i], kanbanSlots[i], grid]
+    let geom = grid
+    FILM_VIEWS.forEach((_, stage) => {
+      const progress = getFilmTransitionProgress(t, stage, i * 0.02)
+      geom = geom.map((value, j) => mix(value, layouts[stage + 1][j], progress))
+    })
     const [x, y, w, h] = geom
-    const solid = pi * (1 - bi)
+    const solid = 1 - ga
     alpha(1 - solid, () => rect(x, y, w, h, 7, r[5]))
     alpha(solid, () => {
       const g = c.createLinearGradient(x, y, x + w, y + h)
@@ -535,6 +561,7 @@ function render(t) {
         rect(x, y, (w * r[3]) / 100, h, 7, r[5])
       })
     })
+    alpha(pa, () => rect(x, y, w, h, 7, group.color))
     alpha(sa, () => {
       rect(x, y, w, h, 9, theme.remaining)
       rect(x, y, 6, h, 3, r[5])
@@ -547,22 +574,35 @@ function render(t) {
     alpha(kanbanInk, () => kanbanCardLabel(r, i, x, y, w))
     alpha(gridInk, () => text(budgetLabel, x + w / 2, y + h / 2, 18, markText(r[5]), 600, 'center'))
     alpha(chartInk, () => text('$' + r[4] + 'k', x + w / 2, y - 22, 19, ink, 550, 'center'))
-    alpha(ganttInk * tween(t, 13.1, 14), () => {
+    alpha(ganttInk, () => {
       text(r[3] + '%', x + 15, y + h / 2, 14, markText(r[5]), 600)
       if (r[3] === 100) check(x + w - 26, y + h / 2, markText(r[5]))
     })
   })
+  alpha(pivotInk, () =>
+    pivotGroups.forEach(group =>
+      text(
+        '$' + group.budget + ',000',
+        1528 - badgeWidth('$' + group.budget + ',000', 18, 600) / 2,
+        group.y,
+        18,
+        markText(group.color),
+        600,
+        'center',
+      ),
+    ),
+  )
   alpha(tween(t, 2.5, 3.2) * (1 - tween(t, 4.4, 4.8)), () => {
     rect(1410, 811, 280, 36, 9, theme.callout)
     rect(1423, 817, 23, 23, 5, theme.background)
-    icon(1426, 820, 1, 17)
-    text('Visualize selection', 1456, 830, 16, '#fff', 500)
+    icon(1426, 820, 5, 17)
+    text('Summarize selection', 1456, 830, 16, '#fff', 500)
     arrow(1658, 830, '#a5e3bd')
   })
 }
 window.renderFrame = render
-window.filmDuration = duration
-window.filmReviewTimes = [0, 3, 5, 7, 10, 13, 16.6, 19, 22.1, 25, 27.7, 29.79]
+window.filmDuration = FILM_DURATION
+window.filmReviewTimes = [0, 3, 5, 7, 10, 12, 15, 18, 21.5, 24, 27, 30, 32.5, 34.69]
 render(0)
 if (!new URLSearchParams(location.search).has('render')) {
   const start = performance.now()

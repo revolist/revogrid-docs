@@ -15,7 +15,11 @@
           :style="productWidth === undefined ? undefined : { width: `${productWidth}px` }"
           aria-hidden="true"
         >
-          <Transition name="hero-product" mode="out-in">
+          <Transition
+            name="hero-product"
+            :css="activeIndex === undefined"
+            :mode="activeIndex === undefined ? 'out-in' : undefined"
+          >
             <span
               :key="productIndex"
               :ref="el => measureProductLabel(el as HTMLElement | null)"
@@ -41,6 +45,7 @@ const props = withDefaults(
     rotatingTerm?: string
     products?: string[]
     paused?: boolean
+    activeIndex?: number
   }>(),
   { products: () => [], paused: false },
 )
@@ -49,7 +54,12 @@ const heroTitle = computed(() => emphasizeText(props.title, props.emphasis))
 const titleParts = computed(() =>
   props.rotatingTerm ? heroTitle.value.split(escapeHtml(props.rotatingTerm)) : [],
 )
-const productIndex = ref(0)
+const rotatingIndex = ref(0)
+const productIndex = computed(() =>
+  props.activeIndex === undefined
+    ? rotatingIndex.value
+    : Math.max(0, Math.min(props.activeIndex, props.products.length - 1)),
+)
 const productWidth = ref<number>()
 const rotationPaused = ref(false)
 
@@ -57,7 +67,7 @@ const rotationPaused = ref(false)
 watch(
   () => [props.rotatingTerm, ...props.products],
   () => {
-    productIndex.value = 0
+    rotatingIndex.value = 0
     productWidth.value = undefined
   },
 )
@@ -79,13 +89,15 @@ function measureProductLabel(element: HTMLElement | null) {
 function syncMotionPreference() {
   if (productTimer) clearInterval(productTimer)
   productTimer = undefined
-  productIndex.value = 0
-  if (motionPreference?.matches) return
+  rotatingIndex.value = 0
+  if (props.activeIndex !== undefined || motionPreference?.matches) return
   productTimer = setInterval(() => {
     if (document.hidden || rotationPaused.value || props.paused || props.products.length < 2) return
-    productIndex.value = (productIndex.value + 1) % props.products.length
+    rotatingIndex.value = (rotatingIndex.value + 1) % props.products.length
   }, 3000)
 }
+
+watch(() => props.activeIndex, syncMotionPreference)
 
 onMounted(() => {
   motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')

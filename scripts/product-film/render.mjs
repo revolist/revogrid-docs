@@ -17,8 +17,8 @@ const server = createServer(async (req, res) => {
   const pathname = req.url.split('?')[0]
   const path = /^\/assets\/[a-z]+\.webp$/.test(pathname)
     ? pathname.slice(1)
-    : pathname === '/scene.mjs'
-      ? 'scene.mjs'
+    : /^\/(scene|timeline)\.mjs$/.test(pathname)
+      ? pathname.slice(1)
       : 'scene.html'
   res.setHeader(
     'Content-Type',

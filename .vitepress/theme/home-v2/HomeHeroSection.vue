@@ -14,8 +14,9 @@
           :title="hero?.title"
           :emphasis="hero?.emphasis"
           :rotating-term="hero?.rotatingTerm"
-          :products="hero?.rotatingProducts"
+          :products="headlineProducts"
           :paused="heroFocused"
+          :active-index="hero?.film ? filmProductIndex : undefined"
         />
         <p class="rg-hero-sub" v-html="heroTagline"></p>
         <div class="rg-actions">
@@ -90,6 +91,8 @@
             autoplay
             preload="auto"
             @loadedmetadata="onFilmMetadata"
+            @timeupdate="syncFilmProduct()"
+            @seeked="syncFilmProduct()"
           >
             {{ hero.film.description }}
           </video>
@@ -106,8 +109,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, defineAsyncComponent, onMounted, ref, watch } from 'vue'
+import { computed, defineAsyncComponent, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useData } from 'vitepress'
+import { getFilmState, getFilmProductLabels } from '../../../scripts/product-film/timeline.mjs'
 import { VPButton } from 'vitepress/theme'
 import '@revolist/ui/styles.css'
 import HomeChevron from './HomeChevron.vue'
@@ -124,6 +128,11 @@ const props = defineProps<{
 const { linkOf } = useHomeV2Links()
 
 const { isDark } = useData()
+const headlineProducts = computed(() =>
+  props.hero?.film
+    ? getFilmProductLabels(props.hero.film.productLabels)
+    : props.hero?.rotatingProducts,
+)
 const filmSource = computed(() =>
   linkOf(
     isDark.value && props.hero?.film?.darkSrc ? props.hero.film.darkSrc : props.hero?.film?.src,
@@ -137,18 +146,46 @@ const filmPoster = computed(() =>
   ),
 )
 const film = ref<HTMLVideoElement>()
+const filmProductIndex = ref(0)
+let filmFrameId: number | undefined
+function syncFilmProduct(mediaTime?: number) {
+  const video = film.value
+  if (!video?.readyState) return
+  filmProductIndex.value = getFilmState(mediaTime ?? video.currentTime).activeIndex
+}
+function stopFilmFrames() {
+  if (filmFrameId !== undefined) film.value?.cancelVideoFrameCallback?.(filmFrameId)
+  filmFrameId = undefined
+}
+function scheduleFilmFrame() {
+  const video = film.value
+  if (!video?.requestVideoFrameCallback) return
+  filmFrameId = video.requestVideoFrameCallback((_now, metadata) => {
+    syncFilmProduct(metadata.mediaTime)
+    scheduleFilmFrame()
+  })
+}
+function startFilmFrames() {
+  stopFilmFrames()
+  scheduleFilmFrame()
+}
+onBeforeUnmount(stopFilmFrames)
 let filmPosition = 0
 watch(filmSource, () => {
   const video = film.value
   if (video?.readyState) filmPosition = video.currentTime
+  stopFilmFrames()
 })
 function onFilmMetadata() {
   const video = film.value
   if (!video) return
   video.currentTime = Math.min(filmPosition, Math.max(0, video.duration - 0.05))
+  syncFilmProduct()
+  startFilmFrames()
   void video.play().catch(() => {})
 }
 onMounted(() => {
+  startFilmFrames()
   // Explicit playback keeps native autoplay visibility heuristics from pausing the film.
   void film.value?.play().catch(() => {})
 })
