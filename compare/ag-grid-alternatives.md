@@ -67,9 +67,11 @@ head:
   <p class="oss-lead">If AG Grid's free tier stops before the spreadsheet workflow your users need, start with RevoGrid Core. Then compare it with five credible open-source options using the same real tasks—not a feature count.</p>
 
   <div class="oss-actions">
-    <a class="rg-btn" href="#open-source-capability-matrix">Compare open-source features</a>
+    <a class="rg-btn" href="/trial?source=ag-grid-alternatives">Try RevoGrid Pro free</a>
+    <a class="rg-btn rg-btn-secondary" href="#open-source-capability-matrix">Compare open-source features</a>
     <a class="rg-btn rg-btn-secondary" href="#evaluation-plan">Use the test plan</a>
   </div>
+  <p>Need Pivot, Excel workflows, or server-side loading? Evaluate RevoGrid Pro for 30 days. No form, npm login, or license key required.</p>
 </div>
 
 ::: tip The short answer
@@ -347,6 +349,12 @@ Feature packaging changes. Recheck the linked official sources before procuremen
 ## Start with the smallest useful proof
 
 If framework independence plus open-source range and clipboard workflows match your constraints, [install RevoGrid Core](/guide/installation) and [explore the live demos](/demo/). If you are already using AG Grid, read the [migration guide](/blog/migrating-from-ag-grid-to-revogrid/) before estimating a rewrite.
+
+For Pro capabilities such as Pivot, Excel workflows, and server-side loading, start the 30-day trial in your own application. Install the public trial packages or clone the starter immediately—no form or approval step required.
+
+<div class="oss-actions">
+  <a class="rg-btn" href="/trial?source=ag-grid-alternatives">Start your 30-day Pro trial</a>
+</div>
 
 <style scoped>
 .oss-hero {
