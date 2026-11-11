@@ -73,6 +73,12 @@
   --vp-demo-border: rgba(255, 255, 255, 0.2);
 }
 
+// Demo overlays can sit outside the grid's native scroll containers. Contain
+// history gestures at the viewport too, including after client-side navigation.
+html:has(.demo-page-class) {
+  overscroll-behavior-x: contain;
+}
+
 .demo-page-class {
   --demo-sidebar-width: 276px;
   --demo-focus-color: var(--vp-c-brand-1);

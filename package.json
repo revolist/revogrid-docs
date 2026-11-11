@@ -92,8 +92,8 @@
   "dependencies": {
     "@revolist/charts": "4.0.12",
     "@fortawesome/fontawesome-free": "^7.2.0",
-    "@revolist/react-datagrid": "^4.31.4",
-    "@revolist/revogrid": "^4.31.4",
+    "@revolist/react-datagrid": "4.31.5",
+    "@revolist/revogrid": "4.31.5",
     "@revolist/revogrid-column-date": "^2.0.27",
     "@revolist/revogrid-column-numeral": "^2.0.11",
     "@revolist/revogrid-column-select": "3.2.4",

@@ -34,6 +34,7 @@ for (const viewport of [
       )
       .toBe(true)
     await expect(grid.locator('.event-scheduler-event--conflict')).toHaveCount(0)
+    await expect(grid.locator('[data-event-scheduler-badge-tray], .shift-week-event-content__kind')).toHaveCount(0)
     if (viewport.width > 1000) {
       const progress = grid.locator('[data-event-scheduler-event-id="showcase-0-0"][data-event-scheduler-progress="65"] .event-scheduler-event__progress--horizontal').first()
       await expect(progress).toBeVisible()
@@ -64,6 +65,7 @@ for (const viewport of [
     await page.getByRole('tab', { name: 'Calendar', exact: true }).click()
     await expect(grid).toBeVisible({ timeout: 45_000 })
     await expect(grid.locator('.avatar-cell img').first()).toBeVisible()
+    await expect(grid.locator('[data-event-scheduler-badge-tray]')).toHaveCount(0)
     await expect(grid.locator('.event-scheduler-event--conflict')).toHaveCount(0)
     const dayHeader = grid.locator('.event-scheduler-day-header').first()
     await expect(dayHeader).toHaveCSS('height', '35px')
