@@ -17,7 +17,7 @@ test('checkout links retain context before a new-tab click and drop identity whe
     { name: '_ga_894M8FYLZF', value: 'GS2.1.s1794480000$o1$g1', url: base },
   ])
   const contexts: Record<string, unknown>[] = []
-  await context.route('https://pro.rv-grid.com/analytics/checkout', async route => {
+  await context.route('https://pro.rv-grid.com/account/analytics/checkout', async route => {
     contexts.push(route.request().postDataJSON())
     await route.fulfill({ json: { reference } })
   })
@@ -42,6 +42,8 @@ test('checkout links retain context before a new-tab click and drop identity whe
     source_page: '/pricing',
     screen_type: 'pricing',
     plan: 'pro-lite',
+    interest_stage: 'checkout',
+    action_status: 'requested',
   })
   expect(contexts[0]).toMatchObject({
     source_page: '/pricing',
@@ -66,7 +68,7 @@ test('analytics failure preserves checkout and retains available GA session iden
     { name: '_ga', value: 'GA1.1.123.456', url: base },
     { name: '_ga_894M8FYLZF', value: 'GS1.1.1794480000.1.0.0', url: base },
   ])
-  await context.route('https://pro.rv-grid.com/analytics/checkout', route =>
+  await context.route('https://pro.rv-grid.com/account/analytics/checkout', route =>
     route.fulfill({ status: 503 }),
   )
   await page.goto(`${base}/pricing`, { waitUntil: 'domcontentloaded' })

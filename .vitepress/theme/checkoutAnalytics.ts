@@ -82,7 +82,7 @@ export function installCheckoutAnalytics() {
     requesting = true
     retryAt = Date.now() + 30_000
     try {
-      const response = await fetch('https://pro.rv-grid.com/analytics/checkout', {
+      const response = await fetch('https://pro.rv-grid.com/account/analytics/checkout', {
         method: 'POST',
         credentials: 'omit',
         headers: { 'Content-Type': 'application/json' },
@@ -134,6 +134,10 @@ export function installCheckoutAnalytics() {
       screen_id: source,
       screen_type: classifyInterestScreen(source).screen_type,
       source_page: source,
+      interest_stage: 'checkout',
+      action_id: 'buy_click',
+      action_status: 'requested',
+      landing_page: firstAcquisitionContext(window.location, document.referrer).landing_page,
       plan: plan.id,
       billing_period: 'year',
       checkout_type: 'payment_link',

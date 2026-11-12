@@ -25,7 +25,7 @@ Register EVENT custom dimensions: `product_id`, `feature_group`, `interest_categ
 
 ## Ordered rollout
 
-1. Deploy billing service migration V7 and backend changes. The service waits for Flyway completion. Confirm the new CORS endpoint at `https://pro.rv-grid.com/analytics/checkout` and configured GA4 measurement ID/API secret without logging the secret.
+1. Deploy billing service migration V7 and backend changes. The service waits for Flyway completion. Confirm the new CORS endpoint at `https://pro.rv-grid.com/account/analytics/checkout` and configured GA4 measurement ID/API secret without logging the secret.
 2. Preserve every current Stripe webhook event and add `checkout.session.async_payment_succeeded` to the existing endpoint.
 3. Deploy the site changes. Known Stripe anchors are decorated before activation, including copy/new-tab paths. Missing attribution service falls back to the real GA client/session IDs; checkout never waits on it. Consent withdrawal removes references from current anchors.
 4. Import `gtm-purchase-interest-import.json` using Merge / Overwrite conflicting entities. The import pauses the legacy feature tag and the Ads conversion that incorrectly fired on a checkout click, replaces the two checkout tags' triggers, and adds canonical interest events. It does not create an Ads purchase conversion; verify/import the GA4 purchase conversion in Ads separately before relying on bidding.
