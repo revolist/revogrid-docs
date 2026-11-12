@@ -82,7 +82,7 @@ export function installCheckoutAnalytics() {
     requesting = true
     retryAt = Date.now() + 30_000
     try {
-      const response = await fetch('https://pro.rv-grid.com/analytics/checkout', {
+      const response = await fetch('https://pro.rv-grid.com/account/analytics/checkout', {
         method: 'POST',
         credentials: 'omit',
         headers: { 'Content-Type': 'application/json' },
