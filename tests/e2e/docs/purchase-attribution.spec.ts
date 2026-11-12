@@ -42,6 +42,8 @@ test('checkout links retain context before a new-tab click and drop identity whe
     source_page: '/pricing',
     screen_type: 'pricing',
     plan: 'pro-lite',
+    interest_stage: 'checkout',
+    action_status: 'requested',
   })
   expect(contexts[0]).toMatchObject({
     source_page: '/pricing',
