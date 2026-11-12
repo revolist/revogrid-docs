@@ -31,6 +31,7 @@ import QuickStartCdnExample from './QuickStartCdnExample.vue'
 import TreeDataProDemo from './TreeDataProDemo.vue'
 import RevoGridHomeLayout from './RevoGridHomeLayout.vue'
 import DemoFeedbackSurvey from './DemoFeedbackSurvey.vue'
+import InterestAnalytics from './InterestAnalytics.vue'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 
 export default {
@@ -43,6 +44,7 @@ export default {
       'doc-before': () => h(BlogArticleMeta),
       'doc-after': () => h(BlogRelated),
       'layout-top': () => [
+        h(InterestAnalytics),
         h(DemoNavigation),
         h(HeaderNavControls),
         h(HomePageColors),
