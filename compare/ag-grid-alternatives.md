@@ -1,18 +1,18 @@
 ---
-title: "Open-Source AG Grid Alternatives: 6 Options Compared"
-description: Compare six open-source AG Grid alternatives for filtering, range selection, copy and paste, editing, virtualization, frameworks, accessibility, export, and server-side data.
+title: "Open-Source AG Grid Alternatives: 7 Options Compared"
+description: Compare seven open-source AG Grid alternatives for filtering, range selection, copy and paste, editing, virtualization, frameworks, accessibility, export, and server-side data.
 outline: deep
 aside: true
 head:
   - - meta
     - name: keywords
-      content: AG Grid alternatives, open source AG Grid alternative, free JavaScript data grid, React data grid, RevoGrid, Tabulator, MUI X Data Grid, TanStack Table, Glide Data Grid, LyteNyte Grid
+      content: AG Grid alternatives, open source AG Grid alternative, free JavaScript data grid, React data grid, Svelte data grid, RevoGrid, SvGrid, Tabulator, MUI X Data Grid, TanStack Table, Glide Data Grid, LyteNyte Grid
   - - link
     - rel: canonical
       href: https://rv-grid.com/compare/ag-grid-alternatives/
   - - meta
     - property: og:title
-      content: "Open-Source AG Grid Alternatives: 6 Options Compared"
+      content: "Open-Source AG Grid Alternatives: 7 Options Compared"
   - - meta
     - property: og:description
       content: A practical comparison of open-source JavaScript grids by the workflows developers actually need.
@@ -22,8 +22,8 @@ head:
       {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Open-Source AG Grid Alternatives: 6 Options Compared",
-        "description": "Compare six open-source AG Grid alternatives for filtering, range selection, copy and paste, editing, virtualization, frameworks, accessibility, export, and server-side data.",
+        "headline": "Open-Source AG Grid Alternatives: 7 Options Compared",
+        "description": "Compare seven open-source AG Grid alternatives for filtering, range selection, copy and paste, editing, virtualization, frameworks, accessibility, export, and server-side data.",
         "author": {
           "@type": "Organization",
           "name": "RevoGrid"
@@ -38,7 +38,7 @@ head:
           "@id": "https://rv-grid.com/compare/ag-grid-alternatives/"
         },
         "datePublished": "2026-08-13",
-        "dateModified": "2026-08-13"
+        "dateModified": "2026-11-13"
       }
   - - script
     - type: application/ld+json
@@ -47,24 +47,25 @@ head:
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Open-source AG Grid alternatives",
-        "numberOfItems": 6,
+        "numberOfItems": 7,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "RevoGrid" },
           { "@type": "ListItem", "position": 2, "name": "Tabulator" },
           { "@type": "ListItem", "position": 3, "name": "MUI X Data Grid Community" },
           { "@type": "ListItem", "position": 4, "name": "TanStack Table" },
           { "@type": "ListItem", "position": 5, "name": "Glide Data Grid" },
-          { "@type": "ListItem", "position": 6, "name": "LyteNyte Grid Core" }
+          { "@type": "ListItem", "position": 6, "name": "LyteNyte Grid Core" },
+          { "@type": "ListItem", "position": 7, "name": "SvGrid" }
         ]
       }
 ---
 
 <div class="oss-hero">
-  <p class="oss-kicker">Open-source shortlist · reviewed August 13, 2026</p>
+  <p class="oss-kicker">Open-source shortlist · reviewed August 13, 2026 · SvGrid added November 13, 2026</p>
 
-# Open-Source AG Grid Alternatives: 6 Options Compared
+# Open-Source AG Grid Alternatives: 7 Options Compared
 
-  <p class="oss-lead">If AG Grid's free tier stops before the spreadsheet workflow your users need, start with RevoGrid Core. Then compare it with five credible open-source options using the same real tasks—not a feature count.</p>
+  <p class="oss-lead">If AG Grid's free tier stops before the spreadsheet workflow your users need, start with RevoGrid Core. Then compare it with six credible open-source options using the same real tasks - not a feature count.</p>
 
   <div class="oss-actions">
     <a class="rg-btn" href="/trial?source=ag-grid-alternatives">Try RevoGrid Pro free</a>
@@ -75,7 +76,7 @@ head:
 </div>
 
 ::: tip The short answer
-If rectangular cell selection and spreadsheet-style copy/paste must remain open source, start with **RevoGrid**, **Tabulator**, **Glide Data Grid**, or **LyteNyte Grid Core**. Start with **MUI X Community** for a Material UI table, **TanStack Table** when you want to own every element, and **AG Grid Community** when its free feature boundary already covers your requirements.
+If rectangular cell selection and spreadsheet-style copy/paste must remain open source, start with **RevoGrid**, **Tabulator**, **Glide Data Grid**, or **LyteNyte Grid Core**. Start with **SvGrid** if the application is Svelte 5 or SvelteKit, **MUI X Community** for a Material UI table, **TanStack Table** when you want to own every element, and **AG Grid Community** when its free feature boundary already covers your requirements.
 :::
 
 ## Pick the first grid to test
@@ -115,7 +116,7 @@ There is no single best data grid. There is a best first candidate for a specifi
     <span class="oss-pick-body">
       <span class="oss-pill">Headless</span>
       <h3>TanStack Table</h3>
-      <p>Start here when your team wants to own semantics, markup, state, and styling—and accepts building grid interactions itself.</p>
+      <p>Start here when your team wants to own semantics, markup, state, and styling - and accepts building grid interactions itself.</p>
       <span class="oss-card-action">Open TanStack Table</span>
     </span>
   </a>
@@ -137,11 +138,20 @@ There is no single best data grid. There is a best first candidate for a specifi
       <span class="oss-card-action">Open the LyteNyte demo</span>
     </span>
   </a>
+  <a class="oss-pick" href="https://svgrid.com/demos/04-selection-copy-paste/" target="_blank" rel="noopener noreferrer">
+    <img class="oss-pick-image" src="/blog/oss-svgrid-card.png" alt="SvGrid demo with a rectangular cell range selected and copied as tab-separated text" loading="lazy" />
+    <span class="oss-pick-body">
+      <span class="oss-pill">Svelte 5 + Web Component</span>
+      <h3>SvGrid</h3>
+      <p>Start here for a Svelte 5 grid whose MIT package includes multi-range selection, copy/paste with a fill handle, grouping, tree rows, and master/detail.</p>
+      <span class="oss-card-action">Open the SvGrid demos</span>
+    </span>
+  </a>
 </div>
 
 ## Open-source capability matrix {#open-source-capability-matrix}
 
-This table compares the open-source package—not a trial and not the vendor's paid tier. “App-built” means the library gives you primitives or callbacks, but your product team owns the user interface and behavior.
+This table compares the open-source package - not a trial and not the vendor's paid tier. "App-built" means the library gives you primitives or callbacks, but your product team owns the user interface and behavior.
 
 | Grid | Open-source package | Filtering | Cell range selection | Grid-aware copy + paste | Inline editing | Rendering model |
 |---|---|---|---|---|---|---|
@@ -152,20 +162,21 @@ This table compares the open-source package—not a trial and not the vendor's p
 | **TanStack Table** | MIT | Headless filtering model | App-built | App-built | App-built | No renderer; pair with a virtualizer |
 | **Glide Data Grid** | MIT | App-built | Built in, including multi-range state | Built in with opt-in data callbacks | Built in; the app persists changes | React canvas with lazy cell access |
 | **LyteNyte Grid Core** | Apache-2.0 | Column + quick filters | Built in | Built in | Built in | React row + column virtualization |
+| **SvGrid** | MIT | Built in: column menus with a set filter, a filter row, and global search; the nested AND/OR builder is **Enterprise** | Built in, including multi-range (Ctrl/Cmd+drag) | Built in; TSV copy and paste, fill handle, one undo step per paste | Built in; typed editors, validation, undo/redo | Svelte 5 DOM row + column virtualization; `<sv-grid>` Web Component for other frameworks |
 
-The boundaries above come from the current [AG Grid repository](https://github.com/ag-grid/ag-grid), [MUI X package and feature documentation](https://mui.com/x/react-data-grid/), [TanStack Table documentation](https://tanstack.com/table/latest), [Tabulator 6.5 documentation](https://www.tabulator.info/docs/6.x/), [Glide Data Grid repository and API](https://github.com/glideapps/glide-data-grid), [LyteNyte feature matrix](https://github.com/1771-Technologies/lytenyte), and RevoGrid's [Core source](https://github.com/revolist/revogrid), [filtering](/guide/filters), [clipboard](/guide/clipboard), and [performance](/guide/performance) guides.
+The boundaries above come from the current [AG Grid repository](https://github.com/ag-grid/ag-grid), [MUI X package and feature documentation](https://mui.com/x/react-data-grid/), [TanStack Table documentation](https://tanstack.com/table/latest), [Tabulator 6.5 documentation](https://www.tabulator.info/docs/6.x/), [Glide Data Grid repository and API](https://github.com/glideapps/glide-data-grid), [LyteNyte feature matrix](https://github.com/1771-Technologies/lytenyte), the [SvGrid repository](https://github.com/sv-grid/sv-grid) and its [comparison page](https://svgrid.com/docs/help/comparison/), and RevoGrid's [Core source](https://github.com/revolist/revogrid), [filtering](/guide/filters), [clipboard](/guide/clipboard), and [performance](/guide/performance) guides.
 
 ::: warning Open source does not mean every feature is open source
-AG Grid Community and MUI X Community are capable free products, but their rectangular cell-selection and multi-cell clipboard workflows cross into paid packages. RevoGrid Core supports one active range; non-contiguous multi-range selection is a Pro feature. LyteNyte keeps server data loading and advanced filtering in Pro. Verify the exact package before committing to an architecture.
+AG Grid Community and MUI X Community are capable free products, but their rectangular cell-selection and multi-cell clipboard workflows cross into paid packages. RevoGrid Core supports one active range; non-contiguous multi-range selection is a Pro feature. LyteNyte keeps server data loading and advanced filtering in Pro. SvGrid's MIT grid includes multi-range selection and flat server-side data (sort, filter, paging, infinite scroll), but the server-side row model (lazy grouping, tree, pivot, transactions), the advanced filter builder, and XLSX/PDF export are in `@svgrid/enterprise`. Verify the exact package before committing to an architecture.
 :::
 
 ## The important differences behind the checkmarks
 
 ### 1. Filtering: local UI or server contract?
 
-A “filtering” checkmark can describe very different work:
+A "filtering" checkmark can describe very different work:
 
-- **RevoGrid, AG Grid Community, Tabulator, MUI X Community, and LyteNyte Core** provide filter behavior and UI in their free packages, with different operator and multi-condition limits.
+- **RevoGrid, AG Grid Community, Tabulator, MUI X Community, LyteNyte Core, and SvGrid** provide filter behavior and UI in their free packages, with different operator and multi-condition limits.
 - **TanStack Table** owns filter state and row-model logic, but you build the controls and visual treatment.
 - **Glide Data Grid** is a rendering and interaction surface; filtering the backing data is an application concern.
 - For a remote dataset, test how filter state becomes an API request, how total counts update, and how selection survives a refresh. A polished local filter demo does not prove a good server-side workflow.
@@ -192,7 +203,7 @@ Do not test copy and paste as two isolated keyboard shortcuts. Test this sequenc
   <figcaption><strong>RevoGrid Core clipboard:</strong> the capture shows a real browser clipboard paste applied to the active cell. Rectangular selection is the unit for copying and pasting tab-separated spreadsheet data.</figcaption>
 </figure>
 
-This workflow is where package boundaries become visible. AG Grid's own feature table places range selection and clipboard operations in Enterprise. MUI X Community can copy, but cell selection and multi-cell paste belong to Premium. TanStack can support the workflow only after you design and build it. Glide supports it through callbacks, so data retrieval and persistence remain explicit application responsibilities.
+This workflow is where package boundaries become visible. AG Grid's own feature table places range selection and clipboard operations in Enterprise. MUI X Community can copy, but cell selection and multi-cell paste belong to Premium. TanStack can support the workflow only after you design and build it. Glide supports it through callbacks, so data retrieval and persistence remain explicit application responsibilities. SvGrid handles the loop in its MIT package: several ranges copy together as stacked TSV blocks, `copyHeadersToClipboard` and `processCellForClipboard` shape what leaves the grid, and a paste is one undo step however many cells it wrote. Pasted values skip the editor validators, so step 5 needs a check in `onCellValueChange`.
 
 ### 3. Editing: the editor is only the first step
 
@@ -218,6 +229,7 @@ Build a vertical slice against your real API before comparing editor catalogs. A
 | If your architecture is… | Strong first candidates | Trade-off to validate |
 |---|---|---|
 | Multiple frameworks or a design-system Web Component | RevoGrid, Tabulator | Wrapper ergonomics and custom renderer integration |
+| Svelte 5 or SvelteKit | SvGrid | Svelte-only engine; React, Vue, and Angular hosts go through the `<sv-grid>` Web Component |
 | React with Material UI | MUI X Community | Paid boundary for spreadsheet interactions |
 | React with a canvas-heavy data surface | Glide Data Grid | DOM semantics, printing, test tooling, and app-owned data operations |
 | React with broad free grid features | LyteNyte Grid Core | Newer ecosystem, upgrade path, and production edge cases |
@@ -226,7 +238,7 @@ Build a vertical slice against your real API before comparing editor catalogs. A
 
 ## Performance: compare architecture, then benchmark your workload
 
-“Handles one million rows” is usually a vendor scenario, not a result you can transfer to your application. Dataset size alone does not predict responsiveness; column count, custom cells, row height, update frequency, filtering work, and the surrounding framework can dominate.
+"Handles one million rows" is usually a vendor scenario, not a result you can transfer to your application. Dataset size alone does not predict responsiveness; column count, custom cells, row height, update frequency, filtering work, and the surrounding framework can dominate.
 
 | Grid | Performance approach | What to test |
 |---|---|---|
@@ -237,6 +249,7 @@ Build a vertical slice against your real API before comparing editor catalogs. A
 | **TanStack Table** | Headless row models; rendering and virtualization are separate | Your renderer, chosen virtualizer, memoization, and state updates |
 | **Glide Data Grid** | Canvas rendering, lazy cell access, and native scrolling | Canvas accessibility, editor overlays, data-fetch latency, and copy of large ranges |
 | **LyteNyte Grid Core** | React row and column virtualization | Update throughput in your component tree and newer-library edge cases |
+| **SvGrid** | Svelte 5 row and column virtualization; cells are snippets compiled to direct DOM updates, with no virtual DOM diff | Snippet and custom cell cost, wide grids, and the Web Component wrapper when the host is not Svelte |
 
 No independent, current benchmark covers these grids with equal features and identical cell renderers, so this guide does not name a speed winner. Treat vendor numbers as hypotheses and use the same fixture, browser, hardware, and user tasks for every candidate.
 
@@ -295,23 +308,31 @@ Watch maturity and packaging. The public project is newer than AG Grid, Tabulato
 
 **Best fit:** React teams willing to evaluate a newer grid in exchange for a broad open-source feature boundary.
 
+### SvGrid: a Svelte 5 grid with spreadsheet interactions in the MIT package
+
+Choose SvGrid when the application is Svelte 5 or SvelteKit and you want the grid to use the framework's own model: rows and column state are `$state`, aggregates are `$derived`, and custom cells are snippets. The MIT package `@svgrid/grid` includes multi-range selection with copy/paste and a fill handle, column menus with a set filter, a filter row, grouping with aggregation, tree rows, master/detail, pinned columns, a context menu, undo/redo, CSV export, the WAI-ARIA grid pattern, and flat server-side data with sort, filter, paging, and infinite scroll. It also exports a headless core for teams that want to render their own markup. Outside Svelte, `@svgrid/grid-wc` ships the same engine as the `<sv-grid>` custom element for React, Vue, Angular, or plain HTML.
+
+Watch the framework boundary first. SvGrid is written for Svelte 5 only; it has no Svelte 4 build and no native React or Vue component, so a non-Svelte team gets it through the Web Component and should test that wrapper with its own custom cells. The paid `@svgrid/enterprise` package holds the server-side row model (lazy grouping, tree, pivot, transactions), the nested advanced filter builder, pivot tables, XLSX and PDF export, import, and print. The project is younger than AG Grid or Tabulator, so review its release history and issue tracker the same way you would for LyteNyte. On bundle size, the full grid measures 99.6 KB of JavaScript plus 11.4 KB of CSS, minified and gzipped with Svelte external (version 3.0.34, measured November 10, 2026 by the project's `pnpm size` script). Start with the [getting started guide](https://svgrid.com/docs/getting-started/), the [range selection and clipboard docs](https://svgrid.com/docs/help/cells/cell-text-selection/), and the [Web Component guide](https://svgrid.com/docs/help/web-components/).
+
+**Best fit:** Svelte 5 and SvelteKit applications that need spreadsheet-style editing, grouping, and range workflows without a commercial license.
+
 ### AG Grid Community: keep it when the free boundary is enough
 
-AG Grid Community is the baseline, not an alternative. Keep it on the shortlist when you need a mature grid with filtering, editing, pagination, selection, theming, accessibility, and established framework integrations—and you do not need Enterprise-only workflows.
+AG Grid Community is the baseline, not an alternative. Keep it on the shortlist when you need a mature grid with filtering, editing, pagination, selection, theming, accessibility, and established framework integrations - and you do not need Enterprise-only workflows.
 
 Do not migrate only because an alternative exists. Migration becomes valuable when licensing, framework architecture, customization, bundle strategy, or an upcoming spreadsheet interaction creates a concrete product constraint. For the direct comparison, use the [RevoGrid vs AG Grid guide](/compare/ag-grid-alternative/).
 
 ## A 45-minute evaluation plan {#evaluation-plan}
 
-The next action should be a small, identical implementation—not another week of reading.
+The next action should be a small, identical implementation - not another week of reading.
 
-### Prepare once — 10 minutes
+### Prepare once - 10 minutes
 
 - Use the same 25,000-row dataset with 30 columns, nulls, long strings, dates, and one custom cell.
 - Define three tasks: find a record, edit five cells, and copy a 20 × 20 range to and from a spreadsheet.
 - Record your non-negotiables: license, supported frameworks, accessibility target, server API, and maximum acceptable paid tier.
 
-### Test each serious candidate — 25 minutes
+### Test each serious candidate - 25 minutes
 
 - Measure time to first usable grid, not only package installation.
 - Scroll vertically and horizontally while monitoring long tasks and memory.
@@ -320,7 +341,7 @@ The next action should be a small, identical implementation—not another week o
 - Navigate by keyboard and run a screen-reader smoke test.
 - Replace the local rows with a mocked remote request if server-side data matters.
 
-### Decide the next action — 10 minutes
+### Decide the next action - 10 minutes
 
 | Result | Next action |
 |---|---|
@@ -332,17 +353,17 @@ The next action should be a small, identical implementation—not another week o
 
 ## Why this guide is organized around workflows
 
-Public developer discussions show that “AG Grid alternative” searches are rarely about a simple winner. In an [Ask HN discussion](https://news.ycombinator.com/item?id=42782641), developers valued AG Grid's maturity while still asking what credible alternative exists. In a [MUI Data Grid alternatives thread](https://www.reddit.com/r/reactjs/comments/1gck77j), the concrete trigger was needing multi-cell selection and copy/paste without moving to Premium. Recent open-source grid launches also attract immediate scrutiny of performance claims and production edge cases, as seen in this [2026 React grid discussion](https://www.reddit.com/r/reactjs/comments/1qtqg5w/warpergrid_a_modular_react_grid_30x_faster_than/).
+Public developer discussions show that "AG Grid alternative" searches are rarely about a simple winner. In an [Ask HN discussion](https://news.ycombinator.com/item?id=42782641), developers valued AG Grid's maturity while still asking what credible alternative exists. In a [MUI Data Grid alternatives thread](https://www.reddit.com/r/reactjs/comments/1gck77j), the concrete trigger was needing multi-cell selection and copy/paste without moving to Premium. Recent open-source grid launches also attract immediate scrutiny of performance claims and production edge cases, as seen in this [2026 React grid discussion](https://www.reddit.com/r/reactjs/comments/1qtqg5w/warpergrid_a_modular_react_grid_30x_faster_than/).
 
 Those threads are directional anecdotes, not a frequency study. They influenced which workflows this article tests; official repositories and documentation determine the capability matrix.
 
 ## Methodology and sources
 
 - **Scope:** current browser-based JavaScript grids with a permissive open-source core and a credible production use case.
-- **Included:** AG Grid Community as the baseline, plus six alternatives spanning Web Component, plain JavaScript, React DOM, React canvas, and headless architectures.
+- **Included:** AG Grid Community as the baseline, plus seven alternatives spanning Web Component, plain JavaScript, React DOM, React canvas, Svelte 5, and headless architectures.
 - **Excluded:** proprietary-only grids, spreadsheet products with source-available restrictions, and small projects whose current license or maintenance status was unclear.
 - **Evidence:** official repositories, licenses, current documentation, and local RevoGrid Core source. Public community discussions were used only to identify user goals and evaluation pain.
-- **Known weak signal:** there is no independent, current, apples-to-apples performance benchmark across all seven packages. Performance recommendations are therefore a test protocol, not a ranking.
+- **Known weak signal:** there is no independent, current, apples-to-apples performance benchmark across all eight packages. Performance recommendations are therefore a test protocol, not a ranking.
 
 Feature packaging changes. Recheck the linked official sources before procurement or a long-term architectural commitment.
 
@@ -350,7 +371,7 @@ Feature packaging changes. Recheck the linked official sources before procuremen
 
 If framework independence plus open-source range and clipboard workflows match your constraints, [install RevoGrid Core](/guide/installation) and [explore the live demos](/demo/). If you are already using AG Grid, read the [migration guide](/blog/migrating-from-ag-grid-to-revogrid/) before estimating a rewrite.
 
-For Pro capabilities such as Pivot, Excel workflows, and server-side loading, start the 30-day trial in your own application. Install the public trial packages or clone the starter immediately—no form or approval step required.
+For Pro capabilities such as Pivot, Excel workflows, and server-side loading, start the 30-day trial in your own application. Install the public trial packages or clone the starter immediately - no form or approval step required.
 
 <div class="oss-actions">
   <a class="rg-btn" href="/trial?source=ag-grid-alternatives">Start your 30-day Pro trial</a>
