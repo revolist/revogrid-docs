@@ -1,4 +1,6 @@
 import type { DefaultTheme } from 'vitepress'
+import { sidebarProEn, withProBadges } from './pro-navigation.ts'
+import { mergeGridSidebar } from './merge-grid-sidebar.ts'
 import {
   sidebarAngularEn,
   sidebarJavaScriptDemosEn,
@@ -17,7 +19,7 @@ import {
 //     ],
 // },
 
-export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
+const coreGridSidebar: DefaultTheme.SidebarItem[] = [
   {
     text: 'Getting Started',
     items: [
@@ -113,48 +115,46 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
       {
         text: 'Column Definitions',
         link: '/guide/column/',
-        items: [
-          {
-            text: 'Column Resizing',
-            link: '/guide/column/resize',
-          },
-          {
-            text: 'Column Autosize',
-            link: '/guide/column/autosize',
-          },
-          {
-            text: 'Column Header Template',
-            link: '/guide/column/header.template',
-          },
-          {
-            text: 'Column Header Properties',
-            link: '/guide/column/properties',
-          },
-          {
-            text: 'Column Readonly',
-            link: '/guide/column/readonly',
-          },
-          {
-            text: 'Column Ordering',
-            link: '/guide/column/order',
-          },
-          {
-            text: 'Column Pinning',
-            link: '/guide/column/pin',
-          },
-          {
-            text: 'Column Groups',
-            link: '/guide/column/grouping',
-          },
-          {
-            text: 'Custom Column & Cell Formats',
-            link: '/guide/column/types',
-          },
-          {
-            text: 'Column Stretching',
-            link: '/guide/column/stretch',
-          },
-        ],
+      },
+      {
+        text: 'Column Resizing',
+        link: '/guide/column/resize',
+      },
+      {
+        text: 'Column Autosize',
+        link: '/guide/column/autosize',
+      },
+      {
+        text: 'Column Header Template',
+        link: '/guide/column/header.template',
+      },
+      {
+        text: 'Column Header Properties',
+        link: '/guide/column/properties',
+      },
+      {
+        text: 'Column Readonly',
+        link: '/guide/column/readonly',
+      },
+      {
+        text: 'Column Ordering',
+        link: '/guide/column/order',
+      },
+      {
+        text: 'Column Pinning',
+        link: '/guide/column/pin',
+      },
+      {
+        text: 'Column Groups',
+        link: '/guide/column/grouping',
+      },
+      {
+        text: 'Custom Column & Cell Formats',
+        link: '/guide/column/types',
+      },
+      {
+        text: 'Column Stretching',
+        link: '/guide/column/stretch',
       },
     ],
   },
@@ -165,24 +165,22 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
       {
         text: 'Cell Definitions',
         link: '/guide/cell/',
-        items: [
-          {
-            text: 'Cell Readonly',
-            link: '/guide/column/readonly',
-          },
-          {
-            text: 'Cell Template',
-            link: '/guide/cell/renderer',
-          },
-          {
-            text: 'Custom Cell Formats',
-            link: '/guide/cell/custom-formats',
-          },
-          {
-            text: 'Cell Editor',
-            link: '/guide/cell/editor',
-          },
-        ],
+      },
+      {
+        text: 'Cell Readonly',
+        link: '/guide/column/readonly',
+      },
+      {
+        text: 'Cell Template',
+        link: '/guide/cell/renderer',
+      },
+      {
+        text: 'Custom Cell Formats',
+        link: '/guide/cell/custom-formats',
+      },
+      {
+        text: 'Cell Editor',
+        link: '/guide/cell/editor',
       },
     ],
   },
@@ -193,32 +191,84 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
       {
         text: 'Row Definitions',
         link: '/guide/row',
-        items: [
-          {
-            text: 'Row Height',
-            link: '/guide/row/height',
-          },
-          {
-            text: 'Row Resizing',
-            link: '/guide/row/resize',
-          },
-          {
-            text: 'Row Pinning',
-            link: '/guide/row/pin',
-          },
-          {
-            text: 'Row Headers',
-            link: '/guide/row/headers',
-          },
-          {
-            text: 'Row Ordering',
-            link: '/guide/row/order',
-          },
-          {
-            text: 'Row Grouping',
-            link: '/guide/row/grouping',
-          },
-        ],
+      },
+      {
+        text: 'Row Height',
+        link: '/guide/row/height',
+      },
+      {
+        text: 'Row Resizing',
+        link: '/guide/row/resize',
+      },
+      {
+        text: 'Row Pinning',
+        link: '/guide/row/pin',
+      },
+      {
+        text: 'Row Headers',
+        link: '/guide/row/headers',
+      },
+      {
+        text: 'Row Ordering',
+        link: '/guide/row/order',
+      },
+      {
+        text: 'Row Grouping',
+        link: '/guide/row/grouping',
+      },
+    ],
+  },
+  {
+    text: 'Editors',
+    collapsed: true,
+    items: [
+      {
+        text: 'Overview',
+        link: '/guide/editing',
+      },
+      {
+        text: 'String',
+        link: '/guide/editors/string',
+      },
+      {
+        text: 'Number',
+        link: '/guide/editors/number',
+      },
+      {
+        text: 'Select Dropdown',
+        link: '/guide/editors/select',
+      },
+      {
+        text: 'Date',
+        link: '/guide/editors/date',
+      },
+    ],
+  },
+  {
+    text: 'Filtering',
+    collapsed: true,
+    items: [
+      {
+        text: 'Overview',
+        link: '/guide/filters',
+      },
+    ],
+  },
+  {
+    text: 'Sorting',
+    link: '/guide/sorting',
+  },
+  {
+    text: 'Accessibility',
+    collapsed: true,
+    items: [
+      {
+        text: 'WCAG',
+        link: '/guide/wcag',
+      },
+      {
+        text: 'RTL Support',
+        link: '/guide/rtl',
       },
     ],
   },
@@ -227,50 +277,10 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
     collapsed: true,
     items: [
       {
-        text: 'Accessibility',
-        link: '/guide/wcag',
-      },
-      {
-        text: 'RTL Support',
-        link: '/guide/rtl',
-      },
-      {
-        text: 'Editing',
-        link: '/guide/editing',
-      },
-      {
-        text: 'Export CSV',
-        link: '/guide/export.plugin',
-      },
-      {
-        text: 'Export PDF',
-        link: '/guide/pdf-export',
-      },
-      {
-        text: 'Export Excel',
-        link: '/guide/data-grid-export-excel',
-      },
-      {
-        text: 'Filtering',
-        link: '/guide/filters',
-      },
-      {
         text: 'Plugins',
         link: '/guide/plugin',
       },
-      {
-        text: 'Security',
-        link: '/guide/security',
-      },
-      {
-        text: 'Server-Side Data',
-        link: '/guide/server-side-data',
-      },
       { text: 'Slots', link: '/guide/slots' },
-      {
-        text: 'Sorting',
-        link: '/guide/sorting',
-      },
       {
         text: 'Standalone',
         link: '/guide/standalone',
@@ -289,7 +299,50 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
       },
     ],
   },
+  {
+    text: 'Server-Side Data',
+    collapsed: true,
+    items: [
+      {
+        text: 'Overview',
+        link: '/guide/server-side-data',
+      },
+    ],
+  },
+  {
+    text: 'Export',
+    collapsed: true,
+    items: [
+      {
+        text: 'Export CSV',
+        link: '/guide/export.plugin',
+      },
+      {
+        text: 'Export PDF',
+        link: '/guide/pdf-export',
+      },
+      {
+        text: 'Export Excel',
+        link: '/guide/data-grid-export-excel',
+      },
+    ],
+  },
+]
 
+const dataGrid = sidebarProEn.find(section => section.text === 'Data Grid')
+
+export const sidebarGuideEn: DefaultTheme.SidebarItem[] = withProBadges([
+  {
+    text: 'Data Grid',
+    collapsed: false,
+    items: [
+      ...mergeGridSidebar(coreGridSidebar, dataGrid?.items ?? [], {
+        'Data Filter': 'Filtering',
+        'Excel Export': 'Export Excel',
+      }),
+    ],
+  },
+  ...sidebarProEn.filter(section => section !== dataGrid),
   {
     text: 'Frameworks',
     items: [
@@ -491,4 +544,8 @@ export const sidebarGuideEn: DefaultTheme.SidebarItem[] = [
     text: 'Data Grid explained',
     link: '/blog/datagrid',
   },
-]
+  {
+    text: 'Security',
+    link: '/guide/security',
+  },
+])

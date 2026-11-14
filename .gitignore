@@ -15,3 +15,9 @@ test-results/
 .pnpm-store
 output
 _research
+_article-plan.md
+playwright.article-pagination.config.ts
+revogrid-demos
+VERIFICATION.md
+scripts/package-article-starters.py
+tests/e2e/articles/pro-pagination.spec.ts

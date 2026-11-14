@@ -213,6 +213,8 @@ const featureGroups = [
     label: 'Scheduler',
     icon: 'calendarDays',
     items: [
+      createItem('scheduler-basic', 'Basic scheduler', '/demo/scheduler-basic', 'calendarDays', ['Resource timeline', 'Events', 'Drag and drop']),
+      createItem('calendar', 'Calendar', '/demo/calendar', 'calendarDays', ['Events', 'Week', 'Month', 'Schedule']),
       createItem('property-booking', 'Property booking', '/demo/property-booking', 'calendarDays', ['Reservations', 'Hospitality', 'Nightly stays']),
       createItem('event-scheduler', 'Shift scheduling', '/demo/event-scheduler', 'calendarDays', [
         'Calendar',

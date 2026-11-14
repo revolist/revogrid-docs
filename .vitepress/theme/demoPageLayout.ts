@@ -353,6 +353,26 @@ const DEMO_PAGE_CONTENT = {
       { label: 'Selected properties', source: 'Scheduler timelineSummary.resourceIds' },
     ],
   },
+  'scheduler-basic': {
+    title: 'Basic Scheduler Demo',
+    description: 'Create, move, and resize events on a simple team resource timeline.',
+    implementationUrl: 'https://github.com/revolist/scheduler/tree/main/src/examples/scheduler-basic',
+    featureBadges: [
+      { label: 'Resource timeline', source: 'EventSchedulerPlugin' },
+      { label: 'Event editing', source: 'EventSchedulerConfig allowCreate + allowMove + allowResize + allowDelete' },
+    ],
+  },
+  calendar: {
+    title: 'Calendar Demo',
+    description: 'Plan events with multiple assignees, calendar views, and team filters.',
+    implementationUrl: 'https://github.com/revolist/scheduler',
+    featureBadges: [
+      { label: 'Calendar views', source: 'EventSchedulerPlugin' },
+      { label: 'Event editing', source: 'EventSchedulerPlugin' },
+      { label: 'Multiple assignees', source: 'EventSchedulerConfig allowMultiResourceAssignment' },
+      { label: 'Team filters', source: 'Scheduler sidebar filters' },
+    ],
+  },
   'event-scheduler': {
     title: 'JavaScript Scheduler Demo',
     description: 'Build resource schedules with events, movement, resizing, and calendar views.',

@@ -1,5 +1,7 @@
 ### Date
 
+<!-- #region date-format -->
+
 The date column type adds a calendar editor through the [revogrid-column-date](https://github.com/revolist/revogrid-column-date) package, based on [duetds-date-picker](https://github.com/duetds/date-picker).
 
 Use it for date strings or date values that should be edited with a date picker instead of plain text input.
@@ -65,4 +67,8 @@ const columnTypes = { date: new Plugin() }
 
 Keep the date value format consistent across the column. If your application stores dates in a different shape than the editor displays, normalize the value before assigning `source` or handle conversion in your save workflow.
 
-<!--@include: ../../guide/demos/js/js.date.md-->
+<!-- #endregion date-format -->
+
+#### Date Column Demo
+
+<!--@include: ../../guide/demos/js/js.date.md{10,}-->

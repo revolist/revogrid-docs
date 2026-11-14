@@ -132,3 +132,24 @@ For more information, visit the [RevoGrid GitHub repository](https://github.com/
 
 This `README.md` provides clear instructions on how to set up, fill, and contribute to the VitePress-based RevoGrid documentation. Adjust as needed to better fit the specific requirements of the project.
 
+
+### Pro product navigation
+
+The guide sidebar starts with an expanded Data Grid section that combines local
+guides and Pro features. Rows, Cells, Columns, Filtering, Excel Export and Server-Side
+Data share their existing categories. Gantt, Scheduler, Kanban, Pivot, Pivot Charts
+and Charts remain independent collapsible sections. Links open the corresponding
+Pro documentation in a new tab.
+
+Pro publishes its shared sidebar configuration and generated guide metadata at
+`https://pro.rv-grid.com/navigation.json` (schema version 1: `items` containing
+`label`, optional `href`, and optional nested `items`). It contains navigation
+metadata only. XML sitemaps remain for crawlers.
+
+After deploying navigation changes to Pro, run `pnpm sync:pro-navigation` here,
+review the generated `.vitepress/configs/sidebar/pro-navigation.json` diff and commit
+it. To test another Pro deployment, pass its endpoint URL to the same command.
+The sync validates labels and link destinations before replacing the snapshot;
+failed requests leave the previous tree intact. Regular builds and visitors never
+fetch remote navigation. The initial snapshot was generated from the local Pro
+sidebar and guide frontmatter; deploy the Pro endpoint before the first remote sync.

@@ -55,6 +55,8 @@ const demoSeoFiles = [
   'kanban-performance.md',
   'kanban-server-loading.md',
   'event-scheduler.md',
+  'calendar.md',
+  'scheduler-basic.md',
   'property-booking.md',
   'planning.md',
   'excel.md',
@@ -435,7 +437,7 @@ test('groups demo navigation by plan and Pro Advanced product family', () => {
       {
         text: 'Scheduler',
         collapsed: false,
-        links: ['/demo/property-booking', '/demo/event-scheduler'],
+        links: ['/demo/scheduler-basic', '/demo/calendar', '/demo/property-booking', '/demo/event-scheduler'],
       },
       {
         text: 'Kanban',

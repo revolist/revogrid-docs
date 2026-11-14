@@ -761,3 +761,16 @@ test('property booking source panels reuse the pushed Scheduler example in every
     }
   }
 });
+
+
+test('Calendar uses the multiassignment example in the scheduler submodule', () => {
+  const entries = DEMO_SOURCE_REGISTRY.calendar
+  for (const entry of Object.values(entries)) {
+    assert.match(entry.files[0].path, /pro-advanced-scheduler\/src\/examples\/calendar-multiassign\/CalendarMultiAssign/)
+    assert.ok(entry.files.some(file => file.label === 'demo.ts'))
+    assert.ok(entry.files.some(file => file.label === 'avatars.ts'))
+  }
+  const page = readFileSync(new URL('../../../../demo/calendar.md', import.meta.url), 'utf8')
+  assert.match(page, /calendar-multiassign\/CalendarMultiAssign.vue/)
+  assert.match(page, /demo-id="calendar"/)
+})

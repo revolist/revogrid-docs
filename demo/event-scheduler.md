@@ -37,7 +37,4 @@ const EventSchedulerShiftWeek = defineAsyncComponent(() =>
   height: 100%;
   border-radius: 0;
 }
-:deep(.event-scheduler-shift-week-sidebar) {
-  display: none !important;
-}
 </style>

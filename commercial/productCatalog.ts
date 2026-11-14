@@ -37,6 +37,8 @@ export type DemoId =
   | 'kanban-server-loading'
   | 'event-scheduler'
   | 'property-booking'
+  | 'calendar'
+  | 'scheduler-basic'
   | 'planning'
 export type CommercialFaqKey =
   | 'developer-licenses'
@@ -592,6 +594,20 @@ const demos = {
     planId: 'pro-advanced',
     status: 'stable',
     pageUrl: '/demo/event-scheduler',
+  },
+  'scheduler-basic': {
+    id: 'scheduler-basic',
+    title: 'Basic Scheduler',
+    planId: 'pro-advanced',
+    status: 'stable',
+    pageUrl: '/demo/scheduler-basic',
+  },
+  calendar: {
+    id: 'calendar',
+    title: 'Calendar',
+    planId: 'pro-advanced',
+    status: 'stable',
+    pageUrl: '/demo/calendar',
   },
   'property-booking': {
     id: 'property-booking',

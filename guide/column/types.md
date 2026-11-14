@@ -110,13 +110,7 @@ Framework wrappers use the same data shape. Pass `columns`, `source`, and `colum
 
 ## Available column formats
 
-<!--@include: ./_types.string.md-->
-<br /><br />
-<!--@include: ./_types.number.md-->
-<br /><br />
-<!--@include: ./_types.select.md-->
-<br /><br />
-<!--@include: ./_types.date.md-->
+<!--@include: ../parts/_column-formats.md-->
 <br /><br />
 <!--@include: ./_types.pro.md-->
 

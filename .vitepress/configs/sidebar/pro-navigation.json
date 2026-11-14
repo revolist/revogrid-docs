@@ -1,0 +1,2342 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "label": "Data Grid",
+      "items": [
+        {
+          "label": "Tree Data Grid",
+          "items": [
+            {
+              "label": "Overview",
+              "href": "/guides/data-manage/tree/"
+            },
+            {
+              "label": "Server-Side Loading",
+              "href": "/guides/data-manage/tree-remote/"
+            }
+          ]
+        },
+        {
+          "label": "Data Management",
+          "items": [
+            {
+              "label": "Autofill",
+              "href": "/guides/data-manage/autofill/"
+            },
+            {
+              "label": "Event Manager",
+              "href": "/guides/data-manage/event-manager-explanation/"
+            },
+            {
+              "label": "Grouping with Aggregation",
+              "href": "/guides/data-manage/grouping-aggregation/"
+            },
+            {
+              "label": "History Undo/Redo",
+              "href": "/guides/data-manage/history/"
+            },
+            {
+              "label": "Master Rows",
+              "href": "/guides/data-manage/row-master/"
+            },
+            {
+              "label": "Nested Grid",
+              "href": "/guides/data-manage/nested-grid/"
+            },
+            {
+              "label": "Row Expand Plugin",
+              "href": "/guides/data-manage/row-expand/"
+            }
+          ]
+        },
+        {
+          "label": "Audit Trail",
+          "items": [
+            {
+              "label": "Overview",
+              "href": "/guides/audit-trail/"
+            },
+            {
+              "label": "Records and events",
+              "href": "/guides/audit-trail/records/"
+            },
+            {
+              "label": "Panel and filters",
+              "href": "/guides/audit-trail/panel/"
+            },
+            {
+              "label": "Review and restore",
+              "href": "/guides/audit-trail/restore/"
+            },
+            {
+              "label": "Storage and providers",
+              "href": "/guides/audit-trail/storage/"
+            },
+            {
+              "label": "Policies and privacy",
+              "href": "/guides/audit-trail/policies/"
+            },
+            {
+              "label": "Localization and dates",
+              "href": "/guides/audit-trail/localization/"
+            },
+            {
+              "label": "Export",
+              "href": "/guides/audit-trail/export/"
+            }
+          ]
+        },
+        {
+          "label": "Data Filter",
+          "items": [
+            {
+              "label": "Overview",
+              "href": "/guides/data-filter/filter-showcase/"
+            },
+            {
+              "label": "Quick Start",
+              "href": "/guides/data-filter/filter-basics/"
+            },
+            {
+              "label": "Filter types",
+              "items": [
+                {
+                  "label": "Filter types",
+                  "href": "/guides/data-filter/filter-types/"
+                },
+                {
+                  "label": "Overview",
+                  "href": "/guides/data-filter/filter-types/overview/"
+                },
+                {
+                  "label": "Text Filter",
+                  "href": "/guides/data-filter/filter-types/text-filter/"
+                },
+                {
+                  "label": "Number Filter",
+                  "href": "/guides/data-filter/filter-types/number-filter/"
+                },
+                {
+                  "label": "Selection Filter",
+                  "href": "/guides/data-filter/filter-types/filter-selection/"
+                },
+                {
+                  "label": "Selection Cascade Filter",
+                  "href": "/guides/data-filter/filter-types/filter-selection-cascade/"
+                },
+                {
+                  "label": "Excel-Style Filter",
+                  "href": "/guides/data-filter/filter-types/filter-selection-excel-mode/"
+                },
+                {
+                  "label": "Slider Filter",
+                  "href": "/guides/data-filter/filter-types/filter-slider/"
+                },
+                {
+                  "label": "Date Filter",
+                  "href": "/guides/data-filter/filter-types/date-filter/"
+                },
+                {
+                  "label": "Date range filter",
+                  "href": "/guides/data-filter/filter-types/calendar-range/"
+                },
+                {
+                  "label": "Datetime Filter",
+                  "href": "/guides/data-filter/filter-types/datetime-filter/"
+                },
+                {
+                  "label": "Fiscal Date Filters",
+                  "href": "/guides/data-filter/filter-types/fiscal-date-filters/"
+                },
+                {
+                  "label": "Timeline Brush Filter",
+                  "href": "/guides/data-filter/filter-types/timeline-brush/"
+                },
+                {
+                  "label": "Time Matrix Filter",
+                  "href": "/guides/data-filter/filter-types/time-matrix/"
+                },
+                {
+                  "label": "Boolean Filter",
+                  "href": "/guides/data-filter/filter-types/boolean-filter/"
+                },
+                {
+                  "label": "Relative or Rolling Window Filter",
+                  "href": "/guides/data-filter/filter-types/relative-window/"
+                },
+                {
+                  "label": "Array Filter",
+                  "href": "/guides/data-filter/filter-types/array-filter/"
+                },
+                {
+                  "label": "Quick Filter",
+                  "href": "/guides/data-filter/filter-types/quick-filter/"
+                },
+                {
+                  "label": "Token List Filter",
+                  "href": "/guides/data-filter/filter-types/token-list/"
+                },
+                {
+                  "label": "Fuzzy Search Filter",
+                  "href": "/guides/data-filter/filter-types/fuzzy-search/"
+                },
+                {
+                  "label": "Regular Expression Filter",
+                  "href": "/guides/data-filter/filter-types/regular-expression/"
+                },
+                {
+                  "label": "Faceted List Filter",
+                  "href": "/guides/data-filter/filter-types/faceted-list/"
+                },
+                {
+                  "label": "Chip and Badge Toggle Filter",
+                  "href": "/guides/data-filter/filter-types/chip-badge-toggles/"
+                },
+                {
+                  "label": "Histogram Brush Filter",
+                  "href": "/guides/data-filter/filter-types/histogram-brush/"
+                },
+                {
+                  "label": "Rating or Progress Threshold Filter",
+                  "href": "/guides/data-filter/filter-types/rating-progress-threshold/"
+                },
+                {
+                  "label": "Statistical Presets Filter",
+                  "href": "/guides/data-filter/filter-types/statistical-presets/"
+                },
+                {
+                  "label": "Tri-state Boolean Filter",
+                  "href": "/guides/data-filter/filter-types/tri-state-boolean/"
+                },
+                {
+                  "label": "Array and Tags Filter",
+                  "href": "/guides/data-filter/filter-types/array-tags/"
+                }
+              ]
+            },
+            {
+              "label": "Blank Values",
+              "href": "/guides/data-filter/blank-values/"
+            },
+            {
+              "label": "Filter Badges",
+              "href": "/guides/data-filter/filter-badges/"
+            },
+            {
+              "label": "Filter Header",
+              "href": "/guides/data-filter/filter-header/"
+            },
+            {
+              "label": "Filter Expressions",
+              "href": "/guides/data-filter/filter-expression/"
+            },
+            {
+              "label": "What Is a Filter AST?",
+              "href": "/guides/data-filter/what-is-filter-ast/"
+            },
+            {
+              "label": "Canonical Filter AST",
+              "href": "/guides/data-filter/filter-ast/"
+            },
+            {
+              "label": "Filter AST Side Panel",
+              "href": "/guides/data-filter/filter-ast-side-panel/"
+            },
+            {
+              "label": "Filter Events",
+              "href": "/guides/data-filter/filter-events/"
+            },
+            {
+              "label": "Filter State and Presets",
+              "href": "/guides/data-filter/filter-state/"
+            },
+            {
+              "label": "Custom Filter Operators",
+              "href": "/guides/data-filter/custom-filter-operators/"
+            }
+          ]
+        },
+        {
+          "label": "Data Validation",
+          "items": [
+            {
+              "label": "Basic Validation",
+              "href": "/guides/validate-basic/"
+            },
+            {
+              "label": "Input Validation",
+              "href": "/guides/validate-input/"
+            }
+          ]
+        },
+        {
+          "label": "Selection & Focus",
+          "items": [
+            {
+              "label": "Selection & Focus",
+              "href": "/guides/selection/"
+            },
+            {
+              "label": "Column Selection",
+              "href": "/guides/selection/column-selection/"
+            },
+            {
+              "label": "Multi-Range Selection",
+              "href": "/guides/selection/multi-range-selection/"
+            },
+            {
+              "label": "Range Copy Preview",
+              "href": "/guides/selection/range-copy-preview/"
+            },
+            {
+              "label": "Range Selection Limit",
+              "href": "/guides/selection/range-selection-limit/"
+            },
+            {
+              "label": "Row Selection",
+              "href": "/guides/selection/row-select/"
+            }
+          ]
+        },
+        {
+          "label": "Cells",
+          "items": [
+            {
+              "label": "Chart and Visualization",
+              "href": "/guides/cells/charts/"
+            },
+            {
+              "label": "Flashing Cells",
+              "href": "/guides/cells/cell-flash/"
+            },
+            {
+              "label": "Heatmap/Coldmap Feature",
+              "href": "/guides/cells/heatmap/"
+            },
+            {
+              "label": "Highlight Cells and Styling",
+              "href": "/guides/cells/cell-style/"
+            },
+            {
+              "label": "Merge Cells",
+              "href": "/guides/cells/cell-merge/"
+            },
+            {
+              "label": "Multi Renderer",
+              "href": "/guides/cells/multi-renderer/"
+            },
+            {
+              "label": "Same Value Merge",
+              "href": "/guides/cells/same-value-merge/"
+            },
+            {
+              "label": "Sticky Cells",
+              "href": "/guides/cells/sticky-cells/"
+            }
+          ]
+        },
+        {
+          "label": "Formatting",
+          "items": [
+            {
+              "label": "Data Grid Formatting",
+              "href": "/guides/data-grid/context-menu/"
+            },
+            {
+              "label": "Format Cells",
+              "href": "/guides/data-grid/format-cells/"
+            }
+          ]
+        },
+        {
+          "label": "Editors",
+          "items": [
+            {
+              "label": "Overview",
+              "items": [
+                {
+                  "label": "Overview",
+                  "href": "/guides/editors/number/"
+                },
+                {
+                  "label": "Integers and decimals",
+                  "href": "/guides/editors/number/decimals/"
+                },
+                {
+                  "label": "Currency and accounting",
+                  "href": "/guides/editors/number/currency/"
+                },
+                {
+                  "label": "Percentages and rates",
+                  "href": "/guides/editors/number/percentages/"
+                },
+                {
+                  "label": "Countries and locales",
+                  "href": "/guides/editors/number/locales/"
+                },
+                {
+                  "label": "Scientific notation and units",
+                  "href": "/guides/editors/number/scientific-units/"
+                },
+                {
+                  "label": "Spreadsheet format codes",
+                  "href": "/guides/editors/number/format-codes/"
+                },
+                {
+                  "label": "Numeral Column Type",
+                  "href": "/guides/editors/number/numeral/"
+                },
+                {
+                  "label": "Time, dates, and durations",
+                  "href": "/guides/editors/number/time-duration/"
+                },
+                {
+                  "label": "Editing and validation",
+                  "href": "/guides/editors/number/editing/"
+                },
+                {
+                  "label": "Rounding, precision, and signs",
+                  "href": "/guides/editors/number/rounding/"
+                },
+                {
+                  "label": "Number editor",
+                  "href": "/guides/editors/number/number-editor/"
+                },
+                {
+                  "label": "Currency editor",
+                  "href": "/guides/editors/number/currency-editor/"
+                },
+                {
+                  "label": "Percentage editor",
+                  "href": "/guides/editors/number/percentage-editor/"
+                },
+                {
+                  "label": "Masked text editor",
+                  "href": "/guides/editors/number/masked-editor/"
+                }
+              ]
+            },
+            {
+              "label": "Assignee Editor",
+              "href": "/guides/editors/editor-assignee/"
+            },
+            {
+              "label": "Checkbox Editor",
+              "href": "/guides/editors/editor-checkbox/"
+            },
+            {
+              "label": "Counter Editor",
+              "href": "/guides/editors/editor-counter/"
+            },
+            {
+              "label": "Dropdown Editor",
+              "href": "/guides/editors/editor-dropdown/"
+            },
+            {
+              "label": "HTML Rich Text Editor",
+              "href": "/guides/editors/editor-rich-text/"
+            },
+            {
+              "label": "Remote Lookup Editor",
+              "href": "/guides/editors/editor-lookup/"
+            },
+            {
+              "label": "Row Editor",
+              "href": "/guides/editors/editor-row/"
+            },
+            {
+              "label": "Slider Editor",
+              "href": "/guides/editors/editor-slider/"
+            },
+            {
+              "label": "Textarea Editor",
+              "href": "/guides/editors/editor-textarea/"
+            },
+            {
+              "label": "Timeline Segment Editor",
+              "href": "/guides/editors/editor-timeline-segments/"
+            }
+          ]
+        },
+        {
+          "label": "Columns",
+          "items": [
+            {
+              "label": "Column Collapse",
+              "href": "/guides/columns/column-collapse/"
+            },
+            {
+              "label": "Column Hide",
+              "href": "/guides/columns/column-hide/"
+            },
+            {
+              "label": "Column Move With Groups",
+              "href": "/guides/columns/column-move-with-groups/"
+            },
+            {
+              "label": "Column Stretch",
+              "href": "/guides/columns/column-stretch/"
+            },
+            {
+              "label": "Column Type Renderer",
+              "href": "/guides/columns/column-type-renderer/"
+            },
+            {
+              "label": "Header Text Wrapping",
+              "href": "/guides/columns/header-wrap/"
+            },
+            {
+              "label": "Multi Row Headers",
+              "href": "/guides/columns/multi-row-header/"
+            }
+          ]
+        },
+        {
+          "label": "Rows",
+          "items": [
+            {
+              "label": "Auto Size Row",
+              "href": "/guides/rows/row-autosize/"
+            },
+            {
+              "label": "Auto-Focus on Next Row WCAG",
+              "href": "/guides/rows/row-next-line/"
+            },
+            {
+              "label": "Drag and Drop (Advanced)",
+              "href": "/guides/rows/row-advanced-drag-drop/"
+            },
+            {
+              "label": "Header (Advanced)",
+              "href": "/guides/rows/row-advanced-header/"
+            },
+            {
+              "label": "Row Odd",
+              "href": "/guides/rows/row-odd/"
+            },
+            {
+              "label": "Row Status",
+              "href": "/guides/rows/row-status/"
+            },
+            {
+              "label": "Row Transpose",
+              "href": "/guides/rows/row-transpose/"
+            },
+            {
+              "label": "Rows and Columns Context Menu",
+              "href": "/guides/rows/row-context-menu/"
+            }
+          ]
+        },
+        {
+          "label": "Formula",
+          "items": [
+            {
+              "label": "Formula",
+              "href": "/guides/formula/"
+            },
+            {
+              "label": "Overview",
+              "href": "/guides/formula/overview/"
+            },
+            {
+              "label": "Quick Start",
+              "href": "/guides/formula/quick-start/"
+            },
+            {
+              "label": "A1 References and Autofill",
+              "href": "/guides/formula/a1-references-autofill/"
+            },
+            {
+              "label": "Named Ranges",
+              "href": "/guides/formula/named-ranges/"
+            },
+            {
+              "label": "Formula UI and Helpers",
+              "href": "/guides/formula/formula-ui/"
+            },
+            {
+              "label": "Cross-sheet Formulas",
+              "href": "/guides/formula/cross-sheet/"
+            },
+            {
+              "label": "Async Formula Functions",
+              "href": "/guides/formula/async-functions/"
+            },
+            {
+              "label": "Backend Calculation",
+              "href": "/guides/formula/backend-calculation/"
+            },
+            {
+              "label": "Supported Functions",
+              "href": "/guides/formula/supported-functions/"
+            },
+            {
+              "label": "Formula API",
+              "href": "/api/formula/"
+            }
+          ]
+        },
+        {
+          "label": "Excel Export",
+          "items": [
+            {
+              "label": "Overview",
+              "href": "/guides/excel-export/"
+            },
+            {
+              "label": "Export Providers",
+              "href": "/guides/excel-export/providers/"
+            },
+            {
+              "label": "Cell Formatting",
+              "href": "/guides/excel-export/cell-formatting/"
+            },
+            {
+              "label": "CSV Import",
+              "href": "/guides/excel-export/csv-import/"
+            },
+            {
+              "label": "Excel Libraries",
+              "href": "/guides/excel-export/excel-import-export-libraries/"
+            }
+          ]
+        },
+        {
+          "label": "Grid Utilities",
+          "items": [
+            {
+              "label": "Tooltip",
+              "href": "/guides/grid-utilities/tooltip/"
+            },
+            {
+              "label": "Smart Excel-Compatible Clipboard",
+              "href": "/guides/grid-utilities/clipboard-json/"
+            },
+            {
+              "label": "Overlay Nodes",
+              "href": "/guides/grid-utilities/overlay-nodes/"
+            },
+            {
+              "label": "Smart Panel",
+              "href": "/guides/grid-utilities/smart-panel/"
+            },
+            {
+              "label": "Grid Configurator",
+              "href": "/guides/grid-utilities/grid-configurator/"
+            },
+            {
+              "label": "Local Pagination",
+              "href": "/guides/grid-utilities/pagination/"
+            },
+            {
+              "label": "Dimension Animation",
+              "href": "/guides/grid-utilities/dimension-animation/"
+            },
+            {
+              "label": "Status Feedback And Badges",
+              "href": "/guides/grid-utilities/status-feedback/"
+            }
+          ]
+        },
+        {
+          "label": "AI Assistance",
+          "items": [
+            {
+              "label": "Overview",
+              "href": "/guides/ai-view-assistant/"
+            },
+            {
+              "label": "Use the Assistant",
+              "href": "/guides/ai-assistant/using-assistant/"
+            },
+            {
+              "label": "Quick Start",
+              "href": "/guides/ai-assistant/quick-start/"
+            },
+            {
+              "label": "Actions and Editing",
+              "href": "/guides/ai-assistant/actions/"
+            },
+            {
+              "label": "Build Custom Behavior",
+              "href": "/guides/ai-assistant/custom-behavior/"
+            },
+            {
+              "label": "Data and Privacy",
+              "href": "/guides/ai-assistant/data-privacy/"
+            },
+            {
+              "label": "Questions and Answers",
+              "href": "/guides/ai-assistant/answers/"
+            },
+            {
+              "label": "Chat, History and Language",
+              "href": "/guides/ai-assistant/interface/"
+            },
+            {
+              "label": "Advanced Integration",
+              "items": [
+                {
+                  "label": "Custom Actions and Products",
+                  "href": "/guides/ai-assistant/integrations/"
+                },
+                {
+                  "label": "Server-Side Data",
+                  "href": "/guides/ai-assistant/remote-data/"
+                },
+                {
+                  "label": "Backend Setup",
+                  "href": "/guides/ai-assistant/backend/"
+                },
+                {
+                  "label": "Testing",
+                  "href": "/guides/ai-assistant/testing/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Server-Side Data",
+          "items": [
+            {
+              "label": "Server-Side Pagination",
+              "href": "/guides/pagination-remote/"
+            },
+            {
+              "label": "Infinity Scroll",
+              "href": "/guides/infinity-scroll/"
+            },
+            {
+              "label": "Server-Side Row Grouping",
+              "href": "/guides/server-side-grouping/"
+            },
+            {
+              "label": "Data Fetching & Caching",
+              "href": "/guides/data-grid/query-providers/"
+            }
+          ]
+        },
+        {
+          "label": "Collaboration",
+          "items": [
+            {
+              "label": "Collaborative Presence",
+              "href": "/guides/data-manage/collaborative-presence/"
+            },
+            {
+              "label": "Collaborative Editing",
+              "href": "/guides/data-manage/collaborative-editing/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Scheduler",
+      "items": [
+        {
+          "label": "Introduction",
+          "items": [
+            {
+              "label": "Getting Started",
+              "href": "/guides/event-scheduler/introduction/"
+            },
+            {
+              "label": "Vertical vs Horizontal Time",
+              "href": "/guides/event-scheduler/introduction/vertical-vs-horizontal/"
+            }
+          ]
+        },
+        {
+          "label": "Features",
+          "items": [
+            {
+              "label": "Timeline Views",
+              "href": "/guides/event-scheduler/timeline-views/"
+            },
+            {
+              "label": "Week View",
+              "href": "/guides/event-scheduler/week-view/"
+            },
+            {
+              "label": "Editing and Interaction",
+              "href": "/guides/event-scheduler/event-editing/"
+            },
+            {
+              "label": "Grouping",
+              "href": "/guides/event-scheduler/grouping/"
+            },
+            {
+              "label": "Templates and Recurrence",
+              "href": "/guides/event-scheduler/templates-recurrence/"
+            },
+            {
+              "label": "Export",
+              "href": "/guides/event-scheduler/export/"
+            }
+          ]
+        },
+        {
+          "label": "AI Assistance",
+          "items": [
+            {
+              "label": "AI Assistant",
+              "href": "/guides/event-scheduler/ai-assistant/"
+            }
+          ]
+        },
+        {
+          "label": "Server-Side",
+          "items": [
+            {
+              "label": "Remote Data and Queries",
+              "href": "/guides/event-scheduler/remote-data/"
+            },
+            {
+              "label": "Mutations and Saving",
+              "href": "/guides/event-scheduler/server-side/mutations/"
+            },
+            {
+              "label": "Server-Side Example",
+              "href": "/guides/event-scheduler/server-side/example/"
+            }
+          ]
+        },
+        {
+          "label": "Scheduling Rules",
+          "items": [
+            {
+              "label": "Overview",
+              "href": "/guides/event-scheduler/scheduling-rules/"
+            },
+            {
+              "label": "Calendars",
+              "href": "/guides/event-scheduler/scheduling-rules/calendars/"
+            },
+            {
+              "label": "Availability",
+              "href": "/guides/event-scheduler/scheduling-rules/availability/"
+            },
+            {
+              "label": "Conflicts",
+              "href": "/guides/event-scheduler/scheduling-rules/conflicts/"
+            }
+          ]
+        },
+        {
+          "label": "Customization",
+          "items": [
+            {
+              "label": "Customization",
+              "href": "/guides/event-scheduler/customization/"
+            },
+            {
+              "label": "Labels and Formatters",
+              "href": "/guides/event-scheduler/customization/labels-formatters/"
+            },
+            {
+              "label": "Event Rendering",
+              "href": "/guides/event-scheduler/customization/events/"
+            },
+            {
+              "label": "Layout, Headers, and Cells",
+              "href": "/guides/event-scheduler/customization/layout/"
+            },
+            {
+              "label": "Slots, Hours, and Markers",
+              "href": "/guides/event-scheduler/customization/slots-hours/"
+            },
+            {
+              "label": "Conflicts and States",
+              "href": "/guides/event-scheduler/customization/conflicts-states/"
+            },
+            {
+              "label": "Context Menus",
+              "href": "/guides/event-scheduler/customization/context-menu/"
+            },
+            {
+              "label": "Styling and Themes",
+              "href": "/guides/event-scheduler/customization/styling/"
+            }
+          ]
+        },
+        {
+          "label": "Examples",
+          "href": "/guides/event-scheduler/examples/"
+        },
+        {
+          "label": "API Reference",
+          "href": "/api/event-scheduler/"
+        }
+      ]
+    },
+    {
+      "label": "Kanban",
+      "items": [
+        {
+          "label": "Kanban",
+          "href": "/guides/kanban/"
+        },
+        {
+          "label": "Introduction",
+          "items": [
+            {
+              "label": "What Is Kanban?",
+              "href": "/guides/kanban/introduction/"
+            }
+          ]
+        },
+        {
+          "label": "Getting Started",
+          "items": [
+            {
+              "label": "Your First Board",
+              "href": "/guides/kanban/getting-started/"
+            },
+            {
+              "label": "Card Data and Field Mapping",
+              "href": "/guides/kanban/data-model/"
+            }
+          ]
+        },
+        {
+          "label": "Build a Board",
+          "items": [
+            {
+              "label": "Columns and Ordering",
+              "href": "/guides/kanban/build/columns/"
+            },
+            {
+              "label": "Swimlanes",
+              "href": "/guides/kanban/build/swimlanes/"
+            },
+            {
+              "label": "Work in Progress Limits",
+              "href": "/guides/kanban/build/wip-limits/"
+            },
+            {
+              "label": "Move Rules",
+              "href": "/guides/kanban/build/move-rules/"
+            },
+            {
+              "label": "Moving Cards",
+              "href": "/guides/kanban/build/moving-cards/"
+            },
+            {
+              "label": "Selecting Cards",
+              "href": "/guides/kanban/build/selection/"
+            }
+          ]
+        },
+        {
+          "label": "Appearance and Controls",
+          "items": [
+            {
+              "label": "Cards and Design",
+              "href": "/guides/kanban/customization/cards/"
+            },
+            {
+              "label": "Editing Cards",
+              "href": "/guides/kanban/card-editor/"
+            },
+            {
+              "label": "Toolbar",
+              "href": "/guides/kanban/toolbar/"
+            },
+            {
+              "label": "Themes and Styling",
+              "href": "/guides/kanban/customization/appearance/"
+            },
+            {
+              "label": "Labels and Language",
+              "href": "/guides/kanban/customization/localization/"
+            }
+          ]
+        },
+        {
+          "label": "Filter, History and Save",
+          "items": [
+            {
+              "label": "Search and Filters",
+              "href": "/guides/kanban/features/filtering/"
+            },
+            {
+              "label": "Undo and Redo",
+              "href": "/guides/kanban/features/history/"
+            },
+            {
+              "label": "Save and Restore Board State",
+              "href": "/guides/kanban/features/saving-state/"
+            },
+            {
+              "label": "Board and Table Views",
+              "href": "/guides/kanban/features/board-and-table/"
+            }
+          ]
+        },
+        {
+          "label": "AI Assistance",
+          "items": [
+            {
+              "label": "AI Assistant",
+              "href": "/guides/kanban/ai-assistant/"
+            }
+          ]
+        },
+        {
+          "label": "Server-Side",
+          "items": [
+            {
+              "label": "How Server Data Works",
+              "href": "/guides/kanban/server-side/"
+            },
+            {
+              "label": "Load Cards",
+              "href": "/guides/kanban/server-side/loading/"
+            },
+            {
+              "label": "Load Pages",
+              "href": "/guides/kanban/server-side/pagination/"
+            },
+            {
+              "label": "Caching and Refresh",
+              "href": "/guides/kanban/server-side/caching/"
+            },
+            {
+              "label": "Save Card Changes",
+              "href": "/guides/kanban/server-side/saving/"
+            },
+            {
+              "label": "Loading Errors and Retry",
+              "href": "/guides/kanban/server-side/errors/"
+            }
+          ]
+        },
+        {
+          "label": "Advanced and Reference",
+          "items": [
+            {
+              "label": "Managed Saving and Conflicts",
+              "href": "/guides/kanban/advanced/managed-persistence/"
+            },
+            {
+              "label": "Events and Methods",
+              "href": "/guides/kanban/events-methods/"
+            },
+            {
+              "label": "Keyboard and Accessibility",
+              "href": "/guides/kanban/advanced/accessibility/"
+            },
+            {
+              "label": "Large Boards",
+              "href": "/guides/kanban/advanced/performance/"
+            },
+            {
+              "label": "Limits and Compatibility",
+              "href": "/guides/kanban/limitations/"
+            }
+          ]
+        },
+        {
+          "label": "API Reference",
+          "href": "/api/kanban/"
+        }
+      ]
+    },
+    {
+      "label": "Gantt",
+      "items": [
+        {
+          "label": "Overview",
+          "href": "/guides/gantt/"
+        },
+        {
+          "label": "Getting Started",
+          "items": [
+            {
+              "label": "Installation",
+              "href": "/guides/gantt/introduction/installation/"
+            },
+            {
+              "label": "Vanilla TypeScript",
+              "href": "/guides/gantt/introduction/vanilla-typescript/"
+            },
+            {
+              "label": "React",
+              "href": "/guides/gantt/introduction/react/"
+            },
+            {
+              "label": "Vue 3",
+              "href": "/guides/gantt/introduction/vue/"
+            },
+            {
+              "label": "Angular",
+              "href": "/guides/gantt/introduction/angular/"
+            }
+          ]
+        },
+        {
+          "label": "Tutorial",
+          "href": "/guides/gantt/tutorial/"
+        },
+        {
+          "label": "Project Data",
+          "items": [
+            {
+              "label": "Data Model",
+              "href": "/guides/gantt/concepts/data-model/"
+            },
+            {
+              "label": "Tasks And Hierarchy",
+              "href": "/guides/gantt/concepts/tasks/"
+            },
+            {
+              "label": "Dependencies",
+              "href": "/guides/gantt/concepts/dependencies/"
+            },
+            {
+              "label": "Calendars",
+              "href": "/guides/gantt/scheduling/calendars/"
+            },
+            {
+              "label": "Resources And Assignments",
+              "href": "/guides/gantt/resources/resources-and-assignments/"
+            },
+            {
+              "label": "Baselines",
+              "href": "/guides/gantt/concepts/baselines/"
+            }
+          ]
+        },
+        {
+          "label": "Scheduling",
+          "items": [
+            {
+              "label": "Overview Scheduling",
+              "href": "/guides/gantt/scheduling/overview/"
+            },
+            {
+              "label": "Duration Units and Conversion",
+              "href": "/guides/gantt/scheduling/durations/"
+            },
+            {
+              "label": "Actuals and Progress",
+              "href": "/guides/gantt/scheduling/progress/"
+            },
+            {
+              "label": "Calendars and Duration",
+              "href": "/guides/gantt/scheduling/calendars/"
+            },
+            {
+              "label": "Critical Path and Slack",
+              "href": "/guides/gantt/scheduling/critical-path/"
+            },
+            {
+              "label": "Deadlines",
+              "href": "/guides/gantt/scheduling/deadlines/"
+            },
+            {
+              "label": "Effort Modes",
+              "href": "/guides/gantt/scheduling/effort-modes/"
+            },
+            {
+              "label": "Engine Logic",
+              "href": "/guides/gantt/scheduling/engine/"
+            },
+            {
+              "label": "Manual Scheduling",
+              "href": "/guides/gantt/scheduling/manual/"
+            },
+            {
+              "label": "MSP Compatibility",
+              "href": "/guides/gantt/scheduling/compatibility/"
+            },
+            {
+              "label": "Resource Leveling",
+              "href": "/guides/gantt/scheduling/leveling/"
+            },
+            {
+              "label": "Scheduling Direction",
+              "href": "/guides/gantt/scheduling/direction/"
+            },
+            {
+              "label": "Split Tasks",
+              "href": "/guides/gantt/scheduling/split-tasks/"
+            },
+            {
+              "label": "Task Constraints",
+              "href": "/guides/gantt/scheduling/constraints/"
+            }
+          ]
+        },
+        {
+          "label": "Editing And Interaction",
+          "items": [
+            {
+              "label": "Add Task Row",
+              "href": "/guides/gantt/interaction/add-task-row/"
+            },
+            {
+              "label": "Dependency Editing",
+              "href": "/guides/gantt/interaction/dependency-editing/"
+            },
+            {
+              "label": "Drag, Resize, And Progress Editing",
+              "href": "/guides/gantt/interaction/drag-resize-progress/"
+            },
+            {
+              "label": "Row Selection",
+              "href": "/guides/gantt/interaction/row-selection/"
+            },
+            {
+              "label": "Task Editing",
+              "href": "/guides/gantt/interaction/task-editing/"
+            }
+          ]
+        },
+        {
+          "label": "Customization",
+          "items": [
+            {
+              "label": "Gantt Timeline and Zoom",
+              "href": "/guides/gantt/customization/timeline-zoom/"
+            },
+            {
+              "label": "How Gantt Builds On RevoGrid",
+              "href": "/guides/gantt/customization/how-gantt-builds-on-revogrid/"
+            },
+            {
+              "label": "Visual Configuration",
+              "href": "/guides/gantt/customization/visuals/"
+            }
+          ]
+        },
+        {
+          "label": "Integration And Export",
+          "items": [
+            {
+              "label": "Framework Integration",
+              "href": "/guides/gantt/features/integrations-and-frameworks/"
+            },
+            {
+              "label": "JSON Import And Export",
+              "href": "/guides/gantt/features/json-project-import-export/"
+            },
+            {
+              "label": "Microsoft Project",
+              "href": "/guides/gantt/features/microsoft-project/"
+            },
+            {
+              "label": "Grid And Print Export",
+              "href": "/guides/gantt/features/grid-export-rendering/"
+            }
+          ]
+        },
+        {
+          "label": "AI Assistance",
+          "items": [
+            {
+              "label": "AI Assistant",
+              "href": "/guides/gantt/ai-assistant/"
+            }
+          ]
+        },
+        {
+          "label": "Server-Side",
+          "items": [
+            {
+              "label": "Server-Side Loading",
+              "href": "/guides/gantt/server-side/loading/"
+            },
+            {
+              "label": "Queries and Commands",
+              "href": "/guides/gantt/server-side/queries-and-commands/"
+            },
+            {
+              "label": "Application State and Persistence",
+              "href": "/guides/gantt/server-side/application-state/"
+            },
+            {
+              "label": "Server-Side Rendering (SSR)",
+              "href": "/guides/gantt/server-side/rendering/"
+            }
+          ]
+        },
+        {
+          "label": "Examples",
+          "href": "/guides/gantt/examples/"
+        },
+        {
+          "label": "Production",
+          "items": [
+            {
+              "label": "Localization And Dates",
+              "href": "/guides/gantt/production/localization/"
+            },
+            {
+              "label": "Accessibility And Keyboard",
+              "href": "/guides/gantt/production/accessibility/"
+            },
+            {
+              "label": "Responsive And Touch",
+              "href": "/guides/gantt/production/responsive-touch/"
+            },
+            {
+              "label": "Performance",
+              "href": "/guides/gantt/production/performance/"
+            }
+          ]
+        },
+        {
+          "label": "Reference",
+          "items": [
+            {
+              "label": "Configuration",
+              "href": "/guides/gantt/reference/configuration-reference/"
+            },
+            {
+              "label": "Events And Methods",
+              "href": "/guides/gantt/reference/events-methods/"
+            },
+            {
+              "label": "Limitations",
+              "href": "/guides/gantt/reference/limitations/"
+            },
+            {
+              "label": "Troubleshooting",
+              "href": "/guides/gantt/reference/troubleshooting/"
+            },
+            {
+              "label": "Capability Coverage",
+              "href": "/guides/gantt/reference/coverage/"
+            }
+          ]
+        },
+        {
+          "label": "Migration",
+          "items": [
+            {
+              "label": "Migration Guide",
+              "href": "/guides/gantt/releases/migration/"
+            }
+          ]
+        },
+        {
+          "label": "API Reference",
+          "href": "/api/gantt/"
+        }
+      ]
+    },
+    {
+      "label": "Pivot",
+      "items": [
+        {
+          "label": "Pivot",
+          "href": "/guides/pivot/"
+        },
+        {
+          "label": "Introduction",
+          "items": [
+            {
+              "label": "What Is Pivot?",
+              "href": "/guides/pivot/introduction/what-is-pivot/"
+            },
+            {
+              "label": "Rows, Columns and Values",
+              "href": "/guides/pivot/introduction/rows-columns-values/"
+            },
+            {
+              "label": "Prepare Your Data",
+              "href": "/guides/pivot/introduction/data-modeling/"
+            }
+          ]
+        },
+        {
+          "label": "Getting Started",
+          "items": [
+            {
+              "label": "Your First Pivot",
+              "href": "/guides/pivot/getting-started/"
+            },
+            {
+              "label": "Explore the Interface",
+              "href": "/guides/pivot/explore-interface/"
+            }
+          ]
+        },
+        {
+          "label": "Build Reports",
+          "items": [
+            {
+              "label": "Choose Fields",
+              "href": "/guides/pivot/concepts/dimensions/"
+            },
+            {
+              "label": "Aggregate Values",
+              "href": "/guides/pivot/concepts/aggregations/"
+            },
+            {
+              "label": "Multiple Measures and Values on Rows",
+              "href": "/guides/pivot/concepts/values-on-rows/"
+            },
+            {
+              "label": "Group and Expand Rows",
+              "href": "/guides/pivot/concepts/drilldown/"
+            },
+            {
+              "label": "Expand Column Groups",
+              "href": "/guides/pivot/concepts/column-expansion/"
+            },
+            {
+              "label": "Totals and Subtotals",
+              "href": "/guides/pivot/concepts/totals/"
+            },
+            {
+              "label": "Sort Results",
+              "href": "/guides/pivot/concepts/sorting/"
+            },
+            {
+              "label": "Filter Source Records",
+              "href": "/guides/pivot/concepts/filtering/"
+            },
+            {
+              "label": "Filter Calculated Results",
+              "href": "/guides/pivot/concepts/result-filtering/"
+            },
+            {
+              "label": "Top and Bottom Results",
+              "href": "/guides/pivot/concepts/ranking-and-summary-sorting/"
+            },
+            {
+              "label": "Percentages",
+              "href": "/guides/pivot/concepts/percentages/"
+            },
+            {
+              "label": "Calculated Values",
+              "href": "/guides/pivot/concepts/calculations/"
+            },
+            {
+              "label": "View Underlying Records",
+              "href": "/guides/pivot/concepts/drill-through/"
+            }
+          ]
+        },
+        {
+          "label": "Appearance and Controls",
+          "items": [
+            {
+              "label": "Table Layouts",
+              "href": "/guides/pivot/concepts/layouts/"
+            },
+            {
+              "label": "Number Formatting and Custom Cells",
+              "href": "/guides/pivot/concepts/formatting-presets/"
+            },
+            {
+              "label": "Configurator",
+              "href": "/guides/pivot/configurator/configurator/"
+            },
+            {
+              "label": "Localization",
+              "href": "/guides/pivot/concepts/localization/"
+            }
+          ]
+        },
+        {
+          "label": "Save and Export",
+          "items": [
+            {
+              "label": "Undo and Redo",
+              "href": "/guides/pivot/concepts/undo-redo/"
+            },
+            {
+              "label": "Save and Restore Reports",
+              "href": "/guides/pivot/concepts/report-persistence/"
+            },
+            {
+              "label": "Named Views",
+              "href": "/guides/pivot/concepts/saved-views/"
+            },
+            {
+              "label": "Export Table Data",
+              "href": "/guides/pivot/concepts/exporting-reports/"
+            },
+            {
+              "label": "Print Reports",
+              "href": "/guides/pivot/concepts/print-report/"
+            }
+          ]
+        },
+        {
+          "label": "AI Assistance",
+          "items": [
+            {
+              "label": "AI Assistant",
+              "href": "/guides/pivot/ai-assistant/"
+            }
+          ]
+        },
+        {
+          "label": "Server-Side",
+          "items": [
+            {
+              "label": "How It Works and First Connection",
+              "href": "/guides/pivot/server-side/server-side/"
+            },
+            {
+              "label": "Adapters and Remote Stores",
+              "href": "/guides/pivot/server-side/adapters-and-security/"
+            },
+            {
+              "label": "Requests and Responses",
+              "href": "/guides/pivot/server-side/remote-api-reference/"
+            },
+            {
+              "label": "Pagination",
+              "href": "/guides/pivot/server-side/pagination/"
+            },
+            {
+              "label": "Caching and Refresh",
+              "href": "/guides/pivot/server-side/caching/"
+            },
+            {
+              "label": "Loading, Errors and Retry",
+              "href": "/guides/pivot/server-side/loading-and-errors/"
+            },
+            {
+              "label": "Source Records and Filter Choices",
+              "href": "/guides/pivot/server-side/remote-tools/"
+            },
+            {
+              "label": "Export a Complete Report",
+              "href": "/guides/pivot/server-side/complete-export/"
+            },
+            {
+              "label": "SQL and OLAP Backends",
+              "href": "/guides/pivot/server-side/connect-olap-backend/"
+            },
+            {
+              "label": "Backend Validation",
+              "href": "/guides/pivot/server-side/backend-validation/"
+            },
+            {
+              "label": "Backend Practices and Security",
+              "href": "/guides/pivot/server-side/olap-best-practices/"
+            }
+          ]
+        },
+        {
+          "label": "Advanced and Reference",
+          "items": [
+            {
+              "label": "Headless Pivot",
+              "href": "/guides/pivot/headless/"
+            },
+            {
+              "label": "Headless Controller Reference",
+              "href": "/guides/pivot/concepts/headless-controller/"
+            },
+            {
+              "label": "Custom Controls and Authoring Interfaces",
+              "href": "/guides/pivot/concepts/custom-integrations/"
+            },
+            {
+              "label": "Report Format and Runtime Bindings",
+              "href": "/guides/pivot/concepts/report-specifications/"
+            },
+            {
+              "label": "Field Metadata",
+              "href": "/guides/pivot/concepts/field-metadata/"
+            },
+            {
+              "label": "Advanced Analytical Semantics",
+              "href": "/guides/pivot/concepts/analytical-semantics/"
+            },
+            {
+              "label": "Lifecycle and Events",
+              "href": "/guides/pivot/concepts/plugin-lifecycle/"
+            },
+            {
+              "label": "Limits and Recovery",
+              "href": "/guides/pivot/concepts/execution-and-limits/"
+            },
+            {
+              "label": "Configuration Reference",
+              "href": "/guides/pivot/concepts/configuration-reference/"
+            },
+            {
+              "label": "Configurator API",
+              "href": "/guides/pivot/configurator/configurator-api/"
+            },
+            {
+              "label": "Export and State Reference",
+              "href": "/guides/pivot/concepts/export-state/"
+            },
+            {
+              "label": "Compatibility and Migration",
+              "href": "/guides/pivot/compatibility/"
+            },
+            {
+              "label": "Troubleshooting",
+              "href": "/guides/pivot/concepts/troubleshooting/"
+            },
+            {
+              "label": "OLAP Background",
+              "href": "/guides/pivot/introduction/olap-cube-concepts/"
+            },
+            {
+              "label": "Feature Coverage",
+              "href": "/guides/pivot/features/"
+            },
+            {
+              "label": "Showcase",
+              "href": "/guides/pivot/showcase/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Pivot Charts",
+      "items": [
+        {
+          "label": "Pivot Charts",
+          "href": "/guides/pivot-charts/"
+        },
+        {
+          "label": "Introduction",
+          "items": [
+            {
+              "label": "Your First Linked Chart",
+              "href": "/guides/pivot-charts/getting-started/"
+            }
+          ]
+        },
+        {
+          "label": "Build Charts",
+          "items": [
+            {
+              "label": "Choose a Chart Type",
+              "href": "/guides/pivot-charts/chart-types/"
+            },
+            {
+              "label": "Comparison Charts",
+              "href": "/guides/pivot-charts/types/comparison/"
+            },
+            {
+              "label": "Trends and Time",
+              "href": "/guides/pivot-charts/types/trends/"
+            },
+            {
+              "label": "Parts of a Whole",
+              "href": "/guides/pivot-charts/types/proportions/"
+            },
+            {
+              "label": "Distributions",
+              "href": "/guides/pivot-charts/types/distributions/"
+            },
+            {
+              "label": "Relationships",
+              "href": "/guides/pivot-charts/types/relationships/"
+            },
+            {
+              "label": "Hierarchy and Specialized Charts",
+              "href": "/guides/pivot-charts/types/hierarchy-specialized/"
+            },
+            {
+              "label": "Choose Data and Measures",
+              "href": "/guides/pivot-charts/data/choosing-data/"
+            }
+          ]
+        },
+        {
+          "label": "Explore Data",
+          "items": [
+            {
+              "label": "Drill Down and View Records",
+              "href": "/guides/pivot-charts/interactions/drilldown/"
+            },
+            {
+              "label": "Filtering and Selection",
+              "href": "/guides/pivot-charts/interactions/filtering-and-selection/"
+            },
+            {
+              "label": "Navigation and Accessibility",
+              "href": "/guides/pivot-charts/interactions/navigation-and-accessibility/"
+            }
+          ]
+        },
+        {
+          "label": "Appearance and Controls",
+          "items": [
+            {
+              "label": "Configurator",
+              "href": "/guides/pivot-charts/configurator/"
+            },
+            {
+              "label": "Appearance and Formatting",
+              "href": "/guides/pivot-charts/customization/appearance/"
+            },
+            {
+              "label": "Controls and Localization",
+              "href": "/guides/pivot-charts/customization/controls-and-localization/"
+            }
+          ]
+        },
+        {
+          "label": "Save and Export",
+          "items": [
+            {
+              "label": "Save and Restore Charts",
+              "href": "/guides/pivot-charts/saving-and-restoring/"
+            },
+            {
+              "label": "Export Charts",
+              "href": "/guides/pivot-charts/exporting/"
+            }
+          ]
+        },
+        {
+          "label": "AI Assistance",
+          "items": [
+            {
+              "label": "AI Assistant",
+              "href": "/guides/pivot-charts/ai-assistant/"
+            }
+          ]
+        },
+        {
+          "label": "Server-Side",
+          "items": [
+            {
+              "label": "How Server Chart Data Works",
+              "href": "/guides/pivot-charts/server-side/"
+            },
+            {
+              "label": "Requests and Responses",
+              "href": "/guides/pivot-charts/server-side/data-contract/"
+            },
+            {
+              "label": "Complete and Viewport Data",
+              "href": "/guides/pivot-charts/server-side/viewport-data/"
+            },
+            {
+              "label": "Caching and Refresh",
+              "href": "/guides/pivot-charts/server-side/query-and-lifecycle/"
+            }
+          ]
+        },
+        {
+          "label": "Advanced and Reference",
+          "items": [
+            {
+              "label": "Charts Without a Grid",
+              "href": "/guides/pivot-charts/standalone/"
+            },
+            {
+              "label": "Data and Channel Reference",
+              "href": "/guides/pivot-charts/data/advanced-bindings/"
+            },
+            {
+              "label": "Containers and Framework Lifecycle",
+              "href": "/guides/pivot-charts/advanced/application-containers/"
+            },
+            {
+              "label": "API and Lifecycle",
+              "href": "/guides/pivot-charts/advanced/api-and-lifecycle/"
+            },
+            {
+              "label": "Custom Renderers",
+              "href": "/guides/pivot-charts/advanced/custom-renderers/"
+            },
+            {
+              "label": "Advanced Chart Options",
+              "href": "/guides/pivot-charts/advanced/rendering-options/"
+            },
+            {
+              "label": "Performance and Limits",
+              "href": "/guides/pivot-charts/performance/limits-and-rendering/"
+            },
+            {
+              "label": "Renderers and Capabilities",
+              "href": "/guides/pivot-charts/performance/renderers/"
+            }
+          ]
+        },
+        {
+          "label": "API Reference",
+          "href": "/api/pivot-charts/"
+        }
+      ]
+    },
+    {
+      "label": "Charts",
+      "items": [
+        {
+          "label": "Overview",
+          "href": "/guides/charts/"
+        },
+        {
+          "label": "Installation",
+          "href": "/guides/charts/installation/"
+        },
+        {
+          "label": "Data & Configuration",
+          "href": "/guides/charts/data-and-configuration/"
+        },
+        {
+          "label": "Grid integration",
+          "href": "/guides/charts/grid-integration/"
+        },
+        {
+          "label": "Analysis",
+          "href": "/guides/charts/analysis/"
+        },
+        {
+          "label": "Analysis API",
+          "href": "/api/chart-analysis/"
+        },
+        {
+          "label": "Tools",
+          "items": [
+            {
+              "label": "Tools overview",
+              "href": "/guides/charts/tools/"
+            },
+            {
+              "label": "Underlying records",
+              "href": "/guides/charts/tools/underlying-records/"
+            },
+            {
+              "label": "Drawing and annotations",
+              "items": [
+                {
+                  "label": "Select, move & resize",
+                  "href": "/guides/charts/tools/drawing-tools/"
+                },
+                {
+                  "label": "Rectangle tool",
+                  "href": "/guides/charts/tools/rectangles/"
+                },
+                {
+                  "label": "Line tool",
+                  "href": "/guides/charts/tools/annotation-lines/"
+                },
+                {
+                  "label": "Arrow tool",
+                  "href": "/guides/charts/tools/arrows/"
+                },
+                {
+                  "label": "Note tool",
+                  "href": "/guides/charts/tools/notes/"
+                },
+                {
+                  "label": "Reference lines",
+                  "href": "/guides/charts/tools/reference-lines/"
+                },
+                {
+                  "label": "Reference bands",
+                  "href": "/guides/charts/tools/reference-bands/"
+                }
+              ]
+            },
+            {
+              "label": "Navigation",
+              "items": [
+                {
+                  "label": "Zoom & pan",
+                  "href": "/guides/charts/tools/zoom-and-pan/"
+                },
+                {
+                  "label": "Navigator",
+                  "href": "/guides/charts/tools/navigator/"
+                },
+                {
+                  "label": "Date range selector",
+                  "href": "/guides/charts/tools/date-ranges/"
+                }
+              ]
+            },
+            {
+              "label": "Interaction",
+              "items": [
+                {
+                  "label": "Crosshairs",
+                  "href": "/guides/charts/tools/crosshairs/"
+                },
+                {
+                  "label": "Tooltips",
+                  "href": "/guides/charts/tools/tooltips/"
+                },
+                {
+                  "label": "Data selection",
+                  "href": "/guides/charts/tools/selection/"
+                },
+                {
+                  "label": "Axis range selection",
+                  "href": "/guides/charts/tools/range-selection/"
+                },
+                {
+                  "label": "Legend & series visibility",
+                  "href": "/guides/charts/tools/legend/"
+                },
+                {
+                  "label": "Link charts",
+                  "href": "/guides/charts/tools/chart-linking/"
+                }
+              ]
+            },
+            {
+              "label": "Data and configuration",
+              "items": [
+                {
+                  "label": "Export & download",
+                  "href": "/guides/charts/tools/exports/"
+                },
+                {
+                  "label": "Axes & number formatting",
+                  "href": "/guides/charts/tools/axes/"
+                },
+                {
+                  "label": "Colors & series styling",
+                  "href": "/guides/charts/tools/colors/"
+                },
+                {
+                  "label": "Titles, labels & themes",
+                  "href": "/guides/charts/tools/presentation/"
+                },
+                {
+                  "label": "Live updates & transactions",
+                  "href": "/guides/charts/tools/live-data/"
+                },
+                {
+                  "label": "Async data & retry",
+                  "href": "/guides/charts/tools/async-data/"
+                },
+                {
+                  "label": "Save & restore",
+                  "href": "/guides/charts/tools/saved-state/"
+                },
+                {
+                  "label": "Localization",
+                  "href": "/guides/charts/tools/localization/"
+                }
+              ]
+            },
+            {
+              "label": "Renderer policies",
+              "items": [
+                {
+                  "label": "Batched SVG",
+                  "href": "/guides/charts/tools/batched-svg/"
+                },
+                {
+                  "label": "Batched SVG measured performance",
+                  "href": "/guides/charts/tools/batched-svg-performance/"
+                },
+                {
+                  "label": "Optional WebGL",
+                  "href": "/guides/charts/tools/webgl/"
+                },
+                {
+                  "label": "WebGL measured performance",
+                  "href": "/guides/charts/tools/webgl-performance/"
+                },
+                {
+                  "label": "WebGL verification",
+                  "href": "/guides/charts/tools/webgl-verification/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Chart types",
+          "items": [
+            {
+              "label": "Column charts",
+              "items": [
+                {
+                  "label": "Grouped column",
+                  "href": "/guides/charts/types/grouped-column/"
+                },
+                {
+                  "label": "Stacked column",
+                  "href": "/guides/charts/types/stacked-column/"
+                },
+                {
+                  "label": "100% stacked column",
+                  "href": "/guides/charts/types/normalized-column/"
+                },
+                {
+                  "label": "Range column",
+                  "href": "/guides/charts/types/range-column/"
+                },
+                {
+                  "label": "Lollipop",
+                  "href": "/guides/charts/types/lollipop/"
+                }
+              ]
+            },
+            {
+              "label": "Bar charts",
+              "items": [
+                {
+                  "label": "Grouped bar",
+                  "href": "/guides/charts/types/grouped-bar/"
+                },
+                {
+                  "label": "Stacked bar",
+                  "href": "/guides/charts/types/stacked-bar/"
+                },
+                {
+                  "label": "100% stacked bar",
+                  "href": "/guides/charts/types/normalized-bar/"
+                },
+                {
+                  "label": "Range bar",
+                  "href": "/guides/charts/types/range-bar/"
+                }
+              ]
+            },
+            {
+              "label": "Line charts",
+              "items": [
+                {
+                  "label": "Line",
+                  "href": "/guides/charts/types/line/"
+                },
+                {
+                  "label": "Smooth line",
+                  "href": "/guides/charts/types/smooth-line/"
+                },
+                {
+                  "label": "Stepped line",
+                  "href": "/guides/charts/types/stepped-line/"
+                },
+                {
+                  "label": "Small multiples",
+                  "href": "/guides/charts/types/small-multiples/"
+                },
+                {
+                  "label": "Annotated time series",
+                  "href": "/guides/charts/types/annotated-time-series/"
+                }
+              ]
+            },
+            {
+              "label": "Area charts",
+              "items": [
+                {
+                  "label": "Area",
+                  "href": "/guides/charts/types/area/"
+                },
+                {
+                  "label": "Stepped area",
+                  "href": "/guides/charts/types/stepped-area/"
+                },
+                {
+                  "label": "Stacked area",
+                  "href": "/guides/charts/types/stacked-area/"
+                },
+                {
+                  "label": "100% stacked area",
+                  "href": "/guides/charts/types/normalized-area/"
+                },
+                {
+                  "label": "Range area",
+                  "href": "/guides/charts/types/range-area/"
+                },
+                {
+                  "label": "Confidence band",
+                  "href": "/guides/charts/types/confidence-band/"
+                }
+              ]
+            },
+            {
+              "label": "Part-to-whole charts",
+              "items": [
+                {
+                  "label": "Pie",
+                  "href": "/guides/charts/types/pie/"
+                },
+                {
+                  "label": "Donut",
+                  "href": "/guides/charts/types/donut/"
+                },
+                {
+                  "label": "Semi-donut",
+                  "href": "/guides/charts/types/semi-donut/"
+                },
+                {
+                  "label": "Waffle",
+                  "href": "/guides/charts/types/waffle/"
+                }
+              ]
+            },
+            {
+              "label": "Hierarchies",
+              "items": [
+                {
+                  "label": "Treemap",
+                  "href": "/guides/charts/types/treemap/"
+                },
+                {
+                  "label": "Sunburst",
+                  "href": "/guides/charts/types/sunburst/"
+                },
+                {
+                  "label": "Icicle",
+                  "href": "/guides/charts/types/icicle/"
+                },
+                {
+                  "label": "Circle packing",
+                  "href": "/guides/charts/types/circle-packing/"
+                },
+                {
+                  "label": "Organization chart",
+                  "href": "/guides/charts/types/organization/"
+                }
+              ]
+            },
+            {
+              "label": "Relationships",
+              "items": [
+                {
+                  "label": "Scatter",
+                  "href": "/guides/charts/types/scatter/"
+                },
+                {
+                  "label": "Bubble",
+                  "href": "/guides/charts/types/bubble/"
+                },
+                {
+                  "label": "Density scatter",
+                  "href": "/guides/charts/types/density-scatter/"
+                },
+                {
+                  "label": "Connected scatter",
+                  "href": "/guides/charts/types/connected-scatter/"
+                },
+                {
+                  "label": "Quadrant chart",
+                  "href": "/guides/charts/types/quadrant/"
+                }
+              ]
+            },
+            {
+              "label": "Combination charts",
+              "items": [
+                {
+                  "label": "Column and line",
+                  "href": "/guides/charts/types/column-line/"
+                },
+                {
+                  "label": "Area and line",
+                  "href": "/guides/charts/types/area-line/"
+                }
+              ]
+            },
+            {
+              "label": "Statistics and intervals",
+              "items": [
+                {
+                  "label": "Error interval",
+                  "href": "/guides/charts/types/error-interval/"
+                },
+                {
+                  "label": "Box plot",
+                  "href": "/guides/charts/types/box-plot/"
+                },
+                {
+                  "label": "Violin plot",
+                  "href": "/guides/charts/types/violin/"
+                },
+                {
+                  "label": "Range and interval",
+                  "href": "/guides/charts/types/range-interval/"
+                }
+              ]
+            },
+            {
+              "label": "Time and faceting",
+              "items": [
+                {
+                  "label": "Waterfall",
+                  "href": "/guides/charts/types/waterfall/"
+                },
+                {
+                  "label": "Timeline range",
+                  "href": "/guides/charts/types/timeline-range/"
+                }
+              ]
+            },
+            {
+              "label": "KPIs and progress",
+              "items": [
+                {
+                  "label": "Bullet",
+                  "href": "/guides/charts/types/bullet/"
+                },
+                {
+                  "label": "Gauge",
+                  "href": "/guides/charts/types/gauge/"
+                },
+                {
+                  "label": "KPI value",
+                  "href": "/guides/charts/types/kpi/"
+                },
+                {
+                  "label": "Progress gauge",
+                  "href": "/guides/charts/types/progress-gauge/"
+                },
+                {
+                  "label": "Linear gauge",
+                  "href": "/guides/charts/types/linear-gauge/"
+                }
+              ]
+            },
+            {
+              "label": "Polar and radar charts",
+              "items": [
+                {
+                  "label": "Rose",
+                  "href": "/guides/charts/types/rose/"
+                },
+                {
+                  "label": "Radar line",
+                  "href": "/guides/charts/types/radar-line/"
+                },
+                {
+                  "label": "Radar area",
+                  "href": "/guides/charts/types/radar-area/"
+                },
+                {
+                  "label": "Polar column",
+                  "href": "/guides/charts/types/polar-column/"
+                },
+                {
+                  "label": "Stacked polar column",
+                  "href": "/guides/charts/types/stacked-polar-column/"
+                },
+                {
+                  "label": "100% stacked polar column",
+                  "href": "/guides/charts/types/normalized-polar-column/"
+                },
+                {
+                  "label": "Radial bar",
+                  "href": "/guides/charts/types/radial-bar/"
+                },
+                {
+                  "label": "Multi-ring radial bar",
+                  "href": "/guides/charts/types/multi-ring-radial-bar/"
+                },
+                {
+                  "label": "Radial column",
+                  "href": "/guides/charts/types/radial-column/"
+                }
+              ]
+            },
+            {
+              "label": "Distributions",
+              "items": [
+                {
+                  "label": "Histogram",
+                  "href": "/guides/charts/types/histogram/"
+                },
+                {
+                  "label": "Strip and dot plot",
+                  "href": "/guides/charts/types/strip-dot/"
+                }
+              ]
+            },
+            {
+              "label": "Heatmaps",
+              "items": [
+                {
+                  "label": "Heatmap",
+                  "href": "/guides/charts/types/heatmap/"
+                },
+                {
+                  "label": "Calendar heatmap",
+                  "href": "/guides/charts/types/calendar-heatmap/"
+                }
+              ]
+            },
+            {
+              "label": "Processes",
+              "items": [
+                {
+                  "label": "Funnel",
+                  "href": "/guides/charts/types/funnel/"
+                },
+                {
+                  "label": "Pyramid",
+                  "href": "/guides/charts/types/pyramid/"
+                },
+                {
+                  "label": "Cone funnel",
+                  "href": "/guides/charts/types/cone-funnel/"
+                }
+              ]
+            },
+            {
+              "label": "Flows",
+              "items": [
+                {
+                  "label": "Sankey",
+                  "href": "/guides/charts/types/sankey/"
+                },
+                {
+                  "label": "Chord",
+                  "href": "/guides/charts/types/chord/"
+                }
+              ]
+            },
+            {
+              "label": "Financial charts",
+              "items": [
+                {
+                  "label": "Candlestick",
+                  "href": "/guides/charts/types/candlestick/"
+                },
+                {
+                  "label": "OHLC",
+                  "href": "/guides/charts/types/ohlc/"
+                },
+                {
+                  "label": "Volume and price",
+                  "href": "/guides/charts/types/volume-price/"
+                }
+              ]
+            },
+            {
+              "label": "Geographic charts",
+              "items": [
+                {
+                  "label": "Choropleth",
+                  "href": "/guides/charts/types/choropleth/"
+                },
+                {
+                  "label": "Proportional symbol map",
+                  "href": "/guides/charts/types/proportional-symbol-map/"
+                },
+                {
+                  "label": "Geographic heatmap",
+                  "href": "/guides/charts/types/geographic-heatmap/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Server-side rendering (SSR)",
+          "href": "/guides/charts/server-rendering/"
+        }
+      ]
+    }
+  ]
+}

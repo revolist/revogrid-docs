@@ -61,7 +61,7 @@ export function classifyInterestScreen(value: string) {
       ? 'gantt'
       : screen_id.includes('pivot')
         ? 'pivot'
-        : /scheduler|property-booking/.test(screen_id)
+        : /scheduler|property-booking|calendar/.test(screen_id)
           ? 'scheduler'
           : screen_id.includes('kanban')
             ? 'kanban'

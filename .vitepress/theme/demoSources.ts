@@ -445,7 +445,103 @@ const demoSourceFile = (path: string) => sourceFile(path, async () => {
 
 const supportFiles = (paths: readonly string[]) => paths.map(demoSourceFile)
 
+const calendarSupportingFiles = [
+  'pro-advanced-scheduler/src/examples/calendar-multiassign/demo.ts',
+  'pro-advanced-scheduler/src/examples/calendar-multiassign/calendar-range.ts',
+  'pro-advanced-scheduler/src/examples/calendar-multiassign/data.ts',
+  'pro-advanced-scheduler/src/examples/calendar-multiassign/avatars.ts',
+  'pro-advanced-scheduler/src/examples/calendar-multiassign/styles.scss',
+  'pro-advanced-scheduler/src/shared/theme.ts',
+] as const
+
+const calendarSources: Record<DemoSourceFramework, DemoSourceEntry> = {
+  vue: {
+    label: 'Vue',
+    command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:vue',
+    documentationUrl: '/jsscheduler',
+    files: [
+      sourceFile('pro-advanced-scheduler/src/examples/calendar-multiassign/CalendarMultiAssign.vue', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/calendar-multiassign/CalendarMultiAssign.vue?raw').then(module => module.default)),
+      ...supportFiles(calendarSupportingFiles),
+    ],
+  },
+  ts: {
+    label: 'JavaScript',
+    command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:ts',
+    documentationUrl: '/jsscheduler',
+    files: [
+      sourceFile('pro-advanced-scheduler/src/examples/calendar-multiassign/CalendarMultiAssign.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/calendar-multiassign/CalendarMultiAssign.ts?raw').then(module => module.default)),
+      ...supportFiles(calendarSupportingFiles),
+    ],
+  },
+  react: {
+    label: 'React',
+    command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:react',
+    documentationUrl: '/jsscheduler',
+    files: [
+      sourceFile('pro-advanced-scheduler/src/examples/calendar-multiassign/CalendarMultiAssign.tsx', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/calendar-multiassign/CalendarMultiAssign.tsx?raw').then(module => module.default)),
+      ...supportFiles(calendarSupportingFiles),
+    ],
+  },
+  angular: {
+    label: 'Angular',
+    command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:angular',
+    documentationUrl: '/jsscheduler',
+    files: [
+      sourceFile('pro-advanced-scheduler/src/examples/calendar-multiassign/CalendarMultiAssignAngular.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/calendar-multiassign/CalendarMultiAssignAngular.ts?raw').then(module => module.default)),
+      ...supportFiles(calendarSupportingFiles),
+    ],
+  },
+}
+
+const basicSchedulerSupportingFiles = [
+  'pro-advanced-scheduler/src/examples/scheduler-basic/data.ts',
+  'pro-advanced-scheduler/src/examples/scheduler-basic/avatars.ts',
+  'pro-advanced-scheduler/src/examples/scheduler-basic/styles.scss',
+  'pro-advanced-scheduler/src/shared/theme.ts',
+] as const
+
+const basicSchedulerSources: Record<DemoSourceFramework, DemoSourceEntry> = {
+  vue: {
+    label: 'Vue',
+    command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:vue',
+    documentationUrl: '/jsscheduler',
+    files: [
+      sourceFile('pro-advanced-scheduler/src/examples/scheduler-basic/SchedulerBasic.vue', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/scheduler-basic/SchedulerBasic.vue?raw').then(module => module.default)),
+      ...supportFiles(basicSchedulerSupportingFiles),
+    ],
+  },
+  ts: {
+    label: 'JavaScript',
+    command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:ts',
+    documentationUrl: '/jsscheduler',
+    files: [
+      sourceFile('pro-advanced-scheduler/src/examples/scheduler-basic/SchedulerBasic.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/scheduler-basic/SchedulerBasic.ts?raw').then(module => module.default)),
+      ...supportFiles(basicSchedulerSupportingFiles),
+    ],
+  },
+  react: {
+    label: 'React',
+    command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:react',
+    documentationUrl: '/jsscheduler',
+    files: [
+      sourceFile('pro-advanced-scheduler/src/examples/scheduler-basic/SchedulerBasic.tsx', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/scheduler-basic/SchedulerBasic.tsx?raw').then(module => module.default)),
+      ...supportFiles(basicSchedulerSupportingFiles),
+    ],
+  },
+  angular: {
+    label: 'Angular',
+    command: 'pnpm --dir revogrid-demos/pro-advanced-scheduler dev:angular',
+    documentationUrl: '/jsscheduler',
+    files: [
+      sourceFile('pro-advanced-scheduler/src/examples/scheduler-basic/SchedulerBasicAngular.ts', () => import('../../revogrid-demos/pro-advanced-scheduler/src/examples/scheduler-basic/SchedulerBasicAngular.ts?raw').then(module => module.default)),
+      ...supportFiles(basicSchedulerSupportingFiles),
+    ],
+  },
+}
+
 export const DEMO_SOURCE_REGISTRY: Record<DemoId, Record<DemoSourceFramework, DemoSourceEntry>> = {
+  'scheduler-basic': basicSchedulerSources,
+  calendar: calendarSources,
   'property-booking': {
     vue: {
       label: 'Vue',

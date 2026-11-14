@@ -191,6 +191,18 @@ grid.addEventListener('afteredit', async event => {
 });
 ```
 
+## Available column formats
+
+These formats are available without RevoGrid Pro. String editing is built in;
+Number, Select Dropdown, and Date use optional free column type packages.
+Register optional formats through `columnTypes` and apply them with `columnType`.
+See [Column Types and Formats](/guide/column/types) for reusable type definitions.
+
+- [String](/guide/editors/string)
+- [Number](/guide/editors/number)
+- [Select Dropdown](/guide/editors/select)
+- [Date](/guide/editors/date)
+
 ## Related guides
 
 - [Cell Editor](/guide/cell/editor)

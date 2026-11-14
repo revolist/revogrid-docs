@@ -268,6 +268,27 @@ export const DEMO_FEEDBACK_DEMO_CONFIG = {
       { code: 'pricing_licensing', label: 'Review pricing and licensing' },
     ],
   },
+  'scheduler-basic': {
+    docsUrl: '/jsscheduler',
+    verificationOptions: [
+      { code: 'own_event_data', label: 'Try it with my own event data' },
+      { code: 'recurring_multi_resource', label: 'Check recurring and multi-resource events' },
+      { code: 'app_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
+
+  calendar: {
+    docsUrl: '/jsscheduler',
+    verificationOptions: [
+      { code: 'own_event_data', label: 'Try it with my own event data' },
+      { code: 'recurring_multi_resource', label: 'Check recurring and multi-resource events' },
+      { code: 'app_integration', label: 'See an integration example' },
+      { code: 'core_pro_differences', label: 'Understand open source vs Pro' },
+      { code: 'pricing_licensing', label: 'Review pricing and licensing' },
+    ],
+  },
   'event-scheduler': {
     docsUrl: '/jsscheduler',
     verificationOptions: [
