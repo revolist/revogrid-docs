@@ -379,17 +379,33 @@ const variantClasses = computed(() => ({
   }
 
   .trusted-logo-strip--home .trusted-logo-strip__logos {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 0.75rem 0.5rem;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .trusted-logo-strip--home .trusted-logo-strip__logo {
-    grid-column: span 2;
-    height: 52px;
+    min-width: 0;
+    height: 40px;
   }
 
-  .trusted-logo-strip--home .trusted-logo-strip__logo:nth-child(4) {
-    grid-column: 2 / span 2;
+  .trusted-logo-strip--home .trusted-logo-strip__logo--axon {
+    --trusted-logo-height: 72px;
+  }
+
+  .trusted-logo-strip--home .trusted-logo-strip__logo--basf {
+    --trusted-logo-height: 20px;
+  }
+
+  .trusted-logo-strip--home .trusted-logo-strip__logo--bayer {
+    --trusted-logo-height: 28px;
+  }
+
+  .trusted-logo-strip--home .trusted-logo-strip__logo--cbre {
+    --trusted-logo-height: 16px;
+  }
+
+  .trusted-logo-strip--home .trusted-logo-strip__logo--deltek {
+    --trusted-logo-height: 18px;
   }
 }
 </style>

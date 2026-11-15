@@ -4,7 +4,7 @@
       <div class="trial-container trial-hero-grid">
         <div class="trial-copy">
           <p class="eyebrow">Public Pro trial</p>
-          <h1>Evaluate RevoGrid Pro now</h1>
+          <h1>Evaluate Pro now</h1>
           <p class="lead">
             Install trial packages from the public registry or clone the public starter. You can
             start evaluating in your application immediately—no form or approval step required.
@@ -12,19 +12,10 @@
 
           <div class="trial-actions" aria-label="Start evaluating RevoGrid Pro">
             <ProDocButton
-              href="https://pro.rv-grid.com/guides/installation-npm-trial/"
-              target="_blank"
-              rel="noopener noreferrer"
-              arrow
-              @click="trackTrialClick('trial_install_click', 'hero_install')"
-            >
-              Install Pro Trial
-            </ProDocButton>
-            <ProDocButton
               href="https://github.com/revolist/revogrid-pro-trial"
               target="_blank"
               rel="noopener noreferrer"
-              variant="secondary"
+              variant="primary"
               arrow
               @click="trackTrialClick('trial_starter_click', 'hero_starter')"
             >
@@ -52,22 +43,28 @@
           <div class="command-block">
             <span>Registry setup command</span>
             <div class="command-block-heading">
-              <button type="button" @click="copyCommand(registryCommand, 'registry')">
-                Copy command
-              </button>
+              <span v-if="copiedPlacement === 'registry'" class="copy-confirmation" role="status" aria-live="polite">
+                <FontAwesomeSvgIcon name="check" />Copied
+              </span>
+              <UiButton type="button" size="compact" :on-click="() => copyCommand(registryCommand, 'registry')">
+                Copy
+              </UiButton>
             </div>
             <pre tabindex="0"><code>{{ registryCommand }}</code></pre>
           </div>
           <div class="command-block">
             <span>{{ selectedTrial.name }} packages</span>
             <div class="command-block-heading">
-              <button type="button" @click="copyCommand(packageInstallCommand, 'packages')">
-                Copy commands
-              </button>
+              <span v-if="copiedPlacement === 'packages'" class="copy-confirmation" role="status" aria-live="polite">
+                <FontAwesomeSvgIcon name="check" />Copied
+              </span>
+              <UiButton type="button" size="compact" :on-click="() => copyCommand(packageInstallCommand, 'packages')">
+                Copy
+              </UiButton>
             </div>
             <pre tabindex="0"><code>{{ packageInstallCommand }}</code></pre>
           </div>
-          <p class="copy-status" aria-live="polite">{{ copyStatus }}</p>
+          <p v-if="copyStatus" class="copy-status" role="alert">{{ copyStatus }}</p>
           <p v-if="selectedTrial.id !== 'pro'" class="quick-start-note">
             Standalone product trials build on the Pro trial, so keep
             <code>@revolist/revogrid</code> and <code>@revolist/rv-pro-trial</code> installed with
@@ -75,8 +72,9 @@
             >.
           </p>
           <p class="quick-start-note">
-            Trial packages use trial-specific package and CSS names. Follow the guide when moving
-            from evaluation to paid packages.
+            Trial packages use trial-specific package and CSS names. Follow
+            <a href="https://pro.rv-grid.com/guides/installation-npm/">the installation guide</a>
+            when moving from evaluation to paid packages.
           </p>
 
           <nav class="package-options" aria-label="Choose trial installation instructions">
@@ -145,7 +143,7 @@
             helper="Optional"
             title="How can we help?"
             subtitle="Tell us about your application, evaluation questions, or commercial requirements."
-            submit-label="Contact the team"
+            submit-label="Contact Us"
             request-type="trial"
             :demo-id="demoId"
             :experiment-variant="experimentVariant"
@@ -165,7 +163,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { Button as UiButton } from '@revolist/ui/vue'
 import FontAwesomeSvgIcon from '../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
 import {
   getAnalyticsExperimentVariant,
@@ -244,6 +243,9 @@ const selectedTrial = ref<TrialOption>(trialOptions[0])
 const demoId = ref<string>()
 const experimentVariant = ref<string>()
 const copyStatus = ref('')
+const copiedPlacement = ref<'registry' | 'packages'>()
+let copyConfirmationTimer: ReturnType<typeof setTimeout> | undefined
+onBeforeUnmount(() => clearTimeout(copyConfirmationTimer))
 const registryCommand = 'npm config set "@revolist:registry=https://trial.rv-grid.com"'
 const packageInstallCommand = computed(() => selectedTrial.value.commands.join('\n'))
 
@@ -270,7 +272,7 @@ onMounted(() => {
 })
 
 function trackTrialClick(
-  event: 'trial_install_click' | 'trial_starter_click',
+  event: 'trial_starter_click',
   placement: 'hero_install' | 'hero_starter',
 ) {
   trackSiteAnalytics(
@@ -285,10 +287,13 @@ function trackTrialClick(
 }
 
 async function copyCommand(command: string, placement: 'registry' | 'packages') {
+  clearTimeout(copyConfirmationTimer)
+  copiedPlacement.value = undefined
+  copyStatus.value = ''
   try {
     await navigator.clipboard.writeText(command)
-    copyStatus.value =
-      placement === 'registry' ? 'Registry command copied.' : 'Install commands copied.'
+    copiedPlacement.value = placement
+    copyConfirmationTimer = setTimeout(() => { copiedPlacement.value = undefined }, 2000)
     trackSiteAnalytics('trial_command_copy', { placement })
   } catch {
     copyStatus.value =
@@ -372,13 +377,12 @@ const steps = [
 }
 
 .trial-copy h1 {
-  max-width: 12ch;
   margin: 0;
   color: var(--vp-c-text-1);
-  font-size: clamp(3.5rem, 6vw, 5rem);
-  font-weight: 600;
-  letter-spacing: -0.055em;
-  line-height: 0.98;
+  font-size: clamp(36px, 3.5vw, 48px);
+  font-weight: 500;
+  letter-spacing: -2.5px;
+  line-height: 1.08;
 }
 
 .lead {
@@ -399,6 +403,15 @@ const steps = [
 .trial-actions :deep(.rg-btn) {
   min-height: 46px;
   justify-content: center;
+  border-color: var(--vp-button-alt-border);
+  background: var(--vp-button-alt-bg);
+  color: var(--vp-button-alt-text);
+}
+
+.trial-actions :deep(.rg-btn:hover) {
+  border-color: var(--vp-button-alt-hover-border);
+  background: var(--vp-button-alt-hover-bg);
+  color: var(--vp-button-alt-hover-text);
 }
 
 .benefit-list {
@@ -452,6 +465,12 @@ const steps = [
   line-height: 1.08;
 }
 
+.quick-start-panel h2 {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
 .quick-start-panel > p:not(.eyebrow),
 .support-copy > p:not(.eyebrow) {
   margin: 1.25rem 0 0;
@@ -479,31 +498,23 @@ const steps = [
 
 .command-block-heading {
   display: flex;
+  align-items: center;
+  gap: 8px;
   justify-content: flex-end;
   margin: -1.55rem 0 0.65rem;
 }
 
-.command-block-heading button {
-  min-height: 32px;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 6px;
-  background: var(--vp-c-bg);
-  color: var(--vp-c-text-2);
-  cursor: pointer;
-  font: inherit;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 0.35rem 0.6rem;
-}
-
-.command-block-heading button:hover {
-  border-color: var(--vp-c-brand-1);
+.copy-confirmation {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   color: var(--vp-c-brand-1);
+  font-size: 12px;
 }
 
-.command-block-heading button:focus-visible {
-  outline: 2px solid var(--vp-c-brand-1);
-  outline-offset: 3px;
+.copy-confirmation :deep(svg) {
+  width: 12px;
+  height: 12px;
 }
 
 .command-block pre {
@@ -522,6 +533,11 @@ const steps = [
 .command-block pre:focus-visible {
   outline: 2px solid var(--vp-c-brand-1);
   outline-offset: 3px;
+}
+
+.quick-start-note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .quick-start-panel .quick-start-note {
@@ -700,9 +716,6 @@ const steps = [
     gap: 2.5rem;
   }
 
-  .trial-copy h1 {
-    font-size: clamp(3.25rem, 6vw, 4.25rem);
-  }
 }
 
 @media (max-width: 820px) {
@@ -722,9 +735,6 @@ const steps = [
     position: static;
   }
 
-  .trial-copy h1 {
-    max-width: 10ch;
-  }
 
   .benefit-list {
     margin-top: 2.5rem;
@@ -770,7 +780,8 @@ const steps = [
   }
 
   .trial-copy h1 {
-    font-size: clamp(3rem, 15vw, 4rem);
+    font-size: 34px;
+    letter-spacing: -1.8px;
   }
 
   .lead {

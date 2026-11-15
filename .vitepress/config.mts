@@ -628,8 +628,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         : {}),
     },
     resolve: {
-      // Nested demos must share the host grid runtime and custom-element registration.
-      dedupe: ['@revolist/revogrid', '@revolist/vue3-datagrid', '@revolist/scheduler', 'preact'],
+      // Nested demos must share the host grid and UI runtimes. UI bundles its
+      // Preact runtime, so duplicate UI copies also split popup hooks from rendering.
+      dedupe: [
+        '@revolist/revogrid',
+        '@revolist/vue3-datagrid',
+        '@revolist/scheduler',
+        '@revolist/ui',
+        'preact',
+      ],
       extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.svg'],
       alias: [
         {

@@ -102,7 +102,6 @@
             :tabs="hero.demoTabs"
           />
         </div>
-        <HomeHeroProof />
       </div>
     </div>
   </section>
@@ -116,7 +115,6 @@ import { VPButton } from 'vitepress/theme'
 import '@revolist/ui/styles.css'
 import HomeChevron from './HomeChevron.vue'
 import HomeHeroHeadline from './hero/HomeHeroHeadline.vue'
-import HomeHeroProof from './hero/HomeHeroProof.vue'
 import { escapeHtml, linkProductMentions, type HomeV2Record, useHomeV2Links } from './homeV2Utils'
 
 const HomeHero = defineAsyncComponent(() => import('./hero/HomeHeroDemos.vue'))
@@ -203,7 +201,10 @@ const heroTagline = computed(() => {
   const label = escapeHtml(performanceClaim)
   const href = escapeHtml(linkOf('/benchmarks'))
 
-  return tagline.replace(label, `<a class="rg-product-link" href="${href}">${label}</a><br>`)
+  const claimIndex = tagline.indexOf(label)
+  if (claimIndex < 0) return tagline
+
+  return `<span class="rg-hero-performance">${tagline.slice(0, claimIndex)}<a class="rg-product-link" href="${href}">${label}</a><br></span>${tagline.slice(claimIndex + label.length).trimStart()}`
 })
 const installCopied = ref(false)
 
@@ -344,6 +345,17 @@ async function copyInstallCommand() {
 }
 
 @media (max-width: 640px) {
+  .rg-hero-sub :deep(.rg-hero-performance) {
+    display: none;
+  }
+
+  .rg-hero-visual--film {
+    width: calc(100% + 48px);
+    margin-inline: -24px;
+    border: 0;
+    border-radius: 0;
+  }
+
   .rg-hero {
     padding-top: 56px;
   }

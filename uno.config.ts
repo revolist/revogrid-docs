@@ -34,7 +34,7 @@ export default defineConfig({
       '!../../**/node_modules/**',
       // Build output and transient browser evidence are not utility sources.
       '!./.vitepress/cache/**',
-      '!./.vitepress/dist/**',
+      '!./**/dist/**',
       '!./test-results/**',
       '!./playwright-report/**',
       '!./output/**',

@@ -36,8 +36,8 @@ hero:
     link: /demo/
     # target: _self
   secondaryAction:
-    text: Start with free core
-    link: /guide/
+    text: Start free trial
+    link: /trial
   film:
     productLabels:
       grid: Data Grid

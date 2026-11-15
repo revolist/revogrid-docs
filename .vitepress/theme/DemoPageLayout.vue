@@ -5,7 +5,7 @@
         <div class="demo-page-title-row">
           <h1>{{ config.title }}</h1>
           <span class="demo-page-plan" :class="`demo-page-plan--${config.demo.planId}`">{{
-            config.planLabel
+            config.demo.planId === 'pro-advanced' ? 'Advanced' : config.planLabel
           }}</span>
         </div>
         <p>{{ config.description }}</p>
@@ -375,6 +375,7 @@ $max-content-width: 1240px;
 
 .demo-page-workspace {
   position: relative;
+  isolation: isolate;
   width: 100%;
   min-height: 0;
   flex-grow: 1;
@@ -864,5 +865,34 @@ $max-content-width: 1240px;
 .demo-page-layout[data-demo-id^='pivot'] :deep(.operations-demo),
 .demo-page-layout[data-demo-id^='pivot'] :deep(.import-demo) {
   background: transparent;
+}
+@media (max-width: 700px) {
+  .demo-page-title-row {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .demo-page-plan {
+    flex: 0 0 auto;
+  }
+
+  .demo-page-header-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .demo-page-header-actions > .rg-btn,
+  #demo-feedback-trigger-host :deep(.demo-feedback-trigger--inline) {
+    width: 100%;
+    min-width: 0;
+    padding-inline: 8px;
+  }
+
+  .demo-page-header-actions > a:not(.rg-btn-secondary) {
+    grid-column: 1 / -1;
+  }
 }
 </style>

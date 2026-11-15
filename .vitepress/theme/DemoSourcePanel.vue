@@ -1,7 +1,9 @@
 <template>
+  <Teleport to="body" :disabled="!mobileFullscreen">
   <aside
     ref="panelRef"
     class="demo-source"
+    :class="{ 'demo-source--mobile-fullscreen': mobileFullscreen }"
     role="dialog"
     aria-modal="true"
     aria-label="Example source code"
@@ -57,6 +59,7 @@
       <button type="button" @click="copy(rawSource)">{{ copyState }}</button>
     </footer>
   </aside>
+  </Teleport>
 </template>
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
@@ -83,6 +86,7 @@ const loading = ref(true)
 const error = ref('')
 const copyState = ref('Copy file')
 const fullscreen = ref(false)
+const mobileFullscreen = ref(false)
 const panelRef = ref<HTMLElement>()
 const closeRef = ref<HTMLButtonElement>()
 const current = computed(() => props.sources[framework.value])
@@ -153,7 +157,14 @@ function onKeydown(event: KeyboardEvent) {
 watch([framework, fileIndex, () => props.dark], load, { immediate: true })
 onMounted(() => {
   document.addEventListener('fullscreenchange', syncFullscreen)
-  nextTick(() => closeRef.value?.focus())
+  mobileFullscreen.value = window.matchMedia('(max-width: 700px)').matches
+  nextTick(() => {
+    closeRef.value?.focus()
+    if (mobileFullscreen.value && panelRef.value?.requestFullscreen) {
+      // Keep the viewport overlay when a mobile browser declines native fullscreen.
+      void panelRef.value.requestFullscreen().catch(() => {})
+    }
+  })
 })
 onBeforeUnmount(() => document.removeEventListener('fullscreenchange', syncFullscreen))
 </script>
@@ -173,6 +184,15 @@ onBeforeUnmount(() => document.removeEventListener('fullscreenchange', syncFulls
   width: 100%;
   min-width: 0;
   border-left: 0;
+}
+.demo-source.demo-source--mobile-fullscreen {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  width: 100%;
+  min-width: 0;
+  height: 100dvh;
+  border: 0;
 }
 .demo-source footer,
 .demo-source nav,

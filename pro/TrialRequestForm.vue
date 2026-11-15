@@ -93,7 +93,7 @@
         <p v-if="errorMessage" class="form-error" role="alert">{{ errorMessage }}</p>
 
         <div class="form-actions">
-          <button class="submit-button" type="submit" :disabled="isSubmitting">
+          <VPButton class="submit-button" tag="button" size="big" theme="brand" type="submit" :disabled="isSubmitting">
             <span>{{ isSubmitting ? 'Sending' : submitLabel }}</span>
             <img
               v-if="isSubmitting"
@@ -103,8 +103,7 @@
               src="/spinner-solid.svg"
               alt=""
             />
-            <FontAwesomeSvgIcon v-else class="submit-arrow" name="arrowDown" />
-          </button>
+          </VPButton>
         </div>
       </form>
     </template>
@@ -119,7 +118,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import FontAwesomeSvgIcon from '../.vitepress/theme/home-v2/FontAwesomeSvgIcon.vue'
+import { VPButton } from 'vitepress/theme'
 import successIcon from '../.vitepress/theme/images/wcag.svg'
 import { trackSiteAnalytics } from '../.vitepress/theme/siteAnalytics'
 
@@ -441,34 +440,9 @@ const handleSubmit = async () => {
 
 .submit-button {
   display: inline-flex;
-  min-width: 184px;
-  min-height: 50px;
   align-items: center;
   justify-content: center;
-  gap: 0.85rem;
-  border: 0;
-  border-radius: 8px;
-  background: var(--vp-c-brand-1);
-  box-shadow: 0 12px 24px color-mix(in srgb, var(--vp-c-brand-1), transparent 78%);
-  color: #fff;
-  cursor: pointer;
-  font: inherit;
-  font-weight: 600;
-  transition:
-    background 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
-}
-
-.submit-button:hover:not(:disabled) {
-  background: var(--vp-c-brand-2);
-  box-shadow: 0 14px 28px color-mix(in srgb, var(--vp-c-brand-1), transparent 72%);
-  transform: translateY(-1px);
-}
-
-.submit-button:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--vp-c-brand-1), white 42%);
-  outline-offset: 3px;
+  gap: 8px;
 }
 
 .submit-button:disabled {
@@ -476,17 +450,9 @@ const handleSubmit = async () => {
   opacity: 0.72;
 }
 
-.submit-arrow,
 .spinner {
   width: 17px;
   height: 17px;
-}
-
-.submit-arrow {
-  --rg-text: #fff;
-
-  color: #fff;
-  transform: rotate(-90deg);
 }
 
 .spinner {

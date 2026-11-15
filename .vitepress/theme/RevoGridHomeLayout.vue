@@ -49,6 +49,10 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
   overflow-x: hidden;
 }
 
+.rg-home > section[class] {
+  border-block: 0;
+}
+
 .rg-home .rg-product-link {
   color: var(--rg-accent);
   font-weight: 600;
@@ -875,13 +879,13 @@ const data = computed<AnyRecord>(() => frontmatter.value as AnyRecord)
 @media (max-width: 900px) {
   .rg-hero-grid,
   .rg-dev-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 42px;
   }
 
   .rg-caps-grid,
   .rg-modules-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .rg-nav-links {
