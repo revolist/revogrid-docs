@@ -71,12 +71,9 @@ ganttLanding:
     title: JavaScript Scheduler for people, resources, and bookings.
     description: Build interactive calendars and resource timelines in your app. Move shifts, manage reservations, and check availability while keeping control of your data.
     actions:
-      - label: Live scheduler demo
+      - label: Live demo
         href: /demo/event-scheduler
         arrow: true
-      - label: Booking demo
-        href: /demo/property-booking
-        variant: secondary
       - label: Get Pro Trial
         href: /trial
         variant: secondary
@@ -294,72 +291,13 @@ import GanttPageLayout from './gantt/GanttPageLayout.vue'
 </script>
 
 <div class="scheduler-landing">
-  <GanttPageLayout>
-    <template #after-hero>
-      <nav class="scheduler-section-nav" aria-label="Explore RevoGrid Scheduler">
-        <a href="#features">Features</a>
-        <a href="#integrations">Frameworks</a>
-        <a href="#scheduler-use-cases">Use cases</a>
-        <a href="#event-scheduler-faq">Questions</a>
-        <a href="#scheduler-quick-start">Quick start</a>
-        <a href="#scheduler-resources">Developer guides</a>
-      </nav>
-    </template>
-    <template #before-resources>
-      <section id="scheduler-quick-start" class="scheduler-quick-start">
-        <div class="scheduler-quick-start__inner">
-
-## Start with two resources and one booking
-
-Use this JavaScript Scheduler example in a TypeScript application with a `<div id="app"></div>` mount point. The public trial registry requires no login or token. These aliases keep the same imports when you switch to licensed packages.
-
-```sh
-pnpm config set @revolist:registry https://trial.rv-grid.com --location=project
-pnpm add @revolist/revogrid @revolist/revogrid-pro@npm:@revolist/rv-pro-trial @revolist/scheduler@npm:@revolist/scheduler-trial
-```
-
-<<< ./gantt/schedulerQuickStart.ts
-
-The example renders a resource timeline with editable sample data. Connect accepted changes to your backend using the [remote data guide](https://pro.rv-grid.com/guides/event-scheduler/remote-data), or start from the [runnable Scheduler repository](https://github.com/revolist/scheduler).
-
-For task dependencies, baselines, and critical path, explore [RevoGrid Gantt](/gantt).
-
-</div>
-</section>
-</template>
-
-  </GanttPageLayout>
+  <GanttPageLayout />
 </div>
 
 <style scoped>
 .scheduler-landing :deep(.gantt-page > section > .container) {
   width: calc(100% - 48px);
   margin-inline: auto;
-}
-
-.scheduler-quick-start {
-  padding: 64px 24px;
-  border-block: 1px solid var(--vp-c-divider);
-  background: var(--vp-c-bg-soft);
-  scroll-margin-top: 96px;
-}
-
-.scheduler-quick-start__inner {
-  max-width: 1100px;
-  margin-inline: auto;
-}
-
-.scheduler-quick-start__inner :deep(h2) {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: 0;
-  font-size: clamp(28px, 3vw, 40px);
-  line-height: 1.2;
-}
-
-.scheduler-quick-start__inner :deep(p) {
-  max-width: 820px;
-  line-height: 1.75;
 }
 
 .scheduler-landing :deep(.hero) {
@@ -372,33 +310,6 @@ For task dependencies, baselines, and critical path, explore [RevoGrid Gantt](/g
 
 .scheduler-landing :deep(.rg-hero-title) {
   font-size: clamp(36px, 4vw, 52px);
-}
-
-.scheduler-section-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 24px;
-  margin: 40px 24px 0;
-  padding: 20px 0;
-  border-block: 1px solid var(--vp-c-divider);
-}
-
-.scheduler-section-nav a {
-  padding: 6px 0;
-  color: var(--vp-c-text-2);
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.scheduler-section-nav a:hover {
-  color: var(--vp-c-brand-1);
-}
-
-.scheduler-section-nav a:focus-visible {
-  outline: 2px solid var(--vp-c-brand-1);
-  outline-offset: 5px;
-  border-radius: 3px;
 }
 
 .scheduler-landing :deep(.features),
@@ -465,11 +376,6 @@ For task dependencies, baselines, and critical path, explore [RevoGrid Gantt](/g
 
   .scheduler-landing :deep(.hero-sub) {
     font-size: 16px;
-  }
-
-  .scheduler-section-nav {
-    gap: 4px 18px;
-    margin-top: 24px;
   }
 }
 

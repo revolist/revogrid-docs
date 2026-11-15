@@ -371,6 +371,14 @@ const setData = async (mode: number) => {
     height: $s;
     margin-right: 5px;
     vertical-align: middle;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      object-fit: cover;
+    }
   }
 
   .bubble {

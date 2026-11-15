@@ -38,7 +38,4 @@ const GanttShowcase = defineAsyncComponent(() =>
   padding-top: 10px;
   border-radius: 0;
 }
-:deep(.gantt-showcase-visual-controls) {
-  display: none;
-}
 </style>

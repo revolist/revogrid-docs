@@ -382,6 +382,7 @@ const pivotSupportingFiles = [
 ] as const
 
 const ganttShowcaseSupportingFiles = [
+  'pro-advanced-gantt/src/examples/showcase/showcase-toolbar.ts',
   'pro-advanced-gantt/src/examples/showcase/data/gantt-project-data.ts',
   'pro-advanced-gantt/src/examples/showcase/data/gantt-project-base-data.ts',
   'pro-advanced-gantt/src/examples/showcase/data/gantt-showcase-data.ts',

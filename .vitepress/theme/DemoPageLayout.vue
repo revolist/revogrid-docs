@@ -831,6 +831,20 @@ $max-content-width: 1240px;
     height: auto;
   }
 }
+/* Embedded Scheduler views share the docs canvas. */
+.demo-page-layout[data-demo-id='calendar'] :deep(.calendar-multiassign) {
+  --cal-bg: var(--vp-c-bg);
+  background: transparent;
+}
+
+.demo-page-layout[data-demo-id='event-scheduler'] :deep(.event-scheduler-shift-week-demo),
+.demo-page-layout[data-demo-id='event-scheduler'] :deep(.event-scheduler-shift-week-main),
+.demo-page-layout[data-demo-id='event-scheduler'] :deep(.event-scheduler-shift-week-sidebar),
+.demo-page-layout[data-demo-id='event-scheduler'] :deep(.event-scheduler-shift-week-toolbar),
+.demo-page-layout[data-demo-id='event-scheduler'] :deep(.event-scheduler-shift-week-table) {
+  background: transparent;
+}
+
 /* Embedded Pivot reports share the docs canvas; expanded reports remain opaque. */
 .demo-page-layout[data-demo-id^='pivot'] :deep(.financial-pivot-showcase) {
   --financial-pivot-expanded-background: var(--vp-c-bg);
