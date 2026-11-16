@@ -14,10 +14,10 @@
     "seed": "node server/seed.ts"
   },
   "dependencies": {
-    "@revolist/pivot": "npm:@revolist/pivot-trial@4.0.23",
+    "@revolist/pivot": "npm:@revolist/pivot-trial@4.0.25",
     "@revolist/revogrid": "4.31.5",
-    "@revolist/revogrid-pro": "npm:@revolist/rv-pro-trial@4.0.23",
-    "@revolist/ui": "4.0.23"
+    "@revolist/revogrid-pro": "npm:@revolist/rv-pro-trial@4.0.25",
+    "@revolist/ui": "4.0.25"
   },
   "devDependencies": {
     "@types/node": "24.10.1",
