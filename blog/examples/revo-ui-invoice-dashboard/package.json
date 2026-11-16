@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@revolist/react-datagrid": "4.31.4",
-    "@revolist/ui": "4.0.21",
+    "@revolist/ui": "4.0.23",
     "pdfjs-dist": "6.4.299",
     "react": "19.3.1",
     "react-dom": "19.3.1"

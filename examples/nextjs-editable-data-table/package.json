@@ -19,7 +19,7 @@
     "react-dom": "19.2.7",
     "@revolist/react-datagrid": "4.31.4",
     "@revolist/revogrid": "4.31.4",
-    "@revolist/ui": "4.0.21"
+    "@revolist/ui": "4.0.23"
   },
   "devDependencies": {
     "typescript": "5.9.3",

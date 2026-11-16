@@ -9,17 +9,17 @@ importers:
   .:
     dependencies:
       '@revolist/pivot':
-        specifier: npm:@revolist/pivot-trial@4.0.21
-        version: '@revolist/pivot-trial@4.0.21'
+        specifier: npm:@revolist/pivot-trial@4.0.23
+        version: '@revolist/pivot-trial@4.0.23'
       '@revolist/revogrid':
         specifier: 4.31.5
         version: 4.31.5
       '@revolist/revogrid-pro':
-        specifier: npm:@revolist/rv-pro-trial@4.0.21
-        version: '@revolist/rv-pro-trial@4.0.21'
+        specifier: npm:@revolist/rv-pro-trial@4.0.23
+        version: '@revolist/rv-pro-trial@4.0.23'
       '@revolist/ui':
-        specifier: 4.0.21
-        version: 4.0.21
+        specifier: 4.0.23
+        version: 4.0.23
     devDependencies:
       '@types/node':
         specifier: 24.10.1
@@ -123,22 +123,22 @@ packages:
     resolution: {integrity: sha512-7FNeNl8NCE7aINx7WXiKQrPYZWC/hvrTsmk6zmxbI7LTXE7hVek/n8AfVgpe2y82zl3w0HvCHN0bVKMBoJcC0w==}
     engines: {node: '>= 10.0.0'}
 
-  '@revolist/charts-trial@4.0.21':
-    resolution: {integrity: sha512-ffHh3PDkzFGfHNGe89OXEm9rPURZ7OMgQ7/1wgmjEtF7fgnFLtJSLFMzhE6GzBOC972ymq1lh25fUH5PFhPI3g==, tarball: https://trial.rv-grid.com/@revolist/charts-trial/-/9660dbe8aabc34843a365891035f8bcf7e66b175}
+  '@revolist/charts-trial@4.0.23':
+    resolution: {integrity: sha512-nCtDgIMhj6hlAypXVf9fLM/jJdCxZmruFc+HHFVgEBJJFNwQJO27LiTLF59lkZtfrZrSiY6QLSK2Fb0U8seMKw==, tarball: https://trial.rv-grid.com/@revolist/charts-trial/-/e1e049d7e2845554a867d72da32c10830d86acbd}
     peerDependencies:
       '@revolist/revogrid': ^4.31.5
 
-  '@revolist/pivot-trial@4.0.21':
-    resolution: {integrity: sha512-DguA+GqL167IrKm7sA7sp4MyD38Sb4IaIsyL1cqwuuS7iGmZt0jz3X+zv6yxcm0dupqUppAEXn5m92zFlOUzqw==, tarball: https://trial.rv-grid.com/@revolist/pivot-trial/-/cb8d4fb704332d11cd7b1d84929a82aba41701ad}
+  '@revolist/pivot-trial@4.0.23':
+    resolution: {integrity: sha512-M/C7JY+RV6jRmJCZOtCfNlY8qOuUHgkVY5XnRfqcT3vALdkjA4fDyuH6NMg9Y22k7zDg2oLYWe1Su2O9lerhFQ==, tarball: https://trial.rv-grid.com/@revolist/pivot-trial/-/db20d85c5e0a9f2ddee7bd6fbb129b9de10d771c}
 
   '@revolist/revogrid@4.31.5':
     resolution: {integrity: sha512-tWgNJpYPDrk/1tBYW4xZfgRNiab6ttZBqXwkeTdNX0fksNXnVsEXBEWegUvfkQs77QDRKcg2z1dUEop4G/Cttg==}
 
-  '@revolist/rv-pro-trial@4.0.21':
-    resolution: {integrity: sha512-9LFJx2UICDxIkmZ+Usncq8Vj5QJT5umQmOSYw1nAuy/uvcbOJ+Ur/l3ISxaz5mOesvT0SBt2sWkJ6P2EUpYlXw==, tarball: https://trial.rv-grid.com/@revolist/rv-pro-trial/-/f176181760b0aff28198e5df44e323df64802fbc}
+  '@revolist/rv-pro-trial@4.0.23':
+    resolution: {integrity: sha512-GLwTstobFasFws2/P9GhlY4VUZAfKIeCYtBodWaGh+1lsOx8/vFfWjBgswWjfqYxl11fgt9BCemk4jyp5lU/Vg==, tarball: https://trial.rv-grid.com/@revolist/rv-pro-trial/-/a04ea853d385141a3a1d3b950e13c89be9ecf3e3}
 
-  '@revolist/ui@4.0.21':
-    resolution: {integrity: sha512-8P8aqzAY0uK4ncX4keedKB3kGgizFXTKsMBWPzTZEwDsH33VDeAhlnK7L9i5YMcm/TW7GEEvNL9vngZUSbEXbA==}
+  '@revolist/ui@4.0.23':
+    resolution: {integrity: sha512-i0Cu3Y3v60hND+EQcwzV0TO1EB0pwwn21BX/sMMpIRcay5Q5RMq29dIs+V5blCflf+jJfLwK17YFVkcgXB4tJg==}
     peerDependencies:
       '@angular/core': '>=20'
       pdfjs-dist: ^6.4.299
@@ -586,7 +586,7 @@ snapshots:
       '@parcel/watcher-win32-x64': 2.6.0
     optional: true
 
-  '@revolist/charts-trial@4.0.21(@revolist/revogrid@4.31.5)':
+  '@revolist/charts-trial@4.0.23(@revolist/revogrid@4.31.5)':
     dependencies:
       '@revolist/revogrid': 4.31.5
       '@tanstack/query-core': 5.104.5
@@ -599,12 +599,12 @@ snapshots:
       - preact-render-to-string
       - utf-8-validate
 
-  '@revolist/pivot-trial@4.0.21':
+  '@revolist/pivot-trial@4.0.23':
     dependencies:
       '@fortawesome/fontawesome-free': 7.3.1
-      '@revolist/charts-trial': 4.0.21(@revolist/revogrid@4.31.5)
+      '@revolist/charts-trial': 4.0.23(@revolist/revogrid@4.31.5)
       '@revolist/revogrid': 4.31.5
-      '@revolist/rv-pro-trial': 4.0.21
+      '@revolist/rv-pro-trial': 4.0.23
       '@tanstack/query-core': 5.104.5
       fflate: 0.8.3
       preact: 10.29.8
@@ -615,7 +615,7 @@ snapshots:
 
   '@revolist/revogrid@4.31.5': {}
 
-  '@revolist/rv-pro-trial@4.0.21':
+  '@revolist/rv-pro-trial@4.0.23':
     dependencies:
       '@formulajs/formulajs': 4.6.1
       '@revolist/revogrid': 4.31.5
@@ -625,7 +625,7 @@ snapshots:
     transitivePeerDependencies:
       - preact-render-to-string
 
-  '@revolist/ui@4.0.21': {}
+  '@revolist/ui@4.0.23': {}
 
   '@rolldown/binding-android-arm-eabi@1.2.18':
     optional: true
