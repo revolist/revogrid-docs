@@ -15,8 +15,8 @@ importers:
         specifier: 4.31.4
         version: 4.31.4
       '@revolist/ui':
-        specifier: 4.0.6
-        version: 4.0.6(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+        specifier: 4.0.21
+        version: 4.0.21(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       next:
         specifier: 16.4.6
         version: 16.4.6(@types/node@24.10.1)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.99.0)
@@ -327,8 +327,8 @@ packages:
   '@revolist/revogrid@4.31.4':
     resolution: {integrity: sha512-qOStHkP+Wawrl5r7Lh3rNX5J27WVsuARh3mlXGdmZLcpohJWN6MRaMyXSQcC2+lo9VyrnZP2QXts4zmKDDraXQ==}
 
-  '@revolist/ui@4.0.6':
-    resolution: {integrity: sha512-OD6imot1C7Pbm4YKP21XyfJwm+BRRQ/yRNryrVcGQRIRyQSnfjdnJflLjwEXNUbkSNe01wKpWUdTfOlohcotxQ==}
+  '@revolist/ui@4.0.21':
+    resolution: {integrity: sha512-8P8aqzAY0uK4ncX4keedKB3kGgizFXTKsMBWPzTZEwDsH33VDeAhlnK7L9i5YMcm/TW7GEEvNL9vngZUSbEXbA==}
     peerDependencies:
       '@angular/core': '>=20'
       pdfjs-dist: ^6.4.299
@@ -703,7 +703,7 @@ snapshots:
 
   '@revolist/revogrid@4.31.4': {}
 
-  '@revolist/ui@4.0.6(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
+  '@revolist/ui@4.0.21(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     optionalDependencies:
       react: 19.2.7
       react-dom: 19.2.7(react@19.2.7)
