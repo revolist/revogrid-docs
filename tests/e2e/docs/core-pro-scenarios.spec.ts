@@ -66,6 +66,26 @@ test.describe('Core and Pro demo scenarios', () => {
     await expect(input).toHaveValue('12/25/2021')
   })
 
+  test('AI Agent fills the chat area with the avatar below the welcome text', async ({ page }) => {
+    await page.setViewportSize({ width: 1500, height: 1050 })
+    await openDemo(page, '/demo/ai-agent', '.ai-view-demo revo-grid')
+    const viewport = page.locator('.ai-view-demo .rv-ai-chat-viewport')
+    const scrollArea = page.locator('.ai-view-demo .rv-ai-chat-scroll')
+    const description = page.getByText(
+      'Ask me to filter orders, summarize amounts, or update the grid.',
+    )
+    const avatar = page.locator('.ai-view-demo__avatar:visible')
+    await expect(avatar).toBeVisible()
+    const viewportBox = (await viewport.boundingBox())!
+    const areaBox = (await scrollArea.boundingBox())!
+    expect(viewportBox.height).toBeGreaterThan(areaBox.height - 2)
+    expect(await viewport.evaluate(el => el.scrollHeight - el.clientHeight)).toBeLessThanOrEqual(1)
+    const textBox = (await description.boundingBox())!
+    const avatarBox = (await avatar.boundingBox())!
+    expect(avatarBox.y).toBeGreaterThanOrEqual(textBox.y + textBox.height)
+    await expect(page.locator('.ai-view-demo .rv-ai-chat-jump')).toBeHidden()
+  })
+
   test('AI Agent applies a suggested action to the grid', async ({ page }) => {
     await openDemo(page, '/demo/ai-agent', '.ai-view-demo revo-grid')
     const grid = page.locator('.ai-view-demo revo-grid')
