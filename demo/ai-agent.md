@@ -15,6 +15,7 @@ import { useData } from 'vitepress'
 import '@revolist/revogrid-pro/styles.css'
 import '@revolist/ui/styles.css'
 import AiAgent from '@revogrid-demos/pro-ai-agent/src/AiAssistant.vue'
+import '@revolist/ui/styles/ai.css'
 const { isDark } = useData()
 const endpoint = import.meta.env.VITE_AI_AGENT_ENDPOINT?.trim() || undefined
 </script>

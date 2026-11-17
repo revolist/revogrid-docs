@@ -68,7 +68,42 @@ test.describe('Core and Pro demo scenarios', () => {
 
   test('AI Agent applies a suggested action to the grid', async ({ page }) => {
     await openDemo(page, '/demo/ai-agent', '.ai-view-demo revo-grid')
+    const grid = page.locator('.ai-view-demo revo-grid')
+    const lightAvatar = page.locator('.ai-view-demo__avatar--light')
+    const darkAvatar = page.locator('.ai-view-demo__avatar--dark')
+    await grid.evaluate(element => element.setAttribute('theme', 'compact'))
+    await expect(lightAvatar).toBeVisible()
+    await expect(darkAvatar).toBeHidden()
+    await expect
+      .poll(() => lightAvatar.evaluate((video: HTMLVideoElement) => video.readyState))
+      .toBeGreaterThan(1)
+    await grid.evaluate(element => element.setAttribute('theme', 'darkCompact'))
+    await expect(darkAvatar).toBeVisible()
+    await expect(lightAvatar).toBeHidden()
+    await expect
+      .poll(() => darkAvatar.evaluate((video: HTMLVideoElement) => video.readyState))
+      .toBeGreaterThan(1)
+    const composer = page.locator('.rv-ai-prompt-composer')
+    const suggestion = composer.locator('.rv-ai-suggestion').first()
+    const originalLabel = await suggestion.textContent()
+    await suggestion.evaluate(button => {
+      button.textContent = 'Long suggestion '.repeat(20)
+    })
+    const bounds = await suggestion.evaluate(button => {
+      const outer = button.closest('.rv-ai-prompt-composer')!.getBoundingClientRect()
+      const inner = button.getBoundingClientRect()
+      return {
+        fits: inner.left >= outer.left && inner.right <= outer.right,
+        textFits: button.scrollWidth <= button.clientWidth,
+      }
+    })
+    expect(bounds).toEqual({ fits: true, textFits: true })
+    await suggestion.evaluate((button, label) => {
+      button.textContent = label
+    }, originalLabel)
     await page.getByRole('button', { name: 'Only Europe', exact: true }).click()
+    await expect(lightAvatar).toHaveCount(0)
+    await expect(darkAvatar).toHaveCount(0)
     await expect(page.getByRole('log', { name: 'Conversation messages' })).toContainText(
       'View updated. Filtered by Region.',
     )
