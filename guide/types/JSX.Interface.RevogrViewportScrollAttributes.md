@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.4](README.md) / [JSX](Namespace.JSX.md) / RevogrViewportScrollAttributes
+[RevoGrid Documentation v4.31.5](README.md) / [JSX](Namespace.JSX.md) / RevogrViewportScrollAttributes
 
 # Interface: RevogrViewportScrollAttributes
 
@@ -6,8 +6,9 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) \| `"rowHeaders"` | [src/components.d.ts:2634](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/components.d.ts#L2634) |
-| `contentHeight` | `number` | [src/components.d.ts:2633](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/components.d.ts#L2633) |
-| `contentWidth` | `number` | [src/components.d.ts:2632](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/components.d.ts#L2632) |
-| `noHorizontalScrollTransfer` | `boolean` | [src/components.d.ts:2635](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/components.d.ts#L2635) |
-| `rowHeader` | `boolean` | [src/components.d.ts:2631](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/components.d.ts#L2631) |
+| `accessible` | `boolean` | [src/components.d.ts:2688](https://github.com/revolist/revogrid/blob/e9c07f63dbf4f45ec2f24fd771a247f1a20d1802/src/components.d.ts#L2688) |
+| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) \| `"rowHeaders"` | [src/components.d.ts:2686](https://github.com/revolist/revogrid/blob/e9c07f63dbf4f45ec2f24fd771a247f1a20d1802/src/components.d.ts#L2686) |
+| `contentHeight` | `number` | [src/components.d.ts:2685](https://github.com/revolist/revogrid/blob/e9c07f63dbf4f45ec2f24fd771a247f1a20d1802/src/components.d.ts#L2685) |
+| `contentWidth` | `number` | [src/components.d.ts:2684](https://github.com/revolist/revogrid/blob/e9c07f63dbf4f45ec2f24fd771a247f1a20d1802/src/components.d.ts#L2684) |
+| `noHorizontalScrollTransfer` | `boolean` | [src/components.d.ts:2687](https://github.com/revolist/revogrid/blob/e9c07f63dbf4f45ec2f24fd771a247f1a20d1802/src/components.d.ts#L2687) |
+| `rowHeader` | `boolean` | [src/components.d.ts:2683](https://github.com/revolist/revogrid/blob/e9c07f63dbf4f45ec2f24fd771a247f1a20d1802/src/components.d.ts#L2683) |

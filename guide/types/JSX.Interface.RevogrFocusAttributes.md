@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.4](README.md) / [JSX](Namespace.JSX.md) / RevogrFocusAttributes
+[RevoGrid Documentation v4.31.5](README.md) / [JSX](Namespace.JSX.md) / RevogrFocusAttributes
 
 # Interface: RevogrFocusAttributes
 
@@ -6,5 +6,5 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | [src/components.d.ts:2595](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/components.d.ts#L2595) |
-| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/components.d.ts:2596](https://github.com/revolist/revogrid/blob/42b41cd481ad64baa397ad2e9d25fbbc0a40518f/src/components.d.ts#L2596) |
+| `colType` | [`DimensionCols`](TypeAlias.DimensionCols.md) | [src/components.d.ts:2645](https://github.com/revolist/revogrid/blob/e9c07f63dbf4f45ec2f24fd771a247f1a20d1802/src/components.d.ts#L2645) |
+| `rowType` | [`DimensionRows`](TypeAlias.DimensionRows.md) | [src/components.d.ts:2646](https://github.com/revolist/revogrid/blob/e9c07f63dbf4f45ec2f24fd771a247f1a20d1802/src/components.d.ts#L2646) |
