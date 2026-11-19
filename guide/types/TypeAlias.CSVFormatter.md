@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.5](README.md) / CSVFormatter
+[RevoGrid Documentation v4.31.6](README.md) / CSVFormatter
 
 # Type Alias: CSVFormatter()
 
@@ -19,4 +19,4 @@ type CSVFormatter: (options: Partial<CSVFormat>, data: DataInput) => string;
 
 ## Defined in
 
-[src/plugins/export/csv.ts:15](https://github.com/revolist/revogrid/blob/e9c07f63dbf4f45ec2f24fd771a247f1a20d1802/src/plugins/export/csv.ts#L15)
+[src/plugins/export/csv.ts:15](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/export/csv.ts#L15)

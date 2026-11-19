@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.5](README.md) / AfterFilterApplyEventProps
+[RevoGrid Documentation v4.31.6](README.md) / AfterFilterApplyEventProps
 
 # Interface: AfterFilterApplyEventProps\<TModel\>
 
@@ -14,8 +14,8 @@ Payload emitted after the current filters and filter trims have been applied.
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `collection` | `Record`\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`FilterCollectionItem`](TypeAlias.FilterCollectionItem.md)\> | First condition for each column. | [src/plugins/filter/filter.types.ts:254](https://github.com/revolist/revogrid/blob/e9c07f63dbf4f45ec2f24fd771a247f1a20d1802/src/plugins/filter/filter.types.ts#L254) |
-| `filterItems` | [`MultiFilterItem`](Interface.MultiFilterItem.md) | Complete multi-condition filter model. | [src/plugins/filter/filter.types.ts:256](https://github.com/revolist/revogrid/blob/e9c07f63dbf4f45ec2f24fd771a247f1a20d1802/src/plugins/filter/filter.types.ts#L256) |
-| `itemsToFilter` | `Record`\<`number`, `boolean`\> | Physical source indexes currently trimmed by the filter. | [src/plugins/filter/filter.types.ts:262](https://github.com/revolist/revogrid/blob/e9c07f63dbf4f45ec2f24fd771a247f1a20d1802/src/plugins/filter/filter.types.ts#L262) |
-| `multiFilterItems` | [`MultiFilterItem`](Interface.MultiFilterItem.md) | Alias for `filterItems`. | [src/plugins/filter/filter.types.ts:258](https://github.com/revolist/revogrid/blob/e9c07f63dbf4f45ec2f24fd771a247f1a20d1802/src/plugins/filter/filter.types.ts#L258) |
-| `source` | `TModel`[] | Source rows that were filtered. | [src/plugins/filter/filter.types.ts:260](https://github.com/revolist/revogrid/blob/e9c07f63dbf4f45ec2f24fd771a247f1a20d1802/src/plugins/filter/filter.types.ts#L260) |
+| `collection` | `Record`\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`FilterCollectionItem`](TypeAlias.FilterCollectionItem.md)\> | First condition for each column. | [src/plugins/filter/filter.types.ts:254](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L254) |
+| `filterItems` | [`MultiFilterItem`](Interface.MultiFilterItem.md) | Complete multi-condition filter model. | [src/plugins/filter/filter.types.ts:256](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L256) |
+| `itemsToFilter` | `Record`\<`number`, `boolean`\> | Physical source indexes currently trimmed by the filter. | [src/plugins/filter/filter.types.ts:262](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L262) |
+| `multiFilterItems` | [`MultiFilterItem`](Interface.MultiFilterItem.md) | Alias for `filterItems`. | [src/plugins/filter/filter.types.ts:258](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L258) |
+| `source` | `TModel`[] | Source rows that were filtered. | [src/plugins/filter/filter.types.ts:260](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L260) |
