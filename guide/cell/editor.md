@@ -8,6 +8,8 @@ description: Build custom RevoGrid cell editors with render functions, save and 
 `RevoGrid` provides a way to define your own editors. Or you can use [predefined column types](../column/types).
 In order to do so you have to define your class with render method.
 
+For text input that supports IME composition from the first keystroke, use the [IME text editor](/guide/editing#IME-text-editing).
+
 <DemoWidgetFrame
   demo="cell-editor"
   framework="ts"

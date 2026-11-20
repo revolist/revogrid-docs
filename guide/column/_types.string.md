@@ -12,3 +12,5 @@ const columns = [
 ```
 
 Values are read as text for display. If a column needs custom rendering, validation, parsing, or editing behavior, define those options directly on the column or move them into a reusable `columnTypes` preset.
+
+For text columns that need IME composition from the first keystroke, see [IME text editing](/guide/editing#IME-text-editing).

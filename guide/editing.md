@@ -78,6 +78,48 @@ grid.columnTypes = {
 };
 ```
 
+## IME text editing
+
+Use `ImeTextEditor` on columns where users type with an input method editor (IME) for languages such as Korean, Japanese, or Chinese. Select an editable cell and start typing. RevoGrid focuses a native text input on selection so composition can begin with the first keystroke.
+
+`ImeTextEditor` is exported from RevoGrid Core. Use a release of `@revolist/revogrid` that includes [PR #1008](https://github.com/revolist/revogrid/pull/1008).
+
+### Enable IME editing on a column
+
+Assign the editor class to the column’s `editor` property.
+
+```js
+import { ImeTextEditor } from '@revolist/revogrid';
+
+const grid = document.querySelector('revo-grid');
+
+grid.columns = [
+  { prop: 'name', name: 'Name', editor: ImeTextEditor },
+  { prop: 'sku', name: 'SKU' },
+];
+```
+
+### Share an IME editor across columns
+
+Register the editor in `columnTypes` and reference it by name with `columnType`. See [Column Types and Formats](/guide/column/types) for details on sharing column settings.
+
+```js
+import { ImeTextEditor } from '@revolist/revogrid';
+
+const grid = document.querySelector('revo-grid');
+
+grid.columnTypes = {
+  imeText: { editor: ImeTextEditor },
+};
+
+grid.columns = [
+  { prop: 'name', name: 'Name', columnType: 'imeText' },
+  { prop: 'notes', name: 'Notes', columnType: 'imeText' },
+];
+```
+
+The editor applies only to editable cells in the configured columns. Press Enter after finishing composition to save, or Escape to discard the edit.
+
 ## Save control with `applyOnClose`
 
 Set `applyOnClose` when you want editor closing to commit the current value except for `Escape`-style cancellations:
