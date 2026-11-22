@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.6](README.md) / SortingOrderFunction
+[RevoGrid Documentation v4.31.8](README.md) / SortingOrderFunction
 
 # Type Alias: SortingOrderFunction
 
@@ -12,4 +12,4 @@ Undefined comparator entries are treated as inactive sorting entries.
 
 ## Defined in
 
-[src/plugins/sorting/sorting.types.ts:13](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/sorting/sorting.types.ts#L13)
+[src/plugins/sorting/sorting.types.ts:13](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/plugins/sorting/sorting.types.ts#L13)

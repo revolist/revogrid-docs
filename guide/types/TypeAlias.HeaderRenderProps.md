@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.6](README.md) / HeaderRenderProps
+[RevoGrid Documentation v4.31.8](README.md) / HeaderRenderProps
 
 # Type Alias: HeaderRenderProps
 
@@ -8,7 +8,8 @@ type HeaderRenderProps: {
   canFilter: boolean;
   canResize: boolean;
   column: VirtualPositionItem;
-  data: ColumnTemplateProp;
+  data: ColumnTemplateProp | null | undefined;
+  filterButtonLabel: string;
   range: RangeArea | null;
   renderOffset: number;
   onClick: void;
@@ -21,17 +22,18 @@ type HeaderRenderProps: {
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `additionalData` | `any` | [src/components/header/header-renderer.tsx:24](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/components/header/header-renderer.tsx#L24) |
-| `canFilter` | `boolean` | [src/components/header/header-renderer.tsx:28](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/components/header/header-renderer.tsx#L28) |
-| `canResize` | `boolean` | [src/components/header/header-renderer.tsx:27](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/components/header/header-renderer.tsx#L27) |
-| `column` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md) | [src/components/header/header-renderer.tsx:23](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/components/header/header-renderer.tsx#L23) |
-| `data` | [`ColumnTemplateProp`](Interface.ColumnTemplateProp.md) | [src/components/header/header-renderer.tsx:25](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/components/header/header-renderer.tsx#L25) |
-| `range` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/components/header/header-renderer.tsx:26](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/components/header/header-renderer.tsx#L26) |
-| `renderOffset` | `number` | [src/components/header/header-renderer.tsx:29](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/components/header/header-renderer.tsx#L29) |
-| `onClick` | `void` | [src/components/header/header-renderer.tsx:31](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/components/header/header-renderer.tsx#L31) |
-| `onDblClick` | `void` | [src/components/header/header-renderer.tsx:32](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/components/header/header-renderer.tsx#L32) |
-| `onResize` | `void` | [src/components/header/header-renderer.tsx:30](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/components/header/header-renderer.tsx#L30) |
+| `additionalData` | `any` | [src/components/header/header-renderer.tsx:25](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/components/header/header-renderer.tsx#L25) |
+| `canFilter` | `boolean` | [src/components/header/header-renderer.tsx:29](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/components/header/header-renderer.tsx#L29) |
+| `canResize` | `boolean` | [src/components/header/header-renderer.tsx:28](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/components/header/header-renderer.tsx#L28) |
+| `column` | [`VirtualPositionItem`](Interface.VirtualPositionItem.md) | [src/components/header/header-renderer.tsx:24](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/components/header/header-renderer.tsx#L24) |
+| `data` | [`ColumnTemplateProp`](Interface.ColumnTemplateProp.md) \| `null` \| `undefined` | [src/components/header/header-renderer.tsx:26](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/components/header/header-renderer.tsx#L26) |
+| `filterButtonLabel` | `string` | [src/components/header/header-renderer.tsx:30](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/components/header/header-renderer.tsx#L30) |
+| `range` | [`RangeArea`](TypeAlias.RangeArea.md) \| `null` | [src/components/header/header-renderer.tsx:27](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/components/header/header-renderer.tsx#L27) |
+| `renderOffset` | `number` | [src/components/header/header-renderer.tsx:31](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/components/header/header-renderer.tsx#L31) |
+| `onClick` | `void` | [src/components/header/header-renderer.tsx:33](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/components/header/header-renderer.tsx#L33) |
+| `onDblClick` | `void` | [src/components/header/header-renderer.tsx:34](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/components/header/header-renderer.tsx#L34) |
+| `onResize` | `void` | [src/components/header/header-renderer.tsx:32](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/components/header/header-renderer.tsx#L32) |
 
 ## Defined in
 
-[src/components/header/header-renderer.tsx:22](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/components/header/header-renderer.tsx#L22)
+[src/components/header/header-renderer.tsx:23](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/components/header/header-renderer.tsx#L23)

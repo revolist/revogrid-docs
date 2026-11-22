@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.6](README.md) / BeforeFilterApplyEventProps
+[RevoGrid Documentation v4.31.8](README.md) / BeforeFilterApplyEventProps
 
 # Interface: BeforeFilterApplyEventProps\<TModel, TColumn\>
 
@@ -27,7 +27,7 @@ grid.addEventListener('beforefilterapply', event => {
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `collection` | `Record`\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`FilterCollectionItem`](TypeAlias.FilterCollectionItem.md)\> | First condition for each column. | [src/plugins/filter/filter.types.ts:226](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L226) |
-| `columns` | `TColumn`[] | Regular grid columns. | [src/plugins/filter/filter.types.ts:232](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L232) |
-| `filterItems` | [`MultiFilterItem`](Interface.MultiFilterItem.md) | Complete multi-condition filter model. | [src/plugins/filter/filter.types.ts:228](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L228) |
-| `source` | `TModel`[] | Source rows being filtered. | [src/plugins/filter/filter.types.ts:230](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L230) |
+| `collection` | `Record`\<[`ColumnProp`](TypeAlias.ColumnProp.md), [`FilterCollectionItem`](TypeAlias.FilterCollectionItem.md)\> | First condition for each column. | [src/plugins/filter/filter.types.ts:228](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/plugins/filter/filter.types.ts#L228) |
+| `columns` | `TColumn`[] | Regular grid columns. | [src/plugins/filter/filter.types.ts:234](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/plugins/filter/filter.types.ts#L234) |
+| `filterItems` | [`MultiFilterItem`](Interface.MultiFilterItem.md) | Complete multi-condition filter model. | [src/plugins/filter/filter.types.ts:230](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/plugins/filter/filter.types.ts#L230) |
+| `source` | `TModel`[] | Source rows being filtered. | [src/plugins/filter/filter.types.ts:232](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/plugins/filter/filter.types.ts#L232) |

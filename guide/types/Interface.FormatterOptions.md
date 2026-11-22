@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.6](README.md) / FormatterOptions
+[RevoGrid Documentation v4.31.8](README.md) / FormatterOptions
 
 # Interface: FormatterOptions
 
@@ -10,5 +10,5 @@
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| `encoding` | `string` | [src/plugins/export/types.ts:13](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/export/types.ts#L13) |
-| `mime` | `string` | [src/plugins/export/types.ts:12](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/export/types.ts#L12) |
+| `encoding` | `string` | [src/plugins/export/types.ts:13](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/plugins/export/types.ts#L13) |
+| `mime` | `string` | [src/plugins/export/types.ts:12](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/plugins/export/types.ts#L12) |

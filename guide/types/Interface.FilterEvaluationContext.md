@@ -1,4 +1,4 @@
-[RevoGrid Documentation v4.31.6](README.md) / FilterEvaluationContext
+[RevoGrid Documentation v4.31.8](README.md) / FilterEvaluationContext
 
 # Interface: FilterEvaluationContext\<TModel, TColumn\>
 
@@ -15,10 +15,10 @@ Source-aware context supplied while a filter predicate is evaluated.
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| `blankSemantics` | [`BlankSemantics`](Interface.BlankSemantics.md) | Effective blank policy after grid and column settings are merged. | [src/plugins/filter/filter.types.ts:64](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L64) |
-| `column?` | `TColumn` | Column associated with the filter, when one is available. | [src/plugins/filter/filter.types.ts:54](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L54) |
-| `hasOwnProperty` | `boolean` | Whether the property exists directly on the row model. | [src/plugins/filter/filter.types.ts:62](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L62) |
-| `model` | `TModel` | Row model being evaluated. | [src/plugins/filter/filter.types.ts:52](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L52) |
-| `parsedValue` | `any` | Value after the column cell parser, when configured. | [src/plugins/filter/filter.types.ts:60](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L60) |
-| `property` | [`ColumnProp`](TypeAlias.ColumnProp.md) | Property the filter is evaluating. | [src/plugins/filter/filter.types.ts:56](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L56) |
-| `sourceValue` | `any` | Unparsed value read from the row model. | [src/plugins/filter/filter.types.ts:58](https://github.com/revolist/revogrid/blob/207fe878a466cd40e518ada12817ce5a41f860c2/src/plugins/filter/filter.types.ts#L58) |
+| `blankSemantics` | [`BlankSemantics`](Interface.BlankSemantics.md) | Effective blank policy after grid and column settings are merged. | [src/plugins/filter/filter.types.ts:64](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/plugins/filter/filter.types.ts#L64) |
+| `column?` | `TColumn` | Column associated with the filter, when one is available. | [src/plugins/filter/filter.types.ts:54](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/plugins/filter/filter.types.ts#L54) |
+| `hasOwnProperty` | `boolean` | Whether the property exists directly on the row model. | [src/plugins/filter/filter.types.ts:62](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/plugins/filter/filter.types.ts#L62) |
+| `model` | `TModel` | Row model being evaluated. | [src/plugins/filter/filter.types.ts:52](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/plugins/filter/filter.types.ts#L52) |
+| `parsedValue` | `any` | Value after the column cell parser, when configured. | [src/plugins/filter/filter.types.ts:60](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/plugins/filter/filter.types.ts#L60) |
+| `property` | [`ColumnProp`](TypeAlias.ColumnProp.md) | Property the filter is evaluating. | [src/plugins/filter/filter.types.ts:56](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/plugins/filter/filter.types.ts#L56) |
+| `sourceValue` | `any` | Unparsed value read from the row model. | [src/plugins/filter/filter.types.ts:58](https://github.com/revolist/revogrid/blob/d3fcbce83dfdc16a79a05fb2ad67e78e03bb7bb7/src/plugins/filter/filter.types.ts#L58) |
